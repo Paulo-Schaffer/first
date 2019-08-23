@@ -14,10 +14,10 @@ namespace Model
         [Key, Column("id")]
         public int Id { get; set; }
 
-        [Column("nome")]
+        [Column("nome"), StringLength(50)]
         public string Nome { get; set; }
 
-        [Column("cpf")]
+        [Column("cpf"), StringLength(14)]
         public string Cpf { get; set; }
 
         [Column("data_vencimento")]
@@ -26,28 +26,28 @@ namespace Model
         [Column("limite_credito")]
         public decimal LimiteCredito { get; set; }
 
-        [Column("emal")]
+        [Column("emal"), StringLength(60)]
         public string Email { get; set; }
 
         [Column("telefone")]
         public int Telefone { get; set; }
 
-        [Column("cep")]
+        [Column("cep"), StringLength(8)]
         public string Cep { get; set; }
 
         [Column("numero")]
         public int Numero { get; set; }
 
-        [Column("bairro")]
+        [Column("bairro"), StringLength(50)]
         public string Bairro { get; set; }
 
-        [Column("cidade")]
+        [Column("cidade"), StringLength(50)]
         public string Cidade { get; set; }
 
-        [Column("uf")]
+        [Column("uf"), StringLength(2)]
         public string Uf { get; set; }
 
-        [Column("complemento")]
+        [Column("complemento"), StringLength(50)]
         public string Complemento { get; set; }
     }
 }
