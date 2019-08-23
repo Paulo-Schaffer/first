@@ -11,6 +11,7 @@ namespace Model
     [Table("clientes_pessoa_fisica")]
     public class ClientePessoaFisica
     {
+
         [Key, Column("id")]
         public int Id { get; set; }
 

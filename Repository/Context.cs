@@ -12,8 +12,8 @@ namespace Repository
     {
         public Context() : base("DBTCCFirst")
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<Contexto,
-            //ConsoleApp1.Migrations.Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context,
+            //TccFirst.Migrations.Configuration>());
         }
 
         public DbSet<Agencia> Agencias { get; set; }
