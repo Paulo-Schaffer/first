@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+
+
     [Table("historicos")]
-    public class Historico
+
+    class Historico
     {
         [Key, Column("id")]
         public int Id { get; set; }
