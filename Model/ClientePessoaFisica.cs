@@ -26,7 +26,7 @@ namespace Model
         [Column("limite_credito")]
         public decimal LimiteCredito { get; set; }
 
-        [Column("emal"), StringLength(60)]
+        [Column("email"), StringLength(60)]
         public string Email { get; set; }
 
         [Column("telefone")]
