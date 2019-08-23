@@ -15,7 +15,7 @@ namespace Model
         [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("nuemero_conta")StringLength(30)]
+        [Column("nuemero_conta"),StringLength(30)]
         public string NumeroConta { get; set; }
 
         [Column("descricao")]
@@ -33,11 +33,14 @@ namespace Model
         [Column("valor"), MaxLength(13)]
         public decimal Valor { get; set; }
 
-        [Column("status")StringLength(50)]
+        [Column("status"),StringLength(50)]
         public string Status { get; set; }
 
         [Column("data_lancamento")]
         public DateTime DataLancamento { get; set; }
+
+        [Column("data_vencimento")]
+        public DateTime DataVencimento { get; set; }
 
         [Column("data_recebimento")]
         public DateTime DataRecebimento { get; set; }
