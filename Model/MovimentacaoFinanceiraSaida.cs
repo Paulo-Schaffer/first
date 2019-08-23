@@ -19,5 +19,17 @@ namespace Model
         public int IdContasCorrente { get; set; }
 
         #endregion
+
+        #region fk_caixa
+        [Column("IdCaixa")]
+        public int IdCaixa { get; set; }
+
+        [ForeignKey("IdCaixa")]
+        public Caixa Caixa { get; set; }
+        #endregion
+
+        #region fk_parcelas_pagar
+
+        #endregion
     }
 }
