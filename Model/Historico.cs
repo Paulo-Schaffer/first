@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Historico
+    public class Historico
     {
     }
 }
