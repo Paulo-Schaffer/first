@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Repository
 {
-   public  class Historico
+    public class Class1
     {
     }
 }

@@ -23,10 +23,10 @@ namespace Model
         [Column("data_vencimento")]
         public DateTime DataVencimento { get; set; }
 
-        [Column("limite_credito")]
+        [Column("limite_credito"), MaxLength(13)]
         public decimal LimiteCredito { get; set; }
 
-        [Column("email"), StringLength(60)]
+        [Column("emal"), StringLength(60)]
         public string Email { get; set; }
 
         [Column("telefone")]

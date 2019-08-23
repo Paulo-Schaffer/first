@@ -1,34 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("logins")]
     public class Login
     {
-        [Key,Column("id")]
-        public int Id { get; set; }
-
-        [Column("usuario"), StringLength(45)]
-        public string Usuario { get; set; }
-
-        [Column("senha"), StringLength(45)]
-        public string Senha { get; set; }
-
-        [Column("tipo")]
-        public int Tipo { get; set; }
-
-        #region FKFuncionario
-        [Column("id_funcionario")]
-        public int IdFuncionario { get; set; }
-
-        [ForeignKey("IdFuncionario")]
-        public Funcionario Funcionario { get; set; }
-        #endregion
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-   public  class Historico
+    public class MovimentacaoFinanceiraEntrada
     {
     }
 }
