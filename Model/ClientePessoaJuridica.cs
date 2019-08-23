@@ -11,7 +11,6 @@ namespace Model
     [Table("clientes_pessoa_juridica")]
     public class ClientePessoaJuridica
     {
-       
 
         [Key, Column("id")]
         public int Id { get; set; }
