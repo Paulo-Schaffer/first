@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-
-
-    [Table("historicos")]
-
-    class Historico
+   [Table("funcionarios")]
+   public class Funcionario
     {
-        [Key, Column("id")]
+        [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("descricao"),StringLength(100)]
-        public string Descricao { get; set; }
-            
+        [Column("nome_funcionario"),StringLength(45)]
+        public string NomeFuncionario { get; set; }
+
+        [Column("tipo_funcionario")]
+        public int TipoFuncionario { get; set; }
     }
 }

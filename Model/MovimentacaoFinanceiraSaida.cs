@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-
-
-    [Table("historicos")]
-
-    class Historico
+    [Table("movimentacao_financeira_saida")]
+    public class MovimentacaoFinanceiraSaida
     {
-        [Key, Column("id")]
+        [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("descricao"),StringLength(100)]
-        public string Descricao { get; set; }
-            
+        #region fk_contas_corrente
+        [Column("IdContasCorrente")]
+        public int IdContasCorrente { get; set; }
+
+        #endregion
     }
 }
