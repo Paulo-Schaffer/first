@@ -16,46 +16,46 @@ namespace Model
         [Key, Column("id")]
         public int Id { get; set; }
 
-        [Column("razao_social")]
+        [Column("razao_social"), StringLength(100)] 
         public string RazaoSocial { get; set; }
 
-        [Column("atividade")]
+        [Column("atividade"), StringLength(100)]
         public string Atividade { get; set; }
 
-        [Column("nome_fantasia")]
+        [Column("nome_fantasia"), StringLength(100)]
         public string NomeFantasia { get; set; }
 
         [Column("data_cadastro")]
         public DateTime DataCadastro { get; set; }
 
-        [Column("cnpj")]
+        [Column("cnpj"), StringLength(18)]
         public string Cnpj { get; set; }
 
-        [Column("email")]
+        [Column("email"), StringLength(50)]
         public string Email { get; set; }
 
-        [Column("filial")]
+        [Column("filial"), StringLength(100)]
         public string Filial { get; set; }
 
-        [Column("telefone")]
+        [Column("telefone"), StringLength(100)]
         public string Telefone { get; set; }
 
-        [Column("cep")]
+        [Column("cep"), StringLength(9)]
         public string Cep { get; set; }
 
-        [Column("logradouro")]
+        [Column("logradouro"), StringLength(100)]
         public string Logradouro { get; set; }
 
         [Column("numero")]
         public int Numero { get; set; }
 
-        [Column("bairro")]
+        [Column("bairro"), StringLength(100)]
         public string Bairro { get; set; }
 
-        [Column("uf")]
+        [Column("uf"), StringLength(2)]
         public string Uf { get; set; }
 
-        [Column("cidade")]
+        [Column("cidade"), StringLength(100)]
         public string Cidade { get; set; }
     }
 }
