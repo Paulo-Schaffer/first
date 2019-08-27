@@ -8,57 +8,44 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-   [Table("titulos_pagar")]
-   public class TituloPagar
+    [Table("titulos_pagar")]
+    public class TituloPagar
     {
-
-        [Key,Column("id")]
+        [Key, Column("id")]
         public int Id { get; set; }
-
         [Column("descricao")]
         public string Descricao { get; set; }
-
-        [Column("forma_pagamento"), StringLength(45)]
+        [Column("forma_pagamento")]
         public string FormaPagamento { get; set; }
-
         [Column("caixa")]
-        public bool Caixa { get; set; }
-
-        [Column("valor")]
-        public decimal Valor { get; set; }
-
-        [Column("status"), StringLength(45)]
+        public string Caixa { get; set; }
+        [Column("valor_total")]
+        public decimal ValorTotal { get; set; }
+        [Column("status")]
         public string Status { get; set; }
-
         [Column("data_lancamento")]
-        public DateTime DataLancamento { get; set; }
-
-        [Column("data_vencimento")]
-        public DateTime DataVencimento { get; set; }
-
+        public string DataLancamento { get; set; }
         [Column("data_pagamento")]
-        public DateTime DataPagamento { get; set; }
-
+        public string DataRecebimento { get; set; }
+        [Column("data_vencimento")]
+        public string DataVencimento { get; set; }
         [Column("complemento")]
-        public bool Complemento { get; set; }
-
+        public string Complemento { get; set; }
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
 
-        #region FKFornecedor
+        #region fk__fornecedor
         [Column("id_fornecedor")]
         public int IdFornecedor { get; set; }
-
-        [ForeignKey("CadastroFornecedor")]
-        public Fornecedor Fornecedor { get; set; }
+        [ForeignKey("IdFornecedor")]
+        public Fornecedor MyPrFornecedoroperty { get; set; }
         #endregion
 
-        #region FKCategoriaDespesa
-        [Column("id_despesa")]
-        public int IdCategoriaDespesa { get; set; }
-
-        [ForeignKey("CategoriaDespesa")]
-        public CategoriaDespesas CategoriaDespesas { get; set; }
+        #region fk_categoria_despesas
+        [Column("id_categoria_despesas")]
+        public int IdCategoriaDepesesas { get; set; }
+        [ForeignKey("IdCategoriaDepesesas")]
+        public CategoriaDespesa CategoriaDespesa { get; set; }
         #endregion
     }
 }

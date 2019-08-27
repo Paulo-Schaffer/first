@@ -13,30 +13,26 @@ namespace Model
     {
         [Key,Column("id")]
         public int Id { get; set; }
-
-        #region fk_id_historico
-        [Column("id_historico")]
-        public int IdHistorico { get; set; }
-
-        [ForeignKey("IdHistorico")]
-        public Historico Historico{ get; set; }
-        #endregion
-
         [Column("descricao")]
         public string Descricao { get; set; }
 
-        [Column("documento"), StringLength(45)]
+        [Column("documento")]
         public string Documento { get; set; }
 
-        [Column("forma_pagamento"), MaxLength(15)]
-        public decimal Valor { get; set; }  
+        [Column("forma_pagamento")]
+        public string FormaPagamento { get; set; }
+
+        [Column("valor")]
+        public decimal Valor { get; set; }
 
         [Column("data_lancamento")]
-        public DateTime DataLançamento { get; set; }
+        public DateTime DataLancamento { get; set; }
 
-        [Column("status"), StringLength(45)]
+        [Column("status")]
         public string Status { get; set; }
 
+        [Column("historico")]
+        public string Historico { get; set; }
 
     }
 }

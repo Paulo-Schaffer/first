@@ -8,32 +8,32 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("parcelas_receber")]
-    public class ParcelaReceber
+    [Table("parcela_receber")]
+   public  class ParcelaReceber
     {
+        
         [Key, Column("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        [Column("valor"), MaxLength(13)]
-        public decimal Valor { get; set; }
+        [Column("valor")]
+        public int Valor { get; set; }
 
-        [Column("status")]
-        public int Status { get; set; }
+        [Column("status"), StringLength(50)]
+        public string Status { get; set; }
 
-        [Column("data_vencimento")]
+        [Column("DataVecimento")]
         public DateTime DataVencimento { get; set; }
 
-        [Column("data_recebimento")]
+        [Column("DataRecebimento")]
         public DateTime DataRecebimento { get; set; }
 
-
-        #region FK Titulo Receber
+        #region fk_titulo_receber
         [Column("id_titulo_receber")]
         public int IdTituloReceber { get; set; }
-
         [ForeignKey("IdTituloReceber")]
         public TituloReceber TituloReceber { get; set; }
-        #endregion 
+        #endregion
 
     }
+
 }
