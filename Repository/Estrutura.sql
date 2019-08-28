@@ -116,7 +116,7 @@ CREATE TABLE titulos_pagar(
 CREATE TABLE parcelas_receber(
  id INT PRIMARY KEY IDENTITY(1,1), 
  valor DECIMAL(8,2),
- status INT,
+ status VARCHAR (50),
  data_vencimento DATETIME2,
  data_recibimento DATETIME2,
  id_titulos_receber INT,

@@ -49,9 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
+    <Compile Include="Interfaces\IClientePessoaJuridicaRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
+    <Compile Include="Interfaces\IHistoricoRepository.cs" />
     <Compile Include="Interfaces\ILoginRepository.cs" />
     <Compile Include="Interfaces\IMovimentacaoFinanceiraEntradaRepository.cs" />
+    <Compile Include="Interfaces\IParcelaReceberRepository.cs" />
     <Compile Include="Interfaces\ITituloPagarRepository.cs" />
     <Compile Include="Interfaces\ITituloReceberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

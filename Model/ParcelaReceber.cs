@@ -18,7 +18,7 @@ namespace Model
         [Column("valor")]
         public int Valor { get; set; }
 
-        [Column("status"), StringLength(50)]
+        [Column("status")]
         public string Status { get; set; }
 
         [Column("DataVecimento")]
