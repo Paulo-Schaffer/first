@@ -59,6 +59,7 @@
     <Compile Include="Repositories\LoginRepository.cs" />
     <Compile Include="Repositories\TituloPagarRepository.cs" />
     <Compile Include="Repositories\TituloReceberRepository.cs" />
+    <Compile Include="SistemaContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
