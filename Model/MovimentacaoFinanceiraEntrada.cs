@@ -34,7 +34,7 @@ namespace Model
         [Column("parcela_receber")]
         public int ParcelaReceber { get; set; }
         [ForeignKey("IdParcelaReceber")]
-        public ParcelaReceber ParcelaReceber { get; set; }
+        public ParcelaReceber parcelaReceber { get; set; }
         #endregion
 
 
