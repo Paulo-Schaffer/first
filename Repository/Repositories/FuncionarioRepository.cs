@@ -30,7 +30,7 @@ namespace Repository.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Funcionario> ObterTodos(int id, string nome, int tipo_funcionario)
+        public List<Funcionario> ObterTodos()
         {
             throw new NotImplementedException();
         }

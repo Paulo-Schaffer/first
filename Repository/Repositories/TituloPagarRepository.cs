@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class LoginRepository : ILoginRepository
+    class TituloPagarRepository : ITituloPagarRepository
     {
-        public bool Alterar(Login login)
+        public bool Alterar(TituloPagar tituloPagar)
         {
             throw new NotImplementedException();
         }
@@ -20,22 +20,22 @@ namespace Repository.Repositories
             throw new NotImplementedException();
         }
 
-        public int Inserir(Login login)
+        public int Inserir(TituloPagar tituloPagar)
         {
             throw new NotImplementedException();
         }
 
-        public Login ObterPeloId(int id)
+        public TituloPagar ObterPeloId(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Login> ObterTodos(int id, string usuario, string senha, int id_funcionario)
+        public List<TituloPagar> ObterTodos()
         {
             throw new NotImplementedException();
         }
 
-        public List<Login> ObterTodosSelect2(string pesquisa)
+        public List<TituloPagar> ObterTodosSelect2(string pesquisa)
         {
             throw new NotImplementedException();
         }
