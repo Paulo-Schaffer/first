@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -116,6 +117,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+
+    <Folder Include="Models\" />
+    <Folder Include="Views\TituloReceber\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
