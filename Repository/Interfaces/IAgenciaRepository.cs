@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,16 @@ namespace Repository.Interfaces
 {
     interface IAgenciaRepository
     {
+        int Inserir(Agencia 
+            agencia);
+
+        bool Alterar(Agencia
+            agencia);
+
+        List<Agencia> ObterTodos();
+
+        bool Apagar(int id);
+
+        Agencia ObterPeloId(int id);
     }
 }

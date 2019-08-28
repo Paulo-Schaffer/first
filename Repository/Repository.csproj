@@ -48,15 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAgenciaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
+    <Compile Include="Interfaces\IContaCorrenteRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
     <Compile Include="Interfaces\ILoginRepository.cs" />
     <Compile Include="Interfaces\IMovimentacaoFinanceiraEntradaRepository.cs" />
+    <Compile Include="Interfaces\IParcelaPagarRepository.cs" />
     <Compile Include="Interfaces\ITituloPagarRepository.cs" />
     <Compile Include="Interfaces\ITituloReceberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AgenciaRepository.cs" />
+    <Compile Include="Repositories\ContaCorrenteRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
     <Compile Include="Repositories\LoginRepository.cs" />
+    <Compile Include="Repositories\ParcelaPagarRepository.cs" />
     <Compile Include="Repositories\TituloPagarRepository.cs" />
     <Compile Include="Repositories\TituloReceberRepository.cs" />
   </ItemGroup>

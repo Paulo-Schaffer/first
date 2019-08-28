@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class FuncionarioRepository :IFuncionarioRepository
+    class FuncionarioRepository : IFuncionarioRepository
     {
         public bool Alterar(Funcionario funcionario)
         {
