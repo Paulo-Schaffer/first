@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+
     <Folder Include="Models\" />
     <Folder Include="Views\TituloReceber\" />
   </ItemGroup>
@@ -129,6 +130,7 @@
       <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
       <Name>Repository</Name>
     </ProjectReference>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
