@@ -44,6 +44,9 @@ namespace Model
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
 
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
         #region fk__fornecedor
         [Column("id_fornecedor")]
         public int IdFornecedor { get; set; }
