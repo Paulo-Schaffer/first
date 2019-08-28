@@ -13,12 +13,7 @@ namespace Repository.Interfaces
 
         bool Alterar(Login login);
 
-        List<Login> ObterTodos(
-            int id,
-            string usuario,
-            string senha,
-            int id_funcionario
-        );
+        List<Login> ObterTodos();
 
         Login ObterPeloId(int id);
 

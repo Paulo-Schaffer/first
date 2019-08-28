@@ -13,21 +13,7 @@ namespace Repository.Interfaces
 
         bool Alterar(TituloPagar tituloPagar);
 
-        List<TituloPagar> ObterTodos(
-            int id,
-            string descricao,
-            string forma_pagamento,
-            bool caixa,
-            decimal valor_total,
-            string status,
-            DateTime data_lancamento,
-            DateTime data_pagamento,
-            DateTime data_vencimento,
-            bool complemento,
-            int quantidade_parcela,
-            int id_fornecedor,
-            int id_categorias_despesas
-            );
+        List<TituloPagar> ObterTodos();
 
         TituloPagar ObterPeloId(int id);
 

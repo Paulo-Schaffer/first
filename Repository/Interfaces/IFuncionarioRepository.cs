@@ -13,11 +13,7 @@ namespace Repository.Interfaces
 
         bool Alterar(Funcionario funcionario);
 
-        List<Funcionario> ObterTodos(
-            int id,
-            string nome,
-            int tipo_funcionario
-        );
+        List<Funcionario> ObterTodos();
 
         Funcionario ObterPeloId(int id);
 
