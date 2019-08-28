@@ -8,8 +8,15 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class LoginRepository : ILoginRepository
+    public class LoginRepository : ILoginRepository
     {
+        private SistemaContext context;
+
+        public LoginRepository()
+        {
+            context = new SistemaContext();
+        }
+
         public bool Alterar(Login login)
         {
             throw new NotImplementedException();
@@ -22,22 +29,21 @@ namespace Repository.Repositories
 
         public int Inserir(Login login)
         {
-            throw new NotImplementedException();
+            login.RegistroAtivo = true;
+            context.logins.Add(login);
+            context.SaveChanges();
+            return login.Id;
         }
 
         public Login ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            return context.logins.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Login> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.logins.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
 
-        public List<Login> ObterTodosSelect2(string pesquisa)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

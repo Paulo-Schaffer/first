@@ -8,36 +8,62 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class FuncionarioRepository : IFuncionarioRepository
+    public class FuncionarioRepository : IFuncionarioRepository
     {
+        private SistemaContext context;
+
+        public FuncionarioRepository()
+        {
+            context = new SistemaContext();
+        }
+
         public bool Alterar(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            var funcionarioOriginal = context.funcionarios
+                .FirstOrDefault(x => x.Id == funcionario.Id);
+
+            if (funcionario == null)
+                return false;
+
+            funcionarioOriginal.NomeFuncionario = funcionario.NomeFuncionario;
+            funcionarioOriginal.TipoFuncionario = funcionario.TipoFuncionario;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+                
+                
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var funcionario = context.funcionarios.FirstOrDefault(x => x.Id == id);
+
+            if (funcionario == null)
+                return false;
+
+            funcionario.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            funcionario.RegistroAtivo = true;
+            context.funcionarios.Add(funcionario);
+            context.SaveChanges();
+            return funcionario.Id;
         }
 
         public Funcionario ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            return context.funcionarios.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Funcionario> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.funcionarios.Where(x => x.RegistroAtivo == true)
+                 .OrderBy(x => x.Id).ToList();
+
         }
 
-        public List<Funcionario> ObterTodosSelect2(string pesquisa)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

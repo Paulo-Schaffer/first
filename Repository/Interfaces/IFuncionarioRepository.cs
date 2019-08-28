@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface IFuncionarioRepository
+   public interface IFuncionarioRepository
     {
         int Inserir(Funcionario funcionario);
 
@@ -15,10 +15,8 @@ namespace Repository.Interfaces
 
         List<Funcionario> ObterTodos();
 
-        Funcionario ObterPeloId(int id);
-
         bool Apagar(int id);
 
-        List<Funcionario> ObterTodosSelect2(string pesquisa);
+        Funcionario ObterPeloId(int id);
     }
 }
