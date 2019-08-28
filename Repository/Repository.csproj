@@ -65,15 +65,12 @@
     <Compile Include="Repositories\ParcelaReceberRepository.cs" />
     <Compile Include="Repositories\TituloPagarRepository.cs" />
     <Compile Include="Repositories\TituloReceberRepository.cs" />
+    <Compile Include="SistemaContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
       <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TccFirst\TccFirst.csproj">
-      <Project>{0eff2f2f-7afa-48f5-9842-36591d7ee718}</Project>
-      <Name>TccFirst</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -49,6 +49,7 @@ numero INT,
 bairro VARCHAR(100),
 uf VARCHAR(2),
 cidade VARCHAR(100),
+registro_ativo BIT
 );
 
 CREATE TABLE categorias_despesas(
@@ -152,6 +153,7 @@ VALOR INT,
 status VARCHAR(50),
 vencimento DATETIME2,
 data_pagamento DATETIME2,
+registro_ativo BIT
 );
 
 CREATE TABLE movimentacoes_financeiras_entradas(
@@ -171,6 +173,7 @@ FOREIGN KEY(id_parcelas_receber) REFERENCES parcelas_receber(id)
 CREATE TABLE historicos(
  id INT PRIMARY KEY IDENTITY(1,1), 
  descricao TEXT,
+ registro_ativo BIT
  );
 
 CREATE TABLE agencias(

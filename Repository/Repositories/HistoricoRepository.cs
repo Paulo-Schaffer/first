@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class HistoricoRepository : IHistoricoRepository
+    public class HistoricoRepository : IHistoricoRepository
     {
+        private SistemaContext context;
+
+        public HistoricoRepository()
+        {
+            context = new SistemaContext();
+        }
+
+
         public bool Alterar(Historico historico)
         {
             throw new NotImplementedException();

@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class ParcelaReceberRepository : IParcelaReceberRepository
+   public class ParcelaReceberRepository : IParcelaReceberRepository
     {
+        private SistemaContext context;
+
+        public ParcelaReceberRepository()
+        {
+            context = new SistemaContext();
+        }
+
+
         public bool Alterar(ParcelaReceber parcelareceber)
         {
             throw new NotImplementedException();

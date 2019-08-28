@@ -17,5 +17,10 @@ namespace Repository
         public DbSet<TituloReceber> TitulosReceber {get;set;}
         public DbSet<MovimentacaoFinanceiraEntrada> movimentacaoFinanceiraEntradas { get; set; }
         public DbSet<CategoriaDespesa> categoriasDespesas { get; set; }
+        public DbSet<ParcelaReceber> ParcelaRecebers { get; set; }
+        public DbSet<ClientePessoaJuridica> ClientePessoaJuridicas { get; set; }
+        public DbSet<Historico> Historicos { get; set; }
+
+
     }
 }

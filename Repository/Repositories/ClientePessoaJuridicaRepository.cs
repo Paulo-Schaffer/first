@@ -8,31 +8,76 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class ClientePessoaJuridicaRepository : IClientePessoaJuridicaRepository
+   public class ClientePessoaJuridicaRepository : IClientePessoaJuridicaRepository
     {
+        private SistemaContext context;
+
+        public ClientePessoaJuridicaRepository()
+        {
+            context = new SistemaContext();
+        }
+
         public bool Alterar(ClientePessoaJuridica clientepessoajuridica)
         {
-            throw new NotImplementedException();
+            var clientePessoaJuridicaOriginal = context.ClientePessoaJuridicas
+                 .Where(x => x.Id == clientepessoajuridica.Id)
+                 .FirstOrDefault();
+            if(clientePessoaJuridicaOriginal==null)
+            {
+                return false;
+            }
+            clientePessoaJuridicaOriginal.RazaoSocial = clientepessoajuridica.RazaoSocial;
+            clientePessoaJuridicaOriginal.Atividade=clientepessoajuridica.Atividade;
+            clientePessoaJuridicaOriginal.NomeFantasia=clientepessoajuridica.NomeFantasia;
+            clientePessoaJuridicaOriginal.DataCadastro=clientepessoajuridica.DataCadastro;
+            clientePessoaJuridicaOriginal.Cnpj=clientepessoajuridica.Cnpj;
+            clientePessoaJuridicaOriginal.Email=clientepessoajuridica.Email;
+            clientePessoaJuridicaOriginal.Filial=clientepessoajuridica.Filial;
+            clientePessoaJuridicaOriginal.Telefone=clientepessoajuridica.Telefone;
+            clientePessoaJuridicaOriginal.Cep=clientepessoajuridica.Cep;
+            clientePessoaJuridicaOriginal.Logradouro=clientepessoajuridica.Logradouro;
+            clientePessoaJuridicaOriginal.Numero=clientepessoajuridica.Numero;
+            clientePessoaJuridicaOriginal.Bairro=clientepessoajuridica.Bairro;
+            clientePessoaJuridicaOriginal.Uf=clientepessoajuridica.Uf;
+            clientePessoaJuridicaOriginal.Cidade=clientepessoajuridica.Cidade;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var clientePessoaJuridica=context.ClientePessoaJuridicas.FirstOrDefault(x => x.Id == id);
+            if (clientePessoaJuridica == null)
+            {
+                return false;
+            }
+            clientePessoaJuridica.RegistroAtivo = false;
+            context.SaveChanges();
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(ClientePessoaJuridica clientepessoajuridica)
         {
-            throw new NotImplementedException();
+            context.ClientePessoaJuridicas.Add(clientepessoajuridica);
+            context.SaveChanges();
+            return clientepessoajuridica.Id;
         }
 
         public ClientePessoaJuridica ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var clientePessoaJuridica = context.ClientePessoaJuridicas
+                 .Where(x => x.Id == id)
+                 .FirstOrDefault(x => x.Id == id);
+            return clientePessoaJuridica;
         }
 
         public List<ClientePessoaJuridica> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.ClientePessoaJuridicas
+               .Where(x => x.RegistroAtivo == true)
+               .OrderBy(x => x.RazaoSocial)
+               .ToList();
         }
     }
 }

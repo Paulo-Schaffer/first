@@ -27,6 +27,9 @@ namespace Model
         [Column("DataRecebimento")]
         public DateTime DataRecebimento { get; set; }
 
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
         #region fk_titulo_receber
         [Column("id_titulo_receber")]
         public int IdTituloReceber { get; set; }

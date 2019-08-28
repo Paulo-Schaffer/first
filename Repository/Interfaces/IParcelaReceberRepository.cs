@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface IParcelaReceberRepository
+   public interface IParcelaReceberRepository
     {
         int Inserir(ParcelaReceber parcelareceber);
 

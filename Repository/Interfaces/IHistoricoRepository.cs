@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface IHistoricoRepository
+   public interface IHistoricoRepository
     {
         int Inserir(Historico historico);
 
