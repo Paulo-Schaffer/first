@@ -13,8 +13,10 @@ namespace Model
     {
         [Key,Column("id")]
         public int Id { get; set; }
+
         [Column("nome_funcionario")]
         public string NomeFuncionario { get; set; }
+
         [Column("tipo_funcionario")]
         public int TipoFuncionario { get; set; }
 
