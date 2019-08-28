@@ -13,24 +13,34 @@ namespace Model
     {
         [Key, Column("id")]
         public int Id { get; set; }
+
         [Column("descricao")]
         public string Descricao { get; set; }
+
         [Column("forma_pagamento")]
         public string FormaPagamento { get; set; }
+
         [Column("caixa")]
-        public string Caixa { get; set; }
+        public bool Caixa { get; set; }
+
         [Column("valor_total")]
         public decimal ValorTotal { get; set; }
+
         [Column("status")]
         public string Status { get; set; }
+
         [Column("data_lancamento")]
         public string DataLancamento { get; set; }
+
         [Column("data_pagamento")]
         public string DataRecebimento { get; set; }
+
         [Column("data_vencimento")]
         public string DataVencimento { get; set; }
+
         [Column("complemento")]
-        public string Complemento { get; set; }
+        public bool Complemento { get; set; }
+
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
 
@@ -38,7 +48,7 @@ namespace Model
         [Column("id_fornecedor")]
         public int IdFornecedor { get; set; }
         [ForeignKey("IdFornecedor")]
-        public Fornecedor MyPrFornecedoroperty { get; set; }
+        public Fornecedor fornecedor { get; set; }
         #endregion
 
         #region fk_categoria_despesas

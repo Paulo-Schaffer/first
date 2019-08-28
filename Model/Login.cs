@@ -14,8 +14,8 @@ namespace Model
         [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("login")]
-        public string Loguin { get; set; }
+        [Column("usuario")]
+        public string usuario { get; set; }
 
         [Column("senha")]
         public string Senha { get; set; }
