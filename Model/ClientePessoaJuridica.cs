@@ -57,5 +57,8 @@ namespace Model
 
         [Column("cidade")]
         public string Cidade { get; set; }
+
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
     }
 }

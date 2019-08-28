@@ -18,7 +18,7 @@ namespace Model
         [Column("valor")]
         public int Valor { get; set; }
 
-        [Column("status"), StringLength(50)]
+        [Column("status")]
         public string Status { get; set; }
 
         [Column("DataVecimento")]
@@ -26,6 +26,9 @@ namespace Model
 
         [Column("DataRecebimento")]
         public DateTime DataRecebimento { get; set; }
+
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
 
         #region fk_titulo_receber
         [Column("id_titulo_receber")]
