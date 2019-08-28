@@ -10,9 +10,15 @@ namespace Repository.Repositories
 {
     class ParcelaPagarRepository : IParcelaPagarRepository
     {
+        private SistemaContext context;
+
+        public ParcelaPagarRepository()
+        {
+            context = new SistemaContext(); 
+        }
         public bool Alterar(ParcelaPagar parcelaPagar)
         {
-            throw new NotImplementedException();
+            
         }
 
         public bool Apagar(int id)

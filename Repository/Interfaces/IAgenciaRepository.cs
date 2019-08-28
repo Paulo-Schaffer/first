@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface IAgenciaRepository
+    public interface IAgenciaRepository
     {
-        int Inserir(Agencia 
-            agencia);
+        int Inserir(Agencia agencia);
 
-        bool Alterar(Agencia
-            agencia);
+
+        bool Alterar(Agencia agencia);
+
 
         List<Agencia> ObterTodos();
 

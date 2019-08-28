@@ -8,31 +8,60 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class AgenciaRepository : IAgenciaRepository
+   public  class AgenciaRepository : IAgenciaRepository
     {
+        public  SistemaContext context;
+
+        public AgenciaRepository()
+        {
+            context = new SistemaContext(); 
+        }
+
         public bool Alterar(Agencia agencia)
         {
-            throw new NotImplementedException();
+            var agenciaOriginal = context.Agencias.FirstOrDefault(x => x.Id == agencia.Id);
+
+            if (agenciaOriginal == null)
+                return false;
+
+            agenciaOriginal.NomeAgencia = agencia.NomeAgencia;
+            agenciaOriginal.NumeroAgencia = agencia.NumeroAgencia;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var agencia = context.Agencias.FirstOrDefault(x => x.Id == id);
+
+            if (agencia == null)
+            {
+                return false;
+            }
+
+
+            agencia.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(Agencia agencia)
         {
-            throw new NotImplementedException();
+            context.Agencias.Add(agencia);
+            context.SaveChanges();
+            return agencia.Id; 
         }
 
         public Agencia ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var agencia = context.Agencias.FirstOrDefault(x => x.Id == id);
+            return agencia; 
         }
 
         public List<Agencia> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.Agencias.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList(); 
         }
     }
 }

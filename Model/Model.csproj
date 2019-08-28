@@ -68,12 +68,6 @@
     <Compile Include="TituloReceber.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TccFirst\TccFirst.csproj">
-      <Project>{0eff2f2f-7afa-48f5-9842-36591d7ee718}</Project>
-      <Name>TccFirst</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
