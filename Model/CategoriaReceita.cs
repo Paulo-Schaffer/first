@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("categorias_receita")]
+    [Table("tipo_receitas")]
     public class CategoriaReceita
     {
-        [Key, Column("id")]
+        [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("tipo_receita"), StringLength(45)]
-        public string TipoReceita { get; set; }
+        [Column("tipo_categoria_receita")]
+        public string TipoCategoriaReceita { get; set; }
     }
 }

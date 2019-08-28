@@ -14,21 +14,18 @@ namespace Model
         [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("usuario"), StringLength(45)]
-        public string Usuario { get; set; }
+        [Column("login")]
+        public string Loguin { get; set; }
 
-        [Column("senha"), StringLength(45)]
+        [Column("senha")]
         public string Senha { get; set; }
 
-        [Column("tipo")]
-        public int Tipo { get; set; }
-
-        #region FKFuncionario
+        #region fk_funcionario
         [Column("id_funcionario")]
         public int IdFuncionario { get; set; }
-
         [ForeignKey("IdFuncionario")]
         public Funcionario Funcionario { get; set; }
         #endregion
     }
+
 }
