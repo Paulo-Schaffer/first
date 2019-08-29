@@ -108,6 +108,11 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -147,8 +152,10 @@
 
 
     <Compile Include="Controllers\AgenciaController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
 
     <Compile Include="Controllers\FuncionarioController.cs" />
@@ -191,6 +198,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloReceber\Index.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
 
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -203,11 +212,13 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
+    <Folder Include="Views\Default\" />
 
 
     <Folder Include="Views\Funcionario\" />
    <Folder Include="Views\Historico\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\TituloPagar\" />
 
@@ -231,6 +242,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
+      <Name>Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
