@@ -144,6 +144,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+
+
+    <Compile Include="Controllers\AgenciaController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ParcelasPagarController.cs" />
+    <Compile Include="Controllers\TituloPagarController.cs" />
+
+    <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
@@ -151,6 +163,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
+    <Compile Include="Interfaces\IMovimentacao_financeira_entradaRepository.cs" />
+    <Compile Include="Interfaces\ITituloReceberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +198,20 @@
     <Folder Include="Views\Historico\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\TituloReceber\" />
+
+
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

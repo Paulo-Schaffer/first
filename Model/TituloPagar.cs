@@ -39,14 +39,18 @@ namespace Model
         public string DataVencimento { get; set; }
 
         [Column("complemento")]
-        public bool Complemento { get; set; }
+        public string Complemento { get; set; }
 
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
 
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
         #region fk__fornecedor
         [Column("id_fornecedor")]
         public int IdFornecedor { get; set; }
+
         [ForeignKey("IdFornecedor")]
         public Fornecedor fornecedor { get; set; }
         #endregion
@@ -54,6 +58,7 @@ namespace Model
         #region fk_categoria_despesas
         [Column("id_categoria_despesas")]
         public int IdCategoriaDepesesas { get; set; }
+
         [ForeignKey("IdCategoriaDepesesas")]
         public CategoriaDespesa CategoriaDespesa { get; set; }
         #endregion

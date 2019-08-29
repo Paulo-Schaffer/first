@@ -20,6 +20,8 @@ namespace Model
         [Column("tipo_funcionario")]
         public int TipoFuncionario { get; set; }
 
-        
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
     }
 }
