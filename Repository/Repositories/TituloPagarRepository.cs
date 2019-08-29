@@ -19,12 +19,37 @@ namespace Repository.Repositories
 
         public bool Alterar(TituloPagar tituloPagar)
         {
-            throw new NotImplementedException();
+            var tituloPagarOficial = context.TitulosPagar.FirstOrDefault(x => x.Id == tituloPagar.Id);
+            if (tituloPagar == null)
+                return false;
+
+            tituloPagarOficial.IdCategoriaDepesesas = tituloPagarOficial.IdCategoriaDepesesas;
+            tituloPagarOficial.IdFornecedor = tituloPagarOficial.IdFornecedor;
+            tituloPagarOficial.Descricao = tituloPagarOficial.Descricao;
+            tituloPagarOficial.FormaPagamento = tituloPagarOficial.FormaPagamento;
+            tituloPagarOficial.Caixa = tituloPagarOficial.Caixa;
+            tituloPagarOficial.ValorTotal = tituloPagarOficial.ValorTotal;
+            tituloPagarOficial.Status = tituloPagarOficial.Status;
+            tituloPagarOficial.DataLancamento = tituloPagarOficial.DataLancamento;
+            tituloPagarOficial.DataRecebimento = tituloPagarOficial.DataRecebimento;
+            tituloPagarOficial.DataVencimento = tituloPagarOficial.DataVencimento;
+            tituloPagarOficial.Complemento = tituloPagarOficial.Complemento;
+            tituloPagarOficial.QuantidadeParcela = tituloPagarOficial.QuantidadeParcela;
+
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
+
+            if (tituloPagar == null)
+                return false;
+
+            tituloPagar.RegistroAtivo = tituloPagar.RegistroAtivo;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(TituloPagar tituloPagar)
@@ -47,11 +72,6 @@ namespace Repository.Repositories
             return context.TitulosPagar
                 .Where(x => x.RegistroAtivo == true)
                 .OrderBy(x => x.Id).ToList();
-        }
-
-        public List<TituloPagar> ObterTodosSelect2(string pesquisa)
-        {
-            throw new NotImplementedException();
         }
     }
 }
