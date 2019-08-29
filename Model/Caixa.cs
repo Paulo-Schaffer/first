@@ -34,5 +34,8 @@ namespace Model
         [Column("historico")]
         public string Historico { get; set; }
 
+        [Column("registroativo")]
+        public bool RegistroAtivo { get; set; }
+
     }
 }

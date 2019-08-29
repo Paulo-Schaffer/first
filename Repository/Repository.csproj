@@ -65,11 +65,14 @@
     <Compile Include="Interfaces\ITituloReceberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AgenciaRepository.cs" />
+    <Compile Include="Repositories\CaixaRepository.cs" />
+    <Compile Include="Repositories\CategoriaReceitaRepository.cs" />
     <Compile Include="Repositories\ContaCorrenteRepository.cs" />
     <Compile Include="Repositories\ClientePessoaJuridicaRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
     <Compile Include="Repositories\HistoricoRepository.cs" />
     <Compile Include="Repositories\LoginRepository.cs" />
+    <Compile Include="Repositories\MovimentacaoFinanceiraSaidaRepository.cs" />
     <Compile Include="Repositories\ParcelaPagarRepository.cs" />
     <Compile Include="Repositories\ParcelaReceberRepository.cs" />
     <Compile Include="Repositories\TituloPagarRepository.cs" />

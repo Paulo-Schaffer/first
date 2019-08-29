@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
+    <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Caixa\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Funcionario\" />
     <Folder Include="Views\Historico\" />
