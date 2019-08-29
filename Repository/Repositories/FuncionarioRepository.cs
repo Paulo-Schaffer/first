@@ -10,7 +10,7 @@ namespace Repository.Repositories
 {
     public class FuncionarioRepository : IFuncionarioRepository
     {
-        public SistemaContext context;
+        private SistemaContext context;
 
         public FuncionarioRepository()
         {
@@ -53,7 +53,7 @@ namespace Repository.Repositories
             funcionario.RegistroAtivo = true;
             context.Funcionarios.Add(funcionario);
 
-            context.funcionarios.Add(funcionario);
+            context.Funcionarios.Add(funcionario);
 
             context.SaveChanges();
             return funcionario.Id;
@@ -62,18 +62,15 @@ namespace Repository.Repositories
         public Funcionario ObterPeloId(int id)
         {
 
-            return context.Funcionarios.FirstOrDefault(x => x.Id == id);
 
-            var funcionario = context.funcionarios.FirstOrDefault(x => x.Id == id);
-            return funcionario;
+            var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
+            return context.Funcionarios.FirstOrDefault(x => x.Id == id);
 
         }
 
         public List<Funcionario> ObterTodos()
         {
-            return context.Funcionarios.Where(x => x.RegistroAtivo == true)
-                 .OrderBy(x => x.Id).ToList();
-            return context.funcionarios
+            return context.Funcionarios
                 .Where(x => x.RegistroAtivo == true)
                  .OrderBy(x => x.Id)
                  .ToList();
