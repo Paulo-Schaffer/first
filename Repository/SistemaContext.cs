@@ -21,5 +21,7 @@ namespace Repository
         public DbSet<Agencia> Agencias { get; set; }
         public DbSet<ParcelaReceber> ParcelaRecebers { get; set; }
         public DbSet<ClientePessoaJuridica> ClientesPessoaJuridica { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Login> Logins { get; set; }
     }
 }

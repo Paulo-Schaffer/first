@@ -10,7 +10,7 @@ namespace Repository.Repositories
 {
     public class FuncionarioRepository : IFuncionarioRepository
     {
-        public SistemaContext context;
+        private SistemaContext context;
 
         public FuncionarioRepository()
         {
@@ -19,7 +19,7 @@ namespace Repository.Repositories
 
         public bool Alterar(Funcionario funcionario)
         {
-            var funcionarioOriginal = context.funcionarios
+            var funcionarioOriginal = context.Funcionarios
                 .FirstOrDefault(x => x.Id == funcionario.Id);
 
             if (funcionario == null)
@@ -35,12 +35,10 @@ namespace Repository.Repositories
 
         public bool Apagar(int id)
         {
-            var funcionario = context.funcionarios.FirstOrDefault(x => x.Id == id);
+            var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
 
             if (funcionario == null)
-            {
                 return false;
-            }
 
             funcionario.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
@@ -49,23 +47,21 @@ namespace Repository.Repositories
 
         public int Inserir(Funcionario funcionario)
         {
-            context.funcionarios.Add(funcionario);
+            funcionario.RegistroAtivo = true;
+            context.Funcionarios.Add(funcionario);
             context.SaveChanges();
             return funcionario.Id;
         }
 
         public Funcionario ObterPeloId(int id)
         {
-            var funcionario = context.funcionarios.FirstOrDefault(x => x.Id == id);
-            return funcionario;
+            return context.Funcionarios.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Funcionario> ObterTodos()
         {
-            return context.funcionarios
-                .Where(x => x.RegistroAtivo == true)
-                 .OrderBy(x => x.Id)
-                 .ToList();
+            return context.Funcionarios.Where(x => x.RegistroAtivo == true)
+                 .OrderBy(x => x.Id).ToList();
 
         }
 
