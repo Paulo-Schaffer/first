@@ -63,7 +63,7 @@ namespace Repository.Repositories
 
             var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
             return funcionario;
-            return context.Funcionarios.FirstOrDefault(x => x.Id == id);
+           
 
         }
 

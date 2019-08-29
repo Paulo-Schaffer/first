@@ -32,7 +32,7 @@ namespace Model
 
         #region fk_parcela_receber
         [Column("parcela_receber")]
-        public int ParcelaReceber { get; set; }
+        public int IdParcelaReceber { get; set; }
         [ForeignKey("IdParcelaReceber")]
         public ParcelaReceber parcelaReceber { get; set; }
         #endregion
