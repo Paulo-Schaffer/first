@@ -71,10 +71,7 @@ namespace Repository.Repositories
 
         public List<Funcionario> ObterTodos()
         {
-            return context.Funcionarios
-                .Where(x => x.RegistroAtivo == true)
-                 .OrderBy(x => x.Id)
-                 .ToList();
+            
             return context.Funcionarios.Where(x => x.RegistroAtivo == true)
                  .OrderBy(x => x.Id).ToList();
 

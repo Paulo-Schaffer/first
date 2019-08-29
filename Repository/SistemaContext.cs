@@ -10,9 +10,6 @@ namespace Repository
 {
     public class SistemaContext : DbContext
     {
-        public DbSet<TituloPagar> TitulosPagar { get; set; }
-
-
         public SistemaContext():base ("TCCFirst")
         {
 
@@ -34,12 +31,5 @@ namespace Repository
         public DbSet<ParcelaPagar> ParcelasPagar { get; set; }
         public DbSet<TituloPagar> TitulosPagar { get; set; }
         public DbSet<TituloReceber> TitulosReceber { get; set; }
-     
-        
-       
-        
-       
-
-        public DbSet<Caixa> Caixas { get; set; }
     }
 }
