@@ -176,6 +176,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
+    <Content Include="Views\TituloReceber\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,7 +192,6 @@
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
     <Folder Include="Views\TituloPagar\" />
-    <Folder Include="Views\TituloReceber\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
