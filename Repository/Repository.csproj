@@ -52,6 +52,7 @@
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
     <Compile Include="Interfaces\IContaCorrenteRepository.cs" />
     <Compile Include="Interfaces\IClientePessoaJuridicaRepository.cs" />
+    <Compile Include="Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
     <Compile Include="Interfaces\IHistoricoRepository.cs" />
     <Compile Include="Interfaces\ILoginRepository.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Repositories\AgenciaRepository.cs" />
     <Compile Include="Repositories\ContaCorrenteRepository.cs" />
     <Compile Include="Repositories\ClientePessoaJuridicaRepository.cs" />
+    <Compile Include="Repositories\FornecedorRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
     <Compile Include="Repositories\HistoricoRepository.cs" />
     <Compile Include="Repositories\LoginRepository.cs" />
@@ -71,8 +73,6 @@
     <Compile Include="Repositories\ParcelaReceberRepository.cs" />
     <Compile Include="Repositories\TituloPagarRepository.cs" />
     <Compile Include="Repositories\TituloReceberRepository.cs" />
-    <Compile Include="SistemaContext.cs" />
-    <Compile Include="SistemaContext.cs" />
     <Compile Include="SistemaContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +86,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BancoDados\Estrutura.sql" />
     <Content Include="Estrutura.sql" />
   </ItemGroup>
   <ItemGroup>

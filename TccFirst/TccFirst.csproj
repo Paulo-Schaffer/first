@@ -104,6 +104,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Fornecedor\fornecedor.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -112,9 +113,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
-    <Compile Include="Controllers\FuncionarioController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\TituloPagarController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
@@ -141,6 +140,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloReceber\Index.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -151,8 +152,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Funcionario\" />
+    <Folder Include="Views\Historico\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\TituloPagar\" />
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +168,6 @@
       <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
       <Name>Repository</Name>
     </ProjectReference>
-    <Folder Include="Views\ClientePessoaJuridica\" />
-    <Folder Include="Views\Historico\" />
-    <Folder Include="Views\ParcelasReceber\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
