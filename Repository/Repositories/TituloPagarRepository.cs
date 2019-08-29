@@ -10,6 +10,13 @@ namespace Repository.Repositories
 {
     public class TituloPagarRepository : ITituloPagarRepository
     {
+        private SistemaContext context;
+
+        public TituloPagarRepository()
+        {
+            context = new SistemaContext();
+        }
+
         public bool Alterar(TituloPagar tituloPagar)
         {
             throw new NotImplementedException();
@@ -22,17 +29,24 @@ namespace Repository.Repositories
 
         public int Inserir(TituloPagar tituloPagar)
         {
-            throw new NotImplementedException();
+            tituloPagar.RegistroAtivo = true;
+            context.TitulosPagar.Add(tituloPagar);
+            context.SaveChanges();
+            return tituloPagar.Id;
         }
 
         public TituloPagar ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            return context.TitulosPagar
+                .Include("TituloPagar")
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public List<TituloPagar> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.TitulosPagar
+                .Where(x => x.RegistroAtivo == true)
+                .OrderBy(x => x.Id).ToList();
         }
 
         public List<TituloPagar> ObterTodosSelect2(string pesquisa)

@@ -17,7 +17,7 @@ namespace TccFirst.Controllers
             repository = new TituloReceberRepository();
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Index()
         {
             return View();
