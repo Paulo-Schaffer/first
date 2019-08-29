@@ -1,4 +1,5 @@
-﻿using Repository.Repositories;
+﻿using Model;
+using Repository.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,5 @@ namespace TccFirst.Controllers
     public class ParcelasReceberController : Controller
     {
         
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }
