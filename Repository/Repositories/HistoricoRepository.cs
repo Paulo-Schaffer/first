@@ -20,27 +20,52 @@ namespace Repository.Repositories
 
         public bool Alterar(Historico historico)
         {
-            throw new NotImplementedException();
+            var historicoOriginal = context.Historicos
+                .Where(x => x.Id == historico.Id)
+                .FirstOrDefault();
+            if (historico == null)
+            {
+                return false;
+            }
+            historicoOriginal.Descricao = historico.Descricao;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var historico = context.Historicos.FirstOrDefault(x => x.Id == id);
+            if (historico == null)
+            {
+                return false;
+            }
+            historico.RegistroAtivo = false;
+            context.SaveChanges();
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(Historico historico)
         {
-            throw new NotImplementedException();
+            context.Historicos.Add(historico);
+            context.SaveChanges();
+            return historico.Id;
         }
 
         public Historico ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var historico = context.Historicos
+                 .Where(x => x.Id == id)
+                 .FirstOrDefault(x => x.Id == id);
+            return historico;
         }
 
         public List<Historico> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.Historicos
+               .Where(x => x.RegistroAtivo == true)
+               .OrderBy(x => x.Descricao)
+               .ToList();
         }
     }
 }

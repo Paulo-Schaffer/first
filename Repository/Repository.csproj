@@ -80,12 +80,6 @@
     <Compile Include="SistemaContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="Content\bootstrap-grid.css.map" />
     <None Include="Content\bootstrap-grid.min.css.map" />
@@ -116,7 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BancoDados\Estrutura.sql" />
-
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -144,9 +137,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-
-    <Content Include="Estrutura.sql" />
-
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

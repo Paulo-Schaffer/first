@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class ParcelaPagarRepository : IParcelaPagarRepository
+    public class ParcelaPagarRepository : IParcelaPagarRepository
     {
         private SistemaContext context;
 
