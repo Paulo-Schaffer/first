@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class MovimentacaoFinanceiraSaidaRepository : IMovimentacaoFinanceiraSaidaRepository
+    public class MovimentacaoFinanceiraSaidaRepository : IMovimentacoesFinanceirasSaidaRepository
     {
         public bool Alterar(MovimentacaoFinanceiraSaida movimentacaoFinanceiraSaida)
         {
