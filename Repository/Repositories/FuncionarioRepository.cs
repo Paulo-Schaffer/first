@@ -19,7 +19,7 @@ namespace Repository.Repositories
 
         public bool Alterar(Funcionario funcionario)
         {
-            var funcionarioOriginal = context.funcionarios
+            var funcionarioOriginal = context.Funcionarios
                 .FirstOrDefault(x => x.Id == funcionario.Id);
 
             if (funcionario == null)
@@ -35,7 +35,7 @@ namespace Repository.Repositories
 
         public bool Apagar(int id)
         {
-            var funcionario = context.funcionarios.FirstOrDefault(x => x.Id == id);
+            var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
 
             if (funcionario == null)
                 return false;
@@ -48,19 +48,19 @@ namespace Repository.Repositories
         public int Inserir(Funcionario funcionario)
         {
             funcionario.RegistroAtivo = true;
-            context.funcionarios.Add(funcionario);
+            context.Funcionarios.Add(funcionario);
             context.SaveChanges();
             return funcionario.Id;
         }
 
         public Funcionario ObterPeloId(int id)
         {
-            return context.funcionarios.FirstOrDefault(x => x.Id == id);
+            return context.Funcionarios.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Funcionario> ObterTodos()
         {
-            return context.funcionarios.Where(x => x.RegistroAtivo == true)
+            return context.Funcionarios.Where(x => x.RegistroAtivo == true)
                  .OrderBy(x => x.Id).ToList();
 
         }

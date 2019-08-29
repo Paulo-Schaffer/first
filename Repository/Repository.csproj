@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BancoDados\Estrutura.sql" />
-    <Content Include="Estrutura.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
