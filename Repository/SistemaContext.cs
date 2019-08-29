@@ -10,6 +10,11 @@ namespace Repository
 {
     class SistemaContext : DbContext
     {
+        public SistemaContext():base("SqlServerConnection")
+        {
+            Database.SetInitializer<SistemaContext>(null);
+        }
+        public DbSet<TituloPagar> tituloPagar { get; set; }
         public DbSet<TituloPagar> TitulosPagar { get; set; }
 
         public SistemaContext():base ("TCCFirst")
@@ -37,7 +42,7 @@ namespace Repository
         public DbSet<MovimentacaoFinanceiraEntrada> MovimentacaoFinanceiraEntradas { get; set; }
         public DbSet<CategoriaDespesa> CategoriasDespesas { get; set; }
         public DbSet<Agencia> Agencias { get; set; }
-        public DbSet<MovimentacaoFinanceiraEntrada> movimentacaoFinanceiraEntradas { get; set; }
-        public DbSet<ParcelaReceber> ParcelasReceber { get; set; }
+        public DbSet<ParcelaReceber> ParcelaRecebers { get; set; }
+        public DbSet<ClientePessoaJuridica> ClientesPessoaJuridica { get; set; }
     }
 }

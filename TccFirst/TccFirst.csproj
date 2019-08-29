@@ -168,15 +168,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
-    <Compile Include="Interfaces\IMovimentacao_financeira_entradaRepository.cs" />
-    <Compile Include="Interfaces\ITituloReceberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
 
     <Content Include="Views\Funcionario\Index.cshtml" />
@@ -195,7 +191,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloReceber\Index.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

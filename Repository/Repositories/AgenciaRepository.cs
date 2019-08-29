@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-   public  class AgenciaRepository : IAgenciaRepository
+   public class AgenciaRepository : IAgenciaRepository
     {
-        private SistemaContext context;
+        public SistemaContext context;
 
         public AgenciaRepository()
         {
