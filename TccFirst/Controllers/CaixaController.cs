@@ -35,7 +35,7 @@ namespace TccFirst.Controllers
             caixa.RegistroAtivo = true;
             var id = repository.Inserir(caixa);
             var resultado = new { id = id };
-            return Json(resultado;)
+            return Json(resultado);
         }
         [HttpGet]
         JsonResult Apagar(int id)
