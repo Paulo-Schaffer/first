@@ -30,19 +30,19 @@ namespace Repository.Repositories
         public int Inserir(Login login)
         {
             login.RegistroAtivo = true;
-            context.logins.Add(login);
+            context.Logins.Add(login);
             context.SaveChanges();
             return login.Id;
         }
 
         public Login ObterPeloId(int id)
         {
-            return context.logins.FirstOrDefault(x => x.Id == id);
+            return context.Logins.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Login> ObterTodos()
         {
-            return context.logins.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+            return context.Logins.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
 
     }

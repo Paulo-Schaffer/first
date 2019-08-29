@@ -26,5 +26,8 @@ namespace Model
         [Column("DataPagamento")]
         public DateTime DataPagamento { get; set; }
 
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
     }
 }
