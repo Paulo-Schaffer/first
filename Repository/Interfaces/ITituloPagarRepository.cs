@@ -18,7 +18,5 @@ namespace Repository.Interfaces
         TituloPagar ObterPeloId(int id);
 
         bool Apagar(int id);
-
-        List<TituloPagar> ObterTodosSelect2(string pesquisa);
     }
 }
