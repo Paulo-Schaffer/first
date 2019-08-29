@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model;
+using Repository.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +10,11 @@ namespace TccFirst.Controllers
 {
     public class ParcelasPagarController : Controller
     {
-        public ParcelasPagarRepository repository;
+        public ParcelaPagarRepository repository;
 
         public ParcelasPagarController()
         {
-            repository = new ParcelasPagarRepository();
+            repository = new ParcelaPagarRepository();
         }
 
         public ActionResult Index()
@@ -21,7 +23,7 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
-        public JsonResul ObteTodos()
+        public JsonResult ObteTodos()
         {
             var parcelaspagar = repository.ObterTodos();
             var resultado = new { data = parcelaspagar };
@@ -43,7 +45,7 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
         [HttpPost]
-        public JsonResult Update(ParcelasPagar parcelasPagar)
+        public JsonResult Update(ParcelaPagar parcelasPagar)
         {
             var alterou = repository.Alterar(parcelasPagar);
             var resultado = new { status = alterou };
@@ -54,23 +56,23 @@ namespace TccFirst.Controllers
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
-        [HttpGet, Route("parcelasPagar/obtertodosselect")]
-        public JsonResult ObterTodosSelect(string termo)
-        {
-            var parcelasPagar = repository.ObterTodos();
-            List<object> parcelasPagarSelect = new List<object>();
-            foreach (parcelasPagar parcelasPagar in parcelasPagar)
-            {
-                parcelasPagarSelect.Add(new
-                {
-                    id = parcelasPagar.Id,
-                    valor = parcelasPagar.Valor,
-                    status = parcelasPagar.Status,
-                    dataVencimento = parcelasPagar.DataVencimento,
-                    dataPagamento = parcelasPagar.DataPagamento
+        //[HttpGet, Route("parcelasPagar/obtertodosselect")]
+        //public JsonResult ObterTodosSelect(string termo)
+        //{
+        //    var parcelasPagar = repository.ObterTodos();
+        //    List<object> parcelasPagarSelect = new List<object>();
+        //    foreach (parcelasPagar parcelasPagar in parcelasPagar)
+        //    {
+        //        parcelasPagarSelect.Add(new
+        //        {
+        //            id = parcelasPagar.Id,
+        //            valor = parcelasPagar.Valor,
+        //            status = parcelasPagar.Status,
+        //            dataVencimento = parcelasPagar.DataVencimento,
+        //            dataPagamento = parcelasPagar.DataPagamento
 
-            }); 
-            }
+        //        });
+        //    }
+        //}
     }
-}
 }
