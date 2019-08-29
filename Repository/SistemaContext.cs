@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    class SistemaContext : DbContext
+    public class SistemaContext : DbContext
     {
         public DbSet<TituloPagar> TitulosPagar { get; set; }
 
@@ -19,6 +19,6 @@ namespace Repository
         public DbSet<Agencia> Agencias { get; set; }
         public DbSet<MovimentacaoFinanceiraEntrada> movimentacaoFinanceiraEntradas { get; set; }
         public DbSet<ParcelaReceber> ParcelasReceber { get; set; }
-        public DbSet<Caixa> Caixas { get;set }
+        public DbSet<Caixa> Caixas { get; set; }
     }
 }
