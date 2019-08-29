@@ -11,30 +11,59 @@ namespace Repository.Repositories
     public class TituloReceberRepository : ITituloReceberRepository
     {
         private SistemaContext context;
-      
+
+        public TituloReceberRepository()
+        {
+            context = new SistemaContext();
+        }
         public bool Alterar(TituloReceber tituloReceber)
         {
-            throw new NotImplementedException();
+            var tituloReceberOriginal = context.TitulosReceber.Where(x => x.Id == tituloReceber.Id).FirstOrDefault();
+
+            if(tituloReceberOriginal == null)
+            {
+                return false;
+            }
+            tituloReceberOriginal.Descricao = tituloReceber.Descricao;
+            tituloReceberOriginal.Status = tituloReceber.Status;
+            tituloReceberOriginal.DataLancamento = tituloReceber.DataLancamento;
+            tituloReceberOriginal.DataRecebimento = tituloReceber.DataRecebimento;
+            tituloReceberOriginal.DataVencimento = tituloReceber.DataVencimento;
+            tituloReceberOriginal.Complemento = tituloReceber.Complemento;
+            tituloReceberOriginal.QuantidadeParcela = tituloReceber.QuantidadeParcela;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var tituloReceber = context.TitulosReceber.FirstOrDefault(x => x.Id == id);
+            if(tituloReceber == null)
+            {
+                return false;
+            }
+            tituloReceber.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+            
         }
 
         public int Inserir(TituloReceber tituloReceber)
         {
-            throw new NotImplementedException();
+            context.TitulosReceber.Add(tituloReceber);
+            context.SaveChanges();
+            return tituloReceber.Id;
         }
 
         public TituloReceber ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var tituloReceber = context.TitulosReceber.Where(x => x.Id == id).FirstOrDefault();
+            return tituloReceber;
         }
 
         public List<TituloReceber> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.TitulosReceber.Where(x => x.RegistroAtivo == true).ToList();   
         }
     }
 }

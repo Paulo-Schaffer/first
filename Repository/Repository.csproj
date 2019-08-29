@@ -49,17 +49,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
+    <Compile Include="Interfaces\IClientePessoaJuridicaRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
+    <Compile Include="Interfaces\IHistoricoRepository.cs" />
     <Compile Include="Interfaces\ILoginRepository.cs" />
     <Compile Include="Interfaces\IMovimentacaoFinanceiraEntradaRepository.cs" />
+    <Compile Include="Interfaces\IParcelaReceberRepository.cs" />
     <Compile Include="Interfaces\ITituloPagarRepository.cs" />
     <Compile Include="Interfaces\ITituloReceberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClientePessoaJuridicaRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
+    <Compile Include="Repositories\HistoricoRepository.cs" />
     <Compile Include="Repositories\LoginRepository.cs" />
+    <Compile Include="Repositories\ParcelaReceberRepository.cs" />
     <Compile Include="Repositories\TituloPagarRepository.cs" />
     <Compile Include="Repositories\TituloReceberRepository.cs" />
     <Compile Include="SistemaContext.cs" />
+
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

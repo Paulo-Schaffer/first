@@ -29,6 +29,8 @@ namespace Model
         public string Complemento { get; set; }
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
 
         #region fk_cliente_pessoa_juridica
         [Column("id_cliente_pessoa_fisica")]
