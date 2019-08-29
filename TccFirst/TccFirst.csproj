@@ -149,8 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-
-
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
@@ -171,7 +169,6 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-
     <Content Include="Views\Funcionario\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
@@ -184,7 +181,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -193,7 +189,7 @@
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-
+    <Content Include="Views\Agencia\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -206,19 +202,12 @@
     <Folder Include="Models\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
-
-
-    <Folder Include="Views\Funcionario\" />
-   <Folder Include="Views\Historico\" />
+    <Folder Include="Views\Historico\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
     <Folder Include="Views\TituloPagar\" />
-
-    <Folder Include="Views\TituloReceber\" />
-
-
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
@@ -229,8 +218,6 @@
       <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
       <Name>Repository</Name>
     </ProjectReference>
-
-
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
@@ -245,7 +232,6 @@
       <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
       <Name>Repository</Name>
     </ProjectReference>
-
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
