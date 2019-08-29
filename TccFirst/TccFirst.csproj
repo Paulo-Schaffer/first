@@ -144,6 +144,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+
+
+    <Compile Include="Controllers\AgenciaController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TituloPagarController.cs" />
+
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
@@ -154,6 +161,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
+    <Compile Include="Interfaces\IMovimentacao_financeira_entradaRepository.cs" />
+    <Compile Include="Interfaces\ITituloReceberRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +171,7 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+
     <Content Include="Views\Funcionario\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
@@ -173,6 +184,14 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\TituloReceber\Index.cshtml" />
+    <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,11 +203,17 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
-    <Folder Include="Views\Historico\" />
+
+
+    <Folder Include="Views\Funcionario\" />
+   <Folder Include="Views\Historico\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\TituloPagar\" />
+
     <Folder Include="Views\TituloReceber\" />
+
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
@@ -199,6 +224,19 @@
       <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
       <Name>Repository</Name>
     </ProjectReference>
+
+
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{01f58c13-9c92-4425-b6ed-78e701eae7ba}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
