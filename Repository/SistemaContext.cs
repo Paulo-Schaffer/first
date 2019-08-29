@@ -39,5 +39,6 @@ namespace Repository
         public DbSet<Agencia> Agencias { get; set; }
         public DbSet<MovimentacaoFinanceiraEntrada> movimentacaoFinanceiraEntradas { get; set; }
         public DbSet<ParcelaReceber> ParcelasReceber { get; set; }
+
     }
 }
