@@ -31,10 +31,10 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Inserir(ClientePessoaJuridica clientepessoajuridica)
+        public JsonResult Inserir(ClientePessoaJuridica clientePessoaJuridica)
         {
-            clientepessoajuridica.RegistroAtivo = true;
-            var id = repository.Inserir(clientepessoajuridica);
+            clientePessoaJuridica.RegistroAtivo = true;
+            var id = repository.Inserir(clientePessoaJuridica);
             var resultado = new { id = id };
             return Json(resultado);
         }
@@ -48,9 +48,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(ClientePessoaJuridica clientepessoajuridica)
+        public JsonResult Update(ClientePessoaJuridica clientePessoaJuridica)
         {
-            var alterou = repository.Alterar(clientepessoajuridica);
+            var alterou = repository.Alterar(clientePessoaJuridica);
             var resultado = new { status = alterou };
             return Json(resultado);
         }

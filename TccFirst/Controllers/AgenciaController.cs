@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Mvc; 
 using Model;
 using Repository.Repositories;
 
@@ -11,7 +11,7 @@ namespace TccFirst.Controllers
     public class AgenciaController : Controller
     {
 
-        public AgenciaRepository repository;
+        private AgenciaRepository repository;
 
         public AgenciaController()
         {
@@ -65,29 +65,29 @@ namespace TccFirst.Controllers
         }
 
 
-        [HttpGet, Route("agencia/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string termo)
+        [HttpGet, Route("agencia/obtertodosselect")]
+        public JsonResult ObterTodosSelect(string termo)
         {
             var agencias = repository.ObterTodos();
-            List<object> agenciasSelect2 = new List<object>(); 
-            foreach( Agencia agencia in agencias)
+            List<object> agenciasSelect = new List<object>();
+            foreach (Agencia agencia in agencias)
             {
-                agenciasSelect2.Add(new
+                agenciasSelect.Add(new
                 {
                     id = agencia.Id,
                     nome = agencia.NomeAgencia,
                     numero = agencia.NumeroAgencia
                 });
             }
-                var resultado = new
-                {
-                    resultados = agenciasSelect2
-                };
-                return Json(resultado, JsonRequestBehavior.AllowGet);
+            var resultado = new
+            {
+                resultados = agenciasSelect
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
 
-       
+
 
 
     }

@@ -26,20 +26,11 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
-        public JsonResult ObterTodos(int id)
+        public JsonResult ObterTodos()
         {
             var funcionario = repository.ObterTodos();
             var resultado = new { data = funcionario };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public JsonResult Cadastrar(Funcionario funcionario)
-        {
-            funcionario.RegistroAtivo = true;
-            int id = repository.Inserir(funcionario);
-            var retorno = new { id = id };
-            return Json(retorno);
         }
 
         [HttpPost]
@@ -97,5 +88,6 @@ namespace TccFirst.Controllers
                 JsonRequestBehavior.AllowGet);
 
         }
+
     }
 }
