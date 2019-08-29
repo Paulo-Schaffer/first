@@ -15,7 +15,7 @@ namespace Model
         public int Id { get; set; }
 
         [Column("usuario")]
-        public string usuario { get; set; }
+        public string Usuario { get; set; }
 
         [Column("senha")]
         public string Senha { get; set; }
@@ -26,6 +26,7 @@ namespace Model
         #region fk_funcionario
         [Column("id_funcionario")]
         public int IdFuncionario { get; set; }
+
         [ForeignKey("IdFuncionario")]
         public Funcionario Funcionario { get; set; }
         #endregion
