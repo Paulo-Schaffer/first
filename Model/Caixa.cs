@@ -11,7 +11,7 @@ namespace Model
     [Table("caixas")]
     public class Caixa
     {
-        [Key,Column("id")]
+        [Key, Column("id")]
         public int Id { get; set; }
         [Column("descricao")]
         public string Descricao { get; set; }
@@ -33,6 +33,9 @@ namespace Model
 
         [Column("historico")]
         public string Historico { get; set; }
+
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
 
     }
 }

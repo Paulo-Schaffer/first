@@ -20,7 +20,7 @@ namespace Repository.Repositories
 
         public bool Alterar(ParcelaReceber parcelareceber)
         {
-            var parcelaReceberOriginal = context.ParcelaRecebers
+            var parcelaReceberOriginal = context.ParcelasReceber
                  .Where(x => x.Id == parcelareceber.Id)
                  .FirstOrDefault();
             if (parcelaReceberOriginal == null)
@@ -38,7 +38,7 @@ namespace Repository.Repositories
 
         public bool Apagar(int id)
         {
-            var parcelaReceber = context.ParcelaRecebers.FirstOrDefault(x => x.Id == id);
+            var parcelaReceber = context.ParcelasReceber.FirstOrDefault(x => x.Id == id);
             if (parcelaReceber == null)
             {
                 return false;
@@ -51,14 +51,14 @@ namespace Repository.Repositories
 
         public int Inserir(ParcelaReceber parcelareceber)
         {
-            context.ParcelaRecebers.Add(parcelareceber);
+            context.ParcelasReceber.Add(parcelareceber);
             context.SaveChanges();
             return parcelareceber.Id;
         }
 
         public ParcelaReceber ObterPeloId(int id)
         {
-            var parcelaReceber = context.ParcelaRecebers
+            var parcelaReceber = context.ParcelasReceber
                   .Where(x => x.Id == id)
                   .FirstOrDefault(x => x.Id == id);
             return parcelaReceber;
@@ -66,7 +66,7 @@ namespace Repository.Repositories
 
         public List<ParcelaReceber> ObterTodos()
         {
-            return context.ParcelaRecebers
+            return context.ParcelasReceber
               .Where(x => x.RegistroAtivo == true)
               .OrderBy(x => x.Status)
               .ToList();
