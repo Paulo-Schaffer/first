@@ -18,6 +18,5 @@ namespace Repository.Interfaces
         bool Apagar(int id);
 
         Login ObterPeloId(int id);
-
     }
 }
