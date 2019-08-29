@@ -66,12 +66,14 @@
     <Compile Include="Repositories\TituloPagarRepository.cs" />
     <Compile Include="Repositories\TituloReceberRepository.cs" />
     <Compile Include="SistemaContext.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
       <Name>Model</Name>
     </ProjectReference>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -80,6 +82,11 @@
   <ItemGroup>
     <Content Include="Estrutura.sql" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

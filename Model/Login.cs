@@ -20,6 +20,9 @@ namespace Model
         [Column("senha")]
         public string Senha { get; set; }
 
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
         #region fk_funcionario
         [Column("id_funcionario")]
         public int IdFuncionario { get; set; }
