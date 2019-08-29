@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class ParcelaPagarRepository : IParcelaPagarRepository
+    public class ParcelaPagarRepository : IParcelaPagarRepository
     {
         private SistemaContext context;
 
@@ -18,7 +18,7 @@ namespace Repository.Repositories
         }
         public bool Alterar(ParcelaPagar parcelaPagar)
         {
-            
+            return false;
         }
 
         public bool Apagar(int id)
