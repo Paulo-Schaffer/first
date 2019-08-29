@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface ITituloPagarRepository
+    public interface ITituloPagarRepository
     {
         int Inserir(TituloPagar tituloPagar);
 
@@ -18,7 +18,5 @@ namespace Repository.Interfaces
         TituloPagar ObterPeloId(int id);
 
         bool Apagar(int id);
-
-        List<TituloPagar> ObterTodosSelect2(string pesquisa);
     }
 }

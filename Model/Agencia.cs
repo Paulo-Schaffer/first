@@ -19,12 +19,15 @@ namespace Model
         public int  IdBanco { get; set; }
 
 
-        [Column("nome_agencia"), StringLength(50)]
+        [Column("nome_agencia")]
         public string NomeAgencia { get; set; }
 
 
-        [Column("numero_agencia"), StringLength(50)]
+        [Column("numero_agencia")]
         public string NumeroAgencia { get; set; }
+
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
 
 
     }

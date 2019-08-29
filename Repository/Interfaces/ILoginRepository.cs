@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface ILoginRepository
+    public interface ILoginRepository
     {
         int Inserir(Login login);
 
@@ -15,10 +15,8 @@ namespace Repository.Interfaces
 
         List<Login> ObterTodos();
 
-        Login ObterPeloId(int id);
-
         bool Apagar(int id);
 
-        List<Login> ObterTodosSelect2(string pesquisa);
+        Login ObterPeloId(int id);
     }
 }

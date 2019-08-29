@@ -15,25 +15,25 @@ namespace Model
         [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("nuemero_conta"),StringLength(30)]
+        [Column("nuemero_conta")]
         public string NumeroConta { get; set; }
 
         [Column("descricao")]
         public string Descricao { get; set; }
 
-        [Column("documento"),StringLength(50)]
+        [Column("documento")]
         public string Document { get; set; }
 
         [Column("tipo_receita_despesa")]
         public int TipoReceitaDespesa { get; set; }
 
-        [Column("tipo_pagamento"), StringLength(50)]
+        [Column("tipo_pagamento")]
         public string TipoPagamento { get; set; }
 
-        [Column("valor"), MaxLength(13)]
+        [Column("valor")]
         public decimal Valor { get; set; }
 
-        [Column("status"),StringLength(50)]
+        [Column("status")]
         public string Status { get; set; }
 
         [Column("data_lancamento")]
@@ -45,10 +45,10 @@ namespace Model
         [Column("data_recebimento")]
         public DateTime DataRecebimento { get; set; }
 
-        [Column("nome_banco"), StringLength(50)]
+        [Column("nome_banco")]
         public string  NomeBanco { get; set; }
 
-        [Column("numero_banco"), StringLength(30)]
+        [Column("numero_banco")]
         public string NumeroBanco { get; set; }
 
         #region fk_historico
