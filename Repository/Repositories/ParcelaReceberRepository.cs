@@ -20,27 +20,56 @@ namespace Repository.Repositories
 
         public bool Alterar(ParcelaReceber parcelareceber)
         {
-            throw new NotImplementedException();
+            var parcelaReceberOriginal = context.ParcelasReceber
+                 .Where(x => x.Id == parcelareceber.Id)
+                 .FirstOrDefault();
+            if (parcelaReceberOriginal == null)
+            {
+                return false;
+            }
+            parcelaReceberOriginal.Valor = parcelareceber.Valor;
+            parcelaReceberOriginal.Status = parcelareceber.Status;
+            parcelaReceberOriginal.DataVencimento = parcelareceber.DataVencimento;
+            parcelaReceberOriginal.DataRecebimento = parcelareceber.DataRecebimento;
+            parcelareceber.IdTituloReceber = parcelareceber.IdTituloReceber;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var parcelaReceber = context.ParcelasReceber.FirstOrDefault(x => x.Id == id);
+            if (parcelaReceber == null)
+            {
+                return false;
+            }
+            parcelaReceber.RegistroAtivo = false;
+            context.SaveChanges();
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(ParcelaReceber parcelareceber)
         {
-            throw new NotImplementedException();
+            context.ParcelasReceber.Add(parcelareceber);
+            context.SaveChanges();
+            return parcelareceber.Id;
         }
 
         public ParcelaReceber ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var parcelaReceber = context.ParcelasReceber
+                  .Where(x => x.Id == id)
+                  .FirstOrDefault(x => x.Id == id);
+            return parcelaReceber;
         }
 
         public List<ParcelaReceber> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.ParcelasReceber
+              .Where(x => x.RegistroAtivo == true)
+              .OrderBy(x => x.Status)
+              .ToList();
         }
     }
 }
