@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class CaixaRepository : ICaixaRepository
+    class CaixaRepository : ICaixaRepository
     {
         private SistemaContext context;
 

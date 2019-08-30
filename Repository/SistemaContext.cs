@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class SistemaContext : DbContext
+    class SistemaContext : DbContext
     {
+        
+
         public SistemaContext():base ("TCCFirst")
         {
 
@@ -31,5 +33,11 @@ namespace Repository
         public DbSet<ParcelaPagar> ParcelasPagar { get; set; }
         public DbSet<TituloPagar> TitulosPagar { get; set; }
         public DbSet<TituloReceber> TitulosReceber { get; set; }
+     
+        
+       
+        
+       
+
     }
 }

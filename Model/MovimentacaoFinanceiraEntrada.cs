@@ -15,8 +15,6 @@ namespace Model
         public int Id { get; set; }
         [Column("Valor")]
         public decimal Valor { get; set; }
-        [Column("registro_ativo")]
-        public bool RegistroAtivo { get; set; }
 
         #region fk_conta_corrente
         [Column("id_conta_corrente")]
@@ -34,7 +32,7 @@ namespace Model
 
         #region fk_parcela_receber
         [Column("parcela_receber")]
-        public int IdParcelaReceber { get; set; }
+        public int ParcelaReceber { get; set; }
         [ForeignKey("IdParcelaReceber")]
         public ParcelaReceber parcelaReceber { get; set; }
         #endregion
