@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class SistemaContext : DbContext
+    class SistemaContext : DbContext
     {
         
 
