@@ -5469,6 +5469,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
+    <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -5513,7 +5514,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
+    <Folder Include="Views\ClientePessoaFisica\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Historico\" />
