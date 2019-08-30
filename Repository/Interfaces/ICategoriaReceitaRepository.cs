@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,14 @@ namespace Repository.Interfaces
 {
     interface ICategoriaReceitaRepository
     {
+        int Inserir(CategoriaReceita categoriaReceita);
+
+        bool Alterar(CategoriaReceita categoriaReceita);
+
+        List<CategoriaReceita> ObterTodos();
+
+        bool Apagar(int id);
+
+        CategoriaReceita ObterPeloId(int id);
     }
 }
