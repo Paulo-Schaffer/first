@@ -18,7 +18,7 @@ namespace Repository.Repositories
         }
         public bool Alterar(ParcelaPagar parcelaPagar)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public bool Apagar(int id)
