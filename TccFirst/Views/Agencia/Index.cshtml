@@ -1,21 +1,4 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Agencia</h2>
-
-<button data-toggle="modal" data-target="#modal-agencia" class="btn btn-primary">Nova Agencia                                               </button>
-<table id="agencia-tabela" class="table table-hover table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Banco</th>
-            <th>Nome Agencia</th>
-            <th>Numero Agencia</th>
-        </tr>
-    </thead>
-</table>
 @RenderPage("Cadastro.cshtml")
 @section js {
     <script src="~/Scripts/Agencia/Agencia.js"></script>
