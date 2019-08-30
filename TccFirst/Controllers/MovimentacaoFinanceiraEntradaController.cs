@@ -12,7 +12,7 @@ namespace TccFirst.Controllers
     {
         private LoginRepository repository;
         
-        public LoginController()
+        public MovimentacaoFinanceiraEntradaController()
         {
             repository = new LoginRepository();
         }
