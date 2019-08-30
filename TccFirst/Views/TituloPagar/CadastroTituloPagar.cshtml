@@ -3,7 +3,7 @@
     ViewBag.Title = "CadastroTituloPagar";
 }
 
-<h2>Titulo a Pagar</h2>
+<h2>Cadastro de Titulo a Pagar</h2>
 
 <form action="/CadastroTituloPagar/cadastro" method="post">
     <div class="modal-dialog" role="document">
@@ -23,13 +23,31 @@
 
                 <div class="form-group">
                     <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento</label>
-                    <input type="text" id="tituloPagar-campo-forma-pagamento" class="form-control" />
+                    <select class="form-control" name="forma_pagamento">
+                        <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                        <option>Dinheiro</option>
+                        <option>Cartão Débito</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="tituloPagar-campo-caixa">Caixa</label>
-                    <input type="text" id="tituloPagarvalor-campo-caixa" class="form-control" />
+                <div class="row">
+                    <div class="col-1">
+                        <label for="tituloPagar-campo-caixa">Caixa</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="checkbox" id="tituloPagar-campo-caixa" class="form-control" />
+                    </div>
+
+                    <div class="col-1">
+                        <label for="tituloPagar-campo-banco">Banco</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="checkbox" id="tituloPagar-campo-banco" class="form-control" />
+                    </div>
                 </div>
+
+
 
                 <div class="form-group">
                     <label for="tituloPagar-campo-valor_total">Valor Total</label>
@@ -38,7 +56,13 @@
 
                 <div class="form-group">
                     <label for="tituloPagar-campo-status" mas>Status</label>
-                    <input type="text" id="tituloPagar-campo-status" class="form-control" />
+                    <select class="form-control" name="status">
+                        <option disabled="disabled" selected="selected">Selecione um status</option>
+                        <option>Pendente</option>
+                        <option>Pago</option>
+                        <option>Cancelado</option>
+                        <option>Pago parcialmente</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -63,14 +87,14 @@
                 <div>
                     <div class="form-group">
                         <label for="tituloPagar-campo-complemento" mas>Complemento</label>
-                        <input type="date" id="tituloPagar-campo-complemento" class="form-control" />
+                        <input type="text" id="tituloPagar-campo-complemento" class="form-control" />
                     </div>
                 </div>
 
                 <div>
                     <div class="form-group">
                         <label for="tituloPagar-campo-quantidadeParcelas">Quantidade de Parcelas</label>
-                        <input type="text" id="tituloPagar-campo-quantidadeParcelas" class="form-control" />
+                        <input type="number" id="tituloPagar-campo-quantidadeParcelas" class="form-control" />
                     </div>
                 </div>
             </div>
