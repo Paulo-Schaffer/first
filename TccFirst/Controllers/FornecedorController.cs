@@ -24,6 +24,12 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public JsonResult ObterTodos(string busca = "")
         {
             var fornecedores = repository.ObterTodos(busca);

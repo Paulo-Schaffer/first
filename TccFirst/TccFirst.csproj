@@ -5502,6 +5502,8 @@
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
