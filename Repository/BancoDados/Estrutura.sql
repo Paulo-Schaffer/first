@@ -178,7 +178,7 @@ CREATE TABLE historicos(
 
 CREATE TABLE agencias(
   id INT PRIMARY KEY IDENTITY(1,1),
-  id_banco INT,
+  id_banco VARCHAR(50),
   nome_agencia VARCHAR(45),
   numero_agencia VARCHAR(45)
 ); 

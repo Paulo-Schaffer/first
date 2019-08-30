@@ -5,6 +5,7 @@
         serverSide = true,
         columns: [
             { 'data': 'Id' },
+            { 'data': 'Banco' },
             { 'data': 'NomeAgencia' },
             { 'data': 'NumeroAgencia' },
             {
@@ -15,21 +16,23 @@
         ]
     });
     $('#agencia-botao-salvar').on('click', function () {
+        $banco = 4("#agencia-campo-banco").val(); 
         $nomeAgencia = $('#agencia-campo-nome_agencia').val();
         $numeroAgencia = $("#agencia-campo-numero_agencia").val();
 
         if ($idAlterar == -1) {
-            inserir($nomeAgencia, $numeroAgencia);
+            inserir($banco, $nomeAgencia, $numeroAgencia);
         }
         else {
-            alterar($nomeAgencia, $numeroAgencia);
+            alterar($banco,$nomeAgencia, $numeroAgencia);
         }
-        function alterar($nomeAgencia, $numeroAgencia) {
+        function alterar($banco,$nomeAgencia, $numeroAgencia) {
             $.ajax({
                 url: 'http://localhost:50838/Agencia/Update',
                 method: "post",
                 data: {
                     id: $idAlterar,
+                    banco: $banco,
                     nome: $nomeAgencia,
                     numero: $numeroAgencia
                 },
@@ -48,6 +51,7 @@
                 url: 'http://localhost:50838/Agencia/Inserir',
                 method: 'post',
                 data: {
+                    banco = $banco,
                     nome: $nomeAgencia,
                     numero: $numeroAgencia
                 },
@@ -80,7 +84,8 @@
                 url: 'http://localhost:50838/Agencia/obterpeloid?id=' + #$idAlterar,
                 method: 'get',
                 success: function (data) {
-                    $('#agencia-campo-nome_agencia').val(data.nome)
+                    $('#agencia-campo-banco').val(data.banco);
+                    $('#agencia-campo-nome_agencia').val(data.nome);
                     $('#agencia-campo-numero_agencia').val(data.numero);
                     $('#modal-agencia').modal('show');
                 },
@@ -92,4 +97,4 @@
 
 
         });
-});
+    });
