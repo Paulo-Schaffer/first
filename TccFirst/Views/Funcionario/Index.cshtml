@@ -5,6 +5,7 @@
 
 <h2>Lista de Funcionarios</h2>
 
+<button data-toggle="modal" data-target="#modal-funcionario" class="btn btn-info">Nova pessoa</button>
 <table id="funcionario-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -15,4 +16,7 @@
         </tr>
     </thead>
 </table>
-        
+@RenderPage("CadastroModal.cshtml")
+@section js {
+    <script src="~/Scripts/Funcionario/Funcionario.js"></script>
+}

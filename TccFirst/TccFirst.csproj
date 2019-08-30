@@ -109,6 +109,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Funcionario\Funcionario.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -191,6 +192,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Funcionario\CadastroModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,7 +207,6 @@
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Historico\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
