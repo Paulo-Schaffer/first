@@ -38,9 +38,7 @@ namespace Repository.Repositories
             var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
 
             if (funcionario == null)
-            {
                 return false;
-            }
 
             funcionario.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
@@ -61,12 +59,8 @@ namespace Repository.Repositories
 
         public Funcionario ObterPeloId(int id)
         {
-
-
             var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
             return funcionario;
-            return context.Funcionarios.FirstOrDefault(x => x.Id == id);
-
         }
 
         public List<Funcionario> ObterTodos()
@@ -75,9 +69,6 @@ namespace Repository.Repositories
                 .Where(x => x.RegistroAtivo == true)
                  .OrderBy(x => x.Id)
                  .ToList();
-            return context.Funcionarios.Where(x => x.RegistroAtivo == true)
-                 .OrderBy(x => x.Id).ToList();
-
         }
 
     }
