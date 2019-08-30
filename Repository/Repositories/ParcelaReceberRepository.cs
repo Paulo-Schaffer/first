@@ -21,7 +21,7 @@ namespace Repository.Repositories
         public bool Alterar(ParcelaReceber parcelaReceber)
         {
             var parcelaReceberOriginal = context.ParcelasReceber
-                 .Where(x => x.Id == parcelaReceber.Id)
+                 .Where(x => x.Id == parcelareceber.Id)
                  .FirstOrDefault();
             if (parcelaReceberOriginal == null)
             {
@@ -51,7 +51,7 @@ namespace Repository.Repositories
 
         public int Inserir(ParcelaReceber parcelaReceber)
         {
-            context.ParcelasReceber.Add(parcelaReceber);
+            context.ParcelasReceber.Add(parcelareceber);
             context.SaveChanges();
             return parcelaReceber.Id;
         }

@@ -19,12 +19,26 @@ namespace Repository.Repositories
 
         public bool Alterar(Login login)
         {
-            throw new NotImplementedException();
+            var loginOfical = context.Logins.FirstOrDefault(x => x.Id == login.Id);
+            if (login == null)
+                return false;
+
+            loginOfical.IdFuncionario = loginOfical.IdFuncionario;
+            loginOfical.Usuario = loginOfical.Usuario;
+            loginOfical.Senha = loginOfical.Senha;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var login = context.Logins.FirstOrDefault(x => x.Id == id);
+            if (login == null)
+                return false;
+
+            login.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(Login login)
@@ -37,12 +51,16 @@ namespace Repository.Repositories
 
         public Login ObterPeloId(int id)
         {
-            return context.Logins.FirstOrDefault(x => x.Id == id);
+            return context.Logins
+                .Include("Login")
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public List<Login> ObterTodos()
         {
-            return context.Logins.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+            return context.Logins
+                .Where(x => x.RegistroAtivo == true)
+                .OrderBy(x => x.Id).ToList();
         }
 
     }
