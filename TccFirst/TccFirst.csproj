@@ -5495,7 +5495,7 @@
     <Content Include="Views\TituloReceber\Index.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\Agencia\Index.cshtml" />
-    <Content Include="Views\Agencia\Index.cshtml" />
+  
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
@@ -5504,6 +5504,7 @@
     <Content Include="Views\ClientePessoaJuridica\CadastroPessoaJuridica.cshtml" />
     <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5517,6 +5518,7 @@
     <Folder Include="Scripts\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Historico\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\ParcelasPagar\" />
