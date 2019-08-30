@@ -59,19 +59,16 @@ namespace Repository.Repositories
 
         public Funcionario ObterPeloId(int id)
         {
-
-
             var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
             return funcionario;
-           
-
         }
 
         public List<Funcionario> ObterTodos()
         {
-            return context.Funcionarios.Where(x => x.RegistroAtivo == true)
-                 .OrderBy(x => x.Id).ToList();
-
+            return context.Funcionarios
+                .Where(x => x.RegistroAtivo == true)
+                 .OrderBy(x => x.Id)
+                 .ToList();
         }
 
     }
