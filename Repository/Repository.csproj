@@ -110,7 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BancoDados\Estrutura.sql" />
-
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -138,9 +137,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-
     <Content Include="Estrutura.sql" />
-
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
