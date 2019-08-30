@@ -16,6 +16,18 @@ namespace TccFirst.Controllers
         {
             repository = new HistoricoRepository();
         }
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpGet]
+        public JsonResult ObterTodos()
+        {
+            var historico = repository.ObterTodos();
+            var resultado = new { data = historico };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
         [HttpPost]
         public JsonResult Inserir(Historico historico)
         {
