@@ -6,6 +6,10 @@ CREATE TABLE funcionarios(
 	nome VARCHAR(45),
 	tipo_funcionario INT
 );
+INSERT INTO funcionarios(nome, tipo_funcionario) VALUES
+('Paulo',2);
+
+SELECT * FROM funcionarios;
 
 CREATE TABLE logins(
 	id INT PRIMARY KEY IDENTITY(1,1),

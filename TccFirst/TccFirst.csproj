@@ -5501,6 +5501,7 @@
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5515,7 +5516,6 @@
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Historico\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\ParcelasPagar\" />
