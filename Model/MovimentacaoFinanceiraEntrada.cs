@@ -15,6 +15,8 @@ namespace Model
         public int Id { get; set; }
         [Column("Valor")]
         public decimal Valor { get; set; }
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
 
         #region fk_conta_corrente
         [Column("id_conta_corrente")]

@@ -147,6 +147,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
@@ -197,6 +198,7 @@
     <Folder Include="Views\Historico\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
+    <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />

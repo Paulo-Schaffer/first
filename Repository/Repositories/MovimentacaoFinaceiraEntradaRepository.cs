@@ -34,22 +34,35 @@ namespace Repository.Repositories
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var movimentacaoFinaceiraEntrada = context.MovimentacaoFinanceiraEntradas.FirstOrDefault(x => x.Id == id);
+            if (movimentacaoFinaceiraEntrada == null)
+            {
+                return false;
+            }
+
+            movimentacaoFinaceiraEntrada.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+
+            return quantidadeAfetada == 1;
+
         }
 
         public int Inserir(MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada)
         {
-            throw new NotImplementedException();
+            context.MovimentacaoFinanceiraEntradas.Add(movimentacaoFinanceiraEntrada);
+            context.SaveChanges();
+            return movimentacaoFinanceiraEntrada.Id;
         }
 
         public MovimentacaoFinanceiraEntrada ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var movimentacaoFinaceiraEntrda = context.MovimentacaoFinanceiraEntradas.FirstOrDefault(x => x.Id == id);
+            return movimentacaoFinaceiraEntrda;
         }
 
         public List<MovimentacaoFinanceiraEntrada> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.MovimentacaoFinanceiraEntradas.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
     }
 }
