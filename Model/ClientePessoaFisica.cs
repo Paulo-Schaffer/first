@@ -22,7 +22,7 @@ namespace Model
         public string Cpf { get; set; }
 
         [Column("data_vencimento")]
-        public DateTime DataVencimento { get; set; }
+        public DateTime DataNascimento { get; set; }
 
         [Column("limite_credito"), MaxLength(13)]
         public decimal LimiteCredito { get; set; }
@@ -50,5 +50,8 @@ namespace Model
 
         [Column("complemento"), StringLength(50)]
         public string Complemento { get; set; }
+
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
     }
 }
