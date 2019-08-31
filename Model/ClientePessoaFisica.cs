@@ -21,7 +21,7 @@ namespace Model
         [Column("cpf"), StringLength(14)]
         public string Cpf { get; set; }
 
-        [Column("data_vencimento")]
+        [Column("data_nascimento")]
         public DateTime DataNascimento { get; set; }
 
         [Column("limite_credito"), MaxLength(13)]
