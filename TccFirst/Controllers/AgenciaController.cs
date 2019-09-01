@@ -84,7 +84,15 @@ namespace TccFirst.Controllers
                 resultados = agenciasSelect
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+            
         }
+        [HttpGet]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+
 
 
 
