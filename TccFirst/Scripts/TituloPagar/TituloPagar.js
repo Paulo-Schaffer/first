@@ -1,101 +1,141 @@
-﻿$(function () {
+﻿-﻿$(function () {
     $idAlterar = -1;
 
-    $tabelaFuncionario = $('#funcionario-tabela').DataTable({
-        ajax: 'http://localhost:50838/Funcionario/obtertodos',
-        serverSide = true,
+    $tabelaTituloPagar = $("#tituloPagar-tabela").DataTable({
+        ajax: "http://localhost:50838/Titulopagar/obtertodos",
+        serverSide: true,
         columns: [
-            { 'data': 'Id' },
-            { 'data': 'Nome' },
-            { 'data': 'Tipo' },
+            { data: "Descricao" },
+            { data: "Forma de Pagamento" },
+            { data: "Caixa" },
+            { data: "Valor Total" },
+            { data: "Status" },
+            { data: "Data Lancamento" },
+            { data: "Data Pagamento" },
+            { data: "Data Vencimento" },
+            { data: "Complemento" },
+            { data: "Quantidade de Parcelas" },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
+                    return "\
+<button class='btn btn-primary botao-editar'\
+    data-id=" + row.Id + ">Editar</button>\
+<button class='btn btn-danger botao-apagar'\
+    data-id=" + row.Id + ">Apagar</button>";
                 }
             }
         ]
     });
 
-    $('#funcionario-botao-salvar').on('Click', function () {
-        $nome = $('#funcionario-campo-nome').val();
-        $tipo = $('#funcionario-campo-tipo').val();
+    $(".table").on("click", ".botao-apagar", function () {
+            $idApagar = $(this).data("id");
+            $.ajax({
+                url: "http://localhost:50838/Titulopagar/apagar?id=" + $idApagar,
+                method: "get",
+                success: function () {
+                    $tabelatituloPagar.ajax.reload();
+                },
+                error: function () {
+                    alert('Não foi possível apagar');
+                }
+            });
+        });
 
-        if (idAlterar == -1) {
-            inserir{ $nome, $tipo };
+    $("#tituloPagar-botao-salvar").on("click", function () {
+        $Descricao = $("#tituloPagar-campo-descricao").val();
+        $FormaPagamento = $("#tituloPagar-campo-formaPagamento").val();
+        $Caixa = $("#tituloPagar-campo-caixa").val();
+        $ValorTotal = $("#tituloPagar-campo-valorTotal").val();
+        $Status = $("#tituloPagar-campo-status").val();
+        $DataLancamento = $("#tituloPagar-campo-dataLancamento").val();
+        $DataPagamento = $("#tituloPagar-campo-dataPagamento").val();
+        $DataVencimento = $("#tituloPagar-campo-dataVencimento").val();
+        $Complemento = $("#tituloPagar-campo-complemento").val();
+        $QuantidadeParcelas = $("#tituloPagar-campo-quantidadePacelas").val();
+
+        if ($idAlterar == -1) {
+            inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataPagamento, $DataVencimento, $Complemento, $QuantidadeParcelas);
         } else {
-            alterar{ $nome, $tipo };
+            alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataPagamento, $DataVencimento, $Complemento, $QuantidadeParcelas);
         }
     });
 
-    function alterar($nome, $tipo) {
-
+    function inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataPagamento, $DataVencimento, $Complemento, $QuantidadeParcelas) {
         $.ajax({
-            url: "http://localhost:50838/Funcionario/update",
+            url: "http://localhost:50838/tituloPagar/inserir",
             method: "post",
             data: {
-                id = $idalterar,
-                nome = $nome,
-                tipo = $tipo
+                Descricao: $Descricao,
+                FormaPagamento: $FormaPagamento,
+                Caixa: $Caixa,
+                ValorTotal: $ValorTotal,
+                Status: $Status,
+                DataLancamento: $DataLancamento,
+                DataPagamento: $DataPagamento,
+                DataVencimento: $DataVencimento,
+                Complemento: $Complemento,
+                QuantidadeParcelas: $QuantidadeParcelas
             },
             success: function (data) {
-                $("#modal-funcionario").modal("hide");
-                $idalterar = -1;
-                $tabelafuncionario.ajax.reload();
+                $("#modal-tituloPagar").modal("hide");
+                $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
-                alert("Não foi possivel alterar");
+                alert("Não foi possível cadastrar");
             }
         });
     }
 
-    function inserir($nome, $tipo) {
+
+    $(".table").on("click", ".botao-editar", function () {
+        $idAlterar = $(this).data("id");
         $.ajax({
-            url: "http://localhost:50838/Funcionario/inserir",
-            method: 'post',
-            data: {
-                nome: $nome,
-                tipo = $tipo
-            },
+            url: 'http://localhost:50838/tituloPagar/obterpeloid?id=' + $idAlterar,
+            method: "get",
             success: function (data) {
-                $('#modal-funcionario').modal('hide');
-                $tabelafuncionario.ajax.reload();
+                $("#tituloPagar-campo-descricao").val(data.Descricao);
+                $("#tituloPagar-campo-formaPagamento").val(data.FormaPagamento);
+                $("#tituloPagar-campo-caixa").val(data.Caixa);
+                $("#tituloPagar-campo-valorTotal").val(data.ValorTotal);
+                $("#tituloPagar-campo-status").val(data.Status);
+                $("#tituloPagar-campo-dataLancamento").val(data.DataLancamento);
+                $("#tituloPagar-campo-dataPagamento").val(data.DataPagamento);
+                $("#tituloPagar-campo-dataVencimento").val(data.DataVencimento);
+                $("#tituloPagar-campo-complemento").val(data.Complemento);
+                $("#tituloPagar-campo-quantidadeParcelas").val(data.QuantidadeParcelas);
             },
             error: function (err) {
-                alert("Não foi possivel cadastrar")
-            }
-
-        });
-    }
-
-    $('.table').on('click', '.botao-apagar', function () {
-        $idApagar = $(this).data('id');
-
-        $.ajax({
-            url: "http://localhost:50838/Funcionario/obterpeloid?id=" + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaFuncionario.ajax.reload();
-            },
-            error: function (err) {
-                alert('Não foi possivel apagar');
+                alert("Não foi possível buscar o registro");
             }
         })
-    })
+    });
 
-    $('.table').on('click', '.botao-editar', function () {
-        $idApagar = $(this).data('id');
-
+    function alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataPagamento, $DataVencimento, $Complemento, $QuantidadeParcelas) {
         $.ajax({
-            url: "http://localhost:50838/Funcionario/obterpeloid?id=" + idAlterar,
-            method: 'get',
+            url: "http://localhost:50838/tituloPagar/update",
+            method: "post",
+            data: {
+                id = $idAlterar,
+                Descricao: $Descricao,
+                FormaPagamento: $FormaPagamento,
+                Caixa: $Caixa,
+                ValorTotal: $ValorTotal,
+                Status: $Status,
+                DataLancamento: $DataLancamento,
+                DataPagamento: $DataPagamento,
+                DataVencimento: $DataVencimento,
+                Complemento: $Complemento,
+                QuantidadeParcelas: $QuantidadeParcelas,
+                id: $idAlterar, idTituloPagar: $idTituloPagar
+            },
             success: function (data) {
-                $('#funcionario-campo-nome').val(data.nome);
-                $('#funcionario-campo-tipo').val(data.tipo);
-                $('#modal-funcionario').modal('show');
+                $("#tituloPagar-modal").modal("hide");
+                $idAlterar = -1;
+                $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
-                alert("Não foi possivel editar")
+                alert("Não foi possível alterar");
             }
         });
-    });
+    }
 });
