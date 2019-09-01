@@ -22,6 +22,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+        
         [HttpGet]
         public JsonResult ObterTodos()
         {
