@@ -1,6 +1,31 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-@RenderPage("CadastroTituloPagar.cshtml")
+<h2>Lista de Títulos a Pagar</h2>
+<a class="btn btn-primary mb-3"
+   href="/tituloPagar/index">Novo</a>
+
+
+<table id="pessoa-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Forma de Pagamento</th>
+            <th>Caixa</th>
+            <th>Valor Total</th>
+            <th>Status</th>
+            <th>Data Lançamento</th>
+            <th>Data Pagamento</th>
+            <th>Data Vencimento</th>
+            <th>Complemento</th>
+            <th>Quantidade de Parcelas</th>
+        </tr>
+    </thead>
+</table>
+
+@RenderPage("TituloPagarModal.cshtml")
+
+
+
