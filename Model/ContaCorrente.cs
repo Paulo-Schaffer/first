@@ -22,7 +22,7 @@ namespace Model
         public string Descricao { get; set; }
 
         [Column("documento")]
-        public string Document { get; set; }
+        public string Documento { get; set; }
 
         [Column("tipo_receita_despesa")]
         public int TipoReceitaDespesa { get; set; }
@@ -50,6 +50,9 @@ namespace Model
 
         [Column("numero_banco")]
         public string NumeroBanco { get; set; }
+
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
 
         #region fk_historico
         [Column("id_Historico")]

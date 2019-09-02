@@ -1,32 +1,32 @@
 ﻿$(function () {
     $idAlterar = -1;
     $tabelaAgencia = ('#agencia-tabela').DataTale({
-        ajax='http://localhost:50838/Agencia/obtertodos',
-        serverSide = true,
+        ajax: 'http://localhost:50838/Agencia/obtertodos',
+        serverSide : true,
         columns: [
             { 'data': 'Id' },
             { 'data': 'Banco' },
             { 'data': 'NomeAgencia' },
             { 'data': 'NumeroAgencia' },
             {
-                render= function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
+                render: function (data, type, row) {
+                    return '<button class="btn btn-primary agencia-botao-salvar" data-id="' + row.Id + '">Salvar</button>\<button class="btn btn-danger agencia-botao-cancelar" data-id="' + row.Id + '">Cancelar</button>'
                 }
             }
         ]
     });
     $('#agencia-botao-salvar').on('click', function () {
-        $banco = 4("#agencia-campo-banco").val(); 
-        $nomeAgencia = $('#agencia-campo-nome_agencia').val();
-        $numeroAgencia = $("#agencia-campo-numero_agencia").val();
+        $banco = $("#agencia-campo-banco").val();
+        $nomeAgencia = $('#agencia-campo-nomeagencia').val();
+        $numeroAgencia = $("#agencia-campo-numeroagencia").val();
 
         if ($idAlterar == -1) {
             inserir($banco, $nomeAgencia, $numeroAgencia);
         }
         else {
-            alterar($banco,$nomeAgencia, $numeroAgencia);
+            alterar($banco, $nomeAgencia, $numeroAgencia);
         }
-        function alterar($banco,$nomeAgencia, $numeroAgencia) {
+        function alterar($banco, $nomeAgencia, $numeroAgencia) {
             $.ajax({
                 url: 'http://localhost:50838/Agencia/Update',
                 method: "post",
@@ -46,9 +46,9 @@
                 }
             })
         }
-        function inserir($nomeAgencia, $numeroAgencia) {
+        function inserir($banco, $nomeAgencia, $numeroAgencia) {
             $.ajax({
-                url: 'http://localhost:50838/Agencia/Inserir',
+                url: 'http://localhost:50838/Agencia/Index',
                 method: 'post',
                 data: {
                     banco = $banco,
@@ -63,38 +63,39 @@
                 }
             });
 
-        }
-        $('table').on('click', '.botao-apagar', function () {
-            #$idApagar = $(this).data('id');
-            $.ajax({
-                url: 'http://localhost:50838/Agencia/apagar?id=' + $idApagar,
-                method: 'get',
-                success: function (data) {
-                    $tabelaAgencia.ajax.reload();
-                },
-                error: function (err) {
-                    alert("Não foi possível apagar")
-                }
-            });
         });
-
-        $('table').on('click', '.botao-editar', function () {
-            $idAlterar = $(this).data('id');
-            $.ajax({
-                url: 'http://localhost:50838/Agencia/obterpeloid?id=' + #$idAlterar,
-                method: 'get',
-                success: function (data) {
-                    $('#agencia-campo-banco').val(data.banco);
-                    $('#agencia-campo-nome_agencia').val(data.nome);
-                    $('#agencia-campo-numero_agencia').val(data.numero);
-                    $('#modal-agencia').modal('show');
-                },
-                error: function (err) {
-                    alert('Não foi possível carregar');
-
-                }
-            });
-
-
+    $('table').on('click', '.botao-cancelar', function () {
+        $idApagar = $(this).data('id');
+        $.ajax({
+            url: 'http://localhost:50838/Agencia/apagar?id=' + $idApagar,
+            method: 'get',
+            success: function (data) {
+                $tabelaAgencia.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possível apagar")
+            }
         });
     });
+
+    $('table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data('id');
+        $.ajax({
+            url: 'http://localhost:50838/Agencia/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                $('#agencia-campo-banco').val(data.banco);
+                $('#agencia-campo-nome_agencia').val(data.nome);
+                $('#agencia-campo-numero_agencia').val(data.numero);
+                $('#modal-agencia').modal('show');
+            },
+            error: function (err) {
+                alert('Não foi possível carregar');
+
+            }
+        });
+
+
+    });
+
+});
