@@ -24,16 +24,16 @@ namespace Model
         [Column("data_nascimento")]
         public DateTime DataNascimento { get; set; }
 
-        [Column("limite_credito"), MaxLength(13)]
+        [Column("limite_credito")]
         public decimal LimiteCredito { get; set; }
 
-        [Column("emal"), StringLength(60)]
+        [Column("email"), StringLength(60)]
         public string Email { get; set; }
 
         [Column("telefone")]
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
 
-        [Column("cep"), StringLength(8)]
+        [Column("cep"), StringLength(9)]
         public string Cep { get; set; }
 
         [Column("numero")]
