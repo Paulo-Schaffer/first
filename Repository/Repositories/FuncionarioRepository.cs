@@ -59,8 +59,11 @@ namespace Repository.Repositories
 
         public Funcionario ObterPeloId(int id)
         {
+
+
             var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
-            return funcionario;
+            return context.Funcionarios.FirstOrDefault(x => x.Id == id);
+
         }
 
         public List<Funcionario> ObterTodos()

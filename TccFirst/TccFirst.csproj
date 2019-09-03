@@ -5508,6 +5508,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
