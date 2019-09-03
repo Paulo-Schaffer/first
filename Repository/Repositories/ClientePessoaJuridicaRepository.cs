@@ -17,29 +17,29 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public bool Alterar(ClientePessoaJuridica clientepessoajuridica)
+        public bool Alterar(ClientePessoaJuridica clientePessoaJuridica)
         {
             var clientePessoaJuridicaOriginal = context.ClientesPessoasJuridicas
-                 .Where(x => x.Id == clientepessoajuridica.Id)
+                 .Where(x => x.Id == clientePessoaJuridica.Id)
                  .FirstOrDefault();
             if(clientePessoaJuridicaOriginal==null)
             {
                 return false;
             }
-            clientePessoaJuridicaOriginal.RazaoSocial = clientepessoajuridica.RazaoSocial;
-            clientePessoaJuridicaOriginal.Atividade=clientepessoajuridica.Atividade;
-            clientePessoaJuridicaOriginal.NomeFantasia=clientepessoajuridica.NomeFantasia;
-            clientePessoaJuridicaOriginal.DataCadastro=clientepessoajuridica.DataCadastro;
-            clientePessoaJuridicaOriginal.Cnpj=clientepessoajuridica.Cnpj;
-            clientePessoaJuridicaOriginal.Email=clientepessoajuridica.Email;
-            clientePessoaJuridicaOriginal.Filial=clientepessoajuridica.Filial;
-            clientePessoaJuridicaOriginal.Telefone=clientepessoajuridica.Telefone;
-            clientePessoaJuridicaOriginal.Cep=clientepessoajuridica.Cep;
-            clientePessoaJuridicaOriginal.Logradouro=clientepessoajuridica.Logradouro;
-            clientePessoaJuridicaOriginal.Numero=clientepessoajuridica.Numero;
-            clientePessoaJuridicaOriginal.Bairro=clientepessoajuridica.Bairro;
-            clientePessoaJuridicaOriginal.Uf=clientepessoajuridica.Uf;
-            clientePessoaJuridicaOriginal.Cidade=clientepessoajuridica.Cidade;
+            clientePessoaJuridicaOriginal.RazaoSocial = clientePessoaJuridica.RazaoSocial;
+            clientePessoaJuridicaOriginal.Atividade= clientePessoaJuridica.Atividade;
+            clientePessoaJuridicaOriginal.NomeFantasia= clientePessoaJuridica.NomeFantasia;
+            clientePessoaJuridicaOriginal.DataCadastro= clientePessoaJuridica.DataCadastro;
+            clientePessoaJuridicaOriginal.Cnpj= clientePessoaJuridica.Cnpj;
+            clientePessoaJuridicaOriginal.Email= clientePessoaJuridica.Email;
+            clientePessoaJuridicaOriginal.Filial= clientePessoaJuridica.Filial;
+            clientePessoaJuridicaOriginal.Telefone= clientePessoaJuridica.Telefone;
+            clientePessoaJuridicaOriginal.Cep= clientePessoaJuridica.Cep;
+            clientePessoaJuridicaOriginal.Logradouro= clientePessoaJuridica.Logradouro;
+            clientePessoaJuridicaOriginal.Numero= clientePessoaJuridica.Numero;
+            clientePessoaJuridicaOriginal.Bairro= clientePessoaJuridica.Bairro;
+            clientePessoaJuridicaOriginal.Uf= clientePessoaJuridica.Uf;
+            clientePessoaJuridicaOriginal.Cidade= clientePessoaJuridica.Cidade;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -57,11 +57,11 @@ namespace Repository.Repositories
             return quantidadeAfetada == 1;
         }
 
-        public int Inserir(ClientePessoaJuridica clientepessoajuridica)
+        public int Inserir(ClientePessoaJuridica clientePessoaJuridica)
         {
-            context.ClientesPessoasJuridicas.Add(clientepessoajuridica);
+            context.ClientesPessoasJuridicas.Add(clientePessoaJuridica);
             context.SaveChanges();
-            return clientepessoajuridica.Id;
+            return clientePessoaJuridica.Id;
         }
 
         public ClientePessoaJuridica ObterPeloId(int id)

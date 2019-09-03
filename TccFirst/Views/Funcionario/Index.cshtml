@@ -3,5 +3,16 @@
     ViewBag.Title = "Index";
 }
 
-@RenderPage("Cadastro.cshtml")
-        
+<h2>Lista de Funcionarios</h2>
+
+<button data-toggle="modal" data-target="#modal-funcionario" class="btn btn-info">Nova pessoa</button>
+<table id="funcionario-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome do funcionário</th>
+            <th>Tipo do funcionário</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>

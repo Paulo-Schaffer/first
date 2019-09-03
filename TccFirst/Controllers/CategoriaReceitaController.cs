@@ -14,7 +14,7 @@ namespace TccFirst.Controllers
 
         public CategoriaReceitaController()
         {
-            repository = new CategoriaReceitaRepository
+            repository = new CategoriaReceitaRepository();
         }
 
         public ActionResult Index()

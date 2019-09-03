@@ -19,34 +19,56 @@ namespace Repository.Repositories
 
         public bool Alterar(Login login)
         {
-            var loginOfical = context.Logins.FirstOrDefault(x => x.Id == login.Id);
-            if (login == null)
-                return false;
+            try
+            {
+                var loginOfical = context.Logins.FirstOrDefault(x => x.Id == login.Id);
+                if (login == null)
+                    return false;
 
-            loginOfical.IdFuncionario = loginOfical.IdFuncionario;
-            loginOfical.Usuario = loginOfical.Usuario;
-            loginOfical.Senha = loginOfical.Senha;
-            int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == 1;
+                loginOfical.IdFuncionario = loginOfical.IdFuncionario;
+                loginOfical.Usuario = loginOfical.Usuario;
+                loginOfical.Senha = loginOfical.Senha;
+                int quantidadeAfetada = context.SaveChanges();
+                return quantidadeAfetada == 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possivel alterar");
+            }
+            
         }
 
         public bool Apagar(int id)
         {
-            var login = context.Logins.FirstOrDefault(x => x.Id == id);
-            if (login == null)
-                return false;
+            try
+            {
+                var login = context.Logins.FirstOrDefault(x => x.Id == id);
+                if (login == null)
+                    return false;
 
-            login.RegistroAtivo = false;
-            int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == 1;
+                login.RegistroAtivo = false;
+                int quantidadeAfetada = context.SaveChanges();
+                return quantidadeAfetada == 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possivel apagar");
+            }
         }
 
         public int Inserir(Login login)
         {
-            login.RegistroAtivo = true;
-            context.Logins.Add(login);
-            context.SaveChanges();
-            return login.Id;
+            try
+            {
+                login.RegistroAtivo = true;
+                context.Logins.Add(login);
+                context.SaveChanges();
+                return login.Id;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possivel inserir");
+            }
         }
 
         public Login ObterPeloId(int id)
