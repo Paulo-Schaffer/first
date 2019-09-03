@@ -2,7 +2,7 @@
     $idAlterar = -1;
 
     $tabelaClientePessoaFisica = $("#clientePessoaFisica-tabela").DataTable({
-        ajax='http://localhost:51800/ClientePessoaFisica/obtertodos',
+        ajax: 'http://localhost:51800/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Id' },
@@ -42,9 +42,9 @@
         $complemento = $('clientePessoaFisica-campo-complemnto').val();
 
         if ($idAlterar == -1) {
-            inserir($nome, $cpf, $dataNascimento,  $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
+            inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
         } else {
-            alterar($nome, $cpf, $dataNascimento,  $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
+            alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
         }
     });
 
@@ -57,14 +57,14 @@
                 nome: $nome,
                 cpf: $cpf,
                 dataNascimento: $dataNascimento,
-                limiteCredito = $limiteCredito,
-                email = $email,
-                telefone = $telefone,
-                cep = $cep,
-                numero = $numero,
-                bairro = $cidade,
-                uf = $uf,
-                complemento = $complemento
+                limiteCredito: $limiteCredito,
+                email: $email,
+                telefone: $telefone,
+                cep: $cep,
+                numero: $numero,
+                bairro: $cidade,
+                uf: $uf,
+                complemento: $complemento
 
 
             },
@@ -87,15 +87,15 @@
                 Nome: $nome,
                 Cpf: $cpf,
                 DataNascimento: $dataNascimento,
-                LimiteCredito = $limiteCredito,
-                Email = $email,
-                Telefone = $telefone,
-                Cep = $cep,
-                Numero = $numero,
-                Bairro = $bairro,
-                Cidade = $cidade,
-                Uf = $uf,
-                Complemento = $complemento
+                LimiteCredito: $limiteCredito,
+                Email: $email,
+                Telefone: $telefone,
+                Cep: $cep,
+                Numero: $numero,
+                Bairro: $bairro,
+                Cidade: $cidade,
+                Uf: $uf,
+                Complemento: $complemento
             },
             success: function (data) {
                 $('#modal-clientePessoaFisica').modal('hide');
