@@ -5569,6 +5569,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Historico\" />
