@@ -2,7 +2,7 @@
     $idAlterar = -1;
     alert()
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
-        ajax: 'http://localhost:51800/ClientePessoaFisica/obtertodos',
+        ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Id' },
@@ -50,7 +50,7 @@
 
     function alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
-            url: "http://localhost:51800/clientePessoaJuridica/update",
+            url: "/clientePessoaJuridica/update",
             method: "post",
             data: {
                 id: $idAlterar,
@@ -81,7 +81,7 @@
 
     function inserir($nome, $cpf) {
         $.ajax({
-            url: 'http://localhost:51800/clientePessoaJuridica/inserir',
+            url: '/clientePessoaJuridica/inserir',
             method: 'post',
             data: {
                 Nome: $nome,
@@ -111,7 +111,7 @@
         $idApagar = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost:51800/clientePessoaJuridica/apagar?id=' + $idApagar,
+            url: '/clientePessoaJuridica/apagar?id=' + $idApagar,
             method: 'get',
             success: function (data) {
                 $tabelaClientePessoaFisica.ajax.reload();
@@ -128,7 +128,7 @@
         $idAlterar = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost:51800/clientePessoaJuridica/obterpeloid?id=' + $idAlterar,
+            url: '/clientePessoaJuridica/obterpeloid?id=' + $idAlterar,
             method: 'get',
 
             success: function (data) {
