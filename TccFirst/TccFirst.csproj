@@ -5502,6 +5502,7 @@
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\ContaCorrenteController.cs" />
+    <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
