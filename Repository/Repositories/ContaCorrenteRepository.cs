@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    class ContaCorrenteRepository : IContaCorrenteRepository
+    public class ContaCorrenteRepository : IContaCorrenteRepository
     {
         private SistemaContext context; 
         

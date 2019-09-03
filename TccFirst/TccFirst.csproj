@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
+    <Content Include="Content\tema\assets\css\Home.css" />
     <Content Include="Content\tema\assets\css\ionicons.css" />
     <Content Include="Content\tema\assets\css\jquery.mCustomScrollbar.css" />
     <Content Include="Content\tema\assets\css\linearicons.css" />
@@ -5501,7 +5502,6 @@
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\ContaCorrenteController.cs" />
-    <Compile Include="Controllers\ContaCorrenteRepository.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
