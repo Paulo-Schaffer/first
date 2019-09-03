@@ -1,7 +1,7 @@
 ﻿$(function () {
     $idAlterar = -1;
-
-    $tabelaClientePessoaFisica = $("#clientePessoaFisica-tabela").DataTable({
+    alert()
+    $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
         ajax: 'http://localhost:51800/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
