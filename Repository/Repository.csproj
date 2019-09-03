@@ -52,6 +52,7 @@
     <Compile Include="Interfaces\ICaixaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaReceitaRepository.cs" />
+    <Compile Include="Interfaces\IClientePessoaFisicaRepository.cs" />
     <Compile Include="Interfaces\IContaCorrenteRepository.cs" />
     <Compile Include="Interfaces\IClientePessoaJuridicaRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Repositories\AgenciaRepository.cs" />
     <Compile Include="Repositories\CaixaRepository.cs" />
     <Compile Include="Repositories\CategoriaReceitaRepository.cs" />
+    <Compile Include="Repositories\ClientePessoaFisicaRepository.cs" />
     <Compile Include="Repositories\ContaCorrenteRepository.cs" />
     <Compile Include="Repositories\ClientePessoaJuridicaRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
@@ -148,5 +150,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

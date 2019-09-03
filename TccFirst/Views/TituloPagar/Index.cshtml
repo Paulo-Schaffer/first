@@ -3,10 +3,8 @@
 }
 
 <h2>Lista de Títulos a Pagar</h2>
-<a class="btn btn-primary mb-3"
-   href="/tituloPagar/index">Novo</a>
 
-
+<button data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-info">Novo Titulo Pagar</button>
 <table id="pessoa-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -24,8 +22,7 @@
         </tr>
     </thead>
 </table>
-
-@RenderPage("TituloPagarModal.cshtml")
+@RenderPage("CadastroTituloPagar.cshtml")
 
 
 
