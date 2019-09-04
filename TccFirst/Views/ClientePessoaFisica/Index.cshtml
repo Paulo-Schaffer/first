@@ -5,12 +5,13 @@
 
 <h2>Clientes Pessoa Fisica</h2>
 <button data-toggle="modal" data-target="#modal-clientePessoaFisica" class="btn btn-primary">Novo Cliente Pessoa Fisica</button>
-<table id="clientePessoaFisica-tabela" class="table-hover table-bordered table-striped">
+<table id="cliente-pessoa-fisica-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Nome</th>
             <th>Cpf</th>
-            <th>Data de Nascimento</th>
+            <th  data-type = " date "  data-format = " DD / MM / AAAA " >Data Nascimento </th>
             <th>Limite de Crédito</th>
             <th>E-mail</th>
             <th>Telefone</th>
@@ -20,8 +21,12 @@
             <th>Cidade</th>
             <th>Uf</th>
             <th>Complemento</th>
+            <th>Ação</th>
         </tr>
     </thead>
 </table>
 @RenderPage("CadastroPessoaFisica.cshtml")
-<script src="~/Scripts/ClientePessoaFisica/clientePessoaFisica.js"></script>
+
+@section js{
+    <script src="~/Scripts/ClientePessoaFisica/cliente-pessoa-fisica-index.js"></script>
+}

@@ -2,6 +2,32 @@
 @{
     ViewBag.Title = "Index";
 }
+<h2>Cliente Pessoa Juridica</h2>
 
+<button data-toggle="modal" data-target="#modal-clientepesssoajuridica" class="btn btn-dark">Novo Cliente</button>
+<table class="table table-striped table-bordered table-hover" id="clientepessoajuridica-tabela">
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Razao Social</th>
+            <th>Atividade</th>
+            <th>Nome Fantasia</th>
+            <th>Data Cadastro</th>
+            <th>CNPJ</th>
+            <th>Email</th>
+            <th>Filial</th>
+            <th>Telefone</th>
+            <th>CEP</th>
+            <th>Logradouro</th>
+            <th>Numero</th>
+            <th>Bairro</th>
+            <th>UF</th>
+            <th>Cidade</th>
+            <th>Acao</th>
+        </tr>
+
+    </thead>
+</table>
 
 @RenderPage("CadastroPessoaJuridica.cshtml") 
+
