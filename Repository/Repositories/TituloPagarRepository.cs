@@ -24,7 +24,7 @@ namespace Repository.Repositories
             if (tituloPagar == null)
                 return false;
 
-            tituloPagarOficial.IdCategoriasDepesesas = tituloPagarOficial.IdCategoriasDepesesas;
+            tituloPagarOficial.IdTipoCategoriaDepesesas = tituloPagarOficial.IdTipoCategoriaDepesesas;
             tituloPagarOficial.IdFornecedores = tituloPagarOficial.IdFornecedores;
             tituloPagarOficial.Descricao = tituloPagarOficial.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagarOficial.FormaPagamento;
