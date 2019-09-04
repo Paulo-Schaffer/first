@@ -5466,6 +5466,7 @@
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
     <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
     <Content Include="Scripts\ClientePessoaFisica\moment.js" />
+    <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5509,6 +5510,7 @@
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Fornecedor\CadastroFornecedor1.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
