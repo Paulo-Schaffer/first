@@ -85,8 +85,8 @@ namespace TccFirst.Controllers
                     dataVencimento = tituloPagar.DataVencimento,
                     complemento = tituloPagar.Complemento,
                     quantidadeParcela = tituloPagar.QuantidadeParcela,
-                    idFornecedor = tituloPagar.IdFornecedor,
-                    idCategoriaDespesas = tituloPagar.IdCategoriaDepesesas
+                    idFornecedores = tituloPagar.IdFornecedores,
+                    idCategoriasDespesas = tituloPagar.IdCategoriasDepesesas
                 });
             }
                 var resultado = new

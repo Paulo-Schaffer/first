@@ -66,7 +66,9 @@
                 telefone: $telefone,
                 cep: $cep,
                 numero: $numero,
-                bairro: $cidade,
+                bairro: $bairro,
+                cidade: $cidade,
+
                 uf: $uf,
                 complemento: $complemento
             },
