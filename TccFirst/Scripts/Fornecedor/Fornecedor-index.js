@@ -6,19 +6,19 @@
         severSide: true,
         columns: [
             { 'data': 'id' },
-            { 'data': 'Razao_social' },
-            { 'data': 'Nome_fantasia' }
-            { 'data': 'data_cadastro' },
-            { 'data': 'cnpj' },
-            { 'data': 'email' },
-            { 'data': 'telefone' },
-            { 'data': 'cep' },
-            { 'data': 'logradouro' },
-            { 'data': 'numero' },
-            { 'data': 'bairro' },
-            { 'data': 'cidade' },
-            { 'data': 'uf' },
-            { 'data': 'complemento' },
+            { 'data': 'RazaoSocial' },
+            { 'data': 'NomeFantasia' },
+            { 'data': 'DataCadastro' },
+            { 'data': 'Cnpj' },
+            { 'data': 'Email' },
+            { 'data': 'Telefone' },
+            { 'data': 'Cep' },
+            { 'data': 'Logradouro' },
+            { 'data': 'Numero' },
+            { 'data': 'Bairro' },
+            { 'data': 'Cidade' },
+            { 'data': 'Uf' },
+            { 'data': 'Complemento' },
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
@@ -59,12 +59,11 @@
                 razaoSocial: $razaoSocial,
                 nomeFantasia: $nomeFantasia,
                 cnpj: $cnpj,
-                ddataCadastro: $dataCadastro,
+                dataCadastro: $dataCadastro,
                 email: $email,
                 telefone: $telefone,
                 cep: $cep,
                 numero: $numero,
-                limiteCredito: $limiteCredito,
                 bairro: $bairro,
                 cidade: $cidade,
                 uf: $uf,
@@ -96,7 +95,6 @@
                 telefone: $telefone,
                 cep: $cep,
                 numero: $numero,
-                limiteCredito: $limiteCredito,
                 bairro: $bairro,
                 cidade: $cidade,
                 uf: $uf,
@@ -137,9 +135,10 @@
             method: 'get',
 
             success: function (data) {
-                $('#fornecedor-campo-nome').val(data.Nome);
-                $('#fornecedor-campo-cpf').val(data.CPF);
-                $('#fornecedor-campo-dataNascimento').val(data.DataNascimento);
+                $('#fornecedor-campo-razaoSocial').val(data.razaoSocial);
+                $('#fornecedor-campo-nomeFantasia').val(data.nomeFantasia);
+                $('#fornecedor-campo-cnpj').val(data.cnpj);
+                $('#fornecedor-campo-dataCadastro').val(data.dataCadastro);
                 $('#fornecedor-campo-email').val(data.Email);
                 $('#fornecedor-campo-telefone').val(data.Telefone);
                 $('#fornecedor-campo-cep').val(data.Cep);
