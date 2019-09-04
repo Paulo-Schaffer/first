@@ -1,6 +1,7 @@
 ﻿$(function () {
     $idAlterar = -1;
-    alert()
+
+    
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
@@ -8,7 +9,11 @@
             { 'data': 'Id' },
             { 'data': 'Nome' },
             { 'data': 'Cpf' },
-            { 'data': 'DataNascimento' },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataNascimento).format('DD/MM/YYYY')
+                }
+            },
             { 'data': 'LimiteCredito' },
             { 'data': 'Email' },
             { 'data': 'Telefone' },
