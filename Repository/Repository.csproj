@@ -64,6 +64,11 @@
     <Compile Include="Interfaces\IParcelaReceberRepository.cs" />
     <Compile Include="Interfaces\ITituloPagarRepository.cs" />
     <Compile Include="Interfaces\ITituloReceberRepository.cs" />
+    <Compile Include="Migrations\201909031635166_InitialCreate.cs" />
+    <Compile Include="Migrations\201909031635166_InitialCreate.Designer.cs">
+      <DependentUpon>201909031635166_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AgenciaRepository.cs" />
     <Compile Include="Repositories\CaixaRepository.cs" />
@@ -94,6 +99,11 @@
       <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909031635166_InitialCreate.resx">
+      <DependentUpon>201909031635166_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
