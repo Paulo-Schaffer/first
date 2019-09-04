@@ -1,4 +1,8 @@
 ﻿$(function () {
+    $('#clientePessoaFisica-campo-cep').mask('000.000.000-00', { reverse: true });
+
+});
+$(function () {
     $idAlterar = -1;
 
     
@@ -82,7 +86,7 @@
         })
     }
 
-    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep , $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/clientePessoaFisica/inserir',
             method: 'post',
