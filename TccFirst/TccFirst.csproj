@@ -5584,6 +5584,7 @@
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\ContaCorrente\Index.cshtml" />
+    <Content Include="Views\Agencia\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

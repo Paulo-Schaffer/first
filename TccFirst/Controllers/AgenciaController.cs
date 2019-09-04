@@ -37,15 +37,24 @@ namespace TccFirst.Controllers
 
         }
 
+
+        #region cadastro
+        [HttpGet]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public JsonResult Inserir(Agencia agencia)
+        public ActionResult Cadastro(Agencia agencia)
         {
             agencia.RegistroAtivo = true;
             var id = repository.Inserir(agencia);   
-            var resultado = new { id=id };     
-            return Json(resultado);
-            
+            var resultado = new { id=id };
+            return RedirectToAction("Editar", new { id = id });
         }
+
+        #endregion
 
         [HttpGet]
         public JsonResult Apagar(int id)
@@ -56,17 +65,19 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Agencia agencia)
+        public JsonResult Editar(Agencia agencia)
         {
             var alterou = repository.Alterar(agencia);
             var resultado = new { status = alterou };
             return Json(resultado);
         }
 
-        [HttpGet, Route("agencia/")]
-        public JsonResult ObterPeloId(int id)
+        [HttpGet]
+        public ActionResult Editar(int id)
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            var agencia = repository.ObterPeloId(id);
+            ViewBag.Agencia = agencia;
+            return View();
         }
 
 
@@ -92,12 +103,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
             
         }
-        [HttpGet]
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
+    
 
 
 

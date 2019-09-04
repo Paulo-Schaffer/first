@@ -15,7 +15,12 @@ namespace Model
         [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("nuemero_conta")]
+        [Column("numero_conta")]
+
+
+
+
+
         public string NumeroConta { get; set; }
 
         [Column("descricao")]
