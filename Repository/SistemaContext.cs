@@ -11,9 +11,9 @@ namespace Repository
 {
     public class SistemaContext : DbContext
     {
-        public SistemaContext():base ("TCCFirst")
+        public SistemaContext():base ("TCCFirstDB")
         {
-
+            Database.SetInitializer<SistemaContext>(new SistemaInitializer());
         }
         public DbSet<Agencia> Agencias { get; set; }
         public DbSet<Caixa> Caixas { get; set; }

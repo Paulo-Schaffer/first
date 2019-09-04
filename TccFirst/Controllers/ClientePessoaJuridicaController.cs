@@ -22,11 +22,12 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+        
         [HttpGet]
         public JsonResult ObterTodos()
         {
-            var clientePessoaJuridica = repository.ObterTodos();
-            var resultado = new { data = clientePessoaJuridica };
+            var clientePessoaJuridicas = repository.ObterTodos();
+            var resultado = new { data = clientePessoaJuridicas };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
@@ -55,29 +56,44 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-        [HttpGet, Route("clientepessoajuridica/obterpeloid")]
+        [HttpGet, Route("clientePessoaJuridica/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("clientepessoajuridica/obtertodosselect2")]
+        [HttpGet, Route("clientePessoaJuridica/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
             var clientePessoaJuridicas = repository.ObterTodos();
 
-            List<object> clientePessoaJuridicaSelect2 =
+            List<object> clientePessoaJuridicasSelect2 =
                 new List<object>();
             foreach (ClientePessoaJuridica clientePessoaJuridica in clientePessoaJuridicas)
             {
-                clientePessoaJuridicaSelect2.Add(new
+                clientePessoaJuridicasSelect2.Add(new
                 {
-                    
+                    id=clientePessoaJuridica.Id,
+                    razaoSocial=clientePessoaJuridica.RazaoSocial,
+                    atividade=clientePessoaJuridica.Atividade,
+                    nomeFantasia=clientePessoaJuridica.NomeFantasia,
+                    dataCadastro=clientePessoaJuridica.DataCadastro,
+                    cnpj=clientePessoaJuridica.Cnpj,
+                    email=clientePessoaJuridica.Email,
+                    filial=clientePessoaJuridica.Filial,
+                    telefone=clientePessoaJuridica.Telefone,
+                    cep=clientePessoaJuridica.Cep,
+                    logradouro=clientePessoaJuridica.Logradouro,
+                    numero=clientePessoaJuridica.Numero,
+                    bairro=clientePessoaJuridica.Bairro,
+                    uf=clientePessoaJuridica.Uf,
+                    cidade=clientePessoaJuridica.Cidade
+
                 });
             }
             var resultado = new
             {
-                results = clientePessoaJuridicaSelect2
+                results = clientePessoaJuridicasSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }

@@ -13,6 +13,8 @@ namespace TccFirst.Controllers
 
         private AgenciaRepository repository;
 
+        public int ConvertToInt32 { get; private set; }
+
         public AgenciaController()
         {
             repository = new AgenciaRepository();
@@ -21,6 +23,8 @@ namespace TccFirst.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            AgenciaRepository repositoryAgencia = new AgenciaRepository();
+            ViewBag.Agencias = repositoryAgencia.ObterTodos();
             return View();
         }
 
@@ -33,14 +37,24 @@ namespace TccFirst.Controllers
 
         }
 
+
+        #region cadastro
+        [HttpGet]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public JsonResult Inserir(Agencia agencia)
+        public ActionResult Cadastro(Agencia agencia)
         {
             agencia.RegistroAtivo = true;
-            var id = repository.Inserir(agencia);
-            var resultado = new { id = id };
-            return Json(resultado);
+            var id = repository.Inserir(agencia);   
+            var resultado = new { id=id };
+            return RedirectToAction("Editar", new { id = id });
         }
+
+        #endregion
 
         [HttpGet]
         public JsonResult Apagar(int id)
@@ -51,17 +65,19 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Agencia agencia)
+        public JsonResult Editar(Agencia agencia)
         {
             var alterou = repository.Alterar(agencia);
             var resultado = new { status = alterou };
             return Json(resultado);
         }
 
-        [HttpGet, Route("agencia/")]
-        public JsonResult ObterPeloId(int id)
+        [HttpGet]
+        public ActionResult Editar(int id)
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            var agencia = repository.ObterPeloId(id);
+            ViewBag.Agencia = agencia;
+            return View();
         }
 
 
@@ -75,6 +91,7 @@ namespace TccFirst.Controllers
                 agenciasSelect.Add(new
                 {
                     id = agencia.Id,
+                    banco = agencia.Banco,
                     nome = agencia.NomeAgencia,
                     numero = agencia.NumeroAgencia
                 });
@@ -84,7 +101,10 @@ namespace TccFirst.Controllers
                 resultados = agenciasSelect
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+            
         }
+    
+
 
 
 

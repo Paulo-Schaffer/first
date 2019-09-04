@@ -22,28 +22,39 @@ namespace Repository.Repositories
             var categoriaCorreta = context.CategoriasReceitas.FirstOrDefault(x => x.Id == categoriaReceita.Id);
             if (categoriaCorreta == null)
                 return false;
-            //categoriaCorreta.
-            throw new NotImplementedException();
+            categoriaCorreta.TipoCategoriaReceita = categoriaReceita.TipoCategoriaReceita;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var categoria = context.CategoriasReceitas.FirstOrDefault(x => x.Id == id);
+            if (categoria == null)
+                return false;
+            categoria.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+
         }
 
         public int Inserir(CategoriaReceita categoriaReceita)
         {
-            throw new NotImplementedException();
+            categoriaReceita.RegistroAtivo = true;
+            context.CategoriasReceitas.Add(categoriaReceita);
+            context.SaveChanges();
+            return categoriaReceita.Id;
         }
 
         public CategoriaReceita ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var categoriaReceita = context.CategoriasReceitas.FirstOrDefault(x => x.Id == id);
+            return categoriaReceita;
         }
 
         public List<CategoriaReceita> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.CategoriasReceitas.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
     }
 }

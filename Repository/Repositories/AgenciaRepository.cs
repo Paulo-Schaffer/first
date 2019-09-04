@@ -17,7 +17,7 @@ namespace Repository.Repositories
             context = new SistemaContext(); 
         }
 
-        public bool Alterar(Agencia agencia)
+        public bool Alterar(Agencia agencia)    
         {
             var agenciaOriginal = context.Agencias.FirstOrDefault(x => x.Id == agencia.Id);
 
@@ -39,7 +39,7 @@ namespace Repository.Repositories
             {
                 return false;
             }
-
+                    
 
             agencia.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
@@ -50,7 +50,7 @@ namespace Repository.Repositories
         {
             context.Agencias.Add(agencia);
             context.SaveChanges();
-            return agencia.Id; 
+            return agencia.Id;              
         }
 
         public Agencia ObterPeloId(int id)

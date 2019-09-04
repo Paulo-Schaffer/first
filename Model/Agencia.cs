@@ -15,8 +15,8 @@ namespace Model
         public int Id { get; set; }
 
 
-        [Column("id_banco")]
-        public int  IdBanco { get; set; }
+        [Column("banco")]
+        public string  Banco { get; set; }
 
 
         [Column("nome_agencia")]

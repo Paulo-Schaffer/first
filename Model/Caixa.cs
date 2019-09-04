@@ -11,7 +11,7 @@ namespace Model
     [Table("caixas")]
     public class Caixa
     {
-        [Key,Column("id")]
+        [Key, Column("id")]
         public int Id { get; set; }
         [Column("descricao")]
         public string Descricao { get; set; }
