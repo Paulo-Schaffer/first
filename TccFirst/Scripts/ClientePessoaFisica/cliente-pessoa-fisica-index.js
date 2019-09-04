@@ -70,7 +70,6 @@
                 numero: $numero,
                 bairro: $bairro,
                 cidade: $cidade,
-
                 uf: $uf,
                 complemento: $complemento
 
@@ -79,7 +78,7 @@
             success: function (data) {
                 $("#modal-clientePessoaFisica").modal("hide");
                 $idAlterar = -1;
-                $tabela.ajax.reload();
+                $tabelaClientePessoaFisica.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
