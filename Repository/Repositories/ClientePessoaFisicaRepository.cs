@@ -49,6 +49,7 @@ namespace Repository.Repositories
 
         public int Inserir(ClientePessoaFisica clientePessoaFisica)
         {
+            clientePessoaFisica.RegistroAtivo = true;
             context.ClientesPessoasFisicas.Add(clientePessoaFisica);
             context.SaveChanges();
             return clientePessoaFisica.Id;

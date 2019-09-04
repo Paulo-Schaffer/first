@@ -6,6 +6,7 @@
         severSide: true,
         columns: [
             { 'data': 'Id' },
+            { 'data': 'Nome' },
             { 'data': 'Cpf' },
             { 'data': 'DataNascimento' },
             { 'data': 'LimiteCredito' },
@@ -28,18 +29,18 @@
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
-        $nome = $('#clientePessoaFisica-campo-nome').val();
+        $nome = $('#clientePessoaFisica-nome-campo').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
-        $dataNascimento = $('clientePessoaFisica-campo-dataNascimento').val();
-        $limiteCredito = $('clientePessoaFisica-campo-limiteCredito').val();
-        $email = $('clientePessoaFisica-campo-email').val();
-        $telefone = $('clientePessoaFisica-campo-telefone').val();
-        $cep = $('clientePessoaFisica-campo-cep').val();
-        $numero = $('clientePessoaFisica-campo-numero').val();
-        $bairro = $('clientePessoaFisica-campo-bairro').val();
-        $cidade = $('clientePessoaFisica-campo-cidade').val();
-        $uf = $('clientePessoaFisica-campo-uf').val();
-        $complemento = $('clientePessoaFisica-campo-complemnto').val();
+        $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
+        $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito').val();
+        $email = $('#clientePessoaFisica-campo-email').val();
+        $telefone = $('#clientePessoaFisica-campo-telefone').val();
+        $cep = $('#clientePessoaFisica-campo-cep').val();
+        $numero = $('#clientePessoaFisica-campo-numero').val();
+        $bairro = $('#clientePessoaFisica-campo-bairro').val();
+        $cidade = $('#clientePessoaFisica-campo-cidade').val();
+        $uf = $('#clientePessoaFisica-campo-uf').val();
+        $complemento = $('#clientePessoaFisica-campo-complemento').val();
 
         if ($idAlterar == -1) {
             inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
@@ -50,7 +51,7 @@
 
     function alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
-            url: "/clientePessoaJuridica/update",
+            url: "/clientePessoaFisica/update",
             method: "post",
             data: {
                 id: $idAlterar,
@@ -71,7 +72,7 @@
             success: function (data) {
                 $("#modal-clientePessoaFisica").modal("hide");
                 $idAlterar = -1;
-                $tabelaPessoa.ajax.reload();
+                $tabela.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
@@ -79,9 +80,9 @@
         })
     }
 
-    function inserir($nome, $cpf) {
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
-            url: '/clientePessoaJuridica/inserir',
+            url: '/clientePessoaFisica/inserir',
             method: 'post',
             data: {
                 Nome: $nome,
@@ -99,7 +100,7 @@
             },
             success: function (data) {
                 $('#modal-clientePessoaFisica').modal('hide');
-                $tabelaPessoa.ajax.reload();
+                $tabelaClientePessoaFisica.ajax.reload();
             },
             error: function (err) {
 
@@ -111,7 +112,7 @@
         $idApagar = $(this).data('id');
 
         $.ajax({
-            url: '/clientePessoaJuridica/apagar?id=' + $idApagar,
+            url: '/clientePessoaFisica/apagar?id=' + $idApagar,
             method: 'get',
             success: function (data) {
                 $tabelaClientePessoaFisica.ajax.reload();
@@ -128,7 +129,7 @@
         $idAlterar = $(this).data('id');
 
         $.ajax({
-            url: '/clientePessoaJuridica/obterpeloid?id=' + $idAlterar,
+            url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,
             method: 'get',
 
             success: function (data) {
