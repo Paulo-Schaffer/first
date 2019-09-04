@@ -18,20 +18,20 @@ namespace Repository.Repositories
         }
 
 
-        public bool Alterar(ParcelaReceber parcelareceber)
+        public bool Alterar(ParcelaReceber parcelaReceber)
         {
             var parcelaReceberOriginal = context.ParcelasReceber
-                 .Where(x => x.Id == parcelareceber.Id)
+                 .Where(x => x.Id == parcelaReceber.Id)
                  .FirstOrDefault();
             if (parcelaReceberOriginal == null)
             {
                 return false;
             }
-            parcelaReceberOriginal.Valor = parcelareceber.Valor;
-            parcelaReceberOriginal.Status = parcelareceber.Status;
-            parcelaReceberOriginal.DataVencimento = parcelareceber.DataVencimento;
-            parcelaReceberOriginal.DataRecebimento = parcelareceber.DataRecebimento;
-            parcelareceber.IdTituloReceber = parcelareceber.IdTituloReceber;
+            parcelaReceberOriginal.Valor = parcelaReceber.Valor;
+            parcelaReceberOriginal.Status = parcelaReceber.Status;
+            parcelaReceberOriginal.DataVencimento = parcelaReceber.DataVencimento;
+            parcelaReceberOriginal.DataRecebimento = parcelaReceber.DataRecebimento;
+            parcelaReceberOriginal.IdTituloReceber = parcelaReceber.IdTituloReceber;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -49,11 +49,11 @@ namespace Repository.Repositories
             return quantidadeAfetada == 1;
         }
 
-        public int Inserir(ParcelaReceber parcelareceber)
+        public int Inserir(ParcelaReceber parcelaReceber)
         {
-            context.ParcelasReceber.Add(parcelareceber);
+            context.ParcelasReceber.Add(parcelaReceber);
             context.SaveChanges();
-            return parcelareceber.Id;
+            return parcelaReceber.Id;
         }
 
         public ParcelaReceber ObterPeloId(int id)

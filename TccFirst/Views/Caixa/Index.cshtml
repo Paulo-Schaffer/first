@@ -3,8 +3,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Caixa</h2>
 
-@section js{
+<button data-toggle="modal" data-target="#modal-caixa" class="btn btn-primary">Cadastrar</button>
+<table id="caixa-tabela" class="table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Documento</th>
+            <th>Forma de Pagamento</th>
+            <th>Valor</th>
+            <th>Data de Lançamento</th>
+            <th>Status</th>
+            <th>Historico</th>
+        </tr>
+    </thead>
+</table>
+@RenderPage("CadastroCaixa.cshtml")
 
-}

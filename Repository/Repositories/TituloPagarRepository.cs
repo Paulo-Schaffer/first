@@ -19,12 +19,13 @@ namespace Repository.Repositories
 
         public bool Alterar(TituloPagar tituloPagar)
         {
+
             var tituloPagarOficial = context.TitulosPagar.FirstOrDefault(x => x.Id == tituloPagar.Id);
             if (tituloPagar == null)
                 return false;
 
-            tituloPagarOficial.IdCategoriaDepesesas = tituloPagarOficial.IdCategoriaDepesesas;
-            tituloPagarOficial.IdFornecedor = tituloPagarOficial.IdFornecedor;
+            tituloPagarOficial.IdCategoriasDepesesas = tituloPagarOficial.IdCategoriasDepesesas;
+            tituloPagarOficial.IdFornecedores = tituloPagarOficial.IdFornecedores;
             tituloPagarOficial.Descricao = tituloPagarOficial.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagarOficial.FormaPagamento;
             tituloPagarOficial.Caixa = tituloPagarOficial.Caixa;
@@ -38,10 +39,12 @@ namespace Repository.Repositories
 
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
+
         }
 
         public bool Apagar(int id)
         {
+
             var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
 
             if (tituloPagar == null)
@@ -50,21 +53,24 @@ namespace Repository.Repositories
             tituloPagar.RegistroAtivo = tituloPagar.RegistroAtivo;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
+
+
         }
 
         public int Inserir(TituloPagar tituloPagar)
         {
+
             tituloPagar.RegistroAtivo = true;
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
+
         }
 
         public TituloPagar ObterPeloId(int id)
         {
-            return context.TitulosPagar
-                .Include("TituloPagar")
-                .FirstOrDefault(x => x.Id == id);
+            var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
+            return tituloPagar;
         }
 
         public List<TituloPagar> ObterTodos()

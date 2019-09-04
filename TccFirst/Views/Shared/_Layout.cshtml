@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="br">
 
 <head>
-    <title>GURU Able - Premium Admin Template </title>
+    <title>First </title> 
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesn't work if ysou view the page via file:// -->
     <!--[if lt IE 10]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -137,7 +137,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="~/Content/tema/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>John Doe</span>
+                                    <span>Francisco Lucas Sens</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -253,7 +253,7 @@
                             <div class="pcoded-search">
                                 <span class="searchbar-toggle"> </span>
                                 <div class="pcoded-search-box ">
-                                    <input type="text" placeholder="Search">
+                                    <input type="text" placeholder="Procurar">
                                     <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
                                 </div>
                             </div>
@@ -277,20 +277,19 @@
                                         <li class=" ">
                                             <a href="/tituloreceber/index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">
-                                                    Título
-                                                    a receber
-                                                </span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.alert">Título a receber</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class=" ">
-                                            <a href="/titulopagar/cadastro">
+                                        <li class="">
+                                            <a href="/titulopagar/Index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Título a pagar</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
+
                                         </li>
                                         <li class=" ">
                                             <a href="/relatorios/index">
@@ -347,15 +346,13 @@
                                         <li class=" ">
                                             <a href="/tituloreceber/index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">
-                                                    Título
-                                                    a receber
-                                                </span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.alert">Título a receber</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/titulopagar/cadastro">
+                                            <a href="/titulopagar/Index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Título a pagar</span>
@@ -370,11 +367,21 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class=" ">
-                                            <a href="/clientepessoafisica">
+
+                                        <li class="">
+                                            <a href="/clientepessoafisica/index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Clientes</span>
+                                                      data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Fisica</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+
+                                        <li class=" ">
+                                            <a href="/clientepessoajuridica/index">
+
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -387,10 +394,18 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/banco/cadastro">
+                                            <a href="/Agencia/Cadastro">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Banco</span>
+                                                      data-i18n="nav.basic-components.breadcrumbs">Agencia</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/ContaCorrente/Index">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Conta Corrente</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -421,6 +436,10 @@
             </div>
         </div>
     </div>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    
 
     <!-- Warning Section Starts -->
     <!-- Older IE warning message -->
@@ -434,7 +453,7 @@
                     <a href="http://www.google.com/chrome/">
                         <img src="~/Content/tema/assets/images/browser/chrome.png" alt="Chrome">
                         <div>Chrome</div>
-                    </a>
+                    </a>  
                 </li>
                 <li>
                     <a href="https://www.mozilla.org/en-US/firefox/new/">
@@ -508,6 +527,7 @@
     <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
     <script src="~/Scripts/ClientePessoaFisica/jquery.mask.js"></script>
     <script src="~/Scripts/ClientePessoaFisica/moment.js"></script>
+    <script src="~/Scripts/ClientePessoaFisica/datetime.js"></script>
     @RenderSection("js", false)
 </body>
 
