@@ -44,7 +44,7 @@ namespace Repository.Repositories
             movimentacaoFinanceiraSaida.RegistroAtivo = true;
             context.MovimentacaoFinanceiraSaidas.Add(movimentacaoFinanceiraSaida);
             context.SaveChanges();
-            return movimentacaoFinanceiraSaida.Id
+            return movimentacaoFinanceiraSaida.Id;
         }
 
         public MovimentacaoFinanceiraSaida ObterPeloId(int id)
