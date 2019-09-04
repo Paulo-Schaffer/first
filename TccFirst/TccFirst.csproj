@@ -5470,7 +5470,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
-    <Content Include="Scripts\ClientePessoaFisica\clientePessoaFisica.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -5490,7 +5489,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\TituloPagar\TituloPagar.js" />
+    <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -5595,7 +5594,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
     <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />

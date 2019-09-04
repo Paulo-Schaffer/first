@@ -4,25 +4,30 @@
 
 <h2>Lista de Títulos a Pagar</h2>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tituloPagar"> Criar título a Pagar</button>
-    <table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Descrição</th>
-                <th>Forma de Pagamento</th>
-                <th>Caixa</th>
-                <th>Valor Total</th>
-                <th>Status</th>
-                <th>Data Lançamento</th>
-                <th>Data Pagamento</th>
-                <th>Data Vencimento</th>
-                <th>Complemento</th>
-                <th>Quantidade de Parcelas</th>
-            </tr>
-        </thead>
-    </table>
-    @RenderPage("CadastroTituloPagar.cshtml")
+<button data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-primary">Novo Titulo a Pagar</button>
+<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Forma de Pagamento</th>
+            <th>Caixa</th>
+            <th>Valor Total</th>
+            <th>Status</th>
+            <th>Data Lançamento</th>
+            <th>Data Pagamento</th>
+            <th>Data Vencimento</th>
+            <th>Complemento</th>
+            <th>Quantidade de Parcelas</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+@RenderPage("CadastroTituloPagar.cshtml")
+
+@section js{
+    <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
+}
 
 
 
