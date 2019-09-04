@@ -1,24 +1,24 @@
 ﻿$(function () {
     $idAlterar = -1;
     
-    $tabelaClientePessoaJuridica = $('#cliente-pessoa-juridica-tabela').DataTable({
+    $tabelaClientePessoaJuridica = $("#cliente-pessoa-juridica-tabela").DataTable({
         ajax: '/ClientePessoaJuridica/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Id' },
-            { 'data': 'Razão Social' },
+            { 'data': 'RazaoSocial' },
             { 'data': 'Atividade' },
-            { 'data': 'Nome Fantasia' },
-            { 'data': 'Data Cadastro' },
-            { 'data': 'CNPJ' },
-            { 'data': 'E Mail' },
+            { 'data': 'NomeFantasia' },
+            { 'data': 'DataCadastro' },
+            { 'data': 'Cnpj' },
+            { 'data': 'Email' },
             { 'data': 'Filial' },
             { 'data': 'Telefone' },
-            { 'data': 'CEP' },
+            { 'data': 'Cep' },
             { 'data': 'Logradouro' },
             { 'data': 'Numero' },
             { 'data': 'Bairro' },
-            { 'data': 'UF' },
+            { 'data': 'Uf' },
             { 'data': 'Cidade' },
             {
                 render: function (data, type, row) {
@@ -27,24 +27,23 @@
             }
         ]
     });
-    $('#clientePessoaJuridica-botao-salvar').on('Click', function () {
-        $razaoSocial: $('#clientePessoaJuridica-campo-razaoSocial').val();
-        $atividade: $('#clientePessoaJuridica-campo-atividade').val();
-        $nomeFantasia: $('#clientePessoaJuridica-campo-nomeFantasia').val();
-        $dataCadastro: $('#clientePessoaJuridica-campo-dataCadastro').val();
-        $cnpj: $('#clientePessoaJuridica-campo-cnpj').val();
-        $email: $('#clientePessoaJuridica-campo-email').val();
-        $filial: $('#clientePessoaJuridica-campo-filial').val();
-        $telefone: $('#clientePessoaJuridica-campo-telefone').val();
-        $cep: $('#clientePessoaJuridica-campo-cep').val();
-        $logradouro: $('#clientePessoaJuridica-campo-logradouro').val();
-        $numero: $('#clientePessoaJuridica-campo-numero').val();
-        $bairro: $('#clientePessoaJuridica-campo-bairro').val();
-        $uf: $('#clientePessoaJuridica-campo-uf').val();
-        $cidade: $('#clientePessoaJuridica-campo-cidade').val();
+    $('#clientePessoaJuridica-botao-salvar').on('click', function () {
+        $razaoSocial= $('#clientePessoaJuridica-campo-razaoSocial').val();
+        $atividade= $('#clientePessoaJuridica-campo-atividade').val();
+        $nomeFantasia= $('#clientePessoaJuridica-campo-nomeFantasia').val();
+        $dataCadastro= $('#clientePessoaJuridica-campo-dataCadastro').val();
+        $cnpj= $('#clientePessoaJuridica-campo-cnpj').val();
+        $email= $('#clientePessoaJuridica-campo-email').val();
+        $filial= $('#clientePessoaJuridica-campo-filial').val();
+        $telefone= $('#clientePessoaJuridica-campo-telefone').val();
+        $cep= $('#clientePessoaJuridica-campo-cep').val();
+        $logradouro= $('#clientePessoaJuridica-campo-logradouro').val();
+        $numero= $('#clientePessoaJuridica-campo-numero').val();
+        $bairro= $('#clientePessoaJuridica-campo-bairro').val();
+        $uf= $('#clientePessoaJuridica-campo-uf').val();
+        $cidade= $('#clientePessoaJuridica-campo-cidade').val();
 
-
-        if (idAlterar == -1) {
+        if ($idAlterar == -1) {
             inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade);
         } else {
             alterar($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade);
@@ -84,10 +83,9 @@
     }
     function inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
         $.ajax({
-            url: "/clientePessoaJuridica/Inserir",
+            url: "/clientePessoaJuridica/inserir",
             method: 'post',
             data: {
-
                 RazaoSocial: $razaoSocial,
                 Atividade: $atividade,
                 NomeFantasia: $nomeFantasia,
@@ -117,7 +115,7 @@
         $idApagar = $(this).data('id');
 
         $.ajax({
-            url: "/ClientePessoaJuridica/apagar?id=" + $idApagar,
+            url: "/clientePessoaJuridica/apagar?id=" + $idApagar,
             method: 'get',
             success: function (data) {
                 $tabelaclientePessoaJuridica.ajax.reload();
@@ -131,7 +129,7 @@
         $idAlterar = $(this).data('id');
 
         $.ajax({
-            url: "/ClientePessoaJuridica/obterpeloid?id=" + idAlterar,
+            url: "/clientePessoaJuridica/obterpeloid?id=" + $idAlterar,
             method: 'get',
             success: function (data) {
                 $('#clientePessoaJuridica-campo-razaoSocial').val(data.razaoSocial);

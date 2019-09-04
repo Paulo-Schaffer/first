@@ -15,14 +15,11 @@ namespace TccFirst.Controllers
         public ClientePessoaJuridicaController()
         {
             repository = new ClientePessoaJuridicaRepository();
-        }
-
-        
+        }        
         public ActionResult Index()
         {
             return View();
-        }
-        
+        }        
         [HttpGet]
         public JsonResult ObterTodos()
         {
