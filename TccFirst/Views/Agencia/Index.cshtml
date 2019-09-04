@@ -1,29 +1,26 @@
 ﻿
-<h4>Cadastro de Agencias</h4>
-<br />
 
-<form action="~/Agencia/Cadastro">
-    <div class="container">
-        <div class="form-group">
-            <label for="agencia-campo-banco">Banco<span class="text-danger">*</span></label>
-            <input type="text" id="agencia-campo-banco" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="agencia-campo-nomeagencia">Nome da Agencia<span class="text-danger">*</span></label>
-            <input type="text" id="agencia-campo-nomeagencia" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="campo-agencia-numeroagencia" mas>Numero da Agencia<span class="text-danger">*</span></label>
-            <input type="text" id="agencia-campo-numeroagencia" class="form-control" />
-        </div>
+@{
+    ViewBag.Title = "Index";
+}
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="agencia-botao-salvar" data-dismiss="modal">Salvar</button>
+<h2>Agencia</h2>
 
-            <button type="button" class="btn btn-danger" id="agencia-botao-cancelar">Cancelar</button>
+<button class="btn btn-primary   float-right mb-3"
+   href="/agencia/cadastro.cshtml   ">Nova Agencia</button>
 
-        </div>
-    </div>
-</form>
+<table id="agencia-index" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome Banco</th>
+            <th>Nome Agencia</th>
+            <th>Numero Agencia</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+   
+
+</table>
 
 

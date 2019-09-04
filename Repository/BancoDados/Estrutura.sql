@@ -9,7 +9,7 @@ CREATE TABLE funcionarios(
 INSERT INTO funcionarios(nome, tipo_funcionario) VALUES
 ('Paulo',2);
 
-SELECT * FROM funcionarios;
+SELECT * FROM agencias;
 
 CREATE TABLE logins(
 	id INT PRIMARY KEY IDENTITY(1,1),
