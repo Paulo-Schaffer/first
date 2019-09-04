@@ -23,9 +23,7 @@
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
 
                 }
-
             }
-
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
@@ -66,8 +64,6 @@
                 bairro: $cidade,
                 uf: $uf,
                 complemento: $complemento
-
-
             },
             success: function (data) {
                 $("#modal-clientePessoaFisica").modal("hide");
