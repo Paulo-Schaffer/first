@@ -5497,6 +5497,7 @@
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Scripts\ClientePessoaJuridica\clientePessoaJuridica.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
+    <Content Include="Scripts\ClientePessoaFisica\datetime.js" />
     <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
     <Content Include="Scripts\ClientePessoaFisica\moment.js" />
     <Content Include="Web.config" />
