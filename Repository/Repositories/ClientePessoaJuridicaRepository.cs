@@ -19,9 +19,8 @@ namespace Repository.Repositories
 
         public bool Alterar(ClientePessoaJuridica clientePessoaJuridica)
         {
-            var clientePessoaJuridicaOriginal = context.ClientesPessoasJuridicas
-                 .Where(x => x.Id == clientePessoaJuridica.Id)
-                 .FirstOrDefault();
+            var clientePessoaJuridicaOriginal = context.ClientesPessoasJuridicas         
+                 .FirstOrDefault(x => x.Id == clientePessoaJuridica.Id);
             if(clientePessoaJuridicaOriginal==null)
             {
                 return false;
@@ -52,7 +51,7 @@ namespace Repository.Repositories
                 return false;
             }
             clientePessoaJuridica.RegistroAtivo = false;
-            context.SaveChanges();
+            
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -67,7 +66,6 @@ namespace Repository.Repositories
         public ClientePessoaJuridica ObterPeloId(int id)
         {
             var clientePessoaJuridica = context.ClientesPessoasJuridicas
-                 .Where(x => x.Id == id)
                  .FirstOrDefault(x => x.Id == id);
             return clientePessoaJuridica;
         }
@@ -76,7 +74,7 @@ namespace Repository.Repositories
         {
             return context.ClientesPessoasJuridicas
                .Where(x => x.RegistroAtivo == true)
-               .OrderBy(x => x.RazaoSocial)
+               .OrderBy(x => x.Id)
                .ToList();
         }
     }

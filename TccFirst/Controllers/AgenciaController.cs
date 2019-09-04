@@ -13,6 +13,8 @@ namespace TccFirst.Controllers
 
         private AgenciaRepository repository;
 
+        public int ConvertToInt32 { get; private set; }
+
         public AgenciaController()
         {
             repository = new AgenciaRepository();
@@ -36,10 +38,18 @@ namespace TccFirst.Controllers
         [HttpPost]
         public JsonResult Inserir(Agencia agencia)
         {
+            string numeroAgencia = "";
+            agencia.NumeroAgencia = numeroAgencia; 
+
             agencia.RegistroAtivo = true;
-            var id = repository.Inserir(agencia);
-            var resultado = new { id = id };
+            var id = repository.Inserir(agencia);   
+
+
+
+
+            var resultado = new { id=id };     
             return Json(resultado);
+            
         }
 
         [HttpGet]
@@ -75,6 +85,7 @@ namespace TccFirst.Controllers
                 agenciasSelect.Add(new
                 {
                     id = agencia.Id,
+                    banco = agencia.Banco,
                     nome = agencia.NomeAgencia,
                     numero = agencia.NumeroAgencia
                 });
