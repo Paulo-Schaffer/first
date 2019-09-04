@@ -6,7 +6,7 @@
         serverSide: true,
         columns: [
             { 'data': 'Id' },
-            { 'data': 'NomeBanco' },
+            { 'data': 'Banco' },
             { 'data': 'NomeAgencia' },
             { 'data': 'NumeroAgencia' },
             {
