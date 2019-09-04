@@ -28,20 +28,20 @@
         ]
     });
     $('#clientePessoaJuridica-botao-salvar').on('Click', function () {
-        $razaoSocial = $('#clientePessoaJuridica-campo-razaoSocial').val();
-        $atividade = $('#clientePessoaJuridica-campo-atividade').val();
-        $nomeFantasia = $('#clientePessoaJuridica-campo-nomeFantasia').val();
-        $dataCadastro = $('#clientePessoaJuridica-campo-dataCadastro').val();
-        $cnpj = $('#clientePessoaJuridica-campo-cnpj').val();
-        $email = $('#clientePessoaJuridica-campo-email').val();
-        $filial = $('#clientePessoaJuridica-campo-filial').val();
-        $telefone = $('#clientePessoaJuridica-campo-telefone').val();
-        $cep = $('#clientePessoaJuridica-campo-cep').val();
-        $logradouro = $('#clientePessoaJuridica-campo-logradouro').val();
-        $numero = $('#clientePessoaJuridica-campo-numero').val();
-        $bairro = $('#clientePessoaJuridica-campo-bairro').val();
-        $uf = $('#clientePessoaJuridica-campo-uf').val();
-        $cidade = $('#clientePessoaJuridica-campo-cidade').val();
+        $razaoSocial: $('#clientePessoaJuridica-campo-razaoSocial').val();
+        $atividade: $('#clientePessoaJuridica-campo-atividade').val();
+        $nomeFantasia: $('#clientePessoaJuridica-campo-nomeFantasia').val();
+        $dataCadastro: $('#clientePessoaJuridica-campo-dataCadastro').val();
+        $cnpj: $('#clientePessoaJuridica-campo-cnpj').val();
+        $email: $('#clientePessoaJuridica-campo-email').val();
+        $filial: $('#clientePessoaJuridica-campo-filial').val();
+        $telefone: $('#clientePessoaJuridica-campo-telefone').val();
+        $cep: $('#clientePessoaJuridica-campo-cep').val();
+        $logradouro: $('#clientePessoaJuridica-campo-logradouro').val();
+        $numero: $('#clientePessoaJuridica-campo-numero').val();
+        $bairro: $('#clientePessoaJuridica-campo-bairro').val();
+        $uf: $('#clientePessoaJuridica-campo-uf').val();
+        $cidade: $('#clientePessoaJuridica-campo-cidade').val();
 
 
         if (idAlterar == -1) {
@@ -56,21 +56,21 @@
             url: "http://localhost:50838/ClientePessoaJuridica/update",
             method: "post",
             data: {
-                id = $idalterar,
-                razaoSocial = $razaoSocial,
-                atividade=$atividade,
-                nomeFantasia=$nomeFantasia,
-                dataCadastro=$dataCadastro,
-                cnpj= $cnpj,
-                email=$email,
-                filial=$filial,
-                telefone=$telefone,
-                cep=$cep,
-                logradouro=$logradouro,
-                numero=$numero,
-                bairro=$bairro,
-                uf=$uf,
-                cidade=$cidade
+                id: $idalterar,
+                razaoSocial: $razaoSocial,
+                atividade: $atividade,
+                nomeFantasia: $nomeFantasia,
+                dataCadastro: $dataCadastro,
+                cnpj: $cnpj,
+                email: $email,
+                filial: $filial,
+                telefone: $telefone,
+                cep: $cep,
+                logradouro: $logradouro,
+                numero: $numero,
+                bairro: $bairro,
+                uf: $uf,
+                cidade: $cidade
             },
             success: function (data) {
                 $("#modal-clientePessoaJuridica").modal("hide");
@@ -88,20 +88,20 @@
             method: 'post',
             data: {
 
-                razaoSocial = $razaoSocial,
-                atividade=$atividade,
-                nomeFantasia=$nomeFantasia,
-                dataCadastro=$dataCadastro,
-                cnpj= $cnpj,
-                email=$email,
-                filial=$filial,
-                telefone=$telefone,
-                cep=$cep,
-                logradouro=$logradouro,
-                numero=$numero,
-                bairro=$bairro,
-                uf=$uf,
-                cidade=$cidade
+                razaoSocial: $razaoSocial,
+                atividade: $atividade,
+                nomeFantasia: $nomeFantasia,
+                dataCadastro: $dataCadastro,
+                cnpj: $cnpj,
+                email: $email,
+                filial: $filial,
+                telefone: $telefone,
+                cep: $cep,
+                logradouro: $logradouro,
+                numero: $numero,
+                bairro: $bairro,
+                uf: $uf,
+                cidade: $cidade
             },
             success: function (data) {
                 $('#modal-clientePessoaJuridica').modal('hide');

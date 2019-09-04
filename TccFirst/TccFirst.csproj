@@ -5584,6 +5584,12 @@
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\ContaCorrente\Index.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
+    <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
+    <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
+    <Content Include="Views\ClientePessoaJuridica\CadastroPessoaJuridica.cshtml" />
+    <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
+    <Content Include="Views\Historico\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
