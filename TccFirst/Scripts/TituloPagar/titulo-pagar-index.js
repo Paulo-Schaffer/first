@@ -2,7 +2,7 @@
     $idAlterar = -1;
 
     $tabelaTituloPagar = $("#titulo-pagar-tabela").DataTable({
-        ajax: '/titulopagar/obtertodos',
+        ajax: '/TituloPagar/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Descricao' },
@@ -41,7 +41,7 @@
         });
     });
 
-    $('#tituloPagar-botao-salvar').on('click', function () {
+    $('#titulo-pagar-botao-salvar').on('click', function () {
         $Descricao = $('#tituloPagar-campo-descricao').val();
         $FormaPagamento = $('#tituloPagar-campo-formaPagamento').val();
         $Caixa = $('#tituloPagar-campo-caixa').val();
