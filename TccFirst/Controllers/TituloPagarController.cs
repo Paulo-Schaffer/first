@@ -56,7 +56,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("tituloPagar/")]
+        [HttpGet, Route("tituloPagar")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);

@@ -11,10 +11,12 @@ namespace Repository.Repositories
     public class ClientePessoaFisicaRepository : IClientePessoaFisicaRepository
     {
         private SistemaContext context;
+
         public ClientePessoaFisicaRepository()
         {
             context = new SistemaContext();
         }
+
         public bool Alterar(ClientePessoaFisica clientePessoaFisica)
         {
             var clientePessoaFisicaOriginal = context.ClientesPessoasFisicas.FirstOrDefault(x => x.Id == clientePessoaFisica.Id);
@@ -49,6 +51,7 @@ namespace Repository.Repositories
 
         public int Inserir(ClientePessoaFisica clientePessoaFisica)
         {
+            clientePessoaFisica.RegistroAtivo = true;
             context.ClientesPessoasFisicas.Add(clientePessoaFisica);
             context.SaveChanges();
             return clientePessoaFisica.Id;
@@ -56,7 +59,8 @@ namespace Repository.Repositories
 
         public ClientePessoaFisica ObterPeloId(int id)
         {
-            var clientePessoaFisica = context.ClientesPessoasFisicas.FirstOrDefault(x => x.Id == id);
+            var clientePessoaFisica = context.ClientesPessoasFisicas
+                .FirstOrDefault(x => x.Id == id);
             return clientePessoaFisica;
         }
 
