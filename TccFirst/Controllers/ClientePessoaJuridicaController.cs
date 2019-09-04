@@ -35,6 +35,7 @@ namespace TccFirst.Controllers
         public JsonResult Inserir(ClientePessoaJuridica clientePessoaJuridica)
         {
             clientePessoaJuridica.RegistroAtivo = true;
+            
             var id = repository.Inserir(clientePessoaJuridica);
             var resultado = new { id = id };
             return Json(resultado);

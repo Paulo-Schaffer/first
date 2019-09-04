@@ -32,6 +32,12 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/jquery.mCustomScrollbar.css">
+
+
+    <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
     @RenderSection("css", false)
 </head>
 
@@ -365,7 +371,7 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/clientepessoajuridica/index">
+                                            <a href="/clientepessoafisica">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
@@ -373,7 +379,7 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/fornecedor/cadastro">
+                                            <a href="/caixa/cadastro">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Caixa</span>
@@ -381,7 +387,7 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/fornecedor/cadastro">
+                                            <a href="/banco/cadastro">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Banco</span>
@@ -487,12 +493,25 @@
             src="~/content/tema/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="~/content/tema/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
     <!-- Custom js -->
-    <script type="text/javascript" src="~/Content/tema/assets/pages/dashboard/custom-dashboard.min.js"></script>
     <script type="text/javascript" src="~/Content/tema/assets/js/SmoothScroll.js"></script>
     <script src="~/Content/tema/assets/js/pcoded.min.js"></script>
     <script src="~/Content/tema/assets/js/demo-12.js"></script>
     <script src="~/Content/tema/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="~/Content/tema/assets/js/script.min.js"></script>
+
+    <!-- data-table js -->
+    <script src="~/Content/tema/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/tema/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/tema/assets/pages/data-table/js/jszip.min.js"></script>
+    <script src="~/Content/tema/assets/pages/data-table/js/pdfmake.min.js"></script>
+    <script src="~/Content/tema/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script src="~/Content/tema/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/tema/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Scripts/ClientePessoaFisica/jquery.mask.js"></script>
+    <script src="~/Scripts/ClientePessoaFisica/moment.js"></script>
     @RenderSection("js", false)
 </body>
 

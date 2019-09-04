@@ -52,6 +52,7 @@
     <Compile Include="Interfaces\ICaixaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaReceitaRepository.cs" />
+    <Compile Include="Interfaces\IClientePessoaFisicaRepository.cs" />
     <Compile Include="Interfaces\IContaCorrenteRepository.cs" />
     <Compile Include="Interfaces\IClientePessoaJuridicaRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Repositories\AgenciaRepository.cs" />
     <Compile Include="Repositories\CaixaRepository.cs" />
     <Compile Include="Repositories\CategoriaReceitaRepository.cs" />
+    <Compile Include="Repositories\ClientePessoaFisicaRepository.cs" />
     <Compile Include="Repositories\ContaCorrenteRepository.cs" />
     <Compile Include="Repositories\ClientePessoaJuridicaRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
@@ -82,32 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Content\bootstrap-grid.css.map" />
-    <None Include="Content\bootstrap-grid.min.css.map" />
-    <None Include="Content\bootstrap-reboot.css.map" />
-    <None Include="Content\bootstrap-reboot.min.css.map" />
-    <None Include="Content\bootstrap.css.map" />
-    <None Include="Content\bootstrap.min.css.map" />
     <None Include="packages.config" />
-    <None Include="Scripts\bootstrap.bundle.js.map" />
-    <None Include="Scripts\bootstrap.bundle.min.js.map" />
-    <None Include="Scripts\bootstrap.js.map" />
-    <None Include="Scripts\bootstrap.min.js.map" />
-    <None Include="Scripts\esm\popper-utils.js.map" />
-    <None Include="Scripts\esm\popper-utils.min.js.map" />
-    <None Include="Scripts\esm\popper.js.map" />
-    <None Include="Scripts\esm\popper.min.js.map" />
-    <None Include="Scripts\jquery-3.0.0.min.map" />
-    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <None Include="Scripts\popper-utils.js.map" />
-    <None Include="Scripts\popper-utils.min.js.map" />
-    <None Include="Scripts\popper.js.map" />
-    <None Include="Scripts\popper.min.js.map" />
-    <None Include="Scripts\README.md" />
-    <None Include="Scripts\umd\popper-utils.js.map" />
-    <None Include="Scripts\umd\popper-utils.min.js.map" />
-    <None Include="Scripts\umd\popper.js.map" />
-    <None Include="Scripts\umd\popper.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BancoDados\Estrutura.sql" />
@@ -145,9 +122,6 @@
       <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
       <Name>Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
