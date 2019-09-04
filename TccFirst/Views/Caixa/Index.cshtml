@@ -1,42 +1,23 @@
 ﻿
-
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Agencia</h2>
+<h2>Caixa</h2>
 
-<a class="btn btn-primary   float-right mb-3"
-   href="/agencia/cadastro">Nova Agencia</a>
-
-<table id="agencia-tabela" class="table table-hover table-bordered table-striped">
+<button data-toggle="modal" data-target="#modal-pessoa" class="btn btn-primary">Cadastrar</button>
+<table id="caixa-tabela" class="table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Código</th>
-            <th>Nome Banco</th>
-            <th>Nome Agencia</th>
-            <th>Numero Agencia</th>
-            <th>Ação</th>
+            <th>Descrição</th>
+            <th>Documento</th>
+            <th>Forma de Pagamento</th>
+            <th>Valor</th>
+            <th>Data de Lançamento</th>
+            <th>Status</th>
+            <th>Historico</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (Model.Agencia agencia in ViewBag.Agencias)
-        {
-            <tr>
-                <td>@agencia.Id</td>
-                <td>@agencia.Banco</td>
-                <td>@agencia.NomeAgencia</td>
-                <td>@agencia.NumeroAgencia</td>
-                <td>
-                    <a class="btn btn-outline-info" href="/agencia/alterar?id=@agencia.Id"><i class="fa fa-edit"></i> Alterar</a>
-                    <a class="btn btn-outline-danger" href="/agencia/apagar?id=@agencia.Id"><i class="fa fa-trash"></i> Apagar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
 </table>
-@section js {
-    <script src="~/Scripts/Agencia/Agencia.js"></script>
-}
-
 
