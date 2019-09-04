@@ -16,5 +16,8 @@ namespace Model
 
         [Column("tipo_categoria_despesa")]
         public string TipoCategoriaDespesa { get; set; }
+
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
     }
 }

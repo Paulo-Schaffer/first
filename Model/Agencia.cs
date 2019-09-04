@@ -16,7 +16,7 @@ namespace Model
 
 
         [Column("banco")]
-        public int  Banco { get; set; }
+        public string  Banco { get; set; }
 
 
         [Column("nome_agencia")]
