@@ -5463,12 +5463,16 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.eot" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
+    <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
+    <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
+    <Content Include="Scripts\ClientePessoaFisica\moment.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
+    <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
@@ -5502,6 +5506,8 @@
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
+    <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
