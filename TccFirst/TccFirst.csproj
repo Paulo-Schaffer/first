@@ -5465,6 +5465,7 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
     <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
+    <Content Include="Scripts\ClientePessoaFisica\moment.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
