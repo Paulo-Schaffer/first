@@ -5466,6 +5466,7 @@
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
     <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
     <Content Include="Scripts\ClientePessoaFisica\moment.js" />
+    <Content Include="Scripts\ClientePessoaJuridica\clientePessoaJuridica.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5519,7 +5520,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />

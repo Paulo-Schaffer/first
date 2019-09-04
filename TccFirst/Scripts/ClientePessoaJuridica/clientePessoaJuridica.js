@@ -1,9 +1,9 @@
 ﻿$(function () {
     $idAlterar = -1;
-
-    $tabelaClientePessoaJuridica = $('#clientePessoaJuridica-tabela').DataTable({
-        ajax: 'http://localhost:50838/ClientePessoaJuridica/ObterTodos',
-        serverSide = true,
+    
+    $tabelaClientePessoaJuridica = $('#cliente-pessoa-juridica-tabela').DataTable({
+        ajax: '/ClientePessoaJuridica/obtertodos',
+        severSide: true,
         columns: [
             { 'data': 'Id' },
             { 'data': 'Razão Social' },
@@ -53,10 +53,10 @@
     function alterar($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
 
         $.ajax({
-            url: "http://localhost:50838/ClientePessoaJuridica/update",
+            url: "/ClientePessoaJuridica/update",
             method: "post",
             data: {
-                id: $idalterar,
+                id: $idAlterar,
                 razaoSocial: $razaoSocial,
                 atividade: $atividade,
                 nomeFantasia: $nomeFantasia,
@@ -74,8 +74,8 @@
             },
             success: function (data) {
                 $("#modal-clientePessoaJuridica").modal("hide");
-                $idalterar = -1;
-                $tabelaclientePessoaJuridica.ajax.reload();
+                $idAlterar = -1;
+                $tabela.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possivel alterar");
@@ -84,24 +84,24 @@
     }
     function inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
         $.ajax({
-            url: "http://localhost:50838/ClientePessoaJuridica/Inserir",
+            url: "/clientePessoaJuridica/Inserir",
             method: 'post',
             data: {
 
-                razaoSocial: $razaoSocial,
-                atividade: $atividade,
-                nomeFantasia: $nomeFantasia,
-                dataCadastro: $dataCadastro,
-                cnpj: $cnpj,
-                email: $email,
-                filial: $filial,
-                telefone: $telefone,
-                cep: $cep,
-                logradouro: $logradouro,
-                numero: $numero,
-                bairro: $bairro,
-                uf: $uf,
-                cidade: $cidade
+                RazaoSocial: $razaoSocial,
+                Atividade: $atividade,
+                NomeFantasia: $nomeFantasia,
+                DataCadastro: $dataCadastro,
+                Cnpj: $cnpj,
+                Email: $email,
+                Filial: $filial,
+                Telefone: $telefone,
+                Cep: $cep,
+                Logradouro: $logradouro,
+                Numero: $numero,
+                Bairro: $bairro,
+                Uf: $uf,
+                Cidade: $cidade
             },
             success: function (data) {
                 $('#modal-clientePessoaJuridica').modal('hide');
@@ -117,7 +117,7 @@
         $idApagar = $(this).data('id');
 
         $.ajax({
-            url: "http://localhost:50838/ClientePessoaJuridica/Apagar?id=" + $idApagar,
+            url: "/ClientePessoaJuridica/apagar?id=" + $idApagar,
             method: 'get',
             success: function (data) {
                 $tabelaclientePessoaJuridica.ajax.reload();
@@ -125,13 +125,13 @@
             error: function (err) {
                 alert('Não foi possivel apagar');
             }
-        })
-    })
+        });
+    });
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
 
         $.ajax({
-            url: "http://localhost:50838/ClientePessoaJuridica/obterpeloid?id=" + idAlterar,
+            url: "/ClientePessoaJuridica/obterpeloid?id=" + idAlterar,
             method: 'get',
             success: function (data) {
                 $('#clientePessoaJuridica-campo-razaoSocial').val(data.razaoSocial);
