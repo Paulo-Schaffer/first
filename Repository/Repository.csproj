@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IClientePessoaFisicaRepository.cs" />
     <Compile Include="Interfaces\IContaCorrenteRepository.cs" />
     <Compile Include="Interfaces\IClientePessoaJuridicaRepository.cs" />
+    <Compile Include="Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
     <Compile Include="Interfaces\IHistoricoRepository.cs" />
     <Compile Include="Interfaces\ILoginRepository.cs" />
@@ -67,10 +68,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AgenciaRepository.cs" />
     <Compile Include="Repositories\CaixaRepository.cs" />
+    <Compile Include="Repositories\CategoriaDespesaRepository.cs" />
     <Compile Include="Repositories\CategoriaReceitaRepository.cs" />
     <Compile Include="Repositories\ClientePessoaFisicaRepository.cs" />
     <Compile Include="Repositories\ContaCorrenteRepository.cs" />
     <Compile Include="Repositories\ClientePessoaJuridicaRepository.cs" />
+    <Compile Include="Repositories\FornecedorRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
     <Compile Include="Repositories\HistoricoRepository.cs" />
     <Compile Include="Repositories\LoginRepository.cs" />
