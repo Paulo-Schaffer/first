@@ -1,6 +1,8 @@
 ﻿DROP TABLE funcionarios, logins, clientes_pessoa_fisica, clientes_pessoa_juridica, categorias_despesas,categorias_receita, fornecedores, titulos_receber, titulos_pagar, parcelas_receber,parcelas_pagar, caixas, movimentacoes_financeira_saida, movimentacoes_financeiras_entradas, historicos, agencias, contas_corrente;
 
 
+SELECT * FROM agencias;
+
 CREATE TABLE funcionarios(
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(45),
@@ -9,7 +11,6 @@ CREATE TABLE funcionarios(
 INSERT INTO funcionarios(nome, tipo_funcionario) VALUES
 ('Paulo',2);
 
-SELECT * FROM agencias;
 
 CREATE TABLE logins(
 	id INT PRIMARY KEY IDENTITY(1,1),

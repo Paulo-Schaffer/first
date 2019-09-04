@@ -23,6 +23,8 @@ namespace TccFirst.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            AgenciaRepository repositoryAgencia = new AgenciaRepository();
+            ViewBag.Agencias = repositoryAgencia.ObterTodos();
             return View();
         }
 
@@ -38,15 +40,8 @@ namespace TccFirst.Controllers
         [HttpPost]
         public JsonResult Inserir(Agencia agencia)
         {
-            string numeroAgencia = "";
-            agencia.NumeroAgencia = numeroAgencia; 
-
             agencia.RegistroAtivo = true;
             var id = repository.Inserir(agencia);   
-
-
-
-
             var resultado = new { id=id };     
             return Json(resultado);
             
