@@ -45,7 +45,8 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost
+            ]
         public JsonResult Update(ClientePessoaFisica clientePessoaFisica)
         {
             var alterou = repository.Alterar(clientePessoaFisica);
