@@ -1,4 +1,11 @@
 ﻿$(function () {
+    $('#clientePessoaFisica-campo-cpf').mask('000.000.000-00', { reverse: true });
+    $('#clientePessoaFisica-campo-telefone').mask('(00) 0000-0000');
+    $('#clientePessoaFisica-campo-cep').mask('00000-000');
+    
+
+});
+$(function () {
     $idAlterar = -1;
 
     
@@ -32,7 +39,7 @@
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
-        $nome = $('#clientePessoaFisica-nome-campo').val();
+        $nome = $('#clientePessoaFisica-campo-nome').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
         $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito').val();
@@ -82,7 +89,7 @@
         })
     }
 
-    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep , $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/clientePessoaFisica/inserir',
             method: 'post',
@@ -103,6 +110,7 @@
             success: function (data) {
                 $('#modal-clientePessoaFisica').modal('hide');
                 $tabelaClientePessoaFisica.ajax.reload();
+                $('#modal-clientePessoaFisica').val("")
             },
             error: function (err) {
 
@@ -136,8 +144,11 @@
 
             success: function (data) {
                 $('#clientePessoaFisica-campo-nome').val(data.Nome);
-                $('#clientePessoaFisica-campo-cpf').val(data.CPF);
-                $('#clientePessoaFisica-campo-dataNascimento').val(data.DataNascimento);
+                $('#clientePessoaFisica-campo-cpf').val(data.Cpf);
+                var dataNascimento = moment(data.DataNascimento);
+                console.log();
+
+                $('#clientePessoaFisica-campo-dataNascimento').val(dataNascimento.format('YYYY-MM-DD'));
                 $('#clientePessoaFisica-campo-limiteCredito').val(data.LimiteCredito);
                 $('#clientePessoaFisica-campo-email').val(data.Email);
                 $('#clientePessoaFisica-campo-telefone').val(data.Telefone);
