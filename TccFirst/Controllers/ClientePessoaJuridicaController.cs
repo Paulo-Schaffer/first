@@ -15,7 +15,8 @@ namespace TccFirst.Controllers
         public ClientePessoaJuridicaController()
         {
             repository = new ClientePessoaJuridicaRepository();
-        }        
+        }   
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -52,7 +53,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-        [HttpGet, Route("clientepessoajuridica")]
+        [HttpGet, Route("clientepessoajuridica/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
