@@ -71,7 +71,7 @@ namespace Repository.Repositories
 
         public List<Fornecedor> ObterTodos(string busca)
         {
-            return context.Fornecedores.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+            return context.Fornecedores.Where(x => x.RegistroAtivo == true).ToList();
         }
     }
 }

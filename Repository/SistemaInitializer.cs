@@ -149,7 +149,7 @@ namespace Repository
                 RegistroAtivo = true, 
 
             });
-            context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
+
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
                 RazaoSocial = "HBSIS",
@@ -171,24 +171,52 @@ namespace Repository
             context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
             #endregion
 
+            #region historicos
+            var historicos = new List<Historico>();
+            historicos.Add(new Historico()
+            {
+                Id = 1, 
+                Descricao = "Manuteção",
+                RegistroAtivo = true
+            });
+            context.Historicos.AddRange(historicos);
+            #endregion
+
             #region contaCorrente
             var contaCorrente = new List<ContaCorrente>();
-            contaCorrente.Add(new ContaCorrente() {
-                NumeroConta= "1233334-454",
+            contaCorrente.Add(new ContaCorrente()
+            {
+                NumeroConta = "1233334-454",
                 Descricao = "Cliente há 25 anos",
-                Documento= "Este é Paulo",
+                Documento = "Este é Paulo",
                 TipoReceitaDespesa = 11,
                 TipoPagamento = "Crédito",
                 Valor = 20,
                 Status = "Pago",
-                DataLancamento= Convert.ToDateTime("19/08/2019"),
-                DataRecebimento= Convert.ToDateTime("15/09/2019"),
-                DataVencimento= Convert.ToDateTime("19/09/2019"),
+                DataLancamento = Convert.ToDateTime("19/08/2019"),
+                DataRecebimento = Convert.ToDateTime("15/09/2019"),
+                DataVencimento = Convert.ToDateTime("19/09/2019"),
+                IdAgencia = 1,
+                IdCategoriaDespesa = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true
             });
-            context.ContasCorrentes.AddRange(contaCorrente);
+
             #endregion
 
 
+            #region fornecedores
+            var fornecedores = new List<Fornecedor>();
+            fornecedores.Add(new Fornecedor()
+            {
+                RazaoSocial = "askdlasndlasnkd",
+                Numero = 1,
+                DataCadastro = DateTime.Now,
+                RegistroAtivo = true
+
+            });
+            context.Fornecedores.AddRange(fornecedores);
+            #endregion
 
 
             base.Seed(context);

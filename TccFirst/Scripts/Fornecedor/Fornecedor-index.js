@@ -30,7 +30,7 @@
         ]
     });
     $('#fornecedor-batao-salvar').on('click', function () {
-        $razaoSocial = $('#fornecedor-razaoSocial-campo').val();
+        $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
         $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
         $dataCadastro = $('#fornecedor-campo-dataCadastro').val();
         $cnpj = $('#fornecedor-campo-cnpj').val();
@@ -51,7 +51,7 @@
         }
     });
 
-    function alterar($razaoSocial, $nomeFantasia, $cnpj, $dataCadastro, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+    function alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento){
         $.ajax({
             url: "/fornecedor/update",
             method: "post",
@@ -76,7 +76,7 @@
             success: function (data) {
                 $("#modal-fornecedor").modal("hide");
                 $idAlterar = -1;
-                $tabela.ajax.reload();
+                $tabelafornecedor.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
@@ -84,7 +84,7 @@
         })
     }
 
-    function inserir($razaoSocial, $nomeFantasia, $cnpj, $dataCadastro, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+function inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/fornecedor/inserir',
             method: 'post',
