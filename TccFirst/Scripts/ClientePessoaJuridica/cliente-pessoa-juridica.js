@@ -2,26 +2,14 @@
     $idAlterar = -1;
     
     $tabelaClientePessoaJuridica = $("#cliente-pessoa-juridica-tabela").DataTable({
+        "scrollX": true,
         ajax: '/ClientePessoaJuridica/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Id' },
-            { 'data': 'RazaoSocial' },
-            { 'data': 'Atividade' },
-            { 'data': 'NomeFantasia' },
-            {
-                render: function (data, type, row) {
-                    return moment(row.DataCadastro).format('DD/MM/YYYY')
-                }
-            },
+            { 'data': 'RazaoSocial' },            
+            { 'data': 'NomeFantasia' }, 
             { 'data': 'Cnpj' },
-            { 'data': 'Email' },
-            { 'data': 'Filial' },
-            { 'data': 'Telefone' },
-            { 'data': 'Cep' },
-            { 'data': 'Logradouro' },
-            { 'data': 'Numero' },
-            { 'data': 'Bairro' },
             { 'data': 'Uf' },
             { 'data': 'Cidade' },
             {
@@ -153,6 +141,7 @@
                 $('#clientePessoaJuridica-campo-uf').val(data.Uf);
                 $('#clientePessoaJuridica-campo-cidade').val(data.Cidade);
                 $('#modal-clientePessoaJuridica').modal('show');
+                
             },
             error: function (err) {
                 alert("Não foi possivel editar")

@@ -10,6 +10,7 @@ $(function () {
 
     
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
+        responsive: true,
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
