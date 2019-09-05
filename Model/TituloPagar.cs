@@ -55,12 +55,12 @@ namespace Model
         public Fornecedor fornecedores { get; set; }
         #endregion
 
-        #region fk_categorias_despesas
-        [Column("id_categorias_despesas")]
-        public int IdCategoriasDepesesas { get; set; }
+        #region fk_categoria_despesas
+        [Column("id_tipo_categoria_despesas")]
+        public int IdTipoCategoriaDepesesas { get; set; }
 
-        [ForeignKey("IdCategoriasDepesesas")]
-        public CategoriaDespesa CategoriasDespesa { get; set; }
+        [ForeignKey("IdTipoCategoriaDepesesas")]
+        public CategoriaDespesa CategoriaDespesas { get; set; }
         #endregion
     }
 }
