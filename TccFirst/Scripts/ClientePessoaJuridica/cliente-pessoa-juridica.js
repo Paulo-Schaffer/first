@@ -1,4 +1,10 @@
-﻿$(function () {
+﻿$ (function () {
+    $('#clientePessoaJuridica-campo-cnpj').mask('00.000.000/0000-00', { reverse: true });
+    $('#clientePessoaJuridica-campo-telefone').mask('(00) 0000-0000');
+    $('#clientePessoaJuridica-campo-cep').mask('00000-000');
+});
+
+$(function () {
     $idAlterar = -1;
     
     $tabelaClientePessoaJuridica = $("#cliente-pessoa-juridica-tabela").DataTable({
@@ -95,6 +101,7 @@
             },
             success: function (data) {
                 $('#modal-clientePessoaJuridica').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelaClientePessoaJuridica.ajax.reload();
             },
             error: function (err) {
