@@ -30,6 +30,7 @@ namespace Repository
             });
             context.Agencias.AddRange(agencias);
 
+
             #endregion
 
             #region caixa
@@ -56,6 +57,7 @@ namespace Repository
                 Historico = "Fatura 1547,89 dia 20/12/2000",
                 RegistroAtivo = true
             });
+            context.Caixas.AddRange(caixa);
             #endregion
 
             #region categoriaDespesa
@@ -70,6 +72,7 @@ namespace Repository
                 TipoCategoriaDespesa = "Despesa com Lanche",
                 RegistroAtivo = true,
         });
+            context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
             #region categoriaReceita
@@ -84,12 +87,13 @@ namespace Repository
                 TipoCategoriaReceita = "Despesa com Lanche",
                 RegistroAtivo = true,
             });
+            context.CategoriasReceitas.AddRange(categoriaReceita);
             #endregion
 
             #region clientePessoaFisica
 
-            var clientePessoaFisica = new List<ClientePessoaFisica>();
-            clientePessoaFisica.Add(new ClientePessoaFisica()
+            var clientesPessoaFisica = new List<ClientePessoaFisica>();
+            clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
                 Nome = "Paulo",
                 Cpf = "093.455.789-50",
@@ -105,7 +109,7 @@ namespace Repository
                 Complemento = "XX",
                 RegistroAtivo = true,
             });
-            clientePessoaFisica.Add(new ClientePessoaFisica()
+            clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
                 Nome = "João",
                 Cpf = "033.555.119-22",
@@ -121,12 +125,12 @@ namespace Repository
                 Complemento = "APTO-02",
                 RegistroAtivo = true,
             });
-
+            context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
             #region clientePessoaJuridica
-            var clientePessoaJuridica = new List<ClientePessoaJuridica>();
-            clientePessoaJuridica.Add(new ClientePessoaJuridica()
+            var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
+            clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
                 RazaoSocial = "First",
                 Atividade = "Sistemas e SoftWares",
@@ -145,7 +149,8 @@ namespace Repository
                 RegistroAtivo = true, 
 
             });
-            clientePessoaJuridica.Add(new ClientePessoaJuridica()
+            context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
+            clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
                 RazaoSocial = "HBSIS",
                 Atividade = "Sistemas e SoftWares",
@@ -163,7 +168,7 @@ namespace Repository
                 Cidade = "São Paulo",
                 RegistroAtivo = true,
             });
-
+            context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
             #endregion
 
             #region contaCorrente
@@ -180,6 +185,7 @@ namespace Repository
                 DataRecebimento= Convert.ToDateTime("15/09/2019"),
                 DataVencimento= Convert.ToDateTime("19/09/2019"),
             });
+           
             #endregion
 
 
