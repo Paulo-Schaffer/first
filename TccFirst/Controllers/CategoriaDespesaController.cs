@@ -52,5 +52,21 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);   
         }
+
+        [HttpGet, Route("categoriadespesa/obtertodospeloselect2")]
+        public JsonResult ObterTodosSelect2(string term)
+        {
+            var categorias = repository.ObterTodos();
+            List<object> categoriasSelect2 = new List<object>();
+            foreach (CategoriaDespesa categoriaDespesa in categorias)
+            {
+                categoriasSelect2.Add(new
+                {
+                    id = categoriaDespesa.Id, text = categoriaDespesa.TipoCategoriaDespesa
+                });
+            }
+            var resultado = new { results = categoriasSelect2 };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
     }
 }
