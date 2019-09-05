@@ -1,0 +1,137 @@
+﻿<div id="modal-tituloPagar" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastrar Titulo a Pagar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-fornecedores">Fornecedores</label>
+                            <select class="form-control" id="tituloPagar-campo-fornecedores"></select>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-categoria-despesas">Categoria despesas</label>
+                            <select class="form-control" id="tituloPagar-campo-categoria-despesas"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="tituloPagar-campo-descricao">Descrição</label>
+                                <input type="text" id="tituloPagar-campo-descricao" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-forma-pagamento">Forma de Pagamento</label>
+                            <select class="form-control" id="tituloPagar-campo-forma-pagamento">
+                                <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                                <option>Dinheiro</option>
+                                <option>Cartão Débito</option>
+                                <option>Cartão de Crédito</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-status">Status</label>
+                            <select class="form-control" id="tituloPagar-campo-status">
+                                <option disabled="disabled" selected="selected">Selecione um status</option>
+                                <option>Pendente</option>
+                                <option>Pago</option>
+                                <option>Cancelado</option>
+                                <option>Pago parcialmente</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <label for="tituloPagar-campo-caixa">Caixa</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="checkbox" id="tituloPagar-campo-caixa" class="form-control" />
+                    </div>
+
+                    <div class="col-4">
+                        <label for="tituloPagar-campo-banco">Banco</label>
+                    </div>
+                    <div class="col-2"  >
+                        <input type="checkbox" id="tituloPagar-campo-banco" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-data-lancamento" mas>Data de Lançamento</label>
+                            <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento</label>
+                            <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label form="tituloPagar-campo-data-vencimento" mas>Data Vencimento</label>
+                            <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-quantidade-parcelas">Quantidade de Parcelas</label>
+                            <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-complemento">Complemento</label>
+                            <input type="text" id="tituloPagar-campo-complemento" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tituloPagar-campo-valor-total">Valor Total</label>
+                            <input type="text" id="tituloPagar-campo-valor-total" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
+        </div>
+    </div>
+</div>
+

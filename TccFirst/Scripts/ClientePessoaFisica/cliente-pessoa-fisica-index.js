@@ -1,8 +1,15 @@
 ﻿$(function () {
-    $idAlterar = -1;
-
+    $('#clientePessoaFisica-campo-cpf').mask('000.000.000-00', { reverse: true });
+    $('#clientePessoaFisica-campo-telefone').mask('(00) 0000-0000');
+    $('#clientePessoaFisica-campo-cep').mask('00000-000');
+    $('#clientePessoaFisica-campo-limiteCredito').mask('000.000.000.000.000,00R$', { reverse: true });
     
+
+});
+$(function () {
+    $idAlterar = -1;
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
+        responsive: true,
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
@@ -15,14 +22,6 @@
                 }
             },
             { 'data': 'LimiteCredito' },
-            { 'data': 'Email' },
-            { 'data': 'Telefone' },
-            { 'data': 'Cep' },
-            { 'data': 'Numero' },
-            { 'data': 'Bairro' },
-            { 'data': 'Cidade' },
-            { 'data': 'Uf' },
-            { 'data': 'Complemento' },
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
@@ -32,7 +31,7 @@
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
-        $nome = $('#clientePessoaFisica-nome-campo').val();
+        $nome = $('#clientePessoaFisica-campo-nome').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
         $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito').val();
@@ -82,7 +81,7 @@
         })
     }
 
-    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep , $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/clientePessoaFisica/inserir',
             method: 'post',
@@ -102,10 +101,11 @@
             },
             success: function (data) {
                 $('#modal-clientePessoaFisica').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelaClientePessoaFisica.ajax.reload();
             },
             error: function (err) {
-
+                alert('eae');
             }
         });
     }
@@ -133,11 +133,13 @@
         $.ajax({
             url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,
             method: 'get',
-
             success: function (data) {
                 $('#clientePessoaFisica-campo-nome').val(data.Nome);
-                $('#clientePessoaFisica-campo-cpf').val(data.CPF);
-                $('#clientePessoaFisica-campo-dataNascimento').val(data.DataNascimento);
+                $('#clientePessoaFisica-campo-cpf').val(data.Cpf);
+                var dataNascimento = moment(data.DataNascimento);
+                console.log();
+
+                $('#clientePessoaFisica-campo-dataNascimento').val(dataNascimento.format('YYYY-MM-DD'));
                 $('#clientePessoaFisica-campo-limiteCredito').val(data.LimiteCredito);
                 $('#clientePessoaFisica-campo-email').val(data.Email);
                 $('#clientePessoaFisica-campo-telefone').val(data.Telefone);

@@ -5591,8 +5591,7 @@
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
-    <Content Include="Views\Agencia\Editar.cshtml" />
-    <Content Include="Views\TituloPagar\CadastroModal.cshtml" />
+    <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
