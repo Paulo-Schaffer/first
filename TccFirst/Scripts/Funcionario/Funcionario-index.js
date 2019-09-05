@@ -19,30 +19,30 @@
         ]
     });
 
-    $('#funcionario-botao-salva').on('click', function () {
-        $nome = $('#funcionario-campo-nome').val();
-        $tipo = $('#funcionario-campo-tipo').val();
+    $('#funcionario-botao-salvar').on('click', function () {
+        $Nome = $('#funcionario-campo-nome').val();
+        $Tipo = $('#funcionario-campo-tipo').val();
 
         if ($idAlterar == -1) {
-            inserir($nome, $tipo);
+            inserir($Nome, $Tipo);
         } else {
-            alterar($nome, $tipo);
+            alterar($Nome, $Tipo);
         }
     });
 
-    function alterar($nome, $cpf) {
+    function alterar($nome, $tipo) {
         $.ajax({
             url: "/Funcionario/update",
             method: "post",
             data: {
                 id: $idAlterar,
-                nome: $nome,
-                tipo: $tipo
+                NomeFuncionario: $Nome,
+                TipoFuncionario: $Tipo
             },
             success: function (data) {
                 $("#modal-funcionario").modal("hide");
                 $idAlterar = -1;
-                $tabelaPessoa.ajax.reload();
+                $tabelaFuncionario.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
@@ -50,17 +50,17 @@
         })
     }
 
-    function inserir($nome, $tipo) {
+    function inserir($Nome, $Tipo) {
         $.ajax({
             url: '/Funcionario/inserir',
             method: 'post',
             data: {
-                nome: $nome,
-                tipo: $tipo
+                NomeFuncionario: $Nome,
+                TipoFuncionario: $Tipo
             },
             success: function (data) {
                 $('#modal-funcionario').modal('hide');
-                $tabelaPessoa.ajax.reload();
+                $tabelaFuncionario.ajax.reload();
             },
             error: function (err) {
 
@@ -94,7 +94,7 @@
 
             success: function (data) {
                 $('#funcionario-campo-nome').val(data.NomeFuncionario);
-                $('#funcionario-campo-tipo').val(data.Tipo);
+                $('#funcionario-campo-tipo').val(data.TipoFuncionario);
                 $('#modal-funcionario').modal('show');
             },
             error: function (err) {

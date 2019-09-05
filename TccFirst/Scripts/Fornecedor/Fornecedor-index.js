@@ -57,18 +57,19 @@
             method: "post",
             data: {
                 id: $idAlterar,
-                razaoSocial: $razaoSocial,
-                nomeFantasia: $nomeFantasia,
-                cnpj: $cnpj,
-                dataCadastro: $dataCadastro,
-                email: $email,
-                telefone: $telefone,
-                cep: $cep,
-                numero: $numero,
-                bairro: $bairro,
-                cidade: $cidade,
-                uf: $uf,
-                complemento: $complemento
+                RazaoSocial: $razaoSocial,
+                NomeFantasia: $nomeFantasia,
+                Cnpj: $cnpj,
+                DataCadastro: $dataCadastro,
+                Email: $email,
+                Telefone: $telefone,
+                Cep: $cep,
+                Logradouro: $logradouro,
+                Numero: $numero,
+                Bairro: $bairro,
+                Cidade: $cidade,
+                Uf: $uf,
+                Complemento: $complemento
 
 
             },
@@ -88,24 +89,26 @@
             url: '/fornecedor/inserir',
             method: 'post',
             data: {
-                razaoSocial: $razaoSocial,
-                nomeFantasia: $nomeFantasia,
-                cnpj: $cnpj,
-                ddataCadastro: $dataCadastro,
-                email: $email,
-                telefone: $telefone,
-                cep: $cep,
-                numero: $numero,
-                bairro: $bairro,
-                cidade: $cidade,
-                uf: $uf,
-                complemento: $complemento
+                RazaoSocial: $razaoSocial,
+                NomeFantasia: $nomeFantasia,
+                Cnpj: $cnpj,
+                DataCadastro: $dataCadastro,
+                Email: $email,
+                Telefone: $telefone,
+                Cep: $cep,
+                Logradouro: $logradouro,
+                Numero: $numero,
+                Bairro: $bairro,
+                Cidade: $cidade,
+                Uf: $uf,
+                Complemento: $complemento
             },
             success: function (data) {
                 $('#modal-fornecedor').modal('hide');
                 tabelafornecedor.ajax.reload();
             },
             error: function (err) {
+                alert("não vai dar não");
 
             }
         });
@@ -136,10 +139,10 @@
             method: 'get',
 
             success: function (data) {
-                $('#fornecedor-campo-razaoSocial').val(data.razaoSocial);
-                $('#fornecedor-campo-nomeFantasia').val(data.nomeFantasia);
-                $('#fornecedor-campo-cnpj').val(data.cnpj);
-                $('#fornecedor-campo-dataCadastro').val(data.dataCadastro);
+                $('#fornecedor-campo-razaoSocial').val(data.RazaoSocial);
+                $('#fornecedor-campo-nomeFantasia').val(data.NomeFantasia);
+                $('#fornecedor-campo-cnpj').val(data.Cnpj);
+                $('#fornecedor-campo-dataCadastro').val(data.DataCadastro);
                 $('#fornecedor-campo-email').val(data.Email);
                 $('#fornecedor-campo-telefone').val(data.Telefone);
                 $('#fornecedor-campo-cep').val(data.Cep);
