@@ -1,6 +1,14 @@
 ﻿$(function () {
+    $('#clientePessoaFisica-campo-cpf').mask('000.000.000-00', { reverse: true });
+    $('#clientePessoaFisica-campo-telefone').mask('(00) 0000-0000');
+    $('#clientePessoaFisica-campo-cep').mask('00000-000');
+    
+
+});
+$(function () {
     $idAlterar = -1;
-    alert()
+
+    
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
@@ -8,7 +16,11 @@
             { 'data': 'Id' },
             { 'data': 'Nome' },
             { 'data': 'Cpf' },
-            { 'data': 'DataNascimento' },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataNascimento).format('DD/MM/YYYY')
+                }
+            },
             { 'data': 'LimiteCredito' },
             { 'data': 'Email' },
             { 'data': 'Telefone' },
@@ -23,9 +35,7 @@
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
 
                 }
-
             }
-
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
@@ -63,16 +73,15 @@
                 telefone: $telefone,
                 cep: $cep,
                 numero: $numero,
-                bairro: $cidade,
+                bairro: $bairro,
+                cidade: $cidade,
                 uf: $uf,
                 complemento: $complemento
-
-
             },
             success: function (data) {
                 $("#modal-clientePessoaFisica").modal("hide");
                 $idAlterar = -1;
-                $tabela.ajax.reload();
+                $tabelaClientePessoaFisica.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
@@ -80,7 +89,7 @@
         })
     }
 
-    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep , $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/clientePessoaFisica/inserir',
             method: 'post',

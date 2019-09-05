@@ -38,5 +38,8 @@ namespace Model
         public ParcelaPagar ParcelaPagar { get; set; }
         #endregion
 
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
     }
 }
