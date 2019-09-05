@@ -2,14 +2,14 @@
     $('#clientePessoaFisica-campo-cpf').mask('000.000.000-00', { reverse: true });
     $('#clientePessoaFisica-campo-telefone').mask('(00) 0000-0000');
     $('#clientePessoaFisica-campo-cep').mask('00000-000');
+    $('#clientePessoaFisica-campo-limiteCredito').mask('000.000.000.000.000,00R$', { reverse: true });
     
 
 });
 $(function () {
     $idAlterar = -1;
-
-    
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
+        responsive: true,
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
