@@ -56,7 +56,7 @@
     function alterar($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
 
         $.ajax({
-            url: "/ClientePessoaJuridica/update",
+            url: "/clientePessoaJuridica/update",
             method: "post",
             data: {
                 id: $idAlterar,
@@ -78,7 +78,7 @@
             success: function (data) {
                 $("#modal-clientePessoaJuridica").modal("hide");
                 $idAlterar = -1;
-                $tabela.ajax.reload();
+                $tabelaClientePessoaJuridica.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possivel alterar");
@@ -122,7 +122,7 @@
             url: "/clientePessoaJuridica/apagar?id=" + $idApagar,
             method: 'get',
             success: function (data) {
-                $tabelaclientePessoaJuridica.ajax.reload();
+                $tabelaClientePessoaJuridica.ajax.reload();
             },
             error: function (err) {
                 alert('Não foi possivel apagar');
@@ -139,7 +139,9 @@
                 $('#clientePessoaJuridica-campo-razaoSocial').val(data.RazaoSocial);
                 $('#clientePessoaJuridica-campo-atividade').val(data.Atividade);
                 $('#clientePessoaJuridica-campo-nomeFantasia').val(data.NomeFantasia);
-                $('#clientePessoaJuridica-campo-dataCadastro').val(data.DataCadastro);
+                var DataCadastro = moment(DataCadastro);
+                console.log();
+                $('#clientePessoaJuridica-campo-dataCadastro').val(DataCadastro.format('YYYY-MM-DD'));
                 $('#clientePessoaJuridica-campo-cnpj').val(data.Cnpj);
                 $('#clientePessoaJuridica-campo-email').val(data.Email);
                 $('#clientePessoaJuridica-campo-filial').val(data.Filial);

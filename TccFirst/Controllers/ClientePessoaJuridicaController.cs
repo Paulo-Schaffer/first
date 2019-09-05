@@ -37,7 +37,7 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-        [HttpPost]
+        [HttpGet]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
