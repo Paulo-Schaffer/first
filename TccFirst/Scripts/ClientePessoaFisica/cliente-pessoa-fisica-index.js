@@ -133,7 +133,6 @@ $(function () {
         $.ajax({
             url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,
             method: 'get',
-
             success: function (data) {
                 $('#clientePessoaFisica-campo-nome').val(data.Nome);
                 $('#clientePessoaFisica-campo-cpf').val(data.Cpf);

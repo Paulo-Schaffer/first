@@ -30,10 +30,10 @@
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
         $.ajax({
-            url: '/titulopagar/apagar?id=' + $idApagar,
+            url: '/tituloPagar/apagar?id=' + $idApagar,
             method: 'get',
             success: function (data) {
-                $tabelatituloPagar.ajax.reload();
+                $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
                 alert('Não foi possível apagar');
@@ -52,8 +52,8 @@
         $DataVencimento = $('#tituloPagar-campo-data-vencimento').val();
         $Complemento = $('#tituloPagar-campo-complemento').val();
         $QuantidadeParcela = $('#tituloPagar-campo-quantidade-parcela').val();
-        $idFornecedores = $('#tituloPagar-campo-idfornecedores').val();
-        $idCategoriaDespesas = $("#tituloPagar-campo-idcategoria-despesas").val();
+        $idFornecedores = $('#tituloPagar-campo-fornecedores').val();
+        $idCategoriaDespesas = $("#tituloPagar-campo-categoria-despesas").val();
 
         if ($idAlterar == -1) {
             inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
@@ -62,7 +62,7 @@
         }
     });
 
-    function inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
+    function inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedores, $IdCategoriaDespesas) {
         $.ajax({
             url: '/tituloPagar/inserir',
             method: 'post',
@@ -77,11 +77,12 @@
                 DataVencimento: $DataVencimento,
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
-                IdFornecedores: $idFornecedores,
-                IdCategoriaDespesas: $idCategoriaDespesas
+                IdFornecedores: $IdFornecedores,
+                IdCategoriaDespesas: $IdCategoriaDespesas
             },
             success: function (data) {
-                $('#modal-titulo-pagar').modal('hide');
+                $('#modal-tituloPagar').modal('hide');
+                $(".modal-backdrop").hide();
                 LimparCampos();
                 $tabelaTituloPagar.ajax.reload();
             },
@@ -116,7 +117,7 @@
         });
     });
 
-    function alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
+    function alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedores, $IdCategoriaDespesas) {
         $.ajax({
             url: '/tituloPagar/update',
             method: 'post',
@@ -132,14 +133,14 @@
                 DataVencimento: $DataVencimento,
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
-                IdFornecedores: $idFornecedores,
-                idCategoriaDespesas: $idCategoriaDespesas
+                IdFornecedores: $IdFornecedores,
+                IdCategoriaDespesas: $IdCategoriaDespesas
             },
             success: function (data) {
                 $('#modal-tituloPagar').modal('hide');
                 $idAlterar = -1;
                 LimparCampos();
-                $tabela.ajax.reload();
+                $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
                 alert('Não foi possível alterar');

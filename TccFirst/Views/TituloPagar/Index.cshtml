@@ -6,7 +6,7 @@
 
 <button data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-primary">Novo Titulo Pagar</button>
 
-<table class="table table-hover table-bordered table-striped" id="tituloPagar-index">
+<table id="titulo-pagar-tabela" class="table table-hover table-bordered table-striped" >
     <thead>
         <tr>
             <th>Código</th>
@@ -25,10 +25,11 @@
     </thead>
 </table>
 
-@RenderPage("CadastroModal.cshtml")
+@RenderPage("CadastroTituloPagar.cshtml")
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
+    <script src="~/Scripts/TituloPagar/IdCategoriaDespesas.js"></script>
 }
 
 
