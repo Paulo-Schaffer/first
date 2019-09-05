@@ -5496,7 +5496,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Scripts\ClientePessoaJuridica\clientePessoaJuridica.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
     <Content Include="Scripts\ClientePessoaFisica\datetime.js" />
@@ -5508,6 +5507,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
+    <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
@@ -5515,6 +5515,7 @@
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
+    <Compile Include="Controllers\MovimentacaoFinanceiraSaidaController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
@@ -5540,7 +5541,6 @@
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
-    <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Agencia\Cadastro.cshtml" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
@@ -5562,7 +5562,6 @@
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
-    <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -5582,12 +5581,18 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Views\Agencia\Cadastro.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
-    <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\ContaCorrente\Index.cshtml" />
+    <Content Include="Views\Caixa\Index.cshtml" />
+    <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
+    <Content Include="Views\ClientePessoaJuridica\CadastroPessoaJuridica.cshtml" />
+    <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
+    <Content Include="Views\Historico\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
     <Content Include="Views\Agencia\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\CadastroModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5598,11 +5603,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaReceita\" />
-    <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
+    <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />

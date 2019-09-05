@@ -1,7 +1,7 @@
 ﻿$(function () {
     $("#tituloPagar-categoria-despesas").select2({
         ajax: {
-            url: "/categoriaDespesas/obtertodosselect2",
+            url: "/categoriadespesa/obtertodospeloselect2",
             dataType: "json"
         }
     });
