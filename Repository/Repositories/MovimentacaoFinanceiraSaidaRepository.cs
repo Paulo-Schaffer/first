@@ -10,19 +10,41 @@ namespace Repository.Repositories
 {
     public class MovimentacaoFinanceiraSaidaRepository : IMovimentacaoFinanceiraSaidaRepository
     {
+        private SistemaContext context;
+
+        public MovimentacaoFinanceiraSaidaRepository()
+        {
+            context = new SistemaContext();
+        }
         public bool Alterar(MovimentacaoFinanceiraSaida movimentacaoFinanceiraSaida)
         {
-            throw new NotImplementedException();
+            var movimentacaoRegistro = context.MovimentacaoFinanceiraSaidas.FirstOrDefault(x => x.Id == movimentacaoFinanceiraSaida.Id);
+            if (movimentacaoRegistro == null)
+                return false;
+            movimentacaoRegistro.IdCaixa = movimentacaoFinanceiraSaida.IdCaixa;
+            movimentacaoRegistro.IDContaCorrente = movimentacaoFinanceiraSaida.IDContaCorrente;
+            movimentacaoRegistro.IdParcelaPagar = movimentacaoFinanceiraSaida.IdParcelaPagar;
+            movimentacaoRegistro.Valor = movimentacaoFinanceiraSaida.Valor;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            throw new NotImplementedException();
+            var movimentacao = context.MovimentacaoFinanceiraSaidas.FirstOrDefault(x => x.Id == id);
+            if (movimentacao == null)
+                return false;
+            movimentacao.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(MovimentacaoFinanceiraSaida movimentacaoFinanceiraSaida)
         {
-            throw new NotImplementedException();
+            movimentacaoFinanceiraSaida.RegistroAtivo = true;
+            context.MovimentacaoFinanceiraSaidas.Add(movimentacaoFinanceiraSaida);
+            context.SaveChanges();
+            return movimentacaoFinanceiraSaida.Id;
         }
 
         public MovimentacaoFinanceiraSaida ObterPeloId(int id)
@@ -32,7 +54,7 @@ namespace Repository.Repositories
 
         public List<MovimentacaoFinanceiraSaida> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.MovimentacaoFinanceiraSaidas.Where(x => x.RegistroAtivo).ToList();
         }
     }
 }
