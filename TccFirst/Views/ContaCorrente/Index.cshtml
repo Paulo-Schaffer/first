@@ -1,79 +1,42 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-}
 
-<h3>Cadastro de Conta Corrente</h3>
+<table id="contacorrente-tabela" class="table table-light table-hover table-border-style table-striped">
+    <thead>
+        <tr>
+            <th>Numero da Conta</th>
+            <th>Descricao</th>
+            <th>Documento</th>
+            <th>Tipo Receita Despesa</th>
+            <th>Tipo Pagamento </th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Data Lançamento</th>
+            <th>Data Vencimento</th>
+            <th>Data Recebimento</th>
+            <th>Nome Banco</th>
+            <th>Numero Banco</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Model.ContaCorrente contaCorrente in ViewBag.ContaCorrentes)
+        {
+            <tr>    
+                <td>@contaCorrente.Id</td>
+                <td>@contaCorrente.NumeroConta</td>
+                <td>@contaCorrente.Descricao</td>
+                <td>@contaCorrente.Documento</td>
+                <td>@contaCorrente.TipoReceitaDespesa</td>
+                <td>@contaCorrente.TipoPagamento</td>
+                <td>@contaCorrente.Valor</td>
+                <td>@contaCorrente.Status</td>
+                <td>@contaCorrente.DataLancamento</td>
+                <td>@contaCorrente.DataVencimento</td>
+                <td>@contaCorrente.DataRecebimento</td>
+                <td>@contaCorrente.NomeBanco</td>
+                <td>@contaCorrente.NumeroBanco</td>
 
-<br />
-<div class="form-group">
-    <label for="contacorrente-campo-numeroconta">Numero da Conta<span class="text-danger">*</span></label>
-    <input type="text" id="contacorrente-campo-numeroconta" class="form-control" />
-</div>
-
-<div class="form-group">
-    <label for="contacorrente-campo-descricao">Descricao<span class="text-danger">*</span></label>
-    <input type="text" id="contacorrente-campo-descricao" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-documento">Documento<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-documento" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-tiporeceitadespesa">Tipo receita despesa<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-tiporeceitadespesa" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-tipopagamento">Tipo Pagamento<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-tipopagamento" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-valor">Valor<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-valor" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-status">Status<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-status" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-datalancamento">Data Lançamento<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-datalancamento" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-datavencimento">Data Vencimento<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-datavencimento" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-datarecebimento">Data Recebimento<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-datarecebimento" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-nomebanco">Nome Banco<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-nomebanco" class="form-control" />
-</div>
-
-<div class="form-group">
-    <lable for="contacorrente-campo-numerobanco">Numero Banco<span class="text-danger">*</span></lable>
-    <input type="text" id="contacorrente-campo-numerobanco" class="form-control" />
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-primary" id="agencia-botao-salvar" data-dismiss="modal">Salvar</button>
-
-    <button type="button" class="btn btn-danger" id="agencia-botao-cancelar">Cancelar</button>
-
-</div>
-
-
-
-
-
+            </tr>
+        }
+    </tbody>
+</table>
 
