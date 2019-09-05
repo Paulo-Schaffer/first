@@ -5555,7 +5555,6 @@
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
-    <Content Include="Views\Fornecedor\CadastroFornecedor1.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <None Include="Web.Debug.config">

@@ -55,9 +55,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Fornecedor fornecedores)
+        public JsonResult Update(Fornecedor fornecedor)
         {
-            var alterou = repository.Alterar(fornecedores);
+            var alterou = repository.Alterar(fornecedor);
             var resultado = new { status = alterou };
             return Json(resultado);
         }

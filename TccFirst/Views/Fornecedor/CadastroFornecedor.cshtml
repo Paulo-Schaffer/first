@@ -1,5 +1,5 @@
 ﻿<div id="modal-fornecedor" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Cadastrar Fornecedor</h5>
@@ -8,41 +8,67 @@
                 </button>
             </div>
             <div class="modal-body">
+
                 <div class="form-group">
+                    <!--razao-->
                     <label for="fornecedor-campo-razaoSocial">Razão Social</label>
-                    <input type="text" id="fornecedor-nome-razaoSocial" class="form-control" />
+                    <input type="text" id="fornecedor-nome-razaoSocial" class="form-control"  required/>
                 </div>
                 <div class="form-group">
+                    <!--fantasia-->
                     <label for="fornecedor-campo-nomeFantasia">Nome Fantasia</label>
                     <input type="text" id="fornecedor-campo-nomeFantasia" class="form-control" />
                 </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-dataCadastro">Data de Cadastro</label>
-                    <input type="date" id="fornecedor-campo-dataCadastro" class="form-control" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <!--cnpj-->
+                            <label for="fornecedor-campo-cnpj">CNPJ</label>
+                            <input type="text" id="fornecedor-campo-cnpj" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <!--data-->
+                            <label for="fornecedor-campo-dataCadastro">Data de Cadastro</label>
+                            <input type="date" id="fornecedor-campo-dataCadastro" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <!--email-->
+                            <label for="fornecedor-campo-email">E-mail</label>
+                            <input type="text" id="fornecedor-campo-email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="fornecedor-campo-telefone">Telefone</label>
+                            <input type="text" id="fornecedor-campo-telefone" class="form-control" />
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="fornecedor-campo-cnpj">CNPJ</label>
-                    <input type="text" id="fornecedor-campo-cnpj" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-email">E-mail</label>
-                    <input type="text" id="fornecedor-campo-email" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-telefone">Telefone</label>
-                    <input type="text" id="fornecedor-campo-telefone" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-cep">Cep</label>
-                    <input type="text" id="fornecedor-campo-cep" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-lofradouro">Logradouro</label>
+                    <label for="fornecedor-campo-logradouro">Logradouro</label>
                     <input type="text" id="fornecedor-campo-logradouro" class="form-control" />
                 </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-numero">Numero</label>
-                    <input type="text" id="fornecedor-campo-numero" class="form-control" />
+                <div class="row">
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label for="fornecedor-campo-cep">Cep</label>
+                            <input type="text" id="fornecedor-campo-cep" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label for="fornecedor-campo-numero">Numero</label>
+                            <input type="text" id="fornecedor-campo-numero" class="form-control" />
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="fornecedor-campo-bairro">Bairro</label>
@@ -52,19 +78,56 @@
                     <label for="fornecedor-campo-cidade">Cidade</label>
                     <input type="text" id="fornecedor-campo-cidade" class="form-control" />
                 </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-sigla">Sigla do Estado</label>
-                    <input type="text" id="fornecedor-campo-sigla" class="form-control" />
+                <div class="row">
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label for="fornecedor-campo-sigla">Sigla do Estado</label>
+                            <select class="form-control" name="estados-brasil" id="fornecedor-campo-sigla">
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="fornecedor-campo-complemento">Complemento</label>
+                            <input type="text" id="fornecedor-campo-complemento" class="form-control" />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-complemento">Complemento</label>
-                    <input type="text" id="fornecedor-campo-complemento" class="form-control" />
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="fornecedor-batao-salvar">Salvar</button>
             </div>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="fornecedor-batao-salvar">Salvar</button>
+        </div>
     </div>
+</div>
 </div>

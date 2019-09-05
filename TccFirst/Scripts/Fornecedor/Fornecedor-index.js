@@ -5,21 +5,11 @@
         ajax: '/fornecedor/obtertodos',
         severSide: true,
         columns: [
-            { 'data': 'id' },
+            { 'data': 'Id' },
             { 'data': 'RazaoSocial' },
-            { 'data': 'NomeFantasia' },
-            { 'data': 'DataCadastro' },
-            { 'data': 'Cnpj' },
             { 'data': 'Email' },
-            { 'data': 'Telefone' },
-            { 'data': 'Cep' },
-            { 'data': 'Logradouro' },
-            { 'data': 'Numero' },
-            { 'data': 'Bairro' },
-            { 'data': 'Cidade' },
-            { 'data': 'Uf' },
-            { 'data': 'Complemento' },
-            {
+           { 'data': 'Logradouro' },
+          {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
 
@@ -37,7 +27,7 @@
         $email = $('#fornecedor-campo-email').val();
         $telefone = $('#fornecedor-campo-telefone').val();
         $cep = $('#fornecedor-campo-cep').val();
-        $logradouro = $('fornecedor-campo-logradouro').val();
+        $logradouro = $('#fornecedor-campo-logradouro').val();
         $numero = $('#fornecedor-campo-numero').val();
         $bairro = $('#fornecedor-campo-bairro').val();
         $cidade = $('#fornecedor-campo-cidade').val();
@@ -45,15 +35,15 @@
         $complemento = $('#fornecedor-campo-complemento').val();
 
         if ($idAlterar == -1) {
-            inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
+            inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento);
         } else {
-            alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
+            alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento);
         }
     });
 
-    function alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento){
+    function alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento){
         $.ajax({
-            url: "/fornecedor/update",
+            url: "/Fornecedor/update",
             method: "post",
             data: {
                 id: $idAlterar,
@@ -84,15 +74,15 @@
         })
     }
 
-function inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+    function inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/fornecedor/inserir',
             method: 'post',
             data: {
                 RazaoSocial: $razaoSocial,
                 NomeFantasia: $nomeFantasia,
-                Cnpj: $cnpj,
                 DataCadastro: $dataCadastro,
+                Cnpj: $cnpj,
                 Email: $email,
                 Telefone: $telefone,
                 Cep: $cep,
@@ -105,7 +95,7 @@ function inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $tel
             },
             success: function (data) {
                 $('#modal-fornecedor').modal('hide');
-                tabelafornecedor.ajax.reload();
+                $tabelafornecedor.ajax.reload();
             },
             error: function (err) {
                 alert("não vai dar não");
@@ -118,10 +108,10 @@ function inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $tel
         $idApagar = $(this).data('id');
 
         $.ajax({
-            url: '/fornecedor/apagar?id=' + $idApagar,
+            url: 'fornecedor/apagar?id=' + $idApagar,
             method: 'get',
             success: function (data) {
-                tabelafornecedor.ajax.reload();
+                $tabelafornecedor.ajax.reload();
             },
 
             error: function (err) {
@@ -139,13 +129,14 @@ function inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $tel
             method: 'get',
 
             success: function (data) {
-                $('#fornecedor-campo-razaoSocial').val(data.RazaoSocial);
+                $('#fornecedor-nome-razaoSocial').val(data.RazaoSocial);
                 $('#fornecedor-campo-nomeFantasia').val(data.NomeFantasia);
                 $('#fornecedor-campo-cnpj').val(data.Cnpj);
                 $('#fornecedor-campo-dataCadastro').val(data.DataCadastro);
                 $('#fornecedor-campo-email').val(data.Email);
                 $('#fornecedor-campo-telefone').val(data.Telefone);
                 $('#fornecedor-campo-cep').val(data.Cep);
+                $('#fornecedor-campo-logradouro').val(data.Logradouro);
                 $('#fornecedor-campo-numero').val(data.Numero);
                 $('#fornecedor-campo-bairro').val(data.Bairro);
                 $('#fornecedor-campo-cidade').val(data.Cidade);

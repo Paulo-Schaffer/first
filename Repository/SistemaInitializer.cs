@@ -141,7 +141,7 @@ namespace Repository
                 Filial = "Hbsis",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
-                Logradouro = "XX",
+                Logradouro = "Ubatuba",
                 Numero= 675,
                 Bairro="Bairro Vila Olimpia",
                 Uf="SP",
@@ -182,38 +182,52 @@ namespace Repository
             context.Historicos.AddRange(historicos);
             #endregion
 
-            #region contaCorrente
-            var contaCorrente = new List<ContaCorrente>();
-            contaCorrente.Add(new ContaCorrente()
-            {
-                NumeroConta = "1233334-454",
-                Descricao = "Cliente há 25 anos",
-                Documento = "Este é Paulo",
-                TipoReceitaDespesa = 11,
-                TipoPagamento = "Crédito",
-                Valor = 20,
-                Status = "Pago",
-                DataLancamento = Convert.ToDateTime("19/08/2019"),
-                DataRecebimento = Convert.ToDateTime("15/09/2019"),
-                DataVencimento = Convert.ToDateTime("19/09/2019"),
-                IdAgencia = 1,
-                IdCategoriaDespesa = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true
-            });
+            //#region contaCorrente
+            //var contaCorrente = new List<ContaCorrente>();
+            //contaCorrente.Add(new ContaCorrente()
+            //{
+            //    NumeroConta = "1233334-454",
+            //    Descricao = "Cliente há 25 anos",
+            //    Documento = "Este é Paulo",
+            //    TipoReceitaDespesa = 11,
+            //    TipoPagamento = "Crédito",
+            //    Valor = 20,
+            //    Status = "Pago",
+            //    DataLancamento = Convert.ToDateTime("19/08/2019"),
+            //    DataRecebimento = Convert.ToDateTime("15/09/2019"),
+            //    DataVencimento = Convert.ToDateTime("19/09/2019"),
+            //    IdAgencia = 1,
+            //    IdCategoriaDespesa = 1,
+            //    IdHistorico = 1,
+            //    RegistroAtivo = true
+            //});
 
-            #endregion
+            //#endregion
 
 
             #region fornecedores
             var fornecedores = new List<Fornecedor>();
             fornecedores.Add(new Fornecedor()
             {
-                RazaoSocial = "askdlasndlasnkd",
-                Numero = 1,
-                DataCadastro = DateTime.Now,
-                RegistroAtivo = true
+                //RazaoSocial = "askdlasndlasnkd",
+                //Numero = 1,
+                //DataCadastro = DateTime.Now,
+                //RegistroAtivo = true,
 
+                RazaoSocial = "Peugeot",
+                NomeFantasia = "strabourg",
+                DataCadastro = Convert.ToDateTime("04/09/2019"),
+                Cnpj = "83.590.870/0001-95",
+                Email = "first@outlook.com",
+                Telefone = "3345-5567",
+                Cep = "09432-876",
+                Logradouro = "UBATUBA",
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Cidade = "São Paulo",
+                Uf = "SP",
+                Complemento = "casa",
+                RegistroAtivo = true,
             });
             context.Fornecedores.AddRange(fornecedores);
             #endregion
