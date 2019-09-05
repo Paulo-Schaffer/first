@@ -22,14 +22,6 @@ $(function () {
                 }
             },
             { 'data': 'LimiteCredito' },
-            { 'data': 'Email' },
-            { 'data': 'Telefone' },
-            { 'data': 'Cep' },
-            { 'data': 'Numero' },
-            { 'data': 'Bairro' },
-            { 'data': 'Cidade' },
-            { 'data': 'Uf' },
-            { 'data': 'Complemento' },
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
@@ -109,11 +101,11 @@ $(function () {
             },
             success: function (data) {
                 $('#modal-clientePessoaFisica').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelaClientePessoaFisica.ajax.reload();
-                $('#modal-clientePessoaFisica').val("")
             },
             error: function (err) {
-
+                alert('eae');
             }
         });
     }
