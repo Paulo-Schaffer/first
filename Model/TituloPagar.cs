@@ -33,7 +33,7 @@ namespace Model
         public string DataLancamento { get; set; }
 
         [Column("data_pagamento")]
-        public string DataRecebimento { get; set; }
+        public string DataPagamento { get; set; }
 
         [Column("data_vencimento")]
         public string DataVencimento { get; set; }

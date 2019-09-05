@@ -36,7 +36,7 @@ namespace Model
         [Column("complemento")]
         public string Complemento { get; set; }
 
-        [Column("registroativo")]
+        [Column("registro_ativo")] 
         public bool RegistroAtivo { get; set; }
 
     }

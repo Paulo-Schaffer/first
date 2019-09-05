@@ -5598,6 +5598,7 @@
     <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\ClientePessoaJuridica\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\ParcelasPagar\" />

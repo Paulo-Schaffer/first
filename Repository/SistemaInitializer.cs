@@ -19,7 +19,13 @@ namespace Repository
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
-
+            agencias.Add(new Agencia()
+            {
+                NomeAgencia = "Agencia do Paulo",
+                NumeroAgencia = "666",
+                Banco = "Banco do Paulo",
+                RegistroAtivo = true
+            });
 
             agencias.Add(new Agencia()
             {
@@ -69,7 +75,7 @@ namespace Repository
             {
                 TipoCategoriaDespesa = "Despesa com Lanche",
                 RegistroAtivo = true,
-        });
+            });
             #endregion
 
             #region categoriaReceita
@@ -96,12 +102,12 @@ namespace Repository
                 DataNascimento = Convert.ToDateTime("19/04/2000"),
                 LimiteCredito = 190000,
                 Email = "paulo.md10@gmail.com",
-                Telefone= "991334785",
-                Cep="09456-293",
+                Telefone = "991334785",
+                Cep = "09456-293",
                 Numero = 94,
                 Bairro = "Escola Agricola",
                 Cidade = "Blumenau",
-                Uf= "SC",
+                Uf = "SC",
                 Complemento = "XX",
                 RegistroAtivo = true,
             });
@@ -133,16 +139,16 @@ namespace Repository
                 NomeFantasia = "Financial Report System",
                 DataCadastro = Convert.ToDateTime("04/09/2019"),
                 Cnpj = "83.590.870/0001-95",
-                Email= "first@outlook.com",
+                Email = "first@outlook.com",
                 Filial = "Hbsis",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
                 Logradouro = "XX",
-                Numero= 675,
-                Bairro="Bairro Vila Olimpia",
-                Uf="SP",
-                Cidade="São Paulo",
-                RegistroAtivo = true, 
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Uf = "SP",
+                Cidade = "São Paulo",
+                RegistroAtivo = true,
 
             });
             clientePessoaJuridica.Add(new ClientePessoaJuridica()
@@ -168,21 +174,266 @@ namespace Repository
 
             #region contaCorrente
             var contaCorrente = new List<ContaCorrente>();
-            contaCorrente.Add(new ContaCorrente() {
-                NumeroConta= "1233334-454",
+            contaCorrente.Add(new ContaCorrente()
+            {
+                NumeroConta = "1233334-454",
                 Descricao = "Cliente há 25 anos",
-                Documento= "Este é Paulo",
+                Documento = "Este é Paulo",
                 TipoReceitaDespesa = 11,
                 TipoPagamento = "Crédito",
                 Valor = 20,
                 Status = "Pago",
-                DataLancamento= Convert.ToDateTime("19/08/2019"),
-                DataRecebimento= Convert.ToDateTime("15/09/2019"),
-                DataVencimento= Convert.ToDateTime("19/09/2019"),
+                DataLancamento = Convert.ToDateTime("19/08/2019"),
+                DataRecebimento = Convert.ToDateTime("15/09/2019"),
+                DataVencimento = Convert.ToDateTime("19/09/2019"),
             });
             #endregion
 
+            #region endereço
+            var enderecos = new List<Endereco>();
+            enderecos.Add(new Endereco()
+            {
+                Email = "paulo.md10@gmail.com",
+                Telefone = "988575072",
+                Cep = "89031-492",
+                Logradouro = "XX",
+                Numero = 88,
+                Bairro = "Vila Nova",
+                Cidade = "Bluemanu",
+                Uf = "SC",
+                Complemento = "Bloco-7",
+                RegistroAtivo = true
 
+            });
+
+            enderecos.Add(new Endereco()
+            {
+                Email = "juquinha@hotmail.com",
+                Telefone = "987234573",
+                Cep = "56432-452",
+                Logradouro = "XX",
+                Numero = 142,
+                Bairro = "itoupava Norte",
+                Cidade = "Bluemanu",
+                Uf = "SC",
+                Complemento = "Rua da Direita",
+                RegistroAtivo = true
+            });
+
+            #endregion
+
+            #region fornecedor
+            var fornecedor = new List<Fornecedor>();
+            fornecedor.Add(new Fornecedor()
+            {
+                RazaoSocial = "Benner",
+                NomeFantasia = "Paulo",
+                DataCadastro = Convert.ToDateTime("19/08/2005"),
+                Cnpj = "93.591.110/0001-56",
+                RegistroAtivo = true,
+            });
+            fornecedor.Add(new Fornecedor()
+            {
+                RazaoSocial = "HBSIS",
+                NomeFantasia = "Francisco",
+                DataCadastro = Convert.ToDateTime("20/07/2015"),
+                Cnpj = "39.552.667/0001-32",
+                RegistroAtivo = true,
+            });
+
+            #endregion
+
+            #region funcionario
+            var funcionario = new List<Funcionario>();
+            funcionario.Add(new Funcionario()
+            {
+                NomeFuncionario = "Paulo",
+                TipoFuncionario = 3,
+                RegistroAtivo = true
+
+            });
+            funcionario.Add(new Funcionario()
+            {
+                NomeFuncionario = "André",
+                TipoFuncionario = 1,
+                RegistroAtivo = true
+
+            });
+            #endregion
+
+            #region historico
+            var historico = new List<Historico>();
+            historico.Add(new Historico()
+            {
+                Descricao = "Conta adicionada dia 19/07/2000",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Descricao = "Conta paga com sucesso",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region login
+            var login = new List<Login>();
+            login.Add(new Login()
+            {
+                Usuario = "Cléber",
+                Senha = "cg1992",
+                RegistroAtivo = true
+            });
+            login.Add(new Login()
+            {
+                Usuario = "Gustavo",
+                Senha = "gustavo1500",
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region movimentacaoFinanceiraEntrada
+            var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
+            movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            {
+                Valor = 568,
+                RegistroAtivo = true
+            });
+            movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            {
+                Valor = -2422,
+                RegistroAtivo = true,
+            });
+            movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            {
+                Valor = 255244,
+                RegistroAtivo = true,
+            });
+
+            #endregion
+
+            #region movimentacaoFinanceiraSaida
+            var movimentacaoFinanceiraSaida = new List<MovimentacaoFinanceiraSaida>();
+            movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            {
+                Valor = 77,
+                RegistroAtivo = true
+            });
+            movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            {
+                Valor = -7555,
+                RegistroAtivo = true
+            });
+            movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            {
+                Valor = 72866457,
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region parcelaPagar
+            var parcelaPagar = new List<ParcelaPagar>();
+            parcelaPagar.Add(new ParcelaPagar()
+            {
+                Valor = 2333,
+                Status = "Pago",
+                DataPagamento = Convert.ToDateTime("17/02/2019"),
+                DataVencimento = Convert.ToDateTime("16/02/2019"),
+                RegistroAtivo = true
+            });
+            parcelaPagar.Add(new ParcelaPagar()
+            {
+                Valor = 9523,
+                Status = "Pendente",
+                DataPagamento = Convert.ToDateTime(""),
+                DataVencimento = Convert.ToDateTime("04//09/2019"),
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region parcelaReceber
+            var parcelaReceber = new List<ParcelaReceber>();
+            parcelaReceber.Add(new ParcelaReceber()
+            {
+                Valor = 12312,
+                Status = "Vencido",
+                DataVencimento = Convert.ToDateTime("01/01/2019"),
+                DataRecebimento = Convert.ToDateTime(""),
+                RegistroAtivo = true,
+            });
+            parcelaReceber.Add(new ParcelaReceber()
+            {
+                Valor = 18657328,
+                Status = "Pago",
+                DataVencimento = Convert.ToDateTime("13/08/2018"),
+                DataRecebimento = Convert.ToDateTime("05/08/2018"),
+                RegistroAtivo = true,
+            });
+            #endregion
+
+            #region tituloPagar
+            var tituloPagar = new List<TituloPagar>();
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Dinheiro",
+                Caixa = true,
+                ValorTotal = 1999,
+                Status = "Pago",
+                DataLancamento = "23/06/2016",
+                DataPagamento = "22/07/2016",
+                DataVencimento = "23/07/2016",
+                Complemento = "Usuario pagou corretamente",
+                QuantidadeParcela = 1,
+                RegistroAtivo = true
+            });
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Credito",
+                Caixa = false,
+                ValorTotal = 127422,
+                Status = "Pendente",
+                DataLancamento = "13/06/2016",
+                DataPagamento = "",
+                DataVencimento = "13/07/2016",
+                Complemento = "Usuario nao pagou",
+                QuantidadeParcela = 6,
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region tituloReceber
+            var tituloReceber = new List<TituloReceber>();
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao= "Titulo sem compromisso",
+                ValorTotal = 123213123,
+                Status = "Pago",
+                DataLancamento = "29/12/2018",
+                DataRecebimento = "04/01/2019",
+                DataVencimento="30/01/2019",
+                Complemento="Não sei o que por",
+                QuantidadeParcela= 36,
+                RegistroAtivo = true
+            });
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao = "Titulo com compromisso",
+                ValorTotal = 343234,
+                Status = "Pendente",
+                DataLancamento = "09/02/2017",
+                DataRecebimento = "",
+                DataVencimento = "10/03/2017",
+                Complemento = "Não sei o que por, desculpa",
+                QuantidadeParcela = 24,
+                RegistroAtivo = true
+            });
+            #endregion
 
 
             base.Seed(context);

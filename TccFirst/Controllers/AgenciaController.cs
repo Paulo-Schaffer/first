@@ -56,15 +56,15 @@ namespace TccFirst.Controllers
 
         #endregion
 
-        [HttpGet]
+        [HttpGet,Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, Route("editar")]
         public JsonResult Editar(Agencia agencia)
         {
             var alterou = repository.Alterar(agencia);
