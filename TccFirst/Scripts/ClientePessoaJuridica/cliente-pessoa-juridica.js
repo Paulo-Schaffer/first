@@ -9,7 +9,11 @@
             { 'data': 'RazaoSocial' },
             { 'data': 'Atividade' },
             { 'data': 'NomeFantasia' },
-            { 'data': 'DataCadastro' },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataCadastro).format('DD/MM/YYYY')
+                }
+            },
             { 'data': 'Cnpj' },
             { 'data': 'Email' },
             { 'data': 'Filial' },
