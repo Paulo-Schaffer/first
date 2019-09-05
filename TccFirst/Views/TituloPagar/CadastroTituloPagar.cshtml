@@ -9,13 +9,13 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-descricao" mas>Descrição</label>
+                    <label for="tituloPagar-campo-descricao" >Descrição</label>
                     <input type="text" id="tituloPagar-campo-descricao" class="form-control" />
                 </div>
 
                 <div class="form-group">
-                    <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento</label>
-                    <select class="form-control" name="forma_pagamento">
+                    <label for="tituloPagar-campo-forma-pagamento" >Forma de Pagamento</label>
+                    <select class="form-control" name="forma-pagamento" id="tituloPagar-campo-forma-pagamento">
                         <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                         <option>Dinheiro</option>
                         <option>Cartão Débito</option>
@@ -40,13 +40,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tituloPagar-campo-valor_total">Valor Total</label>
-                    <input type="text" id="tituloPagarvalor-campo-valor_total" class="form-control" />
+                    <label for="tituloPagar-campo-valor-total">Valor Total</label>
+                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control" />
                 </div>
 
                 <div class="form-group">
-                    <label for="tituloPagar-campo-status" mas>Status</label>
-                    <select class="form-control" name="status">
+                    <label for="tituloPagar-campo-status">Status</label>
+                    <select class="form-control" name="status" id="tituloPagar-campo-status">
                         <option disabled="disabled" selected="selected">Selecione um status</option>
                         <option>Pendente</option>
                         <option>Pago</option>
@@ -56,49 +56,36 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tituloPagar-campo-data_lancamento" mas>Data de Lançamento</label>
-                    <input type="date" id="tituloPagar-campo-data_lancamento" class="form-control" />
+                    <label for="tituloPagar-campo-data-lancamento" mas>Data de Lançamento</label>
+                    <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control" />
                 </div>
 
-                <div>
-                    <div class="form-group">
-                        <label for="tituloPagar-campo-data_recebimento" mas>Data de Recebimento</label>
-                        <input type="date" id="tituloPagar-campo-data_recebimento" class="form-control" />
-                    </div>
+                <div class="form-group">
+                    <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento</label>
+                    <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" />
                 </div>
 
-                <div>
-                    <div class="form-group">
-                        <label form="tituloPagar-campo-data_pagamento" mas>Data Pagamento</label>
-                        <input type="date" id="tituloPagar-campo-data_pagamento" class="form-control" />
-                    </div>
+
+                <div class="form-group">
+                    <label form="tituloPagar-campo-data-vencimento" mas>Data Vencimento</label>
+                    <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control" />
                 </div>
 
-                <div>
-                    <div class="form-group">
-                        <label for="tituloPagar-campo-complemento" mas>Complemento</label>
-                        <input type="text" id="tituloPagar-campo-complemento" class="form-control" />
-                    </div>
+                <div class="form-group">
+                    <label for="tituloPagar-campo-complemento" mas>Complemento</label>
+                    <input type="text" id="tituloPagar-campo-complemento" class="form-control" />
                 </div>
 
-                <div>
-                    <div class="form-group">
-                        <label for="tituloPagar-campo-quantidadeParcelas">Quantidade de Parcelas</label>
-                        <input type="number" id="tituloPagar-campo-quantidadeParcelas" class="form-control" />
-                    </div>
+                <div class="form-group">
+                    <label for="tituloPagar-campo-quantidade-parcelas">Quantidade de Parcelas</label>
+                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" />
                 </div>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="pessoa-botao-salvar">Salvar</button>
+                <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
             </div>
         </div>
     </div>
-    
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="pessoa-botao-salvar">Salvar</button>
-    </div>
 </div>
-   

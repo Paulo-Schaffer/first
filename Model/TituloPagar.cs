@@ -32,7 +32,7 @@ namespace Model
         [Column("data_lancamento")]
         public string DataLancamento { get; set; }
 
-        [Column("data_pagamento")]
+        [Column("data_recebimento")]
         public string DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
@@ -41,26 +41,26 @@ namespace Model
         [Column("complemento")]
         public string Complemento { get; set; }
 
-        [Column("quantidade_parcela")]
+        [Column("quantidade_parcelas")]
         public int QuantidadeParcela { get; set; }
 
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
-        #region fk__fornecedor
-        [Column("id_fornecedor")]
-        public int IdFornecedor { get; set; }
+        #region fk__fornecedores
+        [Column("id_fornecedores")]
+        public int IdFornecedores { get; set; }
 
-        [ForeignKey("IdFornecedor")]
-        public Fornecedor fornecedor { get; set; }
+        [ForeignKey("IdFornecedores")]
+        public Fornecedor fornecedores { get; set; }
         #endregion
 
         #region fk_categoria_despesas
-        [Column("id_categoria_despesas")]
-        public int IdCategoriaDepesesas { get; set; }
+        [Column("id_tipo_categoria_despesas")]
+        public int IdTipoCategoriaDepesesas { get; set; }
 
-        [ForeignKey("IdCategoriaDepesesas")]
-        public CategoriaDespesa CategoriaDespesa { get; set; }
+        [ForeignKey("IdTipoCategoriaDepesesas")]
+        public CategoriaDespesa CategoriaDespesas { get; set; }
         #endregion
     }
 }

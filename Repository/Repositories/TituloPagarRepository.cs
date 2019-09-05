@@ -19,74 +19,58 @@ namespace Repository.Repositories
 
         public bool Alterar(TituloPagar tituloPagar)
         {
-            try
-            {
-                var tituloPagarOficial = context.TitulosPagar.FirstOrDefault(x => x.Id == tituloPagar.Id);
-                if (tituloPagar == null)
-                    return false;
 
-                tituloPagarOficial.IdCategoriaDepesesas = tituloPagarOficial.IdCategoriaDepesesas;
-                tituloPagarOficial.IdFornecedor = tituloPagarOficial.IdFornecedor;
-                tituloPagarOficial.Descricao = tituloPagarOficial.Descricao;
-                tituloPagarOficial.FormaPagamento = tituloPagarOficial.FormaPagamento;
-                tituloPagarOficial.Caixa = tituloPagarOficial.Caixa;
-                tituloPagarOficial.ValorTotal = tituloPagarOficial.ValorTotal;
-                tituloPagarOficial.Status = tituloPagarOficial.Status;
-                tituloPagarOficial.DataLancamento = tituloPagarOficial.DataLancamento;
-                tituloPagarOficial.DataRecebimento = tituloPagarOficial.DataRecebimento;
-                tituloPagarOficial.DataVencimento = tituloPagarOficial.DataVencimento;
-                tituloPagarOficial.Complemento = tituloPagarOficial.Complemento;
-                tituloPagarOficial.QuantidadeParcela = tituloPagarOficial.QuantidadeParcela;
+            var tituloPagarOficial = context.TitulosPagar.FirstOrDefault(x => x.Id == tituloPagar.Id);
+            if (tituloPagar == null)
+                return false;
 
-                int quantidadeAfetada = context.SaveChanges();
-                return quantidadeAfetada == 1;
-            }
-            catch (Exception ex)
-            {
+            tituloPagarOficial.IdTipoCategoriaDepesesas = tituloPagarOficial.IdTipoCategoriaDepesesas;
+            tituloPagarOficial.IdFornecedores = tituloPagarOficial.IdFornecedores;
+            tituloPagarOficial.Descricao = tituloPagarOficial.Descricao;
+            tituloPagarOficial.FormaPagamento = tituloPagarOficial.FormaPagamento;
+            tituloPagarOficial.Caixa = tituloPagarOficial.Caixa;
+            tituloPagarOficial.ValorTotal = tituloPagarOficial.ValorTotal;
+            tituloPagarOficial.Status = tituloPagarOficial.Status;
+            tituloPagarOficial.DataLancamento = tituloPagarOficial.DataLancamento;
+            tituloPagarOficial.DataRecebimento = tituloPagarOficial.DataRecebimento;
+            tituloPagarOficial.DataVencimento = tituloPagarOficial.DataVencimento;
+            tituloPagarOficial.Complemento = tituloPagarOficial.Complemento;
+            tituloPagarOficial.QuantidadeParcela = tituloPagarOficial.QuantidadeParcela;
 
-                throw new Exception("Não foi possivel alterar");
-            }
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+
         }
+
         public bool Apagar(int id)
         {
-            try
-            {
-                var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
 
-                if (tituloPagar == null)
-                    return false;
+            var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
 
-                tituloPagar.RegistroAtivo = tituloPagar.RegistroAtivo;
-                int quantidadeAfetada = context.SaveChanges();
-                return quantidadeAfetada == 1;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Não foi possivel apagar");
-            }
-            
+            if (tituloPagar == null)
+                return false;
+
+            tituloPagar.RegistroAtivo = tituloPagar.RegistroAtivo;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+
+
         }
 
         public int Inserir(TituloPagar tituloPagar)
         {
-            try
-            {
-                tituloPagar.RegistroAtivo = true;
-                context.TitulosPagar.Add(tituloPagar);
-                context.SaveChanges();
-                return tituloPagar.Id;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Não foi possivel inserir");
-            }
+
+            tituloPagar.RegistroAtivo = true;
+            context.TitulosPagar.Add(tituloPagar);
+            context.SaveChanges();
+            return tituloPagar.Id;
+
         }
 
         public TituloPagar ObterPeloId(int id)
         {
-            return context.TitulosPagar
-                .Include("TituloPagar")
-                .FirstOrDefault(x => x.Id == id);
+            var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
+            return tituloPagar;
         }
 
         public List<TituloPagar> ObterTodos()

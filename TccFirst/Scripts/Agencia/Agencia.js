@@ -1,7 +1,7 @@
 ﻿$(function () {
     $idAlterar = -1;
 
-    $tabelaAgencia = $('#agencia-index').DataTable({
+    $tabelaAgencia = $('#agencia-cadastro').DataTable({
         ajax: 'Agencia/obtertodos',
         serverSide: true,
         columns: [
@@ -10,13 +10,10 @@
             { 'data': 'NomeAgencia' },
             { 'data': 'NumeroAgencia' },
             {
-                render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
-
-                }
+               
 
             }
 
         ]
     });
-});
+   

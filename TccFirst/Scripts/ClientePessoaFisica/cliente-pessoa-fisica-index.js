@@ -28,9 +28,7 @@
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
 
                 }
-
             }
-
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
@@ -68,16 +66,15 @@
                 telefone: $telefone,
                 cep: $cep,
                 numero: $numero,
-                bairro: $cidade,
+                bairro: $bairro,
+                cidade: $cidade,
                 uf: $uf,
                 complemento: $complemento
-
-
             },
             success: function (data) {
                 $("#modal-clientePessoaFisica").modal("hide");
                 $idAlterar = -1;
-                $tabela.ajax.reload();
+                $tabelaClientePessoaFisica.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível alterar");

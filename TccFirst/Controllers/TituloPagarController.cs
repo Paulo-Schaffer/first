@@ -56,7 +56,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("tituloPagar/")]
+        [HttpGet, Route("tituloPagar")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
@@ -85,8 +85,8 @@ namespace TccFirst.Controllers
                     dataVencimento = tituloPagar.DataVencimento,
                     complemento = tituloPagar.Complemento,
                     quantidadeParcela = tituloPagar.QuantidadeParcela,
-                    idFornecedor = tituloPagar.IdFornecedor,
-                    idCategoriaDespesas = tituloPagar.IdCategoriaDepesesas
+                    idFornecedores = tituloPagar.IdFornecedores,
+                    IdTipoCategoriaDepesesas = tituloPagar.IdTipoCategoriaDepesesas
                 });
             }
                 var resultado = new

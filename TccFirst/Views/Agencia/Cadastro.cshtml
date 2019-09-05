@@ -1,24 +1,27 @@
-﻿<h2>Cadastro de Agencias</h2>
-
-<form action="/agencia/inserir" method="post">
+﻿<title>Cadastro de Agencia</title>﻿
+<h2>Cadastro de Agencias</h2>
+<br />
+<form action="/Agencia/inserir" method="post">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <label for="campo-nome">Nome da Agencia<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="nomeAgencia" id="campo-nomeagencia" required="" />
+                <label for="campo-banco">Banco<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="banco" id="campo-banco" required="" />
             </div>
             <div class="col-12">
-                <label for="campo-banco">Nome do Banco<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="nomeBanco" id="campo-nomeBanco" required="" />
+                <label for="campo-nomeAgencia">Agencia<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="nomeAgencia" id="campo-nomeAgencia" required="" />
+            </div>
+            <div class="col-12">
+                <label for="campo-numeroAgencia">Numero Agencia<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="numeroAgencia" id="campo-numeroAgencia" required="" />
             </div>
         </div>
     </div>
-    <div class="col-12">
-        <label for="campo-estado">Numero Agencia<span class="text-danger">*</span></label>
-        <input class="form-control" type="text" name="numeroAgencia" id="campo-numeroAgencia" required=""/>
-    </div>
 
+   
     <div class="modal-footer">
-    <button class="btn btn-primary float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+        <button class="btn btn-success" type="submit">Voltar</button>
+        <button class="btn btn-primary float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
     </div>
 </form>
