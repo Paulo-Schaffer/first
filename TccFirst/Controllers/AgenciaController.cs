@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc; 
+using System.Web.Mvc;
 using Model;
 using Repository.Repositories;
 
@@ -21,7 +21,7 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             AgenciaRepository repositoryAgencia = new AgenciaRepository();
             ViewBag.Agencias = repositoryAgencia.ObterTodos();
@@ -37,7 +37,6 @@ namespace TccFirst.Controllers
 
         }
 
-
         #region cadastro
         [HttpGet]
         public ActionResult Cadastro()
@@ -49,11 +48,10 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(Agencia agencia)
         {
             agencia.RegistroAtivo = true;
-            var id = repository.Inserir(agencia);   
-            var resultado = new { id=id };
+            var id = repository.Inserir(agencia);
+            var resultado = new { id = id };
             return RedirectToAction("Editar", new { id = id });
         }
-
         #endregion
 
         [HttpGet,Route("apagar")]
@@ -80,7 +78,6 @@ namespace TccFirst.Controllers
             return View();
         }
 
-
         [HttpGet, Route("agencia/obtertodosselect")]
         public JsonResult ObterTodosSelect(string termo)
         {
@@ -101,9 +98,9 @@ namespace TccFirst.Controllers
                 resultados = agenciasSelect
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-            
+
         }
-    
+
 
 
 

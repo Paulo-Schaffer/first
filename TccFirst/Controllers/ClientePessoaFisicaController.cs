@@ -1,4 +1,4 @@
-﻿using Model;
+﻿        using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -37,14 +37,14 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-        [HttpPost]
+        [HttpGet]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
+            
         [HttpPost]
         public JsonResult Update(ClientePessoaFisica clientePessoaFisica)
         {
@@ -52,7 +52,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-        [HttpPost, Route("clientepessoafisica")]
+        [HttpGet, Route("clientepessoafisica")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);

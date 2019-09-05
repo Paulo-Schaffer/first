@@ -5497,6 +5497,7 @@
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Scripts\ClientePessoaJuridica\clientePessoaJuridica.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
+    <Content Include="Scripts\ClientePessoaFisica\datetime.js" />
     <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
     <Content Include="Scripts\ClientePessoaFisica\moment.js" />
     <Content Include="Web.config" />
@@ -5512,12 +5513,14 @@
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
+    <Compile Include="Controllers\ParcelaPagarsController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
+    <Compile Include="Controllers\TituloPagarsController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -5585,6 +5588,17 @@
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\ContaCorrente\Index.cshtml" />
     <Content Include="Views\Agencia\Editar.cshtml" />
+    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
+    <Content Include="Views\ParcelaPagars\Create.cshtml" />
+    <Content Include="Views\ParcelaPagars\Delete.cshtml" />
+    <Content Include="Views\ParcelaPagars\Details.cshtml" />
+    <Content Include="Views\ParcelaPagars\Edit.cshtml" />
+    <Content Include="Views\ParcelaPagars\Index.cshtml" />
+    <Content Include="Views\TituloPagars\Create.cshtml" />
+    <Content Include="Views\TituloPagars\Delete.cshtml" />
+    <Content Include="Views\TituloPagars\Details.cshtml" />
+    <Content Include="Views\TituloPagars\Edit.cshtml" />
+    <Content Include="Views\TituloPagars\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
