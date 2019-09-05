@@ -5469,6 +5469,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
@@ -5496,9 +5497,9 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\ClientePessoaJuridica\clientePessoaJuridica.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
-    <Content Include="Scripts\ClientePessoaFisica\datetime.js" />
-    <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
-    <Content Include="Scripts\ClientePessoaFisica\moment.js" />
+    <Content Include="Scripts\datetime.js" />
+    <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
