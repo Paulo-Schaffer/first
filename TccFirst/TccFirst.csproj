@@ -5515,14 +5515,12 @@
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
-    <Compile Include="Controllers\ParcelaPagarsController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
-    <Compile Include="Controllers\TituloPagarsController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
