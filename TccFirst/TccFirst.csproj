@@ -5606,6 +5606,7 @@
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
