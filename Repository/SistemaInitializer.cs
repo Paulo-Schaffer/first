@@ -174,16 +174,19 @@ namespace Repository
             #region contaCorrente
             var contaCorrente = new List<ContaCorrente>();
             contaCorrente.Add(new ContaCorrente() {
-                NumeroConta= "1233334-454",
+                NumeroConta = "1233334-454",
                 Descricao = "Cliente há 25 anos",
-                Documento= "Este é Paulo",
+                Documento = "Este é Paulo",
                 TipoReceitaDespesa = 11,
                 TipoPagamento = "Crédito",
                 Valor = 20,
                 Status = "Pago",
-                DataLancamento= Convert.ToDateTime("19/08/2019"),
-                DataRecebimento= Convert.ToDateTime("15/09/2019"),
-                DataVencimento= Convert.ToDateTime("19/09/2019"),
+                DataLancamento = Convert.ToDateTime("19/08/2019"),
+                DataRecebimento = Convert.ToDateTime("15/09/2019"),
+                DataVencimento = Convert.ToDateTime("19/09/2019"),
+                NomeBanco = "Paulo Bank",
+                NumeroBanco = "088",
+                RegistroAtivo = true,
             });
            
             #endregion

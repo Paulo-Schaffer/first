@@ -61,7 +61,7 @@ namespace Repository.Repositories
             return contaCorrente.Id;
         }
 
-        public ContaCorrente ObterPeloid(int id)
+        public ContaCorrente ObterPeloId(int id)
         {
             var contaCorrente = context.ContasCorrentes.FirstOrDefault(x => x.Id == id);
             return contaCorrente; 
@@ -69,7 +69,7 @@ namespace Repository.Repositories
 
         public List<ContaCorrente> ObterTodos()
         {
-            return context.ContasCorrentes.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList(); 
+            return context.ContasCorrentes.Where(x => x.RegistroAtivo == true).ToList();
         }
     }
 }
