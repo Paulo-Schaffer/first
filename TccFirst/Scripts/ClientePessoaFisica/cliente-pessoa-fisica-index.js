@@ -39,7 +39,7 @@ $(function () {
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
-        $nome = $('#clientePessoaFisica-nome-campo').val();
+        $nome = $('#clientePessoaFisica-campo-nome').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
         $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito').val();
@@ -110,6 +110,7 @@ $(function () {
             success: function (data) {
                 $('#modal-clientePessoaFisica').modal('hide');
                 $tabelaClientePessoaFisica.ajax.reload();
+                $('#modal-clientePessoaFisica').val("")
             },
             error: function (err) {
 
@@ -143,8 +144,11 @@ $(function () {
 
             success: function (data) {
                 $('#clientePessoaFisica-campo-nome').val(data.Nome);
-                $('#clientePessoaFisica-campo-cpf').val(data.CPF);
-                $('#clientePessoaFisica-campo-dataNascimento').val(data.DataNascimento);
+                $('#clientePessoaFisica-campo-cpf').val(data.Cpf);
+                var dataNascimento = moment(data.DataNascimento);
+                console.log();
+
+                $('#clientePessoaFisica-campo-dataNascimento').val(dataNascimento.format('YYYY-MM-DD'));
                 $('#clientePessoaFisica-campo-limiteCredito').val(data.LimiteCredito);
                 $('#clientePessoaFisica-campo-email').val(data.Email);
                 $('#clientePessoaFisica-campo-telefone').val(data.Telefone);
