@@ -5506,6 +5506,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
+    <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
@@ -5600,6 +5601,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
