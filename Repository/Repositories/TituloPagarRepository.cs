@@ -50,7 +50,7 @@ namespace Repository.Repositories
             if (tituloPagar == null)
                 return false;
 
-            tituloPagar.RegistroAtivo = tituloPagar.RegistroAtivo;
+            tituloPagar.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
 
@@ -69,14 +69,17 @@ namespace Repository.Repositories
 
         public TituloPagar ObterPeloId(int id)
         {
-            var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
+            var tituloPagar = context
+                .TitulosPagar
+                .Include("TituloPagar")
+                .FirstOrDefault(x => x.Id == id);
             return tituloPagar;
         }
 
         public List<TituloPagar> ObterTodos()
         {
             return context.TitulosPagar
-                .Where(x => x.RegistroAtivo == true)
+                .Where(x => x.RegistroAtivo)
                 .OrderBy(x => x.Id).ToList();
         }
     }

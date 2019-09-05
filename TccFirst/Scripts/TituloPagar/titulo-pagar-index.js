@@ -1,7 +1,5 @@
 ﻿$(function () {
     $idAlterar = -1;
-   
-   
 
     $tabelaTituloPagar = $("#titulo-pagar-tabela").DataTable({
         ajax: '/TituloPagar/obtertodos',
@@ -80,7 +78,7 @@
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
                 IdFornecedores: $idFornecedores,
-                idCategoriaDespesas: $idCategoriaDespesas
+                IdCategoriaDespesas: $idCategoriaDespesas
             },
             success: function (data) {
                 $('#modal-titulo-pagar').modal('hide');
