@@ -5516,7 +5516,6 @@
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
-    <Compile Include="Controllers\MovimentacaoFinanceiraSaidaController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
@@ -5606,6 +5605,7 @@
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />

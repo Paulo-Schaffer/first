@@ -71,15 +71,14 @@ namespace Repository.Repositories
         {
             var tituloPagar = context
                 .TitulosPagar
-                .Include("TituloPagar")
                 .FirstOrDefault(x => x.Id == id);
             return tituloPagar;
         }
 
         public List<TituloPagar> ObterTodos()
         {
-            return context.TitulosPagar
-                .Where(x => x.RegistroAtivo)
+            return context.TitulosPagar.
+                Where(x => x.RegistroAtivo == false)
                 .OrderBy(x => x.Id).ToList();
         }
     }

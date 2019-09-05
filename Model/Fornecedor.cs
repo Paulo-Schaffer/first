@@ -26,6 +26,8 @@ namespace Model
         [Column("cnpj")]
         public string Cnpj { get; set; }
 
-        
+        [Column("registro_ativo")]
+        public bool RegistroAtivos { get; set; }
+
     }
 }

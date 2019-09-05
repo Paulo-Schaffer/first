@@ -1,2 +1,57 @@
 ﻿
-<h1>asodjoashdiohsadiohoashdiohsa</h1>
+@{
+    ViewBag.Title = "Editar";
+}
+
+<div class="container container-fluid">
+    <h3>Editando Agencia</h3>
+
+
+    <form method="post" action="/Agencia/editar">
+        <div class="row">
+            <div class="col-12">
+                <div class="float-right">
+                    <a href="/agencia/index" class="btn btn-primary">Voltar a lista de Agencias</a>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="id" value="@ViewBag.Agencia.Id" />
+
+        <br />
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-banco">Banco</label>
+                    <input type="text" name="banco" class="form-control" id="campo-banco" value="@ViewBag.Agencia.Banco" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    fcid
+                    <label for="campo-nomeAgencia">Nome da Agencia</label>
+                    <input type="text" name="nome" class="form-control" id="campo-nomeAgencia" value="@ViewBag.Agencia.NomeAgencia" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-numeroAgencia">Numero da Agencia</label>
+                    <input type="text" name="numero" class="form-control" id="campo-numeroAgencia" value="@ViewBag.Agencia.NumeroAgencia" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <a href="/agencia/index" class="btn btn-success">Salvar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
