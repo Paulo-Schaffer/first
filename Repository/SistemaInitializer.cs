@@ -185,7 +185,7 @@ namespace Repository
                 DataRecebimento= Convert.ToDateTime("15/09/2019"),
                 DataVencimento= Convert.ToDateTime("19/09/2019"),
             });
-            context.ContasCorrentes.AddRange(contaCorrente);
+            
             #endregion
 
 

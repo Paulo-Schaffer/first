@@ -139,9 +139,9 @@
                 $('#clientePessoaJuridica-campo-razaoSocial').val(data.RazaoSocial);
                 $('#clientePessoaJuridica-campo-atividade').val(data.Atividade);
                 $('#clientePessoaJuridica-campo-nomeFantasia').val(data.NomeFantasia);
-                var DataCadastro = moment(DataCadastro);
+                var dataCadastro = moment(data.DataCadastro);
                 console.log();
-                $('#clientePessoaJuridica-campo-dataCadastro').val(DataCadastro.format('YYYY-MM-DD'));
+                $('#clientePessoaJuridica-campo-dataCadastro').val(dataCadastro.format('YYYY-MM-DD'));
                 $('#clientePessoaJuridica-campo-cnpj').val(data.Cnpj);
                 $('#clientePessoaJuridica-campo-email').val(data.Email);
                 $('#clientePessoaJuridica-campo-filial').val(data.Filial);
