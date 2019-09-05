@@ -1,7 +1,7 @@
 ﻿$(function () {
     $idAlterar = -1;
-    $idFornecedores = $("#id").val();
-    $idTipoCategoriaDespesas = $("#id").val();
+   
+   
 
     $tabelaTituloPagar = $("#titulo-pagar-tabela").DataTable({
         ajax: '/TituloPagar/obtertodos',
@@ -54,6 +54,8 @@
         $DataVencimento = $('#tituloPagar-campo-data-vencimento').val();
         $Complemento = $('#tituloPagar-campo-complemento').val();
         $QuantidadeParcela = $('#tituloPagar-campo-quantidade-parcela').val();
+        $idFornecedores = $('#tituloPagar-campo-idfornecedores').val();
+        $idCategoriaDespesas = $("#tituloPagar-campo-idcategoria-despesas").val();
 
         if ($idAlterar == -1) {
             inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
@@ -78,7 +80,7 @@
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
                 IdFornecedores: $idFornecedores,
-                IdTipoCategoriaDespesas: $idTipoCategoriaDespesas
+                idCategoriaDespesas: $idCategoriaDespesas
             },
             success: function (data) {
                 $('#modal-titulo-pagar').modal('hide');
@@ -133,7 +135,7 @@
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
                 IdFornecedores: $idFornecedores,
-                idTipoCategoriaDespesas: $idTipoCategoriaDespesas
+                idCategoriaDespesas: $idCategoriaDespesas
             },
             success: function (data) {
                 $('#modal-tituloPagar').modal('hide');
