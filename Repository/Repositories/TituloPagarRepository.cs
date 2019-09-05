@@ -32,7 +32,7 @@ namespace Repository.Repositories
             tituloPagarOficial.ValorTotal = tituloPagarOficial.ValorTotal;
             tituloPagarOficial.Status = tituloPagarOficial.Status;
             tituloPagarOficial.DataLancamento = tituloPagarOficial.DataLancamento;
-            tituloPagarOficial.DataPagamento = tituloPagarOficial.DataPagamento;
+            tituloPagarOficial.DataRecebimento = tituloPagarOficial.DataRecebimento;
             tituloPagarOficial.DataVencimento = tituloPagarOficial.DataVencimento;
             tituloPagarOficial.Complemento = tituloPagarOficial.Complemento;
             tituloPagarOficial.QuantidadeParcela = tituloPagarOficial.QuantidadeParcela;
