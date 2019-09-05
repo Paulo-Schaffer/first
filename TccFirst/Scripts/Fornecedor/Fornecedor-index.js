@@ -37,6 +37,7 @@
         $email = $('#fornecedor-campo-email').val();
         $telefone = $('#fornecedor-campo-telefone').val();
         $cep = $('#fornecedor-campo-cep').val();
+        $logradouro = $('fornecedor-campo-logradouro').val();
         $numero = $('#fornecedor-campo-numero').val();
         $bairro = $('#fornecedor-campo-bairro').val();
         $cidade = $('#fornecedor-campo-cidade').val();
