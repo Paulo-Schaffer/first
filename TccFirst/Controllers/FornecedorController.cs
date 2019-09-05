@@ -43,7 +43,7 @@ namespace TccFirst.Controllers
             fornecedores.RegistroAtivo = true;
             var id = repository.Inserir(fornecedores);
             var resultado = new { id = id };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -55,9 +55,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Fornecedor fornecedores)
+        public JsonResult Update(Fornecedor fornecedor)
         {
-            var alterou = repository.Alterar(fornecedores);
+            var alterou = repository.Alterar(fornecedor);
             var resultado = new { status = alterou };
             return Json(resultado);
         }

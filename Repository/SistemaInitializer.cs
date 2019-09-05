@@ -147,15 +147,15 @@ namespace Repository
                 Filial = "Hbsis",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
-                Logradouro = "XX",
-                Numero = 675,
-                Bairro = "Bairro Vila Olimpia",
-                Uf = "SP",
-                Cidade = "São Paulo",
-                RegistroAtivo = true,
+                Logradouro = "Ubatuba",
+                Numero= 675,
+                Bairro="Bairro Vila Olimpia",
+                Uf="SP",
+                Cidade="São Paulo",
+                RegistroAtivo = true, 
 
             });
-            context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
+
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
                 RazaoSocial = "HBSIS",
@@ -377,8 +377,15 @@ namespace Repository
                 DataVencimento = Convert.ToDateTime("13/08/2018"),
                 DataRecebimento = Convert.ToDateTime("05/08/2018"),
                 RegistroAtivo = true,
+            #region historicos
+            var historicos = new List<Historico>();
+            historicos.Add(new Historico()
+            {
+                Id = 1, 
+                Descricao = "Manuteção",
+                RegistroAtivo = true
             });
-           
+            context.Historicos.AddRange(historicos);
             #endregion
 
             #region tituloPagar
@@ -439,6 +446,33 @@ namespace Repository
                 QuantidadeParcela = 24,
                 RegistroAtivo = true
             });
+            #endregion
+
+            #region fornecedores
+            var fornecedores = new List<Fornecedor>();
+            fornecedores.Add(new Fornecedor()
+            {
+                //RazaoSocial = "askdlasndlasnkd",
+                //Numero = 1,
+                //DataCadastro = DateTime.Now,
+                //RegistroAtivo = true,
+
+                RazaoSocial = "Peugeot",
+                NomeFantasia = "strabourg",
+                DataCadastro = Convert.ToDateTime("04/09/2019"),
+                Cnpj = "83.590.870/0001-95",
+                Email = "first@outlook.com",
+                Telefone = "3345-5567",
+                Cep = "09432-876",
+                Logradouro = "UBATUBA",
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Cidade = "São Paulo",
+                Uf = "SP",
+                Complemento = "casa",
+                RegistroAtivo = true,
+            });
+            context.Fornecedores.AddRange(fornecedores);
             #endregion
 
 
