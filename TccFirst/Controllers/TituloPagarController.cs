@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
+    [Route("tituloPagar/")]
     public class TituloPagarController : Controller
     {
         private TituloPagarRepository repository;
@@ -17,12 +18,7 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
+        [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
             var tituloPagar = repository.ObterTodos();
@@ -30,16 +26,22 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Inserir(TituloPagar tituloPagar)
+        [HttpPost, Route("cadastro")]
+        public ActionResult Cadastro(TituloPagar tituloPagar)
         {
-            tituloPagar.RegistroAtivo = true;
-            var id = repository.Inserir(tituloPagar);
-            var resultado = new { id = id };
-            return Json(resultado);
+            int id = repository.Inserir(tituloPagar);
+            return RedirectToAction("Editar", new { id = id });
         }
 
-        [HttpGet]
+        [HttpPost, Route("editar")]
+        public ActionResult Editar(TituloPagar tituloPagar)
+        {
+            var alterou = repository.Alterar(tituloPagar);
+            var resultado = new { status = alterou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
@@ -48,53 +50,27 @@ namespace TccFirst.Controllers
 
         }
 
-        [HttpPost]
-        public JsonResult Update(TituloPagar tituloPagar)
+        public ActionResult Index()
         {
-            var alterou = repository.Alterar(tituloPagar);
-            var resultado = new { id = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return View();
         }
 
-        [HttpGet, Route("tituloPagar")]
-        public JsonResult ObterPeloId(int id)
+        public ActionResult Cadastro()
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-
+            return View();
         }
 
-        [HttpGet, Route("tituloPagar/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
+        [HttpGet]
+        public ActionResult Editar(int id)
         {
-            var titulosPagar = repository.ObterTodos();
+            var tituloPagar = repository.ObterPeloId(id);
+            if (tituloPagar == null)
+                return RedirectToAction("Index");
 
-            List<object> titulosPagarSelect2 = new List<object>();
-
-            foreach (TituloPagar tituloPagar in titulosPagar)
-            {
-                titulosPagarSelect2.Add(new
-                {
-                    id = tituloPagar.Id,
-                    descricao = tituloPagar.Descricao,
-                    formaPagamento = tituloPagar.FormaPagamento,
-                    caixa = tituloPagar.Caixa,
-                    valorTotal = tituloPagar.ValorTotal,
-                    status = tituloPagar.Status,
-                    dataLancamento = tituloPagar.DataLancamento,
-                    dataRecebimento = tituloPagar.DataRecebimento,
-                    dataVencimento = tituloPagar.DataVencimento,
-                    complemento = tituloPagar.Complemento,
-                    quantidadeParcela = tituloPagar.QuantidadeParcela,
-                    idFornecedores = tituloPagar.IdFornecedores,
-                    idCategoriasDespesas = tituloPagar.IdCategoriasDepesesas
-                });
-            }
-                var resultado = new
-                {
-                    results = titulosPagarSelect2
-                };
-                   
-                return Json(resultado, JsonRequestBehavior.AllowGet);
+            ViewBag.TituloPagar = tituloPagar;
+            return View();
         }
+
+
     }
 }

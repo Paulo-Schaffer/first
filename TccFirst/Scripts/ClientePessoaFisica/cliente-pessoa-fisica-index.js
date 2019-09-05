@@ -7,8 +7,6 @@
 });
 $(function () {
     $idAlterar = -1;
-
-    
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
         responsive: true,
         ajax: '/ClientePessoaFisica/obtertodos',
@@ -134,7 +132,6 @@ $(function () {
         $.ajax({
             url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,
             method: 'get',
-
             success: function (data) {
                 $('#clientePessoaFisica-campo-nome').val(data.Nome);
                 $('#clientePessoaFisica-campo-cpf').val(data.Cpf);

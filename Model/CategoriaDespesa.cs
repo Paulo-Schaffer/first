@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("tipo_categoria_despesas")]
+    [Table("categoria_despesas")]
     public class CategoriaDespesa
     {
         [Key, Column("id")]

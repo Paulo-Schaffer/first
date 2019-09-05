@@ -4,8 +4,9 @@
 
 <h2>Lista de Títulos a Pagar</h2>
 
-<button data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-primary">Novo Titulo a Pagar</button>
-<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped">
+<button data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-primary">Novo Titulo Pagar</button>
+
+<table id="titulo-pagar-tabela" class="table table-hover table-bordered table-striped" >
     <thead>
         <tr>
             <th>Código</th>
@@ -23,10 +24,12 @@
         </tr>
     </thead>
 </table>
+
 @RenderPage("CadastroTituloPagar.cshtml")
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
+    <script src="~/Scripts/TituloPagar/IdCategoriaDespesas.js"></script>
 }
 
 
