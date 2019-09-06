@@ -1,5 +1,7 @@
 ﻿$(function () {
     $idAlterar = -1;
+    $IdFornecedor = $("#id").val();
+    $IdCategoriaDespesa = $("#id").val();
 
     $tabelaTituloPagar = $("#titulo-pagar-tabela").DataTable({
         ajax: '/TituloPagar/obtertodos',
@@ -63,7 +65,7 @@
         }
     });
 
-    function inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedor, $IdCategoriaDespesa) {
+    function inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
         $.ajax({
             url: '/tituloPagar/inserir',
             method: 'post',
@@ -118,7 +120,7 @@
         });
     });
 
-    function alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedor, $IdCategoriaDespesa) {
+    function alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
         $.ajax({
             url: '/tituloPagar/update',
             method: 'post',
