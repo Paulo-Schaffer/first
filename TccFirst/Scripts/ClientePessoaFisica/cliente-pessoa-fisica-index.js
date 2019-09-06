@@ -5,6 +5,71 @@
     
 
 });
+$(document).ready(function () {
+
+    function limpa_formulário_cep() {
+        // Limpa valores do formulário de cep.
+        $("#ruaclientePessoaFisica-campo-rua").val("");
+        $("#clientePessoaFisica-campo-bairro").val("");
+        $("#clientePessoaFisica-campo-cidade").val("");
+        $("#clientePessoaFisica-campo-uf").val("");
+        
+    }
+
+    //Quando o campo cep perde o foco.
+    $("#clientePessoaFisica-campo-cep").blur(function () {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if (validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                $("#clientePessoaFisica-campo-rua").val("...");
+                $("#clientePessoaFisica-campo-bairro").val("...");
+                $("#clientePessoaFisica-campo-cidade").val("...");
+                $("#clientePessoaFisica-campo-uf").val("...");
+               
+
+                //Consulta o webservice viacep.com.br/
+                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                    if (!("erro" in dados)) {
+                        //Atualiza os campos com os valores da consulta.
+
+                        $("#clientePessoaFisica-campo-rua").val(dados.logradouro);
+                        $("#clientePessoaFisica-campo-bairro").val(dados.bairro);
+                        $("#clientePessoaFisica-campo-cidade").val(dados.localidade);
+                        $("#clientePessoaFisica-campo-uf").val(dados.uf);
+                       
+                    } //end if.
+                    else {
+                        //CEP pesquisado não foi encontrado.
+                        limpa_formulário_cep();
+                        alert("CEP não encontrado.");
+                    }
+                });
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    });
+});
+
 $(function () {
     $idAlterar = -1;
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
@@ -32,39 +97,55 @@ $(function () {
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
         if ($('#clientePessoaFisica-campo-nome').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Nome </div>');
+            $('#clientePessoaFisica-campo-nome').focus();
 
         } else if ($('#clientePessoaFisica-campo-cpf').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cpf </div>');
+            $('#clientePessoaFisica-campo-cpf').focus();
         }
         else if ($('#clientePessoaFisica-campo-dataNascimento').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Data de Nascimento </div>');
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
         }
         else if ($('#clientePessoaFisica-campo-limiteCredito').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Limite de Crédito </div>');
+            $('#clientePessoaFisica-campo-limiteCredito').focus();
         }
         else if ($('#clientePessoaFisica-campo-email').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo de E-mail </div>');
+            $('#clientePessoaFisica-campo-email').focus();
         }
         else if ($('#clientePessoaFisica-campo-telefone').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Telefone </div>');
+            $('#clientePessoaFisica-campo-telefone').focus();
         }
         else if ($('#clientePessoaFisica-campo-cep').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cep </div>');
+            $('#clientePessoaFisica-campo-cep').focus();
+        }
+        else if ($('#clientePessoaFisica-campo-rua').val == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Rua </div>');
+            $('#clientePessoaFisica-campo-rua').focus();
         }
         else if ($('#clientePessoaFisica-campo-numero').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
+            $('#clientePessoaFisica-campo-numero').focus();
         }
         else if ($('#clientePessoaFisica-campo-bairro').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Bairro </div>');
+            $('#clientePessoaFisica-campo-bairro').focus();
         }
         else if ($('#clientePessoaFisica-campo-cidade').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cidade </div>');
+            $('#clientePessoaFisica-campo-cidade').focus();
         }
         else if ($('#clientePessoaFisica-campo-uf').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Uf </div>');
+            $('#clientePessoaFisica-campo-uf').focus();
         }
         else if ($('#clientePessoaFisica-campo-complemento').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Complemento </div>');
+            $('#clientePessoaFisica-campo-complemento').focus();
         }
         else {
             $('#msg').html('<div class="alert alert-success" role="alert">Registro Cadastrado com Sucesso </div>');
@@ -76,6 +157,7 @@ $(function () {
         $email = $('#clientePessoaFisica-campo-email').val();
         $telefone = $('#clientePessoaFisica-campo-telefone').val();
         $cep = $('#clientePessoaFisica-campo-cep').val();
+        $rua = $('#clientePessoaFisica-campo-rua').val();
         $numero = $('#clientePessoaFisica-campo-numero').val();
         $bairro = $('#clientePessoaFisica-campo-bairro').val();
         $cidade = $('#clientePessoaFisica-campo-cidade').val();
@@ -83,16 +165,14 @@ $(function () {
         $complemento = $('#clientePessoaFisica-campo-complemento').val();
 
         if ($idAlterar == -1) {
-            inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento)
-            $('.modal').on('hidden.bs.modal', function (e) {
-                $(this).removeData();
-            });
+            inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento);
+            
         } else {
-            alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento);
+            alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento);
         }
     });
 
-    function alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $numero, $bairro, $cidade, $uf, $complemento) {
+    function alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: "/clientePessoaFisica/update",
             method: "post",
@@ -105,6 +185,7 @@ $(function () {
                 email: $email,
                 telefone: $telefone,
                 cep: $cep,
+                rua: $rua,
                 numero: $numero,
                 bairro: $bairro,
                 cidade: $cidade,
@@ -112,7 +193,7 @@ $(function () {
                 complemento: $complemento
             },
             success: function (data) {
-                $("#modal-clientePessoaFisica").modal("hide");
+                $("#modal-clientePessoaFisicaEditar").modal("hide");
                 $idAlterar = -1;
                 $tabelaClientePessoaFisica.ajax.reload();
             },
@@ -122,7 +203,7 @@ $(function () {
         })
     }
 
-    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep , $numero, $bairro, $cidade, $uf, $complemento) {
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/clientePessoaFisica/inserir',
             method: 'post',
@@ -134,6 +215,7 @@ $(function () {
                 Email: $email,
                 Telefone: $telefone,
                 Cep: $cep,
+                Rua: $rua,
                 Numero: $numero,
                 Bairro: $bairro,
                 Cidade: $cidade,
