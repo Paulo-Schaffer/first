@@ -5,6 +5,7 @@
         ajax: '/TituloPagar/obtertodos',
         severSide: true,
         columns: [
+            { 'data': 'Id' },
             { 'data': 'Descricao' },
             { 'data': 'Forma de Pagamento' },
             { 'data': 'Caixa' },
@@ -52,8 +53,8 @@
         $DataVencimento = $('#tituloPagar-campo-data-vencimento').val();
         $Complemento = $('#tituloPagar-campo-complemento').val();
         $QuantidadeParcela = $('#tituloPagar-campo-quantidade-parcela').val();
-        $idFornecedores = $('#tituloPagar-campo-fornecedores').val();
-        $idCategoriaDespesas = $("#tituloPagar-campo-categoria-despesas").val();
+        $idFornecedor = $('#tituloPagar-campo-fornecedor').val();
+        $idCategoriaDespesa = $("#tituloPagar-campo-categoria-despesa").val();
 
         if ($idAlterar == -1) {
             inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
@@ -62,7 +63,7 @@
         }
     });
 
-    function inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedores, $IdCategoriaDespesas) {
+    function inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedor, $IdCategoriaDespesa) {
         $.ajax({
             url: '/tituloPagar/inserir',
             method: 'post',
@@ -77,8 +78,8 @@
                 DataVencimento: $DataVencimento,
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
-                IdFornecedores: $IdFornecedores,
-                IdCategoriaDespesas: $IdCategoriaDespesas
+                IdFornecedor: $IdFornecedor,
+                IdCategoriaDespesa: $IdCategoriaDespesa
             },
             success: function (data) {
                 $('#modal-tituloPagar').modal('hide');
@@ -117,7 +118,7 @@
         });
     });
 
-    function alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedores, $IdCategoriaDespesas) {
+    function alterar($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela, $IdFornecedor, $IdCategoriaDespesa) {
         $.ajax({
             url: '/tituloPagar/update',
             method: 'post',
@@ -133,8 +134,8 @@
                 DataVencimento: $DataVencimento,
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
-                IdFornecedores: $IdFornecedores,
-                IdCategoriaDespesas: $IdCategoriaDespesas
+                IdFornecedor: $IdFornecedor,
+                IdCategoriaDespesa: $IdCategoriaDespesa
             },
             success: function (data) {
                 $('#modal-tituloPagar').modal('hide');
