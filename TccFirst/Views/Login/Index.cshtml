@@ -1,9 +1,11 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Login</h2>
+
+<h2>Lista de usuarios</h2>
+
+<button data-toggle="modal" data-target="#modal-login" class="btn btn-primary">Novo Usuario</button>
 
 <table id="login-tabela" class="table table-hover table-bordered table-striped">
     <thead>
@@ -14,3 +16,5 @@
         </tr>
     </thead>
 </table>
+
+@RenderPage("CadastroLogin.cshtml")
