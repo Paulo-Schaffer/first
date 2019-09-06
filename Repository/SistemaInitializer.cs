@@ -204,35 +204,6 @@ namespace Repository
 
             //#endregion
 
-
-            #region fornecedores
-            var fornecedores = new List<Fornecedor>();
-            fornecedores.Add(new Fornecedor()
-            {
-                //RazaoSocial = "askdlasndlasnkd",
-                //Numero = 1,
-                //DataCadastro = DateTime.Now,
-                //RegistroAtivo = true,
-
-                RazaoSocial = "Peugeot",
-                NomeFantasia = "strabourg",
-                DataCadastro = Convert.ToDateTime("04/09/2019"),
-                Cnpj = "83.590.870/0001-95",
-                Email = "first@outlook.com",
-                Telefone = "3345-5567",
-                Cep = "09432-876",
-                Logradouro = "UBATUBA",
-                Numero = 675,
-                Bairro = "Bairro Vila Olimpia",
-                Cidade = "São Paulo",
-                Uf = "SP",
-                Complemento = "casa",
-                RegistroAtivo = true,
-            });
-            context.Fornecedores.AddRange(fornecedores);
-            #endregion
-
-
             base.Seed(context);
         }
 
