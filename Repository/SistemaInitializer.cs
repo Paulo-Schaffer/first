@@ -36,7 +36,6 @@ namespace Repository
             });
             context.Agencias.AddRange(agencias);
 
-
             #endregion
 
             #region caixa
@@ -224,7 +223,6 @@ namespace Repository
                 Complemento = "Rua da Direita",
                 RegistroAtivo = true
             });
-
             #endregion
 
             #region fornecedor
@@ -347,15 +345,15 @@ namespace Repository
                 Valor = 2333,
                 Status = "Pago",
                 DataPagamento = Convert.ToDateTime("17/02/2019"),
-                DataVencimento = Convert.ToDateTime("16/02/2019"),
+                DataVencimento = Convert.ToDateTime("17/02/2019"),
                 RegistroAtivo = true
             });
             parcelaPagar.Add(new ParcelaPagar()
             {
                 Valor = 9523,
                 Status = "Pendente",
-                DataPagamento = Convert.ToDateTime(""),
-                DataVencimento = Convert.ToDateTime("04//09/2019"),
+                DataPagamento = Convert.ToDateTime("05/09/2019"),
+                DataVencimento = Convert.ToDateTime("04/09/2019"),
                 RegistroAtivo = true
             });
             #endregion
@@ -367,7 +365,7 @@ namespace Repository
                 Valor = 12312,
                 Status = "Vencido",
                 DataVencimento = Convert.ToDateTime("01/01/2019"),
-                DataRecebimento = Convert.ToDateTime(""),
+                DataRecebimento = Convert.ToDateTime("02/02/2019"),
                 RegistroAtivo = true,
             });
             parcelaReceber.Add(new ParcelaReceber()
@@ -377,7 +375,10 @@ namespace Repository
                 DataVencimento = Convert.ToDateTime("13/08/2018"),
                 DataRecebimento = Convert.ToDateTime("05/08/2018"),
                 RegistroAtivo = true,
-            #region historicos
+            });
+                #endregion ParcelaReceber
+
+            #region Historicos
             var historicos = new List<Historico>();
             historicos.Add(new Historico()
             {
@@ -386,7 +387,7 @@ namespace Repository
                 RegistroAtivo = true
             });
             context.Historicos.AddRange(historicos);
-            #endregion
+            #endregion Historicos
 
             #region tituloPagar
             var tituloPagar = new List<TituloPagar>();
