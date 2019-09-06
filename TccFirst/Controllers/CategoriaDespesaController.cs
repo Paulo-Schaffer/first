@@ -53,7 +53,7 @@ namespace TccFirst.Controllers
             return Json(resultado);   
         }
 
-        [HttpGet, Route("categoriadespesa/obtertodospeloselect2")]
+        [HttpGet, Route("categoriadespesa/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
             var categorias = repository.ObterTodos();

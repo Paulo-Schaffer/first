@@ -40,8 +40,8 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-        [HttpPost]
-        public JsonResult Update(TituloPagar tituloPagar)
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(TituloPagar tituloPagar)
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
@@ -67,6 +67,7 @@ namespace TccFirst.Controllers
         {
             var tituloPagars = repository.ObterTodos();
 
+        }
             List<object> tituloPagarSelect2 =
                 new List<object>();
             foreach (TituloPagar tituloPagar in tituloPagars)

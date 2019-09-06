@@ -10,7 +10,7 @@ namespace Repository.Repositories
 {
     public class TituloPagarRepository : ITituloPagarRepository
     {
-        private SistemaContext context;
+        public SistemaContext context;
 
         public TituloPagarRepository()
         {
