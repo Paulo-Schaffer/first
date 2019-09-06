@@ -2,6 +2,8 @@
     $IdFornecedor = $("#id").val();
     $IdCategoriaDespesa = $("#id").val();
     $idAlterar = -1;
+    $IdFornecedor = $("#id").val();
+    $IdCategoriaDespesa = $("#id").val();
 
     $tabelaTituloPagar = $("#titulo-pagar-tabela").DataTable({
         ajax: '/TituloPagar/obtertodos',
@@ -57,7 +59,7 @@
         $QuantidadeParcela = $('#modal-tituloPagar-quantidade-parcela').val();
         $IdFornecedor = $('#modal-tituloPagar-fornecedor').val();
         $IdCategoriaDespesa = $("#modal-tituloPagar-categoria-despesa").val();
-
+        
         if ($idAlterar == -1) {
             inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
         } else {
