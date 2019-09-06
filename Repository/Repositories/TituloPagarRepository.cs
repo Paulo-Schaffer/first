@@ -64,7 +64,6 @@ namespace Repository.Repositories
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
-
         }
 
         public TituloPagar ObterPeloId(int id)
