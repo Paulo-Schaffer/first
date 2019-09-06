@@ -5554,6 +5554,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
@@ -5583,7 +5584,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Agencia\Cadastro.cshtml" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\ContaCorrente\Index.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
@@ -5591,7 +5591,6 @@
     <Content Include="Views\ClientePessoaJuridica\CadastroPessoaJuridica.cshtml" />
     <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
@@ -5601,6 +5600,8 @@
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Agencia\Editar.cshtml" />
+    <Content Include="Views\Login\CadastroLogin.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
