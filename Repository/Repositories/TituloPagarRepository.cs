@@ -10,7 +10,7 @@ namespace Repository.Repositories
 {
     public class TituloPagarRepository : ITituloPagarRepository
     {
-        private SistemaContext context;
+        public SistemaContext context;
 
         public TituloPagarRepository()
         {
@@ -70,6 +70,7 @@ namespace Repository.Repositories
         {
             var tituloPagar = context
                 .TitulosPagar
+                .Include("TituloPagar")
                 .FirstOrDefault(x => x.Id == id);
             return tituloPagar;
         }

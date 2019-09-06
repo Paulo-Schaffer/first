@@ -18,12 +18,7 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
+        [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
             var tituloPagar = repository.ObterTodos();
@@ -31,21 +26,19 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Inserir(TituloPagar tituloPagar)
+        [HttpPost, Route("cadastro")]
+        public ActionResult Cadastro(TituloPagar tituloPagar)
         {
-            tituloPagar.RegistroAtivo = true;
-            var id = repository.Inserir(tituloPagar);
-            var resultado = new { id = id };
-            return Json(resultado);
+            int id = repository.Inserir(tituloPagar);
+            return RedirectToAction("Editar", new { id = id });
         }
 
-        [HttpPost]
-        public JsonResult Update(TituloPagar tituloPagar)
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(TituloPagar tituloPagar)
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -56,45 +49,25 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("tituloPagar")]
-        public JsonResult ObterPeloId(int id)
+        public ActionResult Index()
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            return View();
         }
 
-        [HttpGet, Route("tituloPagar/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
+        public ActionResult Cadastro()
         {
-            var tituloPagars = repository.ObterTodos();
-
-            List<object> tituloPagarSelect2 =
-                new List<object>();
-            foreach (TituloPagar tituloPagar in tituloPagars)
-            {
-                tituloPagarSelect2.Add(new
-                {
-                    id = tituloPagar.Id,
-                    descricao = tituloPagar.Descricao,
-                    formaPagamento = tituloPagar.FormaPagamento,
-                    caixa = tituloPagar.Caixa,
-                    valorTotal = tituloPagar.ValorTotal,
-                    status = tituloPagar.Status,
-                    dataLancamento = tituloPagar.DataLancamento,
-                    dataRecebimento = tituloPagar.DataRecebimento,
-                    dataVencimento = tituloPagar.DataVencimento,
-                    complemento = tituloPagar.Complemento,
-                    quantidadeParcela = tituloPagar.QuantidadeParcela,
-                    idFornecedores = tituloPagar.IdFornecedores,
-                    idCategoriaDespesas = tituloPagar.IdCategoriaDepesesas
-                });
-            }
-            var resultado = new
-            {
-                results = tituloPagarSelect2
-            };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+            return View();
         }
 
+        [HttpGet]
+        public ActionResult Editar(int id)
+        {
+            var venda = repository.ObterPeloId(id);
+            if (venda == null)
+                return RedirectToAction("Index");
+
+            ViewBag.Venda = venda;
+            return View();
+        }
     }
 }
