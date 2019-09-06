@@ -5499,6 +5499,7 @@
     <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
     <Content Include="Scripts\ClientePessoaFisica\moment.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
+    <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
