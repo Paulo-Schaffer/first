@@ -10,20 +10,20 @@
             <div>
                 <div class="modal-body">
                     <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
-                    <select class="form-control" name="****"></select>
+                    <select class="form-control" id="tituloReceber-pessoaJuridica" name="idPessoaJuridica"></select>
                 </div>
             </div>
             <div>
                 <div class="modal-body">
                     <label for="campo-tituloReceber-pessoaFisica">Pessoa Fisica</label>
-                    <select class="form-control" name="****"></select>
+                    <select class="form-control"id="tituloReceber-pessoaFisica" name="idPessoaFisica"></select>
 
                 </div>
             </div>
             <div>
                 <div class="modal-body">
                     <label for="campo-tituloReceber-categoria">Categoria Receita</label>
-                    <select class="form-control" name="*****"></select>
+                    <select class="form-control"id="tituloReceber-categoria" name="idCategoria"></select>
                 </div>
             </div>
             
@@ -65,5 +65,8 @@
         </div>
     </div>
 </div>
+@section js{
+    <script src="~/Scripts/select2.min.js"></script>
+    }
 
 

@@ -5559,9 +5559,17 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\TituloPagar\IdCategoriaDespesas.js" />
     <Content Include="Scripts\TituloPagar\IdFornecedores.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\ClientePessoaJuridica\clientePessoaJuridica.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
