@@ -16,11 +16,7 @@ namespace Model
         public int Id { get; set; }
 
         [Column("numero_conta")]
-
-
-
-
-
+        
         public string NumeroConta { get; set; }
 
         [Column("descricao")]
@@ -68,7 +64,7 @@ namespace Model
 
         #region fk_categoria_despesas
         [Column("id_categoria_despesas")]
-        public int IdCategoriaDespesas { get; set; }
+        public int IdCategoriaDespesa { get; set; }
         [ForeignKey("IdCategoriaDespesas")]
         public CategoriaDespesa CategoriaDespesas { get; set; }
         #endregion
