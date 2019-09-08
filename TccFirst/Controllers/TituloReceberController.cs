@@ -16,72 +16,66 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-
-        [HttpGet]
-        public ActionResult Index()
+        
+        /*[HttpGet,Route("obtertodospeloidtituloreceber")]
+        public JsonResult ObterTodosPeloIdTituloReceber(int idTituloReceber)
         {
-            return View();
+            var titulosReceber = repository.ObterTodosPeloIdTituloReceber(idTituloReceber);
+            var resultado = new { data = titulosReceber };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }*/
+
+        [HttpGet, Route("obterTodos")]
+        public JsonResult ObterTodos()
+        {
+            var titulosReceber = repository.ObterTodos();
+            var resultado = new { data = titulosReceber };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Inserir(TituloReceber tituloReceber)
+        [HttpPost, Route("cadastro")]
+        public ActionResult Cadastro(TituloReceber tituloReceber)
         {
-            tituloReceber.RegistroAtivo = true;
-            var id = repository.Inserir(tituloReceber);
-            var resultado = new { id = id };
-            return Json (resultado);
+            int id = repository.Inserir(tituloReceber);
+            return RedirectToAction("Editar",
+                new { id = id });
         }
-        [HttpGet]
-        public JsonResult Apagar(int id)
+
+        [HttpPost, Route("editar")] 
+        public JsonResult Editar(TituloReceber tituloReceber)
+        {
+            var alterou = repository.Alterar(tituloReceber);
+            var resultado = new { status = alterou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+        
+        [HttpGet,Route("apagar")]
+        JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Upadate(TituloReceber tituloReceber)
+        public ActionResult Index()
         {
-            var alterou = repository.Alterar(tituloReceber);
-            var resultado = new { status = alterou };
-            return Json(resultado);
+            return View();
         }
 
-        [HttpGet,Route("tituloReceber/obterpeloid")]
-        public JsonResult ObterPeloId(int id)
+        public ActionResult Cadastro()
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            return View();
         }
 
-        [HttpGet,Route("tituloReceber/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
+        [HttpGet,Route("editar")]
+        ActionResult Editar(int id)
         {
-            var titulosReceber = repository.ObterTodos();
-            List<object> titulosReceberSelect2 = new List<object>();
+            var titulosReceber = repository.ObterPeloId(id);
+            if (titulosReceber == null)
+                return RedirectToAction("Index");
+            ViewBag.TituloReceber = titulosReceber;
+            return View();
 
-            foreach (TituloReceber tituloReceber in titulosReceber)
-            {
-                titulosReceberSelect2.Add(new
-                {
-                    id = tituloReceber.Id,
-                    descricao = tituloReceber.Descricao,
-                    valorTotal = tituloReceber.ValorTotal,
-                    status = tituloReceber.Status,
-                    dataLancamento = tituloReceber.DataLancamento,
-                    dataRecebimento = tituloReceber.DataRecebimento,
-                    dataVencimento = tituloReceber.DataVencimento,
-                    complemento = tituloReceber.Complemento,
-                    quantidadeParcela = tituloReceber.QuantidadeParcela,
-                    registroAtivo = tituloReceber.RegistroAtivo,
-                });
-            }
-        
-        var resultado = new
-        {
-            results = titulosReceberSelect2
-        };
-
-            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
 }
