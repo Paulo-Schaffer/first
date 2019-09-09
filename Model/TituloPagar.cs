@@ -56,10 +56,10 @@ namespace Model
         #endregion
 
         #region fk_categoria_despesas
-        [Column("id_tipo_categoria_despesas")]
-        public int IdTipoCategoriaDepesesas { get; set; }
+        [Column("id_categoria_despesas")]
+        public int IdCategoriaDepesesas { get; set; }
 
-        [ForeignKey("IdTipoCategoriaDepesesas")]
+        [ForeignKey("IdCategoriaDepesesas")]
         public CategoriaDespesa CategoriaDespesas { get; set; }
         #endregion
     }

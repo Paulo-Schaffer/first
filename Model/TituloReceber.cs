@@ -32,25 +32,25 @@ namespace Model
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
-        #region fk_cliente_pessoa_juridica
+        #region fk_cliente_pessoa_fisica    
         [Column("id_cliente_pessoa_fisica")]
         public int IdClientePessoaFisica { get; set; }
         [ForeignKey("IdClientePessoaFisica")]
-        public ClientePessoaFisica ClientePessoaFisica { get; set; }
+        public ClientePessoaFisica Nome { get; set; }
         #endregion
 
         #region fk_cliente_pessoa_juridica
         [Column("id_cliente_pessoa_juridica")]
         public int IdClientePessoaJuridica { get; set; }
         [ForeignKey("IdClientePessoaJuridica")]
-        public ClientePessoaJuridica ClientePessoaJuridica { get; set; }
+        public ClientePessoaJuridica PessoaJuridica { get; set; }
         #endregion
 
         #region fk_categoria_receita 
         [Column("id_categoria_receita")]
         public int IdCategoriaReceita { get; set; }
         [ForeignKey("IdCategoriaReceita")]
-        public CategoriaReceita CategoriaReceita { get; set; }
+        public CategoriaReceita TipoCategoriaReceita { get; set; }
         #endregion
 
     }

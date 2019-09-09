@@ -1,4 +1,4 @@
-﻿using Model;
+﻿    using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -45,7 +45,8 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost
+            ]
         public JsonResult Update(ClientePessoaFisica clientePessoaFisica)
         {
             var alterou = repository.Alterar(clientePessoaFisica);
@@ -58,7 +59,7 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("pessoa/obtertodosselect2")]
+        [HttpGet, Route("clientepessoafisica/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
             var clientePessoaFisicas = repository.ObterTodos();
@@ -70,7 +71,19 @@ namespace TccFirst.Controllers
                 clientesPessoasFisicasSelect2.Add(new
                 {
                     id = clientePessoaFisica.Id,
-                    text = clientePessoaFisica.Nome
+                    nome = clientePessoaFisica.Nome,
+                    cpf = clientePessoaFisica.Cpf,
+                    dataNascimento = clientePessoaFisica.DataNascimento,
+                    limiteCredito = clientePessoaFisica.LimiteCredito,
+                    email = clientePessoaFisica.Email,
+                    telefone = clientePessoaFisica.Telefone,
+                    cep = clientePessoaFisica.Cep,
+                    numero = clientePessoaFisica.Numero,
+                    bairro = clientePessoaFisica.Bairro,
+                    cidade = clientePessoaFisica.Cidade,
+                    uf = clientePessoaFisica.Uf,
+                    complemento = clientePessoaFisica.Complemento
+                    
                 });
             }
             var resultado = new
