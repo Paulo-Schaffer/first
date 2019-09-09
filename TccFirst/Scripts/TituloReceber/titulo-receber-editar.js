@@ -8,7 +8,7 @@
         coluns: [
             { data: "IdClientePessoaJuridica" },
             { data: "IdClientePessoaFisica" },
-            { data: "IdCategoriaReceira" },
+            { data: "IdCategoriaReceita" },
             { data: "Descricao" },
             { data: "ValorTotal" },
             { data: "QuantidadeParcelas" }, 
@@ -127,7 +127,7 @@
                 idPessoaFisica: $idPessoaFisica,
                 idCategoria: $idCategoriaReceita,
                 valor: $valor,
-                quantidadeDeParcelas: $quantidade,
+                quantidadeDeParcelas: $quantidadeDeParcelas,
                 descricao: $descricao,
                 dataLancamento: $dataLancamento,
                 dataRecebimento: $dataRecebimento,
