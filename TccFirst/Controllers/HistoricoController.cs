@@ -50,7 +50,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-        [HttpGet, Route("historico/obterpeloid")]
+        [HttpGet, Route("historico/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
@@ -66,6 +66,9 @@ namespace TccFirst.Controllers
             {
                 historicoSelect2.Add(new
                 {
+                    id = historico.Id,
+                    descricao = historico.Descricao
+
 
                 });
             }

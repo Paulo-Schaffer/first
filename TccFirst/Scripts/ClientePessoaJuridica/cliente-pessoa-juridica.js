@@ -9,7 +9,7 @@ $(function () {
     
     $tabelaClientePessoaJuridica = $("#cliente-pessoa-juridica-tabela").DataTable({
         "scrollX": true,
-        ajax: '/ClientePessoaJuridica/obtertodos',
+        ajax: '/clientePessoaJuridica/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Id' },

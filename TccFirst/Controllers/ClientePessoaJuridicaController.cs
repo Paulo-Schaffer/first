@@ -45,7 +45,6 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
         [HttpPost]
         public JsonResult Update(ClientePessoaJuridica clientePessoaJuridica)
         {
