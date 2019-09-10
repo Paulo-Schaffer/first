@@ -67,13 +67,13 @@ namespace TccFirst.Controllers
         {
             var tituloPagars = repository.ObterTodos();
 
-        }
+        
             List<object> tituloPagarSelect2 =
                 new List<object>();
             foreach (TituloPagar tituloPagar in tituloPagars)
             {
-                tituloPagarSelect2.Add(new
-                {
+                tituloPagarSelect2.Add(new {
+                
                     id = tituloPagar.Id,
                     descricao = tituloPagar.Descricao,
                     formaPagamento = tituloPagar.FormaPagamento,
@@ -96,6 +96,5 @@ namespace TccFirst.Controllers
             return Json(resultado,
                 JsonRequestBehavior.AllowGet);
         }
-
     }
 }
