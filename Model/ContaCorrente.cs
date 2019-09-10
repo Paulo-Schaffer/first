@@ -16,6 +16,7 @@ namespace Model
         public int Id { get; set; }
 
         [Column("numero_conta")]
+        
         public string NumeroConta { get; set; }
 
         [Column("descricao")]

@@ -5485,7 +5485,6 @@
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
-    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />

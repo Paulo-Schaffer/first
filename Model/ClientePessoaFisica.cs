@@ -15,7 +15,7 @@ namespace Model
         [Key, Column("id")]
         public int Id { get; set; }
 
-        [Column("nome"), StringLength(50)]
+        [Column("nome")]
         public string Nome { get; set; }
 
         [Column("cpf"), StringLength(14)]
