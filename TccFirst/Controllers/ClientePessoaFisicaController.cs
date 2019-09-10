@@ -1,4 +1,4 @@
-﻿using Model;
+﻿    using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -59,7 +59,7 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("pessoa/obtertodosselect2")]
+        [HttpGet, Route("clientepessoafisica/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
             var clientePessoaFisicas = repository.ObterTodos();
@@ -72,14 +72,14 @@ namespace TccFirst.Controllers
                 {
                     id = clientePessoaFisica.Id,
                     text = clientePessoaFisica.Nome
+                    
                 });
             }
             var resultado = new
             {
                 results = clientesPessoasFisicasSelect2
             };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
     }
