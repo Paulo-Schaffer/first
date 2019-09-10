@@ -5652,6 +5652,8 @@
     <Content Include="Views\Agencia\Editar.cshtml" />
     <Content Include="Views\Login\CadastroLogin.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\ContaCorrente\Cadastrar.cshtml" />
+    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

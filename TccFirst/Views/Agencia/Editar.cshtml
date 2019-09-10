@@ -1,4 +1,4 @@
-﻿
+﻿    
 @{
     ViewBag.Title = "Editar";
 }
@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    fcid
+                  
                     <label for="campo-nomeAgencia">Nome da Agencia</label>
                     <input type="text" name="nome" class="form-control" id="campo-nomeAgencia" value="@ViewBag.Agencia.NomeAgencia" />
                 </div>
@@ -44,14 +44,7 @@
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <a href="/agencia/index" class="btn btn-success">Salvar</a>
-                </div>
-            </div>
-        </div>
+        <button class="btn btn-success float-right" type="submit">Salvar</button>
     </form>
 
 </div>

@@ -27,6 +27,12 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public JsonResult ObterTodos()
         {
             var contaCorrente = repository.ObterTodos();
@@ -35,11 +41,7 @@ namespace TccFirst.Controllers
         }
             
         #region cadastro
-        [HttpGet]
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
+        
         [HttpPost]
         public ActionResult Cadastro(ContaCorrente contaCorrente)
         {
