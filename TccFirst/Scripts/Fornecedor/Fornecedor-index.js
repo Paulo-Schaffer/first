@@ -138,7 +138,7 @@
                 $('#fornecedor-campo-cnpj').val(data.Cnpj);
                 var dataCadastro = moment(data.DataCadastro);
                 console.log;
-                $('#fornecedor-campo-dataCadastro').val(dataCadastro.format('YYY-MM-DD'));
+                $('#fornecedor-campo-dataCadastro').val(dataCadastro.format('YYYY-MM-DD'));
                 $('#fornecedor-campo-email').val(data.Email);
                 $('#fornecedor-campo-telefone').val(data.Telefone);
                 $('#fornecedor-campo-cep').val(data.Cep);
