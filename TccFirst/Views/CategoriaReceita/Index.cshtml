@@ -3,5 +3,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Categoria de Receitas</h2>
+<button data-toggle="modal" data-target="#modal-categoria-receita" class="btn btn-primary">Nova Categoria</button>
+<table id="categoria-receita-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tipo de Receita</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+@RenderPage("CadastroCategoriaReceita.cshtml")
+@section js{
+<script src="~/Scripts/CategoriaReceita/cadastro-categoria-receita.js"></script>
+    }
