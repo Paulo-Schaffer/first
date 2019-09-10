@@ -39,6 +39,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro()
         {
             return View();
+
         }
         [HttpPost]
         public ActionResult Cadastro(ContaCorrente contaCorrente)

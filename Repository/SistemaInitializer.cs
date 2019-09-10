@@ -191,6 +191,7 @@ namespace Repository
                 DataRecebimento = Convert.ToDateTime("15/09/2019"),
                 DataVencimento = Convert.ToDateTime("19/09/2019"),
             });
+            context.ContasCorrentes.AddRange(contaCorrente);
             #endregion
 
             #region endereço
@@ -223,6 +224,7 @@ namespace Repository
                 Complemento = "Rua da Direita",
                 RegistroAtivo = true
             });
+            
             #endregion
 
             #region fornecedor
@@ -243,6 +245,7 @@ namespace Repository
                 Cnpj = "39.552.667/0001-32",
                 RegistroAtivo = true,
             });
+            context.Fornecedores.AddRange(fornecedor);
 
             #endregion
 
@@ -262,6 +265,7 @@ namespace Repository
                 RegistroAtivo = true
 
             });
+            context.Funcionarios.AddRange(funcionario);
             #endregion
 
             #region historico
@@ -281,6 +285,7 @@ namespace Repository
                 Descricao = "Conta em atraso, pagar até dia 29/08/1996",
                 RegistroAtivo = true
             });
+            context.Historicos.AddRange(historico);
             #endregion
 
             #region login
@@ -297,6 +302,7 @@ namespace Repository
                 Senha = "gustavo1500",
                 RegistroAtivo = true
             });
+            context.Logins.AddRange(login);
             #endregion
 
             #region movimentacaoFinanceiraEntrada
@@ -316,7 +322,7 @@ namespace Repository
                 Valor = 255244,
                 RegistroAtivo = true,
             });
-
+            context.MovimentacaoFinanceiraEntradas.AddRange(movimentacaoFinanceiraEntrada);
             #endregion
 
             #region movimentacaoFinanceiraSaida
@@ -336,6 +342,7 @@ namespace Repository
                 Valor = 72866457,
                 RegistroAtivo = true
             });
+            context.MovimentacaoFinanceiraSaidas.AddRange(movimentacaoFinanceiraSaida);
             #endregion
 
             #region parcelaPagar
@@ -356,6 +363,7 @@ namespace Repository
                 DataVencimento = Convert.ToDateTime("04/09/2019"),
                 RegistroAtivo = true
             });
+            context.ParcelasPagar.AddRange(parcelaPagar);
             #endregion
 
             #region parcelaReceber
@@ -376,7 +384,8 @@ namespace Repository
                 DataRecebimento = Convert.ToDateTime("05/08/2018"),
                 RegistroAtivo = true,
             });
-                #endregion ParcelaReceber
+            context.ParcelasReceber.AddRange(parcelaReceber);
+            #endregion ParcelaReceber
 
             #region Historicos
             var historicos = new List<Historico>();
@@ -419,6 +428,7 @@ namespace Repository
                 QuantidadeParcela = 6,
                 RegistroAtivo = true
             });
+            context.TitulosPagar.AddRange(tituloPagar);
             #endregion
 
             #region tituloReceber
@@ -447,6 +457,7 @@ namespace Repository
                 QuantidadeParcela = 24,
                 RegistroAtivo = true
             });
+            context.TitulosReceber.AddRange(tituloReceber);
             #endregion
 
             #region fornecedores
