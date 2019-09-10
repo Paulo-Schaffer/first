@@ -24,6 +24,14 @@
         ]
     });
     $('#fornecedor-batao-salvar').on('click', function () {
+        if ($('#fornecedor-nome-razaoSocial').val() = "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão social </div>');
+            $('#fornecedor-nome-razaoSocial').focus();
+            return false;
+        } else if () { };
+
+
+
         $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
         $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
         $dataCadastro = $('#fornecedor-campo-dataCadastro').val();
@@ -112,7 +120,7 @@
         $idApagar = $(this).data('id');
 
         $.ajax({
-            url: 'fornecedor/apagar?id=' + $idApagar,
+            url: '/fornecedor/apagar?id=' + $idApagar,
             method: 'get',
             success: function (data) {
                 $tabelafornecedor.ajax.reload();
