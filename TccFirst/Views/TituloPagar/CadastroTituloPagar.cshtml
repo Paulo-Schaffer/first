@@ -12,15 +12,15 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-fornecedores">Fornecedores</label>
-                            <select class="form-control" id="tituloPagar-campo-fornecedores"></select>
+                            <label for="modal-tituloPagar-fornecedor">Fornecedores</label>
+                            <select class="form-control" id="modal-tituloPagar-fornecedor" name="idFornecedor"></select>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-categoria-despesas">Categoria despesas</label>
-                            <select class="form-control" id="tituloPagar-campo-categoria-despesas"></select>
+                            <label for="modal-tituloPagar-categoria-despesa">Categoria despesas</label>
+                            <select class="form-control" id="modal-tituloPagar-categoria-despesa" name="idCategoriaDespesa"></select>
                         </div>
                     </div>
                 </div>
@@ -29,8 +29,8 @@
                     <div class="col-12">
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="tituloPagar-campo-descricao">Descrição</label>
-                                <input type="text" id="tituloPagar-campo-descricao" class="form-control" />
+                                <label for="modal-tituloPagar-descricao">Descrição</label>
+                                <input type="text" id="modal-tituloPagar-descricao" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -39,8 +39,8 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-forma-pagamento">Forma de Pagamento</label>
-                            <select class="form-control" id="tituloPagar-campo-forma-pagamento">
+                            <label for="modal-tituloPagar-forma-pagamento">Forma de Pagamento</label>
+                            <select class="form-control" id="modal-tituloPagar-forma-pagamento">
                                 <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                                 <option>Dinheiro</option>
                                 <option>Cartão Débito</option>
@@ -51,8 +51,8 @@
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-status">Status</label>
-                            <select class="form-control" id="tituloPagar-campo-status">
+                            <label for="modal-tituloPagar-status">Status</label>
+                            <select class="form-control" id="modal-tituloPagar-status">
                                 <option disabled="disabled" selected="selected">Selecione um status</option>
                                 <option>Pendente</option>
                                 <option>Pago</option>
@@ -65,48 +65,32 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <label for="tituloPagar-campo-caixa">Caixa</label>
+                        <label for="modal-tituloPagar-caixa">Caixa</label>
                     </div>
                     <div class="col-2">
-                        <input type="checkbox" id="tituloPagar-campo-caixa" class="form-control" />
+                        <input type="checkbox" id="modal-tituloPagar-caixa" class="form-control" />
                     </div>
 
                     <div class="col-4">
-                        <label for="tituloPagar-campo-banco">Banco</label>
+                        <label for="modal-tituloPagar-banco">Banco</label>
                     </div>
-                    <div class="col-2"  >
-                        <input type="checkbox" id="tituloPagar-campo-banco" class="form-control" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="tituloPagar-campo-data-lancamento" mas>Data de Lançamento</label>
-                            <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control" />
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento</label>
-                            <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" />
-                        </div>
+                    <div class="col-2">
+                        <input type="checkbox" id="modal-tituloPagar-banco" class="form-control" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label form="tituloPagar-campo-data-vencimento" mas>Data Vencimento</label>
-                            <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control" />
+                            <label for="modal-tituloPagar-data-lancamento" mas>Data de Lançamento</label>
+                            <input type="date" id="modal-tituloPagar-data-lancamento" class="form-control" />
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-quantidade-parcelas">Quantidade de Parcelas</label>
-                            <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" />
+                            <label for="modal-tituloPagar-data-recebimento" mas>Data de Recebimento</label>
+                            <input type="date" id="modal-tituloPagar-data-recebimento" class="form-control" />
                         </div>
                     </div>
                 </div>
@@ -114,8 +98,24 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-complemento">Complemento</label>
-                            <input type="text" id="tituloPagar-campo-complemento" class="form-control" />
+                            <label form="modal-tituloPagar-data-vencimento" mas>Data Vencimento</label>
+                            <input type="date" id="modal-tituloPagar-data-vencimento" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="modal-tituloPagar-quantidade-parcela">Quantidade de Parcelas</label>
+                            <input type="number" id="modal-tituloPagar-quantidade-parcela" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="modal-tituloPagar-complemento">Complemento</label>
+                            <input type="text" id="modal-tituloPagar-complemento" class="form-control" />
                         </div>
                     </div>
 
@@ -134,4 +134,13 @@
         </div>
     </div>
 </div>
+@section css{
+    <link href="~/Content/css/select2.css"
+          rel="stylesheet" />
+}
 
+@section js{
+    <script src="~/Scripts/TituloPagar/IdFornecedores.js"></script>
+    <script src="~/Scripts/TituloPagar/IdCategoriaDespesas.js"></script>
+    <script src="~/Scripts/select2.js"></script>
+}

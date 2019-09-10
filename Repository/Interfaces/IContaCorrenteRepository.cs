@@ -18,6 +18,6 @@ namespace Repository.Interfaces
 
         bool Apagar(int id);
 
-        ContaCorrente ObterPeloid(int id); 
+        ContaCorrente ObterPeloId(int id); 
     }
 }

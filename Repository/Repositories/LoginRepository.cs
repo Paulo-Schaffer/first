@@ -19,8 +19,6 @@ namespace Repository.Repositories
 
         public bool Alterar(Login login)
         {
-            try
-            {
                 var loginOfical = context.Logins.FirstOrDefault(x => x.Id == login.Id);
                 if (login == null)
                     return false;
@@ -30,18 +28,10 @@ namespace Repository.Repositories
                 loginOfical.Senha = loginOfical.Senha;
                 int quantidadeAfetada = context.SaveChanges();
                 return quantidadeAfetada == 1;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Não foi possivel alterar");
-            }
-            
         }
 
         public bool Apagar(int id)
         {
-            try
-            {
                 var login = context.Logins.FirstOrDefault(x => x.Id == id);
                 if (login == null)
                     return false;
@@ -49,26 +39,14 @@ namespace Repository.Repositories
                 login.RegistroAtivo = false;
                 int quantidadeAfetada = context.SaveChanges();
                 return quantidadeAfetada == 1;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Não foi possivel apagar");
-            }
         }
 
         public int Inserir(Login login)
         {
-            try
-            {
                 login.RegistroAtivo = true;
                 context.Logins.Add(login);
                 context.SaveChanges();
                 return login.Id;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Não foi possivel inserir");
-            }
         }
 
         public Login ObterPeloId(int id)

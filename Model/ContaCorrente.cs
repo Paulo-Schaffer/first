@@ -56,7 +56,7 @@ namespace Model
         public bool RegistroAtivo { get; set; }
 
         #region fk_historico
-        [Column("id_Historico")]
+        [Column("id_historico")]
         public int IdHistorico { get; set; }
         [ForeignKey("IdHistorico")]
         public Historico Historico { get; set; }
@@ -70,15 +70,15 @@ namespace Model
         //#endregion
 
         #region fk_categoria_receita
-        [Column("categoria_receita")]
-        public int IdCategoriaReceita { get; set; }
+        [Column("id_categoria_receita")]
+        public int? IdCategoriaReceita { get; set; }
         [ForeignKey("IdCategoriaReceita")]
         public CategoriaReceita CategoriaReceita { get; set; }
         #endregion
 
         #region fk_agencia
-        [Column("agencia")]
-        public int IdAgencia { get; set; }
+        [Column("id_agencia")]
+        public int? IdAgencia { get; set; }
         [ForeignKey("IdAgencia")]
         public Agencia Agencia { get; set; }
         #endregion 

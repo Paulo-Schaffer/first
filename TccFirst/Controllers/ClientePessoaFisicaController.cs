@@ -44,9 +44,8 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
-        [HttpPost
-            ]
+            
+        [HttpPost]
         public JsonResult Update(ClientePessoaFisica clientePessoaFisica)
         {
             var alterou = repository.Alterar(clientePessoaFisica);

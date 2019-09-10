@@ -10,7 +10,7 @@ namespace Repository.Repositories
 {
     public class TituloPagarRepository : ITituloPagarRepository
     {
-        private SistemaContext context;
+        public SistemaContext context;
 
         public TituloPagarRepository()
         {
@@ -24,7 +24,7 @@ namespace Repository.Repositories
             if (tituloPagar == null)
                 return false;
 
-            tituloPagarOficial.IdCategoriaDepesesas = tituloPagarOficial.IdCategoriaDepesesas;
+            tituloPagarOficial.IdCategoriaDepesesa = tituloPagarOficial.IdCategoriaDepesesa;
             tituloPagarOficial.IdFornecedores = tituloPagarOficial.IdFornecedores;
             tituloPagarOficial.Descricao = tituloPagarOficial.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagarOficial.FormaPagamento;
@@ -64,22 +64,20 @@ namespace Repository.Repositories
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
-
         }
 
         public TituloPagar ObterPeloId(int id)
         {
             var tituloPagar = context
                 .TitulosPagar
-                .Include("TituloPagar")
                 .FirstOrDefault(x => x.Id == id);
             return tituloPagar;
         }
 
         public List<TituloPagar> ObterTodos()
         {
-            return context.TitulosPagar
-                .Where(x => x.RegistroAtivo)
+            return context.TitulosPagar.
+                Where(x => x.RegistroAtivo == false)
                 .OrderBy(x => x.Id).ToList();
         }
     }

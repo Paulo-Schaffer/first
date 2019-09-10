@@ -1,7 +1,7 @@
 ﻿$(function () {
-    $("#tituloPagar-fornecedores").select2({
+    $("#modal-tituloPagar-fornecedor").select2({
         ajax: {
-            url: "/fornecedores/obtertodosselect2",
+            url: "/fornecedor/obtertodosselect2",
             dataType: "json"
         }
     });
