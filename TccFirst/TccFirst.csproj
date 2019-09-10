@@ -5468,6 +5468,7 @@
     <Content Include="Scripts\Agencia\Agencia.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
+    <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
@@ -5569,9 +5570,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
-    <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
-    <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
@@ -5650,8 +5649,6 @@
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
-    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
-    <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Login\CadastroLogin.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">

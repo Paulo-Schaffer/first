@@ -1,6 +1,6 @@
 ﻿$(function () {
     $idAlterar = -1;
-    //alert()
+
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
         ajax: '/fornecedor/obtertodos',
         severSide: true,
@@ -8,8 +8,8 @@
             { 'data': 'Id' },
             { 'data': 'RazaoSocial' },
             { 'data': 'Email' },
-           { 'data': 'Logradouro' },
-          {
+            { 'data': 'Logradouro' },
+            {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
 
@@ -19,29 +19,10 @@
 
         ]
     });
-    $('#fornecedor-batao-salvar').on('click', function () {
-        $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
-        $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
-        $dataCadastro = $('#fornecedor-campo-dataCadastro').val();
-        $cnpj = $('#fornecedor-campo-cnpj').val();
-        $email = $('#fornecedor-campo-email').val();
-        $telefone = $('#fornecedor-campo-telefone').val();
-        $cep = $('#fornecedor-campo-cep').val();
-        $logradouro = $('#fornecedor-campo-logradouro').val();
-        $numero = $('#fornecedor-campo-numero').val();
-        $bairro = $('#fornecedor-campo-bairro').val();
-        $cidade = $('#fornecedor-campo-cidade').val();
-        $uf = $('#fornecedor-campo-sigla').val();
-        $complemento = $('#fornecedor-campo-complemento').val();
 
-        if ($idAlterar == -1) {
-            inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento);
-        } else {
-            alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento);
-        }
-    });
+    $('#fornecedor-batao-salvar').on('click', function ());
 
-    function alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento){
+    function alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: "/Fornecedor/update",
             method: "post",
