@@ -1,4 +1,12 @@
 ﻿$(function () {
+    $('#historico-campo-descricao').keyup(function (e) {
+        if (e.keyCode == 13) {
+            $('#historico-batao-salvar').focus();
+        }
+    });
+});
+
+$(function () {
     $idAlterar = -1;
 
     $tabelaHistorico = $("#historico-tabela").DataTable({
@@ -17,6 +25,13 @@
     });
 
     $('#historico-botao-salvar').on('click', function () {
+        if ($('#historico-campo-descricao').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Descrição </div>');
+            $('#historico-campo-descricao').focus();
+            return false;
+        } else {
+            $('.alert').alert("");
+        }
         $descricao = $('#historico-campo-descricao').val();
 
         if ($idAlterar == -1) {
