@@ -1,10 +1,10 @@
 ﻿$(function () {
     $idAlterar = -1;
 
-    $tabelaHistorico = $("#historico-tabela").Datatable({
+    $tabelaHistorico = $("#historico-tabela").DataTable({
 
         ajax: '/historico/obtertodos',
-        serverSide: true,
+        severSide: true,
         columns: [
             { 'data': 'Id' },
             { 'data': 'Descricao' },
@@ -17,7 +17,7 @@
     });
 
     $('#historico-botao-salvar').on('click', function () {
-        $descricao = ('#historico-campo-descricao').val();
+        $descricao = $('#historico-campo-descricao').val();
 
         if ($idAlterar == -1) {
             inserir($descricao);
@@ -28,7 +28,7 @@
 
     function alterar($descricao) {
 
-        $ajax({
+        $.ajax({
             url: "/historico/update",
             method: "post",
             data: {
@@ -46,22 +46,24 @@
         });
     }
 
-    function inserir($descricao)
-    $ajax({
-        url: "/historico/update",
-        method: "post",
-        data: {           
-            Descricao: $descricao
-        },
-        success: function (data) {
-            $('#modal-historico').modal('hide');
-            $(".modal-backdrop").hide();
-            $tabelaHistorico.ajax.reload();
-        },
-        error: function (err) {
-            alert("Não foi possivel cadastrar")
-        }
-    });
+    function inserir($descricao) {
+        $.ajax({
+            url: "/historico/inserir",
+            method: "post",
+            data: {
+                Descricao: $descricao
+            },
+            success: function (data) {
+                $('#modal-historico').modal('hide');
+                $(".modal-backdrop").hide();
+                $tabelaHistorico.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possivel cadastrar")
+            }
+        });
+    }
+   
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
@@ -85,10 +87,10 @@
             url: "/historico/obterpeloid?id=" + $idAlterar,
             method: 'get',
             success: function (data) {
-                $descricao = ('#historico-campo-descricao').val(data.Descricao);
+                $('#historico-campo-descricao').val(data.Descricao);
                 $('#modal-historico').modal('show');
             },
-             error: function (err) {
+            error: function (err) {
                 alert("Não foi possivel editar")
             }
         });

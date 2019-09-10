@@ -102,7 +102,22 @@ $(function () {
             success: function (data) {
                 $('#modal-clientePessoaJuridica').modal('hide');
                 $(".modal-backdrop").hide();
+                $('#clientePessoaJuridica-campo-razaoSocial').val("");
+                $('#clientePessoaJuridica-campo-atividade').val("");
+                $('#clientePessoaJuridica-campo-nomeFantasia').val("");
+                $('#clientePessoaJuridica-campo-dataCadastro').val("");
+                $('#clientePessoaJuridica-campo-cnpj').val("");
+                $('#clientePessoaJuridica-campo-email').val("");
+                $('#clientePessoaJuridica-campo-filial').val("");
+                $('#clientePessoaJuridica-campo-telefone').val("");
+                $('#clientePessoaJuridica-campo-cep').val("");
+                $('#clientePessoaJuridica-campo-logradouro').val("");
+                $('#clientePessoaJuridica-campo-numero').val("");
+                $('#clientePessoaJuridica-campo-bairro').val("");
+                $('#clientePessoaJuridica-campo-uf').val("");
+                $('#clientePessoaJuridica-campo-cidade').val("");
                 $tabelaClientePessoaJuridica.ajax.reload();
+                              
             },
             error: function (err) {
                 alert("Não foi possivel cadastrar")
@@ -155,4 +170,5 @@ $(function () {
             }
         });
     });
+    
 });
