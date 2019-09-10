@@ -65,9 +65,16 @@ namespace TccFirst.Controllers
         [HttpGet, Route("tituloPagar/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
+
+            return View();
+            return View();
+        }
+
             var tituloPagars = repository.ObterTodos();
 
         
+
+        }
             List<object> tituloPagarSelect2 =
                 new List<object>();
             foreach (TituloPagar tituloPagar in tituloPagars)
