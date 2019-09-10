@@ -1,22 +1,23 @@
 ﻿$(function () {
-    $("#tituloReceber-pessoaJuridica").select2({
+    $("#tituloReceber-campo-pessoa-Juridica").select2({
         ajax: {
             url: "/clientePessoaJuridica/obtertodosselect2",
             dataType: "json"
         }
     });
-    $("#tituloReceber-pessoaFisica").select2({
+    $("#tituloReceber-campo-pessoa-Fisica").select2({
         ajax: {
             url: "/clientepessoafisica/obtertodosselect2",
             dataType: "json"
         }
     });
-    $("#tituloReceber-categoria").select2({
+    $("#tituloReceber-campo-categoria-Receita").select2({
         ajax: {
             url: "/categoria/obtertodosselect2",
             dataType: "json"
         }
     });
+
 
 
 });

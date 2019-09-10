@@ -3,20 +3,20 @@
     $idAlterar = -1;
 
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
-        ajax: "/tituloreceber/obtertodospeloidtitulosreceber =" + $idTituloReceber,
+        ajax: "/tituloreceber/obtertodos",
         serverSide: true,
         coluns: [
             { data: "IdClientePessoaJuridica" },
             { data: "IdClientePessoaFisica" },
-            { data: "IdCategoriaReceira" },
+            { data: "IdCategoriaReceita" },
             { data: "Descricao" },
             { data: "ValorTotal" },
+            { data: "QuantidadeParcelas" },
             { data: "Status" },
             { data: "DataLancamento" },
             { data: "DataRecebimento" },
             { data: "DataVencimento" },
             { data: "Complemento" },
-            { data: "QuantidadeParcelas" }
             {
                 render: function (data, type, row) {
                     return "\
@@ -36,7 +36,7 @@
                 url: "/tituloreceber/apagar?id=" + $id,
                 method: "get",
                 success: function () {
-                    $tabela.ajax.reload();
+                    $tabelaTituloReceber.ajax.reload();
                 },
                 error: function () {
                     alert('Não foi possível apagar');
@@ -44,33 +44,47 @@
             });
         });
 
-    //  ----------------------------------------------------------------------------------------PAREI AQUI-------------------------------------------------------------------
-    $("#modal-produto-salvar").on("click", function () {
-        $nome = $("#modal-produto-nome").val();
-        $quantidade = $("#modal-produto-quantidade").val();
-        $valor = $("#modal-produto-valor").val();
 
+    $("#titulo-receber-botao-salvar").on("click", function () {
+        $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
+        $idPessoaFisica = $("#tituloReceber-campo-pessoa-Fisica").val();
+        $idCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
+        $valor = $("#tituloReceber-campo-valor").val();
+        $quantidadeDeParcelas = $("#tituloReceber-campo-quantidadeParcelas").val();
+        $descricao = $("#tituloReceber-campo-descricao").val();
+        $dataLancamento = $("#tituloReceber-campo-data-lancamento").val();
+        $dataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
+        $dataVencimento = $("#tituloReceber-campo-data-vencimento").val();
+        $complemento = $("tituloReceber-campo-complemento").val();
+        debugger;
         if ($idAlterar == -1) {
-            inserir($nome, $quantidade, $valor);
+            inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
         } else {
-            alterar($nome, $quantidade, $valor);
+            alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidade, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
         }
     });
 
-    function inserir($nome, $quantidade, $valor) {
+    function inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento) {
         $.ajax({
-            url: "/produto/cadastro",
+            url: "/tituloreceber/cadastro",
             method: "post",
             data: {
-                nome: $nome,
-                quantidade: $quantidade,
+                idPessoaJuridica: $idPessoaJuridica,
+                idPessoaFisica: $idPessoaFisica,
+                idCategoriaReceita: $idCategoriaReceita,
                 valor: $valor,
-                idVenda: $idVenda
+                quantidadeDeParcelas: $quantidadeDeParcelas,
+                descricao: $descricao,
+                dataLancamento: $dataLancamento,
+                dataRecebimento: $dataRecebimento,
+                dataVencimento: $dataVencimento,
+                complemento: $complemento,
+                idTituloRecer: $idTituloReceber
             },
             success: function (data) {
+                $("#modal-tituloReceber").modal("hide");
                 limparCampos();
-                $tabela.ajax.reload();
-                $("#venda-produto-modal").modal("hide");
+                $tabelaTituloReceber.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível cadastrar");
@@ -79,17 +93,24 @@
     }
 
 
-    $("#venda-produtos-index").on("click", ".botao-editar", function () {
+    $("#modal-tituloReceber").on("click", ".botao-editar", function () {
         $id = $(this).data("id");
         $.ajax({
-            url: "/produto/obterpeloid?id=" + $id,
+            url: "/tituloreceber/obterpeloid?id=" + $id,
             method: "get",
             success: function (data) {
                 $idAlterar = $id;
-                $("#modal-produto-nome").val(data.Nome);
-                $("#modal-produto-quantidade").val(data.Quantidade);
-                $("#modal-produto-valor").val(data.Valor);
-                $("#venda-produto-modal").modal("show");
+                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica); // NÃO PUXOU
+                $("#tituloReceber-campo-pessoa-Fisica").val(data.IdClientePessoaFisica);
+                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceira);
+                $("#tituloReceber-campo-valor").val(data.ValorTotal);
+                $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcelas);
+                $("#tituloReceber-campo-descricao").val(data.Descricao);
+                $("#tituloReceber-campo-data-lancamento").val(data.DataLancamneto);
+                $("#tituloReceber-campo-data-recebimento").val(data.DataRecebimento);
+                $("#tituloReceber-campo-data-vencimento").val(data.DataVencimento);
+                $("#tituloReceber-campo-complemento").val(data.Complemento);
+                $("#modal-tituloReceber").modal("show");
             },
             error: function (data) {
                 alert("Não foi possível buscar o registro");
@@ -97,18 +118,28 @@
         })
     });
 
-    function alterar($nome, $quantidade, $valor) {
+    function alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento) {
         $.ajax({
-            url: "/produto/alterar",
+            url: "/tituloreceber/alterar",
             method: "post",
             data: {
-                nome: $nome, quantidade: $quantidade, valor: $valor,
-                id: $idAlterar, idVenda: $idVenda
+                idPessoaJuridica: $idPessoaJuridica,
+                idPessoaFisica: $idPessoaFisica,
+                idCategoria: $idCategoriaReceita,
+                valor: $valor,
+                quantidadeDeParcelas: $quantidadeDeParcelas,
+                descricao: $descricao,
+                dataLancamento: $dataLancamento,
+                dataRecebimento: $dataRecebimento,
+                dataVencimento: $dataVencimento,
+                complemento: $complemento,
+                id: $idAlterar,
+                idTituloReceber: $idTituloReceber
             },
             success: function (data) {
-                $("#venda-produto-modal").modal("hide");
+                $("#modal-tituloReceber").modal("hide");
                 limparCampos();
-                $tabela.ajax.reload();
+                $tabelaTituloReceber.ajax.reload();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
@@ -117,10 +148,18 @@
     }
 
     function limparCampos() {
-        $("#modal-produto-nome").val("");
-        $("#modal-produto-quantidade").val("");
-        $("#modal-produto-valor").val("");
+        $("#tituloReceber-campo-pessoa-Juridica").val("");
+        $("#tituloReceber-campo-pessoa-Fisica").val("");
+        $("#tituloReceber-campo-categoria-Receita").val("");
+        $("#tituloReceber-campo-valor").val("");
+        $("#tituloReceber-campo-quantidade-Parcelas").val("");
+        $("#tituloReceber-campo-descricao").val("");
+        $("#tituloReceber-campo-data-lancamento").val("");
+        $("#tituloReceber-campo-data-recebimento").val("");
+        $("#tituloReceber-campo-data-vencimento").val("");
+        $("#tituloReceber-campo-complemento").val("");
         $idAlterar = -1;
     }
+
 
 });

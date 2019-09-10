@@ -7,20 +7,23 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tituloReceber">
     Criar título a Receber
 </button>
-    <table id="tituloReceber-tabela" class="table table-hover table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Valor</th>
-                <th>Quantidade de parcelas</th>
-                <th>Descrição</th>
-                <th>Data de Lançamento</th>
-                <th>Data de Recebimento</th>
-                <th>Data de Vencimento</th>
-                <th>Status</th>
-                <th>Complemento</th>
-            </tr>
-        </thead>
-    </table>
-    @RenderPage("CadastroTituloReceber.cshtml")
-
+<table id="tituloReceber-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Valor</th>
+            <th>Quantidade de parcelas</th>
+            <th>Descrição</th>
+            <th>Data de Lançamento</th>
+            <th>Data de Recebimento</th>
+            <th>Data de Vencimento</th>
+            <th>Status</th>
+            <th>Complemento</th>
+        </tr>
+    </thead>
+</table>
+@RenderPage("CadastroTituloReceber.cshtml")
+@section js{
+    <script src="~/Scripts/TituloReceber/titulo-receber-cadastro.js"></script>
+    <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>
+}
 
