@@ -51,7 +51,7 @@ namespace TccFirst.Controllers
         #endregion  
 
         [HttpGet]
-        public JsonResult Apagar(int id)    
+        public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
@@ -66,7 +66,6 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-
         [HttpGet]
         public ActionResult Editar(int id)
         {
@@ -74,40 +73,7 @@ namespace TccFirst.Controllers
             ViewBag.ContaCorrentes = contaCorrente;
             return View();
         }
-        [HttpGet]
-        public JsonResult ObterTodos()
-        {
-            var contasCorrentes = repository.ObterTodos();
-            var resultado = new { data = contasCorrentes };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        public JsonResult Inserir(ContaCorrente contaCorrente)
-        {
-            contaCorrente.RegistroAtivo = true;
-            var id = repository.Inserir(contaCorrente);
-            var resultado = new { id = id };
-            return Json(resultado);
-        }
-        [HttpGet]
-        public JsonResult Apagar(int id)
-        {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        public JsonResult Update(ContaCorrente contaCorrente)
-        {
-            var alterou = repository.Alterar(contaCorrente);
-            var resultado = new { status = alterou };
-            return Json(resultado);
-        }
-        [HttpGet, Route("contacorrente/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloid(id), JsonRequestBehavior.AllowGet);
-        }
+
         [HttpGet, Route("contacorrente/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {

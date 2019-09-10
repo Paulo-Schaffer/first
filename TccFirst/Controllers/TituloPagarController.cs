@@ -66,21 +66,14 @@ namespace TccFirst.Controllers
         public JsonResult ObterTodosSelect2(string term)
         {
 
-            return View();
-            return View();
-        }
-
             var tituloPagars = repository.ObterTodos();
 
-        
-
-        }
             List<object> tituloPagarSelect2 =
                 new List<object>();
             foreach (TituloPagar tituloPagar in tituloPagars)
             {
-                tituloPagarSelect2.Add(new {
-                
+                tituloPagarSelect2.Add(new
+                {
                     id = tituloPagar.Id,
                     descricao = tituloPagar.Descricao,
                     formaPagamento = tituloPagar.FormaPagamento,
@@ -93,7 +86,7 @@ namespace TccFirst.Controllers
                     complemento = tituloPagar.Complemento,
                     quantidadeParcela = tituloPagar.QuantidadeParcela,
                     idFornecedores = tituloPagar.IdFornecedores,
-                    idCategoriaDespesas = tituloPagar.IdCategoriaDepesesas
+                    idCategoriaDespesa = tituloPagar.IdCategoriaDepesesa
                 });
             }
             var resultado = new
@@ -101,7 +94,7 @@ namespace TccFirst.Controllers
                 results = tituloPagarSelect2
             };
             return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+          JsonRequestBehavior.AllowGet);
         }
     }
 }
