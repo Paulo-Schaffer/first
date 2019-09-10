@@ -34,21 +34,21 @@ namespace Model
 
         #region fk_cliente_pessoa_fisica    
         [Column("id_cliente_pessoa_fisica")]
-        public int IdClientePessoaFisica { get; set; }
+        public int? IdClientePessoaFisica { get; set; }
         [ForeignKey("IdClientePessoaFisica")]
         public ClientePessoaFisica Nome { get; set; }
         #endregion
 
         #region fk_cliente_pessoa_juridica
         [Column("id_cliente_pessoa_juridica")]
-        public int IdClientePessoaJuridica { get; set; }
+        public int? IdClientePessoaJuridica { get; set; }
         [ForeignKey("IdClientePessoaJuridica")]
         public ClientePessoaJuridica PessoaJuridica { get; set; }
         #endregion
 
         #region fk_categoria_receita 
         [Column("id_categoria_receita")]
-        public int IdCategoriaReceita { get; set; }
+        public int? IdCategoriaReceita { get; set; }
         [ForeignKey("IdCategoriaReceita")]
         public CategoriaReceita TipoCategoriaReceita { get; set; }
         #endregion

@@ -11,7 +11,7 @@
             { data: "IdCategoriaReceita" },
             { data: "Descricao" },
             { data: "ValorTotal" },
-            { data: "QuantidadeParcelas" }, 
+            { data: "QuantidadeParcelas" },
             { data: "Status" },
             { data: "DataLancamento" },
             { data: "DataRecebimento" },
@@ -44,7 +44,7 @@
             });
         });
 
-    
+
     $("#titulo-receber-botao-salvar").on("click", function () {
         $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
         $idPessoaFisica = $("#tituloReceber-campo-pessoa-Fisica").val();
@@ -56,7 +56,7 @@
         $dataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
         $dataVencimento = $("#tituloReceber-campo-data-vencimento").val();
         $complemento = $("tituloReceber-campo-complemento").val();
-        
+        debugger;
         if ($idAlterar == -1) {
             inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
         } else {
@@ -160,6 +160,6 @@
         $("#tituloReceber-campo-complemento").val("");
         $idAlterar = -1;
     }
-   
+
 
 });

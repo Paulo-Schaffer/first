@@ -71,20 +71,7 @@ namespace TccFirst.Controllers
                 clientePessoaJuridicasSelect2.Add(new
                 {
                     id=clientePessoaJuridica.Id,
-                    razaoSocial=clientePessoaJuridica.RazaoSocial,
-                    atividade=clientePessoaJuridica.Atividade,
-                    nomeFantasia=clientePessoaJuridica.NomeFantasia,
-                    dataCadastro=clientePessoaJuridica.DataCadastro,
-                    cnpj=clientePessoaJuridica.Cnpj,
-                    email=clientePessoaJuridica.Email,
-                    filial=clientePessoaJuridica.Filial,
-                    telefone=clientePessoaJuridica.Telefone,
-                    cep=clientePessoaJuridica.Cep,
-                    logradouro=clientePessoaJuridica.Logradouro,
-                    numero=clientePessoaJuridica.Numero,
-                    bairro=clientePessoaJuridica.Bairro,
-                    uf=clientePessoaJuridica.Uf,
-                    cidade=clientePessoaJuridica.Cidade
+                    text=clientePessoaJuridica.RazaoSocial,
 
                 });
             }

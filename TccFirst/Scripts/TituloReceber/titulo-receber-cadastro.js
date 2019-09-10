@@ -1,7 +1,7 @@
 ﻿$(function () {
     $("#tituloReceber-campo-pessoa-Juridica").select2({
         ajax: {
-            url: "clientePessoaJuridica/obtertodosselect2",
+            url: "/clientePessoaJuridica/obtertodosselect2",
             dataType: "json"
         }
     });
@@ -17,6 +17,7 @@
             dataType: "json"
         }
     });
+
 
 
 });

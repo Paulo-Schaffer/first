@@ -1,4 +1,4 @@
-﻿<div id="modal-tituloReceber" class="modal fade" tabindex="-1" role="dialog">
+﻿<div id="modal-tituloReceber" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,60 +7,59 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div>
-                <div class="modal-body">
-                    <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="idPessoaJuridica"></select>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="campo-tituloreceber-pessoaJuridica"mas>Pessoa Juridica</label>
+                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="idPessoaJuridica">
+                        <option disabled selected>Selecione um opção</option>
+                    </select>
                 </div>
-            </div>
-            <div>
-                <div class="modal-body">
-                    <label for="campo-tituloReceber-pessoaFisica">Pessoa Fisica</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-Fisica" name="idPessoaFisica"></select>
+
+                <div class="fomr-group">
+                    <label for="campo-tituloReceber-pessoaFisica"mas>Pessoa Fisica</label>
+                    <select class="form-control" id="tituloReceber-campo-pessoa-Fisica" name="idPessoaFisica">
+                        
+                    </select>
 
                 </div>
-            </div>
-            <div>
-                <div class="modal-body">
-                    <label for="campo-tituloReceber-categoria">Categoria Receita</label>
+                <div class="form-group">
+                    <label for="campo-tituloReceber-categoria"mas>Categoria Receita</label>
                     <select class="form-control" id="tituloReceber-campo-categoria-Receita" name="idCategoria"></select>
                 </div>
-            </div>
 
-            <div class="modal-body">
-                <label for="campo-tituloReceber-valor">Valor</label>
-                <input type="text" id="tituloReceber-campo-valor" class="form-control" />
-            </div>
-            <div>
-                <div class="modal-body">
-                    <label for="campo-titulo-campo-quantidadeParcelas">Quantidade de Parcelas</label>
+                <div class="form-group">
+                    <label for="campo-tituloReceber-valor"mas>Valor</label>
+                    <input type="text" id="tituloReceber-campo-valor" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="campo-titulo-campo-quantidadeParcelas"mas>Quantidade de Parcelas</label>
                     <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control" />
                 </div>
-            </div>
-            <div class="modal-body">
-                <label for="campo-tituloReceber-descricao" mas>Descrição</label>
-                <input type="text" id="" class="form-control" />
-            </div>
-            <div class="modal-body">
-                <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
-                <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control" />
-            </div>
-            <div>
-                <div class="modal-body">
-                    <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
-                    <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control" />
+                <div class="form-group">
+                    <label for="campo-tituloReceber-descricao" mas>Descrição</label>
+                    <input type="text" id="" class="form-control" />
                 </div>
-            </div>
-            <div>
-                <div class="modal-body">
-                    <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
-                    <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" />
+                <div class="form-group">
+                    <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
+                    <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control" />
                 </div>
-            </div>
-            <div>
-                <div class="modal-body">
-                    <label form="campo-titulo-receber-campo-complemento" mas>Complemento</label>
-                    <input type="text" id="tituloReceber-campo-complemento" class="form-control" />
+                <div>
+                    <div class="form-group">
+                        <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
+                        <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control" />
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
+                        <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" />
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label form="campo-titulo-receber-campo-complemento" mas>Complemento</label>
+                        <input type="text" id="tituloReceber-campo-complemento" class="form-control" />
+                    </div>
                 </div>
             </div>
 
@@ -73,7 +72,6 @@
 </div>
 
 @section js{
-    <link href="~/Scripts/select2.min.css" rel="stylesheet" />
     <script src="~/Scripts/TituloReceber/titulo-receber-cadastro.js"></script>
     <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>
 }
