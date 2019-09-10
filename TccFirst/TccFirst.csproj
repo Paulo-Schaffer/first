@@ -5559,6 +5559,8 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\select2.min.css" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\TituloPagar\IdCategoriaDespesas.js" />
     <Content Include="Scripts\TituloPagar\IdFornecedores.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
@@ -5580,7 +5582,6 @@
     <Compile Include="Controllers\AgenciaController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
-    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />

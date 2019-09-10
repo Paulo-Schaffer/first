@@ -12,8 +12,9 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
+                            <span id="msg-error"></span>
                             <label for="clientePessoaFisica-campo-nome">Nome</label>
-                            <input type="text" required="required" id="clientePessoaFisica-campo-nome" class="form-control" />
+                            <input type="text" id="clientePessoaFisica-campo-nome" class="form-control" placeholder="Nome" />
                         </div>
                     </div>
                     <div class="col-6">
@@ -27,7 +28,7 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="clientePessoaFisica-campo-dataNascimento">Data de Nascimento</label>
-                            <input type="date" id="clientePessoaFisica-campo-dataNascimento"  class="form-control" />
+                            <input type="date" id="clientePessoaFisica-campo-dataNascimento" class="form-control" />
                         </div>
                     </div>
                     <div class="col-6">
@@ -37,73 +38,51 @@
                         </div>
                     </div>
                 </div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-email">E-mail</label>
-                            <input type="text" id="clientePessoaFisica-campo-email" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-telefone">Telefone</label>
-                            <input type="text" id="clientePessoaFisica-campo-telefone" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-cep">Cep</label>
-                            <input type="text" id="clientePessoaFisica-campo-cep" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisisca-campo-numero">Numero</label>
-                            <input type="text" id="clientePessoaFisica-campo-numero" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-bairro">Bairro</label>
-                            <input type="text" id="clientePessoaFisica-campo-bairro" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-cidade">Cidade</label>
-                            <input type="text" id="clientePessoaFisica-campo-cidade" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-uf">UF</label>
-                            <select class="form-control" name="estados-brasil">
-                                <option value="AC">AC</option>
-                                <option value="AL">AL</option>
-                                <option value="AP">AP</option>
-                                <option value="AM">AM</option>
-                                <option value="BA">BA</option>
-                                <option value="CE">CE</option>
-                                <option value="DF">DF</option>
-                                <option value="ES">ES</option>
-                                <option value="GO">GO</option>
-                                <option value="MA">MA</option>
-                                <option value="MT">MT</option>
-                                <option value="MS">MS</option>
-                                <option value="MG">MG</option>
-                                <option value="PA">PA</option>
-                                <option value="PB">PB</option>
-                                <option value="PR">PR</option>
-                                <option value="PE">PE</option>
-                                <option value="PI">PI</option>
-                                <option value="RJ">RJ</option>
-                                <option value="RN">RN</option>
-                                <option value="RS">RS</option>
-                                <option value="RO">RO</option>
-                                <option value="RR">RR</option>
-                                <option value="SC">SC</option>
-                                <option value="SP">SP</option>
-                                <option value="SE">SE</option>
-                                <option value="TO">TO</option>
-                            </select></div>
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-complemento">Complemento</label>
-                            <input type="text" id="clientePessoaFisica-campo-complemento" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success" id="clientePessoaFisica-batao-salvar">
-                            <i class="fa fa-floppy-o"></i> Salvar</button>
-                    </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-email">E-mail</label>
+                    <input type="text" id="clientePessoaFisica-campo-email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-telefone">Telefone</label>
+                    <input type="text" id="clientePessoaFisica-campo-telefone" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-cep">Cep</label>
+                    <input type="text" id="clientePessoaFisica-campo-cep" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-rua">Rua</label>
+                    <input type="text"id="clientePessoaFisica-campo-rua" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisisca-campo-numero">Numero</label>
+                    <input type="text" id="clientePessoaFisica-campo-numero" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-bairro">Bairro</label>
+                    <input type="text" id="clientePessoaFisica-campo-bairro" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-cidade">Cidade</label>
+                    <input type="text" id="clientePessoaFisica-campo-cidade" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-uf">UF</label>
+                    <input type="text"id="clientePessoaFisica-campo-uf" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="clientePessoaFisica-campo-complemento">Complemento</label>
+                    <input type="text" id="clientePessoaFisica-campo-complemento" class="form-control" />
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="clientePessoaFisica-batao-salvar">
+                    <i class="fa fa-floppy-o"></i> Salvar
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
