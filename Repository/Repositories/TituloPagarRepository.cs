@@ -25,7 +25,7 @@ namespace Repository.Repositories
                 return false;
 
             tituloPagarOficial.IdCategoriaDepesesa = tituloPagarOficial.IdCategoriaDepesesa;
-            tituloPagarOficial.IdFornecedores = tituloPagarOficial.IdFornecedores;
+            tituloPagarOficial.IdFornecedor = tituloPagarOficial.IdFornecedor;
             tituloPagarOficial.Descricao = tituloPagarOficial.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagarOficial.FormaPagamento;
             tituloPagarOficial.Caixa = tituloPagarOficial.Caixa;
@@ -44,23 +44,19 @@ namespace Repository.Repositories
 
         public bool Apagar(int id)
         {
-
             var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == id);
-
             if (tituloPagar == null)
+            {
                 return false;
+            }
 
             tituloPagar.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
-
-
         }
 
         public int Inserir(TituloPagar tituloPagar)
         {
-
-            tituloPagar.RegistroAtivo = true;
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
@@ -68,17 +64,15 @@ namespace Repository.Repositories
 
         public TituloPagar ObterPeloId(int id)
         {
-            var tituloPagar = context
-                .TitulosPagar
-                .FirstOrDefault(x => x.Id == id);
+            var tituloPagar = context.TitulosPagar
+                .Where(x => x.Id == id).FirstOrDefault();
             return tituloPagar;
         }
 
         public List<TituloPagar> ObterTodos()
         {
             return context.TitulosPagar.
-                Where(x => x.RegistroAtivo == false)
-                .OrderBy(x => x.Id).ToList();
+                Where(x => x.RegistroAtivo == false).ToList();
         }
     }
 }

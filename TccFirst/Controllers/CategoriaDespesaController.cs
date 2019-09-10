@@ -62,7 +62,8 @@ namespace TccFirst.Controllers
             {
                 categoriasSelect2.Add(new
                 {
-                    id = categoriaDespesa.Id, text = categoriaDespesa.TipoCategoriaDespesa
+                    id = categoriaDespesa.Id,
+                    text = categoriaDespesa.TipoCategoriaDespesa
                 });
             }
             var resultado = new { results = categoriasSelect2 };
