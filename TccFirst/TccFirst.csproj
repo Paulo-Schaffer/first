@@ -5529,7 +5529,6 @@
     <Content Include="Scripts\i18n\vi.js" />
     <Content Include="Scripts\i18n\zh-CN.js" />
     <Content Include="Scripts\i18n\zh-TW.js" />
-    <Content Include="Scripts\ClientePessoaFisica\jquery.form-validator.min.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
@@ -5537,7 +5536,6 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
@@ -5575,9 +5573,6 @@
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
-    <Content Include="Scripts\ClientePessoaFisica\datetime.js" />
-    <Content Include="Scripts\ClientePessoaFisica\jquery.mask.js" />
-    <Content Include="Scripts\ClientePessoaFisica\moment.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
     <Content Include="Scripts\datetime.js" />

@@ -6,6 +6,7 @@ $(function () {
 
 
     $tabelaCaixa = $("#caixa-tabela").DataTable({
+        responsive : true,
         ajax: '/Caixa/obtertodos',
         severSide: true,
         columns: [
@@ -14,11 +15,6 @@ $(function () {
             { 'data': 'Documento' },
             { 'data': 'FormaPagamento' },
             { 'data': 'Valor' },
-            {
-                render: function (data, type, row) {
-                    return moment(row.DataLancamento).format('DD/MM/YYYY')
-                }
-            },
             { 'data': 'Status' },
             { 'data': 'Historico' },
             {

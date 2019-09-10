@@ -35,13 +35,22 @@
                     <input type="date" id="caixa-campo-data-lancamento" class="form-control" />
                 </div>
                 <div class="form-group">
+                    <label for="campo-caixa-status">Status</label>
+                    <select class="form-control" id="caixa-campo-status">
+                        <option disabled="disabled" selected="selected">Selecione um status</option>
+                        <option>Aberto</option>
+                        <option>Pago</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="campo-caixa-historico" mas>Historico</label>
                     <input type="text" id="caixa-campo-historico" class="form-control" />
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="pessoa-botao-salvar">Salvar</button>
+                <button type="button" class="btn btn-success" id="caixa-botao-salvar">Salvar</button>
             </div>
         </div>
     </div>
