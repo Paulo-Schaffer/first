@@ -65,6 +65,7 @@ namespace TccFirst.Controllers
         [HttpGet, Route("tituloPagar/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
+
             var tituloPagars = repository.ObterTodos();
 
             List<object> tituloPagarSelect2 =
@@ -85,7 +86,7 @@ namespace TccFirst.Controllers
                     complemento = tituloPagar.Complemento,
                     quantidadeParcela = tituloPagar.QuantidadeParcela,
                     idFornecedores = tituloPagar.IdFornecedores,
-                    idCategoriaDespesas = tituloPagar.IdCategoriaDepesesas
+                    idCategoriaDespesa = tituloPagar.IdCategoriaDepesesa
                 });
             }
             var resultado = new

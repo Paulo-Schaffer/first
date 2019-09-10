@@ -5530,6 +5530,7 @@
     <Content Include="Scripts\i18n\zh-CN.js" />
     <Content Include="Scripts\i18n\zh-TW.js" />
     <Content Include="Scripts\ClientePessoaFisica\jquery.form-validator.min.js" />
+    <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -5542,7 +5543,6 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\Funcionario\Funcionario-index.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -5564,6 +5564,13 @@
     <Content Include="Scripts\TituloPagar\IdCategoriaDespesas.js" />
     <Content Include="Scripts\TituloPagar\IdFornecedores.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\ClientePessoaJuridica\clientePessoaJuridica.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
@@ -5634,7 +5641,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\ContaCorrente\Index.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />

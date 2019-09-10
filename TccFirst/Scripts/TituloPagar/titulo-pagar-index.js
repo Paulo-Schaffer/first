@@ -1,11 +1,9 @@
 ﻿$(function () {
-    $IdFornecedor = $("#id").val();
-    $IdCategoriaDespesa = $("#id").val();
     $idAlterar = -1;
     $IdFornecedor = $("#id").val();
     $IdCategoriaDespesa = $("#id").val();
 
-    $tabelaTituloPagar = $("#titulo-pagar-tabela").DataTable({
+    $tabelaTituloPagar = $("#modal-titulo-pagar-tabela").DataTable({
         ajax: '/TituloPagar/obtertodos',
         severSide: true,
         columns: [
@@ -59,7 +57,7 @@
         $QuantidadeParcela = $('#modal-tituloPagar-quantidade-parcela').val();
         $IdFornecedor = $('#modal-tituloPagar-fornecedor').val();
         $IdCategoriaDespesa = $("#modal-tituloPagar-categoria-despesa").val();
-        
+
         if ($idAlterar == -1) {
             inserir($Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
         } else {
@@ -95,7 +93,6 @@
             }
         });
     }
-
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data("id");
@@ -151,18 +148,19 @@
             }
         });
 
-        function LimparCampos() {
-            $('#tituloPagar-campo-descricao').val("");
-            $('#tituloPagar-campo-forma-pagamento').val("");
-            $('#tituloPagar-campo-caixa').val("");
-            $('#tituloPagar-campo-valor-total').val("");
-            $('#tituloPagar-campo-status').val("");
-            $('#tituloPagar-campo-data-lancamento').val("");
-            $('#tituloPagar-campo-data-recebimento').val("");
-            $('#tituloPagar-campo-data-vencimento').val("");
-            $('#tituloPagar-campo-complemento').val("");
-            $('#tituloPagar-campo-quantidade-parcela').val("");
-            $idAlterar = -1;
-        }
+    }
+
+    function LimparCampos() {
+        $('#tituloPagar-campo-descricao').val("");
+        $('#tituloPagar-campo-forma-pagamento').val("");
+        $('#tituloPagar-campo-caixa').val("");
+        $('#tituloPagar-campo-valor-total').val("");
+        $('#tituloPagar-campo-status').val("");
+        $('#tituloPagar-campo-data-lancamento').val("");
+        $('#tituloPagar-campo-data-recebimento').val("");
+        $('#tituloPagar-campo-data-vencimento').val("");
+        $('#tituloPagar-campo-complemento').val("");
+        $('#tituloPagar-campo-quantidade-parcela').val("");
+        $idAlterar = -1;
     }
 });
