@@ -1,4 +1,4 @@
-﻿<div id="modal-tituloPagar" class="modal" tabindex="-1" role="dialog">
+﻿<div id="modal-login" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,24 +6,31 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+            </div>
 
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="modal-login-usuario">Usuario</label>
-                        <input type="text" id="modal-login-usuario" class="form-control" />
-                    </div>
-
-                    <div class="modal-body">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
                         <div class="form-group">
-                            <label for="modal-login-senha">Senha</label>
-                            <input type="text" id="modal-login-senha" class="form-control" />
+                            <label for="modal-login-usuario">Usuario</label>
+                            <input type="text" id="modal-login-usuario" class="form-control" />
                         </div>
                     </div>
                 </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="modal-login-senha">Senha</label>
+                            <input type="password" id="modal-login-senha" class="form-control" />
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
             </div>
         </div>
     </div>

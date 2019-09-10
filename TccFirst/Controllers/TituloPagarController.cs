@@ -65,9 +65,9 @@ namespace TccFirst.Controllers
         [HttpGet, Route("tituloPagar/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
+
             var tituloPagars = repository.ObterTodos();
 
-        }
             List<object> tituloPagarSelect2 =
                 new List<object>();
             foreach (TituloPagar tituloPagar in tituloPagars)
@@ -86,7 +86,7 @@ namespace TccFirst.Controllers
                     complemento = tituloPagar.Complemento,
                     quantidadeParcela = tituloPagar.QuantidadeParcela,
                     idFornecedores = tituloPagar.IdFornecedores,
-                    idCategoriaDespesas = tituloPagar.IdCategoriaDepesesas
+                    idCategoriaDespesa = tituloPagar.IdCategoriaDepesesa
                 });
             }
             var resultado = new
@@ -94,8 +94,7 @@ namespace TccFirst.Controllers
                 results = tituloPagarSelect2
             };
             return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+          JsonRequestBehavior.AllowGet);
         }
-
     }
 }

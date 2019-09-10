@@ -51,7 +51,7 @@ namespace TccFirst.Controllers
         #endregion  
 
         [HttpGet]
-        public JsonResult Apagar(int id)    
+        public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
@@ -66,38 +66,48 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-
         [HttpGet]
         public ActionResult Editar(int id)
         {
             var contaCorrente = repository.ObterPeloId(id);
             ViewBag.ContaCorrentes = contaCorrente;
             return View();
-        }   
+        }
 
-
-        [HttpGet,Route("contacorrente/obtertodosselect2")]
+        [HttpGet, Route("contacorrente/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
-            var contasCorrente = repository.ObterTodos();
-            List<object> contaCorrenteSelect2 = new List<object>();
-            foreach(ContaCorrente contaCorrente in  contasCorrente)
+            var contasCorrentes = repository.ObterTodos();
+            List<object> contasConrrentesSelect2 =
+                new List<object>();
+            foreach (ContaCorrente contaCorrente in contasCorrentes)
             {
-                contaCorrenteSelect2.Add(new
+                contasConrrentesSelect2.Add(new
                 {
                     id = contaCorrente.Id,
-                    text = contaCorrente.Documento
+                    idHistorico = contaCorrente.IdHistorico,
+                    idCategoriaDespesa = contaCorrente.IdCategoriaDespesa,
+                    idCategoriaReceita = contaCorrente.IdCategoriaReceita,
+                    idAgencia = contaCorrente.IdAgencia,
+                    numeroConta = contaCorrente.NumeroConta,
+                    descricao = contaCorrente.Descricao,
+                    documento = contaCorrente.Documento,
+                    tipoReceitaDespesa = contaCorrente.TipoReceitaDespesa,
+                    tipoPagamento = contaCorrente.TipoPagamento,
+                    valor = contaCorrente.Valor,
+                    status = contaCorrente.Status,
+                    dataLancamento = contaCorrente.DataLancamento,
+                    dataVencimento = contaCorrente.DataVencimento,
+                    dataRecebimento = contaCorrente.DataRecebimento,
+                    nomeBanco = contaCorrente.NomeBanco,
+                    numeroBanco = contaCorrente.NumeroBanco
                 });
             }
             var resultado = new
             {
-                results = contaCorrenteSelect2
+                results = contasConrrentesSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-
-
-
         }
-
     }
 }
