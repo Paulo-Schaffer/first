@@ -34,7 +34,7 @@ namespace Model
 
         #region fk_cliente_pessoa_fisica    
         [Column("id_cliente_pessoa_fisica")]
-        public int IdClientePessoaFisica { get; set; }
+        public int? IdClientePessoaFisica { get; set; }
         [ForeignKey("IdClientePessoaFisica")]
         public ClientePessoaFisica Nome { get; set; }
         #endregion
