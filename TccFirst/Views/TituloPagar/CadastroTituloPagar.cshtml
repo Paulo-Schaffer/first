@@ -1,4 +1,4 @@
-﻿<div id="modal-tituloPagar" class="modal" tabindex="-1" role="dialog">
+﻿<div id="modal-tituloPagar" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -126,21 +126,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
+                </div>
+
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
         </div>
     </div>
 </div>
-@section css{
-    <link href="~/Content/css/select2.css"
-          rel="stylesheet" />
-}
 
 @section js{
-    <script src="~/Scripts/TituloPagar/IdFornecedores.js"></script>
-    <script src="~/Scripts/TituloPagar/IdCategoriaDespesas.js"></script>
-    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
 }

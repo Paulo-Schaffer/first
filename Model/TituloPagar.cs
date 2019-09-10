@@ -49,7 +49,7 @@ namespace Model
 
         #region fk__fornecedores
         [Column("id_fornecedores")]
-        public int IdFornecedores { get; set; }
+        public int IdFornecedor { get; set; }
 
         [ForeignKey("IdFornecedores")]
         public Fornecedor fornecedores { get; set; }

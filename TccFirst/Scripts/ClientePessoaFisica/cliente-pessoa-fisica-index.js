@@ -5,6 +5,7 @@
 
 });
 $(function () {
+    
     // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaFisica-campo-nome').keyup(function (e) {
         if (e.keyCode == 13) {

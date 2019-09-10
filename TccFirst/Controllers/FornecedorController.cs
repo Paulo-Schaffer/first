@@ -81,17 +81,6 @@ namespace TccFirst.Controllers
                 {
                     id = fornecedor.Id,
                     text = fornecedor.RazaoSocial,
-                    fantasia = fornecedor.NomeFantasia,
-                    data = fornecedor.DataCadastro,
-                    cnpj = fornecedor.Cnpj,
-                    email = fornecedor.Email,
-                    telefone = fornecedor.Telefone,
-                    cep = fornecedor.Cep,
-                    logradouro = fornecedor.Logradouro,
-                    numero = fornecedor.Numero,
-                    bairro = fornecedor.Bairro,
-                    uf = fornecedor.Uf,
-                    cidade = fornecedor.Cidade
                 });
             }
             var resultado = new { results = fornecedorSelect2 };
