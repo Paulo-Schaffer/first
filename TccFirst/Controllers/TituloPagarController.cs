@@ -58,6 +58,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro()
         {
             return View();
+            return View();
         }
 
         [HttpGet]
