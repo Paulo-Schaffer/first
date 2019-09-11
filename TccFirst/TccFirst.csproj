@@ -5525,7 +5525,7 @@
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
-    <Compile Include="Controllers\ParcelasReceberController.cs" />
+    <Compile Include="Controllers\ParcelaReceberController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5599,6 +5599,7 @@
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Historico\CadastroHistorico.cshtml" />
+    <Content Include="Views\ParcelaReceber\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5616,7 +5617,6 @@
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasPagar\" />
-    <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>
   <ItemGroup>
