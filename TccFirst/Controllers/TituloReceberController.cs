@@ -17,13 +17,7 @@ namespace TccFirst.Controllers
             repository = new TituloReceberRepository();
         }
         
-        /*[HttpGet,Route("obtertodospeloidtituloreceber")]
-        public JsonResult ObterTodosPeloIdTituloReceber(int idTituloReceber)
-        {
-            var titulosReceber = repository.ObterTodosPeloIdTituloReceber(idTituloReceber);
-            var resultado = new { data = titulosReceber };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }*/
+       
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()

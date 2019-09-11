@@ -66,7 +66,7 @@ namespace TccFirst.Controllers
                 categoriasReceitaSelect2.Add(new
                 {
                     id = categoriaReceita.Id,
-                    text = categoriaReceita.TipoCategoriaReceita
+                    text = categoriaReceita.TipoCategoriaReceita    
                 });
             }
             var resultado = new
