@@ -15,6 +15,10 @@ $(function () {
             { 'data': 'Documento' },
             { 'data': 'FormaPagamento' },
             { 'data': 'Valor' },
+            {
+                render: function (data, type, row) {
+                    return moment(row.dataLancamento).format('DD/MM/YYYY')
+                }
             { 'data': 'Status' },
             { 'data': 'Historico' },
             {
