@@ -1,0 +1,36 @@
+﻿@{ 
+    ViewBag.Title="Cadastro";
+}
+
+<h2>Cadastro de Parcelas Receber</h2>
+
+<form action="/parcelasReceber/cadastro" method="post">
+
+    <div class="form-group">
+        <label for="parcelasReceber-valor">Valor</label>
+        <input class="form-control" id="parcelasReceber-valor" name="valor" />
+    </div>
+
+    <div class="form-group">
+        <label for="parcelasReceber-status">Status</label>
+        <input class="form-control" id="parcelasReceber-status" name="status" />
+    </div>
+
+    <div class="form-group">
+        <label for="parcelasReceber-dataVencimento">Data Vencimento</label>
+        <input class="form-control" id="parcelasReceber-dataVencimento" name="dataVencimento" />
+    </div>
+
+    <div class="form-group">
+        <label for="parcelasReceber-dataRecebimento">Data Recebimento</label>
+        <input class="form-control" id="parcelasReceber-dataRecebimento" name="dataRecebimento" />
+    </div>
+
+    <div class="form-group">
+        <label for="parcelasReceber-tituloReceber">Titulo Receber</label>
+        <select class="form-control"
+                id="parcelasReceber-tituloReceber"
+                name="idTituloReceber"></select>
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
