@@ -10,17 +10,13 @@ $(function () {
         ajax: '/Caixa/obtertodos',
         severSide: true,
         columns: [
-            { 'data': 'Id' },
-            { 'data': 'Descricao' },
-            { 'data': 'Documento' },
-            { 'data': 'FormaPagamento' },
-            { 'data': 'Valor' },
-            {
-                render: function (data, type, row) {
-                    return moment(row.dataLancamento).format('DD/MM/YYYY')
-                }
-            { 'data': 'Status' },
-            { 'data': 'Historico' },
+            //{ data: 'Id' },
+            { data: 'Descricao' },
+            { data: 'Documento' },
+            { data: 'FormaPagamento' },
+            { data: 'Valor' },
+            { data: 'Status' },
+            { data: 'Historico' },
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
