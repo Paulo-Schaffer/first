@@ -38,7 +38,7 @@ namespace TccFirst.Controllers
         }
 
         #region cadastro
-        [HttpGet]
+        [HttpGet, Route("Index")]
         public ActionResult Cadastro()
         {
             return View();
@@ -50,24 +50,25 @@ namespace TccFirst.Controllers
             agencia.RegistroAtivo = true;
             var id = repository.Inserir(agencia);
             var resultado = new { id = id };
-            return RedirectToAction("Editar", new { id = id });
+            return RedirectToAction("Index", new { id = id });
         }
         #endregion
 
         [HttpGet,Route("apagar")]
-        public JsonResult Apagar(int id)
+        public ActionResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", new { id = id });
         }
 
         [HttpPost, Route("editar")]
-        public JsonResult Editar(Agencia agencia)
+        public ActionResult Editar(Agencia agencia)
         {
             var alterou = repository.Alterar(agencia);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return RedirectToAction("Index", new { id = resultado });
+
         }
 
         [HttpGet]
