@@ -1,36 +1,54 @@
-﻿@{ 
-    ViewBag.Title="Cadastro";
-}
+﻿<div id="modal-parcelaReceber" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastro de Parcelas Receber</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
 
-<h2>Cadastro de Parcelas Receber</h2>
+                <div class="form-group">
+                    <label for="parcelasReceber-campo-tituloReceber" mas>Titulo Receber<span class="text-danger">*</span></label>
+                    <select class="form-control"
+                            id="parcelasReceber-campo-tituloReceber"
+                            name="idTituloReceber"></select>
+                </div>
+                <div class="form-group">
+                    <label for="parcelasReceber-campo-valor" mas>Valor<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="parcelasReceber-campo-valor" />
+                </div>
 
-<form action="/parcelasReceber/cadastro" method="post">
-
-    <div class="form-group">
-        <label for="parcelasReceber-valor">Valor</label>
-        <input class="form-control" id="parcelasReceber-valor" name="valor" />
+                <div class="form-group">
+                    <label for="parcelasReceber-campo-status" mas>Status<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="parcelasReceber-campo-status" />
+                </div>
+                <div class="form-group">
+                    <label for="parcelasReceber-campo-dataVencimento" mas>Data Vencimento<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="parcelasReceber-campo-dataVencimento" />
+                </div>
+                <div class="form-group">
+                    <label for="parcelasReceber-campo-dataRecebimento" mas>Data Recebimento<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="parcelasReceber-campo-dataRecebimento" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="parcelasReceber-botao-salvar">Salvar</button>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="form-group">
-        <label for="parcelasReceber-status">Status</label>
-        <input class="form-control" id="parcelasReceber-status" name="status" />
-    </div>
+    
+       
 
-    <div class="form-group">
-        <label for="parcelasReceber-dataVencimento">Data Vencimento</label>
-        <input class="form-control" id="parcelasReceber-dataVencimento" name="dataVencimento" />
-    </div>
+ 
+        
 
-    <div class="form-group">
-        <label for="parcelasReceber-dataRecebimento">Data Recebimento</label>
-        <input class="form-control" id="parcelasReceber-dataRecebimento" name="dataRecebimento" />
-    </div>
+        
 
-    <div class="form-group">
-        <label for="parcelasReceber-tituloReceber">Titulo Receber</label>
-        <select class="form-control"
-                id="parcelasReceber-tituloReceber"
-                name="idTituloReceber"></select>
-    </div>
-    <button type="submit" class="btn btn-success">Salvar</button>
-</form>
+        
+        
+ 
