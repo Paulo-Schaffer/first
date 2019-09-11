@@ -453,11 +453,6 @@ namespace Repository
             var fornecedores = new List<Fornecedor>();
             fornecedores.Add(new Fornecedor()
             {
-                //RazaoSocial = "askdlasndlasnkd",
-                //Numero = 1,
-                //DataCadastro = DateTime.Now,
-                //RegistroAtivo = true,
-
                 RazaoSocial = "Peugeot",
                 NomeFantasia = "strabourg",
                 DataCadastro = Convert.ToDateTime("04/09/2019"),
@@ -473,7 +468,7 @@ namespace Repository
                 Complemento = "casa",
                 RegistroAtivo = true,
             });
-         
+            context.Fornecedores.AddRange(fornecedores);
             #endregion
 
 

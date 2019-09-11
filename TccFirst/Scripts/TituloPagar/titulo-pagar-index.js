@@ -57,7 +57,6 @@
         $dataVencimento = $('#tituloPagar-campo-data-vencimento').val();
         $complemento = $('#tituloPagar-campo-complemento').val();
         $quantidadeParcela = $('#tituloPagar-campo-quantidade-parcela').val();
-        debugger;
         if ($idAlterar == -1) {
             inserir($idFornecedor, $idCategoriaDespesa, $descricao, $formaPagamento, $caixa, $valorTotal, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento, $quantidadeParcela);
         } else {
@@ -70,18 +69,18 @@
             url: '/titulopagar/cadastro',
             method: 'post',
             data: {
-                idFornecedor: $IdFornecedor,
-                idCategoriaDespesa: $IdCategoriaDespesa,
-                descricao: $Descricao,
-                formaPagamento: $FormaPagamento,
-                caixa: $Caixa,
-                valorTotal: $ValorTotal,
-                status: $Status,
-                dataLancamento: $DataLancamento,
-                dataRecebimento: $DataRecebimento,
-                dataVencimento: $DataVencimento,
-                complemento: $Complemento,
-                quantidadeParcela: $QuantidadeParcela,
+                idFornecedor: $idFornecedor,
+                idCategoriaDespesa: $idCategoriaDespesa,
+                descricao: $descricao,
+                formaPagamento: $formaPagamento,
+                caixa: $caixa,
+                valorTotal: $valorTotal,
+                status: $status,
+                dataLancamento: $dataLancamento,
+                dataRecebimento: $dataRecebimento,
+                dataVencimento: $dataVencimento,
+                complemento: $complemento,
+                quantidadeParcela: $quantidadeParcela,
                 idTituloPagar: $idTituloPagar
             },
             success: function (data) {
