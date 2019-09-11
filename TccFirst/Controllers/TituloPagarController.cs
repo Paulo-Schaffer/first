@@ -21,8 +21,8 @@ namespace TccFirst.Controllers
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
-            var tituloPagar = repository.ObterTodos();
-            var resultado = new { data = tituloPagar };
+            var titulosPagar = repository.ObterTodos();
+            var resultado = new { data = titulosPagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
@@ -62,10 +62,10 @@ namespace TccFirst.Controllers
         [HttpGet, Route("editar")]
         ActionResult Editar(int id)
         {
-            var tituloPagar = repository.ObterPeloId(id);
-            if (tituloPagar == null)
+            var titulosPagar = repository.ObterPeloId(id);
+            if (titulosPagar == null)
                 return RedirectToAction("Index");
-            ViewBag.TituloPagar = tituloPagar;
+            ViewBag.TituloPagar = titulosPagar;
             return View();
         }
     }

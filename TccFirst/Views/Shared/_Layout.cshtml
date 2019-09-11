@@ -337,6 +337,14 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li class=" ">
+                                            <a href="/historico">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.alert">Historicos</span>
+                                                <span class="pcoded-mtext"></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="pcoded-hasmenu">
@@ -394,11 +402,13 @@
                                             <a href="/clientepessoafisica">
                                                 <a href="/clientepessoajuridica/index">
 
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext"
-                                                          data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
+                                        <li class="pcoded-hasmenu">
+                                            <a href="/clientepessoafisica">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
                                         </li>
                                         <li class=" ">
                                             <a href="/caixa/cadastro">
@@ -480,6 +490,9 @@
             </div>
         </div>
     </div>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 
     <!-- Warning Section Starts -->
@@ -566,12 +579,10 @@
     <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="~/Content/tema/bower_components/select2/js/select2.full.min.js"></script>
     <script src="~/Scripts/jquery.mask.js"></script>
-    <script src="~/Scripts/datetime.js"></script>
     <script src="~/Scripts/moment.js"></script>
-    <script src="~/Scripts/select2.js"></script>
     <script src="~/Scripts/select2.min.js"></script>
+    <script src="~/Scripts/datetime.js"></script>
     @RenderSection("js", false)
 </body>
 

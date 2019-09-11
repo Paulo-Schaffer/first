@@ -1,6 +1,6 @@
-﻿$(function () {
-    $('#caixa-campo-cpf').mask('000.000.000,000', { reverse: true });
-});
+﻿//$(function () {
+//    $('#caixa-campo-cpf').mask('000.000.000,000', { reverse: true });
+//});
 $(function () {
     $idAlterar = -1;
 
@@ -44,7 +44,7 @@ $(function () {
         }
     });
 
-    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $status, $historico); {
+    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $status, $historico) {
         $.ajax({
             url: "/Caixa/update",
             method: "post",
@@ -84,7 +84,7 @@ $(function () {
             },
             success: function (data) {
                 $('#modal-caixa').modal('hide');
-                $tabelaClientePessoaFisica.ajax.reload();
+                $tabelaCaixa.ajax.reload();
                 $('#modal-caixa').val("")
             },
             error: function (err) {

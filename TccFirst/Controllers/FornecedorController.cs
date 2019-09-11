@@ -73,7 +73,7 @@ namespace TccFirst.Controllers
         {
             var fornecedores = repository.ObterTodos(term);
 
-            List<Object> fornecedorSelect2 = new List<object>();
+            List<object> fornecedorSelect2 = new List<object>();
 
             foreach (Fornecedor fornecedor in fornecedores)
             {
@@ -83,7 +83,10 @@ namespace TccFirst.Controllers
                     text = fornecedor.RazaoSocial,
                 });
             }
-            var resultado = new { results = fornecedorSelect2 };
+            var resultado = new
+            {
+                results = fornecedorSelect2
+            };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
