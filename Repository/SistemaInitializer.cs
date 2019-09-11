@@ -346,26 +346,26 @@ namespace Repository
             //context.MovimentacaoFinanceiraSaidas.AddRange(movimentacaoFinanceiraSaida);
             //#endregion
 
-            //#region parcelaPagar
-            //var parcelaPagar = new List<ParcelaPagar>();
-            //parcelaPagar.Add(new ParcelaPagar()
-            //{
-            //    Valor = 2333,
-            //    Status = "Pago",
-            //    DataPagamento = Convert.ToDateTime("17/02/2019"),
-            //    DataVencimento = Convert.ToDateTime("17/02/2019"),
-            //    RegistroAtivo = true
-            //});
-            //parcelaPagar.Add(new ParcelaPagar()
-            //{
-            //    Valor = 9523,
-            //    Status = "Pendente",
-            //    DataPagamento = Convert.ToDateTime("05/09/2019"),
-            //    DataVencimento = Convert.ToDateTime("04/09/2019"),
-            //    RegistroAtivo = true
-            //});
-            //context.ParcelasPagar.AddRange(parcelaPagar);
-            //#endregion
+            #region parcelaPagar
+            var parcelaPagar = new List<ParcelaPagar>();
+            parcelaPagar.Add(new ParcelaPagar()
+            {
+                Valor = 2333,
+                Status = "Pago",
+                DataVencimento = Convert.ToDateTime("17/02/2019"),
+                DataPagamento = Convert.ToDateTime("17/02/2019"),
+                RegistroAtivo = true
+            });
+            parcelaPagar.Add(new ParcelaPagar()
+            {
+                Valor = 9523,
+                Status = "Pendente",
+                DataVencimento = Convert.ToDateTime("04/09/2019"),
+                DataPagamento = Convert.ToDateTime("05/09/2019"),
+                RegistroAtivo = true
+            });
+            context.ParcelasPagar.AddRange(parcelaPagar);
+            #endregion
 
             //#region parcelaReceber
             //var parcelaReceber = new List<ParcelaReceber>();
