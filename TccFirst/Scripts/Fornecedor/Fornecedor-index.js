@@ -1,4 +1,8 @@
 ﻿$(function () {
+    $('#fornecedor-campo-cnpj').mask('00.000.000.0000/00', { reverse: true });
+    $('#fornecedor-campo-telefone').mask('(00) 0000-0000');
+    $('#fornecedor-campo-cep').mask('00000-000');
+
     $idAlterar = -1;
 
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
@@ -19,6 +23,28 @@
 
         ]
     });
+    $('#fornecedor-batao-salvar').on('click', function () {
+        //if ($('#fornecedor-nome-razaoSocial').val() = "") {
+        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão social </div>');
+        //    $('#fornecedor-nome-razaoSocial').focus();
+        //    return false;
+        //} else if () { };
+
+
+
+        $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
+        $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
+        $dataCadastro = $('#fornecedor-campo-dataCadastro').val();
+        $cnpj = $('#fornecedor-campo-cnpj').val();
+        $email = $('#fornecedor-campo-email').val();
+        $telefone = $('#fornecedor-campo-telefone').val();
+        $cep = $('#fornecedor-campo-cep').val();
+        $logradouro = $('#fornecedor-campo-logradouro').val();
+        $numero = $('#fornecedor-campo-numero').val();
+        $bairro = $('#fornecedor-campo-bairro').val();
+        $cidade = $('#fornecedor-campo-cidade').val();
+        $uf = $('#fornecedor-campo-sigla').val();
+        $complemento = $('#fornecedor-campo-complemento').val();
 
     $('#fornecedor-batao-salvar').on('click', function ());
 
@@ -89,7 +115,7 @@
         $idApagar = $(this).data('id');
 
         $.ajax({
-            url: 'fornecedor/apagar?id=' + $idApagar,
+            url: '/fornecedor/apagar?id=' + $idApagar,
             method: 'get',
             success: function (data) {
                 $tabelafornecedor.ajax.reload();
@@ -113,7 +139,9 @@
                 $('#fornecedor-nome-razaoSocial').val(data.RazaoSocial);
                 $('#fornecedor-campo-nomeFantasia').val(data.NomeFantasia);
                 $('#fornecedor-campo-cnpj').val(data.Cnpj);
-                $('#fornecedor-campo-dataCadastro').val(data.DataCadastro);
+                var dataCadastro = moment(data.DataCadastro);
+                console.log;
+                $('#fornecedor-campo-dataCadastro').val(dataCadastro.format('YYYY-MM-DD'));
                 $('#fornecedor-campo-email').val(data.Email);
                 $('#fornecedor-campo-telefone').val(data.Telefone);
                 $('#fornecedor-campo-cep').val(data.Cep);

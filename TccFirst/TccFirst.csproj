@@ -5643,7 +5643,6 @@
     <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
@@ -5681,6 +5680,7 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaDespesa\" />
+    <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
