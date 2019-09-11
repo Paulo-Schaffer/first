@@ -225,26 +225,26 @@ namespace Repository
             });
             #endregion
 
-            #region fornecedor
-            //var fornecedor = new List<Fornecedor>();
-            //fornecedor.Add(new Fornecedor()
-            //{
-            //    RazaoSocial = "Benner",
-            //    NomeFantasia = "Paulo",
-            //    DataCadastro = Convert.ToDateTime("19/08/2005"),
-            //    Cnpj = "93.591.110/0001-56",
-            //    RegistroAtivo = true,
-            //});
-            //fornecedor.Add(new Fornecedor()
-            //{
-            //    RazaoSocial = "HBSIS",
-            //    NomeFantasia = "Francisco",
-            //    DataCadastro = Convert.ToDateTime("20/07/2015"),
-            //    Cnpj = "39.552.667/0001-32",
-            //    RegistroAtivo = true,
-            //});
+            //#region fornecedor
+            // var fornecedor = new List<Fornecedor>();
+            // fornecedor.Add(new Fornecedor()
+            // {
+            //     RazaoSocial = "Benner",
+            //     NomeFantasia = "Paulo",
+            //     DataCadastro = Convert.ToDateTime("19/08/2005"),
+            //     Cnpj = "93.591.110/0001-56",
+            //     RegistroAtivo = true,
+            // });
+            // fornecedor.Add(new Fornecedor()
+            // {
+            //     RazaoSocial = "HBSIS",
+            //     NomeFantasia = "Francisco",
+            //     DataCadastro = Convert.ToDateTime("20/07/2015"),
+            //     Cnpj = "39.552.667/0001-32",
+            //     RegistroAtivo = true,
+            // });
 
-            #endregion
+            //#endregion
 
             #region funcionario
             var funcionario = new List<Funcionario>();
@@ -473,7 +473,7 @@ namespace Repository
                 Complemento = "casa",
                 RegistroAtivo = true,
             });
-            context.Fornecedores.AddRange(fornecedores);
+         
             #endregion
 
 
