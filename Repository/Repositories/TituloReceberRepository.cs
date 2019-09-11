@@ -36,6 +36,7 @@ namespace Repository.Repositories
             tituloReceberOriginal.DataVencimento = tituloReceber.DataVencimento;
             tituloReceberOriginal.Complemento = tituloReceber.Complemento;
             tituloReceberOriginal.QuantidadeParcela = tituloReceber.QuantidadeParcela;
+
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -62,13 +63,15 @@ namespace Repository.Repositories
 
         public TituloReceber ObterPeloId(int id)
         {
-            var tituloReceber = context.TitulosReceber.Where(x => x.Id == id).FirstOrDefault();
+            var tituloReceber = context.TitulosReceber
+                .Where(x => x.Id == id).FirstOrDefault();
             return tituloReceber;
         }
 
         public List<TituloReceber> ObterTodos()
         {
-            return context.TitulosReceber.Where(x => x.RegistroAtivo == true).ToList();   
+            return context.TitulosReceber
+                .Where(x => x.RegistroAtivo == true).ToList();   
         }
     }
 }

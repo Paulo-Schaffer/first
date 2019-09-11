@@ -48,19 +48,19 @@ namespace Model
         public bool RegistroAtivo { get; set; }
 
         #region fk__fornecedores
-        [Column("id_fornecedores")]
-        public int IdFornecedor { get; set; }
+        [Column("id_fornecedor")]
+        public int? IdFornecedor { get; set; }
 
-        [ForeignKey("IdFornecedores")]
+        [ForeignKey("IdFornecedor")]
         public Fornecedor fornecedores { get; set; }
         #endregion
 
         #region fk_categoria_despesas
         [Column("id_categoria_despesa")]
-        public int IdCategoriaDepesesa { get; set; }
+        public int? IdCategoriaDepesesa { get; set; }
 
         [ForeignKey("IdCategoriaDepesesa")]
-        public CategoriaDespesa CategoriaDespesa { get; set; }
+        public CategoriaDespesa TipoCategoriaDespesa { get; set; }
         #endregion
     }
 }

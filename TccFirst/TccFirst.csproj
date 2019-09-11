@@ -96,6 +96,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
@@ -5680,7 +5682,6 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaDespesa\" />
-    <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />

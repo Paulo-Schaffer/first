@@ -45,8 +45,7 @@
         $cidade = $('#fornecedor-campo-cidade').val();
         $uf = $('#fornecedor-campo-sigla').val();
         $complemento = $('#fornecedor-campo-complemento').val();
-
-    $('#fornecedor-batao-salvar').on('click', function ());
+    });
 
     function alterar($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({

@@ -4,20 +4,20 @@
 
     $tabelaTituloPagar = $("#tituloPagar-tabela").DataTable({
         ajax: '/titulopagar/obtertodos',
-        severSide: true,
+        serverSide: true,
         columns: [
-            { 'data': 'IdFornecedor' },
-            { 'data': 'IdCategoriaDespesa' },
-            { 'data': 'Descricao' },
-            { 'data': 'Forma de Pagamento' },
-            { 'data': 'Caixa' },
-            { 'data': 'Valor Total' },
-            { 'data': 'Status' },
-            { 'data': 'Data Lancamento' },
-            { 'data': 'Data Recebimento' },
-            { 'data': 'Data Vencimento' },
-            { 'data': 'Complemento' },
-            { 'data': 'Quantidade de Parcela' },
+            { data: "IdFornecedor" },
+            { data: "IdCategoriaDespesa" },
+            { data: "Descricao" },
+            { data: "Forma de Pagamento" },
+            { data: "Caixa" },
+            { data: "Valor Total" },
+            { data: "Status" },
+            { data: "Data Lancamento" },
+            { data: "Data Recebimento" },
+            { data: "Data Vencimento" },
+            { data: "Complemento" },
+            { data: "Quantidade de Parcela" },
             {
                 render: function (data, type, row) {
                     return "\
@@ -34,7 +34,7 @@
         $id = $(this).data('id');
         $.ajax({
             url: '/titulopagar/apagar?id=' + $id,
-            method: 'get',
+            method: "get",
             success: function (data) {
                 $tabelaTituloPagar.ajax.reload();
             },
@@ -81,7 +81,7 @@
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
                 IdFornecedor: $IdFornecedor,
-                IdCategoriaDespesa: $IdCategoriaDespesa
+                IdCategoriaDespesa: $IdCategoriaDespesa,
                 IdTituloPagar: $idTituloPagar
             },
             success: function (data) {
@@ -125,7 +125,7 @@
     function alterar($IdFornecedor, $IdCategoriaDespesa, $Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
         $.ajax({
             url: '/titulopagar/alterar',
-            method: 'post',
+            method: "post",
             data: {
                 IdFornecedor: $IdFornecedor,
                 IdCategoriaDespesa: $IdCategoriaDespesa,
@@ -139,8 +139,8 @@
                 DataVencimento: $DataVencimento,
                 Complemento: $Complemento,
                 QuantidadeParcela: $QuantidadeParcela,
+                TituloPagar: $idTituloPagar,
                 id: $idAlterar,
-                idTituloPagar: $IdTituloPagar
             },
             success: function (data) {
                 $('#modal-tituloPagar').modal('hide');
