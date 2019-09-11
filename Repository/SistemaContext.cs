@@ -32,6 +32,7 @@ namespace Repository
         public DbSet<ParcelaPagar> ParcelasPagar { get; set; }
         public DbSet<TituloPagar> TitulosPagar { get; set; }
         public DbSet<TituloReceber> TitulosReceber { get; set; }
+        public DbSet<CadastroContaCorrente> CadastroContaCorrentes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

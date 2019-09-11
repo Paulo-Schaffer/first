@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface ICadastroContaCorrente
+    public interface ICadastroContaCorrenteRepository
     {
         int Inserir(CadastroContaCorrente cadastrosContaCorrente);
 
@@ -15,8 +15,8 @@ namespace Repository.Interfaces
 
         bool Apagar(int id);
 
-        List<Fornecedor> ObterTodos(string busca);
+        List<CadastroContaCorrente> ObterTodos(string busca);
 
-        Fornecedor ObterPeloId(int id);
+        CadastroContaCorrente ObterPeloId(int id);
     }
 }
