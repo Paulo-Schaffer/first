@@ -9,22 +9,18 @@
             { data: "IdFornecedor" },
             { data: "IdCategoriaDespesa" },
             { data: "Descricao" },
-            { data: "Forma de Pagamento" },
+            { data: "FormaDePagamento" },
             { data: "Caixa" },
-            { data: "Valor Total" },
+            { data: "ValorTotal" },
             { data: "Status" },
-            { data: "Data Lancamento" },
-            { data: "Data Recebimento" },
-            { data: "Data Vencimento" },
+            { data: "DataLancamento" },
+            { data: "DataRecebimento" },
+            { data: "DataVencimento" },
             { data: "Complemento" },
-            { data: "Quantidade de Parcela" },
+            { data: "QuantidadeDeParcela" },
             {
                 render: function (data, type, row) {
-                    return "\
-<button class='btn btn-primary botao-editar'\
-    data-id=" + row.Id + ">Editar</button>\
-<button class='btn btn-danger botao-apagar'\
-    data-id=" + row.Id + ">Apagar</button>";
+                    return "";
                 }
             }
         ]

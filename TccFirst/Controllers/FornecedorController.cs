@@ -83,7 +83,10 @@ namespace TccFirst.Controllers
                     text = fornecedor.RazaoSocial,
                 });
             }
-            var resultado = new { results = fornecedorSelect2 };
+            var resultado = new
+            {
+                results = fornecedorSelect2
+            };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }

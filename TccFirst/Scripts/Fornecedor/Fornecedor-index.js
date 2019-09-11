@@ -7,7 +7,7 @@
 
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
         ajax: '/fornecedor/obtertodos',
-        severSide: true,
+        serverSide: true,
         columns: [
             { 'data': 'Id' },
             { 'data': 'RazaoSocial' },
