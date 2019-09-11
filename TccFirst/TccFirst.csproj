@@ -5466,8 +5466,13 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
     <Content Include="Scripts\Agencia\Agencia.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
+    <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
@@ -5529,19 +5534,6 @@
     <Content Include="Scripts\i18n\zh-CN.js" />
     <Content Include="Scripts\i18n\zh-TW.js" />
     <Content Include="Scripts\ClientePessoaFisica\jquery.form-validator.min.js" />
-    <Content Include="Scripts\Login\login-index.js" />
-    <Content Include="Scripts\select2.js" />
-    <Content Include="Scripts\select2.min.js" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\Caixa\caixa-index.js" />
-    <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -5553,11 +5545,20 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery.form-validator.min.js" />
+    <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\Caixa\caixa-index.js" />
+    <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\select2.min.css" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
@@ -5569,9 +5570,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\ClientePessoaFisica\cliente-pessoa-fisica-index.js" />
-    <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
-    <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\ClientePessoaJuridica\cliente-pessoa-juridica.js" />
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
@@ -5650,10 +5649,21 @@
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
-    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
-    <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Login\CadastroLogin.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5712,6 +5722,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
