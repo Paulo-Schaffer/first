@@ -34,12 +34,14 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/jquery.mCustomScrollbar.css">
-
+    <!-- Select 2 css -->
+    <link rel="stylesheet" href="~/Content/tema/bower_components/select2/css/select2.min.css" />
 
     <!-- Data Table Css -->
     <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/pages/data-table/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/replaces.css">
     @RenderSection("css", false)
 </head>
 
@@ -335,6 +337,14 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li class=" ">
+                                            <a href="/historico">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.alert">Historicos</span>
+                                                <span class="pcoded-mtext"></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="pcoded-hasmenu">
@@ -390,7 +400,7 @@
                                         <li class=" ">
                                         <li class="pcoded-hasmenu">
                                             <a href="/clientepessoafisica">
-                                            <a href="/clientepessoajuridica/index">
+                                                <a href="/clientepessoajuridica/index">
 
                                         <li class="pcoded-hasmenu">
                                             <a href="/clientepessoafisica">
@@ -424,10 +434,10 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                                      data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Fisica</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
+                                        data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Fisica</span>
+                                        <span class="pcoded-mcaret"></span>
+                                        </a>
+                                </li>
                                 </li>
                                 <li class=" ">
                                     <a href="/clientepessoajuridica ">
@@ -455,7 +465,7 @@
                                 </li>
 
                             </ul>
-                                </li>
+                            </li>
 
                             </ul>
                         </div>

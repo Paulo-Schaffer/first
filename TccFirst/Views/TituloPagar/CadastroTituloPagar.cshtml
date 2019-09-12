@@ -1,4 +1,4 @@
-﻿<div id="modal-tituloPagar" class="modal" tabindex="-1" role="dialog">
+﻿    <div id="modal-tituloPagar" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,14 +12,14 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-fornecedor">Fornecedores</label>
+                            <label for="tituloPagar-campo-fornecedor"mas>Fornecedores</label>
                             <select class="form-control" id="tituloPagar-campo-fornecedor" name="idFornecedor"></select>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-categoria-despesa">Categoria despesas</label>
+                            <label for="tituloPagar-campo-categoria-despesa"mas>Categoria despesas</label>
                             <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="idCategoriaDespesa"></select>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="tituloPagar-campo-descricao">Descrição</label>
+                                <label for="tituloPagar-campo-descricao"mas>Descrição</label>
                                 <input type="text" id="tituloPagar-campo-descricao" class="form-control" />
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-forma-pagamento">Forma de Pagamento</label>
+                            <label for="tituloPagar-campo-forma-pagamento"mas>Forma de Pagamento</label>
                             <select class="form-control" id="tituloPagar-campo-forma-pagamento">
                                 <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                                 <option>Dinheiro</option>
@@ -51,7 +51,7 @@
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-status">Status</label>
+                            <label for="tituloPagar-campo-status"mas>Status</label>
                             <select class="form-control" id="tituloPagar-campo-status">
                                 <option disabled="disabled" selected="selected">Selecione um status</option>
                                 <option>Pendente</option>
@@ -65,14 +65,14 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <label for="tituloPagar-campo-caixa">Caixa</label>
+                        <label for="tituloPagar-campo-caixa"mas>Caixa</label>
                     </div>
                     <div class="col-2">
                         <input type="checkbox" id="tituloPagar-campo-caixa" class="form-control" />
                     </div>
 
                     <div class="col-4">
-                        <label for="tituloPagar-campo-banco">Banco</label>
+                        <label for="tituloPagar-campo-banco"mas>Banco</label>
                     </div>
                     <div class="col-2">
                         <input type="checkbox" id="tituloPagar-campo-banco" class="form-control" />
@@ -105,7 +105,7 @@
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-quantidade-parcelas">Quantidade de Parcelas</label>
+                            <label for="tituloPagar-campo-quantidade-parcela"mas>Quantidade de Parcelas</label>
                             <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" />
                         </div>
                     </div>
@@ -114,33 +114,30 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-complemento">Complemento</label>
+                            <label for="tituloPagar-campo-complemento"mas>Complemento</label>
                             <input type="text" id="tituloPagar-campo-complemento" class="form-control" />
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-valor-total">Valor Total</label>
+                            <label for="tituloPagar-campo-valor-total"mas>Valor Total</label>
                             <input type="text" id="tituloPagar-campo-valor-total" class="form-control" />
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
+            </div>
+
         </div>
     </div>
 </div>
-@section css{
-    <link href="~/Content/css/select2.css"
-          rel="stylesheet" />
-}
 
 @section js{
-    <script src="~/Scripts/TituloPagar/IdFornecedores.js"></script>
-    <script src="~/Scripts/TituloPagar/IdCategoriaDespesas.js"></script>
-    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
 }
