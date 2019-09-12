@@ -16,40 +16,39 @@ namespace TccFirst.Controllers
         {
             repository = new ParcelaReceberRepository();
         }
-        [HttpGet]
+        
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
             var parcelasReceber = repository.ObterTodos();
             var resultado = new { data = parcelasReceber };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
-        public JsonResult Inserir(ParcelaReceber parcelaReceber)
-        {
-            parcelaReceber.RegistroAtivo = true;
+        [HttpPost, Route("cadastro")]
+        public ActionResult Cadastro(ParcelaReceber parcelaReceber)
+        {     
             int id = repository.Inserir(parcelaReceber);
-            var resultado = new { id = id };
-            return Json(resultado);
+            return RedirectToAction("Editar",
+                new { id = id });
         }
-        [HttpGet]
+        [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
-        public JsonResult Update(ParcelaReceber parcelaReceber)
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(ParcelaReceber parcelaReceber)
         {
             var alterou = repository.Alterar(parcelaReceber);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
         [HttpGet, Route("parcelaReceber/")]
         public JsonResult ObterPeloId(int id)
@@ -80,9 +79,23 @@ namespace TccFirst.Controllers
 
         }
 
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpGet, Route("editar")]
+        ActionResult Editar(int id)
+        {
+            var parcelasReceber = repository.ObterPeloId(id);
+            if (parcelasReceber == null)
+                return RedirectToAction("Index");
+            ViewBag.ParcelasReceber = parcelasReceber;
+            return View();
+
+        }
 
 
 
-        
     }
 }

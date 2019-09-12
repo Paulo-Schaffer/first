@@ -1,6 +1,7 @@
 ﻿$(function () {
     $idParcelaReceber = $("#id").val();
     $idAlterar = -1;
+
     $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
         ajax: "/parcelaReceber/obtertodos",
         severSide: true,
@@ -24,7 +25,7 @@
         $status = $('#parcelasReceber-campo-status').val();
         $dataVencimento = $('#parcelasReceber-campo-dataVencimento').val();
         $dataRecebimento = $('#parcelasReceber-campo-dataRecebimento').val();
-       
+        debugger;
        
         if ($idAlterar == -1) {
             inserir($idTitulosReceber, $valor, $status, $dataVencimento, $dataRecebimento);
@@ -35,9 +36,10 @@
     function alterar($idTitulosReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: "/parcelaReceber/update",
+            url: "/parcelaReceber/alterar",
             method: "post",
             data: {
+                idParcelaReceber:$idParcelaReceber,
                 idTitulosReceber:$idTitulosReceber,
                 valor: $valor,
                 status:$status,
@@ -46,7 +48,7 @@
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
-                $idAlterar = -1;
+               
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -57,9 +59,10 @@
     function inserir($idTitulosReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: "/parcelaReceber/inserir",
+            url: "/parcelaReceber/cadastro",
             method: "post",
             data: {
+                idParcelaReceber:$idParcelaReceber,
                 idTitulosReceber: $idTitulosReceber,
                 valor: $valor,
                 status: $status,
@@ -68,7 +71,7 @@
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
-                $idAlterar = -1;
+                
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -76,11 +79,11 @@
             }
         });
     }
-    $('.table').on('click', '.botao-apagar', function () {
-        $idApagar = $(this).data('id');
+    $('#parcelaReceber-tabela').on('click', '.botao-apagar', function () {
+        $id = $(this).data('id');
 
         $.ajax({
-            url: "/parcelaReceber/apagar?id=" + $idApagar,
+            url: "/parcelaReceber/apagar?id=" + $id,
             method: 'get',
             success: function (data) {
                 $tabelaParcelaReceber.ajax.reload();
@@ -90,13 +93,14 @@
             }
         });
     });
-    $('.table').on('click', '.botao-editar', function () {
-        $idAlterar = $(this).data('id');
+    $('#parcelaReceber-tabela').on('click', '.botao-editar', function () {
+        $id= $(this).data('id');
 
         $.ajax({
-            url: "/parcelaReceber/obterpeloid?id=" + $idAlterar,
+            url: "/parcelaReceber/obterpeloid?id=" + $id,
             method: 'get',
             success: function (data) {
+                $idAlterar = $id;
                 $("#parcelasReceber-campo-tituloReceber").val(data.idTitulosReceber);
                 $("#parcelasReceber-campo-valor").val(data.valor);
                 $("#parcelasReceber-campo-status").val(data.status);
