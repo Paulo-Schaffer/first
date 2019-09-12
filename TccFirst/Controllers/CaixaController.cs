@@ -22,14 +22,14 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
             var caixa = repository.ObterTodos();
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
+        [HttpPost,Route("cadastro")]
         public JsonResult Inserir(Caixa caixa)
         {
             caixa.RegistroAtivo = true;

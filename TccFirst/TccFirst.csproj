@@ -5472,8 +5472,8 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
+    <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
@@ -5563,7 +5563,6 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
-    <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
@@ -5593,6 +5592,7 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
+    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
