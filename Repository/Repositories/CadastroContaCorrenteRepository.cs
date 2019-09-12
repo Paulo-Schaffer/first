@@ -10,7 +10,7 @@ namespace Repository.Repositories
 {
     public class CadastroContaCorrenteRepository : ICadastroContaCorrenteRepository
     {
-        private SistemaContext context;
+        public SistemaContext context;
 
         public CadastroContaCorrenteRepository()
         {
@@ -19,18 +19,16 @@ namespace Repository.Repositories
 
         public bool Alterar(CadastroContaCorrente cadastrosContaCorrente)
         {
-               var CadastroContaCorrenteOriginal = context.CadastroContaCorrentes.Where(x => x.Id == cadastrosContaCorrente.Id).FirstOrDefault();
-
-            if(cadastrosContaCorrente == null)
+            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
+            if (cadastrosContaCorrente == null)
             {
                 return false;
             }
 
-            CadastroContaCorrenteOriginal.IdAgencia = cadastrosContaCorrente.IdAgencia;
-            CadastroContaCorrenteOriginal.NumeroConta = cadastrosContaCorrente.NumeroConta;
+            cadastrosContaCorrente.IdAgencia = cadastrosContaCorrente.IdAgencia;
+            cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
-
         }
 
         public bool Apagar(int id)
@@ -47,6 +45,7 @@ namespace Repository.Repositories
 
         public int Inserir(CadastroContaCorrente cadastrosContaCorrente)
         {
+            cadastrosContaCorrente.RegistroAtivo = true;
             context.CadastroContaCorrentes.Add(cadastrosContaCorrente);
             context.SaveChanges();
             return cadastrosContaCorrente.Id;
@@ -54,13 +53,13 @@ namespace Repository.Repositories
 
         public CadastroContaCorrente ObterPeloId(int id)
         {
-            var cadastroContaCorrente = context.CadastroContaCorrentes.Where(x => x.Id == id).FirstOrDefault();
-            return cadastroContaCorrente;
+            return context.CadastroContaCorrentes.Include("Agencias").FirstOrDefault(x => x.Id == id);
         }
 
-        public List<CadastroContaCorrente> ObterTodos(string busca)
+        public List<CadastroContaCorrente> ObterTodos()
         {
-            return context.CadastroContaCorrentes.Where(x => x.RegistroAtivo == true).ToList();
+            return context.CadastroContaCorrentes.Where(x => x.RegistroAtivo)
+                .ToList();
         }
     }
 }

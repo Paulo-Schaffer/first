@@ -16,63 +16,33 @@ namespace TccFirst.Controllers
         {
             repository = new CadastroContaCorrenteRepository();
         }
-        // GET: CadastroContaCorrente
-        [HttpGet]
-        public ActionResult Index()
+
+        [HttpGet, Route("obtertodos")]
+        public JsonResult ObterTodos()
         {
-            return View();
-        }
-        [HttpGet]
-        public JsonResult ObterTodos(string busca = "")
-        {
-            var cadastroContaCorrente = repository.ObterTodos(busca);
+            var cadastroContaCorrente = repository.ObterTodos();
             var resultado = new { data = cadastroContaCorrente };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        public JsonResult Inserir(CadastroContaCorrente cadastroContaCorrente)
+        [HttpPost, Route("cadastro")]
+        public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)
         {
-            cadastroContaCorrente.RegistroAtivo = true;
-            var id = repository.Inserir(cadastroContaCorrente);
-            var resultado = new { id = id };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            int id = repository.Inserir(cadastroContaCorrente);
+            return RedirectToAction("Editar", new { id = id });
         }
 
-        [HttpGet]
-        public JsonResult Apagar(int id)
-        {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
-
-        [HttpPost]
-        public JsonResult Update(CadastroContaCorrente cadastroContaCorrente)
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(CadastroContaCorrente cadastroContaCorrente)
         {
             var alterou = repository.Alterar(cadastroContaCorrente);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("cadastroContaCorrente/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
+        public ActionResult Index()
         {
-            var cadastroContaCorrentes = repository.ObterTodos(term);
 
-            List<object> cadastroContaCorrenteSelect2 = new List<object>();
-            foreach (CadastroContaCorrente cadastroContaCorrente in cadastroContaCorrentes)
-            {
-                cadastroContaCorrenteSelect2.Add(new
-                {
-                    id = cadastroContaCorrente.Id,
-                    text = cadastroContaCorrente.NumeroConta
-                });
-            }
-            var resultado = new { resuts = cadastroContaCorrenteSelect2
-            };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
 }

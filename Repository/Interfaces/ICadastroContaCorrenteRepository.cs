@@ -13,10 +13,10 @@ namespace Repository.Interfaces
 
         bool Alterar(CadastroContaCorrente cadastrosContaCorrente);
 
-        bool Apagar(int id);
-
-        List<CadastroContaCorrente> ObterTodos(string busca);
+        List<CadastroContaCorrente> ObterTodos();
 
         CadastroContaCorrente ObterPeloId(int id);
+
+        bool Apagar(int id);
     }
 }
