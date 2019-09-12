@@ -59,6 +59,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloPagar tituloPagar)
         {
+            tituloPagar.RegistroAtivo = true;
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
