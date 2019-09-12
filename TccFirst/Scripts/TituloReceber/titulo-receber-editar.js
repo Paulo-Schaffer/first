@@ -3,19 +3,16 @@
     $idAlterar = -1;
 
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
-        ajax: "/tituloreceber/obtertodos",
+        ajax: '/tituloreceber/obtertodos',
         serverSide: true,
-        coluns: [
-            { data: "IdClientePessoaJuridica" },
-            { data: "IdClientePessoaFisica" },
-            { data: "IdCategoriaReceita" },
-            { data: "Descricao" },
+        columns: [
             { data: "ValorTotal" },
             { data: "QuantidadeParcelas" },
-            { data: "Status" },
+            { data: "Descricao" },
             { data: "DataLancamento" },
             { data: "DataRecebimento" },
             { data: "DataVencimento" },
+            //{ data: "Status" },
             { data: "Complemento" },
             {
                 render: function (data, type, row) {
@@ -30,45 +27,43 @@
     });
 
     $("#tituloReceber-tabela").on("click", ".botao-apagar", function () {
-            $id = $(this).data("id");
-            $.ajax({
-                url: "/tituloreceber/apagar?id=" + $id,
-                method: "get",
-                success: function () {
-                    $tabelaTituloReceber.ajax.reload();
-                },
-                error: function () {
-                    alert('Não foi possível apagar');
-                }
-            });
+        $id = $(this).data("id");
+        $.ajax({
+            url: '/tituloreceber/apagar?id=' + $id,
+            method: "get",
+            success: function (data) {
+                $tabelaTituloReceber.ajax.reload();
+            },
+            error: function (err) {
+                alert('Não foi possível apagar');
+            }
         });
-
+    });
 
     $("#titulo-receber-botao-salvar").on("click", function () {
         $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
         $idPessoaFisica = $("#tituloReceber-campo-pessoa-Fisica").val();
         $idCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
         $valor = $("#tituloReceber-campo-valor").val();
-        $quantidadeDeParcelas = $("#tituloReceber-campo-quantidadeParcelas").val();
+        $quantidadeDeParcelas = $("#tituloReceber-campo-quantidade-Parcelas").val();
         $descricao = $("#tituloReceber-campo-descricao").val();
         $dataLancamento = $("#tituloReceber-campo-data-lancamento").val();
         $dataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
         $dataVencimento = $("#tituloReceber-campo-data-vencimento").val();
-        $complemento = $("tituloReceber-campo-complemento").val();
-        debugger;
+        $complemento = $("#tituloReceber-campo-complemento").val();
         if ($idAlterar == -1) {
             inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
         } else {
-            alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidade, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
+            alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
         }
     });
 
     function inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento) {
         $.ajax({
-            url: "/tituloreceber/cadastro",
-            method: "post",
+            url: '/tituloreceber/cadastro',
+            method: 'post',
             data: {
-                idPessoaJuridica: $idPessoaJuridica,
+                idpessoaJuridica: $idPessoaJuridica,
                 idPessoaFisica: $idPessoaFisica,
                 idCategoriaReceita: $idCategoriaReceita,
                 valor: $valor,
@@ -78,11 +73,12 @@
                 dataRecebimento: $dataRecebimento,
                 dataVencimento: $dataVencimento,
                 complemento: $complemento,
-                idTituloRecer: $idTituloReceber
+
             },
             success: function (data) {
-                $("#modal-tituloReceber").modal("hide");
                 limparCampos();
+                $("#modal-tituloReceber").modal("hide");
+                $(".modal-backdrop").hide();
                 $tabelaTituloReceber.ajax.reload();
             },
             error: function (err) {
@@ -91,17 +87,16 @@
         });
     }
 
-
-    $("#modal-tituloReceber").on("click", ".botao-editar", function () {
+    $('.table').on("click", ".botao-editar", function () {
         $id = $(this).data("id");
         $.ajax({
             url: "/tituloreceber/obterpeloid?id=" + $id,
             method: "get",
             success: function (data) {
                 $idAlterar = $id;
-                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica); // NÃO PUXOU
+                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica);
                 $("#tituloReceber-campo-pessoa-Fisica").val(data.IdClientePessoaFisica);
-                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceira);
+                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
                 $("#tituloReceber-campo-valor").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcelas);
                 $("#tituloReceber-campo-descricao").val(data.Descricao);
@@ -124,7 +119,7 @@
             data: {
                 idPessoaJuridica: $idPessoaJuridica,
                 idPessoaFisica: $idPessoaFisica,
-                idCategoria: $idCategoriaReceita,
+                idCategoriareceita: $idCategoriaReceita,
                 valor: $valor,
                 quantidadeDeParcelas: $quantidadeDeParcelas,
                 descricao: $descricao,
@@ -159,6 +154,5 @@
         $("#tituloReceber-campo-complemento").val("");
         $idAlterar = -1;
     }
-
 
 });
