@@ -15,12 +15,12 @@ $(function () {
             { data: 'Documento' },
             { data: 'FormaPagamento' },
             { data: 'Valor' },
-            { data: 'Status' },
             { data: 'Historico' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
-
+                    render: function (data, type, row) {
+                        return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
+                    }
                 }
             }
         ]
@@ -31,7 +31,6 @@ $(function () {
         $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $valor = $('#caixa-campo-valor').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
-        $status = $('#caixa-campo-status').val();
         $historico = $('#caixa-campo-historico').val();
         if ($idAlterar == -1) {
             inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $status, $historico);
@@ -51,7 +50,6 @@ $(function () {
                 FormaPagamento: $formaPagamento,
                 Valor: $valor,
                 DataLancamento: $dataLancamento,
-                Status: $status,
                 Historico: $historico,
             },
             success: function (data) {
@@ -75,7 +73,6 @@ $(function () {
                 FormaPagamento: $formaPagamento,
                 Valor: $valor,
                 DataLancamento: $dataLancamento,
-                Status: $status,
                 Historico: $historico,
             },
             success: function (data) {
@@ -118,11 +115,10 @@ $(function () {
                 $('#caixa-campo-documento').val(data.Documento);
                 $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
                 $('#caixa-campo-valor').val(data.Valor);
-                var dataLancamento = moment(data.DataLancamento);
-                console.log();
+               // var dataLancamento = moment(data.DataLancamento);
+                //console.log();
 
-                $('#caixa-campo-data-lancamento').val(dataLancamento.format('YYYY-MM-DD'));
-                $('#caixa-campo-status').val(data.Status);
+                //$('#caixa-campo-data-lancamento').val(dataLancamento.format('YYYY-MM-DD'));
                 $('#caixa-campo-historico').val(data.Historico);
                 $('#modal-caixa').modal('show');
             },
