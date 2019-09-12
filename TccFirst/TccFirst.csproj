@@ -102,6 +102,7 @@
     </Content>
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\Botoes.css" />
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
     <Content Include="Content\tema\assets\css\Home.css" />
@@ -5586,6 +5587,7 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5626,7 +5628,6 @@
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Agencia\Cadastro.cshtml" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
@@ -5654,7 +5655,6 @@
     <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
