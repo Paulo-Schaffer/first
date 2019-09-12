@@ -32,16 +32,20 @@
                 <td>@agencia.NomeAgencia</td>
                 <td>@agencia.NumeroAgencia</td>
                 <td>
-                    <a class="btn btn-primary" href="/agencia/alterar?id=@agencia.Id"><i class="fa fa-edit"></i> Alterar</a>
-                    <a class="btn btn-danger" href="/agencia/apagar?id=@agencia.Id"><i class="fa fa-trash"></i> Apagar</a>
+                    <div class="row">
+                        <div class="col-8">
+                            <a id="botao-editar" class="btn btn-primary float-right" href="/agencia/editar?id=@agencia.Id">Editar</a>
+                        </div>
+                        <div class="col-4">
+                            <a id="botao-apagar" class="btn btn-danger float-right" href="/agencia/apagar?id=@agencia.Id">Apagar</a>
+                        </div>
+                    </div>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-@section js {
-    <script src="~/Scripts/Agencia/Agencia.js"></script>
-}
+
 
 
 

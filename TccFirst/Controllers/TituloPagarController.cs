@@ -18,15 +18,15 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
-        [HttpGet, Route("obtertodos")]
+        [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
-            var tituloPagar = repository.ObterTodos();
-            var resultado = new { data = tituloPagar };
+            var titulosPagar = repository.ObterTodos();
+            var resultado = new { data = titulosPagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        [HttpPost,Route("cadastro")]
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
@@ -34,20 +34,19 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost, Route("editar")]
-        public ActionResult Editar(TituloPagar tituloPagar)
+        public JsonResult Editar(TituloPagar tituloPagar)
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return Json(resultado,JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("apagar")]
+        [HttpGet,Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
-            var resultado = new { id = apagou };
+            var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-
         }
 
         public ActionResult Index()
@@ -60,17 +59,14 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Editar(int id)
+        [HttpGet, Route("editar")]
+        ActionResult Editar(int id)
         {
-            var tituloPagar = repository.ObterPeloId(id);
-            if (tituloPagar == null)
+            var titulosPagar = repository.ObterPeloId(id);
+            if (titulosPagar == null)
                 return RedirectToAction("Index");
-
-            ViewBag.TituloPagar = tituloPagar;
+            ViewBag.TituloPagar = titulosPagar;
             return View();
         }
-
-
     }
 }

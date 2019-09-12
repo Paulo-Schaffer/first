@@ -1,4 +1,4 @@
-﻿    using Model;
+﻿        using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -45,8 +45,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost
-            ]
+        [HttpPost]
         public JsonResult Update(ClientePessoaFisica clientePessoaFisica)
         {
             var alterou = repository.Alterar(clientePessoaFisica);

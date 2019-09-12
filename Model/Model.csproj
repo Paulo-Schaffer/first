@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agencia.cs" />
+    <Compile Include="CadastroContaCorrente.cs" />
     <Compile Include="Caixa.cs" />
     <Compile Include="CategoriaDespesa.cs" />
     <Compile Include="CategoriaReceita.cs" />
