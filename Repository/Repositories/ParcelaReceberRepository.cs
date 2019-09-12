@@ -20,8 +20,8 @@ namespace Repository.Repositories
 
         public bool Alterar(ParcelaReceber parcelaReceber)
         {
-            var parcelaReceberOriginal = context.ParcelasReceber
-                 .FirstOrDefault(x => x.Id == parcelaReceber.Id);
+            var parcelaReceberOriginal = context.ParcelasReceber. Where(x => x.Id == parcelaReceber.Id)
+                 .FirstOrDefault();
             if (parcelaReceber == null)
             {
                 return false;
@@ -49,7 +49,7 @@ namespace Repository.Repositories
 
         public int Inserir(ParcelaReceber parcelaReceber)
         {
-            parcelaReceber.RegistroAtivo=true;
+            
             context.ParcelasReceber.Add(parcelaReceber);
             context.SaveChanges();
             return parcelaReceber.Id;
@@ -58,7 +58,7 @@ namespace Repository.Repositories
         public ParcelaReceber ObterPeloId(int id)
         {
             var parcelaReceber = context.ParcelasReceber
-                  .FirstOrDefault(x => x.Id == id);
+                  .Where(x => x.Id == id).FirstOrDefault();
             return parcelaReceber;
         }
 
