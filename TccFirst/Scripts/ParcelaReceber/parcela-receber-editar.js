@@ -4,7 +4,7 @@
 
     $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
         ajax: "/parcelaReceber/obtertodos",
-        severSide: true,
+        serverSide: true,
         coluns: [
             { data: "IdTituloReceber" },
             { data: "Valor" },           

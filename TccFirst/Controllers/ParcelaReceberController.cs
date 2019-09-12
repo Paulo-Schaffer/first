@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
+    [Route("parcelaReceber/")]
     public class ParcelaReceberController : Controller
     {
         ParcelaReceberRepository repository;
