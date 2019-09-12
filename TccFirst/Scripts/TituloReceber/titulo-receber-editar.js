@@ -43,6 +43,9 @@
 
 
     $("#titulo-receber-botao-salvar").on("click", function () {
+        $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica");
+        $idPessoaFisica = $("#tituloReceber-campo--pessoa-Fisica");
+        $idCategoriaReceita = $("#tituloReceber-campo-categoria-receita");
         $valor = $("#tituloReceber-campo-valor").val();
         $quantidadeDeParcelas = $("#tituloReceber-campo-quantidadeParcelas").val();
         $descricao = $("#tituloReceber-campo-descricao").val();

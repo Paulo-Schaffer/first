@@ -2,7 +2,7 @@
     $idAlterar = -1;
 
     $tabelaCategoriaReceita = $('#categoria-receita-tabela').DataTable({
-        ajax: '/CategoriaReceita/obtertodos',
+        ajax: '/categoriareceita/obterTodos',
         serverSide: true,
         columns: [
             { 'data': 'Id' },
@@ -30,7 +30,7 @@
 
     function alterar($categoriaReceita) {
         $.ajax({
-            url: "/CategoriaReceita/update",
+            url: "/categoriareceita/update",
             method: "post",
             data: {
                 id: $idAlterar,
@@ -49,7 +49,7 @@
 
     function inserir($categoriaReceita) {
         $.ajax({
-            url: '/CategoriaReceita/inserir',
+            url: '/categoriareceita/inserir',
             method: 'post',
             data: {
                 categoriaReceita: $categoriaReceita,
@@ -90,7 +90,7 @@
 
             success: function (data) {
                 $('#categoria-receita-campo-receita').val(data.TipoReceita);
-                $('#modal-pessoa').modal('show');
+                $('#modal-categoria-receita').modal('show');
             },
             error: function (err) {
                 alert('não foi possível carregar');

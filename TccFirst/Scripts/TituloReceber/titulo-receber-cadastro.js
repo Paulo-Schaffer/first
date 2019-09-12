@@ -13,9 +13,10 @@
     });
     $("#tituloReceber-campo-categoria-Receita").select2({
         ajax: {
-            url: "/CategoriaReceita/obtertodosselect2",
+            url: "/categoriareceita/obtertodosselect2",
             dataType: "json"
         }
+        
     });
 
 

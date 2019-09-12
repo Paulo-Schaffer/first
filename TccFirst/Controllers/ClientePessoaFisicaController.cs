@@ -1,4 +1,4 @@
-﻿    using Model;
+﻿using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -71,7 +71,7 @@ namespace TccFirst.Controllers
                 {
                     id = clientePessoaFisica.Id,
                     text = clientePessoaFisica.Nome
-                    
+
                 });
             }
             var resultado = new
