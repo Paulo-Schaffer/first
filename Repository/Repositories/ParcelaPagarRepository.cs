@@ -29,7 +29,7 @@ namespace Repository.Repositories
             parcelaPagarOriginal.DataVencimento = parcelaPagar.DataVencimento;
             parcelaPagarOriginal.DataPagamento = parcelaPagar.DataPagamento;
             int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == -1;
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)

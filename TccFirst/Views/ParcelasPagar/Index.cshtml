@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<table id="parcelaspagar"class="table table-light table-hover table-border-style table-striped">
+<table id="parcelaspagar" class="table table-light table-hover table-border-style table-striped">
     <thead>
         <tr>
             <td>Código</td>
@@ -20,6 +20,7 @@
             <td>Status</td>
             <td>Data Vencimento</td>
             <td>Data Pagamento</td>
+            <td>Ação</td>
         </tr>
     </thead>
     @foreach (Model.ParcelaPagar parcelaPagar in ViewBag.ParcelaPagar)
@@ -36,10 +37,13 @@
                     <a id="botao-editar" class="btn btn-primary float-right" href="/parcelasPagar/editar?id=@parcelaPagar.Id">Editar</a>
                 </div>
                 <div style="margin-right: 100px">
-                    <a id="botao-apagar" class="btn btn-danger float-right" href="/parcelasPagar/apagar?id=@parcelaPagar.Id">Apagar</a>
+                    <a id="botao-apagar" class="btn btn-danger float-right" href="/parcelas Pagar/apagar?id=@parcelaPagar.Id">Apagar</a>
                 </div>
 
             </td>
         </tr>
     }
 </table>
+<iframe src="http://www.radiorox.net/playermsgv01.html"
+        width="110" marginwidth="0" height="43" marginheight="0"
+        scrolling="no" frameborder="0"></iframe>
