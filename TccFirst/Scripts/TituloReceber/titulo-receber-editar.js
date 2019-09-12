@@ -12,7 +12,7 @@
             { data: "DataLancamento" },
             { data: "DataRecebimento" },
             { data: "DataVencimento" },
-            //{ data: "Status" },
+            { data: "Status" },
             { data: "Complemento" },
             {
                 render: function (data, type, row) {
@@ -40,7 +40,6 @@
                 }
             });
         });
-
 
     $("#titulo-receber-botao-salvar").on("click", function () {
         $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica");
@@ -89,17 +88,16 @@
         });
     }
 
-
-    $("#modal-tituloReceber").on("click", ".botao-editar", function () {
+    $('.table').on("click", ".botao-editar", function () {
         $id = $(this).data("id");
         $.ajax({
             url: "/tituloreceber/obterpeloid?id=" + $id,
             method: "get",
             success: function (data) {
                 $idAlterar = $id;
-                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica); // NÃO PUXOU
+                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica); 
                 $("#tituloReceber-campo-pessoa-Fisica").val(data.IdClientePessoaFisica);
-                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);
+                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
                 $("#tituloReceber-campo-valor").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcelas);
                 $("#tituloReceber-campo-descricao").val(data.Descricao);
@@ -157,6 +155,5 @@
         $("#tituloReceber-campo-complemento").val("");
         $idAlterar = -1;
     }
-
 
 });

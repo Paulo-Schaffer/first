@@ -16,6 +16,7 @@ namespace Repository.Repositories
         {
             context = new SistemaContext();
         }
+
         public bool Alterar(TituloReceber tituloReceber)
         {
             var tituloReceberOriginal = context.TitulosReceber.Where(x => x.Id == tituloReceber.Id).FirstOrDefault();
