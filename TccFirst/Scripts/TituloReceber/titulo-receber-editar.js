@@ -29,8 +29,7 @@
         ]
     });
 
-    $("#tituloReceber-tabela").on("click",
-        ".botao-apagar", function () {
+    $("#tituloReceber-tabela").on("click", ".botao-apagar", function () {
             $id = $(this).data("id");
             $.ajax({
                 url: "/tituloreceber/apagar?id=" + $id,

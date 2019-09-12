@@ -62,12 +62,12 @@ namespace Model
         public Historico Historico { get; set; }
         #endregion
 
-        //#region fk_categoria_despesas
-        //[Column("id_categoria_despesas")]
-        //public int IdCategoriaDespesa { get; set; }
-        //[ForeignKey("IdCategoriaDespesas")]
-        //public CategoriaDespesa CategoriaDespesas { get; set; }
-        //#endregion
+        #region fk_categoria_despesas
+        [Column("id_categoria_despesa")]
+        public int? IdCategoriaDespesa { get; set; }
+        [ForeignKey("IdCategoriaDespesa")]
+        public CategoriaDespesa CategoriaDespesa { get; set; }
+        #endregion
 
         #region fk_categoria_receita
         [Column("id_categoria_receita")]

@@ -41,6 +41,7 @@
             },
             success: function (data) {
                 $("#modal-funcionario").modal("hide");
+                LimparCampos();
                 $idAlterar = -1;
                 $tabelaFuncionario.ajax.reload();
             },
@@ -60,6 +61,7 @@
             },
             success: function (data) {
                 $('#modal-funcionario').modal('hide');
+                LimparCampos();
                 $tabelaFuncionario.ajax.reload();
             },
             error: function (err) {
@@ -102,4 +104,10 @@
             }
         });
     });
+
+    function LimparCampos() {
+        $('#funcionario-campo-nome').val("");
+        $('#funcionario-campo-tipo').val("");
+        $idAlterar = -1;
+    };
 });

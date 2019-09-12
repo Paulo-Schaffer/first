@@ -10,15 +10,22 @@
 
             <div class="modal-body">
                 <div class="row">
+                    <div class="col-12">
+                        <label for="modal-login-funcionario">Funcionario</label>
+                        <select class="form-control" id="modal-login-funcionario" name="idFuncionario"></select>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
                     <div class="col-6">
                         <div class="form-group">
                             <label for="modal-login-usuario">Usuario</label>
                             <input type="text" id="modal-login-usuario" class="form-control" />
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-6">
                         <div class="form-group">
                             <label for="modal-login-senha">Senha</label>
@@ -35,3 +42,12 @@
         </div>
     </div>
 </div>
+@section css{
+    <link href="~/Content/css/select2.css"
+          rel="stylesheet" />
+}
+
+@section js{
+    <script src="~/Scripts/Login/login-index.js"></script>
+    <script src="~/Scripts/select2.js"></script>
+}
