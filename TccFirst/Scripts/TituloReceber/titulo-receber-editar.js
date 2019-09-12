@@ -7,12 +7,24 @@
         serverSide: true,
         columns: [
             { data: "ValorTotal" },
-            { data: "QuantidadeParcelas" },
+            { data: "QuantidadeParcela" },
+            { data: "Status" },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataLancamento).format('DD/MM/YYYY')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataRecebimento).format('DD/MM/YYYY')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataVencimento).format('DD/MM/YYYY')
+                }
+            },
             { data: "Descricao" },
-            { data: "DataLancamento" },
-            { data: "DataRecebimento" },
-            { data: "DataVencimento" },
-            //{ data: "Status" },
             { data: "Complemento" },
             {
                 render: function (data, type, row) {
@@ -26,8 +38,8 @@
         ]
     });
 
-    $("#tituloReceber-tabela").on("click", ".botao-apagar", function () {
-        $id = $(this).data("id");
+    $("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
+        $id = $(this).data('id');
         $.ajax({
             url: '/tituloreceber/apagar?id=' + $id,
             method: "get",
@@ -44,6 +56,7 @@
         $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
         $idPessoaFisica = $("#tituloReceber-campo-pessoa-Fisica").val();
         $idCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
+        $status = $("#tituloReceber-campo-status").val();
         $valor = $("#tituloReceber-campo-valor").val();
         $quantidadeDeParcelas = $("#tituloReceber-campo-quantidade-Parcelas").val();
         $descricao = $("#tituloReceber-campo-descricao").val();
@@ -52,13 +65,13 @@
         $dataVencimento = $("#tituloReceber-campo-data-vencimento").val();
         $complemento = $("#tituloReceber-campo-complemento").val();
         if ($idAlterar == -1) {
-            inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
+            inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $status, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
         } else {
-            alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
+            alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $status, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento);
         }
     });
 
-    function inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento) {
+    function inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $status, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento) {
         $.ajax({
             url: '/tituloreceber/cadastro',
             method: 'post',
@@ -66,6 +79,7 @@
                 idpessoaJuridica: $idPessoaJuridica,
                 idPessoaFisica: $idPessoaFisica,
                 idCategoriaReceita: $idCategoriaReceita,
+                status: $status,
                 valor: $valor,
                 quantidadeDeParcelas: $quantidadeDeParcelas,
                 descricao: $descricao,
@@ -97,13 +111,14 @@
                 $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica);
                 $("#tituloReceber-campo-pessoa-Fisica").val(data.IdClientePessoaFisica);
                 $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
+                $("#tituloReceber-campo-status").val(data.Status);
                 $("#tituloReceber-campo-valor").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcelas);
                 $("#tituloReceber-campo-descricao").val(data.Descricao);
-                $("#tituloReceber-campo-data-lancamento").val(data.DataLancamneto);
-                $("#tituloReceber-campo-data-recebimento").val(data.DataRecebimento);
-                $("#tituloReceber-campo-data-vencimento").val(data.DataVencimento);
-                $("#tituloReceber-campo-complemento").val(data.Complemento);
+                $("#tituloReceber-campo-data-lancamento").val(DataLancamento.format('YYYY-MM-DD'));
+                $("#tituloReceber-campo-data-recebimento").val(DataRecebimento.format('YYYY-MM-DD'));
+                $("#tituloReceber-campo-data-vencimento").val(DataVencimento.format('YYYY-MM-DD'));
+                $("#tituloReceber-campo-complemento").val(data.Complemento); 
                 $("#modal-tituloReceber").modal("show");
             },
             error: function (data) {
@@ -112,7 +127,7 @@
         })
     });
 
-    function alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento) {
+    function alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $status, $valor, $quantidadeDeParcelas, $descricao, $dataLancamento, $dataRecebimento, $dataVencimento, $complemento) {
         $.ajax({
             url: "/tituloreceber/alterar",
             method: "post",
@@ -120,6 +135,7 @@
                 idPessoaJuridica: $idPessoaJuridica,
                 idPessoaFisica: $idPessoaFisica,
                 idCategoriareceita: $idCategoriaReceita,
+                status: $status,
                 valor: $valor,
                 quantidadeDeParcelas: $quantidadeDeParcelas,
                 descricao: $descricao,
@@ -142,9 +158,10 @@
     }
 
     function limparCampos() {
-        $("#tituloReceber-campo-pessoa-Juridica").val("");
+        $("#tituloReceber-campo-pessoa-Juridica").val(-1);
         $("#tituloReceber-campo-pessoa-Fisica").val("");
         $("#tituloReceber-campo-categoria-Receita").val("");
+        $("tituloReceber-campo-status").val("");
         $("#tituloReceber-campo-valor").val("");
         $("#tituloReceber-campo-quantidade-Parcelas").val("");
         $("#tituloReceber-campo-descricao").val("");
