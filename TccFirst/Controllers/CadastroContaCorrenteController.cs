@@ -42,7 +42,7 @@ namespace TccFirst.Controllers
 
         public ActionResult Index()
         {
-
+           return View();
         }
     }
 }
