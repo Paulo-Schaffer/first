@@ -5465,6 +5465,7 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
     <Content Include="Scripts\Agencia\Agencia.js" />
+    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Index.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
@@ -5478,6 +5479,8 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5536,6 +5539,8 @@
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Agencia\Editar.cshtml" />
     <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5547,7 +5552,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\CategoriaDespesa\" />
-    <Folder Include="Views\CadastroContaCorrente\" />
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaReceita\" />
     <Folder Include="Views\Default\" />

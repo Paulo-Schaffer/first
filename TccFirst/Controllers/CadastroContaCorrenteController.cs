@@ -56,5 +56,23 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
+        [HttpGet, Route("cadastroContaCorrente/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
+        {
+            var cadastroContaCorrentes = repository.ObterTodos(term);
+
+            List<object> cadastroContaCorrenteSelect2 = new List<object>();
+            foreach (CadastroContaCorrente cadastroContaCorrente in cadastroContaCorrentes)
+            {
+                cadastroContaCorrenteSelect2.Add(new
+                {
+                    id = cadastroContaCorrente.Id,
+                    text = cadastroContaCorrente.NumeroConta
+                });
+            }
+            var resultado = new { resuts = cadastroContaCorrenteSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
     }
 }
