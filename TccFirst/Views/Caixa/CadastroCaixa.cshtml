@@ -17,11 +17,20 @@
                     <label for="campo-caixa-documento" mas>Documento</label>
                     <input type="text" id="caixa-campo-documento" class="form-control" />
                 </div>
-                
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="caixa-botao-salvar">Salvar</button>
+                <div class="form-group">
+                    <label for="campo-caixa-forma-pagamento">Forma de Pagamento</label>
+                    <select class="form-control" name="forma-pagamento" id="caixa-campo-forma-pagamento">
+                        <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                        <option>Dinheiro</option>
+                        <option>Cartão Débito</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
+                     
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" id="caixa-botao-salvar">Salvar</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 </div>

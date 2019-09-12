@@ -5662,6 +5662,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper.min.js.map" />
     <Content Include="Scripts\README.md" />
+    <Content Include="Views\CategoriaReceita\CadastroCategoriaReceita.cshtml" />
+    <Content Include="Views\CategoriaReceita\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

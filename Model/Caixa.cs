@@ -36,9 +36,6 @@ namespace Model
         public Historico historicos { get; set; }
         #endregion
 
-
-        public string Historico { get; set; }
-
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 

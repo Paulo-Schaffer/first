@@ -61,15 +61,15 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet,Route("editar")]
-        ActionResult Editar(int id)
-        {
-            var titulosReceber = repository.ObterPeloId(id);
-            if (titulosReceber == null)
-                return RedirectToAction("Index");
-            ViewBag.TituloReceber = titulosReceber;
-            return View();
+        //[HttpGet,Route("editar")]
+        //ActionResult Editar(int id)
+        //{
+        //    var titulosReceber = repository.ObterPeloId(id);
+        //    if (titulosReceber == null)
+        //        return RedirectToAction("Index");
+        //    ViewBag.TituloReceber = titulosReceber;
+        //    return View();
 
-        }
+        //}
     }
 }

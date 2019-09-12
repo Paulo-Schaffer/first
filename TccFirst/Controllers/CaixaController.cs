@@ -37,14 +37,14 @@ namespace TccFirst.Controllers
             var resultado = new { id = id };
             return Json(resultado);
         }
-        [HttpGet]
+        [HttpGet,Route("apagar")]
         JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
+        [HttpPost,Route("editar")]
         public JsonResult Update(Caixa caixa)
         {
             var alterou = repository.Alterar(caixa);
