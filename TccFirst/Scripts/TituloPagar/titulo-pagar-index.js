@@ -16,6 +16,7 @@
             { data: "DataLancamento" },
             { data: "DataRecebimento" },
             { data: "DataVencimento" },
+
             { data: "Complemento" },
             { data: "QuantidadeDeParcela" },
             {

@@ -1,4 +1,5 @@
 ﻿$(function () {
+
     $("#tituloReceber-campo-pessoa-Juridica").select2({
         ajax: {
             url: "/clientePessoaJuridica/obtertodosselect2",
