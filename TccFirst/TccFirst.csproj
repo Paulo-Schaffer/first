@@ -5664,7 +5664,7 @@
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Historico\CadastroHistorico.cshtml" />
     <Content Include="Views\ParcelaReceber\Index.cshtml" />
-    <Content Include="Views\ParcelaReceber\Cadastro.cshtml" />
+    <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

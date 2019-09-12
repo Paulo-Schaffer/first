@@ -1,7 +1,7 @@
 ﻿$(function () {
     $idParcelaReceber = $("#id").val();
     $idAlterar = -1;
-    $tabelaTituloReceber = $("#parcelaReceber-tabela").DataTable({
+    $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
         ajax: "/parcelaReceber/obtertodos",
         severSide: true,
         coluns: [

@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
-{    [Route("parcelasReceber/")]
+{
     public class ParcelaReceberController : Controller
     {
         ParcelaReceberRepository repository;
@@ -16,54 +16,73 @@ namespace TccFirst.Controllers
         {
             repository = new ParcelaReceberRepository();
         }
-        [HttpPost,Route("obtertodos")]
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public JsonResult ObterTodos()
         {
             var parcelasReceber = repository.ObterTodos();
             var resultado = new { data = parcelasReceber };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost,Route("cadastro")]
-        public ActionResult Cadastro(ParcelaReceber parcelaReceber)
+        [HttpPost]
+        public JsonResult Inserir(ParcelaReceber parcelaReceber)
         {
+            parcelaReceber.RegistroAtivo = true;
             int id = repository.Inserir(parcelaReceber);
-            return RedirectToAction("Editar", new { id = id });
+            var resultado = new { id = id };
+            return Json(resultado);
         }
-        [HttpPost,Route("editar")]
-        public JsonResult Editar (ParcelaReceber parcelaReceber)
-        {
-            var alterou = repository.Alterar(parcelaReceber);
-            var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        [HttpGet,Route("apagar")]
+        [HttpGet]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Index()
+        [HttpPost]
+        public JsonResult Update(ParcelaReceber parcelaReceber)
         {
-            return View();
+            var alterou = repository.Alterar(parcelaReceber);
+            var resultado = new { status = alterou };
+            return Json(resultado);
         }
-
-        public ActionResult Cadastro()
+        [HttpGet, Route("parcelaReceber/")]
+        public JsonResult ObterPeloId(int id)
         {
-            return View();
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult Editar(int id)
+        [HttpGet,Route("parcelaReceber/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
         {
-            var parcelaReceber = repository.ObterPeloId(id);
-            if(parcelaReceber==null)
+            var parcelasReceber = repository.ObterTodos();
+            List<object>parcelaRecebersSelect2=
+                 new List<object>();
+            foreach(ParcelaReceber parcelaReceber in parcelasReceber)
             {
-                return RedirectToAction("Index");
-                
+                parcelaRecebersSelect2.Add(new
+                {
+                    id = parcelaReceber.Id,
+                    valor= parcelaReceber.Valor,
+                    status=parcelaReceber.Status,
+
+                });
             }
-            ViewBag.parcelaReceber = parcelaReceber;
-            return View();
+            var resultado = new
+            {
+                results = parcelaRecebersSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
         }
 
+
+
+
+        
     }
 }
