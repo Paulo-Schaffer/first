@@ -26,11 +26,11 @@ namespace Repository.Repositories
             {
                 return false;
             }
+            parcelaReceberOriginal.IdTituloReceber = parcelaReceber.IdTituloReceber;
             parcelaReceberOriginal.Valor = parcelaReceber.Valor;
             parcelaReceberOriginal.Status = parcelaReceber.Status;
             parcelaReceberOriginal.DataVencimento = parcelaReceber.DataVencimento;
             parcelaReceberOriginal.DataRecebimento = parcelaReceber.DataRecebimento;
-            parcelaReceberOriginal.IdTituloReceber = parcelaReceber.IdTituloReceber;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -58,7 +58,6 @@ namespace Repository.Repositories
         public ParcelaReceber ObterPeloId(int id)
         {
             var parcelaReceber = context.ParcelasReceber
-                  .Include("TitulosPagar")
                   .FirstOrDefault(x => x.Id == id);
             return parcelaReceber;
         }

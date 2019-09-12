@@ -11,9 +11,7 @@
 
                 <div class="form-group">
                     <label for="parcelasReceber-campo-tituloReceber" mas>Titulo Receber<span class="text-danger">*</span></label>
-                    <select class="form-control"
-                            id="parcelasReceber-campo-tituloReceber"
-                            name="idTituloReceber"></select>
+                    <select class="form-control"id="parcelasReceber-campo-tituloReceber"name="idTituloReceber"></select>
                 </div>
                 <div class="form-group">
                     <label for="parcelasReceber-campo-valor" mas>Valor<span class="text-danger">*</span></label>
@@ -22,15 +20,20 @@
 
                 <div class="form-group">
                     <label for="parcelasReceber-campo-status" mas>Status<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="parcelasReceber-campo-status" />
+                    <select class="form-control" id="parcelasReceber-campo-status">
+                        <option>Pendente</option>
+                        <option>Pago</option>
+                        <option>Cancelado</option>
+                        <option>Pago parcialmente</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="parcelasReceber-campo-dataVencimento" mas>Data Vencimento<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="parcelasReceber-campo-dataVencimento" />
+                    <input type="date" class="form-control" id="parcelasReceber-campo-dataVencimento" />
                 </div>
                 <div class="form-group">
                     <label for="parcelasReceber-campo-dataRecebimento" mas>Data Recebimento<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="parcelasReceber-campo-dataRecebimento" />
+                    <input type="date" class="form-control" id="parcelasReceber-campo-dataRecebimento" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
