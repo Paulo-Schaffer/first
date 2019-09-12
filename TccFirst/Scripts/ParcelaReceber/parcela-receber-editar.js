@@ -20,11 +20,11 @@
     });
 
     $("#parcelaReceber-botao-salvar").on("click", function () {
-        $idTitulosReceber = $('#parcelasReceber-campo-tituloReceber').val();
-        $valor = $('#parcelasReceber-campo-valor').val();
-        $status = $('#parcelasReceber-campo-status').val();
-        $dataVencimento = $('#parcelasReceber-campo-dataVencimento').val();
-        $dataRecebimento = $('#parcelasReceber-campo-dataRecebimento').val();
+        $idTitulosReceber = $('#parcelaReceber-campo-tituloReceber').val();
+        $valor = $('#parcelaReceber-campo-valor').val();
+        $status = $('#parcelaReceber-campo-status').val();
+        $dataVencimento = $('#parcelaReceber-campo-dataVencimento').val();
+        $dataRecebimento = $('#parcelaReceber-campo-dataRecebimento').val();
         debugger;
        
         if ($idAlterar == -1) {
@@ -101,12 +101,12 @@
             method: 'get',
             success: function (data) {
                 $idAlterar = $id;
-                $("#parcelasReceber-campo-tituloReceber").val(data.idTitulosReceber);
-                $("#parcelasReceber-campo-valor").val(data.valor);
-                $("#parcelasReceber-campo-status").val(data.status);
-                $("#parcelasReceber-campo-dataVencimento").val(data.dataVencimento);
-                $("#parcelasReceber-campo-dataRecebimento").val(data.dataRecebimento);
-                $('#modal-clientePessoaJuridica').modal('show');
+                $("#parcelaReceber-campo-tituloReceber").val(data.idTitulosReceber);
+                $("#parcelaReceber-campo-valor").val(data.valor);
+                $("#parcelaReceber-campo-status").val(data.status);
+                $("#parcelaReceber-campo-dataVencimento").val(data.dataVencimento);
+                $("#parcelaReceber-campo-dataRecebimento").val(data.);
+                $('#modal-parcelaReceber').modal('show');
             },
             error: function (err) {
                 alert("Não foi possivel editar")
