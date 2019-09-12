@@ -43,7 +43,7 @@ namespace TccFirst.Controllers
             fornecedores.RegistroAtivo = true;
             var id = repository.Inserir(fornecedores);
             var resultado = new { id = id };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -55,9 +55,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Fornecedor fornecedores)
+        public JsonResult Update(Fornecedor fornecedor)
         {
-            var alterou = repository.Alterar(fornecedores);
+            var alterou = repository.Alterar(fornecedor);
             var resultado = new { status = alterou };
             return Json(resultado);
         }
@@ -68,33 +68,25 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("fornecedor/obtertodosselect")]
-        public JsonResult ObterTodosSelect(string term)
+        [HttpGet, Route("fornecedor/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
         {
             var fornecedores = repository.ObterTodos(term);
 
-            List<Object> fornecedorSelect = new List<object>();
+            List<object> fornecedorSelect2 = new List<object>();
 
             foreach (Fornecedor fornecedor in fornecedores)
             {
-                fornecedorSelect.Add(new
+                fornecedorSelect2.Add(new
                 {
                     id = fornecedor.Id,
                     text = fornecedor.RazaoSocial,
-                    fantasia = fornecedor.NomeFantasia,
-                    data = fornecedor.DataCadastro,
-                    cnpj = fornecedor.Cnpj,
-                    email = fornecedor.Email,
-                    telefone = fornecedor.Telefone,
-                    cep = fornecedor.Cep,
-                    logradouro = fornecedor.Logradouro,
-                    numero = fornecedor.Numero,
-                    bairro = fornecedor.Bairro,
-                    uf = fornecedor.Uf,
-                    cidade = fornecedor.Cidade
                 });
             }
-            var resultado = new { results = fornecedorSelect };
+            var resultado = new
+            {
+                results = fornecedorSelect2
+            };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }

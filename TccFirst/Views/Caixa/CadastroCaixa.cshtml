@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Cadastrar Caixa</h5>
+                <h5 class="modal-title">Caixa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,18 +15,33 @@
                 </div>
                 <div class="form-group">
                     <label for="campo-caixa-documento" mas>Documento</label>
-                    <input type="text" id="pessoa-campo-cpf" class="form-control" />
+                    <input type="text" id="caixa-campo-documento" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label for="campo-caixa-forma-pagamento">Forma de Pagamento</label>
-                    <select type="text" id="caixa-campo-forma-pagamento" class="form-control"></select>
+                    <select class="form-control" name="forma-pagamento" id="caixa-campo-forma-pagamento">
+                        <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                        <option>Dinheiro</option>
+                        <option>Cartão Débito</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
                 </div>
-                
-                
+                <div class="form-group">
+                    <label for="campo-caixa-valor" mas>Valor</label>
+                    <input type="text" id="caixa-campo-valor" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="campo-caixa-data-lancamento" mas>Data de Lançamento</label>
+                    <input type="date" id="caixa-campo-data-lancamento" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="campo-caixa-historico" mas>Historico</label>
+                    <input type="text" id="caixa-campo-historico" class="form-control" />
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="pessoa-botao-salvar">Salvar</button>
+                <button type="button" class="btn btn-success" id="pessoa-botao-salvar">Salvar</button>
             </div>
         </div>
     </div>

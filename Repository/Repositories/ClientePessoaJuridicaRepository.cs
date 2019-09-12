@@ -11,17 +11,15 @@ namespace Repository.Repositories
    public class ClientePessoaJuridicaRepository : IClientePessoaJuridicaRepository
     {
         private SistemaContext context;
-
         public ClientePessoaJuridicaRepository()
         {
             context = new SistemaContext();
         }
-
         public bool Alterar(ClientePessoaJuridica clientePessoaJuridica)
         {
             var clientePessoaJuridicaOriginal = context.ClientesPessoasJuridicas         
                  .FirstOrDefault(x => x.Id == clientePessoaJuridica.Id);
-            if(clientePessoaJuridicaOriginal==null)
+            if(clientePessoaJuridicaOriginal == null)
             {
                 return false;
             }
@@ -45,19 +43,19 @@ namespace Repository.Repositories
 
         public bool Apagar(int id)
         {
-            var clientePessoaJuridica=context.ClientesPessoasJuridicas.FirstOrDefault(x => x.Id == id);
+            var clientePessoaJuridica = context.ClientesPessoasJuridicas.FirstOrDefault(x => x.Id == id);
             if (clientePessoaJuridica == null)
             {
                 return false;
             }
-            clientePessoaJuridica.RegistroAtivo = false;
-            
+            clientePessoaJuridica.RegistroAtivo = false;           
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
 
         public int Inserir(ClientePessoaJuridica clientePessoaJuridica)
         {
+            clientePessoaJuridica.RegistroAtivo = true;
             context.ClientesPessoasJuridicas.Add(clientePessoaJuridica);
             context.SaveChanges();
             return clientePessoaJuridica.Id;

@@ -1,16 +1,23 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Login</h2>
+<h2>Lista de Usuarios</h2>
+
+<button data-toggle="modal" data-target="#modal-login" class="btn btn-primary">Novo Usuario</button>
 
 <table id="login-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
-            <th>Código</th>
-            <th>Usuário</th>
-            <th>Senha</th>
+            <th>Id</th>
+            <th>Usario</th>
+            <th>Ação</th>
         </tr>
     </thead>
 </table>
+
+@RenderPage("CadastroLogin.cshtml")
+
+@section js{
+    <script src="~/Scripts/Login/login-index.js"></script>
+}

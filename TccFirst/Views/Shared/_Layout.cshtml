@@ -66,7 +66,7 @@
                 <div class="ring">
                     <div class="frame"></div>
                 </div>
-                <div class="ring">  
+                <div class="ring">
                     <div class="frame"></div>
                 </div>
                 <div class="ring">
@@ -337,6 +337,14 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li class=" ">
+                                            <a href="/historico">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.alert">Historicos</span>
+                                                <span class="pcoded-mtext"></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="pcoded-hasmenu">
@@ -364,10 +372,19 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/Fornecedor/CadastroModal">
+                                            <a href="/Funcionario/Index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Fornecedores</span>
+                                                      data-i18n="nav.basic-components.breadcrumbs">Funcionarios</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
+                                        <li class=" ">
+                                            <a href="/Fornecedor/Index">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Fornecedor</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -381,7 +398,9 @@
                                             </a>
 
                                         <li class=" ">
-                                            <a href="/clientepessoajuridica/index">
+                                        <li class="pcoded-hasmenu">
+                                            <a href="/clientepessoafisica">
+                                                <a href="/clientepessoajuridica/index">
 
                                         <li class="pcoded-hasmenu">
                                             <a href="/clientepessoafisica">
@@ -408,16 +427,45 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/ContaCorrente/Index">
+                                            <a href="/ContaCorrente/Cadastro">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Conta Corrente</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-
-                                    </ul>
+                                        data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Fisica</span>
+                                        <span class="pcoded-mcaret"></span>
+                                        </a>
                                 </li>
+                                </li>
+                                <li class=" ">
+                                    <a href="/clientepessoajuridica ">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext"
+                                              data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="/caixa/cadastro">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext"
+                                              data-i18n="nav.basic-components.breadcrumbs">Caixa</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="/banco/cadastro">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext"
+                                              data-i18n="nav.basic-components.breadcrumbs">Banco</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            </li>
 
                             </ul>
                         </div>
@@ -445,7 +493,7 @@
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    
+
 
     <!-- Warning Section Starts -->
     <!-- Older IE warning message -->
@@ -459,7 +507,7 @@
                     <a href="http://www.google.com/chrome/">
                         <img src="~/Content/tema/assets/images/browser/chrome.png" alt="Chrome">
                         <div>Chrome</div>
-                    </a>  
+                    </a>
                 </li>
                 <li>
                     <a href="https://www.mozilla.org/en-US/firefox/new/">
@@ -531,10 +579,10 @@
     <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="~/Content/tema/bower_components/select2/js/select2.full.min.js"></script>
-    <script src="~/Scripts/ClientePessoaFisica/jquery.mask.js"></script>
-    <script src="~/Scripts/ClientePessoaFisica/moment.js"></script>
-    <script src="~/Scripts/ClientePessoaFisica/datetime.js"></script>
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+    <script src="~/Scripts/datetime.js"></script>
     @RenderSection("js", false)
 </body>
 
