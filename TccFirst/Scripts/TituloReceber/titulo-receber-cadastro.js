@@ -9,15 +9,12 @@
         ajax: {
             url: "/clientepessoafisica/obtertodosselect2",
             dataType: "json"
-        }
+        }   
     });
     $("#tituloReceber-campo-categoria-Receita").select2({
         ajax: {
-            url: "/categoria/obtertodosselect2",
+            url: "/categoriareceita/obtertodosselect2",
             dataType: "json"
         }
     });
-
-
-
 });

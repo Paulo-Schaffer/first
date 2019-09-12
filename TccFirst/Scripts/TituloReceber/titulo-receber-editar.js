@@ -5,17 +5,14 @@
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
         ajax: "/tituloreceber/obtertodos",
         serverSide: true,
-        coluns: [
-            { data: "IdClientePessoaJuridica" },
-            { data: "IdClientePessoaFisica" },
-            { data: "IdCategoriaReceita" },
-            { data: "Descricao" },
+        columns: [
             { data: "ValorTotal" },
             { data: "QuantidadeParcelas" },
-            { data: "Status" },
+            { data: "Descricao" },
             { data: "DataLancamento" },
             { data: "DataRecebimento" },
             { data: "DataVencimento" },
+            { data: "Status" },
             { data: "Complemento" },
             {
                 render: function (data, type, row) {
@@ -43,11 +40,10 @@
             });
         });
 
-
     $("#titulo-receber-botao-salvar").on("click", function () {
-        $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
-        $idPessoaFisica = $("#tituloReceber-campo-pessoa-Fisica").val();
-        $idCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
+        $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica");
+        $idPessoaFisica = $("#tituloReceber-campo--pessoa-Fisica");
+        $idCategoriaReceita = $("#tituloReceber-campo-categoria-receita");
         $valor = $("#tituloReceber-campo-valor").val();
         $quantidadeDeParcelas = $("#tituloReceber-campo-quantidadeParcelas").val();
         $descricao = $("#tituloReceber-campo-descricao").val();
@@ -91,17 +87,16 @@
         });
     }
 
-
-    $("#modal-tituloReceber").on("click", ".botao-editar", function () {
+    $('.table').on("click", ".botao-editar", function () {
         $id = $(this).data("id");
         $.ajax({
             url: "/tituloreceber/obterpeloid?id=" + $id,
             method: "get",
             success: function (data) {
                 $idAlterar = $id;
-                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica); // NÃO PUXOU
+                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica); 
                 $("#tituloReceber-campo-pessoa-Fisica").val(data.IdClientePessoaFisica);
-                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceira);
+                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
                 $("#tituloReceber-campo-valor").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcelas);
                 $("#tituloReceber-campo-descricao").val(data.Descricao);
@@ -159,6 +154,5 @@
         $("#tituloReceber-campo-complemento").val("");
         $idAlterar = -1;
     }
-
 
 });

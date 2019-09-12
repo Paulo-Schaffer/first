@@ -71,7 +71,7 @@ namespace TccFirst.Controllers
                 {
                     id = clientePessoaFisica.Id,
                     text = clientePessoaFisica.Nome
-                    
+
                 });
             }
             var resultado = new

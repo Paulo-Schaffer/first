@@ -17,11 +17,11 @@ namespace TccFirst.Controllers
             repository = new CategoriaReceitaRepository();
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-
 
         [HttpPost]
         public JsonResult Inserir(CategoriaReceita categoriaReceita)
@@ -49,21 +49,29 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update (CategoriaReceita categoriaReceita)
+        public JsonResult Update(CategoriaReceita categoriaReceita)
         {
             var alterou = repository.Alterar(categoriaReceita);
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-        [HttpGet,Route("categoriareceita/obtertodosselect2")]
+
+        [HttpGet, Route("categoriareceita/")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet, Route("categoriareceita/obtertodosselect2")]
         public JsonResult ObterTodosPeloSelect2(string term)
         {
-            var categoriasReceita = repository.ObterTodos();
-            List<object> categoriasReceitaSelect2 =
+            var categoriasReceitas = repository.ObterTodos();
+
+            List<object> categoriasReceitasSelect2 =
                 new List<object>();
-                foreach (CategoriaReceita categoriaReceita in categoriasReceita)
+            foreach (CategoriaReceita categoriaReceita in categoriasReceitas)
             {
-                categoriasReceitaSelect2.Add(new
+                categoriasReceitasSelect2.Add(new
                 {
                     id = categoriaReceita.Id,
                     text = categoriaReceita.TipoCategoriaReceita
@@ -71,7 +79,7 @@ namespace TccFirst.Controllers
             }
             var resultado = new
             {
-                results = categoriasReceitaSelect2
+                results = categoriasReceitasSelect2
             };
             return Json(resultado,
                 JsonRequestBehavior.AllowGet);
