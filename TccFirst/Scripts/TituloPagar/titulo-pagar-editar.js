@@ -36,6 +36,7 @@
             url: '/titulopagar/apagar?id=' + $id,
             method: "get",
             success: function (data) {
+                alert("Deseja realmente apagar?")
                 $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
@@ -93,13 +94,12 @@
         });
     }
 
-    $("#modal-tiuloPagar-index").on('click', '.botao-editar', function () {
-        $id = $(this).data("id");
+    $('.table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data("id");
         $.ajax({
-            url: '/titulopagar/obterpeloid?id=' + $id,
+            url: '/titulopagar/obterpeloid?id=' + $idAlterar,
             method: "get",
             success: function (data) {
-                $idAlterar = $id;
                 $('#tituloPagar-campo-fornecedor').val(data.$IdFornecedor);
                 $('#tituloPagar-campo-categoria-despesa').val(data.IdCategoriaDespesa);
                 $('#tituloPagar-campo-descricao').val(data.Descricao);
@@ -122,7 +122,7 @@
 
     function alterar($IdFornecedor, $IdCategoriaDespesa, $Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
         $.ajax({
-            url: '/titulopagar/alterar',
+            url: '/titulopagar/editar',
             method: "post",
             data: {
                 IdFornecedor: $IdFornecedor,
