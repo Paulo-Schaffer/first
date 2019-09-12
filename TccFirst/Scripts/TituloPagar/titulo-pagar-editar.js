@@ -9,7 +9,7 @@
             { data: "IdFornecedor" },
             { data: "IdCategoriaDespesa" },
             { data: "Descricao" },
-            { data: "FormaDePagamento" },
+            { data: "FormaPagamento" },
             { data: "Caixa" },
             { data: "ValorTotal" },
             { data: "Status" },
@@ -17,7 +17,7 @@
             { data: "DataRecebimento" },
             { data: "DataVencimento" },
             { data: "Complemento" },
-            { data: "QuantidadeDeParcela" },
+            { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
                     return "\
@@ -84,6 +84,7 @@
             },
             success: function (data) {
                 $('#modal-tituloPagar').modal('hide');
+                LimparCampos();
                 $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
@@ -113,7 +114,7 @@
                 $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
                 $('#modal-tituloPagar').modal('show');
             },
-            error: function (err) {
+            error: function (data) {
                 alert("Não foi possível buscar o registro");
             }
         });
@@ -140,6 +141,7 @@
             },
             success: function (data) {
                 $('#modal-tituloPagar').modal('hide');
+                LimparCampos();
                 $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {

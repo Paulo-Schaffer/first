@@ -33,8 +33,8 @@ namespace TccFirst.Controllers
             return Json(new { id = id });
         }
 
-        [HttpPost, Route("alterar")]
-        public JsonResult Alterar(TituloPagar tituloPagar)
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(TituloPagar tituloPagar)
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
@@ -64,6 +64,8 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+
+
 
     }
 }
