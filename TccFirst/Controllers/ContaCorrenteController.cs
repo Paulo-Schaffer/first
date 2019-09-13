@@ -35,14 +35,21 @@ namespace TccFirst.Controllers
         }
 
         #region cadastro
-        [HttpGet]
+        [HttpGet,Route("Index")]
         public ActionResult Cadastro()
         {
             CadastroContaCorrenteRepository cadastroContaCorrenteRepository = new CadastroContaCorrenteRepository();
             ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos();
 
+            HistoricoRepository historicoRepository = new HistoricoRepository();
+            ViewBag.Historicos = historicoRepository.ObterTodos(); 
+
             CategoriaDespesaRepository categoriaDespesaRepository = new CategoriaDespesaRepository();
             ViewBag.CategoriasDespesa = categoriaDespesaRepository.ObterTodos();
+
+            CategoriaReceitaRepository categoriaReceitaRepository = new CategoriaReceitaRepository();
+            ViewBag.CategoriasReceita = categoriaReceitaRepository.ObterTodos(); 
+
 
             return View();
         }
@@ -52,16 +59,16 @@ namespace TccFirst.Controllers
             contaCorrente.RegistroAtivo = true;
             var id = repository.Inserir(contaCorrente);
             var resultado = new { id = id };
-            return RedirectToAction("Editar", new { id = id });
+            return RedirectToAction("Index", new { id = id });
         }
-        #endregion  
+        #endregion
 
-        [HttpGet]
-        public JsonResult Apagar(int id)
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado);
+            return RedirectToAction("Index", new { id = id });
         }
 
         [HttpPost]

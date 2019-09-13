@@ -14,7 +14,7 @@
 
         <div class="row">
             <div class="col-6">
-                <label class="font-weight-bold" for="campo-cadastrocontacorrente">Conta Corrente</label>
+                <label class="font-weight-bold" for="campo-cadastrocontacorrente">Conta Corrente<span class="text-danger">*</span></label>
                 <select name="IdCadastroContaCorrente" id="campo-cadastrocontacorrente" required="" class="form-control border-info">
                     <option selected="" disabled="disabled">Selecione uma Conta</option>
                     @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastroContaCorrentes)
@@ -24,11 +24,37 @@
                     }
                 </select>
 
+            </div>
+            <div class="col-6">
+                <label class="font-weight-bold" for="campo-historico">Historico<span class="text-danger">*</span></label>
+                <select name="IdHistorico" id="campo-historico" required="" class="form-control border-info">
+                    <option selected="" disabled="disabled">Selecione uma Historico</option>
+                    @foreach (Model.Historico historico in ViewBag.Historicos)
+                    {
+                        <option value="@historico.Id">@historico.Descricao</option>
 
+                    }
+                </select>
 
             </div>
-            <div class="col-6">  
-                <label class="font-weight-bold" for="campo-categoriaDespesa">Categoria Despesa</label>
+
+
+        </div>
+        <div class="row">
+            <div class="col-6">
+                  <label class="font-weight-bold" for="campo-categoriaReceita">Categoria Receita<span class="text-danger">*</span></label>
+                <select name="IdCategoriaReceita" id="campo-categoriaReceita" required="" class="form-control border-info">
+                    <option selected="" disabled="disabled">Selecione uma Categoria Receita</option>
+                    @foreach (Model.CategoriaReceita categoriaReceita in ViewBag.CategoriasReceita)
+                    {
+                        <option value="@categoriaReceita.Id">@categoriaReceita.TipoCategoriaReceita</option>
+
+                    }
+                </select>
+
+            </div>
+            <div class="col-6">
+                <label class="font-weight-bold" for="campo-categoriaDespesa">Categoria Despesa<span class="text-danger">*</span></label>
                 <select name="IdCategoriaDespesa" id="campo-categoriaDespesa" required="" class="form-control border-info">
                     <option selected="" disabled="disabled">Selecione uma Categoria Despesa</option>
                     @foreach (Model.CategoriaDespesa categoriaDespesa in ViewBag.CategoriasDespesa)
@@ -38,9 +64,9 @@
                     }
                 </select>
 
-
-
             </div>
+
+
         </div>
 
 
@@ -51,21 +77,21 @@
         <div class="row">
             <div class="col-12">
                 <label for="contacorrente-campo-descricao">Descricao<span class="text-danger">*</span></label>
-                <input type="text" id="contacorrente-campo-descricao" name="descricao" class="form-control" />
+                <input type="text" id="contacorrente-campo-descricao" name="descricao" class="form-control" required="" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-12">
                 <lable for="contacorrente-campo-documento">Documento<span class="text-danger">*</span></lable>
-                <input type="text" id="contacorrente-campo-documento" name="documento" class="form-control" />
+                <input type="text" id="contacorrente-campo-documento" name="documento" class="form-control"required="" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-4">
                 <lable for="contacorrente-campo-tipopagamento">Tipo Pagamento<span class="text-danger">*</span></lable>
-                <select id="contacorrente-campo-tipopagamento" name="tipopagamento" class="form-control">
+                <select id="contacorrente-campo-tipopagamento" name="tipopagamento" class="form-control" required="">
                     <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                     <option>Dinheiro</option>
                     <option>Cartão de Débito</option>
@@ -75,7 +101,7 @@
 
             <div class="col-4">
                 <lable for="contacorrente-campo-valor">Valor<span class="text-danger">*</span></lable>
-                <input type="text" id="contacorrente-campo-valor" name="valor" class="form-control" />
+                <input type="text" id="contacorrente-campo-valor" name="valor" class="form-control" required=""/>
             </div>
 
             <div class="col-4">
@@ -92,17 +118,17 @@
         <div class="row">
             <div class="col-4">
                 <lable for="contacorrente-campo-datalancamento">Data Lançamento<span class="text-danger">*</span></lable>
-                <input type="date" id="contacorrente-campo-datalancamento" name="datalancamento" class="form-control" />
+                <input type="date" id="contacorrente-campo-datalancamento" name="datalancamento" class="form-control" required="" />
             </div>
 
             <div class="col-4">
                 <lable for="contacorrente-campo-datavencimento">Data Vencimento<span class="text-danger">*</span></lable>
-                <input type="date" id="contacorrente-campo-datavencimento" name="datavencimento" class="form-control" />
+                <input type="date" id="contacorrente-campo-datavencimento" name="datavencimento" class="form-control" required=""/>
             </div>
 
             <div class="col-4">
                 <lable for="contacorrente-campo-datarecebimento">Data Recebimento<span class="text-danger">*</span></lable>
-                <input type="date" id="contacorrente-campo-datarecebimento" name="datarecebimento" class="form-control" />
+                <input type="date" id="contacorrente-campo-datarecebimento" name="datarecebimento" class="form-control" required=""/>
             </div>
         </div>
         <br />

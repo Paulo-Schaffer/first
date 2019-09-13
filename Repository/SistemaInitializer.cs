@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+   internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
    // internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
@@ -84,12 +84,12 @@ namespace Repository
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
-                TipoCategoriaReceita = "Despesa com Funcionário",
+                TipoCategoriaReceita = "Despesa com Paulo",
                 RegistroAtivo = true,
             });
             categoriaReceita.Add(new CategoriaReceita()
             {
-                TipoCategoriaReceita = "Despesa com Lanche",
+                TipoCategoriaReceita = "Despesa com Joao",
                 RegistroAtivo = true,
             });
             context.CategoriasReceitas.AddRange(categoriaReceita);
@@ -288,25 +288,25 @@ namespace Repository
             //    context.Funcionarios.AddRange(funcionario);
             //    #endregion
 
-            //#region historico
-            //var historico = new List<Historico>();
-            //historico.Add(new Historico()
-            //{
-            //    Descricao = "Conta adicionada dia 19/07/2000",
-            //    RegistroAtivo = true
-            //});
-            //historico.Add(new Historico()
-            //{
-            //    Descricao = "Conta paga com sucesso",
-            //    RegistroAtivo = true
-            //});
-            //historico.Add(new Historico()
-            //{
-            //    Descricao = "Conta em atraso, pagar até dia 29/08/1996",
-            //    RegistroAtivo = true
-            //});
-            //context.Historicos.AddRange(historico);
-            //#endregion
+            #region historico
+            var historico = new List<Historico>();
+            historico.Add(new Historico()
+            {
+                Descricao = "Conta adicionada dia 19/07/2000",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Descricao = "Conta paga com sucesso",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
+                RegistroAtivo = true
+            });
+            context.Historicos.AddRange(historico);
+            #endregion
 
             //#region login
             //var login = new List<Login>();
