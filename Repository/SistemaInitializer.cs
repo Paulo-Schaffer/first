@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    // internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+   // internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -440,11 +440,12 @@ namespace Repository
             //context.TitulosPagar.AddRange(tituloPagar);
             //#endregion
             #region Cadastro conta corrente
+
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
             cadastroscontacorrente.Add(new CadastroContaCorrente() {
-            IdAgencia = 1,
-            NumeroConta = 12,
-            RegistroAtivo = true,
+                NumeroConta = 80,
+                IdAgencia = 1,
+                RegistroAtivo = true,
             });
             #endregion
 

@@ -26,7 +26,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost,Route("cadastro")]
+        [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
@@ -38,10 +38,10 @@ namespace TccFirst.Controllers
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado,JsonRequestBehavior.AllowGet);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet,Route("apagar")]
+        [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
@@ -56,8 +56,6 @@ namespace TccFirst.Controllers
 
         public ActionResult Cadastro()
         {
-            return View();
-        }
 
             var tituloPagars = repository.ObterTodos();
 
@@ -78,7 +76,7 @@ namespace TccFirst.Controllers
                     dataVencimento = tituloPagar.DataVencimento,
                     complemento = tituloPagar.Complemento,
                     quantidadeParcela = tituloPagar.QuantidadeParcela,
-                    idFornecedores = tituloPagar.IdFornecedores,
+                    idFornecedores = tituloPagar.IdFornecedor,
                     idCategoriaDespesa = tituloPagar.IdCategoriaDepesesa
                 });
             }
@@ -88,6 +86,7 @@ namespace TccFirst.Controllers
             };
             return Json(resultado,
                 JsonRequestBehavior.AllowGet);
+        }
 
         [HttpGet, Route("editar")]
         ActionResult Editar(int id)

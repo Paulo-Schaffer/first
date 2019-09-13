@@ -11,47 +11,55 @@
 <div class="container">
 
     <form action="/ContaCorrente/cadastro" method="post">
+
         <div class="row">
             <div class="col-6">
-                <label for="contacorrente-campo-numeroconta">Numero da Conta<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="numerodaconta" id="contacorrente-campo-numeroconta" />
-            </div>
+                <label class="font-weight-bold" for="campo-cadastrocontacorrente">Conta Corrente</label>
+                <select name="IdCadastroContaCorrente" id="campo-cadastrocontacorrente" required="" class="form-control border-info">
+                    <option selected="" disabled="disabled">Selecione uma Conta</option>
+                    @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastroContaCorrentes)
+                    {
+                        <option value="@cadastroContaCorrente.Id">@cadastroContaCorrente.NumeroConta</option>
 
-            <div class="col-6">
+                    }
+                </select>
+
+
+
+            </div>
+            <div class="col-6">  
+                <label class="font-weight-bold" for="campo-categoriaDespesa">Categoria Despesa</label>
+                <select name="IdCategoriaDespesa" id="campo-categoriaDespesa" required="" class="form-control border-info">
+                    <option selected="" disabled="disabled">Selecione uma Categoria Despesa</option>
+                    @foreach (Model.CategoriaDespesa categoriaDespesa in ViewBag.CategoriasDespesa)
+                    {
+                        <option value="@categoriaDespesa.Id">@categoriaDespesa.TipoCategoriaDespesa</option>
+
+                    }
+                </select>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-12">
                 <label for="contacorrente-campo-descricao">Descricao<span class="text-danger">*</span></label>
                 <input type="text" id="contacorrente-campo-descricao" name="descricao" class="form-control" />
             </div>
         </div>
         <br />
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <lable for="contacorrente-campo-documento">Documento<span class="text-danger">*</span></lable>
                 <input type="text" id="contacorrente-campo-documento" name="documento" class="form-control" />
             </div>
-            <div class="col-6">
-                <div class="row">
-
-                    <div class="col-9">
-
-                        <label class="font-weight-bold" for="campo-agencia">Agencia</label>
-                        <select name="agencia" id="campo-agencia" required="" class="form-control border-info">
-                            <option selected="" disabled="disabled">Selecione uma Agencia</option>
-                            @foreach (Model.Agencia agencias in ViewBag.Agencia)
-                            {
-                                <option value="@agencias.Id">@agencias.NomeAgencia</option>
-
-                            }
-                        </select>
-
-                    </div>
-                    <div class="col-3 pl-0 pt-1">
-                        <button class="btn btn-grd-success  btn-block float-left mt-3" type="submit">...</button>
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
         <br />
         <div class="row">
@@ -98,18 +106,7 @@
             </div>
         </div>
         <br />
-        <div class="row">
-            <div class="col-6">
-                <lable for="contacorrente-campo-nomebanco">Nome Banco<span class="text-danger">*</span></lable>
-                <input type="text" id="contacorrente-campo-nomebanco" name="nomebanco" class="form-control" />
-            </div>
 
-            <div class="col-6">
-                <lable for="contacorrente-campo-numerobanco">Numero Banco<span class="text-danger">*</span></lable>
-                <input type="text" id="contacorrente-campo-numerobanco" name="numerobanco" class="form-control" />
-            </div>
-
-        </div>
         <div>
             <div class="col-12">
                 <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
@@ -117,6 +114,7 @@
         </div>
     </form>
 </div>
+
 <link href="~/Content/css/Botoes.css" type="text/css" rel="stylesheet">
 
 
