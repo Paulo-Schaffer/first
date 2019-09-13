@@ -11,43 +11,39 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
-                        <label for="modal-login-funcionario">Funcionario</label>
-                        <select class="form-control" id="modal-login-funcionario" name="idFuncionario"></select>
+                        <label for="login-campo-funcionario">Funcionario</label>
+                        <select class="form-control" id="login-campo-funcionario" name="idFuncionario"></select>
                     </div>
                 </div>
-
-
 
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="modal-login-usuario">Usuario</label>
-                            <input type="text" id="modal-login-usuario" class="form-control" />
+                            <label for="login-campo-usuario">Usuario</label>
+                            <input type="text" id="login-campo-usuario" class="form-control" />
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="modal-login-senha">Senha</label>
-                            <input type="password" id="modal-login-senha" class="form-control" />
+                            <label for="login-campo-senha">Senha</label>
+                            <input type="password" id="login-campo-senha" class="form-control" />
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="titulo-pagar-botao-salvar">Salvar</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="login-botao-salvar">
+                    <i class="fa fa-floppy-o"></i> Salvar
+                </button>
             </div>
         </div>
     </div>
 </div>
-@section css{
-    <link href="~/Content/css/select2.css"
-          rel="stylesheet" />
-}
 
 @section js{
     <script src="~/Scripts/Login/login-index.js"></script>
-    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/Login/login-cadastro.js"></script>
 }

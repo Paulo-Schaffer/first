@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface ICadastroContaCorrente
+    public interface ICadastroContaCorrenteRepository
     {
         int Inserir(CadastroContaCorrente cadastrosContaCorrente);
 
         bool Alterar(CadastroContaCorrente cadastrosContaCorrente);
 
+        List<CadastroContaCorrente> ObterTodos();
+
+        CadastroContaCorrente ObterPeloId(int id);
+
         bool Apagar(int id);
-
-        List<Fornecedor> ObterTodos(string busca);
-
-        Fornecedor ObterPeloId(int id);
     }
 }

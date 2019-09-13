@@ -26,7 +26,7 @@ namespace Repository.Repositories
                 return false;
             }
 
-            tituloPagarOficial.IdCategoriaDepesesa = tituloPagar.IdCategoriaDepesesa;
+            tituloPagarOficial.IdCategoriaDespesa = tituloPagar.IdCategoriaDespesa;
             tituloPagarOficial.IdFornecedor = tituloPagar.IdFornecedor;
             tituloPagarOficial.Descricao = tituloPagar.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagar.FormaPagamento;
@@ -59,6 +59,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloPagar tituloPagar)
         {
+            tituloPagar.RegistroAtivo = true;
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
@@ -73,8 +74,10 @@ namespace Repository.Repositories
 
         public List<TituloPagar> ObterTodos()
         {
-            return context.TitulosPagar.
-                Where(x => x.RegistroAtivo == true).ToList();
+            return context.TitulosPagar
+                .Include("Fornecedor")
+                .Include("CategoriaDespesa")
+                .Where(x => x.RegistroAtivo == true).ToList();
         }
     }
 }

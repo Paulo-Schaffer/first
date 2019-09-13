@@ -4,12 +4,15 @@
 
 <h2>Lista de Usuarios</h2>
 
-<button data-toggle="modal" data-target="#modal-login" class="btn btn-primary">Novo Usuario</button>
+<button type="button" data-toggle="modal" data-target="#modal-login" class="btn btn-info float-right">
+    <i class="fa fa-plus"></i>Novo Usuario
+</button>
 
 <table id="login-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Id</th>
+            <th>Funcionario</th>
             <th>Usario</th>
             <th>Ação</th>
         </tr>
@@ -20,4 +23,5 @@
 
 @section js{
     <script src="~/Scripts/Login/login-index.js"></script>
+    <script src="~/Scripts/Login/login-cadastro.js"></script>
 }
