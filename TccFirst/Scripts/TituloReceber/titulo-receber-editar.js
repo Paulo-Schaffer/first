@@ -7,6 +7,7 @@
         serverSide: true,
         columns: [
             { data: "Id" },
+            { data: "IdClientePessoaJuridica"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             { data: "Status" },
@@ -26,7 +27,6 @@
                 }
             },
             { data: "Descricao" },
-            { data: "Complemento" },
             {
                 render: function (data, type, row) {
                     return "\
@@ -59,7 +59,6 @@
 
     $("#titulo-receber-botao-salvar").on("click", function () {
         $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
-        $idPessoaFisica = $("#tituloReceber-campo-pessoa-Fisica").val();
         $idCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
         $valorTotal = $("#tituloReceber-campo-valor-total").val();
         $quantidadeParcela = $("#tituloReceber-campo-quantidade-Parcelas").val();
@@ -70,19 +69,18 @@
         $descricao = $("#tituloReceber-campo-descricao").val();
         $complemento = $("#tituloReceber-campo-complemento").val();
         if ($idAlterar == -1) {
-            inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
+            inserir($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
         } else {
-            alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
+            alterar($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
         }
     });
 
-    function inserir($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status,  $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
+    function inserir($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status,  $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
         $.ajax({
             url: '/tituloreceber/cadastro',
             method: 'post',
             data: {
-                idpessoaJuridica: $idPessoaJuridica,
-                idPessoaFisica: $idPessoaFisica,
+                idPessoaJuridica: $idPessoaJuridica,
                 idCategoriaReceita: $idCategoriaReceita,
                 valorTotal: $valorTotal,
                 quantidadeParcela: $quantidadeParcela,
@@ -114,7 +112,6 @@
             success: function (data) {
                 $idAlterar = $id;
                 $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica);
-                $("#tituloReceber-campo-pessoa-Fisica").val(data.IdClientePessoaFisica);
                 $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
                 $("#tituloReceber-campo-valor-total").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcela);
@@ -138,13 +135,12 @@
         })
     });
 
-    function alterar($idPessoaJuridica, $idPessoaFisica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
+    function alterar($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
         $.ajax({
             url: "/tituloreceber/editar",
             method: "post",
             data: {
                 idPessoaJuridica: $idPessoaJuridica,
-                idPessoaFisica: $idPessoaFisica,
                 idCategoriareceita: $idCategoriaReceita,
                 valorTotal: $valorTotal,
                 quantidadeParcela: $quantidadeParcela,
@@ -169,8 +165,7 @@
     }
 
     function limparCampos() {
-        $("#tituloReceber-campo-pessoa-Juridica").val(-1);
-        $("#tituloReceber-campo-pessoa-Fisica").val("");
+        $("#tituloReceber-campo-pessoa-Juridica").val("");
         $("#tituloReceber-campo-categoria-Receita").val("");
         $("tituloReceber-campo-status").val("");
         $("#tituloReceber-campo-valor-total").val("");
