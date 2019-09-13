@@ -5468,6 +5468,7 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
     <Content Include="Scripts\Agencia\Agencia.js" />
+    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Index.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -5614,6 +5615,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery.form-validator.min.js" />
+    <Content Include="Scripts\Login\login-cadastro.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-cadastro.js" />
@@ -5632,7 +5634,7 @@
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\select2.min.css" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
-    <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
+    <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
@@ -5645,11 +5647,14 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
+    <Compile Include="Controllers\CadastroContaCorrenteController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
@@ -5727,6 +5732,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper.min.js.map" />
     <Content Include="Scripts\README.md" />
+    <Content Include="Views\Login\CadastroLogin.cshtml" />
+    <Content Include="Views\CategoriaReceita\CadastroCategoriaReceita.cshtml" />
+    <Content Include="Views\CategoriaReceita\Index.cshtml" />
+    <Content Include="Views\CategoriaReceita\CadastroCategoriaReceita.cshtml" />
+    <Content Include="Views\CategoriaReceita\Index.cshtml" />
+    <Content Include="Views\Agencia\Editar.cshtml" />
+    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\ParcelaReceber\Index.cshtml" />
     <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />

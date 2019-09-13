@@ -26,11 +26,11 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost,Route("cadastro")]
+        [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
-            return RedirectToAction("Editar", new { id = id });
+            return Json(new { id = id });
         }
 
         [HttpPost, Route("editar")]
@@ -38,15 +38,21 @@ namespace TccFirst.Controllers
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado,JsonRequestBehavior.AllowGet);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet,Route("apagar")]
+        [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet, Route("tituloPagar")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Index()
@@ -59,14 +65,7 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet, Route("editar")]
-        ActionResult Editar(int id)
-        {
-            var titulosPagar = repository.ObterPeloId(id);
-            if (titulosPagar == null)
-                return RedirectToAction("Index");
-            ViewBag.TituloPagar = titulosPagar;
-            return View();
-        }
+
+
     }
 }
