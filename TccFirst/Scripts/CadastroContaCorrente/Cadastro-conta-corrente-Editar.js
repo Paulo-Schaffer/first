@@ -64,7 +64,7 @@
 
     $('.table').on("click", ".botao-editar", function () {
         $id = $(this).data("id");
-        $.ajax ({
+        $.ajax({
             url: '/cadastrocontacorrente/obterpeloid?id=' + $id,
             method: 'get',
             success: function (data) {
@@ -75,7 +75,7 @@
             error: function (data) {
                 alert("Não foi possível buscar o registro");
             }
-        })//pornto e virgula?
+        });//pornto e virgula?
 
     });
 
