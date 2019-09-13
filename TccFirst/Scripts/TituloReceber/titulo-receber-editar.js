@@ -9,7 +9,7 @@
             { data: "Id" },
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
-            { data: " " },
+            { data: "Status" },
             {
                 render: function (data, type, row) {
                     return moment(row.DataLancamento).format('DD/MM/YYYY')
