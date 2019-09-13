@@ -1,8 +1,8 @@
-﻿$(function () {
-    
+﻿$(function () {   
     $idAlterar = -1;
 
     $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
+        "scrollX": true,
         ajax: "/parcelaReceber/obtertodos",
         serverSide: true,
         coluns: [
@@ -107,15 +107,15 @@
         $id= $(this).data('id');
 
         $.ajax({
-            url: "/parcelaReceber/obterpeloid?id=" + $id,
+            url: "/parcelaReceber/obterpeloid?id=" + $idAlterar,
             method: 'get',
             success: function (data) {
                 $idAlterar = $id;
-                $("#parcelaReceber-campo-tituloReceber").val(data.idTitulosReceber);
+                $("#parcelaReceber-campo-tituloReceber").val(data.idTituloReceber);
                 $("#parcelaReceber-campo-valor").val(data.valor);
                 $("#parcelaReceber-campo-status").val(data.status);
-                $("#parcelaReceber-campo-dataVencimento").val(data.dataVencimento);
-                $("#parcelaReceber-campo-dataRecebimento").val(data.dataRecebimento);
+                $("#parcelaReceber-campo-dataVencimento").val(data.DataVencimento);
+                $("#parcelaReceber-campo-dataRecebimento").val(data.DataRecebimento);
                 $('#modal-parcelaReceber').modal('show');
             },
             error: function (err) {
