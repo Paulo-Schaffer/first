@@ -25,7 +25,7 @@ namespace Repository.Repositories
                 return false;
             }
 
-            cadastrosContaCorrente.IdAgencia = cadastrosContaCorrente.IdAgencia;
+            cadastrosContaCorrente.IdAgencias = cadastrosContaCorrente.IdAgencias;
             cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;

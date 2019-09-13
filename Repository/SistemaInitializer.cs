@@ -76,7 +76,7 @@ namespace Repository
             {
                 TipoCategoriaDespesa = "Despesa com Lanche",
                 RegistroAtivo = true,
-        });
+            });
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
@@ -147,11 +147,11 @@ namespace Repository
                 Telefone = "3345-5567",
                 Cep = "09432-876",
                 Logradouro = "Ubatuba",
-                Numero= 675,
-                Bairro="Bairro Vila Olimpia",
-                Uf="SP",
-                Cidade="São Paulo",
-                RegistroAtivo = true, 
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Uf = "SP",
+                Cidade = "São Paulo",
+                RegistroAtivo = true,
 
             });
 
@@ -376,13 +376,13 @@ namespace Repository
                 DataRecebimento = Convert.ToDateTime("05/08/2018"),
                 RegistroAtivo = true,
             });
-                #endregion ParcelaReceber
+            #endregion ParcelaReceber
 
             #region Historicos
             var historicos = new List<Historico>();
             historicos.Add(new Historico()
             {
-                Id = 1, 
+                Id = 1,
                 Descricao = "Manuteção",
                 RegistroAtivo = true
             });
@@ -425,14 +425,14 @@ namespace Repository
             var tituloReceber = new List<TituloReceber>();
             tituloReceber.Add(new TituloReceber()
             {
-                Descricao= "Titulo sem compromisso",
+                Descricao = "Titulo sem compromisso",
                 ValorTotal = 123213123,
                 Status = "Pago",
                 DataLancamento = "29/12/2018",
                 DataRecebimento = "04/01/2019",
-                DataVencimento="30/01/2019",
-                Complemento="Não sei o que por",
-                QuantidadeParcela= 36,
+                DataVencimento = "30/01/2019",
+                Complemento = "Não sei o que por",
+                QuantidadeParcela = 36,
                 RegistroAtivo = true
             });
             tituloReceber.Add(new TituloReceber()
@@ -451,11 +451,13 @@ namespace Repository
 
             #region Cadastro conta corrente
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
-            cadastroscontacorrente.Add(new CadastroContaCorrente() {
-            IdAgencia = 1,
-            NumeroConta = 12,
-            RegistroAtivo = true,
+            cadastroscontacorrente.Add(new CadastroContaCorrente()
+            {
+                IdAgencias = 1,
+                NumeroConta = 12,
+                RegistroAtivo = true,
             });
+            //context.CadastroContaCorrentes.AddRange(cadastroscontacorrente);
             #endregion
 
             #region fornecedores

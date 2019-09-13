@@ -1,8 +1,8 @@
 ﻿$(function () {
     $idAlterar = -1;
 
-    $tabelaCadastroContaCorrente = $('#cadastro-conta-corrente').DaraTable({
-        ajax: '/CadastroContaCorrente/ObterTodos',
+    $tabelaCadastroContaCorrente = $('#cadastro-conta-corrente-tabela').DataTable({
+        ajax: '/cadastrocontacorrente/obtertodos',
         serverSide: true,
         Columns: [
             { 'data': 'Id' },
@@ -17,7 +17,7 @@
     });
 
 
-    $("#cadastro-conta-corrente-tabelaa").on("click", ".botao-apagar", function () {
+    $("#cadastro-conta-corrente-tabela").on("click", ".botao-apagar", function () {
         $id = $(this).data("id");
         $.ajax({
             url: '/cadastrocontacorrente/apagar?id=' + $id,
@@ -42,12 +42,12 @@
         }
     });
 
-    function inserir($idAngecia, $numeroConta) {
+    function inserir($idAgencia, $numeroConta) {
         $.ajax({
-            url: '/CadastroContaCorrete/cadastro',
+            url: '/cadastrocontacorrente/cadastro',
             method: 'post',
             data: {
-                idagencia: $idAngecia,
+                idagencia: $idAgencia,
                 numeroAgencia: $numeroConta
             },
             success: function (data) {
@@ -69,8 +69,8 @@
             method: 'get',
             success: function (data) {
                 $idAlterar = $id;
-                $('#cadastro-conta-corrente-campo-idAgencia').val(data.idagencia);
-                $('#cadastro-conta-corrente-campo-numero-conta').val(data.numeroAgencia);
+                $('#cadastro-conta-corrente-campo-idAgencia').val(data.IdAgencias);
+                $('#cadastro-conta-corrente-campo-numero-conta').val(data.NumeroConta );
             },
             error: function (data) {
                 alert("Não foi possível buscar o registro");
@@ -84,12 +84,12 @@
 
     function alterar($idAgencia, $numeroConta) {
         S.ajax({
-            url: 'cadastrocontacorrente/alterar',
+            url: '/cadastrocontacorrente/editar',
             method: 'post',
             data: {
-                id= $idAlterar,
-                idagencia = $idAgencia,
-                numeroConta = $numeroConta
+                idagencia: $idAgencia,
+                numeroConta : $numeroConta,
+                id : $idAlterar,
             },
             success: function (data) {
                 limparCampos();

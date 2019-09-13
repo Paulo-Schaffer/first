@@ -8,18 +8,17 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
+    [Route("cadastrocontacorrente/")]
     public class TituloReceberController : Controller
     {
         private TituloReceberRepository repository;
-
+        
         public TituloReceberController()
         {
             repository = new TituloReceberRepository();
         }
         
-       
-
-        [HttpGet, Route("obterTodos")]
+        [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
             var titulosReceber = repository.ObterTodos();
