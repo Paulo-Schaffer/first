@@ -22,5 +22,8 @@ namespace Model
         [ForeignKey("IdAgencia")]
         public Agencia Agencia { get; set; }
 
+        [Column("registro_ativo")]
+        public bool RegistroAtivo { get; set; }
+
     }
 }

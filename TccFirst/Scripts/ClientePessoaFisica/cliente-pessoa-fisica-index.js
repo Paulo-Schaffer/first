@@ -145,7 +145,7 @@ $(function () {
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
-            { 'data': 'Id' },S
+            { 'data': 'Id' },
             { 'data': 'Nome' },
             { 'data': 'Cpf' },
             {

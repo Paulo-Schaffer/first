@@ -30,9 +30,9 @@ namespace TccFirst.Controllers
         [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
+            tituloReceber.RegistroAtivo = true;
             int id = repository.Inserir(tituloReceber);
-            return RedirectToAction("Editar",
-                new { id = id });
+            return Json(new { id = id });
         }
 
         [HttpPost, Route("editar")] 

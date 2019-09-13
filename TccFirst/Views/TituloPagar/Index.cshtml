@@ -4,13 +4,15 @@
 
 <h2>Lista de Títulos a Pagar</h2>
 
-<button type="button" data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-primary">Novo Titulo Pagar</button>
+<button type="button" data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-primary">
+    <i class="fa fa-plus"></i>Novo Titulo Pagar</button>
 
 <table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped" >
     <thead>
         <tr>
-            <th>IdFornecedor</th>
-            <th>IdCategoriaDespesa</th>
+            <th>Código</th>
+            <th>Fornecedor</th>
+            <th>Categoria Despesa</th>
             <th>Descrição</th>
             <th>Forma de Pagamento</th>
             <th>Caixa</th>
@@ -30,7 +32,7 @@
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
-    <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
 
 

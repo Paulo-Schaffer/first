@@ -24,7 +24,7 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Inserir(CategoriaReceita categoriaReceita)
+        public JsonResult Inserir(CategoriaReceita categoriaReceita)    
         {
             categoriaReceita.RegistroAtivo = true;
             var id = repository.Inserir(categoriaReceita);
@@ -48,6 +48,11 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet, Route("categoriareceita/")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
         [HttpPost]
         public JsonResult Update(CategoriaReceita categoriaReceita)
         {
@@ -56,33 +61,28 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-        [HttpGet, Route("categoriareceita/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
+        //[HttpGet, Route("categoriareceita/")]
+        //public JsonResult ObterPeloId(int id)
+        //{
+        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
 
         [HttpGet, Route("categoriareceita/obtertodosselect2")]
-        public JsonResult ObterTodosPeloSelect2(string term)
+        public JsonResult ObterTodosSelect2(string term)
         {
-            var categoriasReceitas = repository.ObterTodos();
+            var categorias = repository.ObterTodos();
 
-            List<object> categoriasReceitasSelect2 =
-                new List<object>();
-            foreach (CategoriaReceita categoriaReceita in categoriasReceitas)
+            List<object> categoriasSelect2 = new List<object>();
+            foreach (CategoriaReceita categoriaReceita in categorias)
             {
-                categoriasReceitasSelect2.Add(new
+                categoriasSelect2.Add(new
                 {
                     id = categoriaReceita.Id,
                     text = categoriaReceita.TipoCategoriaReceita
                 });
             }
-            var resultado = new
-            {
-                results = categoriasReceitasSelect2
-            };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+            var resultado = new { results = categoriasSelect2 };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
 }
