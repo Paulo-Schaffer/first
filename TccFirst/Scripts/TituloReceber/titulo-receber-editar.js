@@ -115,10 +115,10 @@
                 $("#tituloReceber-campo-valor").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcelas);
                 $("#tituloReceber-campo-descricao").val(data.Descricao);
-                $("#tituloReceber-campo-data-lancamento").val(DataLancamento.format('YYYY-MM-DD'));
-                $("#tituloReceber-campo-data-recebimento").val(DataRecebimento.format('YYYY-MM-DD'));
-                $("#tituloReceber-campo-data-vencimento").val(DataVencimento.format('YYYY-MM-DD'));
-                $("#tituloReceber-campo-complemento").val(data.Complemento); 
+                $("#tituloReceber-campo-data-lancamento").val(dataLancamento.format('YYYY-MM-DD'));
+                $("#tituloReceber-campo-data-recebimento").val(dataRecebimento.format('YYYY-MM-DD'));
+                $("#tituloReceber-campo-data-vencimento").val(dataVencimento.format('YYYY-MM-DD'));
+                $("#tituloReceber-campo-complemento").val(data.Complemento);
                 $("#modal-tituloReceber").modal("show");
             },
             error: function (data) {
