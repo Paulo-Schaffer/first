@@ -2,11 +2,12 @@
     $idAlterar = -1;
 
     $tabelaTituloPagar = $("#tituloPagar-tabela").DataTable({
+        "scrollX": true,
         reponsive: true,
         ajax: '/titulopagar/obtertodos',
         serverSide: true,
         columns: [
-            {data: 'Id'},
+            { data: 'Id' },
             { data: "IdFornecedor" },
             { data: "IdCategoriaDespesa" },
             { data: "Descricao" },
@@ -14,9 +15,21 @@
             { data: "Caixa" },
             { data: "ValorTotal" },
             { data: "Status" },
-            { data: "DataLancamento" },
-            { data: "DataRecebimento" },
-            { data: "DataVencimento" },
+            {
+            render: function (data, type, row) {
+            return moment(row.DataNascimento).format('YYYY-MM-DD')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataRecebimento).format('YYYY-MM-DD')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataVencimento).format('YYYY-MM-DD')
+                }
+            },
 
             { data: "Complemento" },
             { data: "QuantidadeParcela" },
@@ -33,6 +46,8 @@
     });
 
     $("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
+        confirma = confirm("Deseja realmente apagar?");
+        if (confirma == true) {
         $id = $(this).data('id');
         $.ajax({
             url: '/titulopagar/apagar?id=' + $id,
@@ -45,6 +60,7 @@
                 alert('Não foi possível apagar');
             }
         });
+        }
     });
 
     $('#titulo-pagar-botao-salvar').on('click', function () {
@@ -102,6 +118,10 @@
             url: '/titulopagar/obterpeloid?id=' + $idAlterar,
             method: "get",
             success: function (data) {
+                var dataLancamento = moment(data.$DataLancamento);
+                var dataRecebimento = moment(data.$DataRecebimento);
+                var dataVencimento = moment(data.$DataVencimento);
+                console.log();
                 $('#tituloPagar-campo-fornecedor').val(data.$IdFornecedor);
                 $('#tituloPagar-campo-categoria-despesa').val(data.IdCategoriaDespesa);
                 $('#tituloPagar-campo-descricao').val(data.Descricao);
@@ -109,9 +129,9 @@
                 $('#tituloPagar-campo-caixa').val(data.Caixa);
                 $('#tituloPagar-campo-valor-total').val(data.ValorTotal);
                 $('#tituloPagar-campo-status').val(data.Status);
-                $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento);
-                $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento);
-                $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
+                $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento.format('YYYY-MM-DD'));
+                $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento.format('YYYY-MM-DD'));
+                $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento.format('YYYY-MM-DD'));
                 $('#tituloPagar-campo-complemento').val(data.Complemento);
                 $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
                 $('#modal-tituloPagar').modal('show');
