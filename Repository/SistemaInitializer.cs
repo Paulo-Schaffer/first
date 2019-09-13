@@ -449,6 +449,15 @@ namespace Repository
             });
             #endregion
 
+            #region Cadastro conta corrente
+            var cadastroscontacorrente = new List<CadastroContaCorrente>();
+            cadastroscontacorrente.Add(new CadastroContaCorrente() {
+            IdAgencia = 1,
+            NumeroConta = 12,
+            RegistroAtivo = true,
+            });
+            #endregion
+
             #region fornecedores
             var fornecedores = new List<Fornecedor>();
             fornecedores.Add(new Fornecedor()

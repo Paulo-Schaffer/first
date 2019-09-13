@@ -5468,7 +5468,8 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
     <Content Include="Scripts\Agencia\Agencia.js" />
-    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Index.js" />
+    <Content Include="Scripts\CadastroContaCorrente\cadastro-conta-corrente-cadastro.js" />
+    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Editar.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -5677,7 +5678,7 @@
     <Content Include="Views\Agencia\Editar.cshtml" />
     <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
-    <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
