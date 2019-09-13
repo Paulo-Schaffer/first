@@ -1,7 +1,7 @@
 ﻿$(function () {
     $("#caixa-campo-historico").select2({
         ajax: {
-            url: "/caixa/obtertodosselect2",
+            url: "/historico/obtertodosselect2",
             dataType: "json"
         }
     });

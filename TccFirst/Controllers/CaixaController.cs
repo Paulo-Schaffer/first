@@ -56,5 +56,28 @@ namespace TccFirst.Controllers
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet, Route("caixa/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
+        {
+            var caixas = repository.ObterTodos();
+
+            List<object> caixasSelect2 =
+                new List<object>();
+            foreach (Caixa caixa in caixas)
+            {
+                caixasSelect2.Add(new
+                {
+                    id = caixa.Id,
+                    text = caixa.Descricao
+
+                });
+            }
+            var resultado = new
+            {
+                results = caixasSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
     }
 }

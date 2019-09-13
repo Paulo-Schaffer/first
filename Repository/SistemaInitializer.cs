@@ -38,6 +38,29 @@ namespace Repository
 
             #endregion
 
+
+            #region historico
+            var historico = new List<Historico>();
+            historico.Add(new Historico()
+            {
+                Id = 1,
+                Descricao = "Conta adicionada dia 19/07/2000",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Id = 2,
+                Descricao = "Conta paga com sucesso",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Id = 3,
+                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
+                RegistroAtivo = true
+            });
+            #endregion
+
             #region caixa
             var caixa = new List<Caixa>();
             caixa.Add(new Caixa()
@@ -47,17 +70,10 @@ namespace Repository
                 FormaPagamento = "Debito",
                 Valor = 1900,
                 DataLancamento = Convert.ToDateTime("1900-01-01 00:00:00"),
+                IdHistoricos = 1,
                 RegistroAtivo = true
             });
-            caixa.Add(new Caixa()
-            {
-                Descricao = "Caixa é Bradesco",
-                Documento = "Este documento é seu",
-                FormaPagamento = "Crédito",
-                Valor = 17900,
-                DataLancamento = Convert.ToDateTime("1967-02-11 12:17:5"),
-                RegistroAtivo = true
-            });
+            
             context.Caixas.AddRange(caixa);
             #endregion
 
@@ -260,24 +276,6 @@ namespace Repository
             });
             #endregion
 
-            #region historico
-            var historico = new List<Historico>();
-            historico.Add(new Historico()
-            {
-                Descricao = "Conta adicionada dia 19/07/2000",
-                RegistroAtivo = true
-            });
-            historico.Add(new Historico()
-            {
-                Descricao = "Conta paga com sucesso",
-                RegistroAtivo = true
-            });
-            historico.Add(new Historico()
-            {
-                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
-                RegistroAtivo = true
-            });
-            #endregion
 
             #region login
             var login = new List<Login>();

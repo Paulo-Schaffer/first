@@ -29,11 +29,11 @@ namespace Model
         public DateTime DataLancamento { get; set; }
 
         #region fk_historico
-        [Column("id_historico")]
-        public int IdHistorico{ get; set; }
+        [Column("id_historicos")]
+        public int IdHistoricos{ get; set; }
 
-        [ForeignKey("IdHistorico")]
-        public Historico historicos { get; set; }
+        [ForeignKey("IdHistoricos")]
+        public Historico Historico { get; set; }
         #endregion
 
         [Column("registro_ativo")]

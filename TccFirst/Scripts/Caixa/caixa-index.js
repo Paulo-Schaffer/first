@@ -9,7 +9,8 @@ $(function () {
             { data: 'Documento' },
             { data: 'FormaPagamento' },
             { data: 'Valor' },
-            { data: 'DataLancamento'},
+            { data: 'DataLancamento' },
+            { data: 'IdHistoricos'},
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
@@ -24,15 +25,15 @@ $(function () {
         $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $valor = $('#caixa-campo-valor').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
-        $IdHistorico = $('#caixa-campo-historico').val();
+        $IdHistoricos = $('#caixa-campo-historico').val();
         if ($idAlterar == -1) {
-            inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistorico);
+            inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         } else {
-            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $status, $IdHistorico);
+            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $status, $IdHistoricos);
         }
     });
 
-    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistorico) {
+    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: "/Caixa/update",
             method: "post",
@@ -42,7 +43,7 @@ $(function () {
                 FormaPagamento: $formaPagamento,
                 Valor: $valor,
                 DataLancamento: $dataLancamento,
-                IdHistorico: $IdHistorico,
+                IdHistoricos: $IdHistoricos,
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
@@ -55,7 +56,7 @@ $(function () {
         })
     }
 
-    function inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistorico) {
+    function inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: '/Caixa/inserir',
             method: 'post',
@@ -65,12 +66,12 @@ $(function () {
                 FormaPagamento: $formaPagamento,
                 Valor: $valor,
                 DataLancamento: $dataLancamento,
-                IdHistorico: $IdHistorico,
+                IdHistoricos: $IdHistoricos,
             },
             success: function (data) {
                 $('#modal-caixa').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelaCaixa.ajax.reload();
-                $('#modal-caixa').val("")
             },
             error: function (err) {
 
@@ -107,7 +108,7 @@ $(function () {
                 $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
                 $('#caixa-campo-valor').val(data.Valor);
                 $("#caixa-campo-data-lancamento").val(data.DataLancamneto);
-                $('#caixa-campo-historico').val(data.IdHistorico);
+                $('#caixa-campo-historico').val(data.IdHistoricos);
                 $('#modal-caixa').modal('show');
             },
             error: function (err) {

@@ -23,7 +23,7 @@ namespace Repository.Repositories
 
             if (caixaRegistro == null)
                 return false;
-            caixaRegistro.IdHistorico = caixa.IdHistorico;
+            caixaRegistro.IdHistoricos = caixa.IdHistoricos;
             caixaRegistro.Descricao = caixa.Descricao;
             caixaRegistro.Documento = caixa.Documento;
             caixaRegistro.FormaPagamento = caixa.FormaPagamento;
