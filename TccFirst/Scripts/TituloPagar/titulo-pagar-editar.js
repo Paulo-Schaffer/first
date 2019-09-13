@@ -3,13 +3,12 @@
 
     $tabelaTituloPagar = $("#tituloPagar-tabela").DataTable({
         "scrollX": true,
-        reponsive: true,
         ajax: '/titulopagar/obtertodos',
         serverSide: true,
         columns: [
             { data: 'Id' },
-            { data: "IdFornecedor" },
-            { data: "IdCategoriaDespesa" },
+            { data: "Fornecedor.RazaoSocial" },
+            { data: "CategoriaDespesa.TipoCategoriaDespesa" },
             { data: "Descricao" },
             { data: "FormaPagamento" },
             { data: "Caixa" },
@@ -36,10 +35,10 @@
             {
                 render: function (data, type, row) {
                     return "\
-                    <button class='btn btn-primary botao-editar'\
-                        data-id=" + row.Id + ">Editar</button>\
-                    <button class='btn btn-danger botao-apagar'\
-                        data-id=" + row.Id + ">Apagar</button>";
+                    <button class='btn btn-primary botao-editar fa fa-edit'\
+                        data-id=" + row.Id + "> Editar</button>\
+                    <button class='btn btn-danger botao-apagar fa fa-trash'\
+                        data-id=" + row.Id + "> Apagar</button>";
                 }
             }
         ]
@@ -53,7 +52,6 @@
             url: '/titulopagar/apagar?id=' + $id,
             method: "get",
             success: function (data) {
-                alert("Deseja realmente apagar?")
                 $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
@@ -76,6 +74,7 @@
         $DataVencimento = $('#tituloPagar-campo-data-vencimento').val();
         $Complemento = $('#tituloPagar-campo-complemento').val();
         $QuantidadeParcela = $('#tituloPagar-campo-quantidade-parcela').val();
+        
         if ($idAlterar == -1) {
             inserir($IdFornecedor, $IdCategoriaDespesa, $Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
         } else {
@@ -102,8 +101,8 @@
                 QuantidadeParcela: $QuantidadeParcela,
             },
             success: function (data) {
-                $('#modal-tituloPagar').modal('hide');
                 LimparCampos();
+                $('#modal-tituloPagar').modal('hide');
                 $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
@@ -118,23 +117,20 @@
             url: '/titulopagar/obterpeloid?id=' + $idAlterar,
             method: "get",
             success: function (data) {
-                var dataLancamento = moment(data.$DataLancamento);
-                var dataRecebimento = moment(data.$DataRecebimento);
-                var dataVencimento = moment(data.$DataVencimento);
-                console.log();
-                $('#tituloPagar-campo-fornecedor').val(data.$IdFornecedor);
-                $('#tituloPagar-campo-categoria-despesa').val(data.IdCategoriaDespesa);
-                $('#tituloPagar-campo-descricao').val(data.Descricao);
-                $('#tituloPagar-campo-forma-pagamento').val(data.FormaPagamento);
-                $('#tituloPagar-campo-caixa').val(data.Caixa);
-                $('#tituloPagar-campo-valor-total').val(data.ValorTotal);
-                $('#tituloPagar-campo-status').val(data.Status);
-                $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento.format('YYYY-MM-DD'));
-                $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento.format('YYYY-MM-DD'));
-                $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento.format('YYYY-MM-DD'));
-                $('#tituloPagar-campo-complemento').val(data.Complemento);
-                $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
+                    $('#tituloPagar-campo-fornecedor').val(data.$IdFornecedor);
+                    $('#tituloPagar-campo-categoria-despesa').val(data.IdCategoriaDespesa);
+                    $('#tituloPagar-campo-descricao').val(data.Descricao);
+                    $('#tituloPagar-campo-forma-pagamento').val(data.FormaPagamento);
+                    $('#tituloPagar-campo-caixa').val(data.Caixa);
+                    $('#tituloPagar-campo-valor-total').val(data.ValorTotal);
+                    $('#tituloPagar-campo-status').val(data.Status);
+                    $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento);
+                    $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento);
+                    $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
+                    $('#tituloPagar-campo-complemento').val(data.Complemento);
+                    $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
                 $('#modal-tituloPagar').modal('show');
+                
             },
             error: function (data) {
                 alert("Não foi possível buscar o registro");
@@ -188,4 +184,8 @@
         $('#tituloPagar-campo-quantidade-parcela').val("");
         $idAlterar = -1;
     }
+
+    $('#modal-tituloPagar').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("logins")]
+    [Table("login")]
     public class Login
     {
         [Key,Column("id")]
