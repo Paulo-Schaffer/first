@@ -398,9 +398,9 @@ namespace Repository
                 Caixa = true,
                 ValorTotal = 1999,
                 Status = "Pago",
-                DataLancamento = "23/06/2016",
-                DataRecebimento = "22/07/2016",
-                DataVencimento = "23/07/2016",
+                DataLancamento = Convert.ToDateTime("23/06/2016"),
+                DataRecebimento = Convert.ToDateTime("22/07/2016"),
+                DataVencimento = Convert.ToDateTime("23/07/2016"),
                 Complemento = "Usuario pagou corretamente",
                 QuantidadeParcela = 1,
                 RegistroAtivo = true
@@ -412,9 +412,9 @@ namespace Repository
                 Caixa = false,
                 ValorTotal = 127422,
                 Status = "Pendente",
-                DataLancamento = "13/06/2016",
-                DataRecebimento = "",
-                DataVencimento = "13/07/2016",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
                 Complemento = "Usuario nao pagou",
                 QuantidadeParcela = 6,
                 RegistroAtivo = true
@@ -453,11 +453,6 @@ namespace Repository
             var fornecedores = new List<Fornecedor>();
             fornecedores.Add(new Fornecedor()
             {
-                //RazaoSocial = "askdlasndlasnkd",
-                //Numero = 1,
-                //DataCadastro = DateTime.Now,
-                //RegistroAtivo = true,
-
                 RazaoSocial = "Peugeot",
                 NomeFantasia = "strabourg",
                 DataCadastro = Convert.ToDateTime("04/09/2019"),
@@ -473,7 +468,7 @@ namespace Repository
                 Complemento = "casa",
                 RegistroAtivo = true,
             });
-         
+            context.Fornecedores.AddRange(fornecedores);
             #endregion
 
 

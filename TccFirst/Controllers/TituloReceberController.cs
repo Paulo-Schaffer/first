@@ -17,13 +17,7 @@ namespace TccFirst.Controllers
             repository = new TituloReceberRepository();
         }
         
-        /*[HttpGet,Route("obtertodospeloidtituloreceber")]
-        public JsonResult ObterTodosPeloIdTituloReceber(int idTituloReceber)
-        {
-            var titulosReceber = repository.ObterTodosPeloIdTituloReceber(idTituloReceber);
-            var resultado = new { data = titulosReceber };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }*/
+       
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -36,9 +30,9 @@ namespace TccFirst.Controllers
         [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
+            tituloReceber.RegistroAtivo = true;
             int id = repository.Inserir(tituloReceber);
-            return RedirectToAction("Editar",
-                new { id = id });
+            return Json(new { id = id });
         }
 
         [HttpPost, Route("editar")] 
@@ -67,15 +61,16 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet,Route("editar")]
-        ActionResult Editar(int id)
-        {
-            var titulosReceber = repository.ObterPeloId(id);
-            if (titulosReceber == null)
-                return RedirectToAction("Index");
-            ViewBag.TituloReceber = titulosReceber;
-            return View();
+        //[HttpGet,Route("editar")]
+        //ActionResult Editar(int id)
+        //{
+        //    var titulosReceber = repository.ObterPeloId(id);
+        //    if (titulosReceber == null)
+        //        return RedirectToAction("Index");
+        //    ViewBag.TituloReceber = titulosReceber;
+        //    return View();
 
-        }
+        //}
+
     }
 }

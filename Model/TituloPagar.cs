@@ -30,13 +30,13 @@ namespace Model
         public string Status { get; set; }
 
         [Column("data_lancamento")]
-        public string DataLancamento { get; set; }
+        public DateTime DataLancamento { get; set; }
 
         [Column("data_recebimento")]
-        public string DataRecebimento { get; set; }
+        public DateTime DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
-        public string DataVencimento { get; set; }
+        public DateTime DataVencimento { get; set; }
 
         [Column("complemento")]
         public string Complemento { get; set; }
@@ -52,15 +52,15 @@ namespace Model
         public int? IdFornecedor { get; set; }
 
         [ForeignKey("IdFornecedor")]
-        public Fornecedor fornecedores { get; set; }
+        public Fornecedor Fornecedores { get; set; }
         #endregion
 
         #region fk_categoria_despesas
         [Column("id_categoria_despesa")]
-        public int? IdCategoriaDepesesa { get; set; }
+        public int IdCategoriaDespesa { get; set; }
 
-        [ForeignKey("IdCategoriaDepesesa")]
-        public CategoriaDespesa TipoCategoriaDespesa { get; set; }
+        [ForeignKey("IdCategoriaDespesa")]
+        public CategoriaDespesa CategoriaDespesa { get; set; }
         #endregion
     }
 }

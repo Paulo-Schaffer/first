@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IAgenciaRepository.cs" />
-    <Compile Include="Interfaces\ICadastroContaCorrente.cs" />
+    <Compile Include="Interfaces\ICadastroContaCorrenteRepository.cs" />
     <Compile Include="Interfaces\ICaixaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaReceitaRepository.cs" />

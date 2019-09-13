@@ -9,7 +9,7 @@
         ajax: '/fornecedor/obtertodos',
         serverSide: true,
         columns: [
-            { 'data': 'Id' },
+            { 'data': 'Id' },   
             { 'data': 'RazaoSocial' },
             { 'data': 'Email' },
             { 'data': 'Logradouro' },

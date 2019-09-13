@@ -1,14 +1,14 @@
 ﻿$(function() {
-    $("#modal-tituloPagar-fornecedor").select2({
+    $("#tituloPagar-campo-fornecedor").select2({
         ajax: {
-            url: "fornecedor/obtertodosselect2",
+            url: "/fornecedor/obtertodosselect2",
             dataType:"json"
         }
     });
 
-    $("#modal-tituloPagar-categoria-despesa").select2({
+    $("#tituloPagar-campo-categoria-despesa").select2({
         ajax: {
-            url: "categoriadespesa/obtertodosselect2",
+            url: "/categoriadespesa/obtertodosselect2",
             dataType: "json"
         }
     });
