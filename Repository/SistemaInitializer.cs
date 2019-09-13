@@ -209,6 +209,24 @@ namespace Repository
 
             #endregion
 
+            //#region fornecedor
+            // var fornecedor = new List<Fornecedor>();
+            // fornecedor.Add(new Fornecedor()
+            // {
+            //     RazaoSocial = "Benner",
+            //     NomeFantasia = "Paulo",
+            //     DataCadastro = Convert.ToDateTime("19/08/2005"),
+            //     Cnpj = "93.591.110/0001-56",
+            //     RegistroAtivo = true,
+            // });
+            // fornecedor.Add(new Fornecedor()
+            // {
+            //     RazaoSocial = "HBSIS",
+            //     NomeFantasia = "Francisco",
+            //     DataCadastro = Convert.ToDateTime("20/07/2015"),
+            //     Cnpj = "39.552.667/0001-32",
+            //     RegistroAtivo = true,
+            // });
             //#region contaCorrente
             //var contaCorrente = new List<ContaCorrente>();
             //contaCorrente.Add(new ContaCorrente()
@@ -227,6 +245,7 @@ namespace Repository
             //context.ContasCorrentes.AddRange(contaCorrente);
             //#endregion
 
+            //#endregion
 
             //    #region fornecedor
             //    var fornecedor = new List<Fornecedor>();
@@ -420,6 +439,36 @@ namespace Repository
             //});
             //context.TitulosPagar.AddRange(tituloPagar);
             //#endregion
+            #region Cadastro conta corrente
+            var cadastroscontacorrente = new List<CadastroContaCorrente>();
+            cadastroscontacorrente.Add(new CadastroContaCorrente() {
+            IdAgencia = 1,
+            NumeroConta = 12,
+            RegistroAtivo = true,
+            });
+            #endregion
+
+            #region fornecedores
+            var fornecedores = new List<Fornecedor>();
+            fornecedores.Add(new Fornecedor()
+            {
+                RazaoSocial = "Peugeot",
+                NomeFantasia = "strabourg",
+                DataCadastro = Convert.ToDateTime("04/09/2019"),
+                Cnpj = "83.590.870/0001-95",
+                Email = "first@outlook.com",
+                Telefone = "3345-5567",
+                Cep = "09432-876",
+                Logradouro = "UBATUBA",
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Cidade = "São Paulo",
+                Uf = "SP",
+                Complemento = "casa",
+                RegistroAtivo = true,
+            });
+            context.Fornecedores.AddRange(fornecedores);
+            #endregion
 
             //#region tituloReceber
             //var tituloReceber = new List<TituloReceber>();

@@ -21,8 +21,7 @@ namespace Repository.Repositories
         public bool Alterar(Historico historico)
         {
             var historicoOriginal = context.Historicos
-                .Where(x => x.Id == historico.Id)
-                .FirstOrDefault();
+                .FirstOrDefault(x => x.Id == historico.Id);
             if (historico == null)
             {
                 return false;
@@ -40,13 +39,13 @@ namespace Repository.Repositories
                 return false;
             }
             historico.RegistroAtivo = false;
-            context.SaveChanges();
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
 
         public int Inserir(Historico historico)
         {
+            historico.RegistroAtivo = true;
             context.Historicos.Add(historico);
             context.SaveChanges();
             return historico.Id;
@@ -55,7 +54,6 @@ namespace Repository.Repositories
         public Historico ObterPeloId(int id)
         {
             var historico = context.Historicos
-                 .Where(x => x.Id == id)
                  .FirstOrDefault(x => x.Id == id);
             return historico;
         }
@@ -64,7 +62,7 @@ namespace Repository.Repositories
         {
             return context.Historicos
                .Where(x => x.RegistroAtivo == true)
-               .OrderBy(x => x.Descricao)
+               .OrderBy(x => x.Id)
                .ToList();
         }
     }

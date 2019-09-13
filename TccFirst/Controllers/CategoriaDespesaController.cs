@@ -38,6 +38,7 @@ namespace TccFirst.Controllers
             var resultado = new { data = categorias };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
         [HttpGet]
         public JsonResult Apagar(int id)
         {
@@ -45,6 +46,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult Updtate (CategoriaDespesa categoriaDespesa)
         {
@@ -62,7 +64,8 @@ namespace TccFirst.Controllers
             {
                 categoriasSelect2.Add(new
                 {
-                    id = categoriaDespesa.Id, text = categoriaDespesa.TipoCategoriaDespesa
+                    id = categoriaDespesa.Id,
+                    text = categoriaDespesa.TipoCategoriaDespesa
                 });
             }
             var resultado = new { results = categoriasSelect2 };

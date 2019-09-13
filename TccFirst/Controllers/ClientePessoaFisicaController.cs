@@ -1,4 +1,4 @@
-﻿        using Model;
+﻿using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-            
+
         [HttpPost]
         public JsonResult Update(ClientePessoaFisica clientePessoaFisica)
         {
@@ -70,27 +70,15 @@ namespace TccFirst.Controllers
                 clientesPessoasFisicasSelect2.Add(new
                 {
                     id = clientePessoaFisica.Id,
-                    nome = clientePessoaFisica.Nome,
-                    cpf = clientePessoaFisica.Cpf,
-                    dataNascimento = clientePessoaFisica.DataNascimento,
-                    limiteCredito = clientePessoaFisica.LimiteCredito,
-                    email = clientePessoaFisica.Email,
-                    telefone = clientePessoaFisica.Telefone,
-                    cep = clientePessoaFisica.Cep,
-                    numero = clientePessoaFisica.Numero,
-                    bairro = clientePessoaFisica.Bairro,
-                    cidade = clientePessoaFisica.Cidade,
-                    uf = clientePessoaFisica.Uf,
-                    complemento = clientePessoaFisica.Complemento
-                    
+                    text = clientePessoaFisica.Nome
+
                 });
             }
             var resultado = new
             {
                 results = clientesPessoasFisicasSelect2
             };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
     }

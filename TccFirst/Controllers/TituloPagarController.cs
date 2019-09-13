@@ -18,26 +18,19 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
+        [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
-            var tituloPagar = repository.ObterTodos();
-            var resultado = new { data = tituloPagar };
+            var titulosPagar = repository.ObterTodos();
+            var resultado = new { data = titulosPagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Inserir(TituloPagar tituloPagar)
+        [HttpPost,Route("cadastro")]
+        public ActionResult Cadastro(TituloPagar tituloPagar)
         {
-            tituloPagar.RegistroAtivo = true;
-            var id = repository.Inserir(tituloPagar);
-            var resultado = new { id = id };
-            return Json(resultado);
+            int id = repository.Inserir(tituloPagar);
+            return RedirectToAction("Editar", new { id = id });
         }
 
         [HttpPost, Route("editar")]
@@ -45,10 +38,10 @@ namespace TccFirst.Controllers
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return Json(resultado,JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpGet,Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
@@ -56,15 +49,15 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("tituloPagar")]
-        public JsonResult ObterPeloId(int id)
+        public ActionResult Index()
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            return View();
         }
 
-        [HttpGet, Route("tituloPagar/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
+        public ActionResult Cadastro()
         {
+            return View();
+        }
 
             var tituloPagars = repository.ObterTodos();
 
@@ -96,6 +89,14 @@ namespace TccFirst.Controllers
             return Json(resultado,
                 JsonRequestBehavior.AllowGet);
 
+        [HttpGet, Route("editar")]
+        ActionResult Editar(int id)
+        {
+            var titulosPagar = repository.ObterPeloId(id);
+            if (titulosPagar == null)
+                return RedirectToAction("Index");
+            ViewBag.TituloPagar = titulosPagar;
+            return View();
         }
 
 
