@@ -66,7 +66,6 @@ namespace Repository.Repositories
         {
             return context.ParcelasReceber
               .Where(x => x.RegistroAtivo == true)
-              .OrderBy(x => x.Id)
               .ToList();
         }
     }
