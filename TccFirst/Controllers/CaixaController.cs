@@ -29,7 +29,7 @@ namespace TccFirst.Controllers
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost,Route("cadastro")]
+        [HttpPost,Route("inserir")]
         public JsonResult Inserir(Caixa caixa)
         {
             caixa.RegistroAtivo = true;

@@ -6,40 +6,43 @@ $(function () {
         serverSide: true,
         columns: [
             { data: 'Descricao' },
-            { data: 'Documento'}
-            //{
-                //render: function (data, type, row) {
-                //    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
-                //}
-            //}
+            { data: 'Documento' },
+            { data: 'FormaPagamento' },
+            { data: 'Valor' },
+            { data: 'DataLancamento'},
+            {
+                render: function (data, type, row) {
+                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
+                }
+            }
         ]
         
     });
     $('#caixa-botao-salvar').on('click', function () {
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
-        //$formaPagamento = $('#caixa-campo-forma-pagamento').val();
-        //$valor = $('#caixa-campo-valor').val();
-        //$dataLancamento = $('#caixa-campo-data-lancamento').val();
-        //$historico = $('#caixa-campo-historico').val();
+        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
+        $valor = $('#caixa-campo-valor').val();
+        $dataLancamento = $('#caixa-campo-data-lancamento').val();
+        $IdHistorico = $('#caixa-campo-historico').val();
         if ($idAlterar == -1) {
-            inserir($descricao, $documento, /*$formaPagamento, $valor, $dataLancamento, $status, $historico*/);
+            inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistorico);
         } else {
-            alterar($descricao, $documento, /*$formaPagamento, $valor, $dataLancamento, $status, $historico*/);
+            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $status, $IdHistorico);
         }
     });
 
-    function alterar($descricao, $documento, /*$formaPagamento, $valor, $dataLancamento, $status, $historico*/) {
+    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistorico) {
         $.ajax({
             url: "/Caixa/update",
             method: "post",
             data: {
                 Descricao: $descricao,
                 Documento: $documento,
-                //FormaPagamento: $formaPagamento,
-                //Valor: $valor,
-                //DataLancamento: $dataLancamento,
-                //Historico: $historico,
+                FormaPagamento: $formaPagamento,
+                Valor: $valor,
+                DataLancamento: $dataLancamento,
+                IdHistorico: $IdHistorico,
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
@@ -52,17 +55,17 @@ $(function () {
         })
     }
 
-    function inserir($descricao, $documento, /*$formaPagamento, $valor, $dataLancamento, $status, $historico*/) {
+    function inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistorico) {
         $.ajax({
             url: '/Caixa/inserir',
             method: 'post',
             data: {
                 Descricao: $descricao,
                 Documento: $documento,
-                //FormaPagamento: $formaPagamento,
-                //Valor: $valor,
-                //DataLancamento: $dataLancamento,
-                //Historico: $historico,
+                FormaPagamento: $formaPagamento,
+                Valor: $valor,
+                DataLancamento: $dataLancamento,
+                IdHistorico: $IdHistorico,
             },
             success: function (data) {
                 $('#modal-caixa').modal('hide');
@@ -94,22 +97,18 @@ $(function () {
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
-
         $.ajax({
-            url: '/caixa/obterpeloid?id=' + $idAlterar,
+            url: '/caixa/obterpeloid?id=' + $id,
             method: 'get',
-
             success: function (data) {
+                $idAlterar = $id;
                 $('#caixa-campo-descricao').val(data.Descricao);
                 $('#caixa-campo-documento').val(data.Documento);
-                //$('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
-                //$('#caixa-campo-valor').val(data.Valor);
-               // var dataLancamento = moment(data.DataLancamento);
-                //console.log();
-
-                //$('#caixa-campo-data-lancamento').val(dataLancamento.format('YYYY-MM-DD'));
-                //$('#caixa-campo-historico').val(data.Historico);
-                //$('#modal-caixa').modal('show');
+                $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
+                $('#caixa-campo-valor').val(data.Valor);
+                $("#caixa-campo-data-lancamento").val(data.DataLancamneto);
+                $('#caixa-campo-historico').val(data.IdHistorico);
+                $('#modal-caixa').modal('show');
             },
             error: function (err) {
                 alert('Moisés');

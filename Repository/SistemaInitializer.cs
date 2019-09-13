@@ -47,7 +47,6 @@ namespace Repository
                 FormaPagamento = "Debito",
                 Valor = 1900,
                 DataLancamento = Convert.ToDateTime("1900-01-01 00:00:00"),
-                Historico = "Fatura 15,89 dia 19/09/2000",
                 RegistroAtivo = true
             });
             caixa.Add(new Caixa()
@@ -57,7 +56,6 @@ namespace Repository
                 FormaPagamento = "Crédito",
                 Valor = 17900,
                 DataLancamento = Convert.ToDateTime("1967-02-11 12:17:5"),
-                Historico = "Fatura 1547,89 dia 20/12/2000",
                 RegistroAtivo = true
             });
             context.Caixas.AddRange(caixa);

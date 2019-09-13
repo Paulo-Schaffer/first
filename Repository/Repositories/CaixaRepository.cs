@@ -29,7 +29,6 @@ namespace Repository.Repositories
             caixaRegistro.FormaPagamento = caixa.FormaPagamento;
             caixaRegistro.Valor = caixa.Valor;
             caixaRegistro.DataLancamento = caixa.DataLancamento;
-            caixaRegistro.Historico = caixa.Historico;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
