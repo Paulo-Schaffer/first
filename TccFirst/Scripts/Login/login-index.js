@@ -5,7 +5,7 @@
         ajax: '/login/obtertodos',
         serverSide: true,
         columns: [
-            { data : 'Funcionario'}
+            { data : 'Funcionario.Nome'}
             { data : 'Id' },
             { data : 'Usuario' },
             { data : 'Senha' },
@@ -99,7 +99,7 @@
             method: 'get',
 
             success: function (data) {
-                $('#login-campo-fornecedor').val(data..fun)
+                $('#login-campo-funcionario').val(data.)
                 $('#login-campo-usuario').val(data.usuario);
                 $('#login-campo-senha').val(data.senha);
                 $('#modal-login').modal('show');
@@ -109,4 +109,14 @@
             }
         });
     });
+     function LimparCampos(){
+        $('#login-campo-funcionario').val('')
+        $('#login-campo-usuario').val('');
+         $('#login-campo-senha').val('');
+         $idAlterar = -1;
+    }
+
+    $('#modal-login').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });

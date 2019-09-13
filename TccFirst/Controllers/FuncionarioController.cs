@@ -26,6 +26,12 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public JsonResult ObterTodos()
         {
             var funcionario = repository.ObterTodos();
@@ -39,7 +45,7 @@ namespace TccFirst.Controllers
             funcionario.RegistroAtivo = true;
             var id = repository.Inserir(funcionario);
             var resultado = new { id = id };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -58,13 +64,18 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
+        [HttpGet, Route("funcionario/")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet, Route("funcionario/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
             var funcionarios = repository.ObterTodos();
 
-            List<object> funcionariosSelect2 =
-                new List<object>();
+            List<object> funcionariosSelect2 = new List<object>();
             foreach (Funcionario funcionario in funcionarios)
             {
                 funcionariosSelect2.Add(new

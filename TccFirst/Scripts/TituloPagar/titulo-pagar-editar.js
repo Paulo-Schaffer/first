@@ -115,7 +115,7 @@
         $idAlterar = $(this).data("id");
         $.ajax({
             url: '/titulopagar/obterpeloid?id=' + $idAlterar,
-            method: "get",
+            method: 'get',
             success: function (data) {
                     $('#tituloPagar-campo-fornecedor').val(data.$IdFornecedor);
                     $('#tituloPagar-campo-categoria-despesa').val(data.IdCategoriaDespesa);

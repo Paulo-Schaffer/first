@@ -92,18 +92,16 @@
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
-
         $.ajax({
-            url: '/Funcionario/obterpeloid?id=' + $idAlterar,
+            url: '/funcionario/obterpeloid?id=' + $idAlterar,
             method: 'get',
-
             success: function (data) {
-                $('#funcionario-campo-nome').val(data.NomeFuncionario);
-                $('#funcionario-campo-tipo').val(data.TipoFuncionario);
+                $('#funcionario-campo-nome').val(data.Nome);
+                $('#funcionario-campo-tipo').val(data.Tipo);
                 $('#modal-funcionario').modal('show');
             },
             error: function (err) {
-                alert('não foi possível carregar');
+                alert('Não foi possível carregar');
             }
         });
     });
@@ -113,4 +111,8 @@
         $('#funcionario-campo-tipo').val("");
         $idAlterar = -1;
     };
+
+    $('#modal-funcionario').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });
