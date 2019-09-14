@@ -34,8 +34,7 @@
         $status = $('#parcelaReceber-campo-status').val();
         $dataVencimento = $('#parcelaReceber-campo-dataVencimento').val();
         $dataRecebimento = $('#parcelaReceber-campo-dataRecebimento').val();
-        debugger;
-       
+          
         if ($idAlterar == -1) {
             inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento);
         } else {
@@ -53,7 +52,8 @@
                 valor: $valor,
                 status:$status,
                 dataVencimento: $dataVencimento,
-                dataRecebimento: $dataRecebimento
+                dataRecebimento: $dataRecebimento,
+                idAlterar: $idAlterar
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
@@ -92,7 +92,7 @@
         $id = $(this).data('id');
 
         $.ajax({
-            url: "/parcelaReceber/apagar?id=" + $idAlterar,
+            url: '/parcelaReceber/apagar?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
 

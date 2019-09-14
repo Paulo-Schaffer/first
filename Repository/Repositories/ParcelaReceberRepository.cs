@@ -49,7 +49,7 @@ namespace Repository.Repositories
 
         public int Inserir(ParcelaReceber parcelaReceber)
         {
-            
+            parcelaReceber.RegistroAtivo = true;
             context.ParcelasReceber.Add(parcelaReceber);
             context.SaveChanges();
             return parcelaReceber.Id;

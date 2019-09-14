@@ -87,7 +87,7 @@ namespace TccFirst.Controllers
                 tituloRecebersSelect2.Add(new
                 {
                     id = tituloReceber.Id,
-                    text = tituloReceber.Complemento,
+                    text = tituloReceber.Descricao,
 
                 });
             }
