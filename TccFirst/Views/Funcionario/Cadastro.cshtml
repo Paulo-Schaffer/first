@@ -9,17 +9,23 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="funcionario-campo-nome">Nome</label>
+                    <label for="funcionario-campo-nome" mas>Nome<span class="text-danger">*</span></label>
                     <input type="text" id="funcionario-campo-nome" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label for="campo-funcionario-tipo" mas>Tipo</label>
-                    <input type="text" id="funcionario-campo-tipo" class="form-control" />
+                    <label for="campo-funcionario-tipo" mas>Tipo<span class="text-danger">*</span></label>
+                    <select class="form-control" id="campo-funcionario-tipo">
+                        <option disabled="disabled" selected="selected">Selecione o Tipo de Funcionario...</option>
+                        <option>Gerente</option>
+                        <option>Funcionário</option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="funcionario-botao-salvar">Salvar</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="funcionario-botao-salvar">
+                    <i class="fa fa-floppy-o"></i> Salvar
+                </button>
             </div>
         </div>
     </div>

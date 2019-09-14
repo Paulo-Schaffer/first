@@ -10,12 +10,13 @@
             { 'data': 'TipoFuncionario' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
-
+                    return "\
+                    <button class='btn btn-primary botao-editar fa fa-edit'\
+                        data-id=" + row.Id + "> Editar</button>\
+                    <button class='btn btn-danger botao-apagar fa fa-trash'\
+                        data-id=" + row.Id + "> Apagar</button>";
                 }
-
             }
-
         ]
     });
 
@@ -30,7 +31,7 @@
         }
     });
 
-    function alterar($nome, $tipo) {
+    function alterar($Nome, $Tipo) {
         $.ajax({
             url: "/Funcionario/update",
             method: "post",
@@ -71,36 +72,36 @@
     }
 
     $('.table').on('click', '.botao-apagar', function () {
-        $idApagar = $(this).data('id');
+        confirma = confirm("Deseja realmente Apagar?");
+        if (confirma == true) {
+            $idApagar = $(this).data('id');
+            $.ajax({
+                url: '/Funcionario/apagar?id=' + $idApagar,
+                method: 'get',
+                success: function (data) {
+                    $tabelaFuncionario.ajax.reload();
+                },
 
-        $.ajax({
-            url: '/Funcionario/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaFuncionario.ajax.reload();
-            },
+                error: function (err) {
+                    alert('Não foi possível apagar');
+                }
 
-            error: function (err) {
-                alert('Não foi possível apagar');
-            }
-
-        });
+            });
+        }
     });
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
-
         $.ajax({
-            url: '/Funcionario/obterpeloid?id=' + $idAlterar,
+            url: '/funcionario/obterpeloid?id=' + $idAlterar,
             method: 'get',
-
             success: function (data) {
-                $('#funcionario-campo-nome').val(data.NomeFuncionario);
-                $('#funcionario-campo-tipo').val(data.TipoFuncionario);
+                $('#funcionario-campo-nome').val(data.Nome);
+                $('#funcionario-campo-tipo').val(data.Tipo);
                 $('#modal-funcionario').modal('show');
             },
             error: function (err) {
-                alert('não foi possível carregar');
+                alert('Não foi possível carregar');
             }
         });
     });
@@ -110,4 +111,8 @@
         $('#funcionario-campo-tipo').val("");
         $idAlterar = -1;
     };
+
+    $('#modal-funcionario').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });

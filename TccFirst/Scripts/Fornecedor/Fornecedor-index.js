@@ -23,6 +23,7 @@
 
         ]
     });
+
     $('#fornecedor-batao-salvar').on('click', function () {
         //if ($('#fornecedor-nome-razaoSocial').val() = "") {
         //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão social </div>');
