@@ -68,8 +68,8 @@
     function inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: "/parcelaReceber/cadastro",
-            method: "post",
+            url: '/parcelaReceber/cadastro',
+            method: 'post',
             data: {
                 
                 idTituloReceber: $idTituloReceber,
