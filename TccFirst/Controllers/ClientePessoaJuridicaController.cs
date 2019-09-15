@@ -21,7 +21,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }        
-        [HttpGet]
+        [HttpPost]
         public JsonResult ObterTodos()
         {
             var clientePessoaJuridicas = repository.ObterTodos();
