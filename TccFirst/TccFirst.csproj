@@ -5755,8 +5755,8 @@
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\ParcelaReceber\Index.cshtml" />
-    <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
+    <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

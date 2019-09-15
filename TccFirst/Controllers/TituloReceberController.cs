@@ -81,6 +81,35 @@ namespace TccFirst.Controllers
         //    return View();
 
         //}
+        [HttpGet, Route("tituloReceber/")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet, Route("tituloReceber/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
+        {
+            var titulosReceber = repository.ObterTodos();
+            List<object> tituloRecebersSelect2 =
+                 new List<object>();
+            foreach (TituloReceber tituloReceber in titulosReceber)
+            {
+                tituloRecebersSelect2.Add(new
+                {
+                    id = tituloReceber.Id,
+                    text = tituloReceber.Descricao,
+
+                });
+            }
+            var resultado = new
+            {
+                results = tituloRecebersSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
+        }
+
+        
 
     }
 }

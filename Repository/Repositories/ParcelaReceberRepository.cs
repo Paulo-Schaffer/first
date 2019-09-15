@@ -49,7 +49,7 @@ namespace Repository.Repositories
 
         public int Inserir(ParcelaReceber parcelaReceber)
         {
-            
+            parcelaReceber.RegistroAtivo = true;
             context.ParcelasReceber.Add(parcelaReceber);
             context.SaveChanges();
             return parcelaReceber.Id;
@@ -66,7 +66,6 @@ namespace Repository.Repositories
         {
             return context.ParcelasReceber
               .Where(x => x.RegistroAtivo == true)
-              .OrderBy(x => x.Id)
               .ToList();
         }
     }

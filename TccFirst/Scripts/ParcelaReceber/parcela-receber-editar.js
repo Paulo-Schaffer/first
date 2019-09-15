@@ -1,16 +1,25 @@
-﻿$(function () {
-    $idParcelaReceber = $("#id").val();
+﻿$(function () {   
     $idAlterar = -1;
 
     $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
+        "scrollX": true,
         ajax: "/parcelaReceber/obtertodos",
         serverSide: true,
         coluns: [
             { data: "IdTituloReceber" },
             { data: "Valor" },           
-            { data: "Status" },            
-            { data: "DataVencimento" },
-            { data: "DataRecebimento" },
+            { data: "Status" },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataVencimento).format('YYYY-MM-DD')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataRecebimento).format('YYYY-MM-DD')
+                }
+            },
+           
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
@@ -20,31 +29,31 @@
     });
 
     $("#parcelaReceber-botao-salvar").on("click", function () {
-        $idTitulosReceber = $('#parcelaReceber-campo-tituloReceber').val();
+        $idTituloReceber = $('#parcelaReceber-campo-tituloReceber').val();
         $valor = $('#parcelaReceber-campo-valor').val();
         $status = $('#parcelaReceber-campo-status').val();
         $dataVencimento = $('#parcelaReceber-campo-dataVencimento').val();
         $dataRecebimento = $('#parcelaReceber-campo-dataRecebimento').val();
-        debugger;
-       
+          
         if ($idAlterar == -1) {
-            inserir($idTitulosReceber, $valor, $status, $dataVencimento, $dataRecebimento);
+            inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento);
         } else {
-            alterar($idTitulosReceber, $valor, $status, $dataVencimento, $dataRecebimento);
+            alterar($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento);
         }
     });
-    function alterar($idTitulosReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
+    function alterar($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: "/parcelaReceber/alterar",
+            url: "/parcelaReceber/editar",
             method: "post",
             data: {
-                idParcelaReceber:$idParcelaReceber,
-                idTitulosReceber:$idTitulosReceber,
+                
+                idTitulosReceber:$idTituloReceber,
                 valor: $valor,
                 status:$status,
                 dataVencimento: $dataVencimento,
-                dataRecebimento: $dataRecebimento
+                dataRecebimento: $dataRecebimento,
+                idAlterar: $idAlterar
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
@@ -56,14 +65,14 @@
             }
         });
     }
-    function inserir($idTitulosReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
+    function inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: "/parcelaReceber/cadastro",
-            method: "post",
+            url: '/parcelaReceber/cadastro',
+            method: 'post',
             data: {
-                idParcelaReceber:$idParcelaReceber,
-                idTitulosReceber: $idTitulosReceber,
+                
+                idTituloReceber: $idTituloReceber,
                 valor: $valor,
                 status: $status,
                 dataVencimento: $dataVencimento,
@@ -83,9 +92,10 @@
         $id = $(this).data('id');
 
         $.ajax({
-            url: "/parcelaReceber/apagar?id=" + $id,
+            url: '/parcelaReceber/apagar?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
+
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -97,15 +107,15 @@
         $id= $(this).data('id');
 
         $.ajax({
-            url: "/parcelaReceber/obterpeloid?id=" + $id,
+            url: "/parcelaReceber/obterpeloid?id=" + $idAlterar,
             method: 'get',
             success: function (data) {
                 $idAlterar = $id;
-                $("#parcelaReceber-campo-tituloReceber").val(data.idTitulosReceber);
+                $("#parcelaReceber-campo-tituloReceber").val(data.idTituloReceber);
                 $("#parcelaReceber-campo-valor").val(data.valor);
                 $("#parcelaReceber-campo-status").val(data.status);
-                $("#parcelaReceber-campo-dataVencimento").val(data.dataVencimento);
-                $("#parcelaReceber-campo-dataRecebimento").val(data.);
+                $("#parcelaReceber-campo-dataVencimento").val(data.DataVencimento);
+                $("#parcelaReceber-campo-dataRecebimento").val(data.DataRecebimento);
                 $('#modal-parcelaReceber').modal('show');
             },
             error: function (err) {
