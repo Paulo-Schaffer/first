@@ -28,11 +28,13 @@ namespace Model
         [Column("data_lancamento")]
         public DateTime DataLancamento { get; set; }
 
-        [Column("status")]
-        public string Status { get; set; }
+        #region fk_historico
+        [Column("id_historicos")]
+        public int IdHistoricos{ get; set; }
 
-        [Column("historico")]
-        public string Historico { get; set; }
+        [ForeignKey("IdHistoricos")]
+        public Historico Historico { get; set; }
+        #endregion
 
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
