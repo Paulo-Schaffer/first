@@ -14,23 +14,26 @@ namespace Repository
             var agencias = new List<Agencia>();
             agencias.Add(new Agencia()
             {
+                Id = 1,
                 NomeAgencia = "Agencia da Vida",
-                NumeroAgencia = "2001",
+                NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
             agencias.Add(new Agencia()
             {
+                Id = 2,
                 NomeAgencia = "Agencia do Paulo",
-                NumeroAgencia = "666",
+                NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
 
             agencias.Add(new Agencia()
             {
+                Id = 3,
                 NomeAgencia = "Você consegue",
-                NumeroAgencia = "8001",
+                NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
@@ -251,14 +254,14 @@ namespace Repository
             funcionario.Add(new Funcionario()
             {
                 NomeFuncionario = "Paulo",
-                TipoFuncionario = 1,
+                TipoFuncionario = "1",
                 RegistroAtivo = true
 
             });
             funcionario.Add(new Funcionario()
             {
                 NomeFuncionario = "André",
-                TipoFuncionario = 2,
+                TipoFuncionario = "2",
                 RegistroAtivo = true
 
             });
@@ -453,7 +456,8 @@ namespace Repository
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
             cadastroscontacorrente.Add(new CadastroContaCorrente()
             {
-                IdAgencias = 1,
+                Id = 1,
+                IdAgencia = 1,
                 NumeroConta = 12,
                 RegistroAtivo = true,
             });

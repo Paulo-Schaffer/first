@@ -25,8 +25,8 @@ namespace Repository.Repositories
                 return false;
             }
 
-            cadastrosContaCorrente.IdAgencias = cadastrosContaCorrente.IdAgencias;
-            cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
+            cadastroContaCorrenteOriginal.IdAgencia = cadastrosContaCorrente.IdAgencia;
+            cadastroContaCorrenteOriginal.NumeroConta = cadastrosContaCorrente.NumeroConta;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -53,7 +53,9 @@ namespace Repository.Repositories
 
         public CadastroContaCorrente ObterPeloId(int id)
         {
-            return context.CadastroContaCorrentes.Include("Agencias").FirstOrDefault(x => x.Id == id);
+            var cadastrocontacorrente = context.CadastroContaCorrentes
+                .Where(x => x.Id == id).FirstOrDefault();
+            return cadastrocontacorrente;
         }
 
         public List<CadastroContaCorrente> ObterTodos()

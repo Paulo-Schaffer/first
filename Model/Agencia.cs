@@ -24,7 +24,7 @@ namespace Model
 
 
         [Column("numero_agencia")]
-        public string NumeroAgencia { get; set; }
+        public int NumeroAgencia { get; set; }
 
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }

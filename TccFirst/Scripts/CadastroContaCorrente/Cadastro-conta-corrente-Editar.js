@@ -5,12 +5,16 @@
         ajax: '/cadastrocontacorrente/obtertodos',
         serverSide: true,
         Columns: [
-            { 'data': 'Id' },
-            { 'data': 'IdAgencia' },
-            { 'data': 'NumeroConta' },
+            { 'data': 'Id' }, 
+            //{ 'data': 'IdAgencia' },
+            //{ 'data': 'NumeroConta' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
+                    return "\
+                    <button class='btn btn-primary botao-editar fa fa-edit'\
+                        data-id=" + row.Id + "> Editar</button>\
+                    <button class='btn btn-danger botao-apagar fa fa-trash'\
+                        data-id=" + row.Id + "> Apagar</button>";
                 }
             }
         ]
@@ -33,22 +37,22 @@
 
 
     $('#cadastro-conta-corrente-botao-salvar').on('click', function () {
-        $idAgencia = $('#cadastro-conta-corrente-campo-idAgencia').val();
-        $numeroConta = $('#cadastro-conta-corrente-campo-numero-conta').val();
+        $IdAgencia = $('#cadastro-conta-corrente-campo-idAgencia').val();
+        $NumeroConta = $('#cadastro-conta-corrente-campo-numero-conta').val();
         if ($idAlterar == -1) {
-            inserir($idAgencia, $numeroConta);
+            inserir($IdAgencia, $NumeroConta);
         } else {
-            alterar($idAgencia, $numeroConta);
+            alterar($IdAgencia, $NumeroConta);
         }
     });
 
-    function inserir($idAgencia, $numeroConta) {
+    function inserir($IdAgencia, $NumeroConta) {
         $.ajax({
             url: '/cadastrocontacorrente/cadastro',
             method: 'post',
             data: {
-                idagencia: $idAgencia,
-                numeroAgencia: $numeroConta
+                IdAgencia: $IdAgencia,
+                NumeroAgencia: $NumeroConta
             },
             success: function (data) {
                 limparCampos();
@@ -69,7 +73,7 @@
             method: 'get',
             success: function (data) {
                 $idAlterar = $id;
-                $('#cadastro-conta-corrente-campo-idAgencia').val(data.IdAgencias);
+                $('#cadastro-conta-corrente-campo-idAgencia').val(data.IdAgencia);
                 $('#cadastro-conta-corrente-campo-numero-conta').val(data.NumeroConta );
             },
             error: function (data) {
@@ -82,13 +86,13 @@
 
 
 
-    function alterar($idAgencia, $numeroConta) {
+    function alterar($IdAgencia, $NumeroConta) {
         S.ajax({
             url: '/cadastrocontacorrente/editar',
             method: 'post',
             data: {
-                idagencia: $idAgencia,
-                numeroConta : $numeroConta,
+                IdAgencia: $IdAgencia,
+                NumeroConta: $NumeroConta,
                 id : $idAlterar,
             },
             success: function (data) {

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
+    [Route("cadastrocontacorrente/")]
     public class CadastroContaCorrenteController : Controller
     {
         private CadastroContaCorrenteRepository repository;
@@ -29,7 +30,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)
         {
             int id = repository.Inserir(cadastroContaCorrente);
-            return RedirectToAction("Editar", new { id = id });
+            return Json(new { id = id });
         }
 
         [HttpPost, Route("editar")]
@@ -47,12 +48,20 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet, Route("cadastrocontacorrente")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
         public ActionResult Cadastro()
+
         {
             return View();
         }

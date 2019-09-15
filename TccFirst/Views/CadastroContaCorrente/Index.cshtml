@@ -3,15 +3,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista de Pessoas</h2>
+<h2>Lista de Contas correntes</h2>
 
-<button data-toggle="modal" data-target="#modal-cadastro-conta-corrente" class="btn btn-primary">Nova pessoa</button>
+<button type="button"  data-toggle="modal" data-target="#modal-cadastro-conta-corrente" class="btn btn-primary">Nova Agencia</button>
+
 <table id="cadastro-conta-corrente-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Código</th>
-            <th>Agencia</th>
-            <th>Numero da Conta</th>
+            @*<th>Agencia</th>
+            <th>Numero da Conta</th>*@
             <th>Ação</th>
         </tr>
     </thead>
