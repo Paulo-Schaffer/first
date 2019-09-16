@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
    public class ParcelaReceberRepository : IParcelaReceberRepository
-    {
+   {
         private SistemaContext context;
 
         public ParcelaReceberRepository()
@@ -21,7 +21,7 @@ namespace Repository.Repositories
         public bool Alterar(ParcelaReceber parcelaReceber)
         {
             var parcelaReceberOriginal = context.ParcelasReceber. Where(x => x.Id == parcelaReceber.Id).FirstOrDefault();
-            if (parcelaReceber == null)
+            if (parcelaReceberOriginal == null)
             {
                 return false;
             }
