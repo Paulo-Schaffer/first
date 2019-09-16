@@ -5737,6 +5737,8 @@
     <Content Include="Scripts\README.md" />
     <Content Include="Views\CategoriaReceita\CadastroCategoriaReceita.cshtml" />
     <Content Include="Views\CategoriaReceita\Index.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

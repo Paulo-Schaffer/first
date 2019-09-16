@@ -78,7 +78,7 @@ namespace TccFirst.Controllers
                     complemento = tituloPagar.Complemento,
                     quantidadeParcela = tituloPagar.QuantidadeParcela,
                     idFornecedores = tituloPagar.IdFornecedor,
-                    idCategoriaDespesa = tituloPagar.IdCategoriaDepesesa
+                    idCategoriaDespesa = tituloPagar.IdCategoriaDespesa
                 });
             }
             var resultado = new

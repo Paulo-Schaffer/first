@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-   internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-   // internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+   //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -68,6 +68,7 @@ namespace Repository
             var caixa = new List<Caixa>();
             caixa.Add(new Caixa()
             {
+                Id = 1,
                 Descricao = "Caixa é caixa",
                 Documento = "Este documento é meu",
                 FormaPagamento = "Debito",
@@ -84,11 +85,13 @@ namespace Repository
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
+                Id = 1,
                 TipoCategoriaDespesa = "Despesa com Funcionário",
                 RegistroAtivo = true,
             });
             categoriaDespesa.Add(new CategoriaDespesa()
             {
+                Id = 2,
                 TipoCategoriaDespesa = "Despesa com Lanche",
                 RegistroAtivo = true,
             });
@@ -99,11 +102,13 @@ namespace Repository
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
+                Id = 1,
                 TipoCategoriaReceita = "Despesa com Paulo",
                 RegistroAtivo = true,
             });
             categoriaReceita.Add(new CategoriaReceita()
             {
+                Id = 2,
                 TipoCategoriaReceita = "Despesa com Joao",
                 RegistroAtivo = true,
             });
@@ -115,6 +120,7 @@ namespace Repository
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
+                Id = 1,
                 Nome = "Paulo",
                 Cpf = "093.455.789-50",
                 DataNascimento = Convert.ToDateTime("19/04/2000"),
@@ -131,6 +137,7 @@ namespace Repository
             });
             clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
+                Id = 2,
                 Nome = "João",
                 Cpf = "033.555.119-22",
                 DataNascimento = Convert.ToDateTime("09/08/1996"),
@@ -152,6 +159,7 @@ namespace Repository
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
+                Id = 1,
                 RazaoSocial = "First",
                 Atividade = "Sistemas e SoftWares",
                 NomeFantasia = "Financial Report System",
@@ -172,6 +180,7 @@ namespace Repository
 
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
+                Id = 2,
                 RazaoSocial = "HBSIS",
                 Atividade = "Sistemas e SoftWares",
                 NomeFantasia = "HBSIS",
@@ -224,48 +233,12 @@ namespace Repository
 
             #endregion
 
-            //#region fornecedor
-            // var fornecedor = new List<Fornecedor>();
-            // fornecedor.Add(new Fornecedor()
-            // {
-            //     RazaoSocial = "Benner",
-            //     NomeFantasia = "Paulo",
-            //     DataCadastro = Convert.ToDateTime("19/08/2005"),
-            //     Cnpj = "93.591.110/0001-56",
-            //     RegistroAtivo = true,
-            // });
-            // fornecedor.Add(new Fornecedor()
-            // {
-            //     RazaoSocial = "HBSIS",
-            //     NomeFantasia = "Francisco",
-            //     DataCadastro = Convert.ToDateTime("20/07/2015"),
-            //     Cnpj = "39.552.667/0001-32",
-            //     RegistroAtivo = true,
-            // });
-            //#region contaCorrente
-            //var contaCorrente = new List<ContaCorrente>();
-            //contaCorrente.Add(new ContaCorrente()
-            //{
-            //    NumeroConta = "1233334-454",
-            //    Descricao = "Cliente há 25 anos",
-            //    Documento = "Este é Paulo",
-            //    TipoReceitaDespesa = 11,
-            //    TipoPagamento = "Crédito",
-            //    Valor = 20,
-            //    Status = "Pago",
-            //    DataLancamento = Convert.ToDateTime("19/08/2019"),
-            //    DataRecebimento = Convert.ToDateTime("15/09/2019"),
-            //    DataVencimento = Convert.ToDateTime("19/09/2019"),
-            //});
-            //context.ContasCorrentes.AddRange(contaCorrente);
-            //#endregion
-
-            //#endregion
 
             #region funcionario
             var funcionario = new List<Funcionario>();
             funcionario.Add(new Funcionario()
             {
+                Id = 1,
                 NomeFuncionario = "Paulo",
                 TipoFuncionario = "1",
                 RegistroAtivo = true
@@ -273,72 +246,56 @@ namespace Repository
             });
             funcionario.Add(new Funcionario()
             {
+                Id = 2,
                 NomeFuncionario = "André",
                 TipoFuncionario = "2",
                 RegistroAtivo = true
 
-            //    });
-            //    context.Funcionarios.AddRange(funcionario);
-            //    #endregion
-
-            #region historico
-            var historico = new List<Historico>();
-            historico.Add(new Historico()
-            {
-                Descricao = "Conta adicionada dia 19/07/2000",
-                RegistroAtivo = true
             });
-            historico.Add(new Historico()
-            {
-                Descricao = "Conta paga com sucesso",
-                RegistroAtivo = true
-            });
-            historico.Add(new Historico()
-            {
-                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
-                RegistroAtivo = true
-            });
-            context.Historicos.AddRange(historico);
+            context.Funcionarios.AddRange(funcionario);
             #endregion
 
-            //#region login
-            //var login = new List<Login>();
-            //login.Add(new Login()
-            //{
-            //    Usuario = "Cléber",
-            //    Senha = "cg1992",
-            //    RegistroAtivo = true
-            //});
-            //login.Add(new Login()
-            //{
-            //    Usuario = "Gustavo",
-            //    Senha = "gustavo1500",
-            //    RegistroAtivo = true
-            //});
-            //context.Logins.AddRange(login);
-            //#endregion
 
-            //#region movimentacaoFinanceiraEntrada
-            //var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
-            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
-            //{
-            //    Valor = 568,
-            //    RegistroAtivo = true
-            //});
-            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
-            //{
-            //    Valor = -2422,
-            //    RegistroAtivo = true,
-            //});
-            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
-            //{
-            //    Valor = 255244,
-            //    RegistroAtivo = true,
-            //});
-            //context.MovimentacaoFinanceiraEntradas.AddRange(movimentacaoFinanceiraEntrada);
-            //#endregion
+            #region login
+            var login = new List<Login>();
+            login.Add(new Login()
+            {
+                Id = 1,
+                Usuario = "Cléber",
+                Senha = "cg1992",
+                RegistroAtivo = true
+            });
+            login.Add(new Login()
+            {
+                Id = 2,
+                Usuario = "Gustavo",
+                Senha = "gustavo1500",
+                RegistroAtivo = true
+            });
+            context.Logins.AddRange(login);
+            #endregion
 
-            //#region movimentacaoFinanceiraSaida
+            #region movimentacaofinanceiraentrada
+            //var movimentacaofinanceiraentrada = new list<movimentacaofinanceiraentrada>();
+            //movimentacaofinanceiraentrada.add(new movimentacaofinanceiraentrada()
+            //{
+            //    valor = 568,
+            //    registroativo = true
+            //});
+            //movimentacaofinanceiraentrada.add(new movimentacaofinanceiraentrada()
+            //{
+            //    valor = -2422,
+            //    registroativo = true,
+            //});
+            //movimentacaofinanceiraentrada.add(new movimentacaofinanceiraentrada()
+            //{
+            //    valor = 255244,
+            //    registroativo = true,
+            //});
+            //context.movimentacaofinanceiraentradas.addrange(movimentacaofinanceiraentrada);
+            #endregion
+
+            #region movimentacaoFinanceiraSaida
             //var movimentacaoFinanceiraSaida = new List<MovimentacaoFinanceiraSaida>();
             //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
             //{
@@ -356,7 +313,7 @@ namespace Repository
             //    RegistroAtivo = true
             //});
             //context.MovimentacaoFinanceiraSaidas.AddRange(movimentacaoFinanceiraSaida);
-            //#endregion
+            #endregion
 
             #region parcelaPagar
             var parcelaPagar = new List<ParcelaPagar>();
@@ -470,6 +427,7 @@ namespace Repository
             });
             #endregion
 
+            #region
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
             cadastroscontacorrente.Add(new CadastroContaCorrente()
             {
@@ -503,34 +461,6 @@ namespace Repository
             context.Fornecedores.AddRange(fornecedores);
             #endregion
 
-            //#region tituloReceber
-            //var tituloReceber = new List<TituloReceber>();
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao= "Titulo sem compromisso",
-            //    ValorTotal = 123213123,
-            //    Status = "Pago",
-            //    DataLancamento = "29/12/2018",
-            //    DataRecebimento = "04/01/2019",
-            //    DataVencimento="30/01/2019",
-            //    Complemento="Não sei o que por",
-            //    QuantidadeParcela= 36,
-            //    RegistroAtivo = true
-            //});
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao = "Titulo com compromisso",
-            //    ValorTotal = 343234,
-            //    Status = "Pendente",
-            //    DataLancamento = "09/02/2017",
-            //    DataRecebimento = "",
-            //    DataVencimento = "10/03/2017",
-            //    Complemento = "Não sei o que por, desculpa",
-            //    QuantidadeParcela = 24,
-            //    RegistroAtivo = true
-            //});
-            //context.TitulosReceber.AddRange(tituloReceber);
-            //#endregion
 
             base.Seed(context);
         }

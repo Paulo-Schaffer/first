@@ -6,8 +6,8 @@
         serverSide: true,
         Columns: [
             { 'data': 'Id' }, 
-            //{ 'data': 'IdAgencia' },
-            //{ 'data': 'NumeroConta' },
+            { 'data': 'IdAgencia' },
+            { 'data': 'NumeroConta' },
             {
                 render: function (data, type, row) {
                     return "\
@@ -105,7 +105,7 @@
     }
 
     function limparCampos() {
-        $('#cadastro-conta-corrente-campo-idAgencia').val("");
+        $('#cadastro-conta-corrente-campo-idAgencia').val(-1);
         $('#cadastro-conta-corrente-campo-numero-conta').val("");
         $idAlterar = -1;
     }
