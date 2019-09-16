@@ -83,11 +83,7 @@ namespace TccFirst.Controllers
         //    return View();
 
         //}
-        [HttpGet, Route("tituloReceber/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
+        
         [HttpGet, Route("tituloReceber/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {

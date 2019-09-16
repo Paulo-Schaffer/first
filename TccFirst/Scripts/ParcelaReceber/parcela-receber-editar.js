@@ -57,7 +57,7 @@
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
-               
+                LimparCampos();
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -79,8 +79,8 @@
                 dataRecebimento: $dataRecebimento
             },
             success: function (data) {
+                LimparCampos();
                 $("#modal-parcelaReceber").modal("hide");
-                
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -89,7 +89,7 @@
         });
     }
     $('#parcelaReceber-tabela').on('click', '.botao-apagar', function () {
-        $id = $(this).data('id');
+        $idAlterar = $(this).data('id');
 
         $.ajax({
             url: '/parcelaReceber/apagar?id=' + $idAlterar,
@@ -104,7 +104,7 @@
         });
     });
     $('#parcelaReceber-tabela').on('click', '.botao-editar', function () {
-        $id= $(this).data('id');
+        $idAlterar = $(this).data('id');
 
         $.ajax({
             url: "/parcelaReceber/obterpeloid?id=" + $idAlterar,
@@ -123,4 +123,18 @@
             }
         });
     });
+
+    function LimparCampos() {
+        $('#parcelaReceber-campo-tituloReceber').val("");
+        $('#parcelaReceber-campo-valor').val("");
+        $('#parcelaReceber-campo-status').val("");
+        $('#parcelaReceber-campo-dataVencimento').val("");
+        $('#parcelaReceber-campo-dataRecebimento').val("");
+        $idAlterar = -1;
+    }
+
+    $('#modal-parcelaReceber').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });
+

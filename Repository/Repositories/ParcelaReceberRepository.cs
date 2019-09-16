@@ -20,8 +20,7 @@ namespace Repository.Repositories
 
         public bool Alterar(ParcelaReceber parcelaReceber)
         {
-            var parcelaReceberOriginal = context.ParcelasReceber. Where(x => x.Id == parcelaReceber.Id)
-                 .FirstOrDefault();
+            var parcelaReceberOriginal = context.ParcelasReceber. Where(x => x.Id == parcelaReceber.Id).FirstOrDefault();
             if (parcelaReceber == null)
             {
                 return false;
@@ -65,6 +64,7 @@ namespace Repository.Repositories
         public List<ParcelaReceber> ObterTodos()
         {
             return context.ParcelasReceber
+              .Include("TituloReceber")
               .Where(x => x.RegistroAtivo == true)
               .ToList();
         }
