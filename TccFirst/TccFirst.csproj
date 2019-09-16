@@ -5683,6 +5683,7 @@
     <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
+    <Content Include="Views\Login do Sistema\LoginSistema.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5696,7 +5697,6 @@
     <Folder Include="Scripts\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />

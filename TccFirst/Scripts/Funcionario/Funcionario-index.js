@@ -2,7 +2,7 @@
     $idAlterar = -1;
 
     $tabelaFuncionario = $('#funcionario-tabela').DataTable({
-        ajax: '/Funcionario/obtertodos',
+        ajax: '/funcionario/obtertodos',
         serverSide: true,
         columns: [
             { 'data': 'Id' },
@@ -22,23 +22,23 @@
 
     $('#funcionario-botao-salvar').on('click', function () {
         $Nome = $('#funcionario-campo-nome').val();
-        $Tipo = $('#funcionario-campo-tipo').val();
+        $Tipo = $('#funcionario-campo-tipo-funcionario').val();
 
         if ($idAlterar == -1) {
-            inserir($Nome, $Tipo);
+            inserir($Nome, $TipoFuncionario);
         } else {
-            alterar($Nome, $Tipo);
+            alterar($Nome, $TipoFuncionario);
         }
     });
 
-    function alterar($Nome, $Tipo) {
+    function alterar($Nome, $TipoFuncionario) {
         $.ajax({
-            url: "/Funcionario/update",
+            url: "/funcionario/update",
             method: "post",
             data: {
                 id: $idAlterar,
                 NomeFuncionario: $Nome,
-                TipoFuncionario: $Tipo
+                TipoFuncionario: $TipoFuncionario
             },
             success: function (data) {
                 $("#modal-funcionario").modal("hide");
@@ -52,13 +52,13 @@
         })
     }
 
-    function inserir($Nome, $Tipo) {
+    function inserir($Nome, $TipoFuncionario) {
         $.ajax({
-            url: '/Funcionario/inserir',
+            url: '/funcionario/inserir',
             method: 'post',
             data: {
                 NomeFuncionario: $Nome,
-                TipoFuncionario: $Tipo
+                TipoFuncionario: $TipoFuncionario
             },
             success: function (data) {
                 $('#modal-funcionario').modal('hide');
@@ -66,7 +66,7 @@
                 $tabelaFuncionario.ajax.reload();
             },
             error: function (err) {
-
+                alert("Não foi possivel inserir");
             }
         });
     }
@@ -76,7 +76,7 @@
         if (confirma == true) {
             $idApagar = $(this).data('id');
             $.ajax({
-                url: '/Funcionario/apagar?id=' + $idApagar,
+                url: '/funcionario/apagar?id=' + $idApagar,
                 method: 'get',
                 success: function (data) {
                     $tabelaFuncionario.ajax.reload();
@@ -97,7 +97,7 @@
             method: 'get',
             success: function (data) {
                 $('#funcionario-campo-nome').val(data.Nome);
-                $('#funcionario-campo-tipo').val(data.Tipo);
+                $('#funcionario-campo-tipo-funcionario').val(data.TipoFuncionario);
                 $('#modal-funcionario').modal('show');
             },
             error: function (err) {
@@ -108,7 +108,7 @@
 
     function LimparCampos() {
         $('#funcionario-campo-nome').val("");
-        $('#funcionario-campo-tipo').val("");
+        $('#funcionario-campo-tipo-funcionario').val("");
         $idAlterar = -1;
     };
 

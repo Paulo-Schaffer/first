@@ -251,14 +251,14 @@ namespace Repository
             funcionario.Add(new Funcionario()
             {
                 NomeFuncionario = "Paulo",
-                TipoFuncionario = 1,
+                TipoFuncionario = "Gerente",
                 RegistroAtivo = true
 
             });
             funcionario.Add(new Funcionario()
             {
                 NomeFuncionario = "André",
-                TipoFuncionario = 2,
+                TipoFuncionario = "Funcionario",
                 RegistroAtivo = true
 
             });
