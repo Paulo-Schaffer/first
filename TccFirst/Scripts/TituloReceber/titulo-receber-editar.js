@@ -7,7 +7,7 @@
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: "clientePessoaJuridica.RazaoSocial"},
+            { data: "IdClientePessoaJuridica"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             { data: "Status" },
@@ -58,7 +58,7 @@
       
 
     $("#titulo-receber-botao-salvar").on("click", function () {
-        $IdPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
+        $IdClientePessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
         $IdCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
         $ValorTotal = $("#tituloReceber-campo-valor-total").val();
         $QuantidadeParcela = $("#tituloReceber-campo-quantidade-Parcelas").val();
@@ -69,18 +69,18 @@
         $Descricao = $("#tituloReceber-campo-descricao").val();
         $Complemento = $("#tituloReceber-campo-complemento").val();
         if ($idAlterar == -1) {
-            inserir($IdPessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento);
+            inserir($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento);
         } else {
-            alterar($IdPessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento);
+            alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento);
         }
     });
 
-    function inserir($IdPessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
+    function inserir($IdClientePessoaJuridica , $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
         $.ajax({
             url: '/tituloreceber/cadastro',
             method: 'post',
             data: {
-                IdPessoaJuridica: $IdPessoaJuridica,
+                IdClientePessoaJuridica : $IdClientePessoaJuridica ,
                 IdCategoriaReceita: $IdCategoriaReceita,
                 ValorTotal: $ValorTotal,
                 QuantidadeParcela: $QuantidadeParcela,
@@ -111,7 +111,7 @@
             method: "get",
             success: function (data) {
                 $idAlterar = $id;
-                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica);
+                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica );
                 $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
                 $("#tituloReceber-campo-valor-total").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcela);
@@ -135,12 +135,12 @@
         })
     });
 
-    function alterar($IdPessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
+    function alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
         $.ajax({
             url: "/tituloreceber/editar",
             method: "post",
             data: {
-                IdPessoaJuridica: $IdPessoaJuridica,
+                IdClientePessoaJuridica: $IdClientePessoaJuridica ,
                 idCategoriareceita: $IdCategoriaReceita,
                 ValorTotal: $ValorTotal,
                 QuantidadeParcela: $QuantidadeParcela,
@@ -151,7 +151,7 @@
                 Descricao: $Descricao,
                 Complemento: $Complemento,
                 id: $idAlterar,
-                idTituloReceber: $idTituloReceber
+                //idTituloReceber: $idTituloReceber
             },
             success: function (data) {
                 $("#modal-tituloReceber").modal("hide");
