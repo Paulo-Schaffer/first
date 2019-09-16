@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
+    [Route("tituloreceber/")]
     public class TituloReceberController : Controller
     {
         private TituloReceberRepository repository;
@@ -44,11 +45,22 @@ namespace TccFirst.Controllers
         }
         
         [HttpGet,Route("apagar")]
-        JsonResult Apagar(int id)
+        public JsonResult Apagar(int id)
         {
+            
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet, Route("obterpeloid")]
+        public ActionResult ObterPeloId(int id)
+        {
+            var tituloReceber = repository.ObterPeloId(id);
+            if (tituloReceber == null)
+                return HttpNotFound();
+
+            return Json(tituloReceber,
+                JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Index()

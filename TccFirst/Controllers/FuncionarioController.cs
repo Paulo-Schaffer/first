@@ -58,12 +58,6 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-        [HttpGet, Route("funcionario/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
         [HttpGet, Route("funcionario/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
@@ -76,18 +70,11 @@ namespace TccFirst.Controllers
                 funcionariosSelect2.Add(new
                 {
                     id = funcionario.Id,
-                    nome = funcionario.NomeFuncionario,
-                    tipoFuncionario = funcionario.TipoFuncionario
+                    text = funcionario.TipoFuncionario
                 });
             }
-            var resultado = new
-            {
-                results = funcionariosSelect2
-            };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
-
+            var resultado = new { results = funcionariosSelect2 };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
     }
 }
