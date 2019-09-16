@@ -7,7 +7,7 @@
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: "IdClientePessoaJuridica"},
+            { data: "clientePessoaJuridica.RazaoSocial"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             { data: "Status" },
@@ -58,7 +58,7 @@
       
 
     $("#titulo-receber-botao-salvar").on("click", function () {
-        $idPessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
+        $idClientePessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
         $idCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
         $valorTotal = $("#tituloReceber-campo-valor-total").val();
         $quantidadeParcela = $("#tituloReceber-campo-quantidade-Parcelas").val();
@@ -69,19 +69,19 @@
         $descricao = $("#tituloReceber-campo-descricao").val();
         $complemento = $("#tituloReceber-campo-complemento").val();
         if ($idAlterar == -1) {
-            inserir($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
+            inserir($idClientePessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
         } else {
-            alterar($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
+            alterar($idClientePessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento);
         }
     });
 
-    function inserir($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status,  $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
+    function inserir($idClientePessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status,  $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
         $.ajax({
             url: '/tituloreceber/cadastro',
             method: 'post',
             data: {
-                idPessoaJuridica: $idPessoaJuridica,
-                idCategoriaReceita: $idCategoriaReceita,
+                IdPessoaJuridica: $idClientePessoaJuridica,
+                IdCategoriaReceita: $idCategoriaReceita,
                 valorTotal: $valorTotal,
                 quantidadeParcela: $quantidadeParcela,
                 status: $status,
@@ -135,12 +135,12 @@
         })
     });
 
-    function alterar($idPessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
+    function alterar($idClientePessoaJuridica, $idCategoriaReceita, $valorTotal, $quantidadeParcela, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $descricao, $complemento) {
         $.ajax({
             url: "/tituloreceber/editar",
             method: "post",
             data: {
-                idPessoaJuridica: $idPessoaJuridica,
+                idClientePessoaJuridica: $idClientePessoaJuridica,
                 idCategoriareceita: $idCategoriaReceita,
                 valorTotal: $valorTotal,
                 quantidadeParcela: $quantidadeParcela,
