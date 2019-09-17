@@ -10,9 +10,6 @@ namespace TccFirst.Controllers
 {
     [Route("tituloPagar/")]
     public class TituloPagarController : Controller
-
-
-
     {
         private TituloPagarRepository repository;
 
