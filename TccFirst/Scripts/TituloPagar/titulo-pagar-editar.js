@@ -100,7 +100,7 @@
                     $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
                     $('#tituloPagar-campo-complemento').val(data.Complemento);
                     $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
-                $('#modal-tituloPagar').modal('show');
+                    $('#modal-tituloPagar').modal('show');
                 
             },
             error: function (data) {

@@ -19,49 +19,52 @@ namespace Repository.Repositories
 
         public bool Alterar(Login login)
         {
-                var loginOfical = context.Logins.FirstOrDefault(x => x.Id == login.Id);
-                if (login == null)
-                    return false;
+            var loginOfical = context.Logins.Where(x => x.Id == login.Id).FirstOrDefault();
+            if (login == null)
+            {
+                return false;
+            }
 
-                loginOfical.IdFuncionario = loginOfical.IdFuncionario;
-                loginOfical.Usuario = loginOfical.Usuario;
-                loginOfical.Senha = loginOfical.Senha;
-                int quantidadeAfetada = context.SaveChanges();
-                return quantidadeAfetada == 1;
+            loginOfical.IdFuncionario = login.IdFuncionario;
+            loginOfical.Usuario = login.Usuario;
+            loginOfical.Senha = login.Senha;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-                var login = context.Logins.FirstOrDefault(x => x.Id == id);
-                if (login == null)
-                    return false;
-
-                login.RegistroAtivo = false;
-                int quantidadeAfetada = context.SaveChanges();
-                return quantidadeAfetada == 1;
+            var login = context.Logins.FirstOrDefault(x => x.Id == id);
+            if (login == null)
+            {
+                return false;
+            }
+            login.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(Login login)
         {
-                login.RegistroAtivo = true;
-                context.Logins.Add(login);
-                context.SaveChanges();
-                return login.Id;
+            login.RegistroAtivo = true;
+            context.Logins.Add(login);
+            context.SaveChanges();
+            return login.Id;
         }
 
         public Login ObterPeloId(int id)
         {
-            return context.Logins
-                .Include("Login")
-                .FirstOrDefault(x => x.Id == id);
+            var login = context.Logins
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+            return login;
         }
 
         public List<Login> ObterTodos()
         {
             return context.Logins
-                .Where(x => x.RegistroAtivo == true)
-                .OrderBy(x => x.Id).ToList();
+                .Include("Funcionario")
+                .Where(x => x.RegistroAtivo == true).ToList();
         }
-
     }
 }

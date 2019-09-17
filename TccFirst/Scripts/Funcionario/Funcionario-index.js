@@ -22,12 +22,12 @@
 
     $('#funcionario-botao-salvar').on('click', function () {
         $Nome = $('#funcionario-campo-nome').val();
-        $Tipo = $('#funcionario-campo-tipo').val();
+        $TipoFuncionario = $('#funcionario-campo-tipo').val();
 
         if ($idAlterar == -1) {
-            inserir($Nome, $Tipo);
+            inserir($Nome, $TipoFuncionario);
         } else {
-            alterar($Nome, $Tipo);
+            alterar($Nome, $TipoFuncionario);
         }
     });
 
@@ -50,13 +50,13 @@
     });
 
     $('.table').on('click', '.botao-editar', function () {
-        $idAlterar = $(this).data('id');
+        $idAlterar = $(this).data("id");
         $.ajax({
-            url: '/Funcionario/obterpeloid?id=' + $idAlterar,
+            url: '/funcionario/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
-                $('#funcionario-campo-nome').val(data.Nome);
-                $('#funcionario-campo-tipo').val(data.Tipo);
+                $('#funcionario-campo-nome').val(data.NomeFuncionario);
+                $('#funcionario-campo-tipo').val(data.TipoFuncionario);
                 $('#modal-funcionario').modal('show');
             },
             error: function (err) {
@@ -65,13 +65,13 @@
         });
     });
 
-    function inserir($Nome, $Tipo) {
+    function inserir($Nome, $TipoFuncionario) {
         $.ajax({
             url: '/Funcionario/inserir',
             method: 'post',
             data: {
                 NomeFuncionario: $Nome,
-                TipoFuncionario: $Tipo
+                TipoFuncionario: $TipoFuncionario
             },
             success: function (data) {
                 LimparCampos(); 
@@ -84,13 +84,13 @@
         });
     }
 
-    function alterar($Nome, $Tipo) {
+    function alterar($Nome, $TipoFuncionario) {
         $.ajax({
             url: "/Funcionario/update",
             method: "post",
             data: {
                 NomeFuncionario: $Nome,
-                TipoFuncionario: $Tipo,
+                TipoFuncionario: $TipoFuncionario,
                 id: $idAlterar
             },
             success: function (data) {
