@@ -188,6 +188,23 @@ namespace Repository
             context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
             #endregion
 
+            #region contaCorrente
+            var contaCorrente = new List<ContaCorrente>();
+            contaCorrente.Add(new ContaCorrente()
+            {
+                NumeroConta = "1233334-454",
+                Descricao = "Cliente há 25 anos",
+                Documento = "Este é Paulo",
+                TipoReceitaDespesa = 11,
+                TipoPagamento = "Crédito",
+                Valor = 20,
+                Status = "Pago",
+                DataLancamento = Convert.ToDateTime("19/08/2019"),
+                DataRecebimento = Convert.ToDateTime("15/09/2019"),
+                DataVencimento = Convert.ToDateTime("19/09/2019"),
+            });
+            #endregion
+
             #region endereço
             var enderecos = new List<Endereco>();
             enderecos.Add(new Endereco()
@@ -218,7 +235,6 @@ namespace Repository
                 Complemento = "Rua da Direita",
                 RegistroAtivo = true
             });
-
             #endregion
 
 
@@ -309,19 +325,18 @@ namespace Repository
             {
                 Valor = 2333,
                 Status = "Pago",
-                DataVencimento = Convert.ToDateTime("17/02/2019"),
                 DataPagamento = Convert.ToDateTime("17/02/2019"),
+                DataVencimento = Convert.ToDateTime("17/02/2019"),
                 RegistroAtivo = true
             });
             parcelaPagar.Add(new ParcelaPagar()
             {
                 Valor = 9523,
                 Status = "Pendente",
-                DataVencimento = Convert.ToDateTime("04/09/2019"),
                 DataPagamento = Convert.ToDateTime("05/09/2019"),
+                DataVencimento = Convert.ToDateTime("04/09/2019"),
                 RegistroAtivo = true
             });
-            context.ParcelasPagar.AddRange(parcelaPagar);
             #endregion
 
             #region parcelaReceber

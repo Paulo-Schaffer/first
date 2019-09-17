@@ -60,7 +60,7 @@ namespace Repository.Repositories
 
         public List<CadastroContaCorrente> ObterTodos()
         {
-            return context.CadastroContaCorrentes.Where(x => x.RegistroAtivo == true)
+            return context.CadastroContaCorrentes.Where(x => x.RegistroAtivo)
                 .ToList();
         }
     }

@@ -96,13 +96,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\TCCFirstDB.mdf" />
-    <Content Include="App_Data\TCCFirstDB_log.ldf">
-      <DependentUpon>TCCFirstDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
-    <Content Include="Content\css\Botoes.css" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
@@ -5654,8 +5649,6 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
-    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Web.config" />
@@ -5668,7 +5661,6 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
-    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -5699,6 +5691,7 @@
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Agencia\Cadastro.cshtml" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
@@ -5756,6 +5749,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\CategoriaDespesa\" />
     <Folder Include="Views\CategoriaDespesa\" />
@@ -5764,6 +5758,7 @@
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
+    <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>
