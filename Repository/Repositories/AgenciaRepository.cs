@@ -35,13 +35,10 @@ namespace Repository.Repositories
         public bool Apagar(int id)
         {
             var agencia = context.Agencias.FirstOrDefault(x => x.Id == id);
-
             if (agencia == null)
             {
                 return false;
             }
-                    
-
             agencia.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
