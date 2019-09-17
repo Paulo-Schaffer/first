@@ -21,7 +21,7 @@ namespace Repository.Repositories
         public bool Alterar(ParcelaReceber parcelaReceber)
         {
             var parcelaReceberOriginal = context.ParcelasReceber. Where(x => x.Id == parcelaReceber.Id).FirstOrDefault();
-            if (parcelaReceberOriginal == null)
+            if (parcelaReceber == null)
             {
                 return false;
             }
