@@ -33,7 +33,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
-            return RedirectToAction("Editar", new { id = id });
+            return Json(new { id = id });
         }
 
         [HttpPost, Route("editar")]

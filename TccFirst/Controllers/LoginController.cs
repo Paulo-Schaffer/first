@@ -18,7 +18,7 @@ namespace TccFirst.Controllers
             repository = new LoginRepository();
         }
 
-        [HttpGet, Route("obterTodos")]
+        [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
             var login = repository.ObterTodos();
@@ -41,18 +41,12 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("apagar")]
+        [HttpGet]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet, Route("login")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Index()
@@ -62,6 +56,17 @@ namespace TccFirst.Controllers
 
         public ActionResult Cadastro()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Editar(int id)
+        {
+            var login = repository.ObterPeloId(id);
+            if (login == null)
+                return RedirectToAction("Index");
+
+            ViewBag.Login = login;
             return View();
         }
     }

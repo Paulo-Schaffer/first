@@ -240,7 +240,7 @@ namespace Repository
             {
                 Id = 1,
                 NomeFuncionario = "Paulo",
-                TipoFuncionario = "Gerente",
+                TipoFuncionario = "1",
                 RegistroAtivo = true
 
             });
@@ -248,7 +248,7 @@ namespace Repository
             {
                 Id = 2,
                 NomeFuncionario = "André",
-                TipoFuncionario = "Funcionario",
+                TipoFuncionario = "2",
                 RegistroAtivo = true
 
             });

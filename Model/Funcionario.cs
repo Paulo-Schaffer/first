@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("funcionario")]
+    [Table("funcionarios")]
     public class Funcionario
     {
         [Key,Column("id")]
