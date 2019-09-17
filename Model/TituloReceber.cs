@@ -52,7 +52,7 @@ namespace Model
         [Column("id_cliente_pessoa_juridica")]
         public int? IdClientePessoaJuridica { get; set; }
         [ForeignKey("IdClientePessoaJuridica")]
-        public ClientePessoaJuridica PessoaJuridica { get; set; }
+        public ClientePessoaJuridica ClientePessoaJuridica { get; set; }
         #endregion
 
         #region fk_categoria_receita 
