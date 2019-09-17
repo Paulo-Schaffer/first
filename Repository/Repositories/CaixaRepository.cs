@@ -23,12 +23,14 @@ namespace Repository.Repositories
 
             if (caixaRegistro == null)
                 return false;
-            caixaRegistro.IdHistoricos = caixa.IdHistoricos;
+
             caixaRegistro.Descricao = caixa.Descricao;
             caixaRegistro.Documento = caixa.Documento;
             caixaRegistro.FormaPagamento = caixa.FormaPagamento;
             caixaRegistro.Valor = caixa.Valor;
             caixaRegistro.DataLancamento = caixa.DataLancamento;
+            caixaRegistro.Status = caixa.Status;
+            caixaRegistro.Historico = caixa.Historico;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }

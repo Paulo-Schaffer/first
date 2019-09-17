@@ -1,4 +1,5 @@
-﻿<div id="modal-caixa" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
+﻿
+<div id="modal-caixa" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,13 +9,6 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <div class="form-group">
-                    <label for="campo-caixa-historico" mas>Historico</label>
-                    <select class="form-control" id="caixa-campo-historico" name="IdHistorico">
-                        <option disabled selected>Selecione um opção</option>
-                    </select>
-                </div>
                 <div class="form-group">
                     <label for="caixa-campo-descricao">Descrição</label>
                     <input type="text" id="caixa-campo-descricao" class="form-control" />
@@ -31,24 +25,24 @@
                         <option>Cartão Débito</option>
                         <option>Cartão de Crédito</option>
                     </select>
-                    <div class="form-group">
-                        <label for="campo-caixa-valor" mas>Valor</label>
-                        <input type="text" id="caixa-campo-valor" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label for="campo-caixa-data-lancamento" mas>Data de Lançamento</label>
-                        <input type="date" id="caixa-campo-data-lancamento" class="form-control" />
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success" id="caixa-botao-salvar">Salvar</button>
-                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="campo-caixa-valor" mas>Valor</label>
+                    <input type="text" id="caixa-campo-valor" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="campo-caixa-data-lancamento" mas>Data de Lançamento</label>
+                    <input type="date" id="caixa-campo-data-lancamento" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="campo-caixa-historico" mas>Historico</label>
+                    <input type="text" id="caixa-campo-historico" class="form-control" />
                 </div>
             </div>
-
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="pessoa-botao-salvar">Salvar</button>
+            </div>
         </div>
     </div>
 </div>
-
- 
