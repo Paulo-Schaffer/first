@@ -10,7 +10,7 @@ namespace Repository.Repositories
 {
    public class ParcelaReceberRepository : IParcelaReceberRepository
    {
-        private SistemaContext context;
+        public SistemaContext context;
 
         public ParcelaReceberRepository()
         {

@@ -5,7 +5,7 @@
         "scrollX": true,
         ajax: "/parcelareceber/obtertodos",
         serverSide: true,
-        coluns: [
+        columns: [
             { data: "IdTituloReceber" },
             { data: "Valor" },           
             { data: "Status" },
