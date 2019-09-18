@@ -5739,6 +5739,8 @@
     <Content Include="Views\CategoriaReceita\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
+    <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
+    <Content Include="Views\ParcelaReceber\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
