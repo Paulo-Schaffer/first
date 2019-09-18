@@ -2,12 +2,14 @@
     $idAlterar = -1;
 
     $tabelaFuncionario = $('#funcionario-tabela').DataTable({
+        "scrollX": true,
         ajax: '/Funcionario/obtertodos',
         serverSide: true,
         columns: [
-            { data : 'Id' },
-            { data : 'NomeFuncionario' },
-            { data : 'TipoFuncionario' },
+            { data: 'Id' },
+            { data: 'NomeFuncionario' },
+            { data: 'TipoFuncionario' },
+            { data: 'Usuario' },
             {
                 render: function (data, type, row) {
                     return "\
@@ -23,11 +25,13 @@
     $('#funcionario-botao-salvar').on('click', function () {
         $Nome = $('#funcionario-campo-nome').val();
         $TipoFuncionario = $('#funcionario-campo-tipo').val();
+        $Usuario = $('#funcionario-campo-usuario').val();
+        $Senha = $('#funcionario-campo-senha').val();
 
         if ($idAlterar == -1) {
-            inserir($Nome, $TipoFuncionario);
+            inserir($Nome, $TipoFuncionario, $Usuario, $Senha);
         } else {
-            alterar($Nome, $TipoFuncionario);
+            alterar($Nome, $TipoFuncionario, $Usuario, $Senha);
         }
     });
 
@@ -57,6 +61,8 @@
             success: function (data) {
                 $('#funcionario-campo-nome').val(data.NomeFuncionario);
                 $('#funcionario-campo-tipo').val(data.TipoFuncionario);
+                $('#funcionario-campo-usuario').val(data.Usuario);
+                $('#funcionario-campo-senha').val(data.Senha);
                 $('#modal-funcionario').modal('show');
             },
             error: function (err) {
@@ -65,13 +71,15 @@
         });
     });
 
-    function inserir($Nome, $TipoFuncionario) {
+    function inserir($Nome, $TipoFuncionario, $Usuario, $Senha) {
         $.ajax({
             url: '/Funcionario/inserir',
             method: 'post',
             data: {
                 NomeFuncionario: $Nome,
-                TipoFuncionario: $TipoFuncionario
+                TipoFuncionario: $TipoFuncionario,
+                Usuario: $Usuario,
+                Senha: $Senha
             },
             success: function (data) {
                 LimparCampos(); 
@@ -84,13 +92,15 @@
         });
     }
 
-    function alterar($Nome, $TipoFuncionario) {
+    function alterar($Nome, $TipoFuncionario, $Usuario, $Senha) {
         $.ajax({
             url: "/Funcionario/update",
             method: "post",
             data: {
                 NomeFuncionario: $Nome,
                 TipoFuncionario: $TipoFuncionario,
+                Usuario: $Usuario,
+                Senha: $Senha,
                 id: $idAlterar
             },
             success: function (data) {
@@ -108,6 +118,8 @@
     function LimparCampos() {
         $('#funcionario-campo-nome').val("");
         $('#funcionario-campo-tipo').val("");
+        $('#funcionario-campo-usuario').val("");
+        $('#funcionario-campo-senha').val("");
         $idAlterar = -1;
     };
 

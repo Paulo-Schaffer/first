@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class CategoriaReceitaController : Controller
+    public class CategoriaReceitaController : BaseController
     {
         private CategoriaReceitaRepository repository;
 
@@ -34,8 +34,17 @@ namespace TccFirst.Controllers
         {
             categoriaReceita.RegistroAtivo = true;
             var id = repository.Inserir(categoriaReceita);
-            var resultado = new { id = 1 };
+            var resultado = new { id = id };
             return Json(resultado);
+        }
+
+        [HttpGet]
+        public JsonResult ObterTodos()
+        {
+            var categorias = repository.ObterTodos();
+            var resultado = new { data = categorias };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
         }
         [HttpGet]
         public JsonResult Apagar(int id)
@@ -43,6 +52,12 @@ namespace TccFirst.Controllers
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet, Route("categoriareceita/")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult Update(CategoriaReceita categoriaReceita)

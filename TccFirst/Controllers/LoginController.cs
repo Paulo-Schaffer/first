@@ -8,59 +8,39 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("login/")]
     public class LoginController : Controller
     {
-        private LoginRepository repository;
-
-        public LoginController()
-        {
-            repository = new LoginRepository();
-        }
-
-        [HttpGet, Route("obterTodos")]
-        public JsonResult ObterTodos()
-        {
-            var login = repository.ObterTodos();
-            var resultado = new { data = login };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost, Route("cadastro")]
-        public ActionResult Cadastro(Login login)
-        {
-            int id = repository.Inserir(login);
-            return RedirectToAction("Editar", new { id = id });
-        }
-
-        [HttpPost, Route("editar")]
-        public JsonResult Editar(Login login)
-        {
-            var alterou = repository.Alterar(login);
-            var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet, Route("apagar")]
-        public JsonResult Apagar(int id)
-        {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet, Route("login")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
         public ActionResult Index()
         {
             return View();
         }
+        
+        public ActionResult Sair()
+        {
+            Session["UsuarioLogadoId"] = null;
+            Session["UsuarioLogadoTipoFuncionario"] = null;
+            return RedirectToAction("index");
+        }
 
-        public ActionResult Cadastro()
+        public ActionResult VerificaLogin( string usuario, string senha)
+        {
+            FuncionarioRepository Repository = new FuncionarioRepository();
+            Funcionario funcionario = Repository.BuscarFuncionario(usuario, senha);
+
+            if (funcionario != null)
+            {
+                Session["usuarioLogadoId"] = funcionario.Id;
+                Session["usuarioLogadoNome"] = funcionario.NomeFuncionario;
+                Session["usuarioLogadoTipoFuncionario"] = funcionario.TipoFuncionario;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public ActionResult SemPermissao()
         {
             return View();
         }
