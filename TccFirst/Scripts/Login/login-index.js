@@ -44,7 +44,7 @@
                     $tabelaLogin.ajax.reload();
                 },
                 error: function (err) {
-                    alert('Não foi possível apagar');
+                    alert('Não foi possível apagar!');
                 }
 
             });
@@ -55,7 +55,7 @@
         $idAlterar = $(this).data('id');
 
         $.ajax({
-            url: '/Login/obterpeloid?id=' + $idAlterar,
+            url: '/login/obterpeloid?id=' + $idAlterar,
             method: 'get',
 
             success: function (data) {
@@ -65,7 +65,7 @@
                 $('#modal-login').modal('show');
             },
             error: function (err) {
-                alert('não foi possível carregar');
+                alert('Não foi possível carregar!');
             }
         });
     });
@@ -81,6 +81,7 @@
             },
             success: function (data) {
                 LimparCampos();
+                $(".modal-backdrop").hide(); 
                 $('#modal-login').modal('hide');
                 $tabelaLogin.ajax.reload();
             },
@@ -93,7 +94,7 @@
     function alterar($IdFuncionario, $Usuario, $Senha) {
         $.ajax({
             url: "/login/update",
-            method: "post",
+            method: 'post',
             data: {
                 IdFuncionario: $IdFuncionario,
                 Usuario: $Usuario,
@@ -106,7 +107,7 @@
                 $tabelaLogin.ajax.reload();
             },
             error: function (err) {
-                alert("Não foi possível alterar");
+                alert("Não foi possível alterar!");
             }
         })
     }

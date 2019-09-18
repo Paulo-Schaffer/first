@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\Imagem\logo-blue.png" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
@@ -5595,6 +5596,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgenciaController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CadastroContaCorrenteController.cs" />
     <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
@@ -5675,7 +5677,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper.min.js.map" />
     <Content Include="Scripts\README.md" />
-    <Content Include="Views\Login\CadastroLogin.cshtml" />
     <Content Include="Views\CategoriaReceita\CadastroCategoriaReceita.cshtml" />
     <Content Include="Views\CategoriaReceita\Index.cshtml" />
     <Content Include="Views\CategoriaReceita\CadastroCategoriaReceita.cshtml" />
@@ -5685,6 +5686,7 @@
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login do Sistema\LoginSistema.cshtml" />
+    <Content Include="Views\Login\SemPermissao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5696,6 +5698,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\CategoriaDespesa\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />

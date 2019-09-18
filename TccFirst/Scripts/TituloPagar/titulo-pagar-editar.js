@@ -133,7 +133,7 @@
                 $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
-                alert('Não foi possível cadastrar!');
+                
             }
         });
     }
