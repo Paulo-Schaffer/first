@@ -1,9 +1,9 @@
 ﻿
 <div class="row">
-    <div class="col-6"><h2>Cadastro de Conta Corrente</h2></div>
+    <div class="col-6"><h2>Transações de Conta</h2></div>
     <div class="col-6">
-        <a class="btn btn-success   float-right mb-3"
-           href="/ContaCorrente/index">Ir para tabela</a>
+        <a class="btn btn-primary   float-right mb-3"
+           href="/ContaCorrente/index"><i class="fa fa-backward"></i>Ir para tabela</a>
     </div>
 </div>
 <br />
@@ -19,30 +19,26 @@
                     <option selected="" disabled="disabled">Selecione uma Conta</option>
                     @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastroContaCorrentes)
                     {
-                        <option value="@cadastroContaCorrente.Id">@cadastroContaCorrente.NumeroConta</option>
+                        <option value="@cadastroContaCorrente.NumeroConta">@cadastroContaCorrente.NumeroConta</option>
 
                     }
                 </select>
-
             </div>
             <div class="col-6">
                 <label class="font-weight-bold" for="campo-historico">Historico<span class="text-danger">*</span></label>
                 <select name="IdHistorico" id="campo-historico" required="" class="form-control border-info">
-                    <option selected="" disabled="disabled">Selecione uma Historico</option>
+                    <option selected="" disabled="disabled">Seleci'one uma Historico</option>
                     @foreach (Model.Historico historico in ViewBag.Historicos)
                     {
                         <option value="@historico.Id">@historico.Descricao</option>
 
                     }
                 </select>
-
             </div>
-
-
         </div>
         <div class="row">
             <div class="col-6">
-                  <label class="font-weight-bold" for="campo-categoriaReceita">Categoria Receita<span class="text-danger">*</span></label>
+                <label class="font-weight-bold" for="campo-categoriaReceita">Categoria Receita<span class="text-danger">*</span></label>
                 <select name="IdCategoriaReceita" id="campo-categoriaReceita" required="" class="form-control border-info">
                     <option selected="" disabled="disabled">Selecione uma Categoria Receita</option>
                     @foreach (Model.CategoriaReceita categoriaReceita in ViewBag.CategoriasReceita)
@@ -63,35 +59,26 @@
 
                     }
                 </select>
-
             </div>
-
-
         </div>
-
-
-
-
-
-
         <div class="row">
             <div class="col-12">
                 <label for="contacorrente-campo-descricao">Descricao<span class="text-danger">*</span></label>
-                <input type="text" id="contacorrente-campo-descricao" name="descricao" class="form-control" required="" />
+                <input type="text" id="contacorrente-campo-descricao" name="descricao" class="form-control" required />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-12">
                 <lable for="contacorrente-campo-documento">Documento<span class="text-danger">*</span></lable>
-                <input type="text" id="contacorrente-campo-documento" name="documento" class="form-control"required="" />
+                <input type="text" id="contacorrente-campo-documento" name="documento" class="form-control" required />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-4">
                 <lable for="contacorrente-campo-tipopagamento">Tipo Pagamento<span class="text-danger">*</span></lable>
-                <select id="contacorrente-campo-tipopagamento" name="tipopagamento" class="form-control" required="">
+                <select id="contacorrente-campo-tipopagamento" name="tipopagamento" class="form-control" required>
                     <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                     <option>Dinheiro</option>
                     <option>Cartão de Débito</option>
@@ -101,12 +88,12 @@
 
             <div class="col-4">
                 <lable for="contacorrente-campo-valor">Valor<span class="text-danger">*</span></lable>
-                <input type="text" id="contacorrente-campo-valor" name="valor" class="form-control" required=""/>
+                <input type="text" id="contacorrente-campo-valor" name="valor" class="form-control" required />
             </div>
 
             <div class="col-4">
                 <lable for="contacorrente-campo-status">Status<span class="text-danger">*</span></lable>
-                <select class="form-control" type="combobox" name="status" id="campo-status" required="">
+                <select class="form-control" type="combobox" name="status" id="campo-status" required>
                     <option disabled="disabled" selected="selected">Selecione um Status</option>
                     <option>Aberto</option>
                     <option>Pendente</option>
@@ -118,30 +105,28 @@
         <div class="row">
             <div class="col-4">
                 <lable for="contacorrente-campo-datalancamento">Data Lançamento<span class="text-danger">*</span></lable>
-                <input type="date" id="contacorrente-campo-datalancamento" name="datalancamento" class="form-control" required="" />
+                <input type="date" id="contacorrente-campo-datalancamento" name="datalancamento" class="form-control" required />
             </div>
 
             <div class="col-4">
                 <lable for="contacorrente-campo-datavencimento">Data Vencimento<span class="text-danger">*</span></lable>
-                <input type="date" id="contacorrente-campo-datavencimento" name="datavencimento" class="form-control" required=""/>
+                <input type="date" id="contacorrente-campo-datavencimento" name="datavencimento" class="form-control" required />
             </div>
 
             <div class="col-4">
                 <lable for="contacorrente-campo-datarecebimento">Data Recebimento<span class="text-danger">*</span></lable>
-                <input type="date" id="contacorrente-campo-datarecebimento" name="datarecebimento" class="form-control" required=""/>
+                <input type="date" id="contacorrente-campo-datarecebimento" name="datarecebimento" class="form-control" required />
             </div>
         </div>
         <br />
 
-        <div>
-            <div class="col-12">
-                <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
-            </div>
+        <div class="modal-footer">
+            <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
         </div>
     </form>
 </div>
 
-<link href="~/Content/css/Botoes.css" type="text/css" rel="stylesheet">
+
 
 
 

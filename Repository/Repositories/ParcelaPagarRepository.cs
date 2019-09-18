@@ -27,8 +27,8 @@ namespace Repository.Repositories
             parcelaPagarOriginal.Valor = parcelaPagar.Valor;
             parcelaPagarOriginal.Status = parcelaPagar.Status;
             parcelaPagarOriginal.DataVencimento = parcelaPagar.DataVencimento;
-            parcelaPagarOriginal.DataPagamento = parcelaPagar.DataPagamento;
-            int quantidadeAfetada = context.SaveChanges();
+            parcelaPagarOriginal.DataPagamento =parcelaPagar.DataPagamento;
+            int quantidadeAfetada = context.SaveChanges();  
             return quantidadeAfetada == 1;
         }
 
