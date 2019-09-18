@@ -32,7 +32,8 @@ namespace TccFirst.Controllers
         }
         [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(ParcelaReceber parcelaReceber)
-        {     
+        {
+            parcelaReceber.RegistroAtivo = true;
             int id = repository.Inserir(parcelaReceber);
             return Json (new { id = id });
         }
@@ -50,10 +51,15 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpGet, Route("parcelaReceber")]
-        public JsonResult ObterPeloId(int id)
+        [HttpGet, Route("obterpeloid")]
+        public ActionResult ObterPeloId(int id)
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            var parcelaReceber = repository.ObterPeloId(id);
+            if (parcelaReceber == null)
+                return HttpNotFound();
+
+            return Json(parcelaReceber,JsonRequestBehavior.AllowGet);
+
         }
         [HttpGet,Route("parcelaReceber/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)

@@ -6,8 +6,7 @@
         ajax: '/parcelareceber/obtertodos',
         serverSide: true,
         columns: [
-            { data: 'Id'},
-            { data: "TituloReceber.Descricao" },
+            { data: "IdTituloReceber" },
             { data: "Valor" },           
             { data: "Status" },
             {
@@ -50,9 +49,9 @@
             method: "post",
             data: {
                 
-                idTituloReceber:$idTituloReceber,
+                idTituloReceber: $idTituloReceber,
                 valor: $valor,
-                status:$status,
+                status: $status,
                 dataVencimento: $dataVencimento,
                 dataRecebimento: $dataRecebimento,
                 id: $idAlterar
@@ -72,7 +71,7 @@
     function inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: '/parcelareceber/cadastro',
+            url: '/parcelaReceber/cadastro',
             method: 'post',
             data: {              
                 IdTituloReceber: $idTituloReceber,
