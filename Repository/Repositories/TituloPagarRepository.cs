@@ -74,8 +74,10 @@ namespace Repository.Repositories
 
         public List<TituloPagar> ObterTodos()
         {
-            return context.TitulosPagar.
-                Where(x => x.RegistroAtivo == true).ToList();
+            return context.TitulosPagar
+                .Include("Fornecedor")
+                .Include("CategoriaDespesa")
+                .Where(x => x.RegistroAtivo == true).ToList();
         }
     }
 }

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Cadastrar Titulo a Pagar</h5>
+                <h5 class="modal-title">Titulo a Pagar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,15 +12,19 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tituloPagar-campo-fornecedor"mas>Fornecedores</label>
-                            <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
+                            <label for="tituloPagar-campo-fornecedor" mas>Fornecedores</label>
+                            <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor">
+                                <option disabled="disabled" selected="selected">Selecione o Fornecedor...</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
                             <label for="tituloPagar-campo-categoria-despesa"mas>Categoria despesas</label>
-                            <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
+                            <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa">
+                                <option disabled="disabled" selected="selected">Selecione uma categoria...</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -41,7 +45,7 @@
                         <div class="form-group">
                             <label for="tituloPagar-campo-forma-pagamento"mas>Forma de Pagamento</label>
                             <select class="form-control" id="tituloPagar-campo-forma-pagamento">
-                                <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                                <option disabled="disabled" selected="selected">Selecione uma forma de pagamento...</option>
                                 <option>Dinheiro</option>
                                 <option>Cartão Débito</option>
                                 <option>Cartão de Crédito</option>
@@ -53,7 +57,7 @@
                         <div class="form-group">
                             <label for="tituloPagar-campo-status"mas>Status</label>
                             <select class="form-control" id="tituloPagar-campo-status">
-                                <option disabled="disabled" selected="selected">Selecione um status</option>
+                                <option disabled="disabled" selected="selected">Selecione um status...</option>
                                 <option>Pendente</option>
                                 <option>Pago</option>
                                 <option>Cancelado</option>

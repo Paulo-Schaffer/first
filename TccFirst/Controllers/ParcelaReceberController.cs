@@ -11,7 +11,7 @@ namespace TccFirst.Controllers
     [Route("parcelaReceber/")]
     public class ParcelaReceberController : Controller
     {
-        ParcelaReceberRepository repository;
+        private ParcelaReceberRepository repository;
 
         public ParcelaReceberController()
         {
@@ -23,7 +23,7 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet, Route("obtertodos")]
+        [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
             var parcelasReceber = repository.ObterTodos();
@@ -34,8 +34,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(ParcelaReceber parcelaReceber)
         {     
             int id = repository.Inserir(parcelaReceber);
-            return RedirectToAction("Editar",
-                new { id = id });
+            return Json (new { id = id });
         }
         [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
@@ -51,7 +50,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpGet, Route("parcelaReceber/")]
+        [HttpGet, Route("parcelaReceber")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
@@ -84,19 +83,6 @@ namespace TccFirst.Controllers
         {
             return View();
         }
-
-        [HttpGet, Route("editar")]
-        ActionResult Editar(int id)
-        {
-            var parcelasReceber = repository.ObterPeloId(id);
-            if (parcelasReceber == null)
-                return RedirectToAction("Index");
-            ViewBag.ParcelasReceber = parcelasReceber;
-            return View();
-
-        }
-
-
 
     }
 }

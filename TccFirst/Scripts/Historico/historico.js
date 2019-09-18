@@ -1,10 +1,10 @@
-﻿//$(function () {
-//    $('#historico-campo-descricao').keyup(function (e) {
-//        if (e.keyCode == 13) {
-//            $('#historico-batao-salvar').focus();
-//        }
-//    });
-//});
+﻿$(function () {
+    $('#historico-campo-descricao').keyup(function (e) {
+        if (e.keyCode == 13) {
+            $('#historico-batao-salvar').focus();
+        }
+    });
+});
 
 $(function () {
     $idAlterar = -1;
@@ -16,7 +16,7 @@ $(function () {
             { 'data': 'Id' },
             { 'data': 'Descricao' },
             {
-               render: function (data, type, row) {
+                render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
                 }
             }
@@ -51,6 +51,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-historico").modal("hide");
+                LimparCampos();
                 $idAlterar = -1;
                 $tabelaHistorico.ajax.reload();
             },
@@ -68,6 +69,7 @@ $(function () {
                 Descricao: $descricao
             },
             success: function (data) {
+                LimparCampos();
                 $('#modal-historico').modal('hide');
                 $(".modal-backdrop").hide();
                 $tabelaHistorico.ajax.reload();
@@ -77,7 +79,7 @@ $(function () {
             }
         });
     }
-   
+
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
@@ -109,4 +111,12 @@ $(function () {
             }
         });
     });
+    function LimparCampos() {
+        $('#historico-campo-descricao').val("");
+        $idAlterar = -1;
+    }
+
+    $('#modal-historico').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });

@@ -13,13 +13,13 @@ namespace Model
     {
         [Key,Column("id")]
         public int Id { get; set; }
-        [Required]
+
         [Column("nome_funcionario")]
         public string NomeFuncionario { get; set; }
-        [Required]
+
         [Column("tipo_funcionario")]
-        public int TipoFuncionario { get; set; }
-        [Required]
+        public string TipoFuncionario { get; set; }
+
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 

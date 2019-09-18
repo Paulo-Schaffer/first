@@ -45,8 +45,9 @@ namespace TccFirst.Controllers
         }
         
         [HttpGet,Route("apagar")]
-        JsonResult Apagar(int id)
+        public JsonResult Apagar(int id)
         {
+            
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);

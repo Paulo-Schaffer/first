@@ -21,7 +21,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public JsonResult ObterTodos()
         {
             var historico = repository.ObterTodos();
