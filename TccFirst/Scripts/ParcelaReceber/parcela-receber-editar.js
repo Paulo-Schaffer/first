@@ -3,10 +3,11 @@
 
     $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
         "scrollX": true,
-        ajax: "/parcelareceber/obtertodos",
+        ajax: '/parcelareceber/obtertodos',
         serverSide: true,
         columns: [
-            { data: "IdTituloReceber" },
+            { data: 'Id'},
+            { data: "TituloReceber.Descricao" },
             { data: "Valor" },           
             { data: "Status" },
             {
@@ -41,6 +42,7 @@
             alterar($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento);
         }
     });
+
     function alterar($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
@@ -48,7 +50,7 @@
             method: "post",
             data: {
                 
-                idTitulosReceber:$idTituloReceber,
+                idTituloReceber:$idTituloReceber,
                 valor: $valor,
                 status:$status,
                 dataVencimento: $dataVencimento,
@@ -57,6 +59,7 @@
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
+                $idAlterar = -1;
                 LimparCampos();
                 $tabelaParcelaReceber.ajax.reload();
             },
@@ -65,17 +68,18 @@
             }
         });
     }
+
     function inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
             url: '/parcelareceber/cadastro',
             method: 'post',
             data: {              
-                idTituloReceber: $idTituloReceber,
-                valor: $valor,
-                status: $status,
-                dataVencimento: $dataVencimento,
-                dataRecebimento: $dataRecebimento,
+                IdTituloReceber: $idTituloReceber,
+                Valor: $valor,
+                Status: $status,
+                DataVencimento: $dataVencimento,
+                DataRecebimento: $dataRecebimento,
             },
             success: function (data) {
                 LimparCampos();
@@ -87,6 +91,7 @@
             }
         });
     }
+
     $('#parcelaReceber-tabela').on('click', '.botao-apagar', function () {
         $idAlterar = $(this).data('id');
 
@@ -102,6 +107,7 @@
             }
         });
     });
+
     $('#parcelaReceber-tabela').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
 
@@ -110,11 +116,15 @@
             method: 'get',
             success: function (data) {
                 $idAlterar = $id;
-                $("#parcelaReceber-campo-tituloReceber").val(data.idTituloReceber);
-                $("#parcelaReceber-campo-valor").val(data.valor);
-                $("#parcelaReceber-campo-status").val(data.status);
-                $("#parcelaReceber-campo-dataVencimento").val(data.DataVencimento);
-                $("#parcelaReceber-campo-dataRecebimento").val(data.DataRecebimento);
+                $("#parcelaReceber-campo-tituloReceber").val(data.IdTituloReceber);
+                $("#parcelaReceber-campo-valor").val(data.Valor);
+                $("#parcelaReceber-campo-status").val(data.Status);
+                var DataVencimento = moment(data.DataVencimento);
+                console.log();
+                $("#parcelaReceber-campo-dataVencimento").val(DataVencimento.format('YYYY-MM-DD'));
+                var DataRecebimento = moment(data.DataRecebimento);
+                console.log();
+                $("#parcelaReceber-campo-dataRecebimento").val(DataRecebimento.format('YYYY-MM-DD'));
                 $('#modal-parcelaReceber').modal('show');
             },
             error: function (err) {

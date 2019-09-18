@@ -31,7 +31,7 @@ namespace Model
         public bool RegistroAtivo { get; set; }
 
         #region fk_titulo_receber
-        [Column("id_titulo_receber")]
+        [Column("id_titulos_receber")]
         public int IdTituloReceber { get; set; }
         [ForeignKey("IdTituloReceber")]
         public TituloReceber TituloReceber { get; set; }
