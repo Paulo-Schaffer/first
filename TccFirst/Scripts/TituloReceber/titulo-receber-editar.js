@@ -7,7 +7,7 @@
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: "IdClientePessoaJuridica"},
+            { data: "ClientePessoaJuridica.RazaoSocial"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             { data: "Status" },
@@ -196,7 +196,11 @@
     }
 
     function limparCampos() {
-        $("#tituloReceber-campo-pessoa-Juridica").val("");
+        var $select = $('tituloReceber-campo-pessoa-Juridica').selectize({
+            onFocus: function () {
+                $select[0].selectize.clear();
+            },
+        });
         $("#tituloReceber-campo-categoria-Receita").val("");
         $("tituloReceber-campo-status").val("");
         $("#tituloReceber-campo-valor-total").val("");
