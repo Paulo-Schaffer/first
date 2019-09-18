@@ -7,19 +7,51 @@ $(function () {
         columns: [
             { data: 'Descricao' },
             { data: 'Documento' },
-            { data: 'FormaPagamento' },
             { data: 'Valor' },
-            { data: 'DataLancamento' },
+            { data: 'FormaPagamento'},
+            {
+                render: function(data, type, row) {
+                    return moment(row.DataLancamento).format('DD/MM/YYYY')
+                }
+            },
             { data: 'IdHistoricos'},
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
+
                 }
             }
         ]
         
     });
     $('#caixa-botao-salvar').on('click', function () {
+        if ($('#caixa-campo-descricao').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Descrição </div>');
+            $('#caixa-campo-nome').focus();
+            return false;
+
+        } else if ($('#caixa-campo-documento').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Documento </div>');
+            $('#caixa-campo-documento').focus();
+            return false;
+        } else if ($('#caixa-campo-valor').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Valor </div>');
+            $('#caixa-campo-valor').focus();
+            return false;
+        } else if ($('#caixa-campo-forma-pagamento').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a forme de Pagamento</div>');
+            $('#caixa-campo-forma-pagamento').focus();
+            return false;
+        } else if ($('#caixa-campo-data-lancamento').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a Data de Lançamento </div>');
+            $('#caixa-campo-data-lancamento').focus();
+            return false;
+        } else if ($('#caixa-campo-historico').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione o Historico </div>');
+            $('#caixa-campo-historico').focus();
+            return false;
+        }
+
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
         $formaPagamento = $('#caixa-campo-forma-pagamento').val();
@@ -29,7 +61,7 @@ $(function () {
         if ($idAlterar == -1) {
             inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         } else {
-            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $status, $IdHistoricos);
+            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         }
     });
 
@@ -38,10 +70,11 @@ $(function () {
             url: "/Caixa/update",
             method: "post",
             data: {
+                id: $idAlterar,
                 Descricao: $descricao,
                 Documento: $documento,
-                FormaPagamento: $formaPagamento,
                 Valor: $valor,
+                FormaPagamento: $formaPagamento,
                 DataLancamento: $dataLancamento,
                 IdHistoricos: $IdHistoricos,
             },
@@ -63,8 +96,8 @@ $(function () {
             data: {
                 Descricao: $descricao,
                 Documento: $documento,
-                FormaPagamento: $formaPagamento,
                 Valor: $valor,
+                FormaPagamento: $formaPagamento,
                 DataLancamento: $dataLancamento,
                 IdHistoricos: $IdHistoricos,
             },
@@ -99,15 +132,15 @@ $(function () {
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
         $.ajax({
-            url: '/caixa/obterpeloid?id=' + $id,
+            url: '/caixa/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
-                $idAlterar = $id;
                 $('#caixa-campo-descricao').val(data.Descricao);
                 $('#caixa-campo-documento').val(data.Documento);
-                $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
                 $('#caixa-campo-valor').val(data.Valor);
-                $("#caixa-campo-data-lancamento").val(data.DataLancamneto);
+                $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
+
+                $("#caixa-campo-data-lancamento").val(data.DataLancamento);
                 $('#caixa-campo-historico').val(data.IdHistoricos);
                 $('#modal-caixa').modal('show');
             },
