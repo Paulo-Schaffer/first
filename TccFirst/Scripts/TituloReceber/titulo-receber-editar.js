@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿    $(function () {
     $idTituloReceber = $("#id").val();
     $idAlterar = -1;
 

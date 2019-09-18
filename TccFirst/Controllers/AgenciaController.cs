@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Model;
 using Repository.Repositories;
@@ -79,13 +76,13 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet, Route("agencia/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
+        public JsonResult ObterTodosSelect2(string termo)
         {
             var agencias = repository.ObterTodos();
-            List<object> agenciasSelect2 = new List<object>();
+            List<object> ObterTodosSelect2 = new List<object>();
             foreach (Agencia agencia in agencias)
             {
-                agenciasSelect2.Add(new
+                ObterTodosSelect2.Add(new
                 {
                     id = agencia.Id,
                     text = agencia.NomeAgencia,
@@ -93,7 +90,7 @@ namespace TccFirst.Controllers
             }
             var resultado = new
             {
-                results = agenciasSelect2
+                results = ObterTodosSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
