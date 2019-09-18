@@ -5468,7 +5468,8 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
     <Content Include="Scripts\Agencia\Agencia.js" />
-    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Index.js" />
+    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-cadastro.js" />
+    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-editar.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -5636,8 +5637,6 @@
     <Content Include="Scripts\TituloPagar\jquery.form-validator.min.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
-    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
-    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />

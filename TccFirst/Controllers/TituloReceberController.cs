@@ -16,8 +16,6 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-        
-       
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()

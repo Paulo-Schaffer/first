@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Model;
 using Repository.Repositories;
@@ -78,24 +75,22 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet, Route("agencia/obtertodosselect")]
-        public JsonResult ObterTodosSelect(string termo)
+        [HttpGet, Route("agencia/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string termo)
         {
             var agencias = repository.ObterTodos();
-            List<object> agenciasSelect = new List<object>();
+            List<object> ObterTodosSelect2 = new List<object>();
             foreach (Agencia agencia in agencias)
             {
-                agenciasSelect.Add(new
+                ObterTodosSelect2.Add(new
                 {
                     id = agencia.Id,
-                    banco = agencia.Banco,
-                    nome = agencia.NomeAgencia,
-                    numero = agencia.NumeroAgencia
+                    text = agencia.NomeAgencia,
                 });
             }
             var resultado = new
             {
-                resultados = agenciasSelect
+                results = ObterTodosSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
