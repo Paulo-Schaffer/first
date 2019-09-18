@@ -58,6 +58,37 @@
       
 
     $("#titulo-receber-botao-salvar").on("click", function () {
+        if ($.trim($('#tituloReceber-campo-pessoa-Juridica').val()) == '') {
+            alert('Selecione uma Pessoa Jurídica');
+            return false;
+        } else if ($.trim($('#tituloReceber-campo-categoria-Receita').val()) == '') {
+            alert('Selecione uma Categoria Receita');
+            return false;
+        } else if ($.trim($('#tituloReceber-campo-status').val()) == '') {
+            alert('Selecione um status');
+            return false;
+        }
+        else if ($.trim($('#tituloReceber-campo-data-lancamento').val()) == '') {
+            alert('Digite a Data de Lançamento');
+            return false;
+        } else if ($.trim($('#tituloReceber-campo-data-recebimento').val()) == '') {
+            alert('Digite a Data de recebimento');
+            return false;
+        } else if ($.trim($('#tituloReceber-campo-data-vencimento').val()) == '') {
+            alert('Digite a data de Vencimento');
+            return false;
+        } else if ($.trim($('#tituloReceber-campo-valor-total').val()) == '') {
+            alert('Gigite o Valor Total');
+            return false;
+        } else if ($.trim($('#tituloReceber-campo-quantidade-Parcelas').val()) == '') {
+            alert('Digite a Quantidade de Parcelas');
+            return false;
+        } else if ($.trim($('#tituloReceber-campo-descricao').val()) == '') {
+            alert('Digite a Descrição');
+            return false;
+        } else {
+
+        }
         $IdClientePessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
         $IdCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
         $ValorTotal = $("#tituloReceber-campo-valor-total").val();
