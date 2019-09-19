@@ -14,31 +14,37 @@ namespace Repository.Repositories
 
         public ParcelaPagarRepository()
         {
-            context = new SistemaContext(); 
-        }
-        public bool Alterar(ParcelaPagar parcelaPagar)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Apagar(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Inserir(ParcelaPagar parcelaPagar)
-        {
-            throw new NotImplementedException();
+            context = new SistemaContext();
         }
 
         public ParcelaPagar ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var parcela = context.ParcelasPagar.Where(x => x.Id == id).FirstOrDefault();
+            return parcela;
         }
 
         public List<ParcelaPagar> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.ParcelasPagar.Where(x => x.RegistroAtivo == true).ToList();
+        }
+
+        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
+        {
+            var dataAtual = DateTime.Now.AddDays(30);
+
+            for(int i =0; i<quantidadesPacelas;i++)
+            {
+               var dataVencimento = dataAtual.AddMonths(i);
+
+                var parcela = new ParcelaPagar();
+                parcela.Valor = valor;
+                parcela.DataVencimento = dataVencimento;
+                parcela.IdTituloPagar = idTituloPagar;
+                parcela.RegistroAtivo = true;
+                context.ParcelasPagar.Add(parcela);
+                context.SaveChanges();
+            } 
+
         }
     }
 }

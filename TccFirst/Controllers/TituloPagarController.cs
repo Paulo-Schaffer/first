@@ -18,6 +18,18 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
+
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        public ActionResult Editar()
+        {
+            return View();
+        }
+
+
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
@@ -60,10 +72,6 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
 
 
 
