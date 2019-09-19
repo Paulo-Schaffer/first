@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("parcelaReceber/")]
+    
     public class ParcelaReceberController : Controller
     {
         private ParcelaReceberRepository repository;
@@ -30,37 +30,21 @@ namespace TccFirst.Controllers
             var resultado = new { data = parcelasReceber };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost, Route("cadastro")]
-        public ActionResult Cadastro(ParcelaReceber parcelaReceber)
-        {
-            parcelaReceber.RegistroAtivo = true;
-            int id = repository.Inserir(parcelaReceber);
-            return Json (new { id = id });
-        }
-        [HttpGet, Route("apagar")]
-        public JsonResult Apagar(int id)
-        {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost, Route("editar")]
-        public JsonResult Editar(ParcelaReceber parcelaReceber)
-        {
-            var alterou = repository.Alterar(parcelaReceber);
-            var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        [HttpGet, Route("obterpeloid")]
-        public ActionResult ObterPeloId(int id)
-        {
-            var parcelaReceber = repository.ObterPeloId(id);
-            if (parcelaReceber == null)
-                return HttpNotFound();
 
-            return Json(parcelaReceber,JsonRequestBehavior.AllowGet);
-
+        
+        [HttpGet, Route[("parcelaReceber/")]
+        public JsonResult ObterPeloId(int id)
+        {           
+            return Json(repository.ObterPeloId(id),JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber)
+        {
+            repository.GerarParcelas(valor, quantidadesPacelas, idTituloReceber);
+            return Json(valor);
+        }
+
         [HttpGet,Route("parcelaReceber/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
