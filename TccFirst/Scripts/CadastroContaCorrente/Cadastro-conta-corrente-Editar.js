@@ -39,6 +39,7 @@
             inserir($IdAgencia, $NumeroConta);
         } else {
             alterar($IdAgencia, $NumeroConta);
+            alert('sadds');
         }
     });
 
@@ -63,31 +64,31 @@
     }
 
     $('.table').on("click", ".botao-editar", function () {
-        $id = $(this).data("id");
+        $idAlterar = $(this).data("id");
         $.ajax({
-            url: '/cadastrocontacorrente/obterpeloid?id=' + $id,
+            url: '/cadastrocontacorrente/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
-                $idAlterar = $id;
                 $('#cadastro-conta-corrente-campo-idAgencia').val(data.IdAgencia);
                 $('#cadastro-conta-corrente-campo-numero-conta').val(data.NumeroConta);
+                $("#modal-cadastro-conta-corrente").modal('show');
             },
             error: function (data) {
                 alert("Não foi possível buscar o registro");
             }
-        });//pornto e virgula?
+        });
 
     });
 
 
     function alterar($IdAgencia, $NumeroConta) {
-        S.ajax({
-            url: 'cadastrocontacorrente/alterar',
+        $.ajax({
+            url: '/cadastrocontacorrente/editar',
             method: 'post',
             data: {
                 id : $idAlterar,
                 IdAgencia : $IdAgencia,
-                NumeroConta : $NumeroConta
+                NumeroConta: $NumeroConta
             },
             success: function (data) {
                 limparCampos();

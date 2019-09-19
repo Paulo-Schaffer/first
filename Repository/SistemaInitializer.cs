@@ -16,14 +16,14 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia da Vida",
-                NumeroAgencia = "2001",
+                NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia do Paulo",
-                NumeroAgencia = "666",
+                NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
@@ -31,7 +31,7 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Você consegue",
-                NumeroAgencia = "8001",
+                NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
