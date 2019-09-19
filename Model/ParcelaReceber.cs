@@ -16,10 +16,10 @@ namespace Model
         public int Id { get; set; }
 
         [Column("valor")]
-        public int Valor { get; set; }
+        public decimal Valor { get; set; }
 
         [Column("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [Column("DataVecimento")]
         public DateTime DataVencimento { get; set; }
@@ -31,7 +31,7 @@ namespace Model
         public bool RegistroAtivo { get; set; }
 
         #region fk_titulo_receber
-        [Column("id_titulos_receber")]
+        [Column("id_titulo_receber")]
         public int IdTituloReceber { get; set; }
         [ForeignKey("IdTituloReceber")]
         public TituloReceber TituloReceber { get; set; }
