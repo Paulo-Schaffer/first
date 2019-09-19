@@ -19,7 +19,7 @@ namespace Model
         public decimal Valor { get; set; }
 
         [Column("status")]
-        public string? Status { get; set; }
+        public string Status { get; set; }
 
         [Column("DataVecimento")]
         public DateTime DataVencimento { get; set; }

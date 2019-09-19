@@ -32,7 +32,7 @@ namespace TccFirst.Controllers
         }
 
         
-        [HttpGet, Route[("parcelaReceber/")]
+        [HttpGet, Route("parcelaReceber/")]
         public JsonResult ObterPeloId(int id)
         {           
             return Json(repository.ObterPeloId(id),JsonRequestBehavior.AllowGet);
