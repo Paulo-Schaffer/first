@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class CategoriaReceitaController : Controller
+    public class CategoriaReceitaController : BaseController
     {
         private CategoriaReceitaRepository repository;
 
@@ -16,6 +16,7 @@ namespace TccFirst.Controllers
         {
             repository = new CategoriaReceitaRepository();
         }
+
 
         [HttpGet]
         public ActionResult Index()

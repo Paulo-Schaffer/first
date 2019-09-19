@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class HistoricoController : Controller
+    public class HistoricoController : BaseController
     {
         private HistoricoRepository repository;
 
@@ -16,6 +16,8 @@ namespace TccFirst.Controllers
         {
             repository = new HistoricoRepository();
         }
+
+
         [HttpGet]
         public ActionResult Index()
         {

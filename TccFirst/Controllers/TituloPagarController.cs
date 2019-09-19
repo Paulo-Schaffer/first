@@ -9,24 +9,13 @@ using System.Web.Mvc;
 namespace TccFirst.Controllers
 {
     [Route("tituloPagar/")]
-    public class TituloPagarController : Controller
+    public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
         public TituloPagarController()
         {
             repository = new TituloPagarRepository();
-        }
-
-
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
-        public ActionResult Editar()
-        {
-            return View();
         }
 
 
@@ -42,7 +31,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
-            return Json(new { id = id });
+            return RedirectToAction("Editar", new { id = id });
         }
 
         [HttpPost, Route("editar")]
@@ -101,6 +90,10 @@ namespace TccFirst.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
 
 
 

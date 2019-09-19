@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class ParcelasPagarController : Controller
+    public class ParcelasPagarController : BaseController
     {
         public ParcelaPagarRepository repository;
 
@@ -16,6 +16,7 @@ namespace TccFirst.Controllers
         {
             repository = new ParcelaPagarRepository();
         }
+
 
         public ActionResult Index()
         {

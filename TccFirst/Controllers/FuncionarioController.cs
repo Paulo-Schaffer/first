@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class FuncionarioController : Controller
+    public class FuncionarioController : BaseController
     {
         private FuncionarioRepository repository;
 
@@ -18,6 +18,38 @@ namespace TccFirst.Controllers
         {
             repository = new FuncionarioRepository();
         }
+
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         [HttpGet]
         public ActionResult Index()
@@ -87,5 +119,22 @@ namespace TccFirst.Controllers
             var resultado = new { results = funcionariosSelect2 };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
+        public static string SHA512(string input)
+        {
+            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+
+                // Convert to text
+                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
+                var hashedInputStringBuilder = new System.Text.StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
     }
+
 }

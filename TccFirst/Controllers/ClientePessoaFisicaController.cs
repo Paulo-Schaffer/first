@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class ClientePessoaFisicaController : Controller
+    public class ClientePessoaFisicaController : BaseController
     {
         private ClientePessoaFisicaRepository repository;
 
@@ -14,6 +14,8 @@ namespace TccFirst.Controllers
         {
             repository = new ClientePessoaFisicaRepository();
         }
+
+
         public ActionResult Index()
         {
             return View();

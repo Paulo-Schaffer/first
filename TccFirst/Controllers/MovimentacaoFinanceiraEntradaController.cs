@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository.Interfaces;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,15 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class MovimentacaoFinanceiraEntradaController : Controller
+    public class MovimentacaoFinanceiraEntradaController : BaseController
     {
-        private LoginRepository repository;
+        private MovimentacaoFinaceiraEntradaRepository repository;
         
         public MovimentacaoFinanceiraEntradaController()
         {
-            repository = new LoginRepository();
+            repository = new MovimentacaoFinaceiraEntradaRepository();
         }
+
 
         public ActionResult Index()
         {
@@ -31,10 +33,10 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Inserir(Login login)
+        public JsonResult Inserir(MovimentacaoFinanceiraEntrada movimentacaoFinaceiraEntrada)
         {
-            login.RegistroAtivo = true;
-            var id = repository.Inserir(login);
+            movimentacaoFinaceiraEntrada.RegistroAtivo = true;
+            var id = repository.Inserir(movimentacaoFinaceiraEntrada);
             var resultado = new { id = id };
             return Json(resultado);
         }
@@ -49,9 +51,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(Login login)
+        public JsonResult Update(MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada)
         {
-            var alterou = repository.Alterar(login);
+            var alterou = repository.Alterar(movimentacaoFinanceiraEntrada);
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -63,30 +65,27 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("login/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
-        {
-            var logins = repository.ObterTodos();
+        //[HttpGet, Route("movimentacaoFinanceiraEntrada/obtertodosselect2")]
+        //public JsonResult ObterTodosSelect2(string term)
+        //{
+        //    var movimentacaoFinanceiraEntrada = repository.ObterTodos();
 
-            List<object> loginsSelect2 =
-                new List<object>();
-            foreach (Login login in logins)
-            {
-                loginsSelect2.Add(new
-                {
-                    id = login.Id,
-                    usuario = login.Usuario,
-                    senha = login.Senha,
-                    idFuncionario = login.IdFuncionario
-                });
-            }
-            var resultado = new
-            {
-                results = loginsSelect2
-            };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+        //    List<object> movimentacaoFinanceiraEntradaSelect2 =
+        //        new List<object>();
+        //    foreach (MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada in movimentacaoFinanceiraEntradaSelect2)
+        //    {
+        //        movimentacaoFinanceiraEntradaSelect2.Add(new
+        //        {
+                
+        //        });
+        //    }
+        //    var resultado = new
+        //    {
+        //        results = movimentacaoFinanceiraEntradaSelect2
+        //    };
+        //    return Json(resultado,
+        //        JsonRequestBehavior.AllowGet);
 
-        }
+        //}
     }
 }

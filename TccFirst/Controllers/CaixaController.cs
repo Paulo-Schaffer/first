@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class CaixaController : Controller
+    public class CaixaController : BaseController
     {
         private CaixaRepository repository;
 
@@ -16,6 +16,8 @@ namespace TccFirst.Controllers
         {
             repository = new CaixaRepository();
         }
+
+
         [HttpGet]
         public ActionResult Index()
         {

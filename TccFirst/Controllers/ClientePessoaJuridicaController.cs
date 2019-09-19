@@ -8,14 +8,16 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class ClientePessoaJuridicaController : Controller
+    public class ClientePessoaJuridicaController : BaseController
     {
         private ClientePessoaJuridicaRepository repository;
 
         public ClientePessoaJuridicaController()
         {
             repository = new ClientePessoaJuridicaRepository();
-        }   
+        }
+
+
         [HttpGet]
         public ActionResult Index()
         {

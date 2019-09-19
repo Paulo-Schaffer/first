@@ -17,6 +17,11 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
+        public Funcionario BuscarFuncionario(string usuario, string senha)
+        {
+            return context.Funcionarios.Where(x => x.Usuario == usuario && x.Senha == senha).FirstOrDefault();
+        }
+
         public bool Alterar(Funcionario funcionario)
         {
             var funcionarioOriginal = context.Funcionarios
@@ -27,6 +32,8 @@ namespace Repository.Repositories
             }
             funcionarioOriginal.NomeFuncionario = funcionario.NomeFuncionario;
             funcionarioOriginal.TipoFuncionario = funcionario.TipoFuncionario;
+            funcionarioOriginal.Usuario = funcionario.Usuario;
+            funcionarioOriginal.Senha = funcionario.Senha;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -62,5 +69,6 @@ namespace Repository.Repositories
             return context.Funcionarios.Where(x => x.RegistroAtivo == true)
                  .OrderBy(x => x.Id).ToList();
         }
+
     }
 }

@@ -5,7 +5,7 @@ using Repository.Repositories;
 
 namespace TccFirst.Controllers
 {
-    public class AgenciaController : Controller
+    public class AgenciaController : BaseController
     {
 
         private AgenciaRepository repository;
@@ -16,6 +16,7 @@ namespace TccFirst.Controllers
         {
             repository = new AgenciaRepository();
         }
+
 
         [HttpGet]
         public ActionResult Index() 

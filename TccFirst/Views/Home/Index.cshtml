@@ -1,7 +1,14 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
+@if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario")
+{
+    <h1>@Session["usuarioLogadoFuncionario"].ToString()</h1>
+}
+else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
+{
+    <h1> Bem Vindo, @Session["UsuarioLogadoNome"]</h1>
+}
 
 
