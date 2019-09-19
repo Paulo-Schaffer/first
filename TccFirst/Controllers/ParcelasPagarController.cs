@@ -29,38 +29,27 @@ namespace TccFirst.Controllers
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
-        public JsonResult Inserir(ParcelaPagar parcelaPagar)
-        {
-            parcelaPagar.RegistroAtivo = true;
-            var id = repository.Inserir(parcelaPagar);
-            var resultado = new { id = id };
-            return Json(resultado);
-        }
-        [HttpGet]
-        public JsonResult Apagar(int id)
-        {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado);
-        }
-        [HttpPost]
-        public JsonResult Update(ParcelaPagar parcelasPagar)
-        {
-            var alterou = repository.Alterar(parcelasPagar);
-            var resultado = new { status = alterou };
-            return Json(resultado);
-        }
+
+
         [HttpGet, Route("parcelasPagar/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
-        //[HttpGet, Route("parcelasPagar/obtertodosselect")]
-        //public JsonResult ObterTodosSelect(string termo)
+
+        [HttpPost]
+        public ActionResult GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
+        {
+            repository.GerarParcelas(valor, quantidadesPacelas, idTituloPagar);
+            return Json(valor);
+        }
+
+
+        //[HttpGet, Route("parcelasPagar/obtertodosselect2")]
+        //public JsonResult ObterTodosSelect2(string termo)
         //{
         //    var parcelasPagar = repository.ObterTodos();
-        //    List<object> parcelasPagarSelect = new List<object>();
+        //    List<object> parcelasPagarSelect2 = new List<object>();
         //    foreach (parcelasPagar parcelasPagar in parcelasPagar)
         //    {
         //        parcelasPagarSelect.Add(new
