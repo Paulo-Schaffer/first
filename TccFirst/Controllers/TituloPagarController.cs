@@ -18,6 +18,37 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -58,36 +89,7 @@ namespace TccFirst.Controllers
 
         public ActionResult Index()
         {
-
-            var tituloPagars = repository.ObterTodos();
-
-            List<object> tituloPagarSelect2 =
-                new List<object>();
-            foreach (TituloPagar tituloPagar in tituloPagars)
-            {
-                tituloPagarSelect2.Add(new
-                {
-                    id = tituloPagar.Id,
-                    descricao = tituloPagar.Descricao,
-                    formaPagamento = tituloPagar.FormaPagamento,
-                    caixa = tituloPagar.Caixa,
-                    valorTotal = tituloPagar.ValorTotal,
-                    status = tituloPagar.Status,
-                    dataLancamento = tituloPagar.DataLancamento,
-                    dataRecebimento = tituloPagar.DataRecebimento,
-                    dataVencimento = tituloPagar.DataVencimento,
-                    complemento = tituloPagar.Complemento,
-                    quantidadeParcela = tituloPagar.QuantidadeParcela,
-                    idFornecedores = tituloPagar.IdFornecedor,
-                    idCategoriaDespesa = tituloPagar.IdCategoriaDespesa
-                });
-            }
-            var resultado = new
-            {
-                results = tituloPagarSelect2
-            };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+            return View();
         }
 
         public ActionResult Cadastro()

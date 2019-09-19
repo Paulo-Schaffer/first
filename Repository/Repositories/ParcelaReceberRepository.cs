@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
    public class ParcelaReceberRepository : IParcelaReceberRepository
-   {
-        public SistemaContext context;
+    {
+        private SistemaContext context;
 
         public ParcelaReceberRepository()
         {
@@ -20,16 +20,18 @@ namespace Repository.Repositories
 
         public bool Alterar(ParcelaReceber parcelaReceber)
         {
-            var parcelaReceberOriginal = context.ParcelasReceber. Where(x => x.Id == parcelaReceber.Id).FirstOrDefault();
-            if (parcelaReceber == null)
+            var parcelaReceberOriginal = context.ParcelasReceber
+                 .Where(x => x.Id == parcelaReceber.Id)
+                 .FirstOrDefault();
+            if (parcelaReceberOriginal == null)
             {
                 return false;
             }
-            parcelaReceberOriginal.IdTituloReceber = parcelaReceber.IdTituloReceber;
             parcelaReceberOriginal.Valor = parcelaReceber.Valor;
             parcelaReceberOriginal.Status = parcelaReceber.Status;
             parcelaReceberOriginal.DataVencimento = parcelaReceber.DataVencimento;
             parcelaReceberOriginal.DataRecebimento = parcelaReceber.DataRecebimento;
+            parcelaReceberOriginal.IdTituloReceber = parcelaReceber.IdTituloReceber;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -42,13 +44,13 @@ namespace Repository.Repositories
                 return false;
             }
             parcelaReceber.RegistroAtivo = false;
+            context.SaveChanges();
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
 
         public int Inserir(ParcelaReceber parcelaReceber)
         {
-            parcelaReceber.RegistroAtivo = true;
             context.ParcelasReceber.Add(parcelaReceber);
             context.SaveChanges();
             return parcelaReceber.Id;
@@ -57,15 +59,16 @@ namespace Repository.Repositories
         public ParcelaReceber ObterPeloId(int id)
         {
             var parcelaReceber = context.ParcelasReceber
-                  .Where(x => x.Id == id).FirstOrDefault();
+                  .Where(x => x.Id == id)
+                  .FirstOrDefault(x => x.Id == id);
             return parcelaReceber;
         }
 
         public List<ParcelaReceber> ObterTodos()
         {
             return context.ParcelasReceber
-              .Include("TituloReceber")
               .Where(x => x.RegistroAtivo == true)
+              .OrderBy(x => x.Status)
               .ToList();
         }
     }
