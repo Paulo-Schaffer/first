@@ -9,70 +9,41 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class MovimentacaoFinanceiraEntradaController : BaseController
+    [Route("movimentacaofinanceiraentrada/")]
+    public class MovimentacaoFinanceiraEntradaController : Controller
     {
         private MovimentacaoFinaceiraEntradaRepository repository;
-        
+
         public MovimentacaoFinanceiraEntradaController()
         {
             repository = new MovimentacaoFinaceiraEntradaRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
 
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
+        [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
-            var login = repository.ObterTodos();
-            var resultado = new { data = login };
+            var movimentacaoFinanceiraEntrada = repository.ObterTodos();
+            var resultado = new { data = movimentacaoFinanceiraEntrada };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Inserir(MovimentacaoFinanceiraEntrada movimentacaoFinaceiraEntrada)
+        [HttpPost, Route("cadastro")]
+        public JsonResult Cadastro(MovimentacaoFinanceiraEntrada movimentacaoFinaceiraEntrada)
         {
             movimentacaoFinaceiraEntrada.RegistroAtivo = true;
             var id = repository.Inserir(movimentacaoFinaceiraEntrada);
-            var resultado = new { id = id };
-            return Json(resultado);
+            return Json(new { id = id });
+        }
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada)
+        {
+            var alterou = repository.Alterar(movimentacaoFinanceiraEntrada);
+            var resultado = new { status = alterou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
@@ -81,42 +52,45 @@ namespace TccFirst.Controllers
 
         }
 
-        [HttpPost]
-        public JsonResult Update(MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada)
+        [HttpGet, Route("obterpeloid")]
+        public ActionResult ObterPeloId(int id)
         {
-            var alterou = repository.Alterar(movimentacaoFinanceiraEntrada);
-            var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            var movimentacoesEntradas = repository.ObterPeloId(id);
+            if (movimentacoesEntradas == null)
+                return HttpNotFound();
+            return Json(movimentacoesEntradas, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Cadastro()
+        {
+            return View();
         }
 
-
-        [HttpGet, Route("login/")]
-        public JsonResult ObterPeloId(int id)
+        [HttpGet, Route("movimentacaoFinanceiraEntrada/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            var movimentacaoFinanceiraEntradas = repository.ObterTodos();
+
+            List<object> movimentacaoFinanceiraEntradaSelect2 =
+                new List<object>();
+            foreach (MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada in movimentacaoFinanceiraEntradaSelect2)
+            {
+                movimentacaoFinanceiraEntradaSelect2.Add(new
+                {
+                    id = movimentacaoFinanceiraEntrada.Id,
+                    text = movimentacaoFinanceiraEntrada.Valor
+                });
+            }
+            var resultado = new
+            {
+                results = movimentacaoFinanceiraEntradaSelect2
+            };
+            return Json(resultado,
+                JsonRequestBehavior.AllowGet);
+
         }
-
-        //[HttpGet, Route("movimentacaoFinanceiraEntrada/obtertodosselect2")]
-        //public JsonResult ObterTodosSelect2(string term)
-        //{
-        //    var movimentacaoFinanceiraEntrada = repository.ObterTodos();
-
-        //    List<object> movimentacaoFinanceiraEntradaSelect2 =
-        //        new List<object>();
-        //    foreach (MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada in movimentacaoFinanceiraEntradaSelect2)
-        //    {
-        //        movimentacaoFinanceiraEntradaSelect2.Add(new
-        //        {
-                
-        //        });
-        //    }
-        //    var resultado = new
-        //    {
-        //        results = movimentacaoFinanceiraEntradaSelect2
-        //    };
-        //    return Json(resultado,
-        //        JsonRequestBehavior.AllowGet);
-
-        //}
     }
 }
