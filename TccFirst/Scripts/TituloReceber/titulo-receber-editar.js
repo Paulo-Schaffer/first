@@ -87,12 +87,12 @@
         });
     }
 
-    $('.table').on("click", ".botao-editar", function () {
-        $id = $(this).data("id");
-        $.ajax({
-            url: "/tituloreceber/obterpeloid?id=" + $id,
-            method: "get",
-            success: function (data) {
+        $('.table').on("click", ".botao-editar", function () {
+            $id = $(this).data("id");
+            $.ajax({
+                url: "/tituloreceber/obterpeloid?id=" + $id,
+                method: "get",
+                success: function (data) {
                 $idAlterar = $id;
                 $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica);
                 $("#tituloReceber-campo-pessoa-Fisica").val(data.IdClientePessoaFisica);

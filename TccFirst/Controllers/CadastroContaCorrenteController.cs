@@ -41,9 +41,21 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet, Route("apagar")]
+        public JsonResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Index()
         {
-           return View();
+            return View();
+        }
+
+        public ActionResult Cadastro()
+        {
+            return View();
         }
     }
 }

@@ -96,6 +96,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TCCFirstDB.mdf" />
+    <Content Include="App_Data\TCCFirstDB_log.ldf">
+      <DependentUpon>TCCFirstDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\Imagem\logo-blue.png" />
@@ -5469,7 +5473,8 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
     <Content Include="Scripts\Agencia\Agencia.js" />
-    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Index.js" />
+    <Content Include="Scripts\CadastroContaCorrente\cadastro-conta-corrente-cadastro.js" />
+    <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Editar.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -5589,6 +5594,8 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Web.config" />
@@ -5602,6 +5609,7 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
+    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -5632,7 +5640,6 @@
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Agencia\Cadastro.cshtml" />
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
@@ -5682,7 +5689,11 @@
     <Content Include="Views\CategoriaReceita\CadastroCategoriaReceita.cshtml" />
     <Content Include="Views\CategoriaReceita\Index.cshtml" />
     <Content Include="Views\Agencia\Editar.cshtml" />
-    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
+    <Content Include="Views\Login\CadastroLogin.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\ParcelasPagar\Index.cshtml" />
+    <Content Include="Views\ParcelasPagar\Cadastro.cshtml" />
+    <Content Include="Views\ParcelasPagar\Editar.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
@@ -5694,7 +5705,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\CategoriaDespesa\" />
     <Folder Include="Views\Base\" />
@@ -5703,7 +5713,6 @@
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
-    <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>
