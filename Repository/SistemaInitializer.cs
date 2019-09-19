@@ -407,39 +407,48 @@ namespace Repository
             //context.ParcelasReceber.AddRange(parcelaReceber);
             //#endregion ParcelaReceber
 
-            //#region tituloPagar
-            //var tituloPagar = new List<TituloPagar>();
-            //tituloPagar.Add(new TituloPagar()
-            //{
-            //    Descricao = "Titulo feio por Paulo",
-            //    FormaPagamento = "Dinheiro",
-            //    Caixa = true,
-            //    ValorTotal = 1999,
-            //    Status = "Pago",
-            //    DataLancamento = "23/06/2016",
-            //    DataRecebimento = "22/07/2016",
-            //    DataVencimento = "23/07/2016",
-            //    Complemento = "Usuario pagou corretamente",
-            //    QuantidadeParcela = 1,
-            //    RegistroAtivo = true
-            //});
-            //tituloPagar.Add(new TituloPagar()
-            //{
-            //    Descricao = "Titulo feio por Paulo",
-            //    FormaPagamento = "Credito",
-            //    Caixa = false,
-            //    ValorTotal = 127422,
-            //    Status = "Pendente",
-            //    DataLancamento = "13/06/2016",
-            //    DataRecebimento = "",
-            //    DataVencimento = "13/07/2016",
-            //    Complemento = "Usuario nao pagou",
-            //    QuantidadeParcela = 6,
-            //    RegistroAtivo = true
-            //});
-            //context.TitulosPagar.AddRange(tituloPagar);
-            //#endregion
-            #region Cadastro conta corrente
+            #region Historicos
+            var historicos = new List<Historico>();
+            historicos.Add(new Historico()
+            {
+                Id = 1, 
+                Descricao = "Manuteção",
+                RegistroAtivo = true
+            });
+            context.Historicos.AddRange(historicos);
+            #endregion Historicos
+
+            #region tituloPagar
+            var tituloPagar = new List<TituloPagar>();
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Dinheiro",
+                Caixa = true,
+                ValorTotal = 1999,
+                Status = "Pago",
+                DataLancamento = Convert.ToDateTime("23/06/2016"),
+                DataRecebimento = Convert.ToDateTime("22/07/2016"),
+                DataVencimento = Convert.ToDateTime("23/07/2016"),
+                Complemento = "Usuario pagou corretamente",
+                QuantidadeParcela = 1,
+                RegistroAtivo = true
+            });
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Credito",
+                Caixa = false,
+                ValorTotal = 127422,
+                Status = "Pendente",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
+                Complemento = "Usuario nao pagou",
+                QuantidadeParcela = 6,
+                RegistroAtivo = true
+            });
+            #endregion
 
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
             cadastroscontacorrente.Add(new CadastroContaCorrente() {

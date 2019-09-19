@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class FuncionarioController : Controller
+    public class FuncionarioController : BaseController
     {
         private FuncionarioRepository repository;
 
@@ -19,8 +19,46 @@ namespace TccFirst.Controllers
             repository = new FuncionarioRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
         [HttpGet]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Cadastro()
         {
             return View();
         }
@@ -39,7 +77,7 @@ namespace TccFirst.Controllers
             funcionario.RegistroAtivo = true;
             var id = repository.Inserir(funcionario);
             var resultado = new { id = id };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -69,25 +107,17 @@ namespace TccFirst.Controllers
         {
             var funcionarios = repository.ObterTodos();
 
-            List<object> funcionariosSelect2 =
-                new List<object>();
+            List<object> funcionariosSelect2 = new List<object>();
             foreach (Funcionario funcionario in funcionarios)
             {
                 funcionariosSelect2.Add(new
                 {
                     id = funcionario.Id,
-                    nome = funcionario.NomeFuncionario,
-                    tipoFuncionario = funcionario.TipoFuncionario
+                    text = funcionario.TipoFuncionario
                 });
             }
-            var resultado = new
-            {
-                results = funcionariosSelect2
-            };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
-
+            var resultado = new { results = funcionariosSelect2 };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

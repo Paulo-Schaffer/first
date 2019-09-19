@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace TccFirst.Controllers
 {
     [Route("tituloPagar/")]
-    public class TituloPagarController : Controller
+    public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
@@ -17,6 +17,38 @@ namespace TccFirst.Controllers
         {
             repository = new TituloPagarRepository();
         }
+
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -49,12 +81,13 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Index()
+        [HttpGet, Route("tituloPagar")]
+        public JsonResult ObterPeloId(int id)
         {
-            return View();
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Cadastro()
+        public ActionResult Index()
         {
 
             var tituloPagars = repository.ObterTodos();
@@ -88,13 +121,8 @@ namespace TccFirst.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("editar")]
-        ActionResult Editar(int id)
+        public ActionResult Cadastro()
         {
-            var titulosPagar = repository.ObterPeloId(id);
-            if (titulosPagar == null)
-                return RedirectToAction("Index");
-            ViewBag.TituloPagar = titulosPagar;
             return View();
         }
 
