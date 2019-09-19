@@ -2,7 +2,9 @@
 $(function () {
     $idAlterar = -1;
     $tabelaCaixa = $("#caixa-tabela").DataTable({
+        "scrollX": true,
         ajax: '/Caixa/obtertodos',
+
         serverSide: true,
         columns: [
             { data: 'Descricao' },

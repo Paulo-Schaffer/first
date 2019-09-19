@@ -284,8 +284,8 @@ namespace Repository
             });
             #endregion
 
-            #region historico
-            var historico = new List<Historico>();
+            #region historicos
+            var historicos = new List<Historico>();
             historico.Add(new Historico()
             {
                 Descricao = "Conta adicionada dia 19/07/2000",
