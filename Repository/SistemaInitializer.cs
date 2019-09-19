@@ -253,7 +253,7 @@ namespace Repository
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "123456",
+                Senha = "123",
                 RegistroAtivo = true
 
             });
