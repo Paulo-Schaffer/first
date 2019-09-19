@@ -58,7 +58,7 @@ namespace Repository.Repositories
 
         public List<Caixa> ObterTodos()
         {
-            return context.Caixas.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+            return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
     }
 }

@@ -80,7 +80,7 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Updtate (CategoriaDespesa categoriaDespesa)
+        public JsonResult Alterar (CategoriaDespesa categoriaDespesa)
         {
             var alterou = repository.Alterar(categoriaDespesa);
             var resultado = new { status = alterou };
@@ -102,6 +102,13 @@ namespace TccFirst.Controllers
             }
             var resultado = new { results = categoriasSelect2 };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+
+            
+        }
+        [HttpGet]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
     }
 }

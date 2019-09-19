@@ -5476,6 +5476,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Caixa\caixa-cadastro.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
+    <Content Include="Scripts\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
@@ -5742,6 +5743,8 @@
     <Content Include="Views\Login\SemPermissao.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
+    <Content Include="Views\CategoriaDespesa\Index.cshtml" />
+    <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5752,9 +5755,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\CategoriaDespesa\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasPagar\" />

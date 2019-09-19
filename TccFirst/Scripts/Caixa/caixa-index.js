@@ -14,7 +14,7 @@ $(function () {
                     return moment(row.DataLancamento).format('DD/MM/YYYY')
                 }
             },
-            { data: 'IdHistoricos'},
+            { data: 'Historico.Descricao'},
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
@@ -80,7 +80,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
-                $idAlterar = -1;
+                LimparCampos();
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {
@@ -149,4 +149,20 @@ $(function () {
             }
         });
     });
+
+    function LimparCampos() {
+        $("#tituloReceber-campo-pessoa-Juridica").val("");
+        $("#tituloReceber-campo-categoria-Receita").val("");
+        $("#tituloReceber-campo-status").val("");
+        $("#tituloReceber-campo-valor-total").val("");
+        $("#tituloReceber-campo-quantidade-Parcelas").val("");
+        $("#tituloReceber-campo-descricao").val("");
+        $("#tituloReceber-campo-data-lancamento").val("");
+        $("#tituloReceber-campo-data-recebimento").val("");
+        $("#tituloReceber-campo-data-vencimento").val("");
+        $idAlterar = -1;
+    }
+    $('#modal-tituloReceber').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });

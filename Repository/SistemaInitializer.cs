@@ -81,12 +81,12 @@ namespace Repository
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
-                TipoCategoriaDespesa = "Despesa com Funcionário",
+                TipoCategoriaDespesa = "Despesa com Toddynho",
                 RegistroAtivo = true,
             });
             categoriaDespesa.Add(new CategoriaDespesa()
             {
-                TipoCategoriaDespesa = "Despesa com Lanche",
+                TipoCategoriaDespesa = "Despesa com Salgadinho",
                 RegistroAtivo = true,
         });
             context.CategoriasDespesas.AddRange(categoriaDespesa);
