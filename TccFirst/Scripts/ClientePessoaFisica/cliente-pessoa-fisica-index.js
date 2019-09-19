@@ -170,7 +170,7 @@ $(function () {
         } else if ($('#clientePessoaFisica-campo-cpf').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cpf </div>');
             $('#clientePessoaFisica-campo-cpf').focus();
-            $.notify('Digite o Cpf');
+            $.notify("Warning: Self-destruct in 3.. 2..", "warn");
             return false;
         }
         else if ($('#clientePessoaFisica-campo-dataNascimento').val() == "") {
@@ -277,7 +277,6 @@ $(function () {
                 $("#modal-clientePessoaFisicaEditar").modal("hide");
                 $idAlterar = -1;
                 $tabelaClientePessoaFisica.ajax.reload();
-                $.notify('Digite o Cpf');
             },
             error: function (err) {
                 alert("Não foi possível alterar");
