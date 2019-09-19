@@ -259,39 +259,30 @@ namespace Repository
             //#endregion
 
             #region funcionario
-            var funcionario = new List<Funcionario>();
-            funcionario.Add(new Funcionario()
+            var funcionarios = new List<Funcionario>();
+            funcionarios.Add(new Funcionario()
             {
-                NomeFuncionario = "Paulo",
+                NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
+                Usuario = "Joao",
+                Senha = "123456",
                 RegistroAtivo = true
 
             });
-            funcionario.Add(new Funcionario()
+            funcionarios.Add(new Funcionario()
             {
                 NomeFuncionario = "André",
-                TipoFuncionario = "Funcionário",
+                TipoFuncionario = "Funcionario",
+                Usuario = "andrezinho",
+                Senha = "123",
                 RegistroAtivo = true
 
             });
+            context.Funcionarios.AddRange(funcionarios);
             #endregion
 
 
-            #region login
-            var login = new List<Login>();
-            login.Add(new Login()
-            {
-                Usuario = "Cléber",
-                Senha = "cg1992",
-                RegistroAtivo = true
-            });
-            login.Add(new Login()
-            {
-                Usuario = "Gustavo",
-                Senha = "gustavo1500",
-                RegistroAtivo = true
-            });
-            #endregion
+          
 
             #region movimentacaoFinanceiraEntrada
             var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();

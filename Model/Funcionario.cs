@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("funcionarios")]
+    [Table("funcionario")]
     public class Funcionario
     {
         [Key,Column("id")]
@@ -19,6 +19,12 @@ namespace Model
 
         [Column("tipo_funcionario")]
         public string TipoFuncionario { get; set; }
+
+        [Column("usuario")]
+        public string Usuario { get; set; }
+
+        [Column("senha")]
+        public string Senha { get; set; }
 
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
