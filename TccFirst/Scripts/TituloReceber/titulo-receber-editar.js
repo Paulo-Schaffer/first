@@ -2,9 +2,12 @@
     $idTituloReceber = $("#id").val();
     $idAlterar = -1;
     var radioButton = "ClientePessoaJuridica.RazaoSocial";
-    if ($('#tituloReceber-campo-pessoa-fisica').is(':checked')) {
-        radioButton = '"ClientePessoaFisica.Nome"';
-    }
+    //if ($('#tituloReceber-campo-pessoa-fisica').is(':checked')) {
+    //    radioButton = '"ClientePessoaFisica.Nome"';
+    //    alert('caiu');
+    //} else {
+    //    alert('deu Ruim');
+    //}
 
 
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
@@ -12,7 +15,6 @@
         serverSide: true,
         columns: [
             { data: "Id" },
-            //{ data: "ClientePessoaJuridica.RazaoSocial"},
             { data: radioButton },
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
@@ -134,6 +136,13 @@
 
             },
             success: function (data) {
+                if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
+                    radioButton = "ClientePessoaFisica.Nome";
+                    $tabelaTituloReceber.ajax.reload();
+                    alert('caiu');
+                } else {
+                    alert('deu Ruim');
+                }
                 LimparCampos();
                 $("#modal-tituloReceber").modal("hide");
                 $(".modal-backdrop").hide();

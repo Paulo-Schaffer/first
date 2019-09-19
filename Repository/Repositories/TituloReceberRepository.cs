@@ -22,7 +22,7 @@ namespace Repository.Repositories
         {
             var tituloReceberOriginal = context.TitulosReceber.Where(x => x.Id == tituloReceber.Id).FirstOrDefault();
 
-            if(tituloReceberOriginal == null)
+            if (tituloReceberOriginal == null)
             {
                 return false;
             }
@@ -45,14 +45,14 @@ namespace Repository.Repositories
         public bool Apagar(int id)
         {
             var tituloReceber = context.TitulosReceber.FirstOrDefault(x => x.Id == id);
-            if(tituloReceber == null)
+            if (tituloReceber == null)
             {
                 return false;
             }
             tituloReceber.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
-            
+
         }
 
         public int Inserir(TituloReceber tituloReceber)
@@ -74,8 +74,8 @@ namespace Repository.Repositories
         {
             return context.TitulosReceber
                 .Include("ClientePessoaJuridica")
-                .Include("Nome")
-                .Where(x => x.RegistroAtivo == true).ToList();   
+                .Include("ClientePessoaFisica")
+                .Where(x => x.RegistroAtivo == true).ToList();
         }
     }
 }
