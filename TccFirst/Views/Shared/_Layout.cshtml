@@ -138,36 +138,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="user-profile header-notification">
-                                <a href="#!">
-                                    <img src="~/Content/tema/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>@Session["usuarioLogadoNome"]</span>
-                                    <i class="ti-angle-down"></i>
-                                </a>
-                                <ul class="show-notification profile-notification">
-                                    <li>
-                                        <a href="#!">
-                                            <i class="ti-settings"></i> Configurações
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="user-profile.html">
-                                            <i class="ti-user"></i> Perfil
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="email-inbox.html">
-                                            <i class="ti-email"></i> Minhas Mensagens
-                                        </a>
-                                    </li>
-                                  
-                                    <li>
-                                        <a href="http://localhost:50838/Login">
-                                            <i class="ti-layout-sidebar-left"></i> Sair
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            
                         </ul>
                         <!-- search -->
                         <div id="morphsearch" class="morphsearch">
@@ -233,18 +204,18 @@
                                     <img class="img-40 img-radius" src="~/Content/tema/assets/images/avatar-10.jpg"
                                          alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>Francisco</span>
-                                        <span id="more-details">Programador HTML<i class="ti-angle-down"></i></span>
+                                        <span>@Session["usuarioLogadoNome"]</span>
+                                        <span id="more-details">@Session["UsuarioLogadoTipoFuncionario"]<i class="ti-angle-down"></i></span>
                                     </div>
                                 </div>
 
                                 <div class="main-menu-content">
                                     <ul>
                                         <li class="more-details">
-                                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
-                                            <a href="#!"><i class="ti-settings"></i>Settings</a>
-                                            <a href="auth-normal-sign-in.html">
-                                                <i class="ti-layout-sidebar-left"></i>Logout
+                                            <a href="user-profile.html"><i class="ti-user"></i>Perfil</a>
+                                            <a href="#!"><i class="ti-email"></i>Mensagens</a>
+                                            <a href="http://localhost:50838/Login">
+                                                <i class="ti-layout-sidebar-left"></i>Sair
                                             </a>
                                         </li>
                                     </ul>
