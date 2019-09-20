@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("tituloreceber/")]
     public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
@@ -17,7 +16,39 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-      
+
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
@@ -43,22 +74,11 @@ namespace TccFirst.Controllers
         }
         
         [HttpGet,Route("apagar")]
-        public JsonResult Apagar(int id)
+        JsonResult Apagar(int id)
         {
-            
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        [HttpGet, Route("obterpeloid")]
-        public ActionResult ObterPeloId(int id)
-        {
-            var tituloReceber = repository.ObterPeloId(id);
-            if (tituloReceber == null)
-                return HttpNotFound();
-
-            return Json(tituloReceber,
-                JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Index()

@@ -24,13 +24,13 @@ namespace Model
         public string Status { get; set; }
 
         [Column("data_lancamento")]
-        public DateTime DataLancamento { get; set; }
+        public string DataLancamento { get; set; }
 
         [Column("data_recebimento")]
-        public DateTime? DataRecebimento { get; set; }
+        public string DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
-        public DateTime DataVencimento { get; set; }
+        public string DataVencimento { get; set; }
 
         [Column("complemento")]
         public string Complemento { get; set; }
@@ -41,38 +41,18 @@ namespace Model
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
-        [NotMapped]
-        public string NomeCliente
-        {
-            get
-            {
-                if (ClientePessoaJuridica != null)
-                {
-                    return ClientePessoaJuridica.RazaoSocial;
-                }
-                else if(ClientePessoaFisica != null)
-                {
-                    return ClientePessoaFisica.Nome;
-                }
-                else
-                {
-                    return "";
-                }
-            }
-        }
-
         #region fk_cliente_pessoa_fisica    
         [Column("id_cliente_pessoa_fisica")]
         public int? IdClientePessoaFisica { get; set; }
         [ForeignKey("IdClientePessoaFisica")]
-        public ClientePessoaFisica ClientePessoaFisica { get; set; }
+        public ClientePessoaFisica Nome { get; set; }
         #endregion
 
         #region fk_cliente_pessoa_juridica
         [Column("id_cliente_pessoa_juridica")]
         public int? IdClientePessoaJuridica { get; set; }
         [ForeignKey("IdClientePessoaJuridica")]
-        public ClientePessoaJuridica ClientePessoaJuridica { get; set; }
+        public ClientePessoaJuridica PessoaJuridica { get; set; }
         #endregion
 
         #region fk_categoria_receita 
