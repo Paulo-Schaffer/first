@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿
+$(function () {
     $idTituloReceber = $("#id").val();
     $idAlterar = -1;
     var radioButton = "ClientePessoaJuridica.RazaoSocial";
@@ -101,32 +102,52 @@
         $DataVencimento = $("#tituloReceber-campo-data-vencimento").val();
         $Descricao = $("#tituloReceber-campo-descricao").val();
 
-        if ($.trim($('#tituloReceber-campo-pessoa-Juridica').val()) == '') {
+        if ($('#tituloReceber-campo-tipo-pessoa-juridica').is(':checked') || $('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
 
-            //return false;
-        } else if ($IdCategoriaReceita == undefined) {
+        } else {
+            monstrarMensagem('Escolha entra Pessoa Física ou Jurídica', '', 'error');
+
+        } if ($('#tituloReceber-campo-tipo-pessoa-juridica').is(':checked') && $IdClientePessoaJuridica == undefined) {
+            monstrarMensagem('Selecione uma Pessoa Jurídica', '', 'error');
+            $("#tituloReceber-campo-pessoa-Juridica").select2('open');
+            return false;
+            $('#tituloReceber-campo-pessoa-Juridica').focus();
+        } else if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked') && $IdClientePessoFisica == undefined) {
+            monstrarMensagem('Selecione uma Pessoa Fisica', '', 'error');
+            $("#tituloReceber-campo-pessoa-fisica").select2('open');
+            return false;
+        }
+        else if ($IdCategoriaReceita == undefined) {
             monstrarMensagem('Selecione uma Categoria Receita', '', 'error');
+            $('#tituloReceber-campo-categoria-Receita').select2('open');
             return false;
         } else if ($Status == undefined) {
             monstrarMensagem('Selecione um status', '', 'error');
+            $("#tituloReceber-campo-status").focus();
             return false;
         } else if ($DataLancamento == '') {
             monstrarMensagem('Digite a Data de Lançamento', '', 'error');
+            $('#tituloReceber-campo-data-lancamento').focus();
             return false;
-        } else if ($.trim($('#tituloReceber-campo-data-recebimento').val()) == '') {
+        } else if ($DataRecebimento == '') {
             alert('Digite a Data de recebimento');
+            $("#tituloReceber-campo-data-lancamento").focus();
             return false;
-        } else if ($.trim($('#tituloReceber-campo-data-vencimento').val()) == '') {
-            alert('Digite a data de Vencimento');
+        } else if ($DataVencimento == '') {
+            monstrarMensagem('Digite a Data de Vencimento', '', 'error');
+            $("#tituloReceber-campo-data-recebimento").focus();
             return false;
-        } else if ($.trim($('#tituloReceber-campo-valor-total').val()) == '') {
-            alert('Gigite o Valor Total');
+        } else if ($ValorTotal == '') {
+            monstrarMensagem('Digite a Data de Valor Total', '', 'error');
+            $("#tituloReceber-campo-valor-total").focus();
             return false;
-        } else if ($.trim($('#tituloReceber-campo-quantidade-Parcelas').val()) == '') {
-            alert('Digite a Quantidade de Parcelas');
+        } else if ($QuantidadeDeParcelas == '') {
+            monstrarMensagem('Digite a Quantidade de Parcelas', '', 'error');
+            $("#tituloReceber-campo-quantidade-Parcelas").focus();
             return false;
-        } else if ($.trim($('#tituloReceber-campo-descricao').val()) == '') {
-            alert('Digite a Descrição');
+        } else if ($Descricao == '') {
+            monstrarMensagem('Digite a Descrição', '', 'error');
+            $("#tituloReceber-campo-descricao").focus();
             return false;
         } else {
 
