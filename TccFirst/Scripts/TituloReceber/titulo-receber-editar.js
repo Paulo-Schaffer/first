@@ -1,32 +1,16 @@
 ﻿$(function () {
     $idTituloReceber = $("#id").val();
     $idAlterar = -1;
-    var radioButton = "ClientePessoaJuridica.RazaoSocial";
-
-
 
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
         ajax: '/tituloreceber/obtertodos',
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: 'NomeCliente' },
+            { data: "ClientePessoaJuridica.RazaoSocial"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
-            {
-                render: function (data, type, row) {
-                    let cor = "";
-                    if (row.Status == "Pago") {
-                        cor = "bg-success";
-                    } else if (row.Status == "Pendente") {
-                        cor = "bg-warning";
-                    } else {
-                        cor = "bg-danger";
-                    }
-                    return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
-
-                }
-            },
+            { data: "Status" },
             {
                 render: function (data, type, row) {
                     return moment(row.DataLancamento).format('DD/MM/YYYY')
@@ -63,12 +47,6 @@
                 url: '/tituloreceber/apagar?id=' + $id,
                 method: "get",
                 success: function (data) {
-                    if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
-                        radioButton = '"ClientePessoaFisica.Nome"';
-                        alert('caiu');
-                    } else {
-                        alert('não caiu');
-                    }
                     $tabelaTituloReceber.ajax.reload();
                 },
                 error: function (err) {
@@ -76,42 +54,22 @@
                 }
             });
         }
-    });
-
-    function monstrarMensagem(texto, titulo, tipo) {
-        // Tipo -> error ,info, primary, success, default
-        new PNotify({
-            title: titulo,
-            text: texto,
-            icon: 'icofont icofont-info-circle',
-            type: tipo
         });
-    }
-
+      
 
     $("#titulo-receber-botao-salvar").on("click", function () {
-        $IdClientePessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
-        $IdClientePessoFisica = $("#tituloReceber-campo-pessoa-fisica").val();
-        $IdCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
-        $ValorTotal = $("#tituloReceber-campo-valor-total").val();
-        $QuantidadeParcela = $("#tituloReceber-campo-quantidade-Parcelas").val();
-        $Status = $("#tituloReceber-campo-status").val();
-        $DataLancamento = $("#tituloReceber-campo-data-lancamento").val();
-        $DataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
-        $DataVencimento = $("#tituloReceber-campo-data-vencimento").val();
-        $Descricao = $("#tituloReceber-campo-descricao").val();
-
         if ($.trim($('#tituloReceber-campo-pessoa-Juridica').val()) == '') {
-
-            //return false;
-        } else if ($IdCategoriaReceita == undefined) {
-            monstrarMensagem('Selecione uma Categoria Receita', '', 'error');
+            alert('Selecione uma Pessoa Jurídica');
             return false;
-        } else if ($Status == undefined) {
-            monstrarMensagem('Selecione um status', '', 'error');
+        } else if ($.trim($('#tituloReceber-campo-categoria-Receita').val()) == '') {
+            alert('Selecione uma Categoria Receita');
             return false;
-        } else if ($DataLancamento == '') {
-            monstrarMensagem('Digite a Data de Lançamento', '', 'error');
+        } else if ($.trim($('#tituloReceber-campo-status').val()) == '') {
+            alert('Selecione um status');
+            return false;
+        }
+        else if ($.trim($('#tituloReceber-campo-data-lancamento').val()) == '') {
+            alert('Digite a Data de Lançamento');
             return false;
         } else if ($.trim($('#tituloReceber-campo-data-recebimento').val()) == '') {
             alert('Digite a Data de recebimento');
@@ -131,22 +89,28 @@
         } else {
 
         }
-
+        $IdClientePessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
+        $IdCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
+        $ValorTotal = $("#tituloReceber-campo-valor-total").val();
+        $QuantidadeParcela = $("#tituloReceber-campo-quantidade-Parcelas").val();
+        $Status = $("#tituloReceber-campo-status").val();
+        $DataLancamento = $("#tituloReceber-campo-data-lancamento").val();
+        $DataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
+        $DataVencimento = $("#tituloReceber-campo-data-vencimento").val();
+        $Descricao = $("#tituloReceber-campo-descricao").val();
         if ($idAlterar == -1) {
-            inserir($IdClientePessoaJuridica, $IdClientePessoFisica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao);
+            inserir($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao);
         } else {
-            alterar($IdClientePessoaJuridica, $IdClientePessoFisica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao);
+            alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao);
         }
     });
 
-    function inserir($IdClientePessoaJuridica, $IdClientePessoFisica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao) {
-        debugger;
+    function inserir($IdClientePessoaJuridica , $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao) {
         $.ajax({
             url: '/tituloreceber/cadastro',
             method: 'post',
             data: {
-                IdClientePessoaJuridica: $IdClientePessoaJuridica,
-                IdClientePessoaFisica: $IdClientePessoFisica,
+                IdClientePessoaJuridica : $IdClientePessoaJuridica ,
                 IdCategoriaReceita: $IdCategoriaReceita,
                 ValorTotal: $ValorTotal,
                 QuantidadeParcela: $QuantidadeParcela,
@@ -161,14 +125,7 @@
                 LimparCampos();
                 $("#modal-tituloReceber").modal("hide");
                 $(".modal-backdrop").hide();
-                if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
-                    radioButton = "ClientePessoaFisica.Nome";
-                    alert('caiu');
-                } else {
-                    alert('ñ caiu');
-                }
                 $tabelaTituloReceber.ajax.reload();
-
             },
             error: function (err) {
                 alert("Não foi possível cadastrar");
@@ -176,16 +133,15 @@
         });
     }
 
-    $('.table').on("click", ".botao-editar", function () {
-        $id = $(this).data("id");
-        $.ajax({
-            url: "/tituloreceber/obterpeloid?id=" + $id,
-            method: "get",
-            success: function (data) {
+        $('.table').on("click", ".botao-editar", function () {
+            $id = $(this).data("id");
+            $.ajax({
+                url: "/tituloreceber/obterpeloid?id=" + $id,
+                method: "get",
+                success: function (data) {
                 $idAlterar = $id;
-                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica);
-                $("#tituloRecebertituloReceber-campo-pessoa-fisica").val(data.IdClientePessoFisica);
-                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);
+                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica );
+                $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
                 $("#tituloReceber-campo-valor-total").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcela);
                 $("#tituloReceber-campo-status").val(data.Status);
@@ -207,13 +163,12 @@
         })
     });
 
-    function alterar($IdClientePessoaJuridica, $IdClientePessoaFisica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao) {
+    function alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao) {
         $.ajax({
             url: "/tituloreceber/editar",
             method: "post",
             data: {
-                IdClientePessoaJuridica: $IdClientePessoaJuridica,
-                IdClientePessoaFisica: $IdClientePessoaFisica,
+                IdClientePessoaJuridica: $IdClientePessoaJuridica ,
                 idCategoriareceita: $IdCategoriaReceita,
                 ValorTotal: $ValorTotal,
                 QuantidadeParcela: $QuantidadeParcela,
@@ -238,7 +193,6 @@
 
     function LimparCampos() {
         $("#tituloReceber-campo-pessoa-Juridica").val("");
-        $("#tituloReceber-campo-pessoa-fisica").val("");
         $("#tituloReceber-campo-categoria-Receita").val("");
         $("#tituloReceber-campo-status").val("");
         $("#tituloReceber-campo-valor-total").val("");

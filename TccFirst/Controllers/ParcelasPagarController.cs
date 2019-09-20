@@ -17,94 +17,97 @@ namespace TccFirst.Controllers
             repository = new ParcelaPagarRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
 
         public ActionResult Index()
         {
+            ParcelaPagarRepository repositoryParcelaPagar = new ParcelaPagarRepository();
+            ViewBag.ParcelaPagar = repositoryParcelaPagar.ObterTodos();
             return View();
         }
 
+        #region obtertodos
         [HttpGet]
-        public JsonResult ObteTodos()
+        public JsonResult ObterTodos()
         {
             var parcelaspagar = repository.ObterTodos();
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        #endregion
+
+        #region cadastro
+        [HttpGet, Route("Index")]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public JsonResult Inserir(ParcelaPagar parcelaPagar)
+        public ActionResult Cadastro(ParcelaPagar parcelaPagar)
         {
             parcelaPagar.RegistroAtivo = true;
             var id = repository.Inserir(parcelaPagar);
             var resultado = new { id = id };
-            return Json(resultado);
+            return RedirectToAction("Index", new { id = id });
         }
-        [HttpGet]
-        public JsonResult Apagar(int id)
+        #endregion
+
+        #region Apagar 
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado);
+            return RedirectToAction("Index", new { id = id });
         }
-        [HttpPost]
-        public JsonResult Update(ParcelaPagar parcelasPagar)
-        {
-            var alterou = repository.Alterar(parcelasPagar);
-            var resultado = new { status = alterou };
-            return Json(resultado);
-        }
-        [HttpGet, Route("parcelasPagar/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-        //[HttpGet, Route("parcelasPagar/obtertodosselect")]
-        //public JsonResult ObterTodosSelect(string termo)
-        //{
-        //    var parcelasPagar = repository.ObterTodos();
-        //    List<object> parcelasPagarSelect = new List<object>();
-        //    foreach (parcelasPagar parcelasPagar in parcelasPagar)
-        //    {
-        //        parcelasPagarSelect.Add(new
-        //        {
-        //            id = parcelasPagar.Id,
-        //            valor = parcelasPagar.Valor,
-        //            status = parcelasPagar.Status,
-        //            dataVencimento = parcelasPagar.DataVencimento,
-        //            dataPagamento = parcelasPagar.DataPagamento
 
-        //        });
-        //    }
-        //}
+        #endregion
+
+        #region editar
+
+        [HttpPost, Route("editar")]
+        public ActionResult Editar(ParcelaPagar parcelaPagar)
+        {
+            var alterou = repository.Alterar(parcelaPagar);
+            var resultado = new { status = alterou };
+            return RedirectToAction("Index", new { id = resultado });
+
+        }
+
+        [HttpGet]
+        public ActionResult Editar(int id)
+        {
+            var parcelaPagar = repository.ObterPeloId(id);
+            ViewBag.ParcelaPagar = parcelaPagar;
+            return View();
+        }
+        #endregion
+
+        #region obtertodosselect2
+
+        [HttpGet, Route("parcelaPagar/obtertodosselect")]
+        public JsonResult ObterTodosSelect(string termo)
+        {
+            var parcelaPagar = repository.ObterTodos();
+            List<object> parcelaPagarSelect = new List<object>();
+            foreach (ParcelaPagar parcelasPagar in parcelaPagar)
+            {
+                parcelaPagarSelect.Add(new
+                {
+                    id = parcelasPagar.Id,
+                    valor = parcelasPagar.Valor,
+                    status = parcelasPagar.Status,
+                    dataPagamento = parcelasPagar.DataPagamento,
+                    dataVencimento  = parcelasPagar.DataVencimento
+                });
+            }
+            var resultado = new
+            {
+                resultados = parcelaPagarSelect
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
+        }
+        #endregion
     }
 }

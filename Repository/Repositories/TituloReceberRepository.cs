@@ -74,7 +74,6 @@ namespace Repository.Repositories
         {
             return context.TitulosReceber
                 .Include("ClientePessoaJuridica")
-                .Include("ClientePessoaFisica")
                 .Where(x => x.RegistroAtivo == true).ToList();   
         }
     }
