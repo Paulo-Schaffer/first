@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace TccFirst.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            int tituloPagarOficial = 21;
+            TituloPagarRepository x = new TituloPagarRepository;
+            ViewBag.grafico = x;
             return View();
         }
     }
