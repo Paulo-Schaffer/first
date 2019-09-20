@@ -185,6 +185,16 @@
         $idAlterar = -1;
     }
 
+    function monstrarMensagem(texto, titulo, tipo) {
+        // Tipo -> error ,info, primary, success, default
+        new PNotify({
+            title: titulo,
+            text: texto,
+            icon: 'icofont icofont-info-circle',
+            type: tipo
+        });
+    }
+
     $('#modal-tituloPagar').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })

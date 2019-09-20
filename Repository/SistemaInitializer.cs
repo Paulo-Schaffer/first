@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    //internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -259,7 +259,7 @@ namespace Repository
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "123456",
+                Senha = "123",
                 RegistroAtivo = true
 
             });
@@ -293,8 +293,6 @@ namespace Repository
                 RegistroAtivo = true
             });
             #endregion
-
-          
 
             #region movimentacaoFinanceiraEntrada
             var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();

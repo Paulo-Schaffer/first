@@ -5682,13 +5682,12 @@
     <Content Include="Views\Agencia\Editar.cshtml" />
     <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
-    <Content Include="Views\Login\SemPermissao.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login do Sistema\LoginSistema.cshtml" />
-    <Content Include="Views\Login\SemPermissao.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
+    <Content Include="Views\Login\SemPermissao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
