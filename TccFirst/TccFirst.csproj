@@ -5599,6 +5599,7 @@
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
+    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
@@ -5675,10 +5676,8 @@
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
-    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
-    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Historico\CadastroHistorico.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
