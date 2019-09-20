@@ -210,37 +210,8 @@ namespace Repository
 
             #endregion
 
-            #region titulosPagar
-            var tituloPagar = new List<TituloPagar>();
-            tituloPagar.Add(new TituloPagar()
-            {
-                Descricao = "Titulo feio por Paulo",
-                FormaPagamento = "Dinheiro",
-                Caixa = true,
-                ValorTotal = 1999,
-                Status = "Pago",
-                DataLancamento = Convert.ToDateTime("23/06/2016"),
-                DataRecebimento = Convert.ToDateTime("22/07/2016"),
-                DataVencimento = Convert.ToDateTime("23/07/2016"),
-                Complemento = "Usuario pagou corretamente",
-                QuantidadeParcela = 1,
-                RegistroAtivo = true
-            });
-            tituloPagar.Add(new TituloPagar()
-            {
-                Descricao = "Titulo feio por Paulo",
-                FormaPagamento = "Credito",
-                Caixa = false,
-                ValorTotal = 127422,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("13/06/2016"),
-                DataRecebimento = Convert.ToDateTime("12/07/2019"),
-                DataVencimento = Convert.ToDateTime("13/07/2016"),
-                Complemento = "Usuario nao pagou",
-                QuantidadeParcela = 6,
-                RegistroAtivo = true
-            });
-            #endregion
+            
+       
 
             #region cadastroscontacorrente
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
@@ -400,10 +371,10 @@ namespace Repository
 
             //    #endregion
 
-        
 
 
-            
+
+
 
             //#region movimentacaoFinanceiraEntrada
             //var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
@@ -467,34 +438,67 @@ namespace Repository
             //context.ParcelasReceber.AddRange(parcelaReceber);
             //#endregion ParcelaReceber
 
-            //#region tituloReceber
-            //var tituloReceber = new List<TituloReceber>();
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao= "Titulo sem compromisso",
-            //    ValorTotal = 123213123,
-            //    Status = "Pago",
-            //    DataLancamento = "29/12/2018",
-            //    DataRecebimento = "04/01/2019",
-            //    DataVencimento="30/01/2019",
-            //    Complemento="Não sei o que por",
-            //    QuantidadeParcela= 36,
-            //    RegistroAtivo = true
-            //});
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao = "Titulo com compromisso",
-            //    ValorTotal = 343234,
-            //    Status = "Pendente",
-            //    DataLancamento = "09/02/2017",
-            //    DataRecebimento = "",
-            //    DataVencimento = "10/03/2017",
-            //    Complemento = "Não sei o que por, desculpa",
-            //    QuantidadeParcela = 24,
-            //    RegistroAtivo = true
-            //});
-            //context.TitulosReceber.AddRange(tituloReceber);
-            //#endregion
+            #region titulosPagar
+            var tituloPagar = new List<TituloPagar>();
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Dinheiro",
+                Caixa = true,
+                ValorTotal = 1999,
+                Status = "Pago",
+                DataLancamento = Convert.ToDateTime("23/06/2016"),
+                DataRecebimento = Convert.ToDateTime("22/07/2016"),
+                DataVencimento = Convert.ToDateTime("23/07/2016"),
+                Complemento = "Usuario pagou corretamente",
+                QuantidadeParcela = 1,
+                RegistroAtivo = true
+
+            });
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Credito",
+                Caixa = false,
+                ValorTotal = 1,
+                Status = "Pendente",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
+                Complemento = "Usuario nao pagou",
+                QuantidadeParcela = 6,
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region tituloReceber
+            var tituloReceber = new List<TituloReceber>();
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao= "Titulo sem compromisso",
+                ValorTotal = 125,
+                Status = "Pago",
+                DataLancamento = "29/12/2018",
+                DataRecebimento = "04/01/2019",
+                DataVencimento="30/01/2019",
+                Complemento="Não sei o que por",
+                QuantidadeParcela= 36,
+                RegistroAtivo = true
+            });
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao = "Titulo com compromisso",
+                ValorTotal = 175,
+                Status = "Pendente",
+                DataLancamento = "09/02/2017",
+                DataRecebimento = "",
+                DataVencimento = "10/03/2017",
+                Complemento = "Não sei o que por, desculpa",
+                QuantidadeParcela = 24,
+                RegistroAtivo = true
+            });
+            context.TitulosReceber.AddRange(tituloReceber);
+            #endregion
 
             base.Seed(context);
         }

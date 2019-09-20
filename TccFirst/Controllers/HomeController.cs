@@ -12,9 +12,17 @@ namespace TccFirst.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            int tituloPagarOficial = 21;
-            TituloPagarRepository x = new TituloPagarRepository;
-            ViewBag.grafico = x;
+            //int tituloPagarOficial = 21;
+            TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
+            decimal totalReceber = tituloReceberRepository.ObterTodos().Sum(x => x.ValorTotal);
+
+            TituloPagarRepository tituloPagarRepository = new TituloPagarRepository();
+            decimal totalPagar = tituloPagarRepository.ObterTodos().Sum(x => x.ValorTotal);
+
+            ViewBag.ContasPagar = Convert.ToString(totalReceber).Replace(",", ".");
+            ViewBag.ContasReceber = Convert.ToString(totalPagar).Replace(",", ".");
+
+
             return View();
         }
     }
