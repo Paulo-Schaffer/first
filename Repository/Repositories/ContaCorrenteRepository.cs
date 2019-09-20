@@ -24,6 +24,10 @@ namespace Repository.Repositories
             if (contaCorrenteOriginal == null)
                 return false;
 
+            contaCorrenteOriginal.IdCadastroContaCorrente = contaCorrente.IdCadastroContaCorrente;
+            contaCorrenteOriginal.IdHistorico = contaCorrente.IdHistorico;
+            contaCorrenteOriginal.IdCategoriaReceita = contaCorrente.IdCategoriaReceita;
+            contaCorrenteOriginal.IdCategoriaDespesa = contaCorrente.IdCategoriaDespesa;
             contaCorrenteOriginal.Descricao = contaCorrente.Descricao;
             contaCorrenteOriginal.Documento = contaCorrente.Documento;
             contaCorrenteOriginal.TipoPagamento = contaCorrente.TipoPagamento;
