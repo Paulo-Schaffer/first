@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace TccFirst.Controllers
 {
     [Route("tituloPagar/")]
-    public class TituloPagarController : Controller
+    public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
@@ -18,17 +18,37 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
-
-        public ActionResult Cadastro()
+        #region Verificações Login
+        private bool VerificaLogado()
         {
-            return View();
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        public ActionResult Editar()
+        private ActionResult VerificaPermisssao()
         {
-            return View();
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
         }
 
+        #endregion
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -42,7 +62,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
-            return Json(new { id = id });
+            return RedirectToAction("Editar", new { id = id });
         }
 
         [HttpPost, Route("editar")]
@@ -72,7 +92,14 @@ namespace TccFirst.Controllers
             return View();
         }
 
-
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+        public ActionResult Editar()
+        {
+            return View();
+        }
 
 
     }

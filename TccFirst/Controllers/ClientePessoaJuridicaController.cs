@@ -8,20 +8,53 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class ClientePessoaJuridicaController : Controller
+    public class ClientePessoaJuridicaController : BaseController
     {
         private ClientePessoaJuridicaRepository repository;
 
         public ClientePessoaJuridicaController()
         {
             repository = new ClientePessoaJuridicaRepository();
-        }   
+        }
+
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }        
-        [HttpPost]
+        [HttpGet]
         public JsonResult ObterTodos()
         {
             var clientePessoaJuridicas = repository.ObterTodos();

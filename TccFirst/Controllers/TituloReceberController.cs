@@ -8,7 +8,8 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class TituloReceberController : Controller
+    [Route("tituloreceber/")]
+    public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
 
@@ -16,7 +17,7 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-
+      
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {

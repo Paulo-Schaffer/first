@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class HistoricoController : Controller
+    public class HistoricoController : BaseController
     {
         private HistoricoRepository repository;
 
@@ -16,12 +16,45 @@ namespace TccFirst.Controllers
         {
             repository = new HistoricoRepository();
         }
+
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public JsonResult ObterTodos()
         {
             var historico = repository.ObterTodos();

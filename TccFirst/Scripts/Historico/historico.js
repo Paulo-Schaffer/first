@@ -1,22 +1,23 @@
-﻿//$(function () {
-//    $('#historico-campo-descricao').keyup(function (e) {
-//        if (e.keyCode == 13) {
-//            $('#historico-batao-salvar').focus();
-//        }
-//    });
-//});
+﻿$(function () {
+    $('#historico-campo-descricao').keyup(function (e) {
+        if (e.keyCode == 13) {
+            $('#historico-batao-salvar').focus();
+        }
+    });
+});
 
 $(function () {
     $idAlterar = -1;
 
     $tabelaHistorico = $("#historico-tabela").DataTable({
+
         ajax: '/historico/obtertodos',
-        serverSide: true,
+        severSide: true,
         columns: [
             { 'data': 'Id' },
             { 'data': 'Descricao' },
             {
-               render: function (data, type, row) {
+                render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
                 }
             }

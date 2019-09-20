@@ -52,7 +52,7 @@ namespace Model
         public int? IdFornecedor { get; set; }
 
         [ForeignKey("IdFornecedor")]
-        public Fornecedor Fornecedores { get; set; }
+        public Fornecedor Fornecedor { get; set; }
         #endregion
 
         #region fk_categoria_despesas

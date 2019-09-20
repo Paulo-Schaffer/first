@@ -10,41 +10,36 @@ namespace Repository.Repositories
 {
     public class ParcelaPagarRepository : IParcelaPagarRepository
     {
-        private SistemaContext context;
+        public SistemaContext context;
 
-        public ParcelaPagarRepository()
+        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
         {
-            context = new SistemaContext();
+            context = new SistemaContext(); 
+        }
+
+        public bool Alterar(ParcelaPagar parcelaPagar)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Apagar(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Inserir(ParcelaPagar parcelaPagar)
+        {
+            throw new NotImplementedException();
         }
 
         public ParcelaPagar ObterPeloId(int id)
         {
-            var parcela = context.ParcelasPagar.Where(x => x.Id == id).FirstOrDefault();
-            return parcela;
+            throw new NotImplementedException();
         }
 
         public List<ParcelaPagar> ObterTodos()
         {
-            return context.ParcelasPagar.Where(x => x.RegistroAtivo == true).ToList();
-        }
-
-        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
-        {
-            var dataAtual = DateTime.Now.AddDays(30);
-
-            for(int i =0; i<quantidadesPacelas;i++)
-            {
-               var dataVencimento = dataAtual.AddMonths(i);
-
-                var parcela = new ParcelaPagar();
-                parcela.Valor = valor;
-                parcela.DataVencimento = dataVencimento;
-                parcela.IdTituloPagar = idTituloPagar;
-                parcela.RegistroAtivo = true;
-                context.ParcelasPagar.Add(parcela);
-                context.SaveChanges();
-            } 
-
+            throw new NotImplementedException();
         }
     }
 }

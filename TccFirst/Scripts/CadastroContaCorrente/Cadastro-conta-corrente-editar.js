@@ -1,7 +1,7 @@
 ﻿$(function () {
     $idAlterar = -1;
 
-    $tabelaCadastroContaCorrente = $('#cadastro-conta-corrente-tabela').DataTable({
+    $tabelaCadastroContaCorrente =$('#cadastro-conta-corrente-tabela').DataTable({
         ajax: '/cadastrocontacorrente/ObterTodos',
         serverSide: true,
         columns: [
@@ -31,6 +31,7 @@
         });
     });
 
+    
 
     $('#cadastro-conta-corrente-botao-salvar').on('click', function () {
         $IdAgencia = $('#cadastro-conta-corrente-campo-idAgencia').val();
@@ -39,8 +40,9 @@
             inserir($IdAgencia, $NumeroConta);
         } else {
             alterar($IdAgencia, $NumeroConta);
-            alert('sadds');
+            //alert('sadds');
         }
+
     });
 
     function inserir($IdAgencia, $NumeroConta) {
@@ -86,8 +88,8 @@
             url: '/cadastrocontacorrente/editar',
             method: 'post',
             data: {
-                id : $idAlterar,
-                IdAgencia : $IdAgencia,
+                id: $idAlterar,
+                IdAgencia: $IdAgencia,
                 NumeroConta: $NumeroConta
             },
             success: function (data) {

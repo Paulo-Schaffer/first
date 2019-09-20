@@ -1,24 +1,39 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿
+@{
+    Layout = null;
 }
 
-<h2>Lista de Usuarios</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login First</title>
+    <link rel="icon" href="~/Content/Imagem/logo-blue.png" />
+    <link rel="stylesheet" href="~/Scripts/bootstrap.min.js" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+</head>
+<body class="text-center">
+    <form action="/login/VerificaLogin" method="post">
+        <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+                <img src="~/Content/Imagem/logo-blue.png" />
+                <div>
+                    <input type="text" id="campo-usuario" name="usuario" class="form-control" maxlength="45" placeholder="Usuario" />
+                </div>
+                <div>
+                    <input type="password" id="campo-senha" name="senha" class="form-control " maxlength="45" placeholder="Senha" />
+                </div>
+                <button class="btn btn-primary mt-3 " type="submit"><i class="fa fa-sign-in"></i> Entrar</button>
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+    </form>
 
-<button data-toggle="modal" data-target="#modal-login" class="btn btn-primary">Novo Usuario</button>
-
-<table id="login-tabela" class="table table-hover table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Usario</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-</table>
-
-@RenderPage("CadastroLogin.cshtml")
-
-@section js{
-    <script src="~/Scripts/Login/login-index.js"></script>
-    <script src="~/Scripts/Login/login-cadastro.js"></script>
-}
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
