@@ -29,9 +29,9 @@ namespace TccFirst.Controllers
         [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
-            tituloReceber.RegistroAtivo = true;
+            //tituloReceber.RegistroAtivo = true;
             int id = repository.Inserir(tituloReceber);
-            return Json(new { id = id });
+            return RedirectToAction("Editar", new { id = id });
         }
 
         [HttpPost, Route("editar")] 
@@ -49,6 +49,11 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet, Route("tituloreceber")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Index()
         {
@@ -59,17 +64,11 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+        public ActionResult Editar()
+        {
+            return View();
+        }
 
-        //[HttpGet,Route("editar")]
-        //ActionResult Editar(int id)
-        //{
-        //    var titulosReceber = repository.ObterPeloId(id);
-        //    if (titulosReceber == null)
-        //        return RedirectToAction("Index");
-        //    ViewBag.TituloReceber = titulosReceber;
-        //    return View();
-
-        //}
 
     }
 }
