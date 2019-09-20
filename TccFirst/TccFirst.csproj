@@ -5488,6 +5488,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CadastroContaCorrente\valida-funcao.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\Chart.js" />
@@ -5700,14 +5701,8 @@
     <Content Include="Views\ParcelasPagar\Cadastro.cshtml" />
     <Content Include="Views\ParcelasPagar\Editar.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\ContaCorrente\Editar.cshtml" />
-=======
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
-    <Content Include="Views\ContaCorrente\Editar.cshtml" />
->>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

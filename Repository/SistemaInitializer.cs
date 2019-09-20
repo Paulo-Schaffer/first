@@ -16,14 +16,14 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia da Vida",
-                NumeroAgencia = "2001",
+                NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia do Paulo",
-                NumeroAgencia = "666",
+                NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
@@ -31,7 +31,7 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Você consegue",
-                NumeroAgencia = "8001",
+                NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
@@ -276,7 +276,8 @@ namespace Repository
                 Uf = "SP",
                 Complemento = "casa",
                 RegistroAtivo = true,
-            });
+        });
+                context.Fornecedores.AddRange(fornecedores);
             #endregion
 
             #region historico
@@ -376,192 +377,6 @@ namespace Repository
             #endregion
 
 
-            //#endregion
-
-            //    #region fornecedor
-            //    var fornecedor = new List<Fornecedor>();
-            //    fornecedor.Add(new Fornecedor()
-            //    {
-            //        RazaoSocial = "Benner",
-            //        NomeFantasia = "Paulo",
-            //        DataCadastro = Convert.ToDateTime("19/08/2005"),
-            //        Cnpj = "93.591.110/0001-56",
-            //        RegistroAtivo = true,
-            //    });
-            //    fornecedor.Add(new Fornecedor()
-            //    {
-            //        RazaoSocial = "HBSIS",
-            //        NomeFantasia = "Francisco",
-            //        DataCadastro = Convert.ToDateTime("20/07/2015"),
-            //        Cnpj = "39.552.667/0001-32",
-            //        RegistroAtivo = true,
-            //    });
-            //    context.Fornecedores.AddRange(fornecedor);
-
-            //    #endregion
-
-        
-
-
-            
-
-            //#region movimentacaoFinanceiraEntrada
-            //var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
-            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
-            //{
-            //    Valor = 568,
-            //    RegistroAtivo = true
-            //});
-            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
-            //{
-            //    Valor = -2422,
-            //    RegistroAtivo = true,
-            //});
-            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
-            //{
-            //    Valor = 255244,
-            //    RegistroAtivo = true,
-            //});
-            //context.MovimentacaoFinanceiraEntradas.AddRange(movimentacaoFinanceiraEntrada);
-            //#endregion
-
-            //#region movimentacaoFinanceiraSaida
-            //var movimentacaoFinanceiraSaida = new List<MovimentacaoFinanceiraSaida>();
-            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
-            //{
-            //    Valor = 77,
-            //    RegistroAtivo = true
-            //});
-            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
-            //{
-            //    Valor = -7555,
-            //    RegistroAtivo = true
-            //});
-            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
-            //{
-            //    Valor = 72866457,
-            //    RegistroAtivo = true
-            //});
-            //context.MovimentacaoFinanceiraSaidas.AddRange(movimentacaoFinanceiraSaida);
-            //#endregion
-
-
-            //#region parcelaReceber
-            //var parcelaReceber = new List<ParcelaReceber>();
-            //parcelaReceber.Add(new ParcelaReceber()
-            //{
-            //    Valor = 12312,
-            //    Status = "Vencido",
-            //    DataVencimento = Convert.ToDateTime("01/01/2019"),
-            //    DataRecebimento = Convert.ToDateTime("02/02/2019"),
-            //    RegistroAtivo = true,
-            //});
-            //parcelaReceber.Add(new ParcelaReceber()
-            //{
-            //    Valor = 18657328,
-            //    Status = "Pago",
-            //    DataVencimento = Convert.ToDateTime("13/08/2018"),
-            //    DataRecebimento = Convert.ToDateTime("05/08/2018"),
-            //    RegistroAtivo = true,
-            //});
-            //context.ParcelasReceber.AddRange(parcelaReceber);
-            //#endregion ParcelaReceber
-
-<<<<<<< HEAD
-=======
-            //#region tituloPagar
-            //var tituloPagar = new List<TituloPagar>();
-            //tituloPagar.Add(new TituloPagar()
-            //{
-            //    Descricao = "Titulo feio por Paulo",
-            //    FormaPagamento = "Dinheiro",
-            //    Caixa = true,
-            //    ValorTotal = 1999,
-            //    Status = "Pago",
-            //    DataLancamento = "23/06/2016",
-            //    DataRecebimento = "22/07/2016",
-            //    DataVencimento = "23/07/2016",
-            //    Complemento = "Usuario pagou corretamente",
-            //    QuantidadeParcela = 1,
-            //    RegistroAtivo = true
-            //});
-            //tituloPagar.Add(new TituloPagar()
-            //{
-            //    Descricao = "Titulo feio por Paulo",
-            //    FormaPagamento = "Credito",
-            //    Caixa = false,
-            //    ValorTotal = 127422,
-            //    Status = "Pendente",
-            //    DataLancamento = "13/06/2016",
-            //    DataRecebimento = "",
-            //    DataVencimento = "13/07/2016",
-            //    Complemento = "Usuario nao pagou",
-            //    QuantidadeParcela = 6,
-            //    RegistroAtivo = true
-            //});
-            //context.TitulosPagar.AddRange(tituloPagar);
-            //#endregion
-            #region Cadastro conta corrente
-
-            var cadastroscontacorrente = new List<CadastroContaCorrente>();
-            cadastroscontacorrente.Add(new CadastroContaCorrente() {
-                NumeroConta = 80,
-                IdAgencia = 1,
-                RegistroAtivo = true,
-            });
-            #endregion
-
-            #region fornecedores
-            var fornecedores = new List<Fornecedor>();
-            fornecedores.Add(new Fornecedor()
-            {
-                RazaoSocial = "Peugeot",
-                NomeFantasia = "strabourg",
-                DataCadastro = Convert.ToDateTime("04/09/2019"),
-                Cnpj = "83.590.870/0001-95",
-                Email = "first@outlook.com",
-                Telefone = "3345-5567",
-                Cep = "09432-876",
-                Logradouro = "UBATUBA",
-                Numero = 675,
-                Bairro = "Bairro Vila Olimpia",
-                Cidade = "São Paulo",
-                Uf = "SP",
-                Complemento = "casa",
-                RegistroAtivo = true,
-            });
-            context.Fornecedores.AddRange(fornecedores);
-            #endregion
-
->>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
-            //#region tituloReceber
-            //var tituloReceber = new List<TituloReceber>();
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao= "Titulo sem compromisso",
-            //    ValorTotal = 123213123,
-            //    Status = "Pago",
-            //    DataLancamento = "29/12/2018",
-            //    DataRecebimento = "04/01/2019",
-            //    DataVencimento="30/01/2019",
-            //    Complemento="Não sei o que por",
-            //    QuantidadeParcela= 36,
-            //    RegistroAtivo = true
-            //});
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao = "Titulo com compromisso",
-            //    ValorTotal = 343234,
-            //    Status = "Pendente",
-            //    DataLancamento = "09/02/2017",
-            //    DataRecebimento = "",
-            //    DataVencimento = "10/03/2017",
-            //    Complemento = "Não sei o que por, desculpa",
-            //    QuantidadeParcela = 24,
-            //    RegistroAtivo = true
-            //});
-            //context.TitulosReceber.AddRange(tituloReceber);
-            //#endregion
 
             base.Seed(context);
         }

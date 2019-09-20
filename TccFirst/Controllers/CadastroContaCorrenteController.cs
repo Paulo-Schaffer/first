@@ -33,10 +33,10 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)
         {
             int id = repository.Inserir(cadastroContaCorrente);
-            return RedirectToAction("Editar", new { id = id });
+            return Json(new { id = id });
         }
 
-        [HttpPost, Route("editar")]
+        [HttpPost, Route("alterar")]
         public JsonResult Editar(CadastroContaCorrente cadastroContaCorrente)
         {
             var alterou = repository.Alterar(cadastroContaCorrente);
@@ -51,6 +51,13 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet, Route("cadastrocontacorrente")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Index()
         {
             return View();

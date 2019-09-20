@@ -10,9 +10,8 @@ $(function () {
     $idAlterar = -1;
 
     $tabelaHistorico = $("#historico-tabela").DataTable({
-
         ajax: '/historico/obtertodos',
-        severSide: true,
+        serverSide: true,
         columns: [
             { 'data': 'Id' },
             { 'data': 'Descricao' },
@@ -78,7 +77,7 @@ $(function () {
             }
         });
     }
-   
+
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
