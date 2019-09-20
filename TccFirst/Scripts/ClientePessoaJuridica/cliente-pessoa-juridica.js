@@ -157,7 +157,7 @@ $(function () {
             { 'data': 'Cidade' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar  fa fa-pencil-square-o " data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger fa fa-trash botao-apagar ml-2 " data-id="' + row.Id + '">Apagar</button>'
                 }
             }
         ]

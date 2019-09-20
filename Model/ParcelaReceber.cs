@@ -34,9 +34,13 @@ namespace Model
         [Column("id_titulo_receber")]
         public int IdTituloReceber { get; set; }
         [ForeignKey("IdTituloReceber")]
+        //[Column ("valor_titulo_receber")]
+        //public decimal ValorTituloReceber{get;set;}
+        //[Foreign Key "ValorTituloReceber"]
         public TituloReceber TituloReceber { get; set; }
         #endregion
-
+        //TITULO RECEBER ID,VALOR,DATA LANCAMENTO, QUANTIDADE PARCELAS,//
+        
     }
 
 }
