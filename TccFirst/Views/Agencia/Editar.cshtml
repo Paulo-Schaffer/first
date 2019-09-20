@@ -1,4 +1,4 @@
-﻿    
+﻿
 @{
     ViewBag.Title = "Editar";
 }
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="float-right">
-                    <a href="/agencia/index" class="btn btn-primary"><i class="fa fa-backward"></i>Voltar a lista de Agencias</a>
+                    <a href="/agencia/index" class="btn btn-primary">Voltar a lista de Agencias</a>
                 </div>
             </div>
         </div>
@@ -29,9 +29,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                  
+                    fcid
                     <label for="campo-nomeAgencia">Nome da Agencia</label>
-                    <input type="text" name="nomeagencia" class="form-control" id="campo-nomeAgencia" value="@ViewBag.Agencia.NomeAgencia" />
+                    <input type="text" name="nome" class="form-control" id="campo-nomeAgencia" value="@ViewBag.Agencia.NomeAgencia" />
                 </div>
             </div>
         </div>
@@ -39,12 +39,19 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-numeroAgencia">Numero da Agencia</label>
-                    <input type="text" name="numeroagencia" class="form-control" id="campo-numeroAgencia" value="@ViewBag.Agencia.NumeroAgencia" />
+                    <input type="text" name="numero" class="form-control" id="campo-numeroAgencia" value="@ViewBag.Agencia.NumeroAgencia" />
                 </div>
             </div>
         </div>
 
-        <button href="/agencia/index"class="btn btn-success float-right" type="submit"><i class="fa fa-save"></i>Salvar</button>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <a href="/agencia/index" class="btn btn-success">Salvar</a>
+                </div>
+            </div>
+        </div>
     </form>
 
 </div>

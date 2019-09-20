@@ -89,36 +89,7 @@ namespace TccFirst.Controllers
 
         public ActionResult Index()
         {
-
-            var tituloPagars = repository.ObterTodos();
-
-            List<object> tituloPagarSelect2 =
-                new List<object>();
-            foreach (TituloPagar tituloPagar in tituloPagars)
-            {
-                tituloPagarSelect2.Add(new
-                {
-                    id = tituloPagar.Id,
-                    descricao = tituloPagar.Descricao,
-                    formaPagamento = tituloPagar.FormaPagamento,
-                    caixa = tituloPagar.Caixa,
-                    valorTotal = tituloPagar.ValorTotal,
-                    status = tituloPagar.Status,
-                    dataLancamento = tituloPagar.DataLancamento,
-                    dataRecebimento = tituloPagar.DataRecebimento,
-                    dataVencimento = tituloPagar.DataVencimento,
-                    complemento = tituloPagar.Complemento,
-                    quantidadeParcela = tituloPagar.QuantidadeParcela,
-                    idFornecedores = tituloPagar.IdFornecedor,
-                    idCategoriaDespesa = tituloPagar.IdCategoriaDespesa
-                });
-            }
-            var resultado = new
-            {
-                results = tituloPagarSelect2
-            };
-            return Json(resultado,
-                JsonRequestBehavior.AllowGet);
+            return View();
         }
 
         public ActionResult Cadastro()

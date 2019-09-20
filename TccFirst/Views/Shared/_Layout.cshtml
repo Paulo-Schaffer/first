@@ -31,6 +31,14 @@
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/icon/font-awesome/css/font-awesome.min.css">
     <!-- Menu-Search css -->
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/pages/menu-search/css/component.css">
+    <!-- notify js Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.brighttheme.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.buttons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.history.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.mobile.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/pages/pnotify/notify.css">
+
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/jquery.mCustomScrollbar.css">
@@ -99,7 +107,7 @@
                         <a class="mobile-search morphsearch-search" href="#">
                             <i class="ti-search"></i>
                         </a>
-                        <a href="index">
+                        <a href="index.html">
                             <img class="img-fluid" src="https://i.imgur.com/aRg5ebW.png" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
@@ -170,21 +178,21 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                    <img class="img-40 img-radius" src="~/Content/tema/assets/images/avatar-10.jpg"
+                                    <img class="img-40 img-radius" src="~/Content/tema/assets/images/avatar-4.jpg"
                                          alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>@Session["usuarioLogadoNome"]</span>
-                                        <span id="more-details">@Session["UsuarioLogadoTipoFuncionario"]<i class="ti-angle-down"></i></span>
+                                        <span>John Doe</span>
+                                        <span id="more-details">UX Designer<i class="ti-angle-down"></i></span>
                                     </div>
                                 </div>
 
                                 <div class="main-menu-content">
                                     <ul>
                                         <li class="more-details">
-                                            <a href="user-profile.html"><i class="ti-user"></i>Perfil</a>
-                                            <a href="#!"><i class="ti-email"></i>Mensagens</a>
-                                            <a href="http://localhost:50838/Login">
-                                                <i class="ti-layout-sidebar-left"></i>Sair
+                                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                                            <a href="#!"><i class="ti-settings"></i>Settings</a>
+                                            <a href="auth-normal-sign-in.html">
+                                                <i class="ti-layout-sidebar-left"></i>Logout
                                             </a>
                                         </li>
                                     </ul>
@@ -200,8 +208,8 @@
                             <ul class="pcoded-item pcoded-left-item">
 
                                 <li class="pcoded-menu">
-                                    <a href="http://localhost:50838/Home/Index">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>H</b></span>
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>BC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Home</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -218,7 +226,7 @@
                                             <a href="/tituloreceber/index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.alert">Título a receber</span>
+                                                      data-i18n="nav.basic-components.alert">Título a receber Pessoa Jurídica</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -273,10 +281,10 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class="">
+                                        <li class=" ">
                                             <a href="/historico">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"  
+                                                <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.alert">Historicos</span>
                                                 <span class="pcoded-mtext"></span>
                                             </a>
@@ -292,30 +300,14 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/Agencia/Cadastro">
+                                            <a href="/tituloreceber/index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Agencia</span>
+                                                      data-i18n="nav.basic-components.alert">Título a Receber Pessoa Jurídica</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
 
-                                        <li class=" ">
-                                            <a href="/banco/cadastro">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Banco</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="/tituloreceber/index">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.alert">Título a receber</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
                                         <li class=" ">
                                             <a href="/titulopagar/index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -342,46 +334,6 @@
                                             </a>
                                         </li>
 
-                                        <li class=" ">
-                                            <a href="/CadastroContaCorrente/Index">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Cadastro Conta Corrente</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-
-
-
-
-                                        <li class=" ">
-                                            <a href="/caixa/cadastro">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Caixa</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-
-                                        <li class=" ">
-                                            <a href="/ContaCorrente/Cadastro">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Conta Corrente</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-
-                                        </li>
-
-
-                                        <li class=" ">
-                                            <a href="/clientepessoajuridica ">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
                                         <li class="">
                                             <a href="/clientepessoafisica/index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -389,6 +341,19 @@
                                                       data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Fisica</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
+
+                                        <li class=" ">
+                                        <li class="pcoded-hasmenu">
+                                            <a href="/clientepessoafisica">
+                                                <a href="/clientepessoajuridica/index">
+
+                                        <li class="pcoded-hasmenu">
+                                            <a href="/clientepessoafisica">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
                                         </li>
                                         <li class=" ">
                                             <a href="/caixa/cadastro">
@@ -398,10 +363,54 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                      
-
-                                    </ul>
+                                        <li class=" ">
+                                            <a href="/Agencia/Cadastro">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Agencia</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/ContaCorrente/Cadastro">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Conta Corrente</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Fisica</span>
+                                        <span class="pcoded-mcaret"></span>
+                                        </a>
                                 </li>
+                                </li>
+                                <li class=" ">
+                                    <a href="/clientepessoajuridica ">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext"
+                                              data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="/caixa/cadastro">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext"
+                                              data-i18n="nav.basic-components.breadcrumbs">Caixa</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="/banco/cadastro">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext"
+                                              data-i18n="nav.basic-components.breadcrumbs">Banco</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            </li>
 
                             </ul>
                         </div>
@@ -515,6 +524,20 @@
     <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <!-- pnotify js -->
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.desktop.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.buttons.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.confirm.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.callbacks.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.animate.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.history.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.mobile.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.nonblock.js"></script>
+
+
+    <script src="~/Scripts/mdb.min.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
     <script src="~/Scripts/jquery.mask.js"></script>
     <script src="~/Scripts/moment.js"></script>
     <script src="~/Scripts/select2.min.js"></script>

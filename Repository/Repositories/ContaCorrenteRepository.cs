@@ -24,6 +24,7 @@ namespace Repository.Repositories
             if (contaCorrenteOriginal == null)
                 return false;
 
+            contaCorrenteOriginal.NumeroConta = contaCorrente.NumeroConta;
             contaCorrenteOriginal.IdCadastroContaCorrente = contaCorrente.IdCadastroContaCorrente;
             contaCorrenteOriginal.IdHistorico = contaCorrente.IdHistorico;
             contaCorrenteOriginal.IdCategoriaReceita = contaCorrente.IdCategoriaReceita;
@@ -36,6 +37,8 @@ namespace Repository.Repositories
             contaCorrenteOriginal.DataLancamento = contaCorrente.DataLancamento;
             contaCorrenteOriginal.DataVencimento = contaCorrente.DataVencimento;
             contaCorrenteOriginal.DataRecebimento = contaCorrente.DataRecebimento;
+            contaCorrenteOriginal.NomeBanco = contaCorrente.NomeBanco;
+            contaCorrenteOriginal.NumeroBanco = contaCorrente.NumeroBanco;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;   
 
