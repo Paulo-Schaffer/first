@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace TccFirst.Controllers
 {
     [Route("tituloPagar/")]
-    public class TituloPagarController : BaseController
+    public class TituloPagarController : Controller
     {
         private TituloPagarRepository repository;
 
@@ -18,7 +18,10 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
@@ -50,13 +53,12 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("tituloPagar")]
-        public JsonResult ObterPeloId(int id)
+        public ActionResult Index()
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            return View();
         }
 
-        public ActionResult Index()
+        public ActionResult Cadastro()
         {
 
             var tituloPagars = repository.ObterTodos();
@@ -90,8 +92,13 @@ namespace TccFirst.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Cadastro()
+        [HttpGet, Route("editar")]
+        ActionResult Editar(int id)
         {
+            var titulosPagar = repository.ObterPeloId(id);
+            if (titulosPagar == null)
+                return RedirectToAction("Index");
+            ViewBag.TituloPagar = titulosPagar;
             return View();
         }
 

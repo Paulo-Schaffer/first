@@ -1,7 +1,7 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Index";
 }
+<<<<<<< HEAD
 <!DOCTYPE html>
 <div class="container">
     <html>
@@ -42,3 +42,25 @@
     </body>
 </html>
 </div>
+=======
+
+<h2>Lista de Usuarios</h2>
+
+<button data-toggle="modal" data-target="#modal-login" class="btn btn-primary">Novo Usuario</button>
+
+<table id="login-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Usario</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+
+@RenderPage("CadastroLogin.cshtml")
+
+@section js{
+    <script src="~/Scripts/Login/login-index.js"></script>
+}
+>>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class FornecedorController : BaseController
+    public class FornecedorController : Controller
     {
         private FornecedorRepository repository;
 

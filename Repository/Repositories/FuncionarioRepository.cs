@@ -17,45 +17,42 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public Funcionario BuscarFuncionario(string usuario, string senha)
-        {
-            return context.Funcionarios.Where(x => x.Usuario == usuario && x.Senha == senha).FirstOrDefault();
-        }
-
         public bool Alterar(Funcionario funcionario)
         {
-            var funcionarioOriginal = context.Funcionarios
-            .FirstOrDefault(x => x.Id == funcionario.Id);
-            if (funcionario == null)
-            {
-                return false;
-            }
-            funcionarioOriginal.NomeFuncionario = funcionario.NomeFuncionario;
-            funcionarioOriginal.TipoFuncionario = funcionario.TipoFuncionario;
-            funcionarioOriginal.Usuario = funcionario.Usuario;
-            funcionarioOriginal.Senha = funcionario.Senha;
-            int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == 1;
+                var funcionarioOriginal = context.Funcionarios
+                .FirstOrDefault(x => x.Id == funcionario.Id);
+
+                if (funcionario == null)
+                    return false;
+
+                funcionarioOriginal.NomeFuncionario = funcionario.NomeFuncionario;
+                funcionarioOriginal.TipoFuncionario = funcionario.TipoFuncionario;
+                int quantidadeAfetada = context.SaveChanges();
+                return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)
         {
-            var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
-            if (funcionario == null)
-            {
-                return false;
-            }
-            funcionario.RegistroAtivo = false;
-            int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == 1;
+                var funcionario = context.Funcionarios.FirstOrDefault(x => x.Id == id);
+
+                if (funcionario == null)
+                {
+                    return false;
+                }
+
+                funcionario.RegistroAtivo = false;
+                int quantidadeAfetada = context.SaveChanges();
+                return quantidadeAfetada == 1;
         }
 
         public int Inserir(Funcionario funcionario)
         {
-            funcionario.RegistroAtivo = true;
-            context.Funcionarios.Add(funcionario);
-            context.SaveChanges();
-            return funcionario.Id;
+                funcionario.RegistroAtivo = true;
+                context.Funcionarios.Add(funcionario);
+
+                context.Funcionarios.Add(funcionario);
+                context.SaveChanges();
+                return funcionario.Id;
         }
 
         public Funcionario ObterPeloId(int id)

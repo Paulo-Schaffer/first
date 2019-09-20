@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class ParcelasReceberController : BaseController
+    public class ParcelasReceberController : Controller
     {
         
     }

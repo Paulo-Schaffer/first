@@ -11,7 +11,6 @@ namespace Repository.Repositories
     public class FornecedorRepository : IFornecedorRepository
     {
         private SistemaContext context;
-
         public FornecedorRepository()
         {
             context = new SistemaContext();
@@ -46,6 +45,7 @@ namespace Repository.Repositories
         public bool Apagar(int id)
         {
             var fornecedor = context.Fornecedores.FirstOrDefault(x => x.Id == id);
+
             if (fornecedor == null)
             {
                 return false;

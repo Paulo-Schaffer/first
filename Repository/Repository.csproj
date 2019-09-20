@@ -59,6 +59,7 @@
     <Compile Include="Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
     <Compile Include="Interfaces\IHistoricoRepository.cs" />
+    <Compile Include="Interfaces\ILoginRepository.cs" />
     <Compile Include="Interfaces\IMovimentacaoFinanceiraEntradaRepository.cs" />
     <Compile Include="Interfaces\IMovimentacaoFinanceiraSaidaRepository.cs" />
     <Compile Include="Interfaces\IParcelaPagarRepository.cs" />
@@ -77,6 +78,8 @@
     <Compile Include="Repositories\FornecedorRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
     <Compile Include="Repositories\HistoricoRepository.cs" />
+    <Compile Include="Repositories\LoginRepository.cs" />
+    <Compile Include="Repositories\LoginSistema.cs" />
     <Compile Include="Repositories\MovimentacaoFinaceiraEntradaRepository.cs" />
     <Compile Include="Repositories\MovimentacaoFinanceiraSaidaRepository.cs" />
     <Compile Include="Repositories\ParcelaPagarRepository.cs" />

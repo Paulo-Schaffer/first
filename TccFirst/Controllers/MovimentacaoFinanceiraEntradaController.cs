@@ -1,5 +1,4 @@
 ﻿using Model;
-using Repository.Interfaces;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -9,16 +8,19 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class MovimentacaoFinanceiraEntradaController : BaseController
+    public class MovimentacaoFinanceiraEntradaController : Controller
     {
-        private MovimentacaoFinaceiraEntradaRepository repository;
+        private LoginRepository repository;
         
         public MovimentacaoFinanceiraEntradaController()
         {
-            repository = new MovimentacaoFinaceiraEntradaRepository();
+            repository = new LoginRepository();
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
         public ActionResult Index()
         {
             return View();
@@ -33,10 +35,10 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Inserir(MovimentacaoFinanceiraEntrada movimentacaoFinaceiraEntrada)
+        public JsonResult Inserir(Login login)
         {
-            movimentacaoFinaceiraEntrada.RegistroAtivo = true;
-            var id = repository.Inserir(movimentacaoFinaceiraEntrada);
+            login.RegistroAtivo = true;
+            var id = repository.Inserir(login);
             var resultado = new { id = id };
             return Json(resultado);
         }
@@ -51,9 +53,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada)
+        public JsonResult Update(Login login)
         {
-            var alterou = repository.Alterar(movimentacaoFinanceiraEntrada);
+            var alterou = repository.Alterar(login);
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -65,27 +67,30 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpGet, Route("movimentacaoFinanceiraEntrada/obtertodosselect2")]
-        //public JsonResult ObterTodosSelect2(string term)
-        //{
-        //    var movimentacaoFinanceiraEntrada = repository.ObterTodos();
+        [HttpGet, Route("login/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
+        {
+            var logins = repository.ObterTodos();
 
-        //    List<object> movimentacaoFinanceiraEntradaSelect2 =
-        //        new List<object>();
-        //    foreach (MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada in movimentacaoFinanceiraEntradaSelect2)
-        //    {
-        //        movimentacaoFinanceiraEntradaSelect2.Add(new
-        //        {
-                
-        //        });
-        //    }
-        //    var resultado = new
-        //    {
-        //        results = movimentacaoFinanceiraEntradaSelect2
-        //    };
-        //    return Json(resultado,
-        //        JsonRequestBehavior.AllowGet);
+            List<object> loginsSelect2 =
+                new List<object>();
+            foreach (Login login in logins)
+            {
+                loginsSelect2.Add(new
+                {
+                    id = login.Id,
+                    usuario = login.Usuario,
+                    senha = login.Senha,
+                    idFuncionario = login.IdFuncionario
+                });
+            }
+            var resultado = new
+            {
+                results = loginsSelect2
+            };
+            return Json(resultado,
+                JsonRequestBehavior.AllowGet);
 
-        //}
+        }
     }
 }

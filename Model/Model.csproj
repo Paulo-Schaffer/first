@@ -60,6 +60,7 @@
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="Historico.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="MovimentacaoFinanceiraEntrada.cs" />
     <Compile Include="MovimentacaoFinanceiraSaida.cs" />
     <Compile Include="ParcelaPagar.cs" />

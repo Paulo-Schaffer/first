@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class FuncionarioController : BaseController
+    public class FuncionarioController : Controller
     {
         private FuncionarioRepository repository;
 
@@ -19,46 +19,8 @@ namespace TccFirst.Controllers
             repository = new FuncionarioRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
-
         [HttpGet]
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult Cadastro()
         {
             return View();
         }
@@ -77,7 +39,7 @@ namespace TccFirst.Controllers
             funcionario.RegistroAtivo = true;
             var id = repository.Inserir(funcionario);
             var resultado = new { id = id };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return Json(resultado);
         }
 
         [HttpGet]
@@ -107,19 +69,27 @@ namespace TccFirst.Controllers
         {
             var funcionarios = repository.ObterTodos();
 
-            List<object> funcionariosSelect2 = new List<object>();
+            List<object> funcionariosSelect2 =
+                new List<object>();
             foreach (Funcionario funcionario in funcionarios)
             {
                 funcionariosSelect2.Add(new
                 {
                     id = funcionario.Id,
-                    text = funcionario.TipoFuncionario
+                    nome = funcionario.NomeFuncionario,
+                    tipoFuncionario = funcionario.TipoFuncionario
                 });
             }
-            var resultado = new { results = funcionariosSelect2 };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            var resultado = new
+            {
+                results = funcionariosSelect2
+            };
+            return Json(resultado,
+                JsonRequestBehavior.AllowGet);
+
         }
 
+<<<<<<< HEAD
         public static string SHA512(string input)
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(input);
@@ -135,6 +105,8 @@ namespace TccFirst.Controllers
                 return hashedInputStringBuilder.ToString();
             }
         }
+=======
+>>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
     }
 
 }

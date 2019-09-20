@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class CadastroContaCorrenteController : BaseController
+    public class CadastroContaCorrenteController : Controller
     {
         private CadastroContaCorrenteRepository repository;
 
@@ -17,7 +17,10 @@ namespace TccFirst.Controllers
             repository = new CadastroContaCorrenteRepository();
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
