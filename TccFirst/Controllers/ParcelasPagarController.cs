@@ -17,97 +17,94 @@ namespace TccFirst.Controllers
             repository = new ParcelaPagarRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         public ActionResult Index()
         {
-            ParcelaPagarRepository repositoryParcelaPagar = new ParcelaPagarRepository();
-            ViewBag.ParcelaPagar = repositoryParcelaPagar.ObterTodos();
             return View();
         }
 
-        #region obtertodos
         [HttpGet]
-        public JsonResult ObterTodos()
+        public JsonResult ObteTodos()
         {
             var parcelaspagar = repository.ObterTodos();
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        #endregion
-
-        #region cadastro
-        [HttpGet, Route("Index")]
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public ActionResult Cadastro(ParcelaPagar parcelaPagar)
+        public JsonResult Inserir(ParcelaPagar parcelaPagar)
         {
             parcelaPagar.RegistroAtivo = true;
             var id = repository.Inserir(parcelaPagar);
             var resultado = new { id = id };
-            return RedirectToAction("Index", new { id = id });
+            return Json(resultado);
         }
-        #endregion
-
-        #region Apagar 
-        [HttpGet, Route("apagar")]
-        public ActionResult Apagar(int id)
+        [HttpGet]
+        public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return RedirectToAction("Index", new { id = id });
+            return Json(resultado);
         }
-
-        #endregion
-
-        #region editar
-
-        [HttpPost, Route("editar")]
-        public ActionResult Editar(ParcelaPagar parcelaPagar)
+        [HttpPost]
+        public JsonResult Update(ParcelaPagar parcelasPagar)
         {
-            var alterou = repository.Alterar(parcelaPagar);
+            var alterou = repository.Alterar(parcelasPagar);
             var resultado = new { status = alterou };
-            return RedirectToAction("Index", new { id = resultado });
-
+            return Json(resultado);
         }
-
-        [HttpGet]
-        public ActionResult Editar(int id)
+        [HttpGet, Route("parcelasPagar/")]
+        public JsonResult ObterPeloId(int id)
         {
-            var parcelaPagar = repository.ObterPeloId(id);
-            ViewBag.ParcelaPagar = parcelaPagar;
-            return View();
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
-        #endregion
+        //[HttpGet, Route("parcelasPagar/obtertodosselect")]
+        //public JsonResult ObterTodosSelect(string termo)
+        //{
+        //    var parcelasPagar = repository.ObterTodos();
+        //    List<object> parcelasPagarSelect = new List<object>();
+        //    foreach (parcelasPagar parcelasPagar in parcelasPagar)
+        //    {
+        //        parcelasPagarSelect.Add(new
+        //        {
+        //            id = parcelasPagar.Id,
+        //            valor = parcelasPagar.Valor,
+        //            status = parcelasPagar.Status,
+        //            dataVencimento = parcelasPagar.DataVencimento,
+        //            dataPagamento = parcelasPagar.DataPagamento
 
-        #region obtertodosselect2
-
-        [HttpGet, Route("parcelaPagar/obtertodosselect")]
-        public JsonResult ObterTodosSelect(string termo)
-        {
-            var parcelaPagar = repository.ObterTodos();
-            List<object> parcelaPagarSelect = new List<object>();
-            foreach (ParcelaPagar parcelasPagar in parcelaPagar)
-            {
-                parcelaPagarSelect.Add(new
-                {
-                    id = parcelasPagar.Id,
-                    valor = parcelasPagar.Valor,
-                    status = parcelasPagar.Status,
-                    dataPagamento = parcelasPagar.DataPagamento,
-                    dataVencimento  = parcelasPagar.DataVencimento
-                });
-            }
-            var resultado = new
-            {
-                resultados = parcelaPagarSelect
-            };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
-        #endregion
+        //        });
+        //    }
+        //}
     }
 }

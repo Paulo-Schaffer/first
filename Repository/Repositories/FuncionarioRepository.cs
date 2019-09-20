@@ -69,6 +69,5 @@ namespace Repository.Repositories
             return context.Funcionarios.Where(x => x.RegistroAtivo == true)
                  .OrderBy(x => x.Id).ToList();
         }
-
     }
 }
