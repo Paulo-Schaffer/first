@@ -12,7 +12,7 @@ $(function () {
     $tabelaHistorico = $("#historico-tabela").DataTable({
 
         ajax: '/historico/obtertodos',
-        serverSide: true,
+        severSide: true,
         columns: [
             { 'data': 'Id' },
             { 'data': 'Descricao' },
@@ -53,7 +53,6 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-historico").modal("hide");
-                LimparCampos();
                 $idAlterar = -1;
                 $tabelaHistorico.ajax.reload();
             },
@@ -71,7 +70,6 @@ $(function () {
                 Descricao: $descricao
             },
             success: function (data) {
-                LimparCampos();
                 $('#modal-historico').modal('hide');
                 $(".modal-backdrop").hide();
                 $tabelaHistorico.ajax.reload();
@@ -81,7 +79,7 @@ $(function () {
             }
         });
     }
-
+   
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
@@ -113,12 +111,4 @@ $(function () {
             }
         });
     });
-    function LimparCampos() {
-        $('#historico-campo-descricao').val("");
-        $idAlterar = -1;
-    }
-
-    $('#modal-historico').on('hidden.bs.modal', function (e) {
-        LimparCampos();
-    })
 });

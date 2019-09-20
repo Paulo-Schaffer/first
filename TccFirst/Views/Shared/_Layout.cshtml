@@ -31,6 +31,14 @@
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/icon/font-awesome/css/font-awesome.min.css">
     <!-- Menu-Search css -->
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/pages/menu-search/css/component.css">
+    <!-- notify js Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.brighttheme.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.buttons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.history.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/pnotify/css/pnotify.mobile.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/pages/pnotify/notify.css">
+
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/css/jquery.mCustomScrollbar.css">
@@ -141,7 +149,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="~/Content/tema/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>Francisco Lucas Sens</span>
+                                    <span>@Session["usuarioLogadoNome"]</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -464,15 +472,7 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a href="/parcelaReceber/index">
-                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                        <span class="pcoded-mtext"
-                                              data-i18n="nav.basic-components.breadcrumbs">Parcela Receber</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
 
-                                </li>
                             </ul>
                             </li>
 
@@ -588,7 +588,20 @@
     <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <!-- pnotify js -->
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.desktop.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.buttons.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.confirm.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.callbacks.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.animate.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.history.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.mobile.js"></script>
+    <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.nonblock.js"></script>
 
+
+    <script src="~/Scripts/mdb.min.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
     <script src="~/Scripts/jquery.mask.js"></script>
     <script src="~/Scripts/moment.js"></script>
     <script src="~/Scripts/select2.min.js"></script>

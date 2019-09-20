@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository.Interfaces;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,38 +9,41 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class MovimentacaoFinanceiraEntradaController : Controller
+    [Route("movimentacaofinanceiraentrada/")]
+    public class MovimentacaoFinanceiraEntradaController : BaseController
     {
-        private LoginRepository repository;
-        
+        private MovimentacaoFinaceiraEntradaRepository repository;
+
         public MovimentacaoFinanceiraEntradaController()
         {
-            repository = new LoginRepository();
+            repository = new MovimentacaoFinaceiraEntradaRepository();
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        [HttpGet]
+        [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {
-            var login = repository.ObterTodos();
-            var resultado = new { data = login };
+            var movimentacaoFinanceiraEntrada = repository.ObterTodos();
+            var resultado = new { data = movimentacaoFinanceiraEntrada };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Inserir(Login login)
+        [HttpPost, Route("cadastro")]
+        public JsonResult Cadastro(MovimentacaoFinanceiraEntrada movimentacaoFinaceiraEntrada)
         {
-            login.RegistroAtivo = true;
-            var id = repository.Inserir(login);
-            var resultado = new { id = id };
-            return Json(resultado);
+            movimentacaoFinaceiraEntrada.RegistroAtivo = true;
+            var id = repository.Inserir(movimentacaoFinaceiraEntrada);
+            return Json(new { id = id });
+        }
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada)
+        {
+            var alterou = repository.Alterar(movimentacaoFinanceiraEntrada);
+            var resultado = new { status = alterou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
@@ -48,41 +52,41 @@ namespace TccFirst.Controllers
 
         }
 
-        [HttpPost]
-        public JsonResult Update(Login login)
+        [HttpGet, Route("obterpeloid")]
+        public ActionResult ObterPeloId(int id)
         {
-            var alterou = repository.Alterar(login);
-            var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            var movimentacoesEntradas = repository.ObterPeloId(id);
+            if (movimentacoesEntradas == null)
+                return HttpNotFound();
+            return Json(movimentacoesEntradas, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Cadastro()
+        {
+            return View();
         }
 
-
-        [HttpGet, Route("login/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet, Route("login/obtertodosselect2")]
+        [HttpGet, Route("movimentacaoFinanceiraEntrada/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
-            var logins = repository.ObterTodos();
+            var movimentacaoFinanceiraEntradas = repository.ObterTodos();
 
-            List<object> loginsSelect2 =
+            List<object> movimentacaoFinanceiraEntradaSelect2 =
                 new List<object>();
-            foreach (Login login in logins)
+            foreach (MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada in movimentacaoFinanceiraEntradaSelect2)
             {
-                loginsSelect2.Add(new
+                movimentacaoFinanceiraEntradaSelect2.Add(new
                 {
-                    id = login.Id,
-                    usuario = login.Usuario,
-                    senha = login.Senha,
-                    idFuncionario = login.IdFuncionario
+                    id = movimentacaoFinanceiraEntrada.Id,
+                    text = movimentacaoFinanceiraEntrada.Valor
                 });
             }
             var resultado = new
             {
-                results = loginsSelect2
+                results = movimentacaoFinanceiraEntradaSelect2
             };
             return Json(resultado,
                 JsonRequestBehavior.AllowGet);
