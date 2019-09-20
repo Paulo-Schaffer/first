@@ -200,7 +200,6 @@ namespace Repository
             #endregion
 
             #region endereço
->>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
             var enderecos = new List<Endereco>();
             enderecos.Add(new Endereco()
             {

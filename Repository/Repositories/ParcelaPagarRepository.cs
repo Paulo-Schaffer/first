@@ -10,12 +10,13 @@ namespace Repository.Repositories
 {
     public class ParcelaPagarRepository : IParcelaPagarRepository
     {
+        public SistemaContext context;
+
         public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
         {
-<<<<<<< HEAD
-=======
             context = new SistemaContext(); 
         }
+
         public bool Alterar(ParcelaPagar parcelaPagar)
         {
             throw new NotImplementedException();
