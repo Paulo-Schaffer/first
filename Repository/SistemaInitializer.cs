@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-  // internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+   // internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -39,7 +39,7 @@ namespace Repository
 
             #endregion
 
-            #region caixa
+            #region caixas
             var caixa = new List<Caixa>();
             caixa.Add(new Caixa()
             {
@@ -66,7 +66,7 @@ namespace Repository
             context.Caixas.AddRange(caixa);
             #endregion
 
-            #region categoriaDespesa
+            #region categoriasDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
@@ -81,7 +81,7 @@ namespace Repository
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
-            #region categoriaReceita
+            #region categoriasReceita
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
@@ -96,7 +96,7 @@ namespace Repository
             context.CategoriasReceitas.AddRange(categoriaReceita);
             #endregion
 
-            #region clientePessoaFisica
+            #region clientesPessoasFisicas
 
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
@@ -134,7 +134,7 @@ namespace Repository
             context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
-            #region clientePessoaJuridica
+            #region clientesPessoasJuridicas
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
@@ -177,7 +177,7 @@ namespace Repository
             context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
             #endregion
 
-            #region endereço
+            #region endereços
             var enderecos = new List<Endereco>();
             enderecos.Add(new Endereco()
             {
@@ -210,7 +210,7 @@ namespace Repository
 
             #endregion
 
-            #region tituloPagar
+            #region titulosPagar
             var tituloPagar = new List<TituloPagar>();
             tituloPagar.Add(new TituloPagar()
             {
@@ -242,11 +242,18 @@ namespace Repository
             });
             #endregion
 
-            #region cadastrocontacorrente
+            #region cadastroscontacorrente
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
-            cadastroscontacorrente.Add(new CadastroContaCorrente() {
+            cadastroscontacorrente.Add(new CadastroContaCorrente()
+            {
                 NumeroConta = 80,
                 IdAgencia = 1,
+                RegistroAtivo = true,
+            });
+            cadastroscontacorrente.Add(new CadastroContaCorrente()
+            {
+                NumeroConta = 14,
+                IdAgencia = 2,
                 RegistroAtivo = true,
             });
             #endregion
@@ -276,7 +283,7 @@ namespace Repository
             var historico = new List<Historico>();
             historico.Add(new Historico()
             {
-                Descricao = "Conta adicionada dia 19/07/2000",
+                Descricao = "Conta adicionada dia 19/07/2012",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
@@ -393,42 +400,10 @@ namespace Repository
 
             //    #endregion
 
-            //    #region funcionario
-            //    var funcionario = new List<Funcionario>();
-            //    funcionario.Add(new Funcionario()
-            //    {
-            //        NomeFuncionario = "Paulo",
-            //        TipoFuncionario = 3,
-            //        RegistroAtivo = true
-
-            //    });
-            //    funcionario.Add(new Funcionario()
-            //    {
-            //        NomeFuncionario = "André",
-            //        TipoFuncionario = 1,
-            //        RegistroAtivo = true
-
-            //    });
-            //    context.Funcionarios.AddRange(funcionario);
-            //    #endregion
+        
 
 
-            //#region login
-            //var login = new List<Login>();
-            //login.Add(new Login()
-            //{
-            //    Usuario = "Cléber",
-            //    Senha = "cg1992",
-            //    RegistroAtivo = true
-            //});
-            //login.Add(new Login()
-            //{
-            //    Usuario = "Gustavo",
-            //    Senha = "gustavo1500",
-            //    RegistroAtivo = true
-            //});
-            //context.Logins.AddRange(login);
-            //#endregion
+            
 
             //#region movimentacaoFinanceiraEntrada
             //var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();

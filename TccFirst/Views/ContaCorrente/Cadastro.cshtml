@@ -19,7 +19,7 @@
                     <option selected="" disabled="disabled">Selecione uma Conta</option>
                     @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastroContaCorrentes)
                     {
-                        <option value="@cadastroContaCorrente.NumeroConta">@cadastroContaCorrente.NumeroConta</option>
+                        <option value="@cadastroContaCorrente.Id">@cadastroContaCorrente.NumeroConta</option>
 
                     }
                 </select>
