@@ -82,7 +82,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
-                LimparCampos();
+                
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {
@@ -106,6 +106,7 @@ $(function () {
             success: function (data) {
                 $('#modal-caixa').modal('hide');
                 $(".modal-backdrop").hide();
+                LimparCampos();
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {
@@ -153,18 +154,15 @@ $(function () {
     });
 
     function LimparCampos() {
-        $("#tituloReceber-campo-pessoa-Juridica").val("");
-        $("#tituloReceber-campo-categoria-Receita").val("");
-        $("#tituloReceber-campo-status").val("");
-        $("#tituloReceber-campo-valor-total").val("");
-        $("#tituloReceber-campo-quantidade-Parcelas").val("");
-        $("#tituloReceber-campo-descricao").val("");
-        $("#tituloReceber-campo-data-lancamento").val("");
-        $("#tituloReceber-campo-data-recebimento").val("");
-        $("#tituloReceber-campo-data-vencimento").val("");
+        $("#caixa-campo-descricao").val("");
+        $("#caixa-campo-documento").val("");
+        $("#caixa-campo-forma-pagamento").val("");
+        $("#caixa-campo-valor").val("");
+        $("#caixa-campo-data-lancamento").val("");
+        $("#caixa-campo-historico").val("");
         $idAlterar = -1;
     }
-    $('#modal-tituloReceber').on('hidden.bs.modal', function (e) {
+    $('#modal-caixa').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })
 });
