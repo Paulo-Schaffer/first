@@ -143,15 +143,15 @@ $(function () {
 });
 
 $(function () {
-    $idAlterar = -1;    
+    $idAlterar = -1;
     $tabelaClientePessoaJuridica = $("#cliente-pessoa-juridica-tabela").DataTable({
         "scrollX": true,
         ajax: '/clientePessoaJuridica/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Id' },
-            { 'data': 'RazaoSocial' },            
-            { 'data': 'NomeFantasia' }, 
+            { 'data': 'RazaoSocial' },
+            { 'data': 'NomeFantasia' },
             { 'data': 'Cnpj' },
             { 'data': 'Uf' },
             { 'data': 'Cidade' },
@@ -207,24 +207,24 @@ $(function () {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
             $('#clientePessoaJuridica-campo-numero').focus();
             return false;
-        }else {
-                $('.alert').alert("");
-            }
+        } else {
+            $('.alert').alert("");
+        }
 
-        $razaoSocial= $('#clientePessoaJuridica-campo-razaoSocial').val();
-        $atividade= $('#clientePessoaJuridica-campo-atividade').val();
-        $nomeFantasia= $('#clientePessoaJuridica-campo-nomeFantasia').val();
-        $dataCadastro= $('#clientePessoaJuridica-campo-dataCadastro').val();
-        $cnpj= $('#clientePessoaJuridica-campo-cnpj').val();
-        $email= $('#clientePessoaJuridica-campo-email').val();
-        $filial= $('#clientePessoaJuridica-campo-filial').val();
-        $telefone= $('#clientePessoaJuridica-campo-telefone').val();
-        $cep= $('#clientePessoaJuridica-campo-cep').val();
-        $logradouro= $('#clientePessoaJuridica-campo-logradouro').val();
-        $numero= $('#clientePessoaJuridica-campo-numero').val();
-        $bairro= $('#clientePessoaJuridica-campo-bairro').val();
-        $uf= $('#clientePessoaJuridica-campo-uf').val();
-        $cidade= $('#clientePessoaJuridica-campo-cidade').val();
+        $razaoSocial = $('#clientePessoaJuridica-campo-razaoSocial').val();
+        $atividade = $('#clientePessoaJuridica-campo-atividade').val();
+        $nomeFantasia = $('#clientePessoaJuridica-campo-nomeFantasia').val();
+        $dataCadastro = $('#clientePessoaJuridica-campo-dataCadastro').val();
+        $cnpj = $('#clientePessoaJuridica-campo-cnpj').val();
+        $email = $('#clientePessoaJuridica-campo-email').val();
+        $filial = $('#clientePessoaJuridica-campo-filial').val();
+        $telefone = $('#clientePessoaJuridica-campo-telefone').val();
+        $cep = $('#clientePessoaJuridica-campo-cep').val();
+        $logradouro = $('#clientePessoaJuridica-campo-logradouro').val();
+        $numero = $('#clientePessoaJuridica-campo-numero').val();
+        $bairro = $('#clientePessoaJuridica-campo-bairro').val();
+        $uf = $('#clientePessoaJuridica-campo-uf').val();
+        $cidade = $('#clientePessoaJuridica-campo-cidade').val();
 
         if ($idAlterar == -1) {
             inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade);
@@ -256,7 +256,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-clientePessoaJuridica").modal("hide");
-                $idAlterar = -1;
+                LimparCampos();               
                 $tabelaClientePessoaJuridica.ajax.reload();
             },
             error: function (err) {
@@ -285,10 +285,11 @@ $(function () {
                 Cidade: $cidade
             },
             success: function (data) {
+                LimparCampos();
                 $('#modal-clientePessoaJuridica').modal('hide');
-                $(".modal-backdrop").hide();               
+                $(".modal-backdrop").hide();
                 $tabelaClientePessoaJuridica.ajax.reload();
-                              
+
             },
             error: function (err) {
                 alert("Não foi possivel cadastrar")
@@ -334,12 +335,31 @@ $(function () {
                 $('#clientePessoaJuridica-campo-uf').val(data.Uf);
                 $('#clientePessoaJuridica-campo-cidade').val(data.Cidade);
                 $('#modal-clientePessoaJuridica').modal('show');
-                
+
             },
             error: function (err) {
                 alert("Não foi possivel editar")
             }
         });
     });
-    
-});
+    function LimparCampos() {
+        $('#clientePessoaJuridica-campo-razaoSocial').val("");
+        $('#clientePessoaJuridica-campo-atividade').val("");
+        $('#clientePessoaJuridica-campo-nomeFantasia').val("");
+        $('#clientePessoaJuridica-campo-dataCadastro').val("");
+        $('#clientePessoaJuridica-campo-cnpj').val("");
+        $('#clientePessoaJuridica-campo-email').val("");
+        $('#clientePessoaJuridica-campo-filial').val("");
+        $('#clientePessoaJuridica-campo-telefone').val("");
+        $('#clientePessoaJuridica-campo-cep').val("");
+        $('#clientePessoaJuridica-campo-logradouro').val("");
+        $('#clientePessoaJuridica-campo-numero').val("");
+        $('#clientePessoaJuridica-campo-bairro').val("");
+        $('#clientePessoaJuridica-campo-uf').val("");
+        $('#clientePessoaJuridica-campo-cidade').val("");
+        $idAlterar = -1;
+    }
+    $('#modal-clientePessoaJuridica').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
+});   
