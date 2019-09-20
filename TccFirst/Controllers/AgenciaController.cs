@@ -79,8 +79,13 @@ namespace TccFirst.Controllers
             return View();
         }
 
+<<<<<<< HEAD
         [HttpGet, Route("agencia/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string termo)
+=======
+        [HttpGet, Route("agencia/obtertodosselect")]
+        public JsonResult ObterTodosSelect(string termo)
+>>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
         {
             var agencias = repository.ObterTodos();
             List<object> ObterTodosSelect2 = new List<object>();

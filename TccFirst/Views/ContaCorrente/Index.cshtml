@@ -1,66 +1,42 @@
 ﻿
-<div class="row">
-    <div class="col-6"><h2>Transações</h2></div>
-    <div class="col-6">
-        <a class="btn btn-success float-right mb-3"
-           href="/contacorrente/cadastro"><i class="fa fa-plus"></i>Nova Transação</a>
-    </div>
-</div>
-<div style="overflow-x:auto">
 
-    <table id="contacorrente-tabela" class="table table-light table-hover table-border-style table-striped">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Conta Corrente</th>
-                <th>Historico</th>
-                <th>Categoria Receita</th>
-                <th>Categoria Despesa</th>
-                <th>Descricao</th>
-                <th>Documento</th>
-                <th>Tipo Pagamento </th>
-                <th>Valor</th>
-                <th>Status</th>
-                <th>Data Lançamento</th>
-                <th>Data Vencimento</th>
-                <th>Data Recebimento</th>
-                <th>Ação</th>
+<table id="contacorrente-tabela" class="table table-light table-hover table-border-style table-striped">
+    <thead>
+        <tr>
+            <th>Numero da Conta</th>
+            <th>Descricao</th>
+            <th>Documento</th>
+            <th>Tipo Receita Despesa</th>
+            <th>Tipo Pagamento </th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Data Lançamento</th>
+            <th>Data Vencimento</th>
+            <th>Data Recebimento</th>
+            <th>Nome Banco</th>
+            <th>Numero Banco</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Model.ContaCorrente contaCorrente in ViewBag.ContaCorrentes)
+        {
+            <tr>    
+                <td>@contaCorrente.Id</td>
+                <td>@contaCorrente.NumeroConta</td>
+                <td>@contaCorrente.Descricao</td>
+                <td>@contaCorrente.Documento</td>
+                <td>@contaCorrente.TipoReceitaDespesa</td>
+                <td>@contaCorrente.TipoPagamento</td>
+                <td>@contaCorrente.Valor</td>
+                <td>@contaCorrente.Status</td>
+                <td>@contaCorrente.DataLancamento</td>
+                <td>@contaCorrente.DataVencimento</td>
+                <td>@contaCorrente.DataRecebimento</td>
+                <td>@contaCorrente.NomeBanco</td>
+                <td>@contaCorrente.NumeroBanco</td>
+
             </tr>
-        </thead>
-        <tbody>
-            @foreach (Model.ContaCorrente contaCorrente in ViewBag.ContaCorrentes)
-            {
-                
-                <tr>
-                    <td>@contaCorrente.Id</td>
-                    <td>@contaCorrente.IdCadastroContaCorrente</td>
-                    <td>@contaCorrente.IdHistorico</td>
-                    <td>@contaCorrente.IdCategoriaReceita</td>
-                    <td>@contaCorrente.IdCategoriaDespesa</td>
-                    <td>@contaCorrente.Descricao</td>
-                    <td>@contaCorrente.Documento</td>
-                    <td>@contaCorrente.TipoPagamento</td>
-                    <td>@contaCorrente.Valor</td>
-                    <td>@contaCorrente.Status</td>
-                    <td>@contaCorrente.DataLancamento</td>
-                    <td>@contaCorrente.DataVencimento</td>
-                    <td>@contaCorrente.DataRecebimento</td>
-                    <td>
-                        <div style="margin-left: 5px">
-                            <a id="botao-editar" class="btn btn-primary float-right mb-3" href="/contaCorrente/editar?id=@contaCorrente.Id">
-                                <i class="fa fa-edit"></i>Editar
-                            </a>
-                        </div>
-                        <div style="margin-right: 110px">
-                            <a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/contaCorrente/apagar?id=@contaCorrente.Id">
-                                <i class="fa fa-trash"></i>Apagar
-                            </a>
-                        </div>
-
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+        }
+    </tbody>
+</table>
 

@@ -12,6 +12,23 @@ namespace Repository.Repositories
     {
         public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
         {
+<<<<<<< HEAD
+=======
+            context = new SistemaContext(); 
+        }
+        public bool Alterar(ParcelaPagar parcelaPagar)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Apagar(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Inserir(ParcelaPagar parcelaPagar)
+        {
+>>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
             throw new NotImplementedException();
         }
 

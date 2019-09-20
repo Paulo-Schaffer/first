@@ -44,6 +44,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
+<<<<<<< HEAD
         [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
         {
@@ -58,14 +59,11 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
+=======
+>>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult Cadastro()
-        {
-            return View();
+           return View();
         }
     }
 }

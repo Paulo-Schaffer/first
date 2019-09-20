@@ -88,6 +88,7 @@ namespace TccFirst.Controllers
                 JsonRequestBehavior.AllowGet);
 
         }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
         public static string SHA512(string input)
@@ -107,6 +108,7 @@ namespace TccFirst.Controllers
         }
 =======
 >>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
+=======
+>>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
     }
-
 }
