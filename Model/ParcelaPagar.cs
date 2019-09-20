@@ -18,7 +18,7 @@ namespace Model
         public decimal Valor { get; set; }
 
         [Column("status"), StringLength(50)]
-        public string? Status { get; set; }
+        public string Status { get; set; }
 
         [Column("DataVecimento")]
         public DateTime DataVencimento { get; set; }
