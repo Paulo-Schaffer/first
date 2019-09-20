@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    //internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -84,11 +84,13 @@ namespace Repository
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
+                Id = 1,
                 TipoCategoriaReceita = "Despesa com Funcionário",
                 RegistroAtivo = true,
             });
             categoriaReceita.Add(new CategoriaReceita()
             {
+                Id = 2,
                 TipoCategoriaReceita = "Despesa com Lanche",
                 RegistroAtivo = true,
             });
@@ -100,6 +102,7 @@ namespace Repository
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
+                Id = 1,
                 Nome = "Paulo",
                 Cpf = "093.455.789-50",
                 DataNascimento = Convert.ToDateTime("19/04/2000"),
@@ -116,6 +119,7 @@ namespace Repository
             });
             clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
+                Id = 2,
                 Nome = "João",
                 Cpf = "033.555.119-22",
                 DataNascimento = Convert.ToDateTime("09/08/1996"),
@@ -137,6 +141,7 @@ namespace Repository
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
+                Id = 1,
                 RazaoSocial = "First",
                 Atividade = "Sistemas e SoftWares",
                 NomeFantasia = "Financial Report System",
@@ -157,6 +162,7 @@ namespace Repository
 
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
+                Id = 2,
                 RazaoSocial = "HBSIS",
                 Atividade = "Sistemas e SoftWares",
                 NomeFantasia = "HBSIS",
@@ -414,31 +420,38 @@ namespace Repository
             #endregion
 
             #region tituloReceber
-            var tituloReceber = new List<TituloReceber>();
-            tituloReceber.Add(new TituloReceber()
+            var titulosReceber = new List<TituloReceber>();
+            titulosReceber.Add(new TituloReceber()
             {
+                Id = 1,
+                IdClientePessoaFisica = 1,
+                IdCategoriaReceita = 1,
                 Descricao= "Titulo sem compromisso",
                 ValorTotal = 123213123,
                 Status = "Pago",
-                DataLancamento = "29/12/2018",
-                DataRecebimento = "04/01/2019",
-                DataVencimento="30/01/2019",
+                DataLancamento = new DateTime(2018, 12, 29),
+                DataRecebimento = new DateTime(2019, 01, 04),
+                DataVencimento = new DateTime(2019, 01, 30),
                 Complemento="Não sei o que por",
                 QuantidadeParcela= 36,
                 RegistroAtivo = true
             });
-            tituloReceber.Add(new TituloReceber()
+            titulosReceber.Add(new TituloReceber()
             {
+                Id = 2,
+                IdClientePessoaJuridica = 2,
+                IdCategoriaReceita = 2,
                 Descricao = "Titulo com compromisso",
                 ValorTotal = 343234,
                 Status = "Pendente",
-                DataLancamento = "09/02/2017",
-                DataRecebimento = "",
-                DataVencimento = "10/03/2017",
+                DataLancamento = new DateTime(2017, 02, 09),
+                DataRecebimento = null,
+                DataVencimento = new DateTime(2017, 03, 10),
                 Complemento = "Não sei o que por, desculpa",
                 QuantidadeParcela = 24,
                 RegistroAtivo = true
             });
+            context.TitulosReceber.AddRange(titulosReceber);
             #endregion
 
             #region fornecedores
