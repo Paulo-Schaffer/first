@@ -18,7 +18,6 @@ namespace Model
         [Column("razao_social")]
         public string RazaoSocial { get; set; }
 
-        [Required]
         [Column("nome_fantasia")]
         public string NomeFantasia { get; set; }
 

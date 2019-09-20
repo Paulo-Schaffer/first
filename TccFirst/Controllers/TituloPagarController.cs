@@ -96,7 +96,10 @@ namespace TccFirst.Controllers
         {
             return View();
         }
-
+        public ActionResult Editar()
+        {
+            return View();
+        }
 
 
     }

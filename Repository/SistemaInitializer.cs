@@ -15,14 +15,14 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia da Vida",
-                NumeroAgencia = "2001",
+                NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia do Paulo",
-                NumeroAgencia = "666",
+                NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
@@ -30,7 +30,7 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Você consegue",
-                NumeroAgencia = "8001",
+                NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
@@ -65,7 +65,7 @@ namespace Repository
             context.Caixas.AddRange(caixa);
             #endregion
 
-            #region categoriaDespesa
+            #region categoriasDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
@@ -80,7 +80,7 @@ namespace Repository
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
-            #region categoriaReceita
+            #region categoriasReceita
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
@@ -97,7 +97,7 @@ namespace Repository
             context.CategoriasReceitas.AddRange(categoriaReceita);
             #endregion
 
-            #region clientePessoaFisica
+            #region clientesPessoasFisicas
 
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
@@ -137,7 +137,7 @@ namespace Repository
             context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
-            #region clientePessoaJuridica
+            #region clientesPessoasJuridicas
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
@@ -259,7 +259,7 @@ namespace Repository
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "123456",
+                Senha = "123",
                 RegistroAtivo = true
 
             });
@@ -279,7 +279,7 @@ namespace Repository
             var historico = new List<Historico>();
             historico.Add(new Historico()
             {
-                Descricao = "Conta adicionada dia 19/07/2000",
+                Descricao = "Conta adicionada dia 19/07/2012",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
@@ -293,8 +293,6 @@ namespace Repository
                 RegistroAtivo = true
             });
             #endregion
-
-          
 
             #region movimentacaoFinanceiraEntrada
             var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();

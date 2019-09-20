@@ -5602,6 +5602,7 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
+    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -5643,6 +5644,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
@@ -5663,7 +5665,6 @@
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
-    <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Historico\CadastroHistorico.cshtml" />
@@ -5681,11 +5682,16 @@
     <Content Include="Views\Agencia\Editar.cshtml" />
     <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login do Sistema\LoginSistema.cshtml" />
-    <Content Include="Views\Login\SemPermissao.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
+    <Content Include="Views\Login\SemPermissao.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\TituloPagar\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
