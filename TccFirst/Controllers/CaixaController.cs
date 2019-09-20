@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class CaixaController : Controller
+    public class CaixaController : BaseController
     {
         private CaixaRepository repository;
 
@@ -16,11 +16,8 @@ namespace TccFirst.Controllers
         {
             repository = new CaixaRepository();
         }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
         [HttpGet]
         public ActionResult Index()
         {

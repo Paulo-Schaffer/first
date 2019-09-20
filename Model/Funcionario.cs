@@ -8,18 +8,24 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("funcionarios")]
+    [Table("funcionario")]
     public class Funcionario
     {
         [Key,Column("id")]
         public int Id { get; set; }
-        [Required]
+
         [Column("nome_funcionario")]
         public string NomeFuncionario { get; set; }
-        [Required]
+
         [Column("tipo_funcionario")]
-        public int TipoFuncionario { get; set; }
-        [Required]
+        public string TipoFuncionario { get; set; }
+
+        [Column("usuario")]
+        public string Usuario { get; set; }
+
+        [Column("senha")]
+        public string Senha { get; set; }
+
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 

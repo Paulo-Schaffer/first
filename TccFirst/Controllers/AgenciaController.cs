@@ -5,7 +5,7 @@ using Repository.Repositories;
 
 namespace TccFirst.Controllers
 {
-    public class AgenciaController : Controller
+    public class AgenciaController : BaseController
     {
 
         private AgenciaRepository repository;
@@ -17,10 +17,7 @@ namespace TccFirst.Controllers
             repository = new AgenciaRepository();
         }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
         [HttpGet]
         public ActionResult Index() 
         {

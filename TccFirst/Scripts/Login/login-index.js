@@ -1,108 +1,125 @@
 ﻿$(function () {
     $idAlterar = -1;
 
-    $tabelaLogin = $('#login-tabela').DataTable({
+    $tabelaLogin = $("#login-tabela").DataTable({
         ajax: '/login/obtertodos',
         serverSide: true,
         columns: [
-            { 'data': 'Id' },
-            { 'data': 'Usuario' },
-            { 'data': 'Senha' },
+            { data: "Id" },
+            { data: "Funcionario.NomeFuncionario" },
+            { data: "Usuario" },
+            { data: "Senha" },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
-
+                    return "\
+                    <button class='btn btn-primary botao-editar fa fa-edit'\
+                        data-id=" + row.Id + "> Editar</button>\
+                    <button class='btn btn-danger botao-apagar fa fa-trash'\
+                        data-id=" + row.Id + "> Apagar</button>";
                 }
-
             }
-
         ]
     });
 
     $('#login-botao-salvar').on('click', function () {
-        $Nome = $('#modal-login-usuario').val();
-        $Tipo = $('#modal-login-senha').val();
-        $idFuncionario = $('#modal-login-funcionario')
+        $IdFuncionario = $('#login-campo-funcionario');
+        $Usuario = $('#login-campo-usuario').val();
+        $Senha = $('#login-campo-senha').val();
 
         if ($idAlterar == -1) {
-            inserir($Usuario, $Senha);
+            inserir($IdFuncionario, $Usuario, $Senha);
         } else {
-            alterar($Usuario, $Senha);
+            alterar($IdFuncionario, $Usuario, $Senha);
         }
     });
 
-    function alterar($usuario, $senha) {
-        $.ajax({
-            url: "/login/update",
-            method: "post",
-            data: {
-                id: $idAlterar,
-                usuario: $usuario,
-                senha: $senha,
-                idFuncionario: $idFuncionario
-            },
-            success: function (data) {
-                $("#modal-login").modal("hide");
-                $idAlterar = -1;
-                $tabelaLogin.ajax.reload();
-            },
-            error: function (err) {
-                alert("Não foi possível alterar");
-            }
-        })
-    }
+    $('#login-tabela').on('click', '.botao-apagar', function () {
+        confirma = confirm("Deseja realmente apagar?");
+        if (confirma == true) {
+            $id = $(this).data('id');
+            $.ajax({
+                url: '/login/apagar?id=' + $id,
+                method: 'get',
+                success: function (data) {
+                    $tabelaLogin.ajax.reload();
+                },
+                error: function (err) {
+                    alert('Não foi possível apagar!');
+                }
 
-    function inserir($Usuario, $Senha) {
-        $.ajax({
-            url: '/Login/inserir',
-            method: 'post',
-            data: {
-                usuario: $Usuario,
-                senha: $Senha,
-                idFuncionario: $idFuncionario
-            },
-            success: function (data) {
-                $('#modal-login').modal('hide');
-                $tabelaLogin.ajax.reload();
-            },
-            error: function (err) {
-
-            }
-        });
-    }
-
-    $('.table').on('click', '.botao-apagar', function () {
-        $idApagar = $(this).data('id');
-
-        $.ajax({
-            url: '/Login/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaLogin.ajax.reload();
-            },
-
-            error: function (err) {
-                alert('Não foi possível apagar');
-            }
-
-        });
+            });
+        }
     });
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
 
         $.ajax({
-            url: '/Login/obterpeloid?id=' + $idAlterar,
+            url: '/login/obterpeloid?id=' + $idAlterar,
             method: 'get',
 
             success: function (data) {
-                $('#modal-login-usuario').val(data.usuario);
-                $('#modal-login-senha').val(data.senha);
+                $('#login-campo-funcionario').val(data.Funcionario);
+                $('#login-campo-usuario').val(data.Usuario);
+                $('#login-campo-senha').val(data.Senha);
                 $('#modal-login').modal('show');
             },
             error: function (err) {
-                alert('não foi possível carregar');
+                alert('Não foi possível carregar!');
             }
         });
     });
+
+    function inserir($IdFuncionario, $Usuario, $Senha) {
+        $.ajax({
+            url: '/login/cadastro',
+            method: 'post',
+            data: {
+                IdFuncionario: $IdFuncionario,
+                Usuario: $Usuario,
+                Senha: $Senha
+            },
+            success: function (data) {
+                LimparCampos();
+                $(".modal-backdrop").hide(); 
+                $('#modal-login').modal('hide');
+                $tabelaLogin.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possivel cadastrar!")
+            }
+        });
+    }
+
+    function alterar($IdFuncionario, $Usuario, $Senha) {
+        $.ajax({
+            url: "/login/update",
+            method: 'post',
+            data: {
+                IdFuncionario: $IdFuncionario,
+                Usuario: $Usuario,
+                Senha: $Senha,
+                id: $IdAlterar
+            },
+            success: function (data) {
+                LimparCampos();
+                $("#modal-login").modal("hide");
+                $tabelaLogin.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possível alterar!");
+            }
+        })
+    }
+
+    function LimparCampos() {
+        $('#login-campo-funcionario').val('')
+        $('#login-campo-usuario').val('');
+        $('#login-campo-senha').val('');
+        $idAlterar = -1;
+    }
+
+    $('#modal-login').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });

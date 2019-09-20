@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class TituloReceberController : Controller
+    public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
 
@@ -16,12 +16,7 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-<<<<<<< HEAD
 
-=======
-        
-       
->>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class HistoricoController : Controller
+    public class HistoricoController : BaseController
     {
         private HistoricoRepository repository;
 
@@ -16,11 +16,8 @@ namespace TccFirst.Controllers
         {
             repository = new HistoricoRepository();
         }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
         [HttpGet]
         public ActionResult Index()
         {
