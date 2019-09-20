@@ -19,11 +19,11 @@ namespace Model
 
         [Column("id_agencia")]
         public int IdAgencia { get; set; }
-        [ForeignKey("IdAgencia")]
-        public Agencia Agencia { get; set; }
 
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
+        [ForeignKey("IdAgencia")]
+        public Agencia Agencia { get; set; }
     }
 }

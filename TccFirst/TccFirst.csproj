@@ -5483,6 +5483,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
@@ -5698,7 +5700,7 @@
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\Login\View.cshtml" />
+    <Content Include="Views\ContaCorrente\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
