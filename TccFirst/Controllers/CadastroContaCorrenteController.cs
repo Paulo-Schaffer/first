@@ -17,6 +17,37 @@ namespace TccFirst.Controllers
             repository = new CadastroContaCorrenteRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
@@ -41,23 +72,6 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-<<<<<<< HEAD
-        [HttpGet, Route("apagar")]
-        public JsonResult Apagar(int id)
-        {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet, Route("cadastrocontacorrente")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
-=======
->>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
         public ActionResult Index()
         {
            return View();

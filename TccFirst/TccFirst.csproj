@@ -98,15 +98,6 @@
   <ItemGroup>
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of ee136f1... Alterações
-    <Content Include="Content\css\TelaLogin.css" />
-    <Content Include="Content\Imagem\first.jpg" />
-=======
->>>>>>> parent of 0a90f22... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
     <Content Include="Content\Imagem\logo-blue.png" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
@@ -5483,11 +5474,8 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\CadastroContaCorrente\valida-funcao.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
-    <Content Include="Scripts\Chart.js" />
-    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
@@ -5572,7 +5560,9 @@
     <Content Include="Scripts\Login\jquery.form-validator.min.js" />
     <Content Include="Scripts\Login\login-cadastro.js" />
     <Content Include="Scripts\Login\login-index.js" />
+    <Content Include="Scripts\mdb.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\notify.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -5589,8 +5579,6 @@
     <Content Include="Scripts\TituloPagar\jquery.form-validator.min.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
-    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
-    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -5673,8 +5661,6 @@
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
-    <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
-    <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
@@ -5701,8 +5687,10 @@
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
 =======
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
+    <Content Include="Views\Login do Sistema\LoginSistema.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
->>>>>>> parent of ee136f1... Alterações
+    <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
+    <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5717,8 +5705,6 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
-    <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />

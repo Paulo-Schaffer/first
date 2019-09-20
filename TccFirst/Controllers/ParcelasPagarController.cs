@@ -17,10 +17,41 @@ namespace TccFirst.Controllers
             repository = new ParcelaPagarRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         public ActionResult Index()
         {
-            return View();
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -30,17 +61,8 @@ namespace TccFirst.Controllers
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-<<<<<<< HEAD
-
-
-        [HttpGet, Route("parcelasPagar/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
         [HttpPost]
-        public ActionResult GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
+        public JsonResult Inserir(ParcelaPagar parcelaPagar)
         {
             repository.GerarParcelas(valor, quantidadesPacelas, idTituloPagar);
             return Json(valor);
@@ -85,7 +107,6 @@ namespace TccFirst.Controllers
         //{
         //    var parcelasPagar = repository.ObterTodos();
         //    List<object> parcelasPagarSelect = new List<object>();
->>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
         //    foreach (parcelasPagar parcelasPagar in parcelasPagar)
         //    {
         //        parcelasPagarSelect.Add(new

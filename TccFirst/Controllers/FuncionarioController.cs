@@ -119,29 +119,5 @@ namespace TccFirst.Controllers
             var resultado = new { results = funcionariosSelect2 };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-<<<<<<< HEAD
-
-        public static string SHA512(string input)
-        {
-            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
-            using (var hash = System.Security.Cryptography.SHA512.Create())
-            {
-                var hashedInputBytes = hash.ComputeHash(bytes);
-
-                // Convert to text
-                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
-                var hashedInputStringBuilder = new System.Text.StringBuilder(128);
-                foreach (var b in hashedInputBytes)
-                    hashedInputStringBuilder.Append(b.ToString("X2"));
-                return hashedInputStringBuilder.ToString();
-            }
-        }
-<<<<<<< HEAD
-=======
->>>>>>> parent of e88d3cd... Merge remote-tracking branch 'origin/JoaoPstein' into Paulo
-=======
->>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
-=======
->>>>>>> parent of ee136f1... Alterações
     }
 }

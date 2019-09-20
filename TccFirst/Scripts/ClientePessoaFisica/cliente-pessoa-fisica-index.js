@@ -164,13 +164,13 @@ $(function () {
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
         if ($('#clientePessoaFisica-campo-nome').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Nome </div>');
             $('#clientePessoaFisica-campo-nome').focus();
             return false;
 
         } else if ($('#clientePessoaFisica-campo-cpf').val() == "") {
             $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cpf </div>');
             $('#clientePessoaFisica-campo-cpf').focus();
+            $.notify("Warning: Self-destruct in 3.. 2..", "warn");
             return false;
         }
         else if ($('#clientePessoaFisica-campo-dataNascimento').val() == "") {

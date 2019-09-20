@@ -73,6 +73,8 @@ namespace Repository.Repositories
         public List<TituloReceber> ObterTodos()
         {
             return context.TitulosReceber
+                .Include("ClientePessoaJuridica")
+                .Include("Nome")
                 .Where(x => x.RegistroAtivo == true).ToList();   
         }
     }

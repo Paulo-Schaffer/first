@@ -170,7 +170,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="login/index">
+                                        <a href="auth-normal-sign-in.html">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
@@ -237,7 +237,28 @@
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="pcoded-inner-navbar main-menu">
-                   
+                            <div class="">
+                                <div class="main-menu-header">
+                                    <img class="img-40 img-radius" src="~/Content/tema/assets/images/avatar-4.jpg"
+                                         alt="User-Profile-Image">
+                                    <div class="user-details">
+                                        <span>John Doe</span>
+                                        <span id="more-details">UX Designer<i class="ti-angle-down"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="main-menu-content">
+                                    <ul>
+                                        <li class="more-details">
+                                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                                            <a href="#!"><i class="ti-settings"></i>Settings</a>
+                                            <a href="auth-normal-sign-in.html">
+                                                <i class="ti-layout-sidebar-left"></i>Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="pcoded-search">
                                 <span class="searchbar-toggle"> </span>
                                 <div class="pcoded-search-box ">
@@ -563,6 +584,9 @@
     <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="~/Scripts/mdb.min.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
     <script src="~/Scripts/jquery.mask.js"></script>
     <script src="~/Scripts/moment.js"></script>
     <script src="~/Scripts/select2.min.js"></script>

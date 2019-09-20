@@ -28,7 +28,6 @@ namespace Repository.Repositories
 
         public int Inserir(ParcelaPagar parcelaPagar)
         {
->>>>>>> parent of 9527b3e... Merge remote-tracking branch 'origin/Paulo' into JoaoPstein
             throw new NotImplementedException();
         }
 

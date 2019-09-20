@@ -16,14 +16,19 @@ namespace TccFirst.Controllers
         {
             repository = new CategoriaReceitaRepository();
         }
+        [HttpGet]
+        public JsonResult ObterTodos()
+        {
+            var categorias = repository.ObterTodos();
+            var resultado = new { data = categorias };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
 
-
+        }
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-
         [HttpPost]
         public JsonResult Inserir(CategoriaReceita categoriaReceita)    
         {
@@ -33,14 +38,6 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-        [HttpGet]
-        public JsonResult ObterTodos()
-        {
-            var categorias = repository.ObterTodos();
-            var resultado = new { data = categorias };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
         [HttpGet]
         public JsonResult Apagar(int id)
         {
@@ -61,13 +58,6 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-
-        //[HttpGet, Route("categoriareceita/")]
-        //public JsonResult ObterPeloId(int id)
-        //{
-        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        //}
-
         [HttpGet, Route("categoriareceita/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {

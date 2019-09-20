@@ -1,5 +1,5 @@
 ﻿<div id="modal-tituloReceber" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Cadastrar Titulo a receber</h5>
@@ -8,67 +8,111 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label for="campo-tituloreceber-pessoaJuridica"mas>Pessoa Juridica</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="idPessoaJuridica">
-                        <option disabled selected>Selecione um opção</option>
-                    </select>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-check-inline ml-3 mr-3 mb-3">
+                            <input type="radio" id="tituloReceber-campo-tipo-pessoa-fisica"
+                                   name="tituloReceber-campo-tipo-pessoa" class="form-check-input" />
+                            <label for="tituloReceber-campo-tipo-pessoa-fisica"
+                                   class="form-check-label" style="
+    padding-left: 4px;
+    padding-bottom: 3px;
+">Pessoa Física</label> 
+                            
+                        </div>
+                        <div class="form-check-inline">
+                            <input type="radio" id="tituloReceber-campo-tipo-pessoa-juridica"
+                                   name="tituloReceber-campo-tipo-pessoa" class="form-check-input"/>
+                            <label for="tituloReceber-campo-tipo-pessoa-juridica" 
+                                   class="form-check-label"style="
+    padding-left: 4px;
+    padding-bottom: 4px;
+" >Pessoa Jurídica</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12" id="tituloReceber-pessoa-fisica">
+                        <div class="form-group">
+                            <label for="tituloReceber-campo-pessoa-fisica">Pessoa Física</label>
+                            <select class="form-control" id="tituloReceber-campo-pessoa-fisica" name="idPessoaFisica">
+                                <option disabled selected>Selecione um opção</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-12" id="tituloReceber-pessoa-juridica">
+                        <div class="form-group">
+                            <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
+                            <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="idPessoaJuridica">
+                                <option disabled selected>Selecione um opção</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
 
-                @*<div class="form-group">
-                    <label for="campo-tituloReceber-pessoaFisica"mas>Pessoa Fisica</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-Fisica" name="idPessoaFisica">
-                        
-                    </select>*@
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="campo-tituloReceber-categoria" mas>Categoria Receita</label>
+                            <select class="form-control" id="tituloReceber-campo-categoria-Receita" name="idCategoriaReceita"></select>
+                        </div>
+                    </div>
+                </div>
 
-                </div>
-                <div class="form-group">
-                    <label for="campo-tituloReceber-categoria"mas>Categoria Receita</label>
-                    <select class="form-control" id="tituloReceber-campo-categoria-Receita" name="idCategoriaReceita"></select>
-                </div>
-                <div class="form-group">
-                    <label for="titulo-receber-campo-status">Status</label>
-                <select class="form-control" id="tituloReceber-campo-status">
-                    <option disabled selected>Selecione uma opção</option> 
-                    <option>Pago</option>
-                    <option>Em Aberto</option>
-                    <option>Devedor</option>
-                </select>
-
-                <div class="form-group">
-                    <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
-                    <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control" />
-                </div>
-                <div>
-                    <div class="form-group">
-                        <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
-                        <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="titulo-receber-campo-status">Status</label>
+                            <select class="form-control" id="tituloReceber-campo-status">
+                                <option disabled selected>Selecione uma opção</option>
+                                <option>Pago</option>
+                                <option>Em Aberto</option>
+                                <option>Devedor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
+                            <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control" />
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <div class="form-group">
-                        <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
-                        <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" />
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
+                                <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
+                                <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-                <div class="form-group">
-                    <label for="campo-tituloReceber-valor-total"mas>Valor</label>
-                    <input type="text" id="tituloReceber-campo-valor-total" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="campo-titulo-campo-quantidadeParcelas"mas>Quantidade de Parcelas</label>
-                    <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="campo-tituloReceber-valor-total" mas>Valor</label>
+                            <input type="text" id="tituloReceber-campo-valor-total" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
+                            <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control" />
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="campo-tituloReceber-descricao" mas>Descrição</label>
-                    <input type="text" id="tituloReceber-campo-descricao" class="form-control" />
-                </div>
-                <div>
-                    <div class="form-group">
-                        <label form="campo-titulo-receber-campo-complemento" mas>Complemento</label>
-                        <input type="text" id="tituloReceber-campo-complemento" class="form-control" />
-                    </div>
+                    <textarea class="form-control" id="tituloReceber-campo-descricao" rows="3"></textarea>
                 </div>
             </div>
 
