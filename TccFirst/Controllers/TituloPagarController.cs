@@ -13,44 +13,21 @@ namespace TccFirst.Controllers
     {
         private TituloPagarRepository repository;
 
+        public int ConvertToInt32 { get; private set; }
+
         public TituloPagarController()
         {
             repository = new TituloPagarRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
+        public ActionResult Index()
         {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            TituloPagarRepository repositoryTituloPagar = new TituloPagarRepository();
+            ViewBag.TituloPagar = repositoryTituloPagar.ObterTodos();
+            return View();
         }
 
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
-
-        [HttpGet, Route("obterTodos")]
+        [HttpGet]
         public JsonResult ObterTodos()
         {
             var titulosPagar = repository.ObterTodos();
@@ -58,20 +35,21 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
-        public ActionResult Cadastro(TituloPagar tituloPagar)
+        #region Cadastro
+        public ActionResult Cadastro()
         {
-            int id = repository.Inserir(tituloPagar);
-            return RedirectToAction("Editar", new { id = id });
+            return View();
         }
 
-        [HttpPost, Route("editar")]
-        public JsonResult Editar(TituloPagar tituloPagar)
+        [HttpPost]
+        public ActionResult Cadastro(TituloPagar tituloPagar)
         {
-            var alterou = repository.Alterar(tituloPagar);
-            var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            tituloPagar.RegistroAtivo = true;
+            int id = repository.Inserir(tituloPagar);
+            var resultado = new { id = id };
+            return RedirectToAction("Editar", new { id = id });
         }
+        #endregion 
 
         [HttpGet, Route("apagar")]
         public JsonResult Apagar(int id)
@@ -81,24 +59,40 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("tituloPagar")]
-        public JsonResult ObterPeloId(int id)
+        #region Editar
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(TituloPagar tituloPagar)
         {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+            var alterou = repository.Alterar(tituloPagar);
+            var resultado = new { status = alterou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
         public ActionResult Editar()
         {
             return View();
+        }
+        #endregion
+
+        [HttpGet, Route("tituloPagar/obtertodosselect")]
+        public JsonResult ObterTodosSelect(string termo)
+        {
+            var tituloPagars = repository.ObterTodos();
+            List<object> ObterTodosSelect2 = new List<object>();
+            foreach (TituloPagar tituloPagar in tituloPagars)
+            {
+                ObterTodosSelect2.Add(new
+                {
+                    id = tituloPagar.Id,
+                    text = tituloPagar.Descricao,
+                });
+            }
+            var resultado = new
+            {
+                results = ObterTodosSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
         }
 
 
