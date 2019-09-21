@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("tituloreceber/")]
+    //[Route("tituloreceber/")]
     public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
@@ -17,7 +17,7 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-      
+
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
@@ -26,46 +26,53 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        [HttpPost, Route("cadastrar")]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
-            //tituloReceber.RegistroAtivo = true;
+            tituloReceber.RegistroAtivo = true;
             int id = repository.Inserir(tituloReceber);
-            return RedirectToAction("Editar", new { id = id });
+            var resultado = new { id = id };
+            return RedirectToAction("Index",resultado);
         }
 
-        [HttpPost, Route("editar")] 
+        [HttpPost, Route("editar")]
         public JsonResult Editar(TituloReceber tituloReceber)
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        
-        [HttpGet,Route("apagar")]
-        JsonResult Apagar(int id)
+
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", new { id = id });
         }
-        [HttpGet, Route("tituloreceber")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
+
+        //[HttpGet, Route("tituloreceber")]
+        //public JsonResult ObterPeloId(int id)
+        //{
+        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
 
         public ActionResult Index()
         {
+            TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
+            ViewBag.TituloReceber = tituloReceberRepository.ObterTodos();
             return View();
         }
-
+        // cadastro
+        [HttpGet, Route("Index")]
         public ActionResult Cadastro()
         {
             return View();
         }
-        public ActionResult Editar()
+        public ActionResult Editar(int id)
         {
+            var titulosReceber = repository.ObterPeloId(id);
+            ViewBag.TituloReceber = titulosReceber;
             return View();
         }
 
