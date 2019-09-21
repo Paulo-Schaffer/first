@@ -1,10 +1,4 @@
-﻿$(function () {
-    $('#historico-campo-descricao').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#historico-batao-salvar').focus();
-        }
-    });
-});
+﻿
 
 $(function () {
     $idAlterar = -1;
@@ -26,8 +20,8 @@ $(function () {
     });
 
     $('#historico-botao-salvar').on('click', function () {
-        if ($('#historico-campo-descricao').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Descrição </div>');
+        if ($.trim($('#historico-campo-descricao').val()) == "") {
+            alert("Preencha o campo Descrição");
             $('#historico-campo-descricao').focus();
             return false;
         } else {
@@ -82,18 +76,22 @@ $(function () {
     }
    
     $('.table').on('click', '.botao-apagar', function () {
-        $idApagar = $(this).data('id');
+        confirma = confirm("Deseja Realmente Apagar?")
+        if (confirma == true) {
+            $idApagar = $(this).data('id');
 
-        $.ajax({
-            url: "/historico/apagar?id=" + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaHistorico.ajax.reload();
-            },
-            error: function (err) {
-                alert('Não foi possivel apagar');
-            }
-        });
+            $.ajax({
+                url: "/historico/apagar?id=" + $idApagar,
+                method: 'get',
+                success: function (data) {
+                    $tabelaHistorico.ajax.reload();
+                },
+                error: function (err) {
+                    alert('Não foi possivel apagar');
+                }
+            });
+        }
+       
     });
 
     $('.table').on('click', '.botao-editar', function () {
