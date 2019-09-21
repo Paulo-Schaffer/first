@@ -1,13 +1,16 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
+<div class="row">
+    <div class="col-6"><h2>Lista de Títulos a Pagar</h2></div>
+    <div class="col-6">
+        <a href="/titulopagar/cadastro" class="btn btn-info float-right mb-3">
+            <i class="fa fa-plus"></i>Novo Titulo Pagar
+        </a>
+    </div>
+</div>
 
-<h2>Lista de Títulos a Pagar</h2>
-
-<a href="/titulopagar/cadastro" class="btn btn-info float-right">
-    <i class="fa fa-plus"></i>Novo Titulo Pagar</a>
-
-<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped" >
+<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Código</th>
@@ -26,11 +29,39 @@
             <th>Ação</th>
         </tr>
     </thead>
+
+
+    <tbody>
+        @foreach (Model.TituloPagar tituloPagar in ViewBag.TituloPagar)
+        {
+            <tr>
+                <td>@tituloPagar.Id</td>
+                <td>@tituloPagar.IdFornecedor</td>
+                <td>@tituloPagar.IdCategoriaDespesa</td>
+                <td>@tituloPagar.Descricao</td>
+                <td>@tituloPagar.FormaPagamento</td>
+                <td>@tituloPagar.Caixa</td>
+                <td>@tituloPagar.ValorTotal</td>
+                <td>@tituloPagar.Status</td>
+                <td>@tituloPagar.DataLancamento</td>
+                <td>@tituloPagar.DataRecebimento</td>
+                <td>@tituloPagar.DataVencimento</td>
+                <td>@tituloPagar.Complemento</td>
+                <td>@tituloPagar.QuantidadeParcela</td>
+                <td>
+                    <div class="row">
+                        <div class="col-8">
+                            <a id="botao-editar" class="btn btn-primary float-right" href="/tituloPagar/editar?id=@tituloPagar.Id">Editar</a>
+                        </div>
+                        <div class="col-4">
+                            <a id="botao-apagar" class="btn btn-danger float-right" href="/tituloPagar/apagar?id=@tituloPagar.Id">Apagar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
-@section js{
-    <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
-    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
-}
 
 
 
