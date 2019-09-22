@@ -5700,6 +5700,7 @@
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
     <Content Include="Views\ContaCorrente\Editar.cshtml" />
+    <Content Include="Views\Relatorios\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

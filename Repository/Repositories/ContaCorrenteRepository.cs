@@ -49,7 +49,7 @@ namespace Repository.Repositories
             {
                 return false;
             }
-            contaCorrente.RegistroAtivo = true;
+            contaCorrente.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1; 
         }

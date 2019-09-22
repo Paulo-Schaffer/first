@@ -30,7 +30,7 @@
         <tbody>
             @foreach (Model.ContaCorrente contaCorrente in ViewBag.ContaCorrentes)
             {
-                
+
                 <tr>
                     <td>@contaCorrente.Id</td>
                     <td>@contaCorrente.IdCadastroContaCorrente</td>
@@ -64,3 +64,10 @@
     </table>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+<script>
+    $(document).ready(function () {
+        $('#contacorrente-tabela').DataTable();
+    });</script>
