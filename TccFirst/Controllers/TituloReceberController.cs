@@ -26,7 +26,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastrar")]
+        [HttpPost]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
             tituloReceber.RegistroAtivo = true;
@@ -56,11 +56,11 @@ namespace TccFirst.Controllers
         //{
         //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         //}
-
+        [HttpGet]
         public ActionResult Index()
         {
             TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
-            ViewBag.TituloReceber = tituloReceberRepository.ObterTodos();
+            ViewBag.TitulosReceber = tituloReceberRepository.ObterTodos();
             return View();
         }
         // cadastro
