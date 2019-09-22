@@ -1,5 +1,6 @@
 ﻿$(function () {
     $idAlterar = -1;
+    $idTituloPagar = $("#id").val();
 
     $tabelaTituloPagar = $("#tituloPagar-cadastro").DataTable({
         "scrollX": true,
@@ -14,6 +15,20 @@
             { data: "Caixa" },
             { data: "ValorTotal" },
             { data: "Status" },
+            {
+                render: function (data, type, row) {
+                    let cor = "";
+                    if (row.Status == "Pago") {
+                        cor = "bg-success";
+                    } else if (row.Status == "Pendente") {
+                        cor = "bg-warning";
+                    } else {
+                        cor = "bg-danger";
+                    }
+                    return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
+
+                }
+            },
             {
                 render: function (data, type, row) {
                     let cor = "";
@@ -73,4 +88,14 @@
         });
         }
     });
+
+    function monstrarMensagem(texto, titulo, tipo) {
+        return false;
+        new PNotify({
+            title: titulo,
+            text: texto,
+            icon: 'icofont icofont-info-circle',
+            type: tipo
+        });
+    }
 });

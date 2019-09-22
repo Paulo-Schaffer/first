@@ -17,10 +17,10 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public bool Alterar(TituloPagar tituloPagar)    
+        public bool Alterar(TituloPagar tituloPagar)
         {
 
-            var tituloPagarOficial = context.TitulosPagar.FirstOrDefault(x => x.Id == tituloPagar.Id);
+            var tituloPagarOficial = context.TitulosPagar.Where(x => x.Id == tituloPagar.Id).FirstOrDefault();
             if (tituloPagar == null)
             {
                 return false;
@@ -58,6 +58,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloPagar tituloPagar) 
         {
+            // tituloPagar.RegistroAtivo = true;
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
@@ -66,14 +67,16 @@ namespace Repository.Repositories
         public TituloPagar ObterPeloId(int id)
         {
             var tituloPagar = context.TitulosPagar
-                .FirstOrDefault(x => x.Id == id);
+                .Where(x => x.Id == id).FirstOrDefault();
             return tituloPagar;
         }
 
         public List<TituloPagar> ObterTodos()
         {
             return context.TitulosPagar
-                .Where(x => x.RegistroAtivo == true).ToList();
+                .Include("Fornecedor")
+                .Include("CategoriaDespesa")
+                .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
     }
 }
