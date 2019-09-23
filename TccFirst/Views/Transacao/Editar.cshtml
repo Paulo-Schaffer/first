@@ -1,19 +1,19 @@
-﻿        <form method="post" action="/ContaCorrente/editar">
+﻿<form method="post" action="/ContaCorrente/editar">
     <div class="row">
         <div class="col-12">
             <div class="float-right">
-                <a href="/ContaCorrente/index" class="btn btn-primary">Voltar a lista de Contas</a>
+                <a href="/Transacao/index" class="btn btn-primary">Voltar a lista de Contas</a>
             </div>
         </div>
     </div>
-    <input type="hidden" name="id" value="@ViewBag.ContaCorrentes.Id" />
+    <input type="hidden" name="id" value="@ViewBag.Transacoes.Id" />
 
     <br />
     <div class="row">
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-contacorrente">Conta Corrente</label>
-                <input type="text" name="contacorrente" class="form-control" id="campo-contacorrente" value="@ViewBag.ContaCorrentes.IdCadastroContaCorrente" />
+                <input type="text" name="contacorrente" class="form-control" id="campo-contacorrente" value="@ViewBag.Transacoes.IdCadastroContaCorrente" />
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-historico">Historico</label>
-                <input type="text" name="historico" class="form-control" id="campo-historico" value="@ViewBag.ContaCorrentes.IdHistorico" />
+                <input type="text" name="historico" class="form-control" id="campo-historico" value="@ViewBag.Transacoes.IdHistorico" />
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-tipocategoriareceita">Tipo Categoria Receita</label>
-                <input type="text" name="tipocategoriareceita" class="form-control" id="campo-tipocategoriareceita" value="@ViewBag.ContaCorrentes.IdCategoriaReceita" />
+                <input type="text" name="tipocategoriareceita" class="form-control" id="campo-tipocategoriareceita" value="@ViewBag.Transacoes.IdCategoriaReceita" />
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-tipocategoriadespesa">Tipo Categoria Despesa</label>
-                <input type="text" name="tipocategoriadespesa" class="form-control" id="campo-tipocategoriadespesa" value="@ViewBag.ContaCorrentes.IdCategoriaDespesa" />
+                <input type="text" name="tipocategoriadespesa" class="form-control" id="campo-tipocategoriadespesa" value="@ViewBag.Transacoes.IdCategoriaDespesa" />
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-descricao">Descição</label>
-                <input type="text" name="descricao" class="form-control" id="campo-descricao" value="@ViewBag.ContaCorrentes.Descricao" />
+                <input type="text" name="descricao" class="form-control" id="campo-descricao" value="@ViewBag.Transacoes.Descricao" />
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
             <div class="form-group">
 
                 <label for="campo-documento">Documento</label>
-                <input type="text" name="documento" class="form-control" id="campo-documento" value="@ViewBag.ContaCorrentes.Documento" />
+                <input type="text" name="documento" class="form-control" id="campo-documento" value="@ViewBag.Transacoes.Documento" />
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-tipopagamento">Tipo Pagamento</label>
-                <input type="text" name="tipopagamento" class="form-control" id="campo-tipopagamento" value="@ViewBag.ContaCorrentes.TipoPagamento" />
+                <input type="text" name="tipopagamento" class="form-control" id="campo-tipopagamento" value="@ViewBag.Transacoes.TipoPagamento" />
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-valor">Valor</label>
-                <input type="text" name="valor" class="form-control" id="campo-valor" value="@ViewBag.ContaCorrentes.Valor" />
+                <input type="text" name="valor" class="form-control" id="campo-valor" value="@ViewBag.Transacoes.Valor" />
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-status">Status</label>
-                <input type="text" name="status" class="form-control" id="campo-status" value="@ViewBag.ContaCorrentes.Status" />
+                <input type="text" name="status" class="form-control" id="campo-status" value="@ViewBag.Transacoes.Status" />
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-datalancamento">Data Lancamento</label>
-                <input type="text" name="datalancamento" class="form-control" id="campo-datalancamento" value="@ViewBag.ContaCorrentes.DataLancamento" />
+                <input type="text" name="datalancamento" class="form-control" id="campo-datalancamento" value="@ViewBag.Transacoes.DataLancamento" />
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-datavencimento">Data Vencimento</label>
-                <input type="text" name="datavencimento" class="form-control" id="campo-datavencimento" value="@ViewBag.ContaCorrentes.DataVencimento" />
+                <input type="text" name="datavencimento" class="form-control" id="campo-datavencimento" value="@ViewBag.Transacoes.DataVencimento" />
             </div>
         </div>
     </div>
@@ -102,11 +102,11 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-datarecebimento">Data Recebimento</label>
-                <input type="text" name="datarecebimento" class="form-control" id="campo-datarecebimento" value="@ViewBag.ContaCorrentes.DataRecebimento" />
+                <input type="text" name="datarecebimento" class="form-control" id="campo-datarecebimento" value="@ViewBag.Transacoes.DataRecebimento" />
             </div>
         </div>
     </div>
-    <button href="/ContaCorrente/index" class="btn btn-success float-right" type="submit">Salvar</button>
+    <button href="/Transacao/index" class="btn btn-success float-right" type="submit">Salvar</button>
 </form>
 <br />
 

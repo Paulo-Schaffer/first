@@ -100,8 +100,11 @@
     <Content Include="App_Data\TCCFirstDB_log.ldf">
       <DependentUpon>TCCFirstDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\css\ContaCorrente\TelaCadastroTransacao.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\Agencia\TelaCadastroAgencia.css" />
+    <Content Include="Content\css\Agencia\TelaEditarAgencia.css" />
     <Content Include="Content\css\TelaLogin.css" />
     <Content Include="Content\Imagem\first.jpg" />
     <Content Include="Content\Imagem\logo-blue.png" />
@@ -5598,7 +5601,7 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
-    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
+    <Content Include="Views\Transacao\Cadastro.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
@@ -5615,7 +5618,7 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
-    <Compile Include="Controllers\ContaCorrenteController.cs" />
+    <Compile Include="Controllers\TransacaoController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -5666,7 +5669,7 @@
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Views\Historico\Index.cshtml" />
-    <Content Include="Views\ContaCorrente\Index.cshtml" />
+    <Content Include="Views\Transacao\Index.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\ClientePessoaJuridica\CadastroPessoaJuridica.cshtml" />
@@ -5699,7 +5702,7 @@
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\ContaCorrente\Editar.cshtml" />
+    <Content Include="Views\Transacao\Editar.cshtml" />
     <Content Include="Views\Relatorios\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

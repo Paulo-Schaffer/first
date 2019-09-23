@@ -19,8 +19,8 @@ namespace TccFirst.Controllers
             TituloPagarRepository tituloPagarRepository = new TituloPagarRepository();
             decimal totalPagar = tituloPagarRepository.ObterTodos().Sum(x => x.ValorTotal);
 
-            ViewBag.ContasPagar = Convert.ToString(totalReceber).Replace(",", ".");
-            ViewBag.ContasReceber = Convert.ToString(totalPagar).Replace(",", ".");
+            ViewBag.ContasPagar = Convert.ToString(totalPagar).Replace(",", ".");
+            ViewBag.ContasReceber = Convert.ToString(totalReceber).Replace(",", ".");
 
 
             return View();

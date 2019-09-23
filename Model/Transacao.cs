@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("conta_corrente")]
-    public class ContaCorrente
+    [Table("transacoes")]
+    public class Transacao
     {
+
 
         [Key,Column("id")]
         public int Id { get; set; }

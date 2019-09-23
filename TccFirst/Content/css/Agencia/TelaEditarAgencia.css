@@ -1,0 +1,43 @@
+﻿body {
+}
+
+#botao-voltartabela {
+    color: white;
+    background-color: gray;
+    border-color: darkgray;
+    width: 235px;
+    height: 40px;
+}
+
+#botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+}
+
+#fonte-nomeagencia {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-numeroagencia {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-banco {
+    color: black;
+    font-weight: bold;
+}
+#campo-nomeAgencia {
+    border-color: black;
+}
+
+#campo-numeroAgencia {
+    border-color: black;
+}
+
+#campo-banco {
+    border-color: black;
+}

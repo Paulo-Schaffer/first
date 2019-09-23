@@ -1,20 +1,21 @@
 ﻿
+<link rel="stylesheet" href="~/Content/css/ContaCorrente/TelaCadastroTransacao.css">
 <div class="row">
     <div class="col-6"><h2>Transações de Conta</h2></div>
     <div class="col-6">
         <a class="btn btn-primary   float-right mb-3"
-           href="/ContaCorrente/index"><i class="fa fa-backward"></i>Ir para tabela</a>
+           href="/Transacao/index"><i class="fa fa-backward"></i>Ir para tabela</a>
     </div>
 </div>
 <br />
 
 <div class="container">
 
-    <form action="/ContaCorrente/cadastro" method="post">
+    <form action="/Transacao/cadastro" method="post">
 
         <div class="row">
             <div class="col-6">
-                <label class="font-weight-bold" for="campo-cadastrocontacorrente">Conta Corrente<span class="text-danger">*</span></label>
+                <label id="fonte-contacorrente"class="font-weight-bold" for="campo-cadastrocontacorrente">Conta Corrente<span class="text-danger">*</span></label>
                 <select name="IdCadastroContaCorrente" id="campo-cadastrocontacorrente" required="" class="form-control border-info">
                     <option selected="" disabled="disabled">Selecione uma Conta</option>
                     @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastroContaCorrentes)
@@ -25,9 +26,9 @@
                 </select>
             </div>
             <div class="col-6">
-                <label class="font-weight-bold" for="campo-historico">Historico<span class="text-danger">*</span></label>
+                <label  id="fonte-historico" class="font-weight-bold" for="campo-historico">Historico<span class="text-danger">*</span></label>
                 <select name="IdHistorico" id="campo-historico" required="" class="form-control border-info">
-                    <option selected="" disabled="disabled">Seleci'one uma Historico</option>
+                    <option selected="" disabled="disabled">Selecione um Historico</option>
                     @foreach (Model.Historico historico in ViewBag.Historicos)
                     {
                         <option value="@historico.Id">@historico.Descricao</option>

@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface IContaCorrenteRepository
+    interface ITransacoes
     {
-        int Inserir(ContaCorrente contaCorrente);
+        int Inserir(Transacao transacao);
 
-        bool Alterar(ContaCorrente
+        bool Alterar(Transacao
             contaCorrente);
 
-        List<ContaCorrente> ObterTodos();
+        List<Transacao> ObterTodos();
 
         bool Apagar(int id);
 
-        ContaCorrente ObterPeloId(int id); 
+        Transacao ObterPeloId(int id); 
     }
 }
