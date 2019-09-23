@@ -27,13 +27,13 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet]
+       /* [HttpGet]
         public JsonResult ObterTodos()
         {
             var titulosPagar = repository.ObterTodos();
             var resultado = new { data = titulosPagar };
             return RedirectToAction("Editar", new { id = id });
-        }
+        }*/
 
         #region Cadastro
         public ActionResult Cadastro()
@@ -68,12 +68,12 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Editar()
+        /*public ActionResult Editar()
         {
             var titulosPagar = repository.ObterPeloId(id);
             ViewBag.TituloPagar = titulosPagar;
             return View();
-        }
+        }*/
         #endregion
 
         [HttpGet, Route("tituloPagar/obtertodosselect")]
