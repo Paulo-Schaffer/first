@@ -19,9 +19,9 @@ namespace TccFirst.Controllers
 
 
         [HttpGet, Route("obtertodos")]
-        public JsonResult ObterTodos()
+        public JsonResult ObterTodos(int idAgencia = 0)
         {
-            var cadastroContaCorrente = repository.ObterTodos();
+            var cadastroContaCorrente = repository.ObterTodos(idAgencia);
             var resultado = new { data = cadastroContaCorrente };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -59,7 +59,7 @@ namespace TccFirst.Controllers
         [HttpGet, Route("cadastrocontacorrente/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string termo)
         {
-            var agencias = repository.ObterTodos();
+            var agencias = repository.ObterTodos(0);
             List<object> ObterTodosSelect2 = new List<object>();
             foreach (CadastroContaCorrente cadastroContaCorrente in agencias)
             {

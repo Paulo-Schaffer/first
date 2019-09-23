@@ -13,7 +13,7 @@ namespace Repository.Interfaces
 
         bool Alterar(CadastroContaCorrente cadastrosContaCorrente);
 
-        List<CadastroContaCorrente> ObterTodos();
+        List<CadastroContaCorrente> ObterTodos(int idAgencia);
 
         CadastroContaCorrente ObterPeloId(int id);
 

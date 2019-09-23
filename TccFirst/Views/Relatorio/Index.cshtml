@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Contas Correntes</h2>
+
+<div class="form-group">
+    <label for="filtro-agencia">Agencia</label>
+    <select class="form-control" id="filtro-agencia">
+        <option value="0">Todos</option>
+    </select>
+</div>
+
+<table id="relatorio-conta-corrente-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Agencia</th>
+            <th>Numero da Conta</th>
+
+        </tr>
+    </thead>
+</table>
+
+@section js{
+    <script src="~/Scripts/Relatorio/relatorio-conta-corrente.js"></script>
+
+}
+
+
+

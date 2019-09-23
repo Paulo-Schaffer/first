@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace Repository
 {
-  // internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    // internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
     internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
@@ -243,12 +243,32 @@ namespace Repository
             #endregion
 
             #region cadastrocontacorrente
-            var cadastroscontacorrente = new List<CadastroContaCorrente>();
-            cadastroscontacorrente.Add(new CadastroContaCorrente() {
-                NumeroConta = 80,
-                IdAgencia = 1,
-                RegistroAtivo = true,
-            });
+            var cadastroscontacorrente = new List<CadastroContaCorrente>() {
+                new CadastroContaCorrente()
+                {
+                    Id = 1,
+                    NumeroConta = 80,
+                    IdAgencia = 1,
+                    RegistroAtivo = true,
+                },
+
+                  new CadastroContaCorrente()
+                  {
+                      Id = 2,
+                      NumeroConta = 1000,
+                      IdAgencia = 2,
+                      RegistroAtivo = true,
+                  },
+                  new CadastroContaCorrente()
+                  {
+                      Id = 3,
+                      NumeroConta = 1000,
+                      IdAgencia = 1,
+                      RegistroAtivo = true,
+                  }
+            };
+            context.CadastroContaCorrentes.AddRange(cadastroscontacorrente);
+
             #endregion
 
             #region fornecedores
@@ -269,8 +289,8 @@ namespace Repository
                 Uf = "SP",
                 Complemento = "casa",
                 RegistroAtivo = true,
-        });
-                context.Fornecedores.AddRange(fornecedores);
+            });
+            context.Fornecedores.AddRange(fornecedores);
             #endregion
 
             #region historico
@@ -292,7 +312,7 @@ namespace Repository
             });
             context.Historicos.AddRange(historico);
             #endregion
-      
+
             #region parcelaPagar
             var parcelaPagar = new List<ParcelaPagar>();
             parcelaPagar.Add(new ParcelaPagar()

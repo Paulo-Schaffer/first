@@ -39,7 +39,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro()
         {
             CadastroContaCorrenteRepository cadastroContaCorrenteRepository = new CadastroContaCorrenteRepository();
-            ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos();
+            ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos(CadastroContaCorrente.FiltroSemAgencia);
 
             HistoricoRepository historicoRepository = new HistoricoRepository();
             ViewBag.Historicos = historicoRepository.ObterTodos(); 

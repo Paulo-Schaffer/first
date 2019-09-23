@@ -5573,8 +5573,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\Relatorio-fornecedor\relatorio-cadastro-conta-corrente-editar.js" />
-    <Content Include="Scripts\Relatorio-fornecedor\relatorio-fonecedor-cadastro.js" />
+    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
@@ -5626,6 +5625,7 @@
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5704,8 +5704,7 @@
     <Content Include="Views\TituloPagar\Editar.cshtml" />
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
-    <Content Include="Views\relatoriofornecedor\Index.cshtml" />
-    <Content Include="Views\relatoriofornecedor\Relatorio-cadastro-conta-corrente.cshtml" />
+    <Content Include="Views\Relatorio\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
