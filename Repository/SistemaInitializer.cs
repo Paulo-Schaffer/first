@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-   internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-  //  internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+   //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+   internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -210,15 +210,12 @@ namespace Repository
 
             #endregion
 
-            
-       
-
             #region cadastroscontacorrente
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
             cadastroscontacorrente.Add(new CadastroContaCorrente()
             {
-                NumeroConta = 80,
                 IdAgencia = 1,
+                NumeroConta = 80,
                 RegistroAtivo = true,
             });
             cadastroscontacorrente.Add(new CadastroContaCorrente()
@@ -250,6 +247,24 @@ namespace Repository
             });
             #endregion
 
+            var transacao = new List<Transacao>();
+            transacao.Add(new Transacao()
+            {
+                RegistroAtivo = true,
+                IdCadastroContaCorrente=1,
+                IdCategoriaDespesa= 1,
+                IdCategoriaReceita =1,
+                IdHistorico = 1,
+                Descricao = "alo",
+                Documento = "daskdaksd",
+                TipoPagamento = "dinheiro",
+                Valor = 111,
+                Status = "pendente",
+                DataLancamento = Convert.ToDateTime("04/09/2019"),
+                DataVencimento = Convert.ToDateTime("04/09/2019"),
+                DataRecebimento = Convert.ToDateTime("04/09/2019")
+            });
+
             #region historico
             var historico = new List<Historico>();
             historico.Add(new Historico()
@@ -260,7 +275,7 @@ namespace Repository
             historico.Add(new Historico()
             {
                 Descricao = "Conta paga com sucesso",
-                RegistroAtivo = true
+                RegistroAtivo = true    
             });
             historico.Add(new Historico()
             {

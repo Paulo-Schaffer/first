@@ -3,60 +3,73 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="row">
-    <div class="col-6"><h2><b>Lista de Agencias</b></h2></div>
-    <div class="col-6">
-        <a class="btn btn-success float-right mb-3"
-           href="/agencia/cadastro"><i class="fa fa-plus"></i>Nova Agencia</a>
+<div class="container">
+
+    <div class="col-12"><h2><b>Lista de Agencias</b></h2></div>
+    <hr />
+    <div class="col-12">
+        <a id="botao-novaAgencia" class="btn float-right mb-3"  href="/Agencia/Cadastro"> 
+        <i class="fa fa-plus"></i>Nova Agencia </a>
+        
+        
     </div>
-</div>
-
-
-
-<div style="overflow-x:auto">
-    <table id="agencia-tabela" class="table table-light table-hover table-border-style table-striped">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Nome Banco</th>
-                <th>Nome Agencia</th>
-                <th>Numero Agencia</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (Model.Agencia agencia in ViewBag.Agencias)
-            {
+    <br />
+    <br />
+    <br />
+        <table id="agencia-tabela" class="table table-light table-hover table-responsive  table-striped table-border-style">
+            <thead>
                 <tr>
-                    <td>@agencia.Id</td>
-                    <td>@agencia.Banco</td>
-                    <td>@agencia.NomeAgencia</td>
-                    <td>@agencia.NumeroAgencia</td>
-                    <td>
-
-                        <div style="margin-left: 5px">
-                            <a id="botao-editar" class="btn btn-primary float-right mb-3" href="/agencia/editar?id=@agencia.Id">
-                                <i class="fa fa-edit"></i>Editar
-                            </a>
-                        </div>
-                        <div style="margin-right: 110px">
-                            <a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/agencia/apagar?id=@agencia.Id">
-                                <i class="fa fa-trash"></i>Apagar
-                            </a>
-                        </div>
-
-                    </td>
+                    <th>Código</th>
+                    <th>Nome do Banco</th>
+                    <th>Nome daAgencia</th>
+                    <th>Numero da Agencia</th>
+                    <th>Ação</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (Model.Agencia agencia in ViewBag.Agencias)
+                {
+                    <tr>
+                        <td>@agencia.Id</td>
+                        <td>@agencia.Banco</td>
+                        <td>@agencia.NomeAgencia</td>
+                        <td>@agencia.NumeroAgencia</td>
+                        <td>
+
+                            <div style="margin-left: 5px">
+                                <a id="botao-editar" class="btn btn-primary float-right mb-3" href="/agencia/editar?id=@agencia.Id">
+                                    <i class="fa fa-edit"></i>Editar
+                                </a>
+                            </div>
+                            <div style="margin-right: 110px">
+                                <a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/agencia/apagar?id=@agencia.Id">
+                                    <i class="fa fa-trash"></i>Apagar
+                                </a>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 </div>
+
+<link rel="stylesheet" href="~/Content/css/Agencia/TelaIndexAgencia.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 <script>
     $(document).ready(function () {
-        $('#agencia-tabela').DataTable();
+        $('#agencia-tabela').DataTable({
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado - sorry",
+                "info": "Mostrando páginas _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponivel",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)"
+            }
+        });
+
     });</script>
 
 

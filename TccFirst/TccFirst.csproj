@@ -100,7 +100,9 @@
     <Content Include="App_Data\TCCFirstDB_log.ldf">
       <DependentUpon>TCCFirstDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\css\Agencia\TelaIndexAgencia.css" />
     <Content Include="Content\css\ContaCorrente\TelaCadastroTransacao.css" />
+    <Content Include="Content\css\Index.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\Agencia\TelaCadastroAgencia.css" />
