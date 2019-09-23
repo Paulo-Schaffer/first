@@ -66,9 +66,7 @@ $(function () {
                 success: function (data) {
                     if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
                         radioButton = '"ClientePessoaFisica.Nome"';
-                        alert('caiu');
                     } else {
-                        alert('não caiu');
                     }
                     $tabelaTituloReceber.ajax.reload();
                 },
