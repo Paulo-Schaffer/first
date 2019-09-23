@@ -36,7 +36,7 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost, Route("editar")]
-        public JsonResult Editar(TituloReceber tituloReceber)
+        public JsonResult Editar(TituloReceber tituloReceber)   
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
