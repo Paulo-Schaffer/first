@@ -43,7 +43,7 @@ namespace TccFirst.Controllers
             var resultado = new { id = id };
             return RedirectToAction("Index", new { id = id });
         }
-        #endregion
+        
 
         #region Apagar 
         [HttpGet, Route("apagar")]

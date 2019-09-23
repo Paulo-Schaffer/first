@@ -68,7 +68,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Editar()
+        public ActionResult Editar(int id)
         {
             var titulosPagar = repository.ObterPeloId(id);
             ViewBag.TituloPagar = titulosPagar;
