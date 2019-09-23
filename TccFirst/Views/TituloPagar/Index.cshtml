@@ -1,13 +1,11 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-
 <h2>Lista de Títulos a Pagar</h2>
-
-<button type="button" data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-info float-right">
-    <i class="fa fa-plus"></i>Novo Titulo Pagar</button>
-
-<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped" >
+<a href="/titulopagar/cadastro" class="btn btn-info float-right">
+    <i class="fa fa-plus"></i>Novo Titulo a Pagar
+</a>
+<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Código</th>
@@ -26,14 +24,39 @@
             <th>Ação</th>
         </tr>
     </thead>
+    @foreach (Model.TituloPagar tituloPagar in ViewBag.TituloPagar)
+    {
+        <tr>
+            <td>@tituloPagar.Id</td>
+            <td>@tituloPagar.IdFornecedor</td>
+            <td>@tituloPagar.IdCategoriaDespesa</td>
+            <td>@tituloPagar.Descricao</td>
+            <td>@tituloPagar.FormaPagamento</td>
+            <td>@tituloPagar.Caixa</td>
+            <td>@tituloPagar.ValorTotal</td>
+            <td>@tituloPagar.Status</td>
+            <td>@tituloPagar.DataLancamento</td>
+            <td>@tituloPagar.DataRecebimento</td>
+            <td>@tituloPagar.DataVencimento</td>
+            <td>@tituloPagar.Complemento</td>
+            <td>@tituloPagar.QuantidadeParcela</td>
+            <td>
+                <div style="margin-left: 5px">
+                    <a id="botao-editar" class="btn btn-primary float-right" href="/parcelasPagar/editar?id=@tituloPagar.Id">Editar</a>
+                </div>
+                <div style="margin-right: 100px">
+                    <a id="botao-apagar" class="btn btn-danger float-right" href="/parcelasPagar/apagar?id=@tituloPagar.Id">Apagar</a>
+                </div>
+            </td>
+        </tr>
+    }
 </table>
-
-@RenderPage("CadastroTituloPagar.cshtml")
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
+
 
 
 

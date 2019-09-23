@@ -5483,8 +5483,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Caixa\caixa-cadastro.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
-    <Content Include="Scripts\Chart.js" />
-    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
@@ -5644,7 +5642,6 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\select2.min.css" />
-    <Content Include="Scripts\TituloPagar\jquery.form-validator.min.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
@@ -5703,7 +5700,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
     <Content Include="Views\TituloReceber\Index.cshtml" />
-    <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
@@ -5736,8 +5732,9 @@
     <Content Include="Views\ClientePessoaFisica\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
-    <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
+    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Historico\CadastroHistorico.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
@@ -5756,10 +5753,21 @@
     <Content Include="Views\ParcelasPagar\Cadastro.cshtml" />
     <Content Include="Views\ParcelasPagar\Editar.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
+    <Content Include="Views\Login do Sistema\LoginSistema.cshtml" />
+    <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
+    <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\ContaCorrente\Editar.cshtml" />
-    <Content Include="Views\Relatorios\Index.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\TituloPagar\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
+    <Content Include="Views\TituloReceber\Editar.cshtml" />
+    <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
+    <Content Include="Views\TituloReceber\Cadastro.cshtml" />
+    <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

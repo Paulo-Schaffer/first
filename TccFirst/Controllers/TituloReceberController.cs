@@ -8,8 +8,8 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("tituloreceber/")]
-    public class TituloReceberController : Controller
+    //[Route("tituloreceber/")]
+    public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
 
@@ -58,15 +58,32 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return RedirectToAction("Index", new { id = id });
+        }
+
+        #region Cadastro
+        [HttpPost]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
             tituloReceber.RegistroAtivo = true;
             int id = repository.Inserir(tituloReceber);
-            return Json(new { id = id });
+            var resultado = new { id = id };
+            return RedirectToAction("Index",resultado);
         }
 
-        [HttpPost, Route("editar")] 
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+        #endregion
+
+        #region Editar
+        [HttpPost, Route("editar")]
         public JsonResult Editar(TituloReceber tituloReceber)
         {
             var alterou = repository.Alterar(tituloReceber);
@@ -81,15 +98,22 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        #endregion
 
+        #region Index
+        [HttpGet]
         public ActionResult Index()
         {
+            TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
+            ViewBag.TitulosReceber = tituloReceberRepository.ObterTodos();
             return View();
         }
+        #endregion
 
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
+        //[HttpGet, Route("tituloreceber")]
+        //public JsonResult ObterPeloId(int id)
+        //{
+        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
     }
 }
