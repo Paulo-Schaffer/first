@@ -5686,7 +5686,6 @@
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <Content Include="Views\TituloPagar\Editar.cshtml" />
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
@@ -5695,6 +5694,7 @@
     <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

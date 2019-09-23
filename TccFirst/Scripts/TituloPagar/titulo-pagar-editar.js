@@ -7,7 +7,7 @@
         ajax: '/titulopagar/obtertodos',
         serverSide: true,
         columns: [
-            { data: 'Id' },
+            { data: "Id" },
             { data: "Fornecedor.RazaoSocial" },
             { data: "CategoriaDespesa.TipoCategoriaDespesa" },
             { data: "Descricao" },
@@ -80,7 +80,7 @@
             url: '/titulopagar/apagar?id=' + $id,
             method: "get",
             success: function (data) {
-                $tabelaTituloPagar.reload.ajax();
+                $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
                 alert('Não foi possível apagar');
