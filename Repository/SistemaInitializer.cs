@@ -6,7 +6,7 @@ using System.Data.Entity;
 namespace Repository
 {
     //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-      internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -243,16 +243,19 @@ namespace Repository
             var historico = new List<Historico>();
             historico.Add(new Historico()
             {
+                Id = 1,
                 Descricao = "Conta adicionada dia 19/07/2012",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
             {
+                Id = 2,
                 Descricao = "Conta paga com sucesso",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
             {
+                Id = 3,
                 Descricao = "Conta em atraso, pagar até dia 29/08/1996",
                 RegistroAtivo = true
             });
@@ -427,32 +430,32 @@ namespace Repository
             //context.ParcelasReceber.AddRange(parcelaReceber);
             //#endregion ParcelaReceber
 
-            #region titulosPagar
-            var tituloPagar = new List<TituloPagar>();
-            tituloPagar.Add(new TituloPagar()
-            {
-                NomeFuncionario = "Paulo",
-                TipoFuncionario = "Gerente",
-                Usuario = "Paulo",
-                Senha = "123",
-                RegistroAtivo = true
+            //#region titulosPagar
+            //var tituloPagar = new List<TituloPagar>();
+            //tituloPagar.Add(new TituloPagar()
+            //{
+            //    NomeFuncionario = "Paulo",
+            //    TipoFuncionario = "Gerente",
+            //    Usuario = "Paulo",
+            //    Senha = "123",
+            //    RegistroAtivo = true
 
-            });
-            funcionarios.Add(new Funcionario()
-            {
-                Descricao = "Titulo feio por Paulo",
-                FormaPagamento = "Credito",
-                Caixa = false,
-                ValorTotal = 1,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("13/06/2016"),
-                DataRecebimento = Convert.ToDateTime("12/07/2019"),
-                DataVencimento = Convert.ToDateTime("13/07/2016"),
-                Complemento = "Usuario nao pagou",
-                QuantidadeParcela = 6,
-                RegistroAtivo = true
-            });
-            #endregion
+            //});
+            //funcionarios.Add(new Funcionario()
+            //{
+            //    Descricao = "Titulo feio por Paulo",
+            //    FormaPagamento = "Credito",
+            //    Caixa = false,
+            //    ValorTotal = 1,
+            //    Status = "Pendente",
+            //    DataLancamento = Convert.ToDateTime("13/06/2016"),
+            //    DataRecebimento = Convert.ToDateTime("12/07/2019"),
+            //    DataVencimento = Convert.ToDateTime("13/07/2016"),
+            //    Complemento = "Usuario nao pagou",
+            //    QuantidadeParcela = 6,
+            //    RegistroAtivo = true
+            //});
+            //#endregion
 
             #region tituloReceber
             var tituloReceber = new List<TituloReceber>();

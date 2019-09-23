@@ -9,10 +9,9 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class MovimentacaoFinanceiraEntradaController : BaseController
     [Route("movimentacaofinanceiraentrada/")]
-    public class MovimentacaoFinanceiraEntradaController : Controller
-    {
+    public class MovimentacaoFinanceiraEntradaController : BaseController
+    { 
         private MovimentacaoFinaceiraEntradaRepository repository;
         
         public MovimentacaoFinanceiraEntradaController()
