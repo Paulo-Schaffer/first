@@ -39,30 +39,7 @@ namespace Repository
 
             #endregion
 
-
-            #region historico
-            var historico = new List<Historico>();
-            historico.Add(new Historico()
-            {
-                Id = 1,
-                Descricao = "Conta adicionada dia 19/07/2000",
-                RegistroAtivo = true
-            });
-            historico.Add(new Historico()
-            {
-                Id = 2,
-                Descricao = "Conta paga com sucesso",
-                RegistroAtivo = true
-            });
-            historico.Add(new Historico()
-            {
-                Id = 3,
-                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
-                RegistroAtivo = true
-            });
-            #endregion
-
-            #region caixa
+            #region caixas
             var caixa = new List<Caixa>();
             caixa.Add(new Caixa()
             {
@@ -78,7 +55,7 @@ namespace Repository
             context.Caixas.AddRange(caixa);
             #endregion
 
-            #region categoriaDespesa
+            #region categoriasDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
@@ -93,7 +70,7 @@ namespace Repository
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
-            #region categoriaReceita
+            #region categoriasReceita
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
@@ -108,7 +85,7 @@ namespace Repository
             context.CategoriasReceitas.AddRange(categoriaReceita);
             #endregion
 
-            #region clientePessoaFisica
+            #region clientesPessoasFisicas
 
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
@@ -146,7 +123,7 @@ namespace Repository
             context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
-            #region clientePessoaJuridica
+            #region clientesPessoasJuridicas
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
@@ -189,7 +166,7 @@ namespace Repository
             context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
             #endregion
 
-            #region endereço
+            #region endereços
             var enderecos = new List<Endereco>();
             enderecos.Add(new Endereco()
             {
@@ -222,43 +199,21 @@ namespace Repository
 
             #endregion
 
-            #region tituloPagar
-            var tituloPagar = new List<TituloPagar>();
-            tituloPagar.Add(new TituloPagar()
-            {
-                Descricao = "Titulo feio por Paulo",
-                FormaPagamento = "Dinheiro",
-                Caixa = true,
-                ValorTotal = 1999,
-                Status = "Pago",
-                DataLancamento = Convert.ToDateTime("23/06/2016"),
-                DataRecebimento = Convert.ToDateTime("22/07/2016"),
-                DataVencimento = Convert.ToDateTime("23/07/2016"),
-                Complemento = "Usuario pagou corretamente",
-                QuantidadeParcela = 1,
-                RegistroAtivo = true
-            });
-            tituloPagar.Add(new TituloPagar()
-            {
-                Descricao = "Titulo feio por Paulo",
-                FormaPagamento = "Credito",
-                Caixa = false,
-                ValorTotal = 127422,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("13/06/2016"),
-                DataRecebimento = Convert.ToDateTime("12/07/2019"),
-                DataVencimento = Convert.ToDateTime("13/07/2016"),
-                Complemento = "Usuario nao pagou",
-                QuantidadeParcela = 6,
-                RegistroAtivo = true
-            });
-            #endregion
+            
+       
 
-            #region cadastrocontacorrente
+            #region cadastroscontacorrente
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
-            cadastroscontacorrente.Add(new CadastroContaCorrente() {
+            cadastroscontacorrente.Add(new CadastroContaCorrente()
+            {
                 NumeroConta = 80,
                 IdAgencia = 1,
+                RegistroAtivo = true,
+            });
+            cadastroscontacorrente.Add(new CadastroContaCorrente()
+            {
+                NumeroConta = 14,
+                IdAgencia = 2,
                 RegistroAtivo = true,
             });
             #endregion
@@ -284,11 +239,11 @@ namespace Repository
             });
             #endregion
 
-            #region historicos
-            var historicos = new List<Historico>();
+            #region historico
+            var historico = new List<Historico>();
             historico.Add(new Historico()
             {
-                Descricao = "Conta adicionada dia 19/07/2000",
+                Descricao = "Conta adicionada dia 19/07/2012",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
@@ -405,42 +360,10 @@ namespace Repository
 
             //    #endregion
 
-            //    #region funcionario
-            //    var funcionario = new List<Funcionario>();
-            //    funcionario.Add(new Funcionario()
-            //    {
-            //        NomeFuncionario = "Paulo",
-            //        TipoFuncionario = 3,
-            //        RegistroAtivo = true
-
-            //    });
-            //    funcionario.Add(new Funcionario()
-            //    {
-            //        NomeFuncionario = "André",
-            //        TipoFuncionario = 1,
-            //        RegistroAtivo = true
-
-            //    });
-            //    context.Funcionarios.AddRange(funcionario);
-            //    #endregion
 
 
-            //#region login
-            //var login = new List<Login>();
-            //login.Add(new Login()
-            //{
-            //    Usuario = "Cléber",
-            //    Senha = "cg1992",
-            //    RegistroAtivo = true
-            //});
-            //login.Add(new Login()
-            //{
-            //    Usuario = "Gustavo",
-            //    Senha = "gustavo1500",
-            //    RegistroAtivo = true
-            //});
-            //context.Logins.AddRange(login);
-            //#endregion
+
+
 
             //#region movimentacaoFinanceiraEntrada
             //var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
@@ -504,34 +427,61 @@ namespace Repository
             //context.ParcelasReceber.AddRange(parcelaReceber);
             //#endregion ParcelaReceber
 
-            //#region tituloReceber
-            //var tituloReceber = new List<TituloReceber>();
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao= "Titulo sem compromisso",
-            //    ValorTotal = 123213123,
-            //    Status = "Pago",
-            //    DataLancamento = "29/12/2018",
-            //    DataRecebimento = "04/01/2019",
-            //    DataVencimento="30/01/2019",
-            //    Complemento="Não sei o que por",
-            //    QuantidadeParcela= 36,
-            //    RegistroAtivo = true
-            //});
-            //tituloReceber.Add(new TituloReceber()
-            //{
-            //    Descricao = "Titulo com compromisso",
-            //    ValorTotal = 343234,
-            //    Status = "Pendente",
-            //    DataLancamento = "09/02/2017",
-            //    DataRecebimento = "",
-            //    DataVencimento = "10/03/2017",
-            //    Complemento = "Não sei o que por, desculpa",
-            //    QuantidadeParcela = 24,
-            //    RegistroAtivo = true
-            //});
-            //context.TitulosReceber.AddRange(tituloReceber);
-            //#endregion
+            #region titulosPagar
+            var tituloPagar = new List<TituloPagar>();
+            tituloPagar.Add(new TituloPagar()
+            {
+                NomeFuncionario = "Paulo",
+                TipoFuncionario = "Gerente",
+                Usuario = "Paulo",
+                Senha = "123",
+                RegistroAtivo = true
+
+            });
+            funcionarios.Add(new Funcionario()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Credito",
+                Caixa = false,
+                ValorTotal = 1,
+                Status = "Pendente",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
+                Complemento = "Usuario nao pagou",
+                QuantidadeParcela = 6,
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region tituloReceber
+            var tituloReceber = new List<TituloReceber>();
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao= "Titulo sem compromisso",
+                ValorTotal = 125,
+                Status = "Pago",
+                DataLancamento = "29/12/2018",
+                DataRecebimento = "04/01/2019",
+                DataVencimento="30/01/2019",
+                Complemento="Não sei o que por",
+                QuantidadeParcela= 36,
+                RegistroAtivo = true
+            });
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao = "Titulo com compromisso",
+                ValorTotal = 175,
+                Status = "Pendente",
+                DataLancamento = "09/02/2017",
+                DataRecebimento = "",
+                DataVencimento = "10/03/2017",
+                Complemento = "Não sei o que por, desculpa",
+                QuantidadeParcela = 24,
+                RegistroAtivo = true
+            });
+            context.TitulosReceber.AddRange(tituloReceber);
+            #endregion
 
             base.Seed(context);
         }

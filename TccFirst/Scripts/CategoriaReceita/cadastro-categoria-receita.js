@@ -5,7 +5,7 @@
         ajax: '/categoriareceita/obterTodos',
         serverSide: true,
         columns: [
-            { 'data': 'Id' },
+            { 'data': 'Idw' },
             { 'data': 'TipoCategoriaReceita' },
             {
                 render: function (data, type, row) {
@@ -34,7 +34,7 @@
             method: "post",
             data: {
                 id: $idAlterar,
-                TipoCategoriaReceita: $categoriaReceita
+                tipoReceita: $categoriaReceita
             },
             success: function (data) {
                 $("#modal-categoria-receita").modal("hide");
@@ -52,11 +52,10 @@
             url: '/categoriareceita/inserir',
             method: 'post',
             data: {
-                TipoCategoriaReceita: $categoriaReceita,
+                categoriaReceita: $categoriaReceita,
             },
             success: function (data) {
                 $('#modal-categoria-receita').modal('hide');
-                $(".modal-backdrop").hide();
                 $tabelaCategoriaReceita.ajax.reload();
             },
             error: function (err) {
@@ -90,7 +89,7 @@
             method: 'get',
 
             success: function (data) {
-                $('#categoria-receita-campo-receita').val(data.TipoCategoriaReceita);
+                $('#categoria-receita-campo-receita').val(data.TipoReceita);
                 $('#modal-categoria-receita').modal('show');
             },
             error: function (err) {
