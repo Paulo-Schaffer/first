@@ -59,7 +59,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Editar(int id)
+        public ActionResult Editar()
         {
             return View();
         }
@@ -71,12 +71,6 @@ namespace TccFirst.Controllers
         {
             TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
             ViewBag.TitulosReceber = tituloReceberRepository.ObterTodos();
-            return View();
-        }
-       
-        [HttpGet, Route("Index")]
-        public ActionResult Index()
-        {
             return View();
         }
         #endregion
