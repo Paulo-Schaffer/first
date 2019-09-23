@@ -13,6 +13,10 @@
     });
 
     $tabelaCadastroContaCorrente = $('#relatorio-conta-corrente-tabela').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         ajax: {
             url: '/cadastrocontacorrente/obterTodos',
             data: function (d) {
