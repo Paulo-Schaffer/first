@@ -326,7 +326,7 @@ namespace Repository
             #endregion
 
             #region funcionario
-            var funcionario = new List<Funcionario>();
+            var funcionarios = new List<Funcionario>();
             funcionarios.Add(new Funcionario()
             {
                 NomeFuncionario = "João Stein",
@@ -345,7 +345,7 @@ namespace Repository
                 RegistroAtivo = true
 
             });
-            context.Funcionarios.AddRange(funcionarios);
+            context.Historicos.AddRange(historicos);
             #endregion Historicos
 
             #region tituloPagar
@@ -387,7 +387,66 @@ namespace Repository
             context.TitulosPagar.AddRange(titulosPagar);
             #endregion
 
-            
+            #region tituloReceber
+            var titulosReceber = new List<TituloReceber>();
+            titulosReceber.Add(new TituloReceber()
+            {
+                NomeFuncionario = "Paul",
+                TipoFuncionario = "Gerente",
+                Usuario = "Paul",
+                Senha = "123",
+                RegistroAtivo = true
+            });
+            funcionarios.Add(new Funcionario()
+            {
+                NomeFuncionario = "Cleber",
+                TipoFuncionario = "Gerente",
+                Usuario = "Cleber",
+                Senha = "123",
+                RegistroAtivo = true
+            });
+            context.Funcionarios.AddRange(funcionarios);
+            #endregion
+
+            #region fornecedores
+            var fornecedores = new List<Fornecedor>();
+            fornecedores.Add(new Fornecedor()
+            {
+                RazaoSocial = "Peugeot",
+                NomeFantasia = "strabourg",
+                DataCadastro = Convert.ToDateTime("04/09/2019"),
+                Cnpj = "83.590.870/0001-95",
+                Email = "first@outlook.com",
+                Telefone = "3345-5567",
+                Cep = "09432-876",
+                Logradouro = "UBATUBA",
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Cidade = "São Paulo",
+                Uf = "SP",
+                Complemento = "casa",
+                RegistroAtivo = true,
+            });
+            fornecedores.Add(new Fornecedor()
+            {
+                RazaoSocial = "Honda",
+                NomeFantasia = "Hodinha",
+                DataCadastro = Convert.ToDateTime("04/09/2019"),
+                Cnpj = "83.590.870/0001-95",
+                Email = "first@outlook.com",
+                Telefone = "3345-5567",
+                Cep = "09432-876",
+                Logradouro = "UBATUBA",
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Cidade = "São Paulo",
+                Uf = "SP",
+                Complemento = "casa",
+                RegistroAtivo = true,
+            });
+            context.Fornecedores.AddRange(fornecedores);
+            #endregion
+
 
             base.Seed(context);
         }
