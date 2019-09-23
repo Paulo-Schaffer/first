@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("tituloreceber/")]
+    //[Route("tituloreceber/")]
     public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
@@ -17,7 +17,7 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-      
+
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
@@ -26,60 +26,59 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return RedirectToAction("Index", new { id = id });
+        }
+
+        #region Cadastro
+        [HttpPost]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
             tituloReceber.RegistroAtivo = true;
             int id = repository.Inserir(tituloReceber);
-            return Json(new { id = id });
-        }
-
-        [HttpPost, Route("editar")] 
-        public JsonResult Editar(TituloReceber tituloReceber)
-        {
-            var alterou = repository.Alterar(tituloReceber);
-            var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        
-        [HttpGet,Route("apagar")]
-        public JsonResult Apagar(int id)
-        {
-            
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-        [HttpGet, Route("obterpeloid")]
-        public ActionResult ObterPeloId(int id)
-        {
-            var tituloReceber = repository.ObterPeloId(id);
-            if (tituloReceber == null)
-                return HttpNotFound();
-
-            return Json(tituloReceber,
-                JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult Index()
-        {
-            return View();
+            var resultado = new { id = id };
+            return RedirectToAction("Index",resultado);
         }
 
         public ActionResult Cadastro()
         {
             return View();
         }
+        #endregion
 
-        //[HttpGet,Route("editar")]
-        //ActionResult Editar(int id)
+        #region Editar
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(TituloReceber tituloReceber)
+        {
+            var alterou = repository.Alterar(tituloReceber);
+            var resultado = new { status = alterou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Editar()
+        {
+            return View();
+        }
+        #endregion
+
+        #region Index
+        [HttpGet]
+        public ActionResult Index()
+        {
+            TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
+            ViewBag.TitulosReceber = tituloReceberRepository.ObterTodos();
+            return View();
+        }
+        #endregion
+
+        //[HttpGet, Route("tituloreceber")]
+        //public JsonResult ObterPeloId(int id)
         //{
-        //    var titulosReceber = repository.ObterPeloId(id);
-        //    if (titulosReceber == null)
-        //        return RedirectToAction("Index");
-        //    ViewBag.TituloReceber = titulosReceber;
-        //    return View();
-
+        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         //}
         
         [HttpGet, Route("tituloReceber/obtertodosselect2")]

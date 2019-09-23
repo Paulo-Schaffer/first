@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Model;
 using Repository.Repositories;
@@ -19,38 +16,6 @@ namespace TccFirst.Controllers
         {
             repository = new AgenciaRepository();
         }
-
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
 
         [HttpGet]
         public ActionResult Index() 
@@ -114,34 +79,23 @@ namespace TccFirst.Controllers
         public JsonResult ObterTodosSelect(string termo)
         {
             var agencias = repository.ObterTodos();
-            List<object> agenciasSelect = new List<object>();
+            List<object> ObterTodosSelect2 = new List<object>();
             foreach (Agencia agencia in agencias)
             {
-                agenciasSelect.Add(new
+                ObterTodosSelect2.Add(new
                 {
                     id = agencia.Id,
-                    banco = agencia.Banco,
-                    nome = agencia.NomeAgencia,
-                    numero = agencia.NumeroAgencia
+                    text = agencia.NomeAgencia,
                 });
             }
             var resultado = new
             {
-                resultados = agenciasSelect
+                results = ObterTodosSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
         }
-
-
-
-
-
-
-
     }
-
-
 }
 
 
