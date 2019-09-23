@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Contas Correntes</h2>
+
+@*<button data-toggle="modal" data-target="#relatorio-modal-cadastro-conta-corrente" class="btn btn-primary">Nova Conta Corrente</button>*@
+<table id="cadastro-conta-corrente-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Agencia</th>
+            <th>Numero da Conta</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+@RenderPage("Relatorio-cadastro-conta-corrente.cshtml")
+@section js {
+    <script src="~/Scripts/Relatorio-fornecedor/relatorio-cadastro-conta-corrente-editar.js"></script>
+    <script src="~/Scripts/Relatorio-fornecedor/relatorio-fonecedor-cadastro.js"></script>
+}
+
+
