@@ -61,8 +61,8 @@ namespace TccFirst.Controllers
 
         public ActionResult Editar(int id)
         {
-            var titulosReceber = repository.ObterPeloId(id);
-            ViewBag.TituloReceber = titulosReceber;
+            var tituloReceber = repository.ObterPeloId(id);
+            ViewBag.TituloReceber = tituloReceber;
             return View();
         }
         #endregion

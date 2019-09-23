@@ -1,8 +1,6 @@
 ﻿
 @{
-                /**/
-
-                ViewBag.Title = "Index";
+    ViewBag.Title = "Index";
 }
 
 <h2>Cadastro de Títulos a Receber</h2>
@@ -38,12 +36,12 @@
             <td>@tituloReceber.Descricao</td>
             <td>
 
-            <div style="margin-left: 5px">
-                <a id="botao-editar" class="btn btn-primary float-right" href="/tituloReceber/editar?id=@tituloReceber.Id">Editar</a>
-            </div>
-            <div style="margin-right: 100px">
-                <a id="botao-apagar" class="btn btn-danger float-right" href="/tituloReceber/apagar?id=@tituloReceber.Id">Apagar</a>
-            </div>
+                <div style="margin-left: 5px">
+                    <a id="botao-editar" class="btn btn-primary float-right" href="/tituloreceber/editar?id=@tituloReceber.Id">Editar</a>
+                </div>
+                <div style="margin-right: 100px">
+                    <a id="botao-apagar" class="btn btn-danger float-right" href="/tituloReceber/apagar?id=@tituloReceber.Id">Apagar</a>
+                </div>
 
             </td>
         </tr>
