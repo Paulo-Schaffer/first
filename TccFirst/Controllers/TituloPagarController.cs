@@ -32,10 +32,10 @@ namespace TccFirst.Controllers
         {
             var titulosPagar = repository.ObterTodos();
             var resultado = new { data = titulosPagar };
-            return RedirectToAction("Editar", new { id = id });
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        #region Cadastro
+        #region cadastro    
         public ActionResult Cadastro()
         {
             return View();
@@ -68,7 +68,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Editar()
+        public ActionResult Editar(int id)
         {
             var titulosPagar = repository.ObterPeloId(id);
             ViewBag.TituloPagar = titulosPagar;

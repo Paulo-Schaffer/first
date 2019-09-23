@@ -35,6 +35,11 @@ namespace TccFirst.Controllers
         }
 
         #region Cadastro
+        [HttpGet,Route("Index")]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
@@ -42,11 +47,6 @@ namespace TccFirst.Controllers
             int id = repository.Inserir(tituloReceber);
             var resultado = new { id = id };
             return RedirectToAction("Index",resultado);
-        }
-
-        public ActionResult Cadastro()
-        {
-            return View();
         }
         #endregion
 
@@ -59,8 +59,10 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Editar()
+        public ActionResult Editar(int id)
         {
+            var titulosReceber = repository.ObterPeloId(id);
+            ViewBag.TituloReceber = titulosReceber;
             return View();
         }
         #endregion
