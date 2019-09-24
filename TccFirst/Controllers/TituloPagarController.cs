@@ -59,12 +59,12 @@ namespace TccFirst.Controllers
         }
 
         #region Editar
-        [HttpPost, Route("editar")]
-        public JsonResult Editar(TituloPagar tituloPagar)
+        [HttpPost, Route("update")]
+        public JsonResult Update(TituloPagar tituloPagar)
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return Json(resultado);
         }
 
         public ActionResult Editar(int id)
@@ -74,6 +74,12 @@ namespace TccFirst.Controllers
             return View();
         }
         #endregion
+
+        [HttpGet, Route("tituloPagar/")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
 
         [HttpGet, Route("tituloPagar/obtertodosselect")]
         public JsonResult ObterTodosSelect(string termo)

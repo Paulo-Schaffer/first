@@ -73,9 +73,27 @@
         });
     });
 
+    $('.table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data("id");
+        $.ajax({
+            url: '/tituloPagar/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
+                $('#tituloPagar-campo-data-pagamento').val(data.DataPagamento);
+                $('#tituloPagar-campo-valor').val(data.Valor);
+                $('#tituloPagar-campo-status').val(data.Status);
+                $('#modal-tituloPagar').modal('show');
+            },
+            error: function (err) {
+                alert('Não foi possível carregar!');
+            }
+        });
+    });
+
     function alterar($Valor, $Status, $DataVencimento, $DataPagamento ) {
         $.ajax({
-            url: "/Funcionario/update",
+            url: "/tituloPagar/update",
             method: "post",
             data: {
                 Valor: $Valor,
@@ -85,6 +103,7 @@
                 id: $idAlterar
             },
             success: function (data) {
+                $("#modal-tituloPagar").modal("hide");
                 $idAlterar = -1;
                 $tabelaParcelas.ajax.reload();
             },
@@ -93,19 +112,6 @@
             }
         })
     }
-
-    $('.table').on('click', '.botao-editar', function () {
-        $idAlterar = $(this).data("id");
-        $.ajax({
-            url: '/parcelaspagar/obterpeloid?id=' + $idAlterar,
-            method: 'get',
-            success: function (data) {
-            },
-            error: function (err) {
-                alert('Não foi possível carregar');
-            }
-        });
-    });
 
     function monstrarMensagem(texto, titulo, tipo) {
         return false;
