@@ -72,7 +72,7 @@ namespace TccFirst.Controllers
             var tituloPagar = repository.ObterPeloId(id);
             ViewBag.TituloPagar = tituloPagar;
             return View();
-        }*/
+        }
         #endregion
 
         [HttpGet, Route("tituloPagar/obtertodosselect")]
