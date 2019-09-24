@@ -82,6 +82,27 @@
         }
     });
 
+    function alterar($Valor, $Status, $DataVencimento, $DataPagamento ) {
+        $.ajax({
+            url: "/Funcionario/update",
+            method: "post",
+            data: {
+                Valor: $Valor,
+                Status: $Status,
+                DataVencimento: $DataVencimento,
+                DataPagamento: $DataPagamento,
+                id: $idAlterar
+            },
+            success: function (data) {
+                $idAlterar = -1;
+                $tabelaParcelas.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possível alterar");
+            }
+        })
+    }
+
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data("id");
         $.ajax({

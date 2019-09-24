@@ -1,0 +1,32 @@
+﻿<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <span class="font-weight-bold">Valor Total:</span>
+            <span>@ViewBag.TituloPagar.ValorTotal</span>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-group">
+            <span class="font-weight-bold">Quantidade de Parcelas:</span>
+            <span>@ViewBag.TituloPagar.QuantidadeParcela</span>
+        </div>
+    </div>
+</div>
+<button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3">Gerar Parcelas</button>
+
+<table id="titulo-pagar-parcelas-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Data Vencimento</th>
+            <th>Data Pagamento</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+
+@section js{
+    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
+}
