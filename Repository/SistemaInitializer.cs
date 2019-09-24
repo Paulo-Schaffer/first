@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-   //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-   internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    // internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -306,6 +306,7 @@ namespace Repository
                 Valor = -2422,
                 RegistroAtivo = true,
             });
+            
             movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
             {
                 Valor = 255244,
