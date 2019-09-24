@@ -16,8 +16,8 @@ namespace Model
         [Key,Column("id")]
         public int Id { get; set; }
 
-        [Column("descricao")]
-        public string Descricao { get; set; }
+        [Column("descricao_transacao")]
+        public string DescricaoTransacao { get; set; }
 
         [Column("documento")]
         public string Documento { get; set; }

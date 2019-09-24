@@ -51,7 +51,7 @@ namespace TccFirst.Controllers
         }
         [HttpPost]
         public ActionResult Cadastro(Transacao transacao)
-        {
+            {
             transacao.RegistroAtivo = true;
             var id = repository.Inserir(transacao);
             var resultado = new { id = id };

@@ -1,0 +1,33 @@
+﻿body {
+}
+
+/*#region botoes*/
+#botao-editarTransacao {
+    color: white;
+    background-color: gray;
+    border-color: darkgray;
+    width: 235px;
+    height: 40px;
+}
+#botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+}
+/*#endregion
+*/
+    
+/*#region fontes*/
+#fonte {
+    color: black;
+    font-weight: bold;
+}
+/*#endregion*/
+
+/*#region campo*/
+#campo{
+    border-color:black; 
+    font:x-large;
+}
+/*#endregion*/

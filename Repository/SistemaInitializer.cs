@@ -5,9 +5,9 @@ using System.Data.Entity;
 
 namespace Repository
 {
-   //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-   internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
-    {
+   internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+   //internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+   {
         protected override void Seed(SistemaContext context)
         {
 
@@ -255,7 +255,7 @@ namespace Repository
                 IdCategoriaDespesa= 1,
                 IdCategoriaReceita =1,
                 IdHistorico = 1,
-                Descricao = "alo",
+                DescricaoTransacao = "alo",
                 Documento = "daskdaksd",
                 TipoPagamento = "dinheiro",
                 Valor = 111,
@@ -321,7 +321,7 @@ namespace Repository
             {
                 NomeFuncionario = "André",
                 TipoFuncionario = "Funcionario",
-                Usuario = "andrezinho",
+                Usuario = "Andre",
                 Senha = "123",
                 RegistroAtivo = true
 
