@@ -17,6 +17,37 @@ namespace TccFirst.Controllers
             repository = new CadastroContaCorrenteRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
@@ -48,36 +79,6 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
-        [HttpGet, Route("cadastrocontacorrente")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
-
-        [HttpGet, Route("cadastrocontacorrente/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string termo)
-        {
-            var agencias = repository.ObterTodos(0);
-            List<object> ObterTodosSelect2 = new List<object>();
-            foreach (CadastroContaCorrente cadastroContaCorrente in agencias)
-            {
-                ObterTodosSelect2.Add(new
-                {
-                    id = cadastroContaCorrente.Id,
-                    text = cadastroContaCorrente.NumeroConta,
-                    idconta = cadastroContaCorrente.IdAgencia,
-                });
-            }
-            var resultado = new
-            {
-                results = ObterTodosSelect2
-            };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
-
         public ActionResult Index()
         {
             return View();
