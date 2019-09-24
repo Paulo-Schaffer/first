@@ -1,0 +1,128 @@
+﻿<div class="container container-fluid">
+    <form method="post" action="/TituloPagar/editar">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-fornecedor" mas>Fornecedores</label>
+                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFonecedor"></select>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-categoria-despesa" mas>Categoria despesas</label>
+                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa" value="@ViewBag.TituloPagar.IdCategoriaDespesa"></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento</label>
+                    <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento" value="@ViewBag.TituloPagar.FormaPagamento">
+                        <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                        <option>Dinheiro</option>
+                        <option>Cartão Débito</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-status" mas>Status</label>
+                    <select class="form-control" id="tituloPagar-campo-status" name="Status" value="@ViewBag.TituloPagarStatus">
+                        <option disabled="disabled" selected="selected">Selecione um status</option>
+                        <option>Pendente</option>
+                        <option>Pago</option>
+                        <option>Cancelado</option>
+                        <option>Pago parcialmente</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 ml-4">
+                <div class="form-check">
+                    <input type="checkbox" id="tituloPagar-campo-caixa" class="form-check-input" />
+                    <label for="tituloPagar-campo-caixa" class="form-check-label">Caixa</label>
+                </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="tituloPagar-campo-banco" class="form-check-input" />
+                        <label for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-data-lancamento" mas>Data de Lançamento</label>
+                    <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control"
+                           name="DataLancamento" value="@ViewBag.TituloPagar.DataLancamento.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento</label>
+                    <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control"
+                           name="DataRecebimento" value="@ViewBag.TituloPagar.DataRecebimento.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label form="tituloPagar-campo-data-vencimento" mas>Data Vencimento</label>
+                    <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control"
+                           name="DataVencimento" value="@ViewBag.TituloPagar.DataVencimento.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-quantidade-parcela" mas>Quantidade de Parcelas</label>
+                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" name="QuantidadeParcela" value="@ViewBag.TituloPagar.QuantidadeParcela" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-complemento" mas>Complemento</label>
+                    <input type="text" id="tituloPagar-campo-complemento" class="form-control" name="Complemento" value="@ViewBag.TituloPagar.Complemento" />
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-valor-total" mas>Valor Total</label>
+                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control"
+                           name="ValorTotal" value="@ViewBag.TituloPagar.ValorTotal" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="tituloPagar-campo-descricao" mas>Descrição</label>
+                        <textarea id="tituloPagar-campo-descricao" class="form-control" name="Descricao">@ViewBag.TituloPagar.Descricao</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success float-lg-right mb-3" id="titulo-pagar-botao-salvar">
+            <i class="fa fa-floppy-o"></i> Salvar
+        </button>
+    </form>
+</div>
+
+@section js{
+    <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
+}
