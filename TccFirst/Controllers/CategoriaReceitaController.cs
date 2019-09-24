@@ -17,44 +17,12 @@ namespace TccFirst.Controllers
             repository = new CategoriaReceitaRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
 
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-
         [HttpPost]
         public JsonResult Inserir(CategoriaReceita categoriaReceita)    
         {
@@ -64,14 +32,6 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
-        [HttpGet]
-        public JsonResult ObterTodos()
-        {
-            var categorias = repository.ObterTodos();
-            var resultado = new { data = categorias };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
         [HttpGet]
         public JsonResult Apagar(int id)
         {
@@ -92,8 +52,6 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-
-
         [HttpGet, Route("categoriareceita/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {

@@ -17,11 +17,15 @@ namespace TccFirst.Controllers
             repository = new ParcelaPagarRepository();
         }
 
-        //public ActionResult Index()
-        //{
-        //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        //}
 
+        public ActionResult Index()
+        {
+            ParcelaPagarRepository repositoryParcelaPagar = new ParcelaPagarRepository();
+            ViewBag.ParcelaPagar = repositoryParcelaPagar.ObterTodos();
+            return View();
+        }
+
+        #region obtertodos
         [HttpGet]
         public JsonResult ObterTodos()
         {
@@ -29,12 +33,15 @@ namespace TccFirst.Controllers
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        #endregion
 
-        //[HttpGet, Route("parcelasPagar/obtertodosselect2")]
-        //public JsonResult ObterTodosSelect2(string termo)
-        //{
-        //    var parcelasPagar = repository.ObterTodos();
-        //    List<object> parcelasPagarSelect2 = new List<object>();
+        #region cadastro
+        [HttpGet, Route("Index")]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Cadastro(ParcelaPagar parcelaPagar)
         {

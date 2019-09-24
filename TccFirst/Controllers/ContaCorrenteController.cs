@@ -72,11 +72,11 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost, Route("editar")]
-        public ActionResult Editar(ContaCorrente contaCorrente)
+        public JsonResult Editar(ContaCorrente contaCorrente)
         {
             var alterou = repository.Alterar(contaCorrente);
             var resultado = new { status = alterou };
-            return RedirectToAction("Index", new { id = resultado });
+            return Json(resultado);
         }
 
 

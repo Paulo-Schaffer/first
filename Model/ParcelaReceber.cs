@@ -16,7 +16,7 @@ namespace Model
         public int Id { get; set; }
 
         [Column("valor")]
-        public decimal Valor { get; set; }
+        public int Valor { get; set; }
 
         [Column("status")]
         public string Status { get; set; }
