@@ -16,14 +16,14 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia da Vida",
-                NumeroAgencia = 2001,
+                NumeroAgencia = "2001",
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia do Paulo",
-                NumeroAgencia = 666,
+                NumeroAgencia = "666",
                 Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
@@ -31,12 +31,35 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Você consegue",
-                NumeroAgencia = 8001,
+                NumeroAgencia = "8001",
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
             context.Agencias.AddRange(agencias);
 
+            #endregion
+
+
+            #region historico
+            var historico = new List<Historico>();
+            historico.Add(new Historico()
+            {
+                Id = 1,
+                Descricao = "Conta adicionada dia 19/07/2000",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Id = 2,
+                Descricao = "Conta paga com sucesso",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Id = 3,
+                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
+                RegistroAtivo = true
+            });
             #endregion
 
             #region caixa
@@ -48,21 +71,10 @@ namespace Repository
                 FormaPagamento = "Debito",
                 Valor = 1900,
                 DataLancamento = Convert.ToDateTime("1900-01-01 00:00:00"),
-                Status = "Aberto",
-                Historico = "Fatura 15,89 dia 19/09/2000",
+                IdHistoricos = 1,
                 RegistroAtivo = true
             });
-            caixa.Add(new Caixa()
-            {
-                Descricao = "Caixa é Bradesco",
-                Documento = "Este documento é seu",
-                FormaPagamento = "Crédito",
-                Valor = 17900,
-                DataLancamento = Convert.ToDateTime("1967-02-11 12:17:5"),
-                Status = "Pago",
-                Historico = "Fatura 1547,89 dia 20/12/2000",
-                RegistroAtivo = true
-            });
+            
             context.Caixas.AddRange(caixa);
             #endregion
 
@@ -70,12 +82,12 @@ namespace Repository
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
-                TipoCategoriaDespesa = "Despesa com Funcionário",
+                TipoCategoriaDespesa = "Despesa com Toddynho",
                 RegistroAtivo = true,
             });
             categoriaDespesa.Add(new CategoriaDespesa()
             {
-                TipoCategoriaDespesa = "Despesa com Lanche",
+                TipoCategoriaDespesa = "Despesa com Salgadinho",
                 RegistroAtivo = true,
             });
             context.CategoriasDespesas.AddRange(categoriaDespesa);
@@ -293,8 +305,8 @@ namespace Repository
             context.Fornecedores.AddRange(fornecedores);
             #endregion
 
-            #region historico
-            var historico = new List<Historico>();
+            #region historicos
+            var historicos = new List<Historico>();
             historico.Add(new Historico()
             {
                 Descricao = "Conta adicionada dia 19/07/2000",
@@ -390,6 +402,157 @@ namespace Repository
             #endregion
 
 
+            //#endregion
+
+            //    #region fornecedor
+            //    var fornecedor = new List<Fornecedor>();
+            //    fornecedor.Add(new Fornecedor()
+            //    {
+            //        RazaoSocial = "Benner",
+            //        NomeFantasia = "Paulo",
+            //        DataCadastro = Convert.ToDateTime("19/08/2005"),
+            //        Cnpj = "93.591.110/0001-56",
+            //        RegistroAtivo = true,
+            //    });
+            //    fornecedor.Add(new Fornecedor()
+            //    {
+            //        RazaoSocial = "HBSIS",
+            //        NomeFantasia = "Francisco",
+            //        DataCadastro = Convert.ToDateTime("20/07/2015"),
+            //        Cnpj = "39.552.667/0001-32",
+            //        RegistroAtivo = true,
+            //    });
+            //    context.Fornecedores.AddRange(fornecedor);
+
+            //    #endregion
+
+            //    #region funcionario
+            //    var funcionario = new List<Funcionario>();
+            //    funcionario.Add(new Funcionario()
+            //    {
+            //        NomeFuncionario = "Paulo",
+            //        TipoFuncionario = 3,
+            //        RegistroAtivo = true
+
+            //    });
+            //    funcionario.Add(new Funcionario()
+            //    {
+            //        NomeFuncionario = "André",
+            //        TipoFuncionario = 1,
+            //        RegistroAtivo = true
+
+            //    });
+            //    context.Funcionarios.AddRange(funcionario);
+            //    #endregion
+
+
+            //#region login
+            //var login = new List<Login>();
+            //login.Add(new Login()
+            //{
+            //    Usuario = "Cléber",
+            //    Senha = "cg1992",
+            //    RegistroAtivo = true
+            //});
+            //login.Add(new Login()
+            //{
+            //    Usuario = "Gustavo",
+            //    Senha = "gustavo1500",
+            //    RegistroAtivo = true
+            //});
+            //context.Logins.AddRange(login);
+            //#endregion
+
+            //#region movimentacaoFinanceiraEntrada
+            //var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
+            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            //{
+            //    Valor = 568,
+            //    RegistroAtivo = true
+            //});
+            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            //{
+            //    Valor = -2422,
+            //    RegistroAtivo = true,
+            //});
+            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            //{
+            //    Valor = 255244,
+            //    RegistroAtivo = true,
+            //});
+            //context.MovimentacaoFinanceiraEntradas.AddRange(movimentacaoFinanceiraEntrada);
+            //#endregion
+
+            //#region movimentacaoFinanceiraSaida
+            //var movimentacaoFinanceiraSaida = new List<MovimentacaoFinanceiraSaida>();
+            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            //{
+            //    Valor = 77,
+            //    RegistroAtivo = true
+            //});
+            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            //{
+            //    Valor = -7555,
+            //    RegistroAtivo = true
+            //});
+            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            //{
+            //    Valor = 72866457,
+            //    RegistroAtivo = true
+            //});
+            //context.MovimentacaoFinanceiraSaidas.AddRange(movimentacaoFinanceiraSaida);
+            //#endregion
+
+
+            //#region parcelaReceber
+            //var parcelaReceber = new List<ParcelaReceber>();
+            //parcelaReceber.Add(new ParcelaReceber()
+            //{
+            //    Valor = 12312,
+            //    Status = "Vencido",
+            //    DataVencimento = Convert.ToDateTime("01/01/2019"),
+            //    DataRecebimento = Convert.ToDateTime("02/02/2019"),
+            //    RegistroAtivo = true,
+            //});
+            //parcelaReceber.Add(new ParcelaReceber()
+            //{
+            //    Valor = 18657328,
+            //    Status = "Pago",
+            //    DataVencimento = Convert.ToDateTime("13/08/2018"),
+            //    DataRecebimento = Convert.ToDateTime("05/08/2018"),
+            //    RegistroAtivo = true,
+            //});
+            //context.ParcelasReceber.AddRange(parcelaReceber);
+            //#endregion ParcelaReceber
+
+            //#region tituloReceber
+            //var tituloReceber = new List<TituloReceber>();
+            //tituloReceber.Add(new TituloReceber()
+            //{
+            //    Descricao= "Titulo sem compromisso",
+            //    ValorTotal = 123213123,
+            //    Status = "Pago",
+            //    DataLancamento = "29/12/2018",
+            //    DataRecebimento = "04/01/2019",
+            //    DataVencimento="30/01/2019",
+            //    Complemento="Não sei o que por",
+            //    QuantidadeParcela= 36,
+            //    RegistroAtivo = true
+            //});
+            //tituloReceber.Add(new TituloReceber()
+            //{
+            //    Descricao = "Titulo com compromisso",
+            //    ValorTotal = 343234,
+            //    Status = "Pendente",
+            //    DataLancamento = "09/02/2017",
+            //    DataRecebimento = "",
+            //    DataVencimento = "10/03/2017",
+            //    Complemento = "Não sei o que por, desculpa",
+            //    QuantidadeParcela = 24,
+            //    RegistroAtivo = true
+            //});
+            //context.TitulosReceber.AddRange(tituloReceber);
+            //#endregion
 
             base.Seed(context);
         }

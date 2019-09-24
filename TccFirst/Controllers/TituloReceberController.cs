@@ -8,7 +8,8 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class TituloReceberController : BaseController
+    [Route("tituloreceber/")]
+    public class TituloReceberController : Controller
     {
         private TituloReceberRepository repository;
 
@@ -26,50 +27,55 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return RedirectToAction("Index", new { id = id });
+        }
+
+        #region Cadastro
+        [HttpGet,Route("Index")]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
             tituloReceber.RegistroAtivo = true;
             int id = repository.Inserir(tituloReceber);
-            return Json(new { id = id });
+            var resultado = new { id = id };
+            return RedirectToAction("Index",resultado);
         }
+        #endregion
 
-        [HttpPost, Route("editar")] 
-        public JsonResult Editar(TituloReceber tituloReceber)
+        #region Editar
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(TituloReceber tituloReceber)   
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        
-        [HttpGet,Route("apagar")]
-        JsonResult Apagar(int id)
+
+        public ActionResult Editar(int id)
         {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            var tituloReceber = repository.ObterPeloId(id);
+            ViewBag.TituloReceber = tituloReceber;
+            return View();
         }
+        #endregion
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
-        //[HttpGet,Route("editar")]
-        //ActionResult Editar(int id)
+        //public ActionResult Cadastro()
         //{
-        //    var titulosReceber = repository.ObterPeloId(id);
-        //    if (titulosReceber == null)
-        //        return RedirectToAction("Index");
-        //    ViewBag.TituloReceber = titulosReceber;
         //    return View();
-
         //}
-
     }
 }
