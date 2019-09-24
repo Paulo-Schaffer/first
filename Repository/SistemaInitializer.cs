@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    //internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+   //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+   internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -15,14 +15,14 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia da Vida",
-                NumeroAgencia = "2001",
+                NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Agencia do Paulo",
-                NumeroAgencia = "666",
+                NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
@@ -30,7 +30,7 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 NomeAgencia = "Você consegue",
-                NumeroAgencia = "8001",
+                NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
@@ -65,7 +65,7 @@ namespace Repository
             context.Caixas.AddRange(caixa);
             #endregion
 
-            #region categoriaDespesa
+            #region categoriasDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
@@ -80,7 +80,7 @@ namespace Repository
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
-            #region categoriaReceita
+            #region categoriasReceita
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
@@ -97,7 +97,7 @@ namespace Repository
             context.CategoriasReceitas.AddRange(categoriaReceita);
             #endregion
 
-            #region clientePessoaFisica
+            #region clientesPessoasFisicas
 
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
@@ -137,7 +137,7 @@ namespace Repository
             context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
-            #region clientePessoaJuridica
+            #region clientesPessoasJuridicas
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
@@ -259,7 +259,7 @@ namespace Repository
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "123456",
+                Senha = "123",
                 RegistroAtivo = true
 
             });
@@ -279,7 +279,7 @@ namespace Repository
             var historico = new List<Historico>();
             historico.Add(new Historico()
             {
-                Descricao = "Conta adicionada dia 19/07/2000",
+                Descricao = "Conta adicionada dia 19/07/2012",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
@@ -293,8 +293,6 @@ namespace Repository
                 RegistroAtivo = true
             });
             #endregion
-
-          
 
             #region movimentacaoFinanceiraEntrada
             var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
@@ -387,10 +385,13 @@ namespace Repository
             #endregion Historicos
 
             #region tituloPagar
-            var tituloPagar = new List<TituloPagar>();
-            tituloPagar.Add(new TituloPagar()
+            var titulosPagar = new List<TituloPagar>();
+            titulosPagar.Add(new TituloPagar()
             {
-                Descricao = "Titulo feio por Paulo",
+                Id = 1,
+                IdFornecedor = 1,
+                IdCategoriaDespesa = 1,
+                Descricao = "Sem Descrição",
                 FormaPagamento = "Dinheiro",
                 Caixa = true,
                 ValorTotal = 1999,
@@ -402,9 +403,12 @@ namespace Repository
                 QuantidadeParcela = 1,
                 RegistroAtivo = true
             });
-            tituloPagar.Add(new TituloPagar()
+            titulosPagar.Add(new TituloPagar()
             {
-                Descricao = "Titulo feio por Paulo",
+                Id = 2,
+                IdFornecedor = 2,
+                IdCategoriaDespesa = 2,
+                Descricao = "Sem Descrição",
                 FormaPagamento = "Credito",
                 Caixa = false,
                 ValorTotal = 127422,
@@ -416,6 +420,7 @@ namespace Repository
                 QuantidadeParcela = 6,
                 RegistroAtivo = true
             });
+            context.TitulosPagar.AddRange(titulosPagar);
             #endregion
 
             #region tituloReceber
@@ -459,6 +464,23 @@ namespace Repository
             {
                 RazaoSocial = "Peugeot",
                 NomeFantasia = "strabourg",
+                DataCadastro = Convert.ToDateTime("04/09/2019"),
+                Cnpj = "83.590.870/0001-95",
+                Email = "first@outlook.com",
+                Telefone = "3345-5567",
+                Cep = "09432-876",
+                Logradouro = "UBATUBA",
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Cidade = "São Paulo",
+                Uf = "SP",
+                Complemento = "casa",
+                RegistroAtivo = true,
+            });
+            fornecedores.Add(new Fornecedor()
+            {
+                RazaoSocial = "Honda",
+                NomeFantasia = "Hodinha",
                 DataCadastro = Convert.ToDateTime("04/09/2019"),
                 Cnpj = "83.590.870/0001-95",
                 Email = "first@outlook.com",

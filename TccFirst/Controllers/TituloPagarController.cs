@@ -8,47 +8,22 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("tituloPagar/")]
+    //[Route("tituloPagar/")]
     public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
         public TituloPagarController()
-        {
+        {  
             repository = new TituloPagarRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
+        public ActionResult Index()
         {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            TituloPagarRepository repositoryTituloPagar = new TituloPagarRepository();
+            ViewBag.TitulosPagar = repositoryTituloPagar.ObterTodos();
+            return View();
         }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -58,13 +33,32 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
-        public ActionResult Cadastro(TituloPagar tituloPagar)
+        #region Cadastro
+        [HttpGet, Route("Index")]
+        public ActionResult Cadastro()
         {
-            int id = repository.Inserir(tituloPagar);
-            return RedirectToAction("Editar", new { id = id });
+            return View();
         }
 
+        [HttpPost]
+        public ActionResult Cadastro(TituloPagar tituloPagar)
+        {
+            tituloPagar.RegistroAtivo = true;
+            int id = repository.Inserir(tituloPagar);
+            var resultado = new { id = id };
+            return RedirectToAction("Index",resultado);
+        }
+        #endregion 
+
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return RedirectToAction("Index", new { id = id });
+        }
+
+        #region Editar
         [HttpPost, Route("editar")]
         public JsonResult Editar(TituloPagar tituloPagar)
         {
@@ -73,31 +67,33 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("apagar")]
-        public JsonResult Apagar(int id)
+        public ActionResult Editar(int id)
         {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
+            var tituloPagar = repository.ObterPeloId(id);
+            ViewBag.TituloPagar = tituloPagar;
+            return View();
+        }
+        #endregion
+
+        [HttpGet, Route("tituloPagar/obtertodosselect")]
+        public JsonResult ObterTodosSelect(string termo)
+        {
+            var tituloPagars = repository.ObterTodos();
+            List<object> ObterTodosSelect2 = new List<object>();
+            foreach (TituloPagar tituloPagar in tituloPagars)
+            {
+                ObterTodosSelect2.Add(new
+                {
+                    id = tituloPagar.Id,
+                    text = tituloPagar.Descricao,
+                });
+            }
+            var resultado = new
+            {
+                results = ObterTodosSelect2
+            };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+
         }
-
-        [HttpGet, Route("tituloPagar")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
-
-
     }
 }
