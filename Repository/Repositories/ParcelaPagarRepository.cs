@@ -18,25 +18,40 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
+        public void GerarParcelas(int idTituloPagar)
         {
+            var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == idTituloPagar);
+
             var dataAtual = DateTime.Now.AddDays(30);
 
-            for (int i = 0; i < quantidadesPacelas; i++)
+            decimal valorTotal = tituloPagar.ValorTotal;
+            decimal valorParcela = valorTotal / tituloPagar.QuantidadeParcela;
+            string texto = valorParcela.ToString();
+            int posicaoPonto = texto.IndexOf(",");
+            texto = texto.Substring(0, posicaoPonto) + "," + texto.Substring(posicaoPonto + 1, 2);
+            valorParcela = Decimal.Parse(texto);
+
+            decimal totalAcumulado = 0;
+
+            for (int i = 0; i < tituloPagar.QuantidadeParcela; i++)
             {
                 var dataVencimento = dataAtual.AddMonths(i);
 
+                if(i + 1 >= tituloPagar.QuantidadeParcela)
+                {
+                    valorParcela = valorTotal - totalAcumulado;
+                }
+
                 var parcela = new ParcelaPagar();
-                parcela.Valor = valor;
+                parcela.Valor = valorParcela;
                 parcela.DataVencimento = dataVencimento;
                 parcela.IdTituloPagar = idTituloPagar;
                 parcela.RegistroAtivo = true;
                 context.ParcelasPagar.Add(parcela);
-                context.SaveChanges();
+
+                totalAcumulado += valorParcela;
             }
-
-
-            context = new SistemaContext(); 
+            context.SaveChanges();
         }
 
         public bool Alterar(ParcelaPagar parcelaPagar)
@@ -60,9 +75,10 @@ namespace Repository.Repositories
             return parcela;
         }
 
-        public List<ParcelaPagar> ObterTodos()
+        public List<ParcelaPagar> ObterTodos(int idTituloPagar)
         {
-            return context.ParcelasPagar.Where(x => x.RegistroAtivo == true).ToList();
+            return context.ParcelasPagar
+                .Where(x => x.RegistroAtivo && x.IdTituloPagar == idTituloPagar).ToList();
         }
     }
 }

@@ -11,6 +11,8 @@ namespace Model
     [Table("titulos_pagar")]
     public class TituloPagar
     {
+        public const int StatusPendente = 0, StatusFinalizado = 1;
+
         [Key, Column("id")]
         public int Id { get; set; }
 

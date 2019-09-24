@@ -24,30 +24,6 @@
             <th>Ação</th>
         </tr>
     </thead>
-    @foreach (Model.TituloReceber tituloReceber in ViewBag.TitulosReceber)
-    {
-        <tr>
-            <td>@tituloReceber.Id</td>
-            <td>@tituloReceber.NomeCliente</td>
-            <td>@tituloReceber.ValorTotal</td>
-            <td>@tituloReceber.QuantidadeParcela</td>
-            <td>@tituloReceber.Status</td>
-            <td>@tituloReceber.DataLancamento</td>
-            <td>@tituloReceber.DataRecebimento</td>
-            <td>@tituloReceber.DataVencimento</td>
-            <td>@tituloReceber.Descricao</td>
-            <td>
-
-                <div style="margin-left: 5px">
-                    <a id="botao-editar" class="btn btn-primary float-right" href="/parcelasPagar/editar?id=@tituloReceber">Editar</a>
-                </div>
-                <div style="margin-right: 100px">
-                    <a id="botao-apagar" class="btn btn-danger float-right" href="/parcelasPagar/apagar?id=@tituloReceber">Apagar</a>
-                </div>
-
-            </td>
-        </tr>
-    }
 </table>
 @*@RenderPage("CadastroTituloReceber.cshtml")*@
 @section js{
