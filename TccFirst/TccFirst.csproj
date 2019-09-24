@@ -5590,6 +5590,7 @@
     <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
+    <Content Include="Scripts\TituloReceber\tabela-receber-index.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />

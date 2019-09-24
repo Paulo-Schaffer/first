@@ -1,11 +1,4 @@
-﻿
-$(function () {
-    $idTituloReceber = $("#id").val();
-    $idAlterar = -1;
-    var radioButton = "ClientePessoaJuridica.RazaoSocial";
-
-
-
+﻿$(function (){
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
         "scrollX": true,
         ajax: '/tituloreceber/obtertodos',
@@ -56,48 +49,5 @@ $(function () {
             }
         ]
     });
-
-    $("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja Realmente Apagar?")
-        if (confirma == true) {
-            $id = $(this).data('id');
-            $.ajax({
-                url: '/tituloreceber/apagar?id=' + $id,
-                method: "get",
-                success: function (data) {
-                    if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
-                        radioButton = '"ClientePessoaFisica.Nome"';
-                    } else {
-                    }
-                    $tabelaTituloReceber.ajax.reload();
-                },
-                error: function (err) {
-                    alert('Não foi possível apagar');
-                }
-            });
-        }
-    });
-    $("#gerar-parcelas").on("click", function () {
-        $.ajax({
-            url: '/parcelaspagar/GerarParcelas?idTituloReceber=' + $idTituloReceber,
-            method: "get",
-            success: function (data) {
-                $tabelaParcelas.ajax.reload();
-            },
-            error: function (err) {
-                alert('Não foi possível gerar parcelas');
-            }
-        });
-    });
-
-    function monstrarMensagem(texto, titulo, tipo) {       
-        return false;
-        new PNotify({
-            title: titulo,
-            text: texto,
-            icon: 'icofont icofont-info-circle',
-            type: tipo
-        });
-    }
 
 });
