@@ -66,15 +66,16 @@ namespace TccFirst.Controllers
             ViewBag.TituloReceber = tituloReceber;
             return View();
         }
+        #endregion
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
+        //public ActionResult Cadastro()
+        //{
+        //    return View();
+        //}
     }
 }
