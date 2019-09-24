@@ -1,18 +1,19 @@
-﻿<form action="/tituloreceber/editar" method="post">
-    <div class="row">
-        <div class="col-6">
-            <div class="form-group">
-                <a mas>Valor Total:</a>
-            </div>
-        </div>
-
-        <div class="col-6">
-            <div class="form-group">
-                <a mas>Quantidade de Parcelas:</a>
-            </div>
+﻿<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <span class="font-weight-bold">Valor Total:</span>
+            @**<span>@ViewBag.TituloPagar.ValorTotal</span>*@
         </div>
     </div>
-</form>
+
+    <div class="col-6">
+        <div class="form-group">
+            <span class="font-weight-bold">Quantidade de Parcelas:</span>
+            <span>@ViewBag.TituloReceber.QuantidadeParcela</span>
+        </div>
+    </div>
+</div>
+<button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3">Gerar Parcelas</button>
 
 <table id="tituloReceber-tabela" class="table table-hover table-bordered table-striped">
     <thead>
@@ -25,4 +26,4 @@
         </tr>
     </thead>
 </table>
-<button type="button" class="btn btn-info float-right mb-3">Gerar</button>
+<

@@ -41,8 +41,9 @@
             {
                 render: function (data, type, row) {
                     return "\
-                    <button class='btn btn-primary botao-editar fa fa-edit'\
-                        data-id=" + row.Id + "> Editar</button>\
+                   <a class='btn btn-primary botao-editar fa fa-edit'\
+                        href='/tituloreceber/editar?id=" + row.Id + "'\
+                        data-id=" + row.Id + "> Editar</a>\
                     <button class='btn btn-danger botao-apagar fa fa-trash'\
                         data-id=" + row.Id + "> Apagar</button>";
                 }

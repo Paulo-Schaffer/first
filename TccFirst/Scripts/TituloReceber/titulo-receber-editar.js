@@ -6,9 +6,8 @@ $(function () {
 
 
 
-    $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
-        "scrollX": true,
-        ajax: '/tituloreceber/obtertodos',
+    $tabelaParcelas = $("#titulo-receber-parcelas-tabela").DataTable({      
+        ajax: '/parcelasreceber/obtertodos?idTituloReceber=' + $idTituloReceber,
         serverSide: true,
         columns: [
             { data: "Id" },
@@ -79,7 +78,7 @@ $(function () {
     });
     $("#gerar-parcelas").on("click", function () {
         $.ajax({
-            url: '/parcelaspagar/GerarParcelas?idTituloReceber=' + $idTituloReceber,
+            url: '/parcelasreceber/GerarParcelas?idTituloReceber=' + $idTituloReceber,
             method: "get",
             success: function (data) {
                 $tabelaParcelas.ajax.reload();
