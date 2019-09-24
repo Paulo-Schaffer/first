@@ -6,29 +6,22 @@
         ajax: '/titulopagar/obtertodos',
         serverSide: true,
         columns: [
+            { data: 'Id' },
+            { data: "Fornecedor.RazaoSocial" },
+            { data: "CategoriaDespesa.TipoCategoriaDespesa" },
+            { data: "Descricao" },
+            { data: "FormaPagamento" },
+            { data: "Caixa" },
+            { data: "ValorTotal" },
+            { data: "Status" },
             {
-                render: function (data, type, row) {
-                    return moment(row.DataVencimento).format('YYYY-MM-DD')
+            render: function (data, type, row) {
+            return moment(row.DataNascimento).format('YYYY-MM-DD')
                 }
             },
             {
                 render: function (data, type, row) {
-                    return moment(row.DataPagamento).format('YYYY-MM-DD')
-                }
-            },
-            { data: "Valor" },
-            {
-                render: function (data, type, row) {
-                    let cor = "";
-                    if (row.Status == "Pago") {
-                        cor = "bg-success";
-                    } else if (row.Status == "Pendente") {
-                         cor = "bg-warning";
-                    } else {
-                        cor = "bg-danger";
-                    }
-                    return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
-
+                    return moment(row.DataRecebimento).format('YYYY-MM-DD')
                 }
             },
             {
@@ -42,33 +35,40 @@
             {
                 render: function (data, type, row) {
                     return "\
-                    <a class='btn btn-primary botao-editar fa fa-edit'\
-                        href='/titulopagar/editar?id=" + row.Id + "'\
-                        data-id=" + row.Id + "> Editar</a>";
-               
+                    <button class='btn btn-primary botao-editar fa fa-edit'\
+                        data-id=" + row.Id + "> Editar</button>\
+                    <button class='btn btn-danger botao-apagar fa fa-trash'\
+                        data-id=" + row.Id + "> Apagar</button>";
                 }
             }
         ]
     });
 
-    //$("#titulo-pagar-parcelas-tabela").on('click', '.botao-apagar', function () {
-    //    confirma = confirm("Deseja realmente apagar?");
-    //    if (confirma == true) {
-    //    $id = $(this).data('id');
-    //    $.ajax({
-    //        url: '/parcelaspagar/apagar?id=' + $id,
-    //        method: "get",
-    //        success: function (data) {
-    //            $tabelaParcelas.ajax.reload();
-    //        },
-    //        error: function (err) {
-    //            alert('Não foi possível apagar');
-    //        }
-    //    });
-    //    }
-    //});
+    $('#titulo-pagar-botao-salvar').on('click', function () {
+        $IdFornecedor = $('#tituloPagar-campo-fornecedor').val();
+        $IdCategoriaDespesa = $("#tituloPagar-campo-categoria-despesa").val();
+        $Descricao = $('#tituloPagar-campo-descricao').val();
+        $FormaPagamento = $('#tituloPagar-campo-forma-pagamento').val();
+        $Caixa = $('#tituloPagar-campo-caixa').val();
+        $ValorTotal = $('#tituloPagar-campo-valor-total').val();
+        $Status = $('#tituloPagar-campo-status').val();
+        $DataLancamento = $('#tituloPagar-campo-data-lancamento').val();
+        $DataRecebimento = $('#tituloPagar-campo-data-recebimento').val();
+        $DataVencimento = $('#tituloPagar-campo-data-vencimento').val();
+        $Complemento = $('#tituloPagar-campo-complemento').val();
+        $QuantidadeParcela = $('#tituloPagar-campo-quantidade-parcela').val();
+        
+        if ($idAlterar == -1) {
+            inserir($IdFornecedor, $IdCategoriaDespesa, $Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
+        } else {
+            alterar($IdFornecedor, $IdCategoriaDespesa, $Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela);
+        }
+    });
 
-    $("#gerar-parcelas").on("click", function () {
+    $("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
+        confirma = confirm("Deseja realmente apagar?");
+        if (confirma == true) {
+        $id = $(this).data('id');
         $.ajax({
             url: '/titulopagar/apagar?id=' + $id,
             method: "get",
@@ -138,26 +138,33 @@
         });
     }
 
-    $('.table').on('click', '.botao-editar', function () {
-        $idAlterar = $(this).data("id");
+    function alterar($IdFornecedor, $IdCategoriaDespesa, $Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
         $.ajax({
-            url: '/parcelaspagar/obterpeloid?id=' + $idAlterar,
-            method: 'get',
+            url: '/titulopagar/editar',
+            method: "post",
+            data: {
+                IdFornecedor: $IdFornecedor,
+                IdCategoriaDespesa: $IdCategoriaDespesa,
+                Descricao: $Descricao,
+                FormaPagamento: $FormaPagamento,
+                Caixa: $Caixa,
+                ValorTotal: $ValorTotal,
+                Status: $Status,
+                DataLancamento: $DataLancamento,
+                DataRecebimento: $DataRecebimento,
+                DataVencimento: $DataVencimento,
+                Complemento: $Complemento,
+                QuantidadeParcela: $QuantidadeParcela,
+                id: $idAlterar,
+            },
             success: function (data) {
+                $('#modal-tituloPagar').modal('hide');
+                LimparCampos();
+                $tabelaTituloPagar.ajax.reload();
             },
             error: function (err) {
-                alert('Não foi possível carregar');
+                alert('Não foi possível alterar');
             }
-        });
-    });
-
-    function monstrarMensagem(texto, titulo, tipo) {
-        return false;
-        new PNotify({
-            title: titulo,
-            text: texto,
-            icon: 'icofont icofont-info-circle',
-            type: tipo
         });
 
     }
