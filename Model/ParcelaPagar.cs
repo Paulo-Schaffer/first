@@ -29,8 +29,12 @@ namespace Model
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
+        #region fk titulo pagar
         [Column("id_titulo_pagar")]
         public int IdTituloPagar { get; set; }
 
+        //[ForeignKey("IdTituloPagar")]
+        //public TituloPagar TitulosPagar { get; set; }
+        #endregion
     }
 }

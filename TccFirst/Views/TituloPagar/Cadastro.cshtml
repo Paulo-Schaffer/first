@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿
+<div class="row">
     <div class="col-6">
         <h2>Cadastro de Titulo a Pagar</h2>
     </div>
@@ -8,7 +9,7 @@
     </div>
 </div>
 
-<form action="/tituloPagar/cadastro" method="post">
+<form action="/titulopagar/cadastro" method="post">
     <div class="container">
         <div class="row">
             <div class="col-6">
@@ -30,7 +31,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-forma-pagamento">
+                    <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                         <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                         <option>Dinheiro</option>
                         <option>Cartão Débito</option>
@@ -42,7 +43,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-status" mas>Status<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-status">
+                    <select class="form-control" id="tituloPagar-campo-status" name="Status">
                         <option disabled="disabled" selected="selected">Selecione um status</option>
                         <option>Pendente</option>
                         <option>Pago</option>
@@ -73,14 +74,14 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-data-lancamento" mas>Data de Lançamento<span class="text-danger">*</span></label>
-                    <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control" />
+                    <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control" name="DataLancamento"/>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento<span class="text-danger">*</span></label>
-                    <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" />
+                    <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" name="DataRecebimento" />
                 </div>
             </div>
         </div>
@@ -89,14 +90,14 @@
             <div class="col-6">
                 <div class="form-group">
                     <label form="tituloPagar-campo-data-vencimento" mas>Data Vencimento<span class="text-danger">*</span></label>
-                    <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control" />
+                    <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control" name="DataVencimento"/>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-quantidade-parcela" mas>Quantidade de Parcelas<span class="text-danger">*</span></label>
-                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" />
+                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" name="QuantidadeParcela"/>
                 </div>
             </div>
         </div>
@@ -105,14 +106,14 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-complemento" mas>Complemento<span class="text-danger">*</span></label>
-                    <input type="text" id="tituloPagar-campo-complemento" class="form-control" />
+                    <input type="text" id="tituloPagar-campo-complemento" class="form-control" name="Complemento"/>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-valor-total" mas>Valor Total<span class="text-danger">*</span></label>
-                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control" />
+                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control" name="ValorTotal"/>
                 </div>
             </div>
         </div>
@@ -122,19 +123,20 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label for="tituloPagar-campo-descricao" mas>Descrição<span class="text-danger">*</span></label>
-                        <textarea id="tituloPagar-campo-descricao" class="form-control" rows="3"></textarea>
+                        <textarea id="tituloPagar-campo-descricao" class="form-control" rows="3" name="Descricao"></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</form>
 
-<button type="button" class="btn btn-success float-lg-right mb-3" id="titulo-pagar-botao-salvar">
-    <i class="fa fa-floppy-o"></i> Salvar
-</button>
+    <div class="modal-footer">
+        <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+    </div>
+</form>
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
+

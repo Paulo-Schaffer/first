@@ -11,6 +11,8 @@ namespace Model
     [Table("cadastro_conta_corrente")]
     public class CadastroContaCorrente
     {
+        public const int FiltroSemAgencia = 0;
+
         [Key, Column("id")]
         public int Id { get; set; }
 

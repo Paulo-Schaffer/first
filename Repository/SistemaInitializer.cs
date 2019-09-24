@@ -306,6 +306,7 @@ namespace Repository
                 Valor = -2422,
                 RegistroAtivo = true,
             });
+            
             movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
             {
                 Valor = 255244,
