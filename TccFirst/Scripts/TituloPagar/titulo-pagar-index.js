@@ -7,7 +7,6 @@
             { data: 'Id' },
             { data: "Fornecedor.RazaoSocial" },
             { data: "CategoriaDespesa.TipoCategoriaDespesa" },
-            { data: "Descricao" },
             { data: "FormaPagamento" },
             { data: "Caixa" },
             { data: "ValorTotal" },
@@ -27,7 +26,7 @@
             },
             {
                 render: function (data, type, row) {
-                    return moment(row.DataNascimento).format('YYYY-MM-DD')
+                    return moment(row.DataLancamento).format('YYYY-MM-DD')
                 }
             },
             {
@@ -43,6 +42,7 @@
 
             { data: "Complemento" },
             { data: "QuantidadeParcela" },
+            { data: "Descricao" },
             {
                 render: function (data, type, row) {
                     return "\
@@ -54,6 +54,23 @@
                 }
             }
         ]
+    });
+
+    $("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
+        confirma = confirm("Deseja realmente apagar?");
+        if (confirma == true) {
+            $id = $(this).data('id');
+            $.ajax({
+                url: '/tituloPagar/apagar?id=' + $id,
+                method: "get",
+                success: function (data) {
+                    $tabelaTituloPagar.ajax.reload();
+                },
+                error: function (err) {
+                    alert('Não foi possível apagar');
+                }
+            });
+        }
     });
 
 });

@@ -6,8 +6,16 @@
         ajax: '/parcelaspagar/obtertodos?idTituloPagar=' + $idTituloPagar,
         serverSide: true,
         columns: [
-            { data: "Id" },
-            { data: 'DataVencimento' },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataVencimento).format('YYYY-MM-DD')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataPagamento).format('YYYY-MM-DD')
+                }
+            },
             { data: "Valor" },
             {
                 render: function (data, type, row) {
@@ -15,7 +23,7 @@
                     if (row.Status == "Pago") {
                         cor = "bg-success";
                     } else if (row.Status == "Pendente") {
-                        cor = "bg-warning";
+                         cor = "bg-warning";
                     } else {
                         cor = "bg-danger";
                     }
@@ -26,24 +34,24 @@
             {
                 render: function (data, type, row) {
                     return "\
-                    <button class='btn btn-primary botao-editar fa fa-edit'\
-                        data-id=" + row.Id + "> Editar</button>\
-                    <button class='btn btn-danger botao-apagar fa fa-trash'\
-                        data-id=" + row.Id + "> Apagar</button>";
+                    <a class='btn btn-primary botao-editar fa fa-edit'\
+                        href='/titulopagar/editar?id=" + row.Id + "'\
+                        data-id=" + row.Id + "> Editar</a>";
+               
                 }
             }
         ]
     });
 
-    //$("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
+    //$("#titulo-pagar-parcelas-tabela").on('click', '.botao-apagar', function () {
     //    confirma = confirm("Deseja realmente apagar?");
     //    if (confirma == true) {
     //    $id = $(this).data('id');
     //    $.ajax({
-    //        url: '/titulopagar/apagar?id=' + $id,
+    //        url: '/parcelaspagar/apagar?id=' + $id,
     //        method: "get",
     //        success: function (data) {
-    //            $tabelaTituloPagar.ajax.reload();
+    //            $tabelaParcelas.ajax.reload();
     //        },
     //        error: function (err) {
     //            alert('Não foi possível apagar');
@@ -61,6 +69,19 @@
             },
             error: function (err) {
                 alert('Não foi possível gerar parcelas');
+            }
+        });
+    });
+
+    $('.table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data("id");
+        $.ajax({
+            url: '/parcelaspagar/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+            },
+            error: function (err) {
+                alert('Não foi possível carregar');
             }
         });
     });

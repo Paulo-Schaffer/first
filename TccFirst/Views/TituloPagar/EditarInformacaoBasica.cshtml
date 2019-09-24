@@ -11,7 +11,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-categoria-despesa" mas>Categoria despesas</label>
-                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
+                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa" value="@ViewBag.TituloPagar.IdCategoriaDespesa"></select>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento</label>
-                    <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
+                    <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento" value="@ViewBag.TituloPagar.FormaPagamento">
                         <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                         <option>Dinheiro</option>
                         <option>Cartão Débito</option>
@@ -32,7 +32,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-status" mas>Status</label>
-                    <select class="form-control" id="tituloPagar-campo-status" name="Status">
+                    <select class="form-control" id="tituloPagar-campo-status" name="Status" value="@ViewBag.TituloPagarStatus">
                         <option disabled="disabled" selected="selected">Selecione um status</option>
                         <option>Pendente</option>
                         <option>Pago</option>
@@ -44,19 +44,17 @@
         </div>
 
         <div class="row">
-            <div class="col-12 ml-4">
+            <div class="col-6 ml-4">
                 <div class="form-check">
-
                     <input type="checkbox" id="tituloPagar-campo-caixa" class="form-check-input" />
                     <label for="tituloPagar-campo-caixa" class="form-check-label">Caixa</label>
                 </div>
-                <div class="form-check">
-                    <input type="checkbox" id="tituloPagar-campo-banco" class="form-check-input" />
-                    <label for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
+                    <div class="form-check">
+                        <input type="checkbox" id="tituloPagar-campo-banco" class="form-check-input" />
+                        <label for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
+                    </div>
                 </div>
             </div>
-        </div>
-
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
@@ -102,7 +100,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-valor-total" mas>Valor Total</label>
-                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control" 
+                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control"
                            name="ValorTotal" value="@ViewBag.TituloPagar.ValorTotal" />
                 </div>
             </div>

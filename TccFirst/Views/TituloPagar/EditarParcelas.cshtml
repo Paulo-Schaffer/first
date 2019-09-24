@@ -3,7 +3,7 @@
     <div class="col-6">
         <div class="form-group">
             <span class="font-weight-bold">Valor Total:</span>
-            @*<span>@ViewBag.TitutloPagar.ValorTotal</span>*@
+            <span>@ViewBag.TituloPagar.ValorTotal</span>
         </div>
     </div>
 
@@ -27,3 +27,54 @@
         </tr>
     </thead>
 </table>
+
+<form action="/titulopagar/editar" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-fornecedor" mas>Fornecedores<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-categoria-despesa" mas>Categoria despesas<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
+                        <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                        <option>Dinheiro</option>
+                        <option>Cartão Débito</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-status" mas>Status<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-status" name="Status">
+                        <option disabled="disabled" selected="selected">Selecione um status</option>
+                        <option>Pendente</option>
+                        <option>Pago</option>
+                        <option>Cancelado</option>
+                        <option>Pago parcialmente</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section js{
+    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
+}
