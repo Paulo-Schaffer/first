@@ -3,9 +3,9 @@
 
     $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
         "scrollX": true,
-        ajax: "/parcelareceber/obtertodos",
+        ajax: "/parcelaReceber/obtertodos",
         serverSide: true,
-        columns: [
+        coluns: [
             { data: "IdTituloReceber" },
             { data: "Valor" },           
             { data: "Status" },
@@ -44,7 +44,7 @@
     function alterar($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: "/parcelareceber/editar",
+            url: "/parcelaReceber/editar",
             method: "post",
             data: {
                 
@@ -53,11 +53,11 @@
                 status:$status,
                 dataVencimento: $dataVencimento,
                 dataRecebimento: $dataRecebimento,
-                id: $idAlterar
+                idAlterar: $idAlterar
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
-                LimparCampos();
+               
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -68,18 +68,19 @@
     function inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento) {
 
         $.ajax({
-            url: '/parcelareceber/cadastro',
+            url: '/parcelaReceber/cadastro',
             method: 'post',
-            data: {              
+            data: {
+                
                 idTituloReceber: $idTituloReceber,
                 valor: $valor,
                 status: $status,
                 dataVencimento: $dataVencimento,
-                dataRecebimento: $dataRecebimento,
+                dataRecebimento: $dataRecebimento
             },
             success: function (data) {
-                LimparCampos();
-                $('#modal-parcelaReceber').modal('hide');
+                $("#modal-parcelaReceber").modal("hide");
+                
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -88,7 +89,7 @@
         });
     }
     $('#parcelaReceber-tabela').on('click', '.botao-apagar', function () {
-        $idAlterar = $(this).data('id');
+        $id = $(this).data('id');
 
         $.ajax({
             url: '/parcelaReceber/apagar?id=' + $idAlterar,
@@ -103,7 +104,7 @@
         });
     });
     $('#parcelaReceber-tabela').on('click', '.botao-editar', function () {
-        $idAlterar = $(this).data('id');
+        $id= $(this).data('id');
 
         $.ajax({
             url: "/parcelaReceber/obterpeloid?id=" + $idAlterar,
@@ -122,18 +123,4 @@
             }
         });
     });
-
-    function LimparCampos() {
-        $('#parcelaReceber-campo-tituloReceber').val("");
-        $('#parcelaReceber-campo-valor').val("");
-        $('#parcelaReceber-campo-status').val("");
-        $('#parcelaReceber-campo-dataVencimento').val("");
-        $('#parcelaReceber-campo-dataRecebimento').val("");
-        $idAlterar = -1;
-    }
-
-    $('#modal-parcelaReceber').on('hidden.bs.modal', function (e) {
-        LimparCampos();
-    })
 });
-

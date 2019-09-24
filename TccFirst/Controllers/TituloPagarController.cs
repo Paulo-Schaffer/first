@@ -8,22 +8,16 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    //[Route("tituloPagar/")]
+    [Route("tituloPagar/")]
     public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
         public TituloPagarController()
-        {  
+        {
             repository = new TituloPagarRepository();
         }
 
-        public ActionResult Index()
-        {
-            TituloPagarRepository repositoryTituloPagar = new TituloPagarRepository();
-            ViewBag.TitulosPagar = repositoryTituloPagar.ObterTodos();
-            return View();
-        }
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -33,19 +27,11 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        #region Cadastro
-        [HttpGet, Route("Index")]
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
-        [HttpPost]
+        [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
-            var resultado = new { id = id };
-            return RedirectToAction("Index",resultado);
+            return RedirectToAction("Editar", new { id = id });
         }
 
         [HttpPost, Route("editar")]
@@ -57,11 +43,11 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet, Route("apagar")]
-        public ActionResult Apagar(int id)
+        public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return RedirectToAction("Index", new { id = id });
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet, Route("tituloPagar")]
@@ -70,49 +56,44 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Editar(int id)
+        public ActionResult Index()
         {
-            var tituloPagar = repository.ObterPeloId(id);
-            ViewBag.TituloPagar = tituloPagar;
+
+            var tituloPagars = repository.ObterTodos();
+
+            List<object> tituloPagarSelect2 =
+                new List<object>();
+            foreach (TituloPagar tituloPagar in tituloPagars)
+            {
+                tituloPagarSelect2.Add(new
+                {
+                    id = tituloPagar.Id,
+                    descricao = tituloPagar.Descricao,
+                    formaPagamento = tituloPagar.FormaPagamento,
+                    caixa = tituloPagar.Caixa,
+                    valorTotal = tituloPagar.ValorTotal,
+                    status = tituloPagar.Status,
+                    dataLancamento = tituloPagar.DataLancamento,
+                    dataRecebimento = tituloPagar.DataRecebimento,
+                    dataVencimento = tituloPagar.DataVencimento,
+                    complemento = tituloPagar.Complemento,
+                    quantidadeParcela = tituloPagar.QuantidadeParcela,
+                    idFornecedores = tituloPagar.IdFornecedor,
+                    idCategoriaDespesa = tituloPagar.IdCategoriaDespesa
+                });
+            }
+            var resultado = new
+            {
+                results = tituloPagarSelect2
+            };
+            return Json(resultado,
+                JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Cadastro()
+        {
             return View();
         }
-        #endregion
-
-        //    var tituloPagars = repository.ObterTodos();
-
-        //    List<object> tituloPagarSelect2 =
-        //        new List<object>();
-        //    foreach (TituloPagar tituloPagar in tituloPagars)
-        //    {
-        //        tituloPagarSelect2.Add(new
-        //        {
-        //            id = tituloPagar.Id,
-        //            descricao = tituloPagar.Descricao,
-        //            formaPagamento = tituloPagar.FormaPagamento,
-        //            caixa = tituloPagar.Caixa,
-        //            valorTotal = tituloPagar.ValorTotal,
-        //            status = tituloPagar.Status,
-        //            dataLancamento = tituloPagar.DataLancamento,
-        //            dataRecebimento = tituloPagar.DataRecebimento,
-        //            dataVencimento = tituloPagar.DataVencimento,
-        //            complemento = tituloPagar.Complemento,
-        //            quantidadeParcela = tituloPagar.QuantidadeParcela,
-        //            idFornecedores = tituloPagar.IdFornecedor,
-        //            idCategoriaDespesa = tituloPagar.IdCategoriaDespesa
-        //        });
-        //    }
-        //    var resultado = new
-        //    {
-        //        results = tituloPagarSelect2
-        //    };
-        //    return Json(resultado,
-        //        JsonRequestBehavior.AllowGet);
-        //}
-
-        //public ActionResult Cadastro()
-        //{
-        //    return View();
-        //}
 
 
 

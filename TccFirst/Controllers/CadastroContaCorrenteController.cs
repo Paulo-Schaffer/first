@@ -30,10 +30,10 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)
         {
             int id = repository.Inserir(cadastroContaCorrente);
-            return RedirectToAction("Editar", new { id = id });
+            return Json(new { id = id });
         }
 
-        [HttpPost, Route("editar")]
+        [HttpPost, Route("alterar")]
         public JsonResult Editar(CadastroContaCorrente cadastroContaCorrente)
         {
             var alterou = repository.Alterar(cadastroContaCorrente);

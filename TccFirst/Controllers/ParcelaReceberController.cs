@@ -8,10 +8,10 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("parcelaReceber/")]
+    
     public class ParcelaReceberController : Controller
     {
-        private ParcelaReceberRepository repository;
+        ParcelaReceberRepository repository;
 
         public ParcelaReceberController()
         {
@@ -50,7 +50,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpGet, Route("parcelaReceber")]
+        [HttpGet, Route("parcelaReceber/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);

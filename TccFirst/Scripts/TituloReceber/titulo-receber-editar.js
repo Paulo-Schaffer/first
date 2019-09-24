@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿    $(function () {
     $idTituloReceber = $("#id").val();
     $idAlterar = -1;
 
@@ -7,7 +7,7 @@
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: "ClientePessoaJuridica.RazaoSocial"},
+            { data: "IdClientePessoaJuridica"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             { data: "Status" },
@@ -58,37 +58,6 @@
       
 
     $("#titulo-receber-botao-salvar").on("click", function () {
-        if ($.trim($('#tituloReceber-campo-pessoa-Juridica').val()) == '') {
-            alert('Selecione uma Pessoa Jurídica');
-            return false;
-        } else if ($.trim($('#tituloReceber-campo-categoria-Receita').val()) == '') {
-            alert('Selecione uma Categoria Receita');
-            return false;
-        } else if ($.trim($('#tituloReceber-campo-status').val()) == '') {
-            alert('Selecione um status');
-            return false;
-        }
-        else if ($.trim($('#tituloReceber-campo-data-lancamento').val()) == '') {
-            alert('Digite a Data de Lançamento');
-            return false;
-        } else if ($.trim($('#tituloReceber-campo-data-recebimento').val()) == '') {
-            alert('Digite a Data de recebimento');
-            return false;
-        } else if ($.trim($('#tituloReceber-campo-data-vencimento').val()) == '') {
-            alert('Digite a data de Vencimento');
-            return false;
-        } else if ($.trim($('#tituloReceber-campo-valor-total').val()) == '') {
-            alert('Gigite o Valor Total');
-            return false;
-        } else if ($.trim($('#tituloReceber-campo-quantidade-Parcelas').val()) == '') {
-            alert('Digite a Quantidade de Parcelas');
-            return false;
-        } else if ($.trim($('#tituloReceber-campo-descricao').val()) == '') {
-            alert('Digite a Descrição');
-            return false;
-        } else {
-
-        }
         $IdClientePessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
         $IdCategoriaReceita = $("#tituloReceber-campo-categoria-Receita").val();
         $ValorTotal = $("#tituloReceber-campo-valor-total").val();
@@ -98,14 +67,15 @@
         $DataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
         $DataVencimento = $("#tituloReceber-campo-data-vencimento").val();
         $Descricao = $("#tituloReceber-campo-descricao").val();
+        $Complemento = $("#tituloReceber-campo-complemento").val();
         if ($idAlterar == -1) {
-            inserir($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao);
+            inserir($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento);
         } else {
-            alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao);
+            alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento);
         }
     });
 
-    function inserir($IdClientePessoaJuridica , $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao) {
+    function inserir($IdClientePessoaJuridica , $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
         $.ajax({
             url: '/tituloreceber/cadastro',
             method: 'post',
@@ -119,10 +89,11 @@
                 DataRecebimento: $DataRecebimento,
                 DataVencimento: $DataVencimento,
                 Descricao: $Descricao,
+                Complemento: $Complemento,
 
             },
             success: function (data) {
-                LimparCampos();
+                limparCampos();
                 $("#modal-tituloReceber").modal("hide");
                 $(".modal-backdrop").hide();
                 $tabelaTituloReceber.ajax.reload();
@@ -155,6 +126,7 @@
                 console.log;
                 $("#tituloReceber-campo-data-vencimento").val(dataVencimento.format('YYYY-MM-DD'));
                 $("#tituloReceber-campo-descricao").val(data.Descricao);
+                $("#tituloReceber-campo-complemento").val(data.Complemento);
                 $("#modal-tituloReceber").modal("show");
             },
             error: function (data) {
@@ -163,7 +135,7 @@
         })
     });
 
-    function alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao) {
+    function alterar($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
         $.ajax({
             url: "/tituloreceber/editar",
             method: "post",
@@ -177,12 +149,13 @@
                 DataRecebimento: $DataRecebimento,
                 DataVencimento: $DataVencimento,
                 Descricao: $Descricao,
+                Complemento: $Complemento,
                 id: $idAlterar,
                 //idTituloReceber: $idTituloReceber
             },
             success: function (data) {
                 $("#modal-tituloReceber").modal("hide");
-                LimparCampos();
+                limparCampos();
                 $tabelaTituloReceber.ajax.reload();
             },
             error: function (err) {
@@ -191,19 +164,18 @@
         });
     }
 
-    function LimparCampos() {
+    function limparCampos() {
         $("#tituloReceber-campo-pessoa-Juridica").val("");
         $("#tituloReceber-campo-categoria-Receita").val("");
-        $("#tituloReceber-campo-status").val("");
+        $("tituloReceber-campo-status").val("");
         $("#tituloReceber-campo-valor-total").val("");
         $("#tituloReceber-campo-quantidade-Parcelas").val("");
         $("#tituloReceber-campo-descricao").val("");
         $("#tituloReceber-campo-data-lancamento").val("");
         $("#tituloReceber-campo-data-recebimento").val("");
         $("#tituloReceber-campo-data-vencimento").val("");
+        $("#tituloReceber-campo-complemento").val("");
         $idAlterar = -1;
     }
-    $('#modal-tituloReceber').on('hidden.bs.modal', function (e) {
-        LimparCampos();
-    })
+
 });

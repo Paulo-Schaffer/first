@@ -157,7 +157,7 @@
                                     </li>
                                     <li>
                                         <a href="email-inbox.html">
-                                            <i class="ti-email"></i> Minhas Mensagens
+                                            <i class="ti-email"></i> Mensagens
                                         </a>
                                     </li>
                                   
@@ -166,11 +166,7 @@
                                             <i class="ti-layout-sidebar-left"></i> Sair
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="login/index">
-                                            <i class="ti-layout-sidebar-left"></i> Logout
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
                             </li>
                         </ul>
@@ -233,7 +229,28 @@
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="pcoded-inner-navbar main-menu">
-                   
+                            <div class="">
+                                <div class="main-menu-header">
+                                    <img class="img-40 img-radius" src="~/Content/tema/assets/images/avatar-10.jpg"
+                                         alt="User-Profile-Image">
+                                    <div class="user-details">
+                                        <span>@Session["usuarioLogadoNome"]</span>
+                                        <span id="more-details">@Session["UsuarioLogadoTipoFuncionario"]<i class="ti-angle-down"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="main-menu-content">
+                                    <ul>
+                                        <li class="more-details">
+                                            <a href="user-profile.html"><i class="ti-user"></i>Perfil</a>
+                                            <a href="#!"><i class="ti-email"></i>Mensagens</a>
+                                            <a href="http://localhost:50838/Login">
+                                                <i class="ti-layout-sidebar-left"></i>Sair
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="pcoded-search">
                                 <span class="searchbar-toggle"> </span>
                                 <div class="pcoded-search-box ">
@@ -322,7 +339,7 @@
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"  
                                                       data-i18n="nav.basic-components.alert">Historicos</span>
-                                                <span class="pcoded-mcaret"></span>
+                                                <span class="pcoded-mtext"></span>
                                             </a>
                                         </li>
                                     </ul>
@@ -353,6 +370,22 @@
                                             </a>
                                         </li>
                                         <li class=" ">
+                                            <a href="/tituloreceber/index">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.alert">Título a receber</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/titulopagar/index">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Título a pagar</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
                                             <a href="/Funcionario/Index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
@@ -374,12 +407,36 @@
                                             <a href="/CadastroContaCorrente/Index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Conta Corrente</span>
+                                                      data-i18n="nav.basic-components.breadcrumbs">Cadastro Conta Corrente</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class="">
-                                            <a href="/clientepessoajuridica/index">
+
+
+
+
+                                        <li class=" ">
+                                            <a href="/caixa/cadastro">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Caixa</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
+                                        <li class=" ">
+                                            <a href="/ContaCorrente/Cadastro">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Conta Corrente</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+
+                                        </li>
+
+
+                                        <li class=" ">
+                                            <a href="/clientepessoajuridica ">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
@@ -395,24 +452,14 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/categoriareceita/index">
+                                            <a href="/caixa/cadastro">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Categoria Receita</span>
+                                                      data-i18n="nav.basic-components.breadcrumbs">Caixa</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class=" ">
-                                            <a href="/categoriadespesa/index">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext"
-                                                      data-i18n="nav.basic-components.breadcrumbs">Categoria Despesa</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-
-
-
+                                      
 
                                     </ul>
                                 </li>
@@ -529,9 +576,6 @@
     <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-
-
-    <script src="~/Scripts/notify.min.js"></script>
     <script src="~/Scripts/jquery.mask.js"></script>
     <script src="~/Scripts/moment.js"></script>
     <script src="~/Scripts/select2.min.js"></script>

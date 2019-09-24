@@ -6,7 +6,7 @@
         ajax: '/titulopagar/obtertodos',
         serverSide: true,
         columns: [
-            { data: "Id" },
+            { data: 'Id' },
             { data: "Fornecedor.RazaoSocial" },
             { data: "CategoriaDespesa.TipoCategoriaDespesa" },
             { data: "Descricao" },
