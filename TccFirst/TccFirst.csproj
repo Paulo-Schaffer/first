@@ -5487,6 +5487,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CadastroContaCorrente\valida-funcao.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\Caixa\caixa-index.js" />
     <Content Include="Scripts\Chart.js" />
@@ -5576,6 +5577,8 @@
     <Content Include="Scripts\Login\login-cadastro.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ParcelaReceber\parcela-receber-cadastro.js" />
+    <Content Include="Scripts\ParcelaReceber\parcela-receber-editar.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -5627,11 +5630,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
+    <Compile Include="Controllers\ParcelaReceberController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5703,10 +5708,16 @@
     <Content Include="Views\ParcelasPagar\Cadastro.cshtml" />
     <Content Include="Views\ParcelasPagar\Editar.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
-    <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\Transacao\Editar.cshtml" />
-    <Content Include="Views\Relatorios\Index.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\TituloPagar\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
+    <Content Include="Views\Relatorio\Index.cshtml" />
+    <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
+    <Content Include="Views\ParcelaReceber\Index.cshtml" />
+    <Content Include="Views\FluxoCaixa\FluxoCaixa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5720,6 +5731,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />

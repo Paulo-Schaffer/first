@@ -12,34 +12,13 @@ namespace Repository.Repositories
     {
         private SistemaContext context;
 
-        public ParcelaPagarRepository()
-        {
-            context = new SistemaContext(); 
-        }
-
-        public bool Alterar(ParcelaPagar parcelaPagar)
-        {
-            var parcelaPagarOriginal = context.ParcelasPagar.FirstOrDefault(x => x.Id == parcelaPagar.Id);
-
-            if (parcelaPagarOriginal == null)
-                return false;
-
-            parcelaPagarOriginal.Valor = parcelaPagar.Valor;
-            parcelaPagarOriginal.Status = parcelaPagar.Status;
-            parcelaPagarOriginal.DataVencimento = parcelaPagar.DataVencimento;
-            parcelaPagarOriginal.DataPagamento =parcelaPagar.DataPagamento;
-            int quantidadeAfetada = context.SaveChanges();  
-            return quantidadeAfetada == 1;
-        }
-
         public bool Apagar(int id)
         {
             var parcelaPagar = context.ParcelasPagar.FirstOrDefault(x => x.Id == id);
 
-            if (parcelaPagar == null)
-            {
-                return false;
-            }
+        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
+        {
+            var dataAtual = DateTime.Now.AddDays(30);
 
 
             parcelaPagar.RegistroAtivo = false;
@@ -47,11 +26,7 @@ namespace Repository.Repositories
             return quantidadeAfetada == 1;
         }
 
-        public int Inserir(ParcelaPagar parcelaPagar)
-        {
-            context.ParcelasPagar.Add(parcelaPagar);
-            context.SaveChanges();
-            return parcelaPagar.Id;
+
         }
 
         public ParcelaPagar ObterPeloId(int id)

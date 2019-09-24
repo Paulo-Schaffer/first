@@ -66,7 +66,7 @@ namespace Repository
             context.Caixas.AddRange(caixa);
             #endregion
 
-            #region categoriasDespesa
+            #region categoriaDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
@@ -81,7 +81,7 @@ namespace Repository
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
-            #region categoriasReceita
+            #region categoriaReceita
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
@@ -96,7 +96,7 @@ namespace Repository
             context.CategoriasReceitas.AddRange(categoriaReceita);
             #endregion
 
-            #region clientesPessoasFisicas
+            #region clientePessoaFisica
 
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
@@ -134,7 +134,7 @@ namespace Repository
             context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
-            #region clientesPessoasJuridicas
+            #region clientePessoaJuridica
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
@@ -224,6 +224,65 @@ namespace Repository
                 IdAgencia = 2,
                 RegistroAtivo = true,
             });
+            #region tituloPagar
+            var tituloPagar = new List<TituloPagar>();
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Dinheiro",
+                Caixa = true,
+                ValorTotal = 1999,
+                Status = "Pago",
+                DataLancamento = Convert.ToDateTime("23/06/2016"),
+                DataRecebimento = Convert.ToDateTime("22/07/2016"),
+                DataVencimento = Convert.ToDateTime("23/07/2016"),
+                Complemento = "Usuario pagou corretamente",
+                QuantidadeParcela = 1,
+                RegistroAtivo = true
+            });
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Credito",
+                Caixa = false,
+                ValorTotal = 127422,
+                Status = "Pendente",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
+                Complemento = "Usuario nao pagou",
+                QuantidadeParcela = 6,
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region cadastrocontacorrente
+            var cadastroscontacorrente = new List<CadastroContaCorrente>() {
+                new CadastroContaCorrente()
+                {
+                    Id = 1,
+                    NumeroConta = 80,
+                    IdAgencia = 1,
+                    RegistroAtivo = true,
+                },
+
+                  new CadastroContaCorrente()
+                  {
+                      Id = 2,
+                      NumeroConta = 1000,
+                      IdAgencia = 2,
+                      RegistroAtivo = true,
+                  },
+                  new CadastroContaCorrente()
+                  {
+                      Id = 3,
+                      NumeroConta = 1000,
+                      IdAgencia = 1,
+                      RegistroAtivo = true,
+                  }
+            };
+            context.CadastroContaCorrentes.AddRange(cadastroscontacorrente);
+
             #endregion
 
             #region fornecedores
@@ -245,31 +304,14 @@ namespace Repository
                 Complemento = "casa",
                 RegistroAtivo = true,
             });
+            context.Fornecedores.AddRange(fornecedores);
             #endregion
-
-            var transacao = new List<Transacao>();
-            transacao.Add(new Transacao()
-            {
-                RegistroAtivo = true,
-                IdCadastroContaCorrente=1,
-                IdCategoriaDespesa= 1,
-                IdCategoriaReceita =1,
-                IdHistorico = 1,
-                DescricaoTransacao = "alo",
-                Documento = "daskdaksd",
-                TipoPagamento = "dinheiro",
-                Valor = 111,
-                Status = "pendente",
-                DataLancamento = Convert.ToDateTime("04/09/2019"),
-                DataVencimento = Convert.ToDateTime("04/09/2019"),
-                DataRecebimento = Convert.ToDateTime("04/09/2019")
-            });
 
             #region historico
             var historico = new List<Historico>();
             historico.Add(new Historico()
             {
-                Descricao = "Conta adicionada dia 19/07/2012",
+                Descricao = "Conta adicionada dia 19/07/2000",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
@@ -514,6 +556,7 @@ namespace Repository
             });
             context.TitulosReceber.AddRange(tituloReceber);
             #endregion
+
 
             base.Seed(context);
         }

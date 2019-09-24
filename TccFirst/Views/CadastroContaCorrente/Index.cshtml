@@ -5,7 +5,7 @@
 
 <h2>Lista de Pessoas</h2>
 
-<button data-toggle="modal" data-target="#modal-cadastro-conta-corrente" class="btn btn-primary">Nova pessoa</button>
+<button data-toggle="modal" data-target="#modal-cadastro-conta-corrente" class="btn btn-primary">Nova Conta Corrente</button>
 <table id="cadastro-conta-corrente-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -18,7 +18,6 @@
 </table>
 @RenderPage("Cadastro-conta-corrente.cshtml")
 @section js {
-    <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-Editar.js"></script>
-    <script src="~/Scripts/CadastroContaCorrente/cadastro-conta-corrente-cadastro.js"></script>
-    }
-
+    <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-cadastro.js"></script>
+    <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-editar.js"></script>
+}

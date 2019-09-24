@@ -82,6 +82,62 @@
         }
     });
 
+    $('.table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data("id");
+        $.ajax({
+            url: '/titulopagar/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                    $('#tituloPagar-campo-fornecedor').val(data.IdFornecedor);
+                    $('#tituloPagar-campo-categoria-despesa').val(data.IdCategoriaDespesa);
+                    $('#tituloPagar-campo-descricao').val(data.Descricao);
+                    $('#tituloPagar-campo-forma-pagamento').val(data.FormaPagamento);
+                    $('#tituloPagar-campo-caixa').val(data.Caixa);
+                    $('#tituloPagar-campo-valor-total').val(data.ValorTotal);
+                    $('#tituloPagar-campo-status').val(data.Status);
+                    $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento);
+                    $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento);
+                    $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
+                    $('#tituloPagar-campo-complemento').val(data.Complemento);
+                    $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
+                    $('#modal-tituloPagar').modal('show');
+                
+            },
+            error: function (data) {
+                alert("Não foi possível buscar o registro");
+            }
+        });
+    });
+
+    function inserir($IdFornecedor, $IdCategoriaDespesa, $Descricao, $FormaPagamento, $Caixa, $ValorTotal, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Complemento, $QuantidadeParcela) {
+        $.ajax({
+            url: '/titulopagar/cadastro',
+            method: 'post',
+            data: {
+                IdFornecedor: $IdFornecedor,
+                IdCategoriaDespesa: $IdCategoriaDespesa,
+                Descricao: $Descricao,
+                FormaPagamento: $FormaPagamento,
+                Caixa: $Caixa,
+                ValorTotal: $ValorTotal,
+                Status: $Status,
+                DataLancamento: $DataLancamento,
+                DataRecebimento: $DataRecebimento,
+                DataVencimento: $DataVencimento,
+                Complemento: $Complemento,
+                QuantidadeParcela: $QuantidadeParcela,
+            },
+            success: function (data) {
+                LimparCampos();
+                $('#modal-tituloPagar').modal('hide');
+                $tabelaTituloPagar.ajax.reload();
+            },
+            error: function (err) {
+                
+            }
+        });
+    }
+
     function alterar($Valor, $Status, $DataVencimento, $DataPagamento ) {
         $.ajax({
             url: "/Funcionario/update",
