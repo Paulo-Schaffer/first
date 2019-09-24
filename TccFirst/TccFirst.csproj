@@ -5569,6 +5569,8 @@
     <Content Include="Scripts\Login\login-cadastro.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ParcelaReceber\parcela-receber-cadastro.js" />
+    <Content Include="Scripts\ParcelaReceber\parcela-receber-editar.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -5620,6 +5622,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
+    <Compile Include="Controllers\ParcelaReceberController.cs" />
     <Compile Include="Controllers\ParcelasPagarController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
@@ -5705,6 +5708,9 @@
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
+    <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
+    <Content Include="Views\ParcelaReceber\Index.cshtml" />
+    <Content Include="Views\FluxoCaixa\FluxoCaixa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5718,6 +5724,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
