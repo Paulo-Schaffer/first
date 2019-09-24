@@ -57,7 +57,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloReceber tituloReceber)
         {
-           // tituloReceber.RegistroAtivo = true; // adicionado  dia 12/09/2019
+            tituloReceber.RegistroAtivo = true; // adicionado  dia 12/09/2019
             context.TitulosReceber.Add(tituloReceber);
             context.SaveChanges();
             return tituloReceber.Id;
@@ -75,8 +75,7 @@ namespace Repository.Repositories
             return context.TitulosReceber
                 .Include("ClientePessoaJuridica")
                 .Include("ClientePessoaFisica")
-                .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList(); 
-           
+                .Where(x => x.RegistroAtivo == true).ToList();   
         }
     }
 }

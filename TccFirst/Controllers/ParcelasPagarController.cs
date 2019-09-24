@@ -17,10 +17,42 @@ namespace TccFirst.Controllers
             repository = new ParcelaPagarRepository();
         }
 
-        //public ActionResult Index()
-        //{
-        //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        //}
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         [HttpGet]
         public JsonResult ObteTodos()
@@ -29,12 +61,6 @@ namespace TccFirst.Controllers
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
-        //[HttpGet, Route("parcelasPagar/obtertodosselect2")]
-        //public JsonResult ObterTodosSelect2(string termo)
-        //{
-        //    var parcelasPagar = repository.ObterTodos();
-        //    List<object> parcelasPagarSelect2 = new List<object>();
         [HttpPost]
         public JsonResult Inserir(ParcelaPagar parcelaPagar)
         {

@@ -19,7 +19,6 @@ namespace Model
 
         [Column("id_agencia")]
         public int IdAgencia { get; set; }
-
         [ForeignKey("IdAgencia")]
         public Agencia Agencia { get; set; }
 

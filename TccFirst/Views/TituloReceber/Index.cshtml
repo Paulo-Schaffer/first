@@ -3,10 +3,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Cadastro de Títulos a Receber</h2>
-<a href="/tituloreceber/cadastro" class="btn btn-info float-right">
-    <i class="fa fa-plus"></i>Novo Titulo a Receber
-</a>
+<h2>Cadastro de Títulos a Receber Cliente Jurídico</h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tituloReceber">
+    Criar título a Receber
+</button>
 <table id="tituloReceber-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -22,32 +22,8 @@
             <th>Ação</th>
         </tr>
     </thead>
-    @foreach (Model.TituloReceber tituloReceber in ViewBag.TitulosReceber)
-    {
-        <tr>
-            <td>@tituloReceber.Id</td>
-            <td>@tituloReceber.NomeCliente</td>
-            <td>@tituloReceber.ValorTotal</td>
-            <td>@tituloReceber.QuantidadeParcela</td>
-            <td>@tituloReceber.Status</td>
-            <td>@tituloReceber.DataLancamento</td>
-            <td>@tituloReceber.DataRecebimento</td>
-            <td>@tituloReceber.DataVencimento</td>
-            <td>@tituloReceber.Descricao</td>
-            <td>
-
-                <div style="margin-left: 5px">
-                    <a id="botao-editar" class="btn btn-primary float-right" href="/tituloreceber/editar?id=@tituloReceber.Id">Editar</a>
-                </div>
-                <div style="margin-right: 100px">
-                    <a id="botao-apagar" class="btn btn-danger float-right" href="/tituloreceber/apagar?id=@tituloReceber.Id">Apagar</a>
-                </div>
-
-            </td>
-        </tr>
-    }
 </table>
-@*@RenderPage("CadastroTituloReceber.cshtml")*@
+@RenderPage("CadastroTituloReceber.cshtml")
 @section js{
     <script src="~/Scripts/TituloReceber/titulo-receber-cadastro.js"></script>
     <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>

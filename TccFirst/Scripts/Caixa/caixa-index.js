@@ -60,7 +60,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
-                
+                $idAlterar = -1;
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {
@@ -84,8 +84,6 @@ $(function () {
             },
             success: function (data) {
                 $('#modal-caixa').modal('hide');
-                $(".modal-backdrop").hide();
-                LimparCampos();
                 $tabelaCaixa.ajax.reload();
                 $('#modal-caixa').val("")
             },
@@ -137,17 +135,4 @@ $(function () {
             }
         });
     });
-
-    function LimparCampos() {
-        $("#caixa-campo-descricao").val("");
-        $("#caixa-campo-documento").val("");
-        $("#caixa-campo-forma-pagamento").val("");
-        $("#caixa-campo-valor").val("");
-        $("#caixa-campo-data-lancamento").val("");
-        $("#caixa-campo-historico").val("");
-        $idAlterar = -1;
-    }
-    $('#modal-caixa').on('hidden.bs.modal', function (e) {
-        LimparCampos();
-    })
 });

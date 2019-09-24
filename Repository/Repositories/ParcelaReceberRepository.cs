@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
    public class ParcelaReceberRepository : IParcelaReceberRepository
-   {
+    {
         private SistemaContext context;
 
         public ParcelaReceberRepository()
@@ -17,33 +17,59 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber)
+
+        public bool Alterar(ParcelaReceber parcelaReceber)
         {
-            var dataAtual = DateTime.Now.AddDays(30);
-
-            for (int i = 0; i < quantidadesPacelas; i++)
+            var parcelaReceberOriginal = context.ParcelasReceber
+                 .Where(x => x.Id == parcelaReceber.Id)
+                 .FirstOrDefault();
+            if (parcelaReceberOriginal == null)
             {
-                var dataVencimento = dataAtual.AddMonths(i);
-
-                var parcela = new ParcelaReceber();
-                parcela.Valor = valor;
-                parcela.DataVencimento = dataVencimento;
-                parcela.IdTituloReceber = idTituloReceber;
-                parcela.RegistroAtivo = true;
-                context.ParcelasReceber.Add(parcela);
-                context.SaveChanges();
+                return false;
             }
+            parcelaReceberOriginal.Valor = parcelaReceber.Valor;
+            parcelaReceberOriginal.Status = parcelaReceber.Status;
+            parcelaReceberOriginal.DataVencimento = parcelaReceber.DataVencimento;
+            parcelaReceberOriginal.DataRecebimento = parcelaReceber.DataRecebimento;
+            parcelaReceberOriginal.IdTituloReceber = parcelaReceber.IdTituloReceber;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+        }
+
+        public bool Apagar(int id)
+        {
+            var parcelaReceber = context.ParcelasReceber.FirstOrDefault(x => x.Id == id);
+            if (parcelaReceber == null)
+            {
+                return false;
+            }
+            parcelaReceber.RegistroAtivo = false;
+            context.SaveChanges();
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+        }
+
+        public int Inserir(ParcelaReceber parcelaReceber)
+        {
+            context.ParcelasReceber.Add(parcelaReceber);
+            context.SaveChanges();
+            return parcelaReceber.Id;
         }
 
         public ParcelaReceber ObterPeloId(int id)
         {
-            var parcela = context.ParcelasReceber.Where(x => x.Id == id).FirstOrDefault();
-            return parcela;
+            var parcelaReceber = context.ParcelasReceber
+                  .Where(x => x.Id == id)
+                  .FirstOrDefault(x => x.Id == id);
+            return parcelaReceber;
         }
 
         public List<ParcelaReceber> ObterTodos()
         {
-            return context.ParcelasReceber.Where(x => x.RegistroAtivo == true).ToList();
+            return context.ParcelasReceber
+              .Where(x => x.RegistroAtivo == true)
+              .OrderBy(x => x.Status)
+              .ToList();
         }
     }
 }

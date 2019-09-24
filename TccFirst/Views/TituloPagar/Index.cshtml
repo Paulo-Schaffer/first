@@ -1,71 +1,39 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-<h2>Lista de Títulos a Pagar</h2>
-<a href="/titulopagar/cadastro" class="btn btn-info float-right mb-3">
-    <i class="fa fa-plus"></i>Novo Titulo a Pagar
-</a>
 
-<div style="overflow-x:auto">
-    <table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Fornecedor</th>
-                <th>Categoria Despesa</th>
-                <th>Forma de <br />Pagamento</th>
-                <th>Caixa</th>
-                <th>Valor Total</th>
-                <th>Status</th>
-                <th>Data Lançamento</th>
-                <th>Data Recebimento</th>
-                <th>Data Vencimento</th>
-                <th>Complemento</th>
-                <th>Quantidade <br /> de Parcelas</th>
-                <th>Descrição</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        @foreach (Model.TituloPagar tituloPagar in ViewBag.TitulosPagar)
-        {
-            <tr>
-                <td>@tituloPagar.Id</td>
-                <td>@tituloPagar.Fornecedor.RazaoSocial</td>
-                <td>@tituloPagar.CategoriaDespesa.TipoCategoriaDespesa</td>
-                <td>@tituloPagar.FormaPagamento</td>
-                <td>@tituloPagar.Caixa</td>
-                <td>@tituloPagar.ValorTotal</td>
-                <td>@tituloPagar.Status</td>
-                <td>@tituloPagar.DataLancamento</td>
-                <td>@tituloPagar.DataRecebimento</td>
-                <td>@tituloPagar.DataVencimento</td>
-                <td>@tituloPagar.Complemento</td>
-                <td>@tituloPagar.QuantidadeParcela</td>
-                <td>@tituloPagar.Descricao</td>
-                <td>
-                    <div style="margin-left: 5px">
-                        <a id="botao-editar" class="btn btn-primary float-right" href="/tituloPagar/editar?id=@tituloPagar.Id">Editar</a>
-                    </div>
-                    <div style="margin-right: 100px">
-                        <a id="botao-apagar" class="btn btn-danger float-right" href="/tituloPagar/apagar?id=@tituloPagar.Id">Apagar</a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </table>
-</div>
+<h2>Lista de Títulos a Pagar</h2>
+
+<button type="button" data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-info float-right">
+    <i class="fa fa-plus"></i>Novo Titulo Pagar</button>
+
+<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped" >
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Fornecedor</th>
+            <th>Categoria Despesa</th>
+            <th>Descrição</th>
+            <th>Forma de Pagamento</th>
+            <th>Caixa</th>
+            <th>Valor Total</th>
+            <th>Status</th>
+            <th>Data Lançamento</th>
+            <th>Data Recebimento</th>
+            <th>Data Vencimento</th>
+            <th>Complemento</th>
+            <th>Quantidade de Parcelas</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+
+@RenderPage("CadastroTituloPagar.cshtml")
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-<script>
-    $(document).ready(function () {
-        $('#tituloPagar-tabela').DataTable();
-    });</script>
 
 
 
