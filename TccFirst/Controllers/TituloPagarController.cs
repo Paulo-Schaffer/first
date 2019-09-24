@@ -8,16 +8,22 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    [Route("tituloPagar/")]
+    //[Route("tituloPagar/")]
     public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
         public TituloPagarController()
-        {
+        {  
             repository = new TituloPagarRepository();
         }
 
+        public ActionResult Index()
+        {
+            TituloPagarRepository repositoryTituloPagar = new TituloPagarRepository();
+            ViewBag.TitulosPagar = repositoryTituloPagar.ObterTodos();
+            return View();
+        }
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -27,11 +33,19 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        #region Cadastro
+        [HttpGet, Route("Index")]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             int id = repository.Inserir(tituloPagar);
-            return RedirectToAction("Editar", new { id = id });
+            var resultado = new { id = id };
+            return RedirectToAction("Index",resultado);
         }
 
         [HttpPost, Route("editar")]
@@ -43,11 +57,11 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet, Route("apagar")]
-        public JsonResult Apagar(int id)
+        public ActionResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", new { id = id });
         }
 
         [HttpGet, Route("tituloPagar")]
@@ -56,8 +70,13 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Index()
+        public ActionResult Editar(int id)
         {
+            var tituloPagar = repository.ObterPeloId(id);
+            ViewBag.TituloPagar = tituloPagar;
+            return View();
+        }
+        #endregion
 
             var tituloPagars = repository.ObterTodos();
 
