@@ -5576,7 +5576,6 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\select2.min.css" />
-    <Content Include="Scripts\TituloPagar\jquery.form-validator.min.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
@@ -5629,7 +5628,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
     <Content Include="Views\TituloReceber\Index.cshtml" />
-    <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\Agencia\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TituloPagar\Index.cshtml" />
@@ -5688,10 +5686,15 @@
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <Content Include="Views\TituloPagar\Editar.cshtml" />
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
+    <Content Include="Views\TituloReceber\Editar.cshtml" />
+    <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
+    <Content Include="Views\TituloReceber\Cadastro.cshtml" />
+    <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
