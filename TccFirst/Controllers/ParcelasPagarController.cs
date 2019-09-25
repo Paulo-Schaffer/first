@@ -43,6 +43,7 @@ namespace TccFirst.Controllers
             var resultado = new { id = id };
             return Json(resultado);
         }
+
         [HttpGet]
         public JsonResult Apagar(int id)
         {
@@ -50,18 +51,21 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado);
         }
+
         [HttpPost]
-        public JsonResult Update(ParcelaPagar parcelasPagar)
+        public JsonResult Update(ParcelaPagar parcelaPagar)
         {
-            var alterou = repository.Alterar(parcelasPagar);
+            var alterou = repository.Alterar(parcelaPagar );
             var resultado = new { status = alterou };
             return Json(resultado);
         }
+
         [HttpGet, Route("parcelasPagar/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
+
         //[HttpGet, Route("parcelasPagar/obtertodosselect")]
         //public JsonResult ObterTodosSelect(string termo)
         //{
@@ -84,10 +88,8 @@ namespace TccFirst.Controllers
         [HttpGet]
         public ActionResult GerarParcelas(int idTituloPagar)
         {
-
             repository.GerarParcelas(idTituloPagar);
             return Json(idTituloPagar, JsonRequestBehavior.AllowGet);
-
         }
     }
 }

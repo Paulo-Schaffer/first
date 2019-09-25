@@ -56,7 +56,17 @@ namespace Repository.Repositories
 
         public bool Alterar(ParcelaPagar parcelaPagar)
         {
-            throw new NotImplementedException();
+            var parcelasPagarOriginal = context.ParcelasPagar
+          .FirstOrDefault(x => x.Id == parcelaPagar.Id);
+            if (parcelaPagar == null)
+            {
+                return false;
+            }
+            parcelasPagarOriginal.DataVencimento = parcelaPagar.DataVencimento;
+            parcelasPagarOriginal.Valor = parcelaPagar.Valor;
+            parcelasPagarOriginal.Status = parcelaPagar.Status;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
         }
 
         public bool Apagar(int id)

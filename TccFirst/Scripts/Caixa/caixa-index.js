@@ -1,4 +1,4 @@
-﻿//$(function () {
+﻿    //$(function () {
 //    $('#caixa-campo-cpf').mask('000.000.000,000', { reverse: true });
 //});
 $(function () {
@@ -114,7 +114,6 @@ $(function () {
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
-
         $.ajax({
             url: '/caixa/obterpeloid?id=' + $idAlterar,
             method: 'get',
