@@ -381,7 +381,7 @@ namespace Repository
                 DataRecebimento = Convert.ToDateTime("05/08/2018"),
                 RegistroAtivo = true,
             });
-                #endregion ParcelaReceber
+            #endregion ParcelaReceber
 
             #region Historicos
             var historicos = new List<Historico>();

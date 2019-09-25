@@ -1,9 +1,8 @@
-﻿
-<div class="row">
+﻿<div class="row">
     <div class="col-6">
         <div class="form-group">
             <span class="font-weight-bold">Valor Total:</span>
-            @*<span>@ViewBag.TitutloPagar.ValorTotal</span>*@
+            <span>@ViewBag.TituloPagar.ValorTotal</span>
         </div>
     </div>
 
@@ -16,7 +15,7 @@
 </div>
 <button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3">Gerar Parcelas</button>
 
-<table id="titulo-pagar-parcelas-tabela" class="table table-hover table-bordered table-striped">
+<table id="parcelasPagar-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Data Vencimento</th>
@@ -27,3 +26,46 @@
         </tr>
     </thead>
 </table>
+
+<div id="modal-parcelasPagar" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Parcelas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label form="parcelasPagar-campo-data-pagamento" mas>Data Pagamento<span class="text-danger">*</span></label>
+                            <input type="date" id="parcelasPagar-campo-data-pagamento" class="form-control" name="DataPagamento" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="parcelasPagar-campo-status" mas>Status<span class="text-danger">*</span></label>
+                            <select class="form-control" id="parcelasPagar-campo-status" name="Status">
+                                <option disabled="disabled" selected="selected">Selecione um status</option>
+                                <option>Pendente</option>
+                                <option>Pago</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="parcelasPagar-botao-salvar">
+                    <i class="fa fa-floppy-o"></i> Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section js{
+    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
+}

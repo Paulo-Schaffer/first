@@ -2,12 +2,20 @@
     $idAlterar = -1;
     $idTituloPagar = $("#id").val();
 
-    $tabelaParcelas = $("#titulo-pagar-parcelas-tabela").DataTable({
+    $tabelaParcelas = $("#parcelasPagar-tabela").DataTable({
         ajax: '/parcelaspagar/obtertodos?idTituloPagar=' + $idTituloPagar,
         serverSide: true,
         columns: [
-            { data: "Id" },
-            { data: 'DataVencimento' },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataVencimento).format('YYYY-MM-DD')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataPagamento).format('YYYY-MM-DD')
+                }
+            },
             { data: "Valor" },
             {
                 render: function (data, type, row) {
@@ -15,7 +23,7 @@
                     if (row.Status == "Pago") {
                         cor = "bg-success";
                     } else if (row.Status == "Pendente") {
-                        cor = "bg-warning";
+                         cor = "bg-warning";
                     } else {
                         cor = "bg-danger";
                     }
@@ -26,24 +34,35 @@
             {
                 render: function (data, type, row) {
                     return "\
-                    <button class='btn btn-primary botao-editar fa fa-edit'\
-                        data-id=" + row.Id + "> Editar</button>\
-                    <button class='btn btn-danger botao-apagar fa fa-trash'\
-                        data-id=" + row.Id + "> Apagar</button>";
+                    <a class='btn btn-primary botao-editar fa fa-edit'\
+                        data-id" + row.Id + "'\
+                        data-id=" + row.Id + "> Editar</a>";
+               
                 }
             }
         ]
     });
 
-    //$("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
+    $('#parcelasPagar-botao-salvar').on('click', function () {
+        $DataPagamento = $('#parcelasPagar-campo-data-pagamento').val();
+        $Status = $('#parcelasPagar-campo-status').val();
+
+        if ($idAlterar == -1) {
+            inserir($DataPagamento, $Status);
+        } else {
+            alterar($DataPagamento, $Status);
+        }
+    });
+
+    //$("#titulo-pagar-parcelas-tabela").on('click', '.botao-apagar', function () {
     //    confirma = confirm("Deseja realmente apagar?");
     //    if (confirma == true) {
     //    $id = $(this).data('id');
     //    $.ajax({
-    //        url: '/titulopagar/apagar?id=' + $id,
+    //        url: '/parcelaspagar/apagar?id=' + $id,
     //        method: "get",
     //        success: function (data) {
-    //            $tabelaTituloPagar.ajax.reload();
+    //            $tabelaParcelas.ajax.reload();
     //        },
     //        error: function (err) {
     //            alert('Não foi possível apagar');
@@ -54,7 +73,7 @@
 
     $("#gerar-parcelas").on("click", function () {
         $.ajax({
-            url: '/parcelaspagar/GerarParcelas?idTituloPagar=' + $idTituloPagar,
+            url: '/parcelasPagar/GerarParcelas?idTituloPagar=' + $idTituloPagar,
             method: "get",
             success: function (data) {
                 $tabelaParcelas.ajax.reload();
@@ -64,6 +83,60 @@
             }
         });
     });
+
+    $('.table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data("id");
+        $.ajax({
+            url: '/parcelasPagar/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                $('#parcelasPagar-campo-data-pagamento').val(data.DataPagamento);
+                $('#parcelasPagar-campo-status').val(data.Status);
+                $('#modal-parcelasPagar').modal('show');
+            },
+            error: function (err) {
+                alert('Não foi possível carregar');
+            }
+        });
+    });
+
+    function inserir($Status, $DataPagamento) {
+        $.ajax({
+            url: '/parcelasPagar/inserir',
+            method: 'post',
+            data: {
+                DataPagamento: $DataPagamento,
+                Status: $Status,
+            },
+            success: function (data) {
+                $("#modal-parcelasPagar").modal("hide");
+                $tabelaParcelas.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possivel inserir")
+            }
+        });
+    }
+
+    function alterar($Status, $DataPagamento ) {
+        $.ajax({
+            url: "/ParcelasPagar/Update",
+            method: "post",
+            data: {
+                DataPagamento: $DataPagamento,
+                Status: $Status,
+                id: $idAlterar
+            },
+            success: function (data) {
+                $("#modal-parcelaPagar").modal("hide");
+                $idAlterar = -1;
+                $tabelaParcelas.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possível alterar");
+            }
+        })
+    }
 
     function monstrarMensagem(texto, titulo, tipo) {
         return false;
