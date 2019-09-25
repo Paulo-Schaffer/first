@@ -23,10 +23,10 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet, Route("obterTodos")]
-        public JsonResult ObterTodos()
+        [HttpGet]
+        public JsonResult ObterTodos(int idTituloReceber)
         {
-            var parcelasReceber = repository.ObterTodos();
+            var parcelasReceber = repository.ObterTodos(idTituloReceber);
             var resultado = new { data = parcelasReceber };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -39,35 +39,35 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public ActionResult GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber)
+        public ActionResult GerarParcelas( int idTituloReceber)
         {
-            repository.GerarParcelas(valor, quantidadesPacelas, idTituloReceber);
-            return Json(valor);
+            repository.GerarParcelas(idTituloReceber);
+            return Json(idTituloReceber,JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet,Route("parcelaReceber/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string term)
-        {
-            var parcelasReceber = repository.ObterTodos();
-            List<object>parcelaRecebersSelect2=
-                 new List<object>();
-            foreach(ParcelaReceber parcelaReceber in parcelasReceber)
-            {
-                parcelaRecebersSelect2.Add(new
-                {
-                    id = parcelaReceber.Id,
-                    valor= parcelaReceber.Valor,
-                    status=parcelaReceber.Status,
+       // [HttpGet,Route("parcelaReceber/obtertodosselect2")]
+        //public JsonResult ObterTodosSelect2(string term)
+        //{
+        //  var parcelasReceber = repository.ObterTodos(idTituloReceber);
+        //List<object>parcelaRecebersSelect2=
+        //         new List<object>();
+        //    foreach(ParcelaReceber parcelaReceber in parcelasReceber)
+        //    {
+        //        parcelaRecebersSelect2.Add(new
+        //        {
+        //            id = parcelaReceber.Id,
+        //            valor= parcelaReceber.Valor,
+       //             status=parcelaReceber.Status,
+       //
+       //         });
+       //     }
+       //     var resultado = new
+       //     {
+       //         results = parcelaRecebersSelect2
+       //     };
+       //     return Json(resultado, JsonRequestBehavior.AllowGet);
 
-                });
-            }
-            var resultado = new
-            {
-                results = parcelaRecebersSelect2
-            };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
+       // }
 
         public ActionResult Cadastro()
         {

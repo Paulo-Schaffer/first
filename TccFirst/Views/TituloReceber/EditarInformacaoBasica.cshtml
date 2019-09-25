@@ -68,7 +68,8 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
-                    <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control" />
+                    <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control"
+                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")"/>
                 </div>
             </div>
         </div>
@@ -77,13 +78,15 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
-                        <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control" />
+                        <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control"
+                                value="@ViewBag.TituloReceber.DataRecebimento.ToString("yyyy-MM-dd")"/>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
-                        <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" />
+                        <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" 
+                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")"/>
                     </div>
                 </div>
             </div>
@@ -92,13 +95,15 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="campo-tituloReceber-valor-total" mas>Valor</label>
-                    <input type="text" id="tituloReceber-campo-valor-total" class="form-control" />
+                    <input type="text" id="tituloReceber-campo-valor-total" class="form-control"
+                           value="@ViewBag.TituloReceber.ValorTotal"/>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
-                    <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control" />
+                    <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control"
+                           value="@ViewBag.TituloReceber.QuantidadeParcela"/>
                 </div>
             </div>
         </div>

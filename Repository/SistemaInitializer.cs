@@ -272,6 +272,15 @@ namespace Repository
                 RegistroAtivo = true
 
             });
+            funcionarios.Add(new Funcionario()
+            {
+                NomeFuncionario = "Paul",
+                TipoFuncionario = "Gerente",
+                Usuario = "Paul",
+                Senha = "123",
+                RegistroAtivo = true
+
+            });
             context.Funcionarios.AddRange(funcionarios);
             #endregion
 
