@@ -1,51 +1,54 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "FluxoCaixa";
 }
 
-<h2>Fluxo</h2>
 
 <head>
     <link rel="stylesheet" type="text/javascript" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/javascript" href="//cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 </head>
 
-<div>
-    <div class="form-group">
-        <label for="filtro-caixa">Caixa</label>
-        <select class="form-control" id="filtro-caixa">
-            <option value="0">Todos</option>
-        </select>
-    </div>
+<h2>FLUXO DE CAIXA</h2>
 
-    <div class="form-group">
-        <label for="filtro-agencia">Agencia</label>
-        <select class="form-control" id="filtro-agencia">
-            <option value="0">Todos</option>
-        </select>
-    </div>
-
-    <table id="relatorio-conta-corrente-tabela" class="table table-hover table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Agencia</th>
-                <th>Numero da Conta</th>
-
-            </tr>
-        </thead>
-    </table>
+<div class="form-group">
+    <label for="filtro-agencia">Agencia</label>
+    <select class="form-control" id="filtro-agencia">
+        <option value="0">Todos</option>
+    </select>
 </div>
+
+<div class="form-group">
+    <label for="filtro-agencia">Agencia</label>
+    <select class="form-control" id="filtro-agencia">
+        <option value="0">Todos</option>
+    </select>
+</div>
+
+<table id="fluxo-caixa-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Agencia</th>
+            <th>Numero da Conta</th>
+
+        </tr>
+    </thead>
+</table>
 
 
 @section js{
-<script src="~/Scripts/Relatorio/relatorio-conta-corrente.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="~/Scripts/Relatorio/relatorio-conta-corrente.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 
 }
+
+
+
