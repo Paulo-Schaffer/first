@@ -24,14 +24,18 @@ namespace Repository.Repositories
             if (contaCorrenteOriginal == null)
                 return false;
 
+            contaCorrenteOriginal.NumeroConta = contaCorrente.NumeroConta;
             contaCorrenteOriginal.Descricao = contaCorrente.Descricao;
             contaCorrenteOriginal.Documento = contaCorrente.Documento;
+            contaCorrenteOriginal.TipoReceitaDespesa = contaCorrente.TipoReceitaDespesa;
             contaCorrenteOriginal.TipoPagamento = contaCorrente.TipoPagamento;
             contaCorrenteOriginal.Valor = contaCorrente.Valor;
             contaCorrente.Status = contaCorrente.Status;
             contaCorrenteOriginal.DataLancamento = contaCorrente.DataLancamento;
             contaCorrenteOriginal.DataVencimento = contaCorrente.DataVencimento;
             contaCorrenteOriginal.DataRecebimento = contaCorrente.DataRecebimento;
+            contaCorrenteOriginal.NomeBanco = contaCorrente.NomeBanco;
+            contaCorrenteOriginal.NumeroBanco = contaCorrente.NumeroBanco;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;   
 

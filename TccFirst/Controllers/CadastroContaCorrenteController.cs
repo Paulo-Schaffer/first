@@ -17,6 +17,37 @@ namespace TccFirst.Controllers
             repository = new CadastroContaCorrenteRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
 
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
@@ -30,10 +61,10 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)
         {
             int id = repository.Inserir(cadastroContaCorrente);
-            return RedirectToAction("Editar", new { id = id });
+            return Json(new { id = id });
         }
 
-        [HttpPost, Route("editar")]
+        [HttpPost, Route("alterar")]
         public JsonResult Editar(CadastroContaCorrente cadastroContaCorrente)
         {
             var alterou = repository.Alterar(cadastroContaCorrente);
@@ -41,21 +72,9 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet, Route("apagar")]
-        public JsonResult Apagar(int id)
-        {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult Cadastro()
-        {
-            return View();
+           return View();
         }
     }
 }
