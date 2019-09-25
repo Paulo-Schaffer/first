@@ -20,9 +20,7 @@
                 <th>Documento</th>
                 <th>Tipo Pagamento </th>
                 <th>Valor</th>
-                <th>Status</th>
                 <th>Data Lançamento</th>
-                <th>Data Vencimento</th>
                 <th>Data Recebimento</th>
                 <th>Ação</th>
             </tr>
@@ -41,9 +39,7 @@
                 <td>@transacao.Documento</td>
                 <td>@transacao.TipoPagamento</td>
                 <td>@transacao.Valor</td>
-                <td>@transacao.Status</td>
                 <td>@transacao.DataLancamento</td>
-                <td>@transacao.DataVencimento</td>
                 <td>@transacao.DataRecebimento</td>
                 <td>
                     <div style="margin-left: 5px">
@@ -63,6 +59,38 @@
         </tbody>
     </table>
 </div>
+
+<link href="~/Scripts/really-simple-jquery-dialog.js" rel="stylesheet" />
+
+<a href="#" id="showAlert">Show Alert</a>
+<a href="#" id="showConfirm">Show Confirm</a>
+<a href="#" id="showPrompt">Show Prompt</a>
+
+<div id="myAlert"></div>
+<div id="myConfirm"></div>
+<div id="myPrompt"></div>
+
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script src="~/Scripts/really-simple-jquery-dialog.js"></script>
+<script>
+    $('showAlert').click(function () {
+        $('#myAlert').simpleAlert({
+            message:"Hello World!"
+        })
+    });
+    $('showConfirm').click(function () {
+        $('#myConfirm').simpleAlert({
+            message: "Hello World!"
+        })
+    });
+    $('showPrompt').click(function () {
+        $('#myPrompt').simpleAlert({
+            message: "Hello World!"
+        })
+    });
+</script>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

@@ -28,14 +28,8 @@ namespace Model
         [Column("valor")]
         public decimal Valor { get; set; }
 
-        [Column("status")]
-        public string Status { get; set; }
-
         [Column("data_lancamento")]
         public DateTime DataLancamento { get; set; }
-
-        [Column("data_vencimento")]
-        public DateTime DataVencimento { get; set; }
 
         [Column("data_recebimento")]
         public DateTime DataRecebimento { get; set; }

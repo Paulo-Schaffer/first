@@ -32,9 +32,7 @@ namespace Repository.Repositories
             transacaoOriginal.Documento = transacao.Documento;
             transacaoOriginal.TipoPagamento = transacao.TipoPagamento;
             transacaoOriginal.Valor = transacao.Valor;
-            transacaoOriginal.Status = transacao.Status;
             transacaoOriginal.DataLancamento = transacao.DataLancamento;
-            transacaoOriginal.DataVencimento = transacao.DataVencimento;
             transacaoOriginal.DataRecebimento = transacao.DataRecebimento;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;   

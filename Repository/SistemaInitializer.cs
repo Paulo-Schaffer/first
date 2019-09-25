@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace Repository
 {
-   //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+  // internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
    {
         protected override void Seed(SistemaContext context)
@@ -250,6 +250,7 @@ namespace Repository
             var transacao = new List<Transacao>();
             transacao.Add(new Transacao()
             {
+               
                 RegistroAtivo = true,
                 IdCadastroContaCorrente=1,
                 IdCategoriaDespesa= 1,
@@ -259,9 +260,7 @@ namespace Repository
                 Documento = "daskdaksd",
                 TipoPagamento = "dinheiro",
                 Valor = 111,
-                Status = "pendente",
                 DataLancamento = Convert.ToDateTime("04/09/2019"),
-                DataVencimento = Convert.ToDateTime("04/09/2019"),
                 DataRecebimento = Convert.ToDateTime("04/09/2019")
             });
 
@@ -457,6 +456,8 @@ namespace Repository
             var tituloPagar = new List<TituloPagar>();
             tituloPagar.Add(new TituloPagar()
             {
+                IdCategoriaDespesa=1,
+                IdFornecedor = 1,
                 Descricao = "Titulo feio por Paulo",
                 FormaPagamento = "Dinheiro",
                 Caixa = true,
