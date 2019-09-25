@@ -5762,6 +5762,8 @@
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
+    <Content Include="Views\CategoriaDespesa\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

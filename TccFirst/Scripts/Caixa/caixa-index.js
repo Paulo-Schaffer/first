@@ -104,9 +104,9 @@ $(function () {
                 IdHistoricos: $IdHistoricos,
             },
             success: function (data) {
+                LimparCampos();
                 $('#modal-caixa').modal('hide');
                 $(".modal-backdrop").hide();
-                LimparCampos();
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {

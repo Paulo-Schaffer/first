@@ -69,5 +69,12 @@ namespace TccFirst.Controllers
             var resultado = new { results = categoriasSelect2 };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public JsonResult ObterTodos()
+        {
+            var categorias = repository.ObterTodos();
+            var resultado = new { data = categorias };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
     }
 }
