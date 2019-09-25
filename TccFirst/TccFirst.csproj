@@ -96,10 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\TCCFirstDB.mdf" />
-    <Content Include="App_Data\TCCFirstDB_log.ldf">
-      <DependentUpon>TCCFirstDB.mdf</DependentUpon>
-    </Content>
+    <Content Include="Content\css\paginaInicial\paginaInicial.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\Imagem\logo-blue.png" />
@@ -5762,8 +5759,7 @@
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\TituloPagar\Cadastro.cshtml" />
-    <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
-    <Content Include="Views\CategoriaDespesa\Index.cshtml" />
+    <Content Include="Views\PaginaInicial\home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
