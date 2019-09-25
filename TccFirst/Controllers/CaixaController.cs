@@ -17,37 +17,6 @@ namespace TccFirst.Controllers
             repository = new CaixaRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
 
         [HttpGet]
         public ActionResult Index()
@@ -55,7 +24,7 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
             var caixa = repository.ObterTodos();
@@ -89,6 +58,29 @@ namespace TccFirst.Controllers
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet, Route("caixa/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
+        {
+            var caixas = repository.ObterTodos();
+
+            List<object> caixasSelect2 =
+                new List<object>();
+            foreach (Caixa caixa in caixas)
+            {
+                caixasSelect2.Add(new
+                {
+                    id = caixa.Id,
+                    text = caixa.Descricao
+
+                });
+            }
+            var resultado = new
+            {
+                results = caixasSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
 }

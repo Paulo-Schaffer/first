@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-     public interface IParcelaReceberRepository
-    {
-        void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber);
+        public interface IParcelaReceberRepository
+        {
+            void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber);
 
 
-        List<ParcelaReceber> ObterTodos();
+            List<ParcelaReceber> ObterTodos(int idTitloPagar);
 
 
-        ParcelaReceber ObterPeloId(int id);
+            ParcelaReceber ObterPeloId(int id);
+        }
     }
-}

@@ -1,4 +1,6 @@
-﻿$(function () {
+﻿
+
+$(function () {
     $idAlterar = -1;
 
     $tabelaHistorico = $("#historico-tabela").DataTable({
@@ -46,7 +48,6 @@
             success: function (data) {
                 $("#modal-historico").modal("hide");
                 LimparCampos();
-                $idAlterar = -1;
                 $tabelaHistorico.ajax.reload();
             },
             error: function (err) {
@@ -63,6 +64,7 @@
                 Descricao: $descricao
             },
             success: function (data) {
+                LimparCampos();
                 $('#modal-historico').modal('hide');
                 $(".modal-backdrop").hide();
                 $tabelaHistorico.ajax.reload();
@@ -72,7 +74,7 @@
             }
         });
     }
-   
+
     $('.table').on('click', '.botao-apagar', function () {
         confirma = confirm("Deseja Realmente Apagar?")
         if (confirma == true) {
@@ -108,4 +110,12 @@
             }
         });
     });
+    function LimparCampos() {
+        $('#historico-campo-descricao').val("");
+        $idAlterar = -1;
+    }
+
+    $('#modal-historico').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });

@@ -30,7 +30,7 @@ namespace TccFirst.Controllers
         [HttpGet]
         public JsonResult ObteTodos()
         {
-            var parcelaspagar = repository.ObterTodos();
+            var parcelaspagar = repository.ObterTodos(0);
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -42,12 +42,12 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public ActionResult GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
-        {
-            repository.GerarParcelas(valor, quantidadesPacelas, idTituloPagar);
-            return Json(valor);
-        }
+        //[HttpPost]
+        //public ActionResult GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
+        //{
+        //    repository.GerarParcelas(valor, quantidadesPacelas, idTituloPagar);
+        //    return Json(valor);
+        //}
 
 
         //[HttpGet, Route("parcelasPagar/obtertodosselect2")]

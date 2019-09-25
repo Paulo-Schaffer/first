@@ -18,6 +18,12 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
+        public ActionResult Index()
+        {
+            TituloPagarRepository repositoryTituloPagar = new TituloPagarRepository();
+            ViewBag.TitulosPagar = repositoryTituloPagar.ObterTodos();
+            return View();
+        }
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -27,21 +33,29 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        #region Cadastro
+        [HttpGet, Route("Index")]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             tituloPagar.RegistroAtivo = true;
             int id = repository.Inserir(tituloPagar);
-            return RedirectToAction("Editar", new { id = id });
+            var resultado = new { id = id };
+            return RedirectToAction("Index", resultado);
         }
         #endregion 
 
         [HttpGet, Route("apagar")]
-        public JsonResult Apagar(int id)
+        public ActionResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", new { id = id });
         }
 
         #region Editar
@@ -50,11 +64,22 @@ namespace TccFirst.Controllers
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return Json(resultado);
         }
 
-        public ActionResult Index()
+        public ActionResult Editar(int id)
         {
+            var tituloPagar = repository.ObterPeloId(id);
+            ViewBag.TituloPagar = tituloPagar;
+            return View();
+        }
+        #endregion
+
+        //[HttpGet, Route("tituloPagar/")]
+        //public JsonResult ObterPeloId(int id)
+        //{
+        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
 
         [HttpGet, Route("tituloPagar/obtertodosselect")]
         public JsonResult ObterTodosSelect(string termo)

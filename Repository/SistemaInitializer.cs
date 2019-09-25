@@ -14,6 +14,7 @@ namespace Repository
             var agencias = new List<Agencia>();
             agencias.Add(new Agencia()
             {
+                Id = 1,
                 NomeAgencia = "Agencia da Vida",
                 NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
@@ -21,6 +22,7 @@ namespace Repository
             });
             agencias.Add(new Agencia()
             {
+                Id = 2,
                 NomeAgencia = "Agencia do Paulo",
                 NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
@@ -29,6 +31,7 @@ namespace Repository
 
             agencias.Add(new Agencia()
             {
+                Id = 3,
                 NomeAgencia = "Você consegue",
                 NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
@@ -40,9 +43,10 @@ namespace Repository
 
             #region Transação
             var transacao = new List<Transacao>();
-            transacao.Add(new Transacao() {
-                Id =1,
-                DescricaoTransacao = "Recebimento de venda de produto",
+            transacao.Add(new Transacao()
+            {
+                Id = 1,
+                Descricao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 100,
@@ -59,7 +63,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 2,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 101,
@@ -76,7 +80,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 3,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "3-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 300,
@@ -93,7 +97,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 4,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "4-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 150,
@@ -110,10 +114,10 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 5,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "5-2",
                 TipoPagamento = "Dinheiro",
-                Valor = 1545
+                Valor = 1545,
                 Status = "pago",
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
                 DataVencimento = Convert.ToDateTime("2019-01-30"),
@@ -126,7 +130,7 @@ namespace Repository
             }); transacao.Add(new Transacao()
             {
                 Id = 6,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 515,
@@ -143,7 +147,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 7,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "7-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 750,
@@ -157,7 +161,7 @@ namespace Repository
                 IdHistorico = 1,
                 RegistroAtivo = true,
             });
-
+            context.Transacoes.AddRange(transacao);
 
 
             #endregion
@@ -371,7 +375,7 @@ namespace Repository
             context.Caixas.AddRange(caixas);
             #endregion
 
-            #region categoriasDespesa
+            #region categoriaDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
@@ -384,11 +388,11 @@ namespace Repository
                 Id = 2,
                 TipoCategoriaDespesa = "Despesa com Salgadinho",
                 RegistroAtivo = true,
-        });
+            });
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
-            #region categoriasReceita
+            #region categoriaReceita
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
@@ -444,7 +448,7 @@ namespace Repository
             context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
-            #region clientesPessoasJuridicas
+            #region clientePessoaJuridica
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
@@ -459,11 +463,11 @@ namespace Repository
                 Telefone = "3345-5567",
                 Cep = "09432-876",
                 Logradouro = "Ubatuba",
-                Numero= 675,
-                Bairro="Bairro Vila Olimpia",
-                Uf="SP",
-                Cidade="São Paulo",
-                RegistroAtivo = true, 
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Uf = "SP",
+                Cidade = "São Paulo",
+                RegistroAtivo = true,
 
             });
 
@@ -558,9 +562,9 @@ namespace Repository
 
             #endregion
 
-            #region movimentacaoFinanceiraEntrada
-            var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
-            movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            #region fornecedores
+            var fornecedores = new List<Fornecedor>();
+            fornecedores.Add(new Fornecedor()
             {
                 Id = 1,
                 RazaoSocial = "Peugeot",
@@ -589,18 +593,19 @@ namespace Repository
                 Descricao = "Conta adicionada dia 19/07/2000",
                 RegistroAtivo = true
             });
-            movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            historico.Add(new Historico()
             {
                 Id = 2,
                 Descricao = "Conta paga com sucesso",
                 RegistroAtivo = true
             });
-            movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            historico.Add(new Historico()
             {
                 Id = 3,
                 Descricao = "Conta em atraso, pagar até dia 29/08/1996",
                 RegistroAtivo = true
             });
+            context.Historicos.AddRange(historico);
             #endregion
 
             #region parcelaPagar
@@ -610,8 +615,8 @@ namespace Repository
                 Id = 1,
                 Valor = 2333,
                 Status = "Pago",
-                DataPagamento = Convert.ToDateTime("17/02/2019"),
                 DataVencimento = Convert.ToDateTime("17/02/2019"),
+                DataPagamento = Convert.ToDateTime("17/02/2019"),
                 RegistroAtivo = true
             });
             parcelaPagar.Add(new ParcelaPagar()
@@ -619,15 +624,16 @@ namespace Repository
                 Id = 2,
                 Valor = 9523,
                 Status = "Pendente",
-                DataPagamento = Convert.ToDateTime("05/09/2019"),
                 DataVencimento = Convert.ToDateTime("04/09/2019"),
+                DataPagamento = Convert.ToDateTime("05/09/2019"),
                 RegistroAtivo = true
             });
+            context.ParcelasPagar.AddRange(parcelaPagar);
             #endregion
 
-            #region parcelaReceber
-            var parcelaReceber = new List<ParcelaReceber>();
-            parcelaReceber.Add(new ParcelaReceber()
+            #region funcionario
+            var funcionarios = new List<Funcionario>();
+            funcionarios.Add(new Funcionario()
             {
                 Id = 1,
                 NomeFuncionario = "João Stein",
@@ -637,7 +643,7 @@ namespace Repository
                 RegistroAtivo = true
 
             });
-            parcelaReceber.Add(new ParcelaReceber()
+            funcionarios.Add(new Funcionario()
             {
                 Id = 2,
                 NomeFuncionario = "André",
@@ -645,13 +651,9 @@ namespace Repository
                 Usuario = "andrezinho",
                 Senha = "123",
                 RegistroAtivo = true
-            });
-            context.Historicos.AddRange(historicos);
-            #endregion Historicos
 
-            #region tituloPagar
-            var titulosPagar = new List<TituloPagar>();
-            titulosPagar.Add(new TituloPagar()
+            });
+            funcionarios.Add(new Funcionario()
             {
                 Id = 3,
                 NomeFuncionario = "Paulo",
@@ -660,7 +662,7 @@ namespace Repository
                 Senha = "123",
                 RegistroAtivo = true
             });
-            titulosPagar.Add(new TituloPagar()
+            funcionarios.Add(new Funcionario()
             {
                 Id = 3,
                 NomeFuncionario = "Gustavo",
@@ -669,12 +671,7 @@ namespace Repository
                 Senha = "123",
                 RegistroAtivo = true
             });
-            context.TitulosPagar.AddRange(titulosPagar);
-            #endregion
-
-            #region tituloReceber
-            var titulosReceber = new List<TituloReceber>();
-            titulosReceber.Add(new TituloReceber()
+            funcionarios.Add(new Funcionario()
             {
                 Id = 4,
                 NomeFuncionario = "Paul",
@@ -683,16 +680,16 @@ namespace Repository
                 Senha = "123",
                 RegistroAtivo = true
             });
-            titulosReceber.Add(new TituloReceber()
+            funcionarios.Add(new Funcionario()
             {
-                Id =5,
+                Id = 5,
                 NomeFuncionario = "Cleber",
                 TipoFuncionario = "Gerente",
                 Usuario = "Cleber",
                 Senha = "123",
                 RegistroAtivo = true
             });
-            context.TitulosReceber.AddRange(titulosReceber);
+            context.Funcionarios.AddRange(funcionarios);
             #endregion
 
             #region tituloPagar
@@ -722,3 +719,4 @@ namespace Repository
 
     }
 }
+

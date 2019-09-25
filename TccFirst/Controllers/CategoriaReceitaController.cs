@@ -40,14 +40,6 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
-        public JsonResult ObterTodos()
-        {
-            var categorias = repository.ObterTodos();
-            var resultado = new { data = categorias };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
-        [HttpGet]
         public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
