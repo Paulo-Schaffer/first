@@ -40,5 +40,85 @@
                     }
                 });
 </script>
+<head>
+    <title>Polar Area Chart</title>
+    <script src="../../dist/Chart.min.js"></script>
+    <script src="../utils.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas-holder" style="width:50%">
+        <canvas id="chart-area"></canvas>
+    </div>
+    <script>
+        var randomScalingFactor = function () {
+            return Math.round(Math.random() * 100);
+        };
+        var chartColors = window.chartColors;
+        var color = Chart.helpers.color;
+        var config = {
+            data: {
+                datasets: [{
+                    data: [
+                        10,
+                        20, 
+                        30,
+                        40,
+                        50
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(0,0,255',
+                        'rgba(50,124)'
+                    ],
+                    label: 'My dataset' // for legend
+                }],
+                labels: [
+                    'Red',
+                    'Blue',
+                    'Orange',
+                    'Yellow',
+                    'Green'
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'right',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Polar Area Chart'
+                },
+                scale: {
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    reverse: false
+                },
+                animation: {
+                    animateRotate: false,
+                    animateScale: true
+                }
+            }
+        };
+        window.onload = function () {
+            var ctx = document.getElementById('chart-area');
+            window.myPolarArea = Chart.PolarArea(ctx, config);
+        };
+       
+      
+        
+    </script>
+</body>
+
 
 
