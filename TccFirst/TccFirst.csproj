@@ -5706,7 +5706,6 @@
     <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
-    <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
     <Content Include="Views\TituloPagar\Cadastro.cshtml" />

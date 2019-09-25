@@ -43,6 +43,7 @@ $(function () {
                     return moment(row.DataVencimento).format('DD/MM/YYYY')
                 }
             },
+            {data: "Complemento"},
             { data: "Descricao" },
             {
                 render: function (data, type, row) {
@@ -50,7 +51,7 @@ $(function () {
                     <button class='btn btn-primary botao-editar fa fa-edit'\
                         data-id=" + row.Id + "> Editar</button>\
                     <button class='btn btn-danger botao-apagar fa fa-trash'\
-                        data-id=" + row.Id + "> Apagar</button>";
+                     ml-2   data-id=" + row.Id + "> Apagar</button>";
                 }
             }
         ]
