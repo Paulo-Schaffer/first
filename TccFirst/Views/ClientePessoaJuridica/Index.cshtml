@@ -4,8 +4,10 @@
 }
 <h2>Cliente Pessoa Juridica</h2>
 
-<button data-toggle="modal" data-target="#modal-clientePessoaJuridica" class="btn btn-dark">Novo Cliente</button>
-<table id="cliente-pessoa-juridica-tabela"class="table table-striped table-bordered table-hover" >
+<button data-toggle="modal" data-target="#modal-clientePessoaJuridica" class="btn btn-primary float-right">
+    <i class="fa fa-plus"></i>Novo Cliente
+</button>
+<table id="cliente-pessoa-juridica-tabela" class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
             <th>Codigo</th>
@@ -23,7 +25,5 @@
 @RenderPage("CadastroPessoaJuridica.cshtml")
 
 @section js {
-   <script src="~/Scripts/ClientePessoaJuridica/cliente-pessoa-juridica.js"></script> 
-    }
-
-
+    <script src="~/Scripts/ClientePessoaJuridica/cliente-pessoa-juridica.js"></script>
+}

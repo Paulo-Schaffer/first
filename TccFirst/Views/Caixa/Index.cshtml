@@ -6,22 +6,23 @@
 <h2>Caixa</h2>
 
 <button data-toggle="modal" data-target="#modal-caixa" class="btn btn-primary">Cadastrar</button>
-<table id="caixa-tabela" class="table-hover table-bordered table-striped">
+<table id="caixa-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
-            <th>Código</th>
             <th>Descrição</th>
             <th>Documento</th>
-            <th>Forma de Pagamento</th>
             <th>Valor</th>
+            <th>Forma de Pagamento</th>
             <th>Data de Lançamento</th>
-            <th>Status</th>
             <th>Historico</th>
+            <th>Ações</th>
+
         </tr>
     </thead>
 </table>
 @RenderPage("CadastroCaixa.cshtml")
 
 @section js{
+    <script src="~/Scripts/Caixa/caixa-cadastro.js"></script>
     <script src="~/Scripts/Caixa/caixa-index.js"></script>
-    }
+}

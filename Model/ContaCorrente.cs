@@ -8,25 +8,19 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("conta_corrente")]
-    public class ContaCorrente
+    [Table("transacoes")]
+    public class Transacao
     {
 
-        [Key,Column("id")]
+
+        [Key, Column("id")]
         public int Id { get; set; }
 
-        [Column("numero_conta")]
-        
-        public string NumeroConta { get; set; }
-
-        [Column("descricao")]
-        public string Descricao { get; set; }
+        [Column("descricao_transacao")]
+        public string DescricaoTransacao { get; set; }
 
         [Column("documento")]
         public string Documento { get; set; }
-
-        [Column("tipo_receita_despesa")]
-        public int TipoReceitaDespesa { get; set; }
 
         [Column("tipo_pagamento")]
         public string TipoPagamento { get; set; }
@@ -46,21 +40,15 @@ namespace Model
         [Column("data_recebimento")]
         public DateTime DataRecebimento { get; set; }
 
-        [Column("nome_banco")]
-        public string  NomeBanco { get; set; }
-
-        [Column("numero_banco")]
-        public string NumeroBanco { get; set; }
-
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
-        #region fk_historico
-        [Column("id_historico")]
-        public int IdHistorico { get; set; }
-        [ForeignKey("IdHistorico")]
-        public Historico Historico { get; set; }
-        #endregion
+        #region fk_cadastocontacorrente
+        [Column("id_cadastrocontacorrente")]
+        public int? IdCadastroContaCorrente { get; set; }
+        [ForeignKey("IdCadastroContaCorrente")]
+        public CadastroContaCorrente CadastroContaCorrente { get; set; }
+        #endregion 
 
         #region fk_categoria_despesas
         [Column("id_categoria_despesa")]
@@ -76,11 +64,11 @@ namespace Model
         public CategoriaReceita CategoriaReceita { get; set; }
         #endregion
 
-        #region fk_agencia
-        [Column("id_agencia")]
-        public int? IdAgencia { get; set; }
-        [ForeignKey("IdAgencia")]
-        public Agencia Agencia { get; set; }
-        #endregion 
+        #region fk_historico
+        [Column("id_historico")]
+        public int IdHistorico { get; set; }
+        [ForeignKey("IdHistorico")]
+        public Historico Historico { get; set; }
+        #endregion
     }
 }

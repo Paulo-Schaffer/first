@@ -62,15 +62,14 @@ namespace TccFirst.Controllers
         {
             var historicos = repository.ObterTodos();
 
-            List<object> historicoSelect2 =
-                new List<object>();
+            List<object> historicoSelect2 = new List<object>();
+
             foreach (Historico historico in historicos)
             {
                 historicoSelect2.Add(new
                 {
                     id = historico.Id,
-                    descricao = historico.Descricao
-
+                    text = historico.Descricao
 
                 });
             }

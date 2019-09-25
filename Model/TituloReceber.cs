@@ -24,13 +24,13 @@ namespace Model
         public string Status { get; set; }
 
         [Column("data_lancamento")]
-        public string DataLancamento { get; set; }
+        public DateTime DataLancamento { get; set; }
 
         [Column("data_recebimento")]
-        public string DataRecebimento { get; set; }
+        public DateTime DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
-        public string DataVencimento { get; set; }
+        public DateTime DataVencimento { get; set; }
 
         [Column("complemento")]
         public string Complemento { get; set; }
