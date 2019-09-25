@@ -1,6 +1,5 @@
-﻿//$(function () {
-//    $('#caixa-campo-cpf').mask('000.000.000,000', { reverse: true });
-//});
+﻿
+
 $(function () {
     $idAlterar = -1;
 
@@ -9,25 +8,24 @@ $(function () {
         ajax: '/Caixa/obtertodos',
         severSide: true,
         columns: [
-            { 'data': 'Id' },
-            { 'data': 'Descricao' },
-            { 'data': 'Documento' },
-            { 'data': 'FormaPagamento' },
-            { 'data': 'Valor' },
+            { data: 'Descricao' },
+            { data: 'Documento' },
+            { data: 'Valor' },
+            { data: 'FormaPagamento' },
             {
                 render: function (data, type, row) {
                     return moment(row.DataLancamento).format('DD/MM/YYYY')
                 }
             },
-            { 'data': 'Status' },
-            { 'data': 'Historico' },
+            { data: 'Historico.Descricao' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar ml-2"data-id="' + row.Id + '">Apagar</button>'
 
                 }
             }
         ]
+
     });
     $('#caixa-botao-salvar').on('click', function () {
         $descricao = $('#caixa-campo-descricao').val();
@@ -60,7 +58,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
-                
+
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {

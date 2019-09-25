@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    public interface ICategoriaReceitaRepository
+    interface ICategoriaReceitaRepository
     {
         int Inserir(CategoriaReceita categoriaReceita);
 

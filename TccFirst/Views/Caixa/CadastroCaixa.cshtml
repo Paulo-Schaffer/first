@@ -1,5 +1,4 @@
-﻿
-<div id="modal-caixa" class="modal fade" tabindex="-1" role="dialog">
+﻿<div id="modal-caixa" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,6 +15,10 @@
                 <div class="form-group">
                     <label for="campo-caixa-documento" mas>Documento</label>
                     <input type="text" id="caixa-campo-documento" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="campo-caixa-valor" mas>Valor</label>
+                    <input type="text" id="caixa-campo-valor" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label for="campo-caixa-forma-pagamento">Forma de Pagamento</label>
@@ -46,3 +49,7 @@
         </div>
     </div>
 </div>
+@section js{
+    <script src="~/Scripts/Caixa/caixa-cadastro.js"></script>
+    <script src="~/Scripts/Caixa/caixa-index.js"></script>
+}

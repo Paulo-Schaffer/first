@@ -9,37 +9,44 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
     public class ParcelaPagarRepository : IParcelaPagarRepository
+
     {
         public SistemaContext context;
 
         public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
         {
-            context = new SistemaContext(); 
+            context = new SistemaContext();
         }
 
-        public bool Alterar(ParcelaPagar parcelaPagar)
+        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
         {
-            throw new NotImplementedException();
-        }
+            var dataAtual = DateTime.Now.AddDays(30);
 
-        public bool Apagar(int id)
-        {
-            throw new NotImplementedException();
-        }
+            for (int i = 0; i < quantidadesPacelas; i++)
+            {
+                var dataVencimento = dataAtual.AddMonths(i);
 
-        public int Inserir(ParcelaPagar parcelaPagar)
-        {
-            throw new NotImplementedException();
+                var parcela = new ParcelaPagar();
+                parcela.Valor = valor;
+                parcela.DataVencimento = dataVencimento;
+                parcela.IdTituloPagar = idTituloPagar;
+                parcela.RegistroAtivo = true;
+                context.ParcelasPagar.Add(parcela);
+                context.SaveChanges();
+            }
+
+
         }
 
         public ParcelaPagar ObterPeloId(int id)
         {
-            throw new NotImplementedException();
+            var parcela = context.ParcelasPagar.Where(x => x.Id == id).FirstOrDefault();
+            return parcela;
         }
 
         public List<ParcelaPagar> ObterTodos()
         {
-            throw new NotImplementedException();
+            return context.ParcelasPagar.Where(x => x.RegistroAtivo == true).ToList();
         }
     }
 }

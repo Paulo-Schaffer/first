@@ -8,22 +8,16 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    //[Route("tituloPagar/")]
+    [Route("tituloPagar/")]
     public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
         public TituloPagarController()
-        {  
+        {
             repository = new TituloPagarRepository();
         }
 
-        public ActionResult Index()
-        {
-            TituloPagarRepository repositoryTituloPagar = new TituloPagarRepository();
-            ViewBag.TitulosPagar = repositoryTituloPagar.ObterTodos();
-            return View();
-        }
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -33,29 +27,21 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        #region Cadastro
-        [HttpGet, Route("Index")]
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
-        [HttpPost]
+        [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             tituloPagar.RegistroAtivo = true;
             int id = repository.Inserir(tituloPagar);
-            var resultado = new { id = id };
-            return RedirectToAction("Index",resultado);
+            return RedirectToAction("Editar", new { id = id });
         }
         #endregion 
 
         [HttpGet, Route("apagar")]
-        public ActionResult Apagar(int id)
+        public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return RedirectToAction("Index", new { id = id });
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         #region Editar
@@ -67,13 +53,8 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Editar(int id)
+        public ActionResult Index()
         {
-            var tituloPagar = repository.ObterPeloId(id);
-            ViewBag.TituloPagar = tituloPagar;
-            return View();
-        }
-        #endregion
 
         [HttpGet, Route("tituloPagar/obtertodosselect")]
         public JsonResult ObterTodosSelect(string termo)

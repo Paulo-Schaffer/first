@@ -62,7 +62,7 @@ namespace TccFirst.Controllers
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
+        [HttpPost, Route("inserir")]
         public JsonResult Inserir(Caixa caixa)
         {
             caixa.RegistroAtivo = true;
@@ -70,14 +70,15 @@ namespace TccFirst.Controllers
             var resultado = new { id = id };
             return Json(resultado);
         }
-        [HttpGet]
-        JsonResult Apagar(int id)
+
+        [HttpGet, Route("apagar")]
+        public JsonResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
+        [HttpPost, Route("update")]
         public JsonResult Update(Caixa caixa)
         {
             var alterou = repository.Alterar(caixa);

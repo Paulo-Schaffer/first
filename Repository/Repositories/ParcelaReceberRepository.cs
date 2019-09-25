@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
    public class ParcelaReceberRepository : IParcelaReceberRepository
-   {
+    {
         private SistemaContext context;
 
         public ParcelaReceberRepository()
@@ -19,7 +19,20 @@ namespace Repository.Repositories
 
         public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber)
         {
-            var dataAtual = DateTime.Now.AddDays(30);
+            var parcelaReceberOriginal = context.ParcelasReceber. Where(x => x.Id == parcelaReceber.Id)
+                 .FirstOrDefault();
+            if (parcelaReceber == null)
+            {
+                return false;
+            }
+            parcelaReceberOriginal.IdTituloReceber = parcelaReceber.IdTituloReceber;
+            parcelaReceberOriginal.Valor = parcelaReceber.Valor;
+            parcelaReceberOriginal.Status = parcelaReceber.Status;
+            parcelaReceberOriginal.DataVencimento = parcelaReceber.DataVencimento;
+            parcelaReceberOriginal.DataRecebimento = parcelaReceber.DataRecebimento;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+        }
 
             for (int i = 0; i < quantidadesPacelas; i++)
             {
@@ -43,7 +56,9 @@ namespace Repository.Repositories
 
         public List<ParcelaReceber> ObterTodos()
         {
-            return context.ParcelasReceber.Where(x => x.RegistroAtivo == true).ToList();
+            return context.ParcelasReceber
+              .Where(x => x.RegistroAtivo == true)
+              .ToList();
         }
     }
 }

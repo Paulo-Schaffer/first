@@ -17,6 +17,38 @@ namespace TccFirst.Controllers
             repository = new AgenciaRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
         [HttpGet]
         public ActionResult Index() 
         {
@@ -75,8 +107,8 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        [HttpGet, Route("agencia/obtertodosselect")]
-        public JsonResult ObterTodosSelect(string termo)
+        [HttpGet, Route("agencia/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string termo)
         {
             var agencias = repository.ObterTodos();
             List<object> ObterTodosSelect2 = new List<object>();
@@ -97,7 +129,3 @@ namespace TccFirst.Controllers
         }
     }
 }
-
-
-
-

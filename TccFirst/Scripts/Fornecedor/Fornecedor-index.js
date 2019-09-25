@@ -78,6 +78,7 @@
             },
             success: function (data) {
                 $("#modal-fornecedor").modal("hide");
+                $(".modal-backdrop").hide();
                 $idAlterar = -1;
                 $tabelafornecedor.ajax.reload();
             },
@@ -108,6 +109,7 @@
             },
             success: function (data) {
                 $('#modal-fornecedor').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelafornecedor.ajax.reload();
             },
             error: function (err) {

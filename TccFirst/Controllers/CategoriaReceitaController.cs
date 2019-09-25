@@ -29,6 +29,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public JsonResult Inserir(CategoriaReceita categoriaReceita)    
         {
@@ -38,6 +39,14 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
+        [HttpGet]
+        public JsonResult ObterTodos()
+        {
+            var categorias = repository.ObterTodos();
+            var resultado = new { data = categorias };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
+        }
         [HttpGet]
         public JsonResult Apagar(int id)
         {
@@ -58,6 +67,8 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
+
+
         [HttpGet, Route("categoriareceita/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {

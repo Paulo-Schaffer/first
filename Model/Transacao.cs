@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Table("conta_corrente")]
-    public class ContaCorrente
+    [Table("transacoes")]
+    public class Transacao
     {
 
-        [Key,Column("id")]
+
+        [Key, Column("id")]
         public int Id { get; set; }
 
         [Column("numero_conta")]
@@ -61,6 +62,12 @@ namespace Model
         [ForeignKey("IdHistorico")]
         public Historico Historico { get; set; }
         #endregion
+        #region fk_cadastocontacorrente
+        [Column("id_cadastrocontacorrente")]
+        public int? IdCadastroContaCorrente { get; set; }
+        [ForeignKey("IdCadastroContaCorrente")]
+        public CadastroContaCorrente CadastroContaCorrente { get; set; }
+        #endregion 
 
         #region fk_categoria_despesas
         [Column("id_categoria_despesa")]
