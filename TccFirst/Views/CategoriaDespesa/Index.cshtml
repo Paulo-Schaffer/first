@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categoria de Despesas</h2>
+<button data-toggle="modal" data-target="#modal-categoria-despesa" class="btn btn-primary">Nova Categoria</button>
+<table id="categoria-despesa-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tipo de Receita</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+@RenderPage("CadastroCategoriaDespesa.cshtml")
+@section js{
+    <script src="~/Scripts/CategoriaDespesa/categoria-despesa-index.js"></script>
+}
+

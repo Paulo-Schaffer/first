@@ -8,8 +8,8 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    //[Route("tituloreceber/")]
-    public class TituloReceberController : BaseController
+    [Route("tituloreceber/")]
+    public class TituloReceberController : Controller
     {
         private TituloReceberRepository repository;
 
@@ -17,6 +17,7 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
+
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -67,20 +68,14 @@ namespace TccFirst.Controllers
         }
         #endregion
 
-        #region Index
-        [HttpGet]
         public ActionResult Index()
         {
-            TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
-            ViewBag.TitulosReceber = tituloReceberRepository.ObterTodos();
             return View();
         }
-        #endregion
 
-        //[HttpGet, Route("tituloreceber")]
-        //public JsonResult ObterPeloId(int id)
+        //public ActionResult Cadastro()
         //{
-        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //    return View();
         //}
     }
 }
