@@ -79,11 +79,6 @@
     //    });
     //    $('#tituloReceber-campo-status').keyup(function (e) {
     //        if (e.keyCode == 13) {
-    //            $('#tituloReceber-campo-status').focus();
-    //        }
-    //    });
-    //    $('#tituloReceber-campo-status').keyup(function (e) {
-    //        if (e.keyCode == 13) {
     //            $('#tituloReceber-campo-data-lancamento').focus();
     //        }
     //    });
@@ -124,4 +119,47 @@
     //        }
     //    });
     //});
+
+    //$('#clientePessoaJuridica-botao-salvar').on('click', function () {
+    //    
+
+    //    if ($.trim($('#tituloReceber-campo-categoria-Receita').val()) == '') {
+    //        alert('Preencha o campo Razão Social');
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-status').val()) == "") {
+    //        alert('Preencha o campo Atividade ');
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-data-lancamento').val()) == "") {
+    //        alert('Preencha o campo Nome Fantasia');
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-data-recebimento').val()) == "") {
+    //        alert("Preencha o campo Data Cadastro");
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-data-vencimento').val()) == "") {
+    //        alert("Preencha o campo CNPJ");
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-valor-total').val()) == "") {
+    //        alert("Preencha o campo E-Mail");
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-quantidade-Parcelas').val()) == "") {
+    //        alert("Preencha o campo Telefone");
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-complemento').val()) == "") {
+    //        alert("Preencha o campo CEP");
+    //        return false;
+
+    //    } else if ($.trim($('#tituloReceber-campo-descricao').val()) == "") {
+    //        alert("Preencha o campo Numero");
+    //        return false;
+    //    } else {
+    //        $('.alert').alert("");
+    //    }
+
 });
