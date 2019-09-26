@@ -96,6 +96,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TCCFirstDB.mdf" />
+    <Content Include="App_Data\TCCFirstDB_log.ldf">
+      <DependentUpon>TCCFirstDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\css\Agencia\TelaIndexAgencia.css" />
     <Content Include="Content\css\Transacao\TelaCadastroTransacao.css" />
     <Content Include="Content\css\Transacao\TelaEditarTransacao.css" />
@@ -5713,7 +5717,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\CategoriaDespesa\" />
     <Folder Include="Views\Base\" />
