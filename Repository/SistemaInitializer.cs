@@ -490,7 +490,6 @@ namespace Repository
                     DataLancamento = Convert.ToDateTime("23/06/2016"),
                     DataRecebimento = Convert.ToDateTime("22/07/2016"),
                     DataVencimento = Convert.ToDateTime("23/07/2016"),
-                    Complemento = "Usuario pagou corretamente",
                     QuantidadeParcela = 1,
                     RegistroAtivo = true,
                     IdCategoriaDespesa = 1,
@@ -507,7 +506,6 @@ namespace Repository
                     DataLancamento = DateTime.Now,
                     DataRecebimento = DateTime.Now,
                     DataVencimento = DateTime.Now,
-                    Complemento = "Usuario pagou corretamente",
                     QuantidadeParcela = 1,
                     RegistroAtivo = true,
                     IdCategoriaDespesa = 1,
@@ -657,34 +655,20 @@ namespace Repository
             });
             funcionarios.Add(new Funcionario()
             {
-                Id = 1,
-                IdFornecedor = 1,
-                IdCategoriaDespesa = 1,
-                Descricao = "Sem Descrição",
-                FormaPagamento = "Dinheiro",
-                Caixa = true,
-                ValorTotal = 2000,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("23/06/2016"),
-                DataRecebimento = Convert.ToDateTime("10/07/2016"),
-                DataVencimento = Convert.ToDateTime("15/07/2016"),
-                QuantidadeParcela = 4,
+                Id = 4,
+                NomeFuncionario = "Paul",
+                TipoFuncionario = "Gerente",
+                Usuario = "Paul",
+                Senha = "123",
                 RegistroAtivo = true
             });
             funcionarios.Add(new Funcionario()
             {
-                Id = 2,
-                IdFornecedor = 2,
-                IdCategoriaDespesa = 2,
-                Descricao = "Sem Descrição",
-                FormaPagamento = "Credito",
-                Caixa = false,
-                ValorTotal = 100,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("13/06/2016"),
-                DataRecebimento = Convert.ToDateTime("12/07/2019"),
-                DataVencimento = Convert.ToDateTime("15/07/2016"),
-                QuantidadeParcela = 4,
+                Id = 5,
+                NomeFuncionario = "Cleber",
+                TipoFuncionario = "Gerente",
+                Usuario = "Cleber",
+                Senha = "123",
                 RegistroAtivo = true
             });
             context.Funcionarios.AddRange(funcionarios);

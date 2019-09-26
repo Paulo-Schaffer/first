@@ -39,6 +39,11 @@ namespace Repository.Repositories
 
         }
 
+        public object ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Apagar(int id)
         {
             var transacao = context.Transacoes.FirstOrDefault(x => x.Id == id);

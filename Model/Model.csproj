@@ -58,6 +58,7 @@
     <Compile Include="Endereco.cs" />
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="Grafico\FluxoCaixa.cs" />
     <Compile Include="Historico.cs" />
     <Compile Include="MovimentacaoFinanceiraEntrada.cs" />
     <Compile Include="MovimentacaoFinanceiraSaida.cs" />
