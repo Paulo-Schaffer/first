@@ -152,7 +152,6 @@ namespace Repository
 
             #endregion
 
-
             #region caixa
 
 
@@ -478,43 +477,40 @@ namespace Repository
             #endregion
 
             #region tituloPagar
-            var tituloPagar = new List<TituloPagar>() {
-                new TituloPagar()
-                {
-                    Id = 1,
-                    Descricao = "Titulo feio por Paulo",
-                    FormaPagamento = "Dinheiro",
-                    Caixa = true,
-                    ValorTotal = 1999,
-                    Status = "Pago",
-                    DataLancamento = Convert.ToDateTime("23/06/2016"),
-                    DataRecebimento = Convert.ToDateTime("22/07/2016"),
-                    DataVencimento = Convert.ToDateTime("23/07/2016"),
-                    Complemento = "Usuario pagou corretamente",
-                    QuantidadeParcela = 1,
-                    RegistroAtivo = true,
-                    IdCategoriaDespesa = 1,
-                    IdFornecedor = 1
-                },
-                new TituloPagar()
-                {
-                    Id = 2,
-                    Descricao = "Paulo o mais feio do mundo",
-                    FormaPagamento = "Dinheiro",
-                    Caixa = true,
-                    ValorTotal = 2000,
-                    Status = "Pago",
-                    DataLancamento = DateTime.Now,
-                    DataRecebimento = DateTime.Now,
-                    DataVencimento = DateTime.Now,
-                    Complemento = "Usuario pagou corretamente",
-                    QuantidadeParcela = 1,
-                    RegistroAtivo = true,
-                    IdCategoriaDespesa = 1,
-                    IdFornecedor = 1
-                }
-            };
-            //context.TitulosPagar.AddRange(tituloPagar);
+            var tituloPagar = new List<TituloPagar>();
+            tituloPagar.Add(new TituloPagar()
+            {
+                Id = 1,
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Dinheiro",
+                Caixa = true,
+                ValorTotal = 100,
+                Status = "Pago",
+                DataLancamento = Convert.ToDateTime("23/06/2016"),
+                DataRecebimento = Convert.ToDateTime("22/07/2016"),
+                DataVencimento = Convert.ToDateTime("23/07/2016"),
+                QuantidadeParcela = 4,
+                RegistroAtivo = true,
+                IdCategoriaDespesa = 1,
+                IdFornecedor = 1
+            });
+            tituloPagar.Add(new TituloPagar()
+            {
+                Id = 2,
+                Descricao = "Paulo o mais feio do mundo",
+                FormaPagamento = "Dinheiro",
+                Caixa = true,
+                ValorTotal = 2000,
+                Status = "Pendente",
+                DataLancamento = Convert.ToDateTime("23/06/2016"),
+                DataRecebimento = Convert.ToDateTime("23/06/2016"),
+                DataVencimento = Convert.ToDateTime("23/06/2016"),
+                QuantidadeParcela = 5,
+                RegistroAtivo = true,
+                IdCategoriaDespesa = 1,
+                IdFornecedor = 1
+            });
+            context.TitulosPagar.AddRange(tituloPagar);
             #endregion
 
             #region cadastrocontacorrente
@@ -623,7 +619,7 @@ namespace Repository
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "123456",
+                Senha = "sembraco",
                 RegistroAtivo = true
 
             });
@@ -655,42 +651,10 @@ namespace Repository
                 Senha = "123",
                 RegistroAtivo = true
             });
-            funcionarios.Add(new Funcionario()
-            {
-                Id = 1,
-                IdFornecedor = 1,
-                IdCategoriaDespesa = 1,
-                Descricao = "Sem Descrição",
-                FormaPagamento = "Dinheiro",
-                Caixa = true,
-                ValorTotal = 2000,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("23/06/2016"),
-                DataRecebimento = Convert.ToDateTime("10/07/2016"),
-                DataVencimento = Convert.ToDateTime("15/07/2016"),
-                QuantidadeParcela = 4,
-                RegistroAtivo = true
-            });
-            funcionarios.Add(new Funcionario()
-            {
-                Id = 2,
-                IdFornecedor = 2,
-                IdCategoriaDespesa = 2,
-                Descricao = "Sem Descrição",
-                FormaPagamento = "Credito",
-                Caixa = false,
-                ValorTotal = 100,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("13/06/2016"),
-                DataRecebimento = Convert.ToDateTime("12/07/2019"),
-                DataVencimento = Convert.ToDateTime("15/07/2016"),
-                QuantidadeParcela = 4,
-                RegistroAtivo = true
-            });
             context.Funcionarios.AddRange(funcionarios);
             #endregion
 
-            #region tituloPagar
+            #region tituloReceber
             var tituloReceber = new List<TituloReceber>() {
                 new TituloReceber()
                 {
