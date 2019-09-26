@@ -316,7 +316,7 @@ namespace Repository
             });
             caixas.Add(new Caixa()
             {
-                Id = 13,
+                Id = 18,
                 Descricao = "Recebimento serviço",
                 Documento = "184-1",
                 FormaPagamento = "Debito",
@@ -369,8 +369,6 @@ namespace Repository
                 IdHistoricos = 1,
                 RegistroAtivo = true
             });
-
-
 
             context.Caixas.AddRange(caixas);
             #endregion
