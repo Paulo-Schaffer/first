@@ -28,13 +28,42 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet]
-        public JsonResult ObteTodos()
+        public JsonResult ObterTodos(int idTituloPagar)
         {
-            var parcelaspagar = repository.ObterTodos(0);
+            var parcelaspagar = repository.ObterTodos(idTituloPagar);
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
+        //[HttpGet, Route("parcelasPagar/obtertodosselect2")]
+        //public JsonResult ObterTodosSelect2(string termo)
+        //{
+        //    var parcelasPagar = repository.ObterTodos();
+        //    List<object> parcelasPagarSelect2 = new List<object>();
+        [HttpPost]
+        public JsonResult Inserir(ParcelaPagar parcelaPagar)
+        {
+            parcelaPagar.RegistroAtivo = true;
+            var id = repository.Inserir(parcelaPagar);
+            var resultado = new { id = id };
+            return Json(resultado);
+        }
+
+        [HttpGet]
+        public JsonResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return Json(resultado);
+        }
+
+        [HttpPost]
+        public JsonResult Update(ParcelaPagar parcelaPagar)
+        {
+            var alterou = repository.Alterar(parcelaPagar );
+            var resultado = new { status = alterou };
+            return Json(resultado);
+        }
 
         [HttpGet, Route("parcelasPagar/")]
         public JsonResult ObterPeloId(int id)
@@ -42,16 +71,8 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpPost]
-        //public ActionResult GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloPagar)
-        //{
-        //    repository.GerarParcelas(valor, quantidadesPacelas, idTituloPagar);
-        //    return Json(valor);
-        //}
-
-
-        //[HttpGet, Route("parcelasPagar/obtertodosselect2")]
-        //public JsonResult ObterTodosSelect2(string termo)
+        //[HttpGet, Route("parcelasPagar/obtertodosselect")]
+        //public JsonResult ObterTodosSelect(string termo)
         //{
         //    var parcelasPagar = repository.ObterTodos();
         //    List<object> parcelasPagarSelect2 = new List<object>();
@@ -68,5 +89,12 @@ namespace TccFirst.Controllers
         //        });
         //    }
         //}
+
+        [HttpGet]
+        public ActionResult GerarParcelas(int idTituloPagar)
+        {
+            repository.GerarParcelas(idTituloPagar);
+            return Json(idTituloPagar, JsonRequestBehavior.AllowGet);
+        }
     }
 }

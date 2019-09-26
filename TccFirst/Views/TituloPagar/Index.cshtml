@@ -1,35 +1,43 @@
 ﻿@{
+    /**/
+
     ViewBag.Title = "Index";
 }
 <h2>Lista de Títulos a Pagar</h2>
 
-<button type="button" data-toggle="modal" data-target="#modal-tituloPagar" class="btn btn-info float-right">
-    <i class="fa fa-plus"></i>Novo Titulo Pagar</button>
+<div class="row">
+    <div class="col-12">
+        <a href="/titulopagar/cadastro" class="btn btn-info float-right mb-3">
+            <i class="fa fa-plus"></i>Novo Titulo a Pagar
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Fornecedor</th>
+                    <th>Categoria Despesa</th>
+                    <th>Forma de <br />Pagamento</th>
+                    <th>Caixa</th>
+                    <th>Valor Total</th>
+                    <th>Status</th>
+                    <th>Data Lançamento</th>
+                    <th>Data Recebimento</th>
+                    <th>Data Vencimento</th>
+                    <th>Quantidade <br /> de Parcelas</th>
+                    <th>Descrição</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+        </table>
 
-<table id="tituloPagar-tabela" class="table table-hover table-bordered table-striped" >
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Fornecedor</th>
-            <th>Categoria Despesa</th>
-            <th>Descrição</th>
-            <th>Forma de Pagamento</th>
-            <th>Caixa</th>
-            <th>Valor Total</th>
-            <th>Status</th>
-            <th>Data Lançamento</th>
-            <th>Data Recebimento</th>
-            <th>Data Vencimento</th>
-            <th>Complemento</th>
-            <th>Quantidade de Parcelas</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-</table>
-
+    </div>
+</div>
 @section js{
-    <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
-    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
 }
 
 

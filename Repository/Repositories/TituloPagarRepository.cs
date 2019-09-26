@@ -35,7 +35,6 @@ namespace Repository.Repositories
             tituloPagarOficial.DataLancamento = tituloPagar.DataLancamento;
             tituloPagarOficial.DataRecebimento = tituloPagar.DataRecebimento;
             tituloPagarOficial.DataVencimento = tituloPagar.DataVencimento;
-            tituloPagarOficial.Complemento = tituloPagar.Complemento;
             tituloPagarOficial.QuantidadeParcela = tituloPagar.QuantidadeParcela;
 
             int quantidadeAfetada = context.SaveChanges();

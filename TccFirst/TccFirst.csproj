@@ -5639,7 +5639,7 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\select2.min.css" />
-    <Content Include="Scripts\TituloPagar\jquery.form-validator.min.js" />
+    <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
@@ -5761,6 +5761,12 @@
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\TituloPagar\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
+    <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\PaginaInicial\home.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
