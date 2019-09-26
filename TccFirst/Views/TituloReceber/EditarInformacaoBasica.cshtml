@@ -58,10 +58,38 @@
                 <div class="form-group">
                     <label for="titulo-receber-campo-status">Status</label>
                     <select class="form-control" id="tituloReceber-campo-status">
-                        <option disabled selected>Selecione uma opção</option>
-                        <option>Pago</option>
-                        <option>Em Aberto</option>
-                        <option>Devedor</option>
+                        @if (ViewBag.TituloReceber.Status == "Pendente")
+                        {
+                            <option value="Pendente" selected="selected">Pendente</option>
+                        }
+                        else
+                        {
+                            <option value="Pendente">Pendente</option>
+                        }
+                        @if (ViewBag.TituloReceber.Status == "Pago")
+                        {
+                            <option value="Pago" selected="selected">Pago</option>
+                        }
+                        else
+                        {
+                            <option value="Pago">Pago</option>
+                        }
+                        @if (ViewBag.TituloReceber.Status == "Pago Parcialmente")
+                        {
+                            <option value="PagoParcialmente" selected="selected">Pago parcialmente</option>
+                        }
+                        else
+                        {
+                            <option value="PagoParcialmente">Pago Parcialmente</option>
+                        }
+                        @if (ViewBag.TituloReceber.Status == "Cancelado")
+                        {
+                            <option value="Cancelado" selected="selected">Cancelado</option>
+                        }
+                        else
+                        {
+                            <option value="Cancelado">Cancelado</option>
+                        }
                     </select>
                 </div>
             </div>

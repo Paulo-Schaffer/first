@@ -11,17 +11,18 @@
         columns: [
             {
                 render: function (data, type, row) {
+                    return moment(row.DataVencimento).format('DD/MM/YYYY')
+                }
+            },
+            {
+                render: function (data, type, row) {
                     if (row.DataRecebimento == null) {
                         return "";
                     }
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
-            {
-                render: function (data, type, row) {
-                    return moment(row.DataVencimento).format('DD/MM/YYYY')
-                }
-            },
+            
             { data: "ValorTotal" },
             {
                 render: function (data, type, row) {
@@ -41,6 +42,7 @@
                 render: function (data, type, row) {
                     return "\
                     <button class='btn btn-primary botao-editar fa fa-edit'\
+                        data-id" + row.Id + "'\
                         data-id=" + row.Id + "> Editar</button>";
                     ;
                 }
