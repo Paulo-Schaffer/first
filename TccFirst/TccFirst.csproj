@@ -5654,7 +5654,6 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
-    <Content Include="Views\ContaCorrente\Cadastro.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
@@ -5669,7 +5668,6 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
-    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -5679,7 +5677,6 @@
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
-    <Compile Include="Controllers\ParcelaReceberController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
@@ -5720,7 +5717,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Views\ContaCorrente\Index.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\ClientePessoaJuridica\CadastroPessoaJuridica.cshtml" />
@@ -5764,6 +5760,9 @@
     <Content Include="Views\PaginaInicial\home.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
+    <Content Include="Views\Transacao\Cadastro.cshtml" />
+    <Content Include="Views\Transacao\Editar.cshtml" />
+    <Content Include="Views\Transacao\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
