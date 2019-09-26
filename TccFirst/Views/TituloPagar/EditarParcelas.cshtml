@@ -1,19 +1,27 @@
 ﻿<div class="row">
     <div class="col-6">
-        <div class="form-group">
-            <span class="font-weight-bold">Valor Total:</span>
-            <span>@ViewBag.TituloPagar.ValorTotal</span>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <span class="font-weight-bold">Quantidade de Parcelas:</span>
+                    <span>@ViewBag.TituloPagar.QuantidadeParcela</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <span class="font-weight-bold">Valor Total:</span>
+                    <span>R$ @ViewBag.TituloPagar.ValorTotal</span>
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="col-6">
-        <div class="form-group">
-            <span class="font-weight-bold">Quantidade de Parcelas:</span>
-            <span>@ViewBag.TituloPagar.QuantidadeParcela</span>
-        </div>
+        <button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3">
+            <i class="fa fa-history"></i>Gerar Parcelas</button>
     </div>
 </div>
-<button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3">Gerar Parcelas</button>
 
 <table id="parcelasPagar-tabela" class="table table-hover table-bordered table-striped">
     <thead>
@@ -42,17 +50,6 @@
                         <div class="form-group">
                             <label form="parcelasPagar-campo-data-pagamento" mas>Data Pagamento<span class="text-danger">*</span></label>
                             <input type="date" id="parcelasPagar-campo-data-pagamento" class="form-control" name="DataPagamento" />
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="parcelasPagar-campo-status" mas>Status<span class="text-danger">*</span></label>
-                            <select class="form-control" id="parcelasPagar-campo-status" name="Status">
-                                <option disabled="disabled" selected="selected">Selecione um status</option>
-                                <option>Pendente</option>
-                                <option>Pago</option>
-                            </select>
                         </div>
                     </div>
                 </div>

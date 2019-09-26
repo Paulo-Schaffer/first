@@ -47,6 +47,7 @@ namespace Repository.Repositories
                 parcela.DataVencimento = dataVencimento;
                 parcela.IdTituloPagar = idTituloPagar;
                 parcela.RegistroAtivo = true;
+                parcela.Status = ParcelaPagar.StatusPendente;
                 context.ParcelasPagar.Add(parcela);
 
                 totalAcumulado += valorParcela;
@@ -57,15 +58,18 @@ namespace Repository.Repositories
         public bool Alterar(ParcelaPagar parcelaPagar)
         {
             var parcelasPagarOriginal = context.ParcelasPagar
-          .FirstOrDefault(x => x.Id == parcelaPagar.Id);
+                .FirstOrDefault(x => x.Id == parcelaPagar.Id);
             if (parcelaPagar == null)
-            {
                 return false;
-            }
-            parcelasPagarOriginal.DataVencimento = parcelaPagar.DataVencimento;
-            parcelasPagarOriginal.Valor = parcelaPagar.Valor;
-            parcelasPagarOriginal.Status = parcelaPagar.Status;
+
+            parcelasPagarOriginal.DataPagamento = parcelaPagar.DataPagamento;
+            parcelasPagarOriginal.Status = ParcelaPagar.StatusPago;
             int quantidadeAfetada = context.SaveChanges();
+
+            // Pegar o titulo a pagar
+            // Definir o status como StatusPagoParcialmente
+            // Atualizar
+
             return quantidadeAfetada == 1;
         }
 
