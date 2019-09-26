@@ -1,11 +1,4 @@
 ﻿
-$(function () {
-    $idTituloReceber = $("#id").val();
-    $idAlterar = -1;
-    var radioButton = "ClientePessoaJuridica.RazaoSocial";
-
-
-
     $tabelaParcelas = $("#titulo-receber-parcelas-tabela").DataTable({      
         ajax: '/parcelasreceber/obtertodos?idTituloReceber=' + $idTituloReceber,
         serverSide: true,
@@ -49,9 +42,8 @@ $(function () {
                 render: function (data, type, row) {
                     return "\
                     <button class='btn btn-primary botao-editar fa fa-edit'\
-                        data-id=" + row.Id + "> Editar</button>\
-                    <button class='btn btn-danger botao-apagar fa fa-trash'\
-                     ml-2   data-id=" + row.Id + "> Apagar</button>";
+                        data-id=" + row.Id + "> Editar</button>";
+                    ;
                 }
             }
         ]
