@@ -5704,6 +5704,7 @@
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
+    <Content Include="Views\ContaCorrente\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5719,6 +5720,8 @@
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
+    <Folder Include="Views\PaginaInicial\" />
+    <Folder Include="Views\ParcelaReceber\" />
     <Folder Include="Views\ParcelasPagar\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
