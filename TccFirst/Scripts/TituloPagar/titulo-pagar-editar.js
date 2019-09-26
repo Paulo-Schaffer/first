@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
     $idAlterar = -1;
     $idTituloPagar = $("#id").val();
 
