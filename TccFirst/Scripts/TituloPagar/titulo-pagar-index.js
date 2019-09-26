@@ -73,4 +73,30 @@
         }
     });
 
+    //$('.table').on('click', '.botao-editar', function () {
+    //    $idAlterar = $(this).data("id");
+    //    $.ajax({
+    //        url: '/tituloPagar/obterpeloid?id=' + $idAlterar,
+    //        method: 'get',
+    //        success: function (data) {
+    //            $('#tituloPagar-campo-fornecedor').val(data.Fornecedor);
+    //            $('#tituloPagar-campo-categoria-despesa').val(data.TipoFuncionario);
+    //            $('#tituloPagar-campo-forma-pagamento').val(data.FormaPagamento);
+    //            $('#tituloPagar-campo-caixa').val(data.Caixa);
+    //            $('#tituloPagar-campo-valor-total').val(data.ValorTotal);
+    //            $('#tituloPagar-campo-caixa').val(data.Senha);
+    //            $('#tituloPagar-campo-status').val(data.Status);
+    //            $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento);
+    //            $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento);
+    //            $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
+    //            $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
+    //            $('#tituloPagar-campo-descricao').val(data.Descricao);
+    //            $('#modal-tituloPagar').modal('show');
+    //        },
+    //        error: function (err) {
+    //            alert('Não foi possível carregar');
+    //        }
+    //    });
+    //});
+
 });
