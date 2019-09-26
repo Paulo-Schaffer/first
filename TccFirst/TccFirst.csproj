@@ -5703,7 +5703,7 @@
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
-    <Content Include="Views\FluxoCaixa\FluxoCaixa.cshtml" />
+    <Content Include="Views\Relatorio\FluxoCaixa.cshtml" />
     <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
     <Content Include="Views\ParcelaReceber\Index.cshtml" />
     <Content Include="Views\Transacao\Editar.cshtml" />
@@ -5721,9 +5721,6 @@
     <Folder Include="Views\CategoriaDespesa\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
-    <Folder Include="Views\MovimentacaoFinaceiraEntrada\" />
-    <Folder Include="Views\MovimentacaoFinanceiraEntrada\" />
-    <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>

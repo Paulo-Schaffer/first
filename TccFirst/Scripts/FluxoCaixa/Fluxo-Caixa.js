@@ -23,8 +23,8 @@
         serverSide: true,
         columns: [
             //{ data: "Id" },
-            { data: "IdAgencia" },
-            { data: "NumeroConta" }
+            //{ data: "IdAgencia" },
+            //{ data: "NumeroConta" }
 
         ]
     });
