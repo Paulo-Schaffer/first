@@ -44,6 +44,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(TituloPagar tituloPagar)
         {
             tituloPagar.RegistroAtivo = true;
+            tituloPagar.Status = TituloPagar.StatusPendente;
             int id = repository.Inserir(tituloPagar);
             var resultado = new { id = id };
             return RedirectToAction("Index",resultado);
