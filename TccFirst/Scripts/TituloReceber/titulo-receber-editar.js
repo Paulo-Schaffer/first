@@ -36,14 +36,7 @@
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
 
                 }
-            },
-            {
-                render: function (data, type, row) {
-                    return moment(row.DataLancamento).format('DD/MM/YYYY')
-                }
-            },
-           
-           
+            },          
             {
                 render: function (data, type, row) {
                     return "\
@@ -53,28 +46,48 @@
                 }
             }
         ]
-    });
 
-    $("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja Realmente Apagar?")
-        if (confirma == true) {
-            $id = $(this).data('id');
-            $.ajax({
-                url: '/tituloreceber/apagar?id=' + $id,
-                method: "get",
-                success: function (data) {
-                    if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
-                        radioButton = '"ClientePessoaFisica.Nome"';
-                    } else {
-                    }
-                    $tabelaTituloReceber.ajax.reload();
-                },
-                error: function (err) {
-                    alert('Não foi possível apagar');
-                }
-            });
-        }
     });
+    $('#parcelasReceber-botao-salvar').on('click', function () {
+        $dataRecebimento = $('#tituloReceber-campo-data-recebimento').val();
+        debugger;
+        $.ajax({
+            url: "/ParcelasReceber/Update",
+            method: "post",
+            data: {
+                DataRecibimento: $dataRecebimento,
+                id: $idAlterar
+            },
+            success: function (data) {
+                $("#modal-parcelaReceber").modal("hide");
+                $idAlterar = -1;
+                $tabelaParcelas.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possível alterar");
+            }
+        })
+    });
+    //$("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
+    //    confirma = confirm("Deseja Realmente Apagar?")
+    //    if (confirma == true) {
+    //        $id = $(this).data('id');
+    //        $.ajax({
+    //            url: '/tituloreceber/apagar?id=' + $id,
+    //            method: "get",
+    //            success: function (data) {
+    //                if ($('#tituloReceber-campo-tipo-pessoa-fisica').is(':checked')) {
+    //                    radioButton = '"ClientePessoaFisica.Nome"';
+    //                } else {
+    //                }
+    //                $tabelaTituloReceber.ajax.reload();
+    //            },
+    //            error: function (err) {
+    //                alert('Não foi possível apagar');
+    //            }
+    //        });
+    //    }
+    //});
     $("#gerar-parcelas").on("click", function () {
         $.ajax({
             url: '/parcelasreceber/GerarParcelas?idTituloReceber=' + $idTituloReceber,
@@ -88,6 +101,21 @@
         });
     });
 
+    $('.table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data("id");
+        $.ajax({
+            url: '/parcelasReceber/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                $('#tituloReceber-campo-data-recebimento').val(data.DataRecebimento);
+                $('#tituloReceber-campo-status').val(data.Status);
+                $('#modal-parcelasReceber').modal('show');
+            },
+            error: function (err) {
+                alert('Não foi possível carregar');
+            }
+        });
+    });
     function monstrarMensagem(texto, titulo, tipo) {
         return false;
         new PNotify({
