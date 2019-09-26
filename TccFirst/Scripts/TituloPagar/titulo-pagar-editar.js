@@ -70,23 +70,6 @@
         })
     });
 
-    //$("#titulo-pagar-parcelas-tabela").on('click', '.botao-apagar', function () {
-    //    confirma = confirm("Deseja realmente apagar?");
-    //    if (confirma == true) {
-    //    $id = $(this).data('id');
-    //    $.ajax({
-    //        url: '/parcelaspagar/apagar?id=' + $id,
-    //        method: "get",
-    //        success: function (data) {
-    //            $tabelaParcelas.ajax.reload();
-    //        },
-    //        error: function (err) {
-    //            alert('Não foi possível apagar');
-    //        }
-    //    });
-    //    }
-    //});
-
     $("#gerar-parcelas").on("click", function () {
         $.ajax({
             url: '/parcelasPagar/GerarParcelas?idTituloPagar=' + $idTituloPagar,
@@ -116,8 +99,6 @@
         });
     });
 
-
-  
     function monstrarMensagem(texto, titulo, tipo) {
         return false;
         new PNotify({

@@ -70,6 +70,7 @@ namespace TccFirst.Controllers
 
         public ActionResult Editar(int id)
         {
+
             var tituloPagar = repository.ObterPeloId(id);
             ViewBag.TituloPagar = tituloPagar;
             return View();

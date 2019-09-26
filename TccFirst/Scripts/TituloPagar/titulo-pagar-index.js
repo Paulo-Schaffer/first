@@ -3,6 +3,7 @@
         "scrollX": true,
         ajax: '/titulopagar/obtertodos',
         serverSide: true,
+        info: false,
         columns: [
             { data: 'Id' },
             { data: "Fornecedor.RazaoSocial" },
@@ -26,21 +27,20 @@
             },
             {
                 render: function (data, type, row) {
-                    return moment(row.DataLancamento).format('YYYY-MM-DD')
+                    return moment(row.DataLancamento).format('DD/MM/YYYY')
                 }
             },
             {
                 render: function (data, type, row) {
-                    return moment(row.DataRecebimento).format('YYYY-MM-DD')
+                    return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
             {
                 render: function (data, type, row) {
-                    return moment(row.DataVencimento).format('YYYY-MM-DD')
+                    return moment(row.DataVencimento).format('DD/MM/YYYY')
                 }
             },
 
-            { data: "Complemento" },
             { data: "QuantidadeParcela" },
             { data: "Descricao" },
             {

@@ -4,7 +4,8 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-fornecedor" mas>Fornecedores</label>
-                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFonecedor"></select>
+                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFonecedor" selected="selected" value="@ViewBag.TituloPagar.IdFornecedor">
+                    </select>
                 </div>
             </div>
 
@@ -19,7 +20,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-forma-pagamento"  mas>Forma de Pagamento</label>
+                    <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento</label>
                     <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                         @if (ViewBag.TituloPagar.FormaPagamento == "Dinheiro")
                         {
@@ -53,11 +54,39 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-status" mas>Status</label>
-                    <select>
-                        <option>Pendente</option>
-                        <option>Pago</option>
-                        <option>Cancelado</option>
-                        <option>Pago parcialmente</option>
+                    <select class="form-control" id="tituloPagar-campo-status" name="Status">
+                        @if (ViewBag.TituloPagar.Status == "Pendente")
+                        {
+                            <option value="Pendente" selected="selected">Pendente</option>
+                        }
+                        else
+                        {
+                            <option value="Pendente">Pendente</option>
+                        }
+                        @if (ViewBag.TituloPagar.Status == "Pago")
+                        {
+                            <option value="Pago" selected="selected">Pago</option>
+                        }
+                        else
+                        {
+                            <option value="Pago">Pago</option>
+                        }
+                        @if (ViewBag.TituloPagar.Status == "Pago Parcialmente")
+                        {
+                            <option value="PagoParcialmente" selected="selected">Pago parcialmente</option>
+                        }
+                        else
+                        {
+                            <option value="PagoParcialmente">Pago Parcialmente</option>
+                        }
+                        @if (ViewBag.TituloPagar.Status == "Cancelado")
+                        {
+                            <option value="Cancelado" selected="selected">Cancelado</option>
+                        }
+                        else
+                        {
+                            <option value="Cancelado">Cancelado</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -69,26 +98,25 @@
                     <input type="checkbox" id="tituloPagar-campo-caixa" class="form-check-input" />
                     <label for="tituloPagar-campo-caixa" class="form-check-label">Caixa</label>
                 </div>
-                    <div class="form-check">
-                        <input type="checkbox" id="tituloPagar-campo-banco" class="form-check-input" />
-                        <label for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
-                    </div>
+                <div class="form-check">
+                    <input type="checkbox" id="tituloPagar-campo-banco" class="form-check-input" />
+                    <label for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
                 </div>
             </div>
+        </div>
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-data-lancamento" mas>Data de Lançamento</label>
                     <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control"
-                           name="DataLancamento" value="@ViewBag.TituloPagar.DataLancamento.ToString("dd-mm-yyyy")" />
+                           name="DataLancamento" value="@ViewBag.TituloPagar.DataLancamento.ToString("yyyy-MM-dd")" />
                 </div>
             </div>
-
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento</label>
                     <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control"
-                           name="DataRecebimento" value="@ViewBag.TituloPagar.DataRecebimento.ToString("dd-mm-yyyy")" />
+                           name="DataRecebimento" value="@ViewBag.TituloPagar.DataRecebimento.ToString("yyyy-MM-dd")" />
                 </div>
             </div>
         </div>
@@ -98,7 +126,7 @@
                 <div class="form-group">
                     <label form="tituloPagar-campo-data-vencimento" mas>Data Vencimento</label>
                     <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control"
-                           name="DataVencimento" value="@ViewBag.TituloPagar.DataVencimento.ToString("dd-mm-yyyy")" />
+                           name="DataVencimento" value="@ViewBag.TituloPagar.DataVencimento.ToString("yyyy-MM-dd")" />
                 </div>
             </div>
 
@@ -112,34 +140,23 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-complemento" mas>Complemento</label>
-                    <input type="text" id="tituloPagar-campo-complemento" class="form-control" name="Complemento" value="@ViewBag.TituloPagar.Complemento" />
-                </div>
-            </div>
-
-            <div class="col-6">
-
-                    <label for="tituloPagar-campo-valor-total" style="display: block">Valor Total</label>
-                    <span type="text" id="tituloPagar-campo-valor-total">R$ @ViewBag.TituloPagar.ValorTotal</span>
-   
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
                     <div class="form-group">
                         <label for="tituloPagar-campo-descricao" mas>Descrição</label>
                         <textarea id="tituloPagar-campo-descricao" class="form-control" name="Descricao">@ViewBag.TituloPagar.Descricao</textarea>
                     </div>
                 </div>
             </div>
+
+            <div class="col-6">
+                <label for="tituloPagar-campo-valor-total" style="display: block">Valor Total</label>
+                <span type="text" id="tituloPagar-campo-valor-total">R$ @ViewBag.TituloPagar.ValorTotal</span>
+            </div>
         </div>
-        <button type="button" class="btn btn-success float-lg-right mb-3" id="titulo-pagar-botao-salvar">
-            <i class="fa fa-floppy-o"></i> Salvar
-        </button>
     </form>
 </div>
+<button type="button" class="btn btn-success float-lg-right mb-3" id="titulo-pagar-botao-salvar">
+    <i class="fa fa-floppy-o"></i> Salvar
+</button>
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
