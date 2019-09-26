@@ -5686,7 +5686,6 @@
     <Content Include="Views\ParcelasPagar\Editar.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
-    <Content Include="Views\Login do Sistema\LoginSistema.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />

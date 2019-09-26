@@ -24,7 +24,7 @@ namespace Repository.Repositories
             if (transacaoOriginal == null)
                 return false;
 
-            transacaoOriginal.IdCadastroContaCorrente = transacao.IdCadastroContaCorrente;
+            transacaoOriginal.IdCadastrosContaCorrente = transacao.IdCadastrosContaCorrente;
             transacaoOriginal.IdHistorico = transacao.IdHistorico;
             transacaoOriginal.IdCategoriaReceita = transacao.IdCategoriaReceita;
             transacaoOriginal.IdCategoriaDespesa = transacao.IdCategoriaDespesa;
@@ -32,9 +32,7 @@ namespace Repository.Repositories
             transacaoOriginal.Documento = transacao.Documento;
             transacaoOriginal.TipoPagamento = transacao.TipoPagamento;
             transacaoOriginal.Valor = transacao.Valor;
-            transacaoOriginal.Status = transacao.Status;
             transacaoOriginal.DataLancamento = transacao.DataLancamento;
-            transacaoOriginal.DataVencimento = transacao.DataVencimento;
             transacaoOriginal.DataRecebimento = transacao.DataRecebimento;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
