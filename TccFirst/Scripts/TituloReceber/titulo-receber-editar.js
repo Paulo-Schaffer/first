@@ -1,12 +1,28 @@
-﻿
-    $tabelaParcelas = $("#titulo-receber-parcelas-tabela").DataTable({      
+﻿$(function () {
+    $idAlterar = -1;
+    $idTituloReceber = $("#id").val();
+
+    $tabelaParcelas = $("#titulo-receber-parcelas-tabela").DataTable({
         ajax: '/parcelasreceber/obtertodos?idTituloReceber=' + $idTituloReceber,
         serverSide: true,
+        info: false,
+        paging: false,
+        searching: false,
         columns: [
-            { data: "Id" },
-            { data: 'NomeCliente' },
+            {
+                render: function (data, type, row) {
+                    if (row.DataRecebimento == null) {
+                        return "";
+                    }
+                    return moment(row.DataRecebimento).format('DD/MM/YYYY')
+                }
+            },
+            {
+                render: function (data, type, row) {
+                    return moment(row.DataVencimento).format('DD/MM/YYYY')
+                }
+            },
             { data: "ValorTotal" },
-            { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
                     let cor = "";
@@ -26,18 +42,8 @@
                     return moment(row.DataLancamento).format('DD/MM/YYYY')
                 }
             },
-            {
-                render: function (data, type, row) {
-                    return moment(row.DataRecebimento).format('DD/MM/YYYY')
-                }
-            },
-            {
-                render: function (data, type, row) {
-                    return moment(row.DataVencimento).format('DD/MM/YYYY')
-                }
-            },
-            {data: "Complemento"},
-            { data: "Descricao" },
+           
+           
             {
                 render: function (data, type, row) {
                     return "\
@@ -82,7 +88,7 @@
         });
     });
 
-    function monstrarMensagem(texto, titulo, tipo) {       
+    function monstrarMensagem(texto, titulo, tipo) {
         return false;
         new PNotify({
             title: titulo,
@@ -91,5 +97,4 @@
             type: tipo
         });
     }
-
 });

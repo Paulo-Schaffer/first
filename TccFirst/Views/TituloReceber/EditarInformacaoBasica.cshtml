@@ -94,21 +94,34 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="campo-tituloReceber-valor-total" mas>Valor</label>
-                    <input type="text" id="tituloReceber-campo-valor-total" class="form-control"
-                           value="@ViewBag.TituloReceber.ValorTotal"/>
+                    <label for="campo-tituloReceber-valor-total" style="display: block">Valor Total</label>
+                    <span type="text" id="tituloReceber-campo-valor-total">R$ @ViewBag.TituloReceber.ValorTotal </span>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
                     <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control"
-                           value="@ViewBag.TituloReceber.QuantidadeParcela"/>
+                           value="@ViewBag.TituloReceber.QuantidadeParcela" />
                 </div>
             </div>
-        </div>
-        <button type="button" class="btn btn-success" id="titulo-receber-botao-salvar"><i class="fa fa-floppy-o"></i> Salvar</button>
-    </form>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-titulo-campo-complemento" mas>Complemento</label>
+                    <input type="text" id="tituloReceber-campo-complemento" class="form-control" name="Complemento" value="@ViewBag.TituloReceber.Complemento" />
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-tituloReceber-descricao" mas>Descrição</label>
+                    <textarea class="form-control" id="tituloReceber-campo-descricao" name="Descricao">@ViewBag.TituloReceber.Descricao</textarea>
+                </div>
+
+            </div>
+            </div>
+            <button type="button" class="btn btn-success" id="titulo-receber-botao-salvar"><i class="fa fa-floppy-o"></i> Salvar</button>
+</form>
 </div>
 @section js{
     <script src="~/Scripts/TituloReceber/titulo-receber-cadastro.js"></script>

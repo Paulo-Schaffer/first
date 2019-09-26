@@ -44,6 +44,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
             tituloReceber.RegistroAtivo = true;
+            tituloReceber.Status = TituloReceber.StatusPendente;
             int id = repository.Inserir(tituloReceber);
             var resultado = new { id = id };
             return RedirectToAction("Index",resultado);
@@ -56,7 +57,7 @@ namespace TccFirst.Controllers
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return Json(resultado);
         }
 
         public ActionResult Editar(int id)
@@ -68,7 +69,7 @@ namespace TccFirst.Controllers
         #endregion
 
         #region Index
-        [HttpGet]
+        
         public ActionResult Index()
         {
             TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();

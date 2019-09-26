@@ -30,7 +30,7 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        /*[HttpPost]
+        [HttpPost]
         public JsonResult Inserir(ParcelaReceber parcelaReceber)
         {
             parcelaReceber.RegistroAtivo = true;
@@ -51,7 +51,7 @@ namespace TccFirst.Controllers
             var alterou = repository.Alterar(parcelaReceber);
             var resultado = new { status = alterou };
             return Json(resultado);
-        }*/
+        }
         [HttpGet, Route("parcelasReceber/")]
         public JsonResult ObterPeloId(int id)
         {

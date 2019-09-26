@@ -43,6 +43,7 @@ namespace Repository.Repositories
                 parcela.DataVencimento = dataVencimento;
                 parcela.IdTituloReceber = idTituloReceber;
                 parcela.RegistroAtivo = true;
+                parcela.Status = TituloReceber.StatusPendente;
                 context.ParcelasReceber.Add(parcela);
                 totalAcumulado += valorParcela;
             }
@@ -59,6 +60,29 @@ namespace Repository.Repositories
         {
             return context.ParcelasReceber
                 .Where(x => x.RegistroAtivo && x.IdTituloReceber == idTituloReceber).ToList();
+        }
+
+       public bool Alterar(ParcelaReceber parcelaReceber)
+        {
+            var parcelaReceberOriginal = context.ParcelasReceber.FirstOrDefault(x => x.Id == parcelaReceber.Id);
+            if (parcelaReceber == null)
+            {
+                return false;
+            }
+            parcelaReceberOriginal.DataRecebimento = parcelaReceber.DataRecebimento;
+            parcelaReceberOriginal.Status = ParcelaReceber.StatusPago;
+            int quantidadeAfeada = context.SaveChanges();
+
+            return quantidadeAfeada == 1;
+        }
+        public bool Apagar(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Inserir(ParcelaReceber parcelaReceber)
+        {
+            throw new NotImplementedException();
         }
     }
 }

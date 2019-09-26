@@ -11,7 +11,9 @@ namespace Model
     [Table("parcela_receber")]
    public  class ParcelaReceber
     {
-        
+        public const string StatusPendente = "Pendente";
+        public const string StatusPago = "Pago";
+
         [Key, Column("id")]
         public int Id { get; set; }
 
@@ -22,10 +24,10 @@ namespace Model
         public string Status { get; set; }
 
         [Column("DataVecimento")]
-        public DateTime DataVencimento { get; set; }
+        public DateTime? DataVencimento { get; set; }
 
         [Column("DataRecebimento")]
-        public DateTime DataRecebimento { get; set; }
+        public DateTime? DataRecebimento { get; set; }
 
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
