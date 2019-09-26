@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
     $tabelaTituloPagar = $("#tituloPagar-tabela").DataTable({
         "scrollX": true,
         ajax: '/titulopagar/obtertodos',
