@@ -1,43 +1,44 @@
 ﻿
 <div class="row">
     <div class="col-6">
-        <div class="form-group">
-            <label for="tituloPagar-campo-fornecedor" mas>Fornecedores</label>
-            <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
-        </div>
+        <h2>Cadastro de Titulo a Pagar</h2>
     </div>
-
     <div class="col-6">
-        <div class="form-group">
-            <label for="tituloPagar-campo-categoria-despesa" mas>Categoria despesas</label>
-            <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
-        </div>
+        <a class="btn btn-info   float-right mb-3"
+           href="/TituloPagar/index">Ir para tabela</a>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12">
-        <div class="form-group">
-            <div class="form-group">
-                <label for="tituloPagar-campo-descricao" mas>Descrição</label>
-                <input type="text" id="tituloPagar-campo-descricao" class="form-control" />
+<form action="/titulopagar/cadastro" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-fornecedor" mas>Fornecedores<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-categoria-despesa" mas>Categoria despesas<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-6">
-        <div class="form-group">
-            <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento</label>
-            <select class="form-control" id="tituloPagar-campo-forma-pagamento">
-                <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
-                <option>Dinheiro</option>
-                <option>Cartão Débito</option>
-                <option>Cartão de Crédito</option>
-            </select>
-        </div>
-    </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
+                        <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                        <option>Dinheiro</option>
+                        <option>Cartão Débito</option>
+                        <option>Cartão de Crédito</option>
+                    </select>
+                </div>
+            </div>
 
             <div class="col-6">
                 <div class="form-group">
@@ -74,13 +75,13 @@
                 </div>
             </div>
 
-    <div class="col-6">
-        <div class="form-group">
-            <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento</label>
-            <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" />
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tituloPagar-campo-data-recebimento" mas>Data de Recebimento<span class="text-danger">*</span></label>
+                    <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" name="DataRecebimento" />
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <div class="row">
             <div class="col-6">
@@ -119,9 +120,10 @@
         </div>
     </div>
 
-<button type="button" class="btn btn-success" id="titulo-pagar-botao-salvar">
-    <i class="fa fa-floppy-o"></i> Salvar
-</button>
+    <div class="modal-footer">
+        <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+    </div>
+</form>
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
