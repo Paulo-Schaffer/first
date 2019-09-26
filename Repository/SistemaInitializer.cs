@@ -651,6 +651,15 @@ namespace Repository
                 Senha = "123",
                 RegistroAtivo = true
             });
+            funcionarios.Add(new Funcionario()
+            {
+                Id = 3,
+                NomeFuncionario = "Cleber",
+                TipoFuncionario = "Gerente",
+                Usuario = "cleber",
+                Senha = "123",
+                RegistroAtivo = true
+            });
             context.Funcionarios.AddRange(funcionarios);
             #endregion
 
