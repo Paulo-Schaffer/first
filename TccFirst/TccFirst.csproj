@@ -5680,6 +5680,8 @@
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelaReceberController.cs" />
+    <Compile Include="Controllers\ParcelasReceberController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
