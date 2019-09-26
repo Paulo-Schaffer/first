@@ -43,9 +43,6 @@ namespace Model
         [Column("data_vencimento")]
         public DateTime DataVencimento { get; set; }
 
-        [Column("complemento")]
-        public string Complemento { get; set; }
-
         [Column("quantidade_parcelas")]
         public int QuantidadeParcela { get; set; }
 

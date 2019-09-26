@@ -259,7 +259,7 @@ namespace Repository
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "123",
+                Senha = "sembraco",
                 RegistroAtivo = true
 
             });
@@ -395,13 +395,12 @@ namespace Repository
                 Descricao = "Sem Descrição",
                 FormaPagamento = "Dinheiro",
                 Caixa = true,
-                ValorTotal = 1999,
-                Status = "Pago",
+                ValorTotal = 2000,
+                Status = "Pendente",
                 DataLancamento = Convert.ToDateTime("23/06/2016"),
-                DataRecebimento = Convert.ToDateTime("22/07/2016"),
-                DataVencimento = Convert.ToDateTime("23/07/2016"),
-                Complemento = "Usuario pagou corretamente",
-                QuantidadeParcela = 1,
+                DataRecebimento = Convert.ToDateTime("10/07/2016"),
+                DataVencimento = Convert.ToDateTime("15/07/2016"),
+                QuantidadeParcela = 4,
                 RegistroAtivo = true
             });
             titulosPagar.Add(new TituloPagar()
@@ -412,13 +411,12 @@ namespace Repository
                 Descricao = "Sem Descrição",
                 FormaPagamento = "Credito",
                 Caixa = false,
-                ValorTotal = 127422,
+                ValorTotal = 100,
                 Status = "Pendente",
                 DataLancamento = Convert.ToDateTime("13/06/2016"),
                 DataRecebimento = Convert.ToDateTime("12/07/2019"),
-                DataVencimento = Convert.ToDateTime("13/07/2016"),
-                Complemento = "Usuario nao pagou",
-                QuantidadeParcela = 6,
+                DataVencimento = Convert.ToDateTime("15/07/2016"),
+                QuantidadeParcela = 4,
                 RegistroAtivo = true
             });
             context.TitulosPagar.AddRange(titulosPagar);
