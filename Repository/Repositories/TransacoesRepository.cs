@@ -24,7 +24,7 @@ namespace Repository.Repositories
             if (transacaoOriginal == null)
                 return false;
 
-            transacaoOriginal.IdCadastroContaCorrente = transacao.IdCadastroContaCorrente;
+            transacaoOriginal.IdCadastrosContaCorrente = transacao.IdCadastrosContaCorrente;
             transacaoOriginal.IdHistorico = transacao.IdHistorico;
             transacaoOriginal.IdCategoriaReceita = transacao.IdCategoriaReceita;
             transacaoOriginal.IdCategoriaDespesa = transacao.IdCategoriaDespesa;

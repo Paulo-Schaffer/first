@@ -38,10 +38,10 @@ namespace Model
         public bool RegistroAtivo { get; set; }
 
         #region fk_cadastocontacorrente
-        [Column("id_cadastrocontacorrente")]
-        public int? IdCadastroContaCorrente { get; set; }
-        [ForeignKey("IdCadastroContaCorrente")]
-        public CadastroContaCorrente CadastroContaCorrente  { get; set; }
+        [Column("id_cadastros_conta_corrente")]
+        public int? IdCadastrosContaCorrente { get; set; }
+        [ForeignKey("IdCadastrosContaCorrente")]
+        public CadastroContaCorrente CadastrosContaCorrente { get; set; }
         #endregion 
 
         #region fk_categoria_despesas

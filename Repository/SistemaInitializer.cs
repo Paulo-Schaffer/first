@@ -5,9 +5,9 @@ using System.Data.Entity;
 
 namespace Repository
 {
-  // internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-   internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
-   {
+    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    //internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    {
         protected override void Seed(SistemaContext context)
         {
 
@@ -214,18 +214,20 @@ namespace Repository
             var cadastroscontacorrente = new List<CadastroContaCorrente>();
             cadastroscontacorrente.Add(new CadastroContaCorrente()
             {
+
                 IdAgencia = 1,
-                NumeroConta = 80,
+                NumeroConta = 1,
                 RegistroAtivo = true,
             });
             cadastroscontacorrente.Add(new CadastroContaCorrente()
             {
-                NumeroConta = 14,
-                IdAgencia = 2,
+                NumeroConta = 1,
+                IdAgencia = 1,
                 RegistroAtivo = true,
             });
             #endregion
 
+            
             #region fornecedores
             var fornecedores = new List<Fornecedor>();
             fornecedores.Add(new Fornecedor()
@@ -250,11 +252,11 @@ namespace Repository
             var transacao = new List<Transacao>();
             transacao.Add(new Transacao()
             {
-               
+
                 RegistroAtivo = true,
-                IdCadastroContaCorrente=1,
-                IdCategoriaDespesa= 1,
-                IdCategoriaReceita =1,
+                IdCadastrosContaCorrente = 1,
+                IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
                 IdHistorico = 1,
                 DescricaoTransacao = "alo",
                 Documento = "daskdaksd",
@@ -274,16 +276,21 @@ namespace Repository
             historico.Add(new Historico()
             {
                 Descricao = "Conta paga com sucesso",
-                RegistroAtivo = true    
+                RegistroAtivo = true
             });
             historico.Add(new Historico()
             {
                 Descricao = "Conta em atraso, pagar até dia 29/08/1996",
                 RegistroAtivo = true
             });
+            historico.Add(new Historico()
+            {
+                Descricao = "Babalu, babala, babalo",
+                RegistroAtivo = true
+            });
             context.Historicos.AddRange(historico);
             #endregion
-      
+
             #region parcelaPagar
             var parcelaPagar = new List<ParcelaPagar>();
             parcelaPagar.Add(new ParcelaPagar()
@@ -456,7 +463,7 @@ namespace Repository
             var tituloPagar = new List<TituloPagar>();
             tituloPagar.Add(new TituloPagar()
             {
-                IdCategoriaDespesa=1,
+                IdCategoriaDespesa = 1,
                 IdFornecedor = 1,
                 Descricao = "Titulo feio por Paulo",
                 FormaPagamento = "Dinheiro",
@@ -491,14 +498,14 @@ namespace Repository
             var tituloReceber = new List<TituloReceber>();
             tituloReceber.Add(new TituloReceber()
             {
-                Descricao= "Titulo sem compromisso",
+                Descricao = "Titulo sem compromisso",
                 ValorTotal = 125,
                 Status = "Pago",
                 DataLancamento = "29/12/2018",
                 DataRecebimento = "04/01/2019",
-                DataVencimento="30/01/2019",
-                Complemento="Não sei o que por",
-                QuantidadeParcela= 36,
+                DataVencimento = "30/01/2019",
+                Complemento = "Não sei o que por",
+                QuantidadeParcela = 36,
                 RegistroAtivo = true
             });
             tituloReceber.Add(new TituloReceber()

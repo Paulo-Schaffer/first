@@ -1,9 +1,9 @@
 ﻿<script src="~/Scripts/Transacao/Transacao.js"></script>
 <link rel="stylesheet" href="~/Content/css/Transacao/TelaEditarTransacao.css" />
-
+<link rel="stylesheet" href="~/Content/css/Botoes.css" />
 <div class="col-12"><h2><b>Editando Transação "@ViewBag.Transacoes.Id"</b></h2></div>
 <hr />
-<a id="botao-editarTransacao" class="btn float-right mb-3" href="/Transacao/Index">
+<a id="botao-voltar" class="btn float-right mb-3" href="/Transacao/Index">
     <i class="fa fa-backward"></i>Voltar para tabela
 </a>
 <br />
@@ -17,7 +17,7 @@
             <div class="form-group" id="fonte">
                 <label class="font-weight-bold" form="campo">Conta Corrente<a class="text-danger">*</a></label>
                 <select id="campo" class="form-control text-dark" name="idCadastroContaCorrente">
-                    <option disabled="disabled" selected="selected">Selecione uma Conta</option>
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.CadastroContaCorrente.NumeroConta</option>
                     @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastroContaCorrentes)
                     {
                         if (cadastroContaCorrente.Id == ViewBag.IdCadastroContaCorrentes)
@@ -36,7 +36,7 @@
             <div class="form-group" id="fonte">
                 <label for="campo-historico">Historico<span class="text-danger">*</span></label>
                 <select id="campo" class="form-control text-dark" name="idHistorico">
-                    <option disabled="disabled" selected="selected">Selecione um Histoico</option>
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.Historico.Descricao</option>
                     @foreach (Model.Historico historico in ViewBag.Historicos)
                     {
                         if (historico.Id == ViewBag.IdHistorico)
@@ -57,7 +57,7 @@
             <div class="form-group" id="fonte">
                 <label for="campo-tipocategoriareceita">Tipo Categoria Receita<span class="text-danger">*</span></label>
                 <select id="campo" class="form-control text-dark" name="idCategoriaReceita">
-                    <option disabled="disabled" selected="selected">Selecione um Tipo</option>
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.CategoriaReceita.TipoCategoriaReceita</option>
                     @foreach (Model.CategoriaReceita categoriaReceita in ViewBag.CategoriasReceita)
                     {
                         if (categoriaReceita.Id == ViewBag.IdCategoriaReceita)
@@ -76,7 +76,7 @@
             <div class="form-group" id="fonte">
                 <label for="campo-tipocategoriadespesa">Tipo Categoria Despesa<span class="text-danger">*</span></label>
                 <select id="campo" class="form-control text-dark" name="idCategoriaDespesa">
-                    <option disabled="disabled" selected="selected">Selecione um Tipo</option>
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.CategoriaDespesa.TipoCategoriaDespesa</option>
                     @foreach (Model.CategoriaDespesa categoriaDespesa in ViewBag.CategoriasDespesa)
                     {
                         if (categoriaDespesa.Id == ViewBag.idCategoriaDespesa)
@@ -94,19 +94,17 @@
     </div>
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-4">
             <div class="form-group" id="fonte">
 
                 <label for="campo-documento">Documento</label>
                 <input type="text" name="documento" class="form-control" id="campo" value="@ViewBag.Transacoes.Documento" />
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class="col-4">
             <div class="form-group" id="fonte">
                 <label for="campo-tipopagamento">Tipo Pagamento</label>
-                <select id="campo" name="status" class="form-control" required="" value="@ViewBag.Transacoes.TipoPagamento">
+                <select id="campo" name="tipopagamento" class="form-control" required="" value="@ViewBag.Transacoes.TipoPagamento">
                     <option disabled="disabled" selected="selected">@ViewBag.Transacoes.TipoPagamento</option>
                     <option>Dinheiro</option>
                     <option>Cartão de Débito</option>
@@ -118,18 +116,6 @@
             <div class="form-group" id="fonte">
                 <label for="campo-valor">Valor</label>
                 <input type="text" name="valor" class="form-control" id="campo" value="@ViewBag.Transacoes.Valor" />
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="form-group" id="fonte">
-                <label for="campo-status">Status</label>
-
-                <select class="form-control" type="combobox" name="status" id="campo" required="" value="@ViewBag.Transacoes.Status">
-                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.Status</option>
-                    <option>Aberto</option>
-                    <option>Pendente</option>
-                    <option>Pago</option>
-                </select>
             </div>
         </div>
     </div>
@@ -153,11 +139,11 @@
         <div class="col-12">
             <div class="form-group" id="fonte">
                 <label for="campo-descricaotransacao">Descição</label>
-                <textarea type="text" name="descricaotransacao" class="form-control" id="campo" value="@ViewBag.Transacoes.DescricaoTransacao" ></textarea>
+                <textarea type="text" name="descricaotransacao" class="form-control" id="campo" value="@ViewBag.Transacoes.DescricaoTransacao"></textarea>
             </div>
         </div>
     </div>
-    <button id="botao-salvar" href="/Transacao/index" class="btn btn-success float-right" type="submit"><i class="fa fa-save"></i>Salvar</button>
+    <button id="botao-salvar" href="/Transacao/index" class="btn float-right" type="submit"><i class="fa fa-save"></i>Salvar</button>
 </form>
 <br />
 

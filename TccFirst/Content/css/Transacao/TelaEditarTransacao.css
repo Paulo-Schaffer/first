@@ -8,11 +8,13 @@
     border-color: darkgray;
     width: 235px;
     height: 40px;
+    border-radius: 5px;
 }
 #botao-salvar {
     height: 40px;
     width: 160px;
     color: white;
+    border-radius: 5px;
     background-color: mediumseagreen;
 }
 /*#endregion
