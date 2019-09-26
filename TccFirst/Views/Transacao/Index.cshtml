@@ -7,68 +7,68 @@
     </div>
 </div>
 <div style="overflow-x:auto">
+    <div class="row">
+        <div class="col-12">
 
-    <table id="transacao-tabela" class="table table-light table-hover table-border-style table-striped">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Conta Corrente</th>
-                <th>Historico</th>
-                <th>Categoria Receita</th>
-                <th>Categoria Despesa</th>
-                <th>Descricao</th>
-                <th>Documento</th>
-                <th>Tipo Pagamento </th>
-                <th>Valor</th>
-                <th>Data Lançamento</th>
-                <th>Data Recebimento</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (Model.Transacao transacao in ViewBag.Transacoes)
-            {
 
-            <tr>
-                <td>@transacao.Id</td>
-                <td>@transacao.CadastrosContaCorrente.NumeroConta</td>
-                <td>@transacao.Historico.Descricao</td>
-                <td>@transacao.CategoriaReceita.TipoCategoriaReceita</td>
-                <td>@transacao.CategoriaDespesa.TipoCategoriaDespesa</td>
-                <td>@transacao.DescricaoTransacao</td>
-                <td>@transacao.Documento</td>
-                <td>@transacao.TipoPagamento</td>
-                <td>@transacao.Valor</td>
-                <td>@transacao.DataLancamento</td>
-                <td>@transacao.DataRecebimento</td>
-                <td>
-                    <div style="margin-left: 5px">
-                        <a id="botao-editar" class="btn btn-primary float-right mb-3" href="/transacao/editar?id=@transacao.Id">
-                            <i class="fa fa-edit"></i>Editar
-                        </a>
-                    </div>
-                    <div style="margin-right: 110px">
-                        <a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/transacao/apagar?id=@transacao.Id">
-                            <i class="fa fa-trash"></i>Apagar
-                        </a>
-                    </div>
+            <table id="transacao-tabela" class="table table-light table-hover table-border-style table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Conta Corrente</th>
+                        <th>Historico</th>
+                        <th>Categoria Receita</th>
+                        <th>Categoria Despesa</th>
+                        <th>Descricao</th>
+                        <th>Documento</th>
+                        <th>Tipo Pagamento </th>
+                        <th>Valor</th>
+                        <th>Data Lançamento</th>
+                        <th>Data Recebimento</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Model.Transacao transacao in ViewBag.Transacoes)
+                    {
 
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+                        <tr>
+                            <td>@transacao.Id</td>
+                            <td>@transacao.CadastrosContaCorrente.NumeroConta</td>
+                            <td>@transacao.Historico.Descricao</td>
+                            <td>@transacao.CategoriaReceita.TipoCategoriaReceita</td>
+                            <td>@transacao.CategoriaDespesa.TipoCategoriaDespesa</td>
+                            <td>@transacao.DescricaoTransacao</td>
+                            <td>@transacao.Documento</td>
+                            <td>@transacao.TipoPagamento</td>
+                            <td>@transacao.Valor</td>
+                            <td>@transacao.DataLancamento</td>
+                            <td>@transacao.DataRecebimento</td>
+                            <td>
+                                <div style="margin-left: 5px">
+                                    <a id="botao-editar" class="btn btn-primary float-right mb-3" href="/transacao/editar?id=@transacao.Id">
+                                        <i class="fa fa-edit"></i>Editar
+                                    </a>
+                                </div>
+                                <div style="margin-right: 110px">
+                                    <a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/transacao/apagar?id=@transacao.Id">
+                                        <i class="fa fa-trash"></i>Apagar
+                                    </a>
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 <link href="~/Scripts/really-simple-jquery-dialog.js" rel="stylesheet" />
 
 <a href="#" id="showAlert">Show Alert</a>
-<a href="#" id="showConfirm">Show Confirm</a>
-<a href="#" id="showPrompt">Show Prompt</a>
-
 <div id="myAlert"></div>
-<div id="myConfirm"></div>
-<div id="myPrompt"></div>
 
 <script src="~/Scripts/jquery-3.0.0.min.js"></script>
 <script src="~/Scripts/really-simple-jquery-dialog.js"></script>
@@ -78,16 +78,7 @@
             message:"Hello World!"
         })
     });
-    $('showConfirm').click(function () {
-        $('#myConfirm').simpleAlert({
-            message: "Hello World!"
-        })
-    });
-    $('showPrompt').click(function () {
-        $('#myPrompt').simpleAlert({
-            message: "Hello World!"
-        })
-    });
+   
 </script>
 
 

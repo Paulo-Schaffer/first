@@ -35,6 +35,7 @@ namespace Repository
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
+           
             context.Agencias.AddRange(agencias);
 
             #endregion
