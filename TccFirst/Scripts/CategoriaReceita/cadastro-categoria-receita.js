@@ -9,7 +9,7 @@
             { 'data': 'TipoCategoriaReceita' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar ml-2 " data-id="' + row.Id + '">Apagar</button>'
 
                 }
 
@@ -34,7 +34,7 @@
             method: "post",
             data: {
                 id: $idAlterar,
-                tipoReceita: $categoriaReceita
+                TipoCategoriaReceita: $categoriaReceita
             },
             success: function (data) {
                 $("#modal-categoria-receita").modal("hide");
@@ -52,10 +52,11 @@
             url: '/categoriareceita/inserir',
             method: 'post',
             data: {
-                categoriaReceita: $categoriaReceita,
+                TipoCategoriaReceita: $categoriaReceita,
             },
             success: function (data) {
                 $('#modal-categoria-receita').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelaCategoriaReceita.ajax.reload();
             },
             error: function (err) {
@@ -89,7 +90,7 @@
             method: 'get',
 
             success: function (data) {
-                $('#categoria-receita-campo-receita').val(data.TipoReceita);
+                $('#categoria-receita-campo-receita').val(data.TipoCategoriaReceita);
                 $('#modal-categoria-receita').modal('show');
             },
             error: function (err) {
