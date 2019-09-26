@@ -10,11 +10,11 @@ namespace Repository
     {
         protected override void Seed(SistemaContext context)
         {
-
             #region agencias
             var agencias = new List<Agencia>();
             agencias.Add(new Agencia()
             {
+                Id = 1,
                 NomeAgencia = "Agencia da Vida",
                 NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
@@ -22,6 +22,7 @@ namespace Repository
             });
             agencias.Add(new Agencia()
             {
+                Id = 2,
                 NomeAgencia = "Agencia do Paulo",
                 NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
@@ -30,6 +31,7 @@ namespace Repository
 
             agencias.Add(new Agencia()
             {
+                Id = 3,
                 NomeAgencia = "Você consegue",
                 NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
@@ -41,9 +43,10 @@ namespace Repository
 
             #region Transação
             var transacao = new List<Transacao>();
-            transacao.Add(new Transacao() {
-                Id =1,
-                DescricaoTransacao = "Recebimento de venda de produto",
+            transacao.Add(new Transacao()
+            {
+                Id = 1,
+                Descricao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 100,
@@ -60,7 +63,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 2,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 101,
@@ -77,7 +80,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 3,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "3-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 300,
@@ -94,7 +97,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 4,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "4-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 150,
@@ -111,10 +114,10 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 5,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "5-2",
                 TipoPagamento = "Dinheiro",
-                Valor = 1545
+                Valor = 1545,
                 Status = "pago",
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
                 DataVencimento = Convert.ToDateTime("2019-01-30"),
@@ -127,7 +130,7 @@ namespace Repository
             }); transacao.Add(new Transacao()
             {
                 Id = 6,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 515,
@@ -144,7 +147,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 7,
-                DescricaoTransacao = "Recebimento de venda de produto",
+                Descricao = "Recebimento de venda de produto",
                 Documento = "7-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 750,
@@ -158,7 +161,7 @@ namespace Repository
                 IdHistorico = 1,
                 RegistroAtivo = true,
             });
-
+            context.Transacoes.AddRange(transacao);
 
 
             #endregion
@@ -313,7 +316,7 @@ namespace Repository
             });
             caixas.Add(new Caixa()
             {
-                Id = 13,
+                Id = 18,
                 Descricao = "Recebimento serviço",
                 Documento = "184-1",
                 FormaPagamento = "Debito",
@@ -366,8 +369,6 @@ namespace Repository
                 IdHistoricos = 1,
                 RegistroAtivo = true
             });
-
-
 
             context.Caixas.AddRange(caixas);
             #endregion
@@ -679,7 +680,7 @@ namespace Repository
             });
             funcionarios.Add(new Funcionario()
             {
-                Id =5,
+                Id = 5,
                 NomeFuncionario = "Cleber",
                 TipoFuncionario = "Gerente",
                 Usuario = "Cleber",
@@ -716,3 +717,4 @@ namespace Repository
 
     }
 }
+

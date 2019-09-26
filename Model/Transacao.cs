@@ -17,7 +17,7 @@ namespace Model
         public int Id { get; set; }
 
         [Column("descricao_transacao")]
-        public string DescricaoTransacao { get; set; }
+        public string Descricao { get; set; }
 
         [Column("documento")]
         public string Documento { get; set; }
