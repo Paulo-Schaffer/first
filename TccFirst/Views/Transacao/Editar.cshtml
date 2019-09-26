@@ -99,8 +99,8 @@
         </div>
         <div class="col-4">
             <div class="form-group" id="fonte">
-                <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento</label>
-                <select class="form-control" id="campo" name="TipoPagamento">
+                <label for="campo-forma-pagamento" mas>Forma de Pagamento<span class="text-danger">*</span></label>
+                <select class="form-control" id="campo" name="tipopagamento">
                     @if (ViewBag.Transacoes.TipoPagamento == "Dinheiro")
                     {
                         <option value="Dinheiro" selected="selected">Dinheiro</option>

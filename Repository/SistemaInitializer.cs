@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    //internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -35,7 +35,6 @@ namespace Repository
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
-           
             context.Agencias.AddRange(agencias);
 
             #endregion
