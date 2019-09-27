@@ -46,7 +46,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 1,
-                Descricao = "Recebimento de venda de produto",
+                DescricaoTransacao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 100,
@@ -61,7 +61,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 2,
-                Descricao = "Recebimento de venda de produto",
+                DescricaoTransacao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 101,
@@ -76,7 +76,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 3,
-                Descricao = "Recebimento de venda de produto",
+                DescricaoTransacao = "Recebimento de venda de produto",
                 Documento = "3-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 300,
@@ -91,7 +91,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 4,
-                Descricao = "Recebimento de venda de produto",
+                DescricaoTransacao = "Recebimento de venda de produto",
                 Documento = "4-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 150,
@@ -106,7 +106,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 5,
-                Descricao = "Recebimento de venda de produto",
+                DescricaoTransacao = "Recebimento de venda de produto",
                 Documento = "5-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 1545,
@@ -120,7 +120,7 @@ namespace Repository
             }); transacao.Add(new Transacao()
             {
                 Id = 6,
-                Descricao = "Recebimento de venda de produto",
+                DescricaoTransacao = "Recebimento de venda de produto",
                 Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 515,
@@ -135,7 +135,7 @@ namespace Repository
             transacao.Add(new Transacao()
             {
                 Id = 7,
-                Descricao = "Recebimento de venda de produto",
+                DescricaoTransacao = "Recebimento de venda de produto",
                 Documento = "7-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 750,

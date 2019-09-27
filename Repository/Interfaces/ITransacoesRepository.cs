@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    interface ITransacoes
+    interface ITransacoesRepository
     {
         int Inserir(Transacao transacao);
 
