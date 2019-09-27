@@ -104,8 +104,6 @@
     <Content Include="Content\css\paginaInicial\paginaInicial.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
-    <Content Include="Content\css\Transacao\TelaCadastroTransacao.css" />
-    <Content Include="Content\css\Transacao\TelaEditarTransacao.css" />
     <Content Include="Content\Imagem\logo-blue.png" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
@@ -5688,7 +5686,6 @@
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
-    <Compile Include="Controllers\TransacaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5700,6 +5697,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
     <Content Include="Views\TituloReceber\Index.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />

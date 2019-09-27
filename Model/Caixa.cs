@@ -13,9 +13,6 @@ namespace Model
     {
         [Key, Column("id")]
         public int Id { get; set; }
-
-        [Column("Operacao")]
-        public bool Operacao { get; set; }
         [Column("descricao")]
         public string Descricao { get; set; }
 

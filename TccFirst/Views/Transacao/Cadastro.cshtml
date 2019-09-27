@@ -1,7 +1,7 @@
 ﻿<script src="~/Scripts/Transacao/Transacao.js"></script>
-<link rel="stylesheet" href="~/Content/css/Transacao/TelaCadastroTransacao.css">
-
 <div class="container">
+
+    <link rel="stylesheet" href="~/Content/css/Transacao/TelaCadastroTransacao.css">
     <div class="col-12"><h2><b>Transações de Conta</b></h2></div>
     <hr />
     <a id="botao-irtabela" class="btn float-right mb-3"
@@ -67,9 +67,9 @@
                 <lable id="fonte" for="contacorrente-campo-tipopagamento">Tipo Pagamento<span class="text-danger">*</span></lable>
                 <select id="campo" name="tipopagamento" class="form-control" required>
                     <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
-                    <option id="Dinheiro">Dinheiro</option>
-                    <option id="CartaoDebito">Cartão de Débito</option>
-                    <option id="CartaoCredito">Cartão de Crédito</option>
+                    <option>Dinheiro</option>
+                    <option>Cartão de Débito</option>
+                    <option>Cartão de Crédito</option>
                 </select>
             </div>
 
@@ -92,7 +92,7 @@
 
             <div class="col-6">
                 <lable id="fonte" for="campo-datarecebimento">Data Recebimento<span class="text-danger">*</span></lable>
-                <input data-mask="00/00/0000" data-mask-selectonfocus="true" type="date" id="campo" name="datarecebimento" class="form-control" required />
+                <input type="date" id="campo" name="datarecebimento" class="form-control" required />
             </div>
         </div>
         <div class="row">
@@ -103,19 +103,8 @@
         </div>
         <br />
         <div class="modal-footer">
-            <button id="botao-cadastrar" class="btn float-right mt-3" type="submit"><i class="fa fa-save"></i> Cadastrar</button>
+            <button id="botao-cadastrar" class="btn float-left mt-3" type="submit"><i class="fa fa-save"></i> Cadastrar</button>
         </div>
 
     </form>
 </div>
-
-<script src="~/Scripts/Transacao/Transacao.js"></script>
-
-
-
-
-
-
-
-
-

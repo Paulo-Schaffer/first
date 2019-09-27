@@ -1,41 +1,35 @@
-﻿<link rel="stylesheet" href="~/Content/css/Agencia/TelaCadastroAgencia.css">
+﻿<div class="row">
+    <div class="col-6">
 
-<div class="container container-fluid">
-    <h2><b>Cadastro de Agencias</b></h2>
+        <h2>Cadastro de Agencias</h2>
 
-    <hr />
-
-    <div>
-
-        <a id="botao-irtabela" class="btn float-right form-group"
-           href="/Agencia/index"><i class="fa fa-backward"></i>Ir para tabela</a>
     </div>
-    <br />
-    <br />
-    <br />
-    <form action="/Agencia/cadastro" method="post">
+    <div class="col-6">
+        <a class="btn btn-primary   float-right mb-3"
+           href="/Agencia/index">Ir para tabela</a>
+    </div>
+</div>
+<br />
+<form action="/Agencia/cadastro" method="post">
+    <div class="container">
         <div class="row">
             <div class="col-12">
-                <label id="fonte-banco" for="campo-banco">Nome do Banco<span class="text-danger">*</span></label>
+                <label for="campo-banco">Banco<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="banco" id="campo-banco" required="" />
             </div>
-            <div class="modal-body">
-                <div class="row">
-
-                    <div class="col-6">
-                        <label id="fonte-nomeagencia" for="campo-nomeAgencia"><b>Agencia</b><span class="text-danger">*</span></label>
-                        <input class="form-control" type="text" name="nomeAgencia" id="campo-nomeAgencia" required="" />
-                    </div>
-                    <div class="col-6">
-                        <label id="fonte-numeroagencia" for="campo-numeroAgencia"><b>Numero da Agencia</b><span class="text-danger">*</span></label>
-                        <input class="form-control" type="text" name="numeroAgencia" id="campo-numeroAgencia" required="" />
-                    </div>
-                </div>
+            <div class="col-12">
+                <label for="campo-nomeAgencia">Agencia<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="nomeAgencia" id="campo-nomeAgencia" required="" />
+            </div>
+            <div class="col-12">
+                <label for="campo-numeroAgencia">Numero Agencia<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="numeroAgencia" id="campo-numeroAgencia" required="" />
             </div>
         </div>
-
-        <button id="botao-salvar" class="btn float-right mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
-    </form>
-</div>
+    </div>
 
 
+    <div class="modal-footer">
+        <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+    </div>
+</form>
