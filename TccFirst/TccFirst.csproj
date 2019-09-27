@@ -5631,6 +5631,8 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Relatorio\fluxo-caixa.js" />
+    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />

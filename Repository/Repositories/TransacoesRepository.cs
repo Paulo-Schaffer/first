@@ -42,13 +42,13 @@ namespace Repository.Repositories
 
         public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {
-
-            return context.Database
-                .SqlQuery<FluxoCaixa>(@"
-                    SELECT FORMAT(transacoes.data_lancamento, 'dd/MM/yyyy') AS data, SUM(valor) as valor
-                    FROM transacoes 
-                    GROUP BY FORMAT(caixas.data_lancamento, 'dd/MM/yyyy')
-                    ").ToList();
+            return 
+            //return context.Database
+            //    .SqlQuery<FluxoCaixa>(@"
+            //        SELECT FORMAT(transacoes.data_lancamento, 'dd/MM/yyyy') AS data, SUM(valor) as valor
+            //        FROM transacoes 
+            //        GROUP BY FORMAT(caixas.data_lancamento, 'dd/MM/yyyy')
+            //        ").ToList();
             /*
              * WHERE 
 	YEAR(transacoes.data_lancamento) >= 2019 AND
