@@ -60,19 +60,19 @@ namespace Repository.Repositories
             return cadastroContaCorrente;
         }
 
-       public List<CadastroContaCorrente> ObterTodos2(int idAgencia)
-       {
-           var query = context
-               .CadastroContaCorrentes
-               .Where(x => x.RegistroAtivo);
+        public List<CadastroContaCorrente> ObterTodos2(int idAgencia)
+        {
+            var query = context
+                .CadastroContaCorrentes
+                .Where(x => x.RegistroAtivo);
 
-           if(idAgencia != CadastroContaCorrente.FiltroSemAgencia)
-           {
-               query = query.Where(x => x.IdAgencia == idAgencia);
-           }
+            if (idAgencia != CadastroContaCorrente.FiltroSemAgencia)
+            {
+                query = query.Where(x => x.IdAgencia == idAgencia);
+            }
 
-           return query.ToList();
-       }
+            return query.ToList();
+        }
         public List<CadastroContaCorrente> ObterTodos()
         {
             return context.CadastroContaCorrentes.Where(x => x.RegistroAtivo == true)
