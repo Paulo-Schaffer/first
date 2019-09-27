@@ -57,8 +57,6 @@ $(function () {
         columns: [
             { data: "Id" },
             { data: 'NomeCliente' },
-            { data: "ValorTotal" },
-            { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
                     let cor = "";
@@ -88,9 +86,9 @@ $(function () {
                     return moment(row.DataVencimento).format('DD/MM/YYYY')
                 }
             },
-            { data: "Complemento" },
             { data: "Descricao" },
-
+            { data: "ValorTotal" },
+            { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
                     return "\

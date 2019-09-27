@@ -1,5 +1,12 @@
-﻿<div class="container container-fluid">
-    <form method="post" action="/tituloreceber/editar">
+﻿<form method="post" action="/tituloreceber/editar">
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-info float-right mb-3"
+               href="/TituloReceber/index">Ir para tabela</a>
+        </div>
+    </div>
+
+    <div class="container container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="form-check-inline ml-3 mr-3 mb-3">
@@ -97,7 +104,7 @@
                 <div class="form-group">
                     <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
                     <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control"
-                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")"/>
+                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")" />
                 </div>
             </div>
         </div>
@@ -107,25 +114,25 @@
                     <div class="form-group">
                         <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
                         <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control"
-                                value="@ViewBag.TituloReceber.DataRecebimento.ToString("yyyy-MM-dd")"/>
+                               value="@ViewBag.TituloReceber.DataRecebimento.ToString("yyyy-MM-dd")" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
-                        <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" 
-                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")"/>
+                        <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control"
+                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")" />
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="form-group">
+            <label for="campo-tituloReceber-descricao" mas>Descrição</label>
+            <textarea class="form-control" id="tituloReceber-campo-descricao" name="Descricao">@ViewBag.TituloReceber.Descricao</textarea>
+        </div>
+
         <div class="row">
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="campo-tituloReceber-valor-total" style="display: block">Valor Total</label>
-                    <span type="text" id="tituloReceber-campo-valor-total">R$ @ViewBag.TituloReceber.ValorTotal </span>
-                </div>
-            </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
@@ -133,24 +140,19 @@
                            value="@ViewBag.TituloReceber.QuantidadeParcela" />
                 </div>
             </div>
-            <div class="col-12">
+
+            <div class="col-6">
                 <div class="form-group">
-                    <label for="campo-titulo-campo-complemento" mas>Complemento</label>
-                    <input type="text" id="tituloReceber-campo-complemento" class="form-control" name="Complemento" value="@ViewBag.TituloReceber.Complemento" />
+                    <label for="campo-tituloReceber-valor-total" style="display: block">Valor Total</label>
+                    <span type="text" id="tituloReceber-campo-valor-total">R$ @ViewBag.TituloReceber.ValorTotal </span>
                 </div>
             </div>
-
-            <div class="col-12">
-                <div class="form-group">
-                    <label for="campo-tituloReceber-descricao" mas>Descrição</label>
-                    <textarea class="form-control" id="tituloReceber-campo-descricao" name="Descricao">@ViewBag.TituloReceber.Descricao</textarea>
-                </div>
-
-            </div>
-            </div>
-            <button type="button" class="btn btn-success" id="titulo-receber-botao-salvar"><i class="fa fa-floppy-o"></i> Salvar</button>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+        </div>
+    </div>
 </form>
-</div>
 @section js{
     <script src="~/Scripts/TituloReceber/titulo-receber-cadastro.js"></script>
     <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>

@@ -23,7 +23,7 @@
                 }
             },
             
-            { data: "ValorTotal" },
+            { data: "Valor" },
             {
                 render: function (data, type, row) {
                     let cor = "";

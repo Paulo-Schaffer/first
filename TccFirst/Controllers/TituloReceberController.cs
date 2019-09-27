@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    //[Route("tituloreceber/")]
     public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
@@ -40,6 +39,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
@@ -53,11 +53,11 @@ namespace TccFirst.Controllers
 
         #region Editar
         [HttpPost, Route("editar")]
-        public JsonResult Editar(TituloReceber tituloReceber)   
+        public JsonResult Editar(TituloReceber tituloReceber)
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Editar(int id)
@@ -68,21 +68,12 @@ namespace TccFirst.Controllers
         }
         #endregion
 
-        #region Index
-        
         public ActionResult Index()
         {
             TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
             ViewBag.TitulosReceber = tituloReceberRepository.ObterTodos();
             return View();
         }
-        #endregion
-
-        //[HttpGet, Route("tituloreceber")]
-        //public JsonResult ObterPeloId(int id)
-        //{
-        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        //}
         
         [HttpGet, Route("tituloReceber/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
@@ -106,8 +97,10 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
         }
-
-        
-
     }
+        //[HttpGet, Route("tituloreceber")]
+        //public JsonResult ObterPeloId(int id)
+        //{
+        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
 }

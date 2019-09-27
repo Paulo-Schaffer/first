@@ -5575,6 +5575,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Relatorios\Relatorios.js" />
     <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
@@ -5699,21 +5700,17 @@
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\TituloPagar\Editar.cshtml" />
-    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
-    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\TituloReceber\Editar.cshtml" />
     <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
-    <Content Include="Views\TituloPagar\Editar.cshtml" />
-    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
-    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\ContaCorrente\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\TituloPagar\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\Editarinformacaobasica.cshtml" />
+    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

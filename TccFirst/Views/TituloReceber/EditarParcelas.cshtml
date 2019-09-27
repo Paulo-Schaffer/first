@@ -1,19 +1,28 @@
 ﻿<div class="row">
     <div class="col-6">
-        <div class="form-group">
-            <span class="font-weight-bold">Valor Total:</span>
-            <span>@ViewBag.TituloReceber.ValorTotal</span>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <span class="font-weight-bold">Quantidade de Parcelas:</span>
+                    <span>@ViewBag.TituloReceber.QuantidadeParcela</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <span class="font-weight-bold">Valor Total:</span>
+                    <span>R$ @ViewBag.TituloReceber.ValorTotal</span>
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="col-6">
-        <div class="form-group">
-            <span class="font-weight-bold">Quantidade de Parcelas:</span>
-            <span>@ViewBag.TituloReceber.QuantidadeParcela</span>
-        </div>
+        <button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3">
+            <i class="fa fa-history"></i>Gerar Parcelas
+        </button>
     </div>
 </div>
-<button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3"><i class="fa fa-history"></i>Gerar Parcelas</button>
 
 <table id="titulo-receber-parcelas-tabela" class="table table-hover table-bordered table-striped">
     <thead>
@@ -40,8 +49,8 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label form="parcelasReceber-campo-data-pagamento" mas>Data Pagamento<span class="text-danger">*</span></label>
-                            <input type="date" id="parcelasPagar-campo-data-pagamento" class="form-control" name="DataPagamento" />
+                            <label form="parcelasReceber-campo-data-recebimento" mas>Data Recebimento<span class="text-danger">*</span></label>
+                            <input type="date" id="parcelasPagar-campo-data-recebimento" class="form-control" name="DataRecebimento" />
                         </div>
                     </div>
                 </div>
@@ -54,3 +63,7 @@
         </div>
     </div>
 </div>
+
+@section js{
+    <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>
+}

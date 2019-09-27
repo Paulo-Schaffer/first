@@ -5,8 +5,8 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    //internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
@@ -444,7 +444,6 @@ namespace Repository
                 DataLancamento = new DateTime(2018, 12, 29),
                 DataRecebimento = new DateTime(2019, 01, 04),
                 DataVencimento = new DateTime(2019, 01, 30),
-                Complemento="Não sei o que por",
                 QuantidadeParcela= 36,
                 RegistroAtivo = true
             });
@@ -459,7 +458,6 @@ namespace Repository
                 DataLancamento = new DateTime(2017, 02, 09),
                 DataRecebimento = new DateTime(2017, 01, 04),
                 DataVencimento = new DateTime(2017, 03, 10),
-                Complemento = "Não sei o que por, desculpa",
                 QuantidadeParcela = 24,
                 RegistroAtivo = true
             });
