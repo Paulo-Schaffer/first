@@ -101,9 +101,12 @@
     <Content Include="Content\css\Agencia\TelaIndexAgencia.css" />
     <Content Include="Content\css\ClientePessoaJuridica\TelaCadastroPessoaJuridica.css" />
     <Content Include="Content\css\ClientePessoaJuridica\TelaIndexPessoaJuridica.css" />
+    <Content Include="Content\css\ClientePesssoaFisica\TelaCadastroPessoaFisica.css" />
+    <Content Include="Content\css\ClientePesssoaFisica\TelaIndexPessoaFisica.css" />
     <Content Include="Content\css\paginaInicial\paginaInicial.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\TelaLogin.css" />
     <Content Include="Content\Imagem\logo-blue.png" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
