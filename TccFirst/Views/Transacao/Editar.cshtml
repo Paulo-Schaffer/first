@@ -1,8 +1,9 @@
 ﻿<script src="~/Scripts/Transacao/Transacao.js"></script>
 <link rel="stylesheet" href="~/Content/css/Transacao/TelaEditarTransacao.css" />
+<link rel="stylesheet" href="~/Content/css/Botoes.css" />
 <div class="col-12"><h2><b>Editando Transação "@ViewBag.Transacoes.Id"</b></h2></div>
 <hr />
-<a id="botao-editarTransacao" class="btn float-right mb-3" href="/Transacao/Index">
+<a id="botao-voltar" class="btn float-right mb-3" href="/Transacao/Index">
     <i class="fa fa-backward"></i>Voltar para tabela
 </a>
 <br />
@@ -13,12 +14,13 @@
     <br />
     <div class="row">
         <div class="col-6">
-            <div class="form-group" id="fonte">             
+            <div class="form-group" id="fonte">
                 <label class="font-weight-bold" form="campo">Conta Corrente<a class="text-danger">*</a></label>
-                <select id="campo" class="form-control text-dark" name="idCadastrosContaCorrente">
-                    @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastrosContaCorrente)
+                <select id="campo" class="form-control text-dark" name="idCadastroContaCorrente">
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.CadastroContaCorrente.NumeroConta</option>
+                    @foreach (Model.CadastroContaCorrente cadastroContaCorrente in ViewBag.CadastroContaCorrentes)
                     {
-                        if (cadastroContaCorrente.Id == ViewBag.IdCadastrosContaCorrentes)
+                        if (cadastroContaCorrente.Id == ViewBag.IdCadastroContaCorrentes)
                         {
                             <option value="@cadastroContaCorrente.Id" selected="selected">@cadastroContaCorrente.NumeroConta</option>
                         }
@@ -34,7 +36,7 @@
             <div class="form-group" id="fonte">
                 <label for="campo-historico">Historico<span class="text-danger">*</span></label>
                 <select id="campo" class="form-control text-dark" name="idHistorico">
-
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.Historico.Descricao</option>
                     @foreach (Model.Historico historico in ViewBag.Historicos)
                     {
                         if (historico.Id == ViewBag.IdHistorico)
@@ -55,6 +57,7 @@
             <div class="form-group" id="fonte">
                 <label for="campo-tipocategoriareceita">Tipo Categoria Receita<span class="text-danger">*</span></label>
                 <select id="campo" class="form-control text-dark" name="idCategoriaReceita">
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.CategoriaReceita.TipoCategoriaReceita</option>
                     @foreach (Model.CategoriaReceita categoriaReceita in ViewBag.CategoriasReceita)
                     {
                         if (categoriaReceita.Id == ViewBag.IdCategoriaReceita)
@@ -73,6 +76,7 @@
             <div class="form-group" id="fonte">
                 <label for="campo-tipocategoriadespesa">Tipo Categoria Despesa<span class="text-danger">*</span></label>
                 <select id="campo" class="form-control text-dark" name="idCategoriaDespesa">
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.CategoriaDespesa.TipoCategoriaDespesa</option>
                     @foreach (Model.CategoriaDespesa categoriaDespesa in ViewBag.CategoriasDespesa)
                     {
                         if (categoriaDespesa.Id == ViewBag.idCategoriaDespesa)
@@ -99,33 +103,12 @@
         </div>
         <div class="col-4">
             <div class="form-group" id="fonte">
-                <label for="campo-forma-pagamento" mas>Forma de Pagamento<span class="text-danger">*</span></label>
-                <select class="form-control" id="campo" name="tipopagamento">
-                    @if (ViewBag.Transacoes.TipoPagamento == "Dinheiro")
-                    {
-                        <option value="Dinheiro" selected="selected">Dinheiro</option>
-
-                    }
-                    else
-                    {
-                        <option value="Dinheiro">Dinheiro</option>
-                    }
-                    @if (ViewBag.Transacoes.TipoPagamento == "Cartao Debito")
-                    {
-                        <option value="CartaoDebito" selected="selected">Cartão Debito</option>
-                    }
-                    else
-                    {
-                        <option value="CartaoDebito">Cartão Débito</option>
-                    }
-                    @if (ViewBag.Transacoes.TipoPagamento == "Cartao Credito")
-                    {
-                        <option value="CartaoCredito" selected="selected"></option>
-                    }
-                    else
-                    {
-                        <option value="CartaoCredito">Cartão de Crédito</option>
-                    }
+                <label for="campo-tipopagamento">Tipo Pagamento</label>
+                <select id="campo" name="tipopagamento" class="form-control" required="" value="@ViewBag.Transacoes.TipoPagamento">
+                    <option disabled="disabled" selected="selected">@ViewBag.Transacoes.TipoPagamento</option>
+                    <option>Dinheiro</option>
+                    <option>Cartão de Débito</option>
+                    <option>Cartão de Crédito</option>
                 </select>
             </div>
         </div>
@@ -141,18 +124,14 @@
         <div class="col-6">
             <div class="form-group" id="fonte">
                 <label for="campo-datalancamento">Data Lancamento</label>
-                <input type="date" 
-                       name="datalancamento" class="form-control" id="campo" 
-                       value="@ViewBag.Transacoes.DataLancamento.ToString("yyyy-MM-dd")" />
+                <input type="date" name="datalancamento" class="form-control" id="campo" value="@ViewBag.Transacoes.DataLancamento" />
             </div>
         </div>
 
         <div class="col-6">
             <div class="form-group" id="fonte">
                 <label for="campo-datarecebimento">Data Recebimento</label>
-                <input type="date" 
-                       name="datarecebimento" class="form-control" id="campo" 
-                       value="@ViewBag.Transacoes.DataRecebimento.ToString("yyyy-MM-dd")" />
+                <input type="date" name="datarecebimento" class="form-control" id="campo" value="@ViewBag.Transacoes.DataRecebimento" />
             </div>
         </div>
     </div>
@@ -160,13 +139,10 @@
         <div class="col-12">
             <div class="form-group" id="fonte">
                 <label for="campo-descricaotransacao">Descição</label>
-                <textarea type="text" name="descricaotransacao" class="form-control" 
-                          id="campo">@ViewBag.Transacoes.DescricaoTransacao</textarea>
+                <textarea type="text" name="descricaotransacao" class="form-control" id="campo" value="@ViewBag.Transacoes.DescricaoTransacao"></textarea>
             </div>
         </div>
     </div>
     <button id="botao-salvar" href="/Transacao/index" class="btn float-right" type="submit"><i class="fa fa-save"></i>Salvar</button>
 </form>
 <br />
-
-
