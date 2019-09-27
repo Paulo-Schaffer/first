@@ -101,7 +101,7 @@
     <Content Include="Content\css\Agencia\TelaIndexAgencia.css" />
     <Content Include="Content\css\ClientePessoaJuridica\TelaCadastroPessoaJuridica.css" />
     <Content Include="Content\css\ClientePessoaJuridica\TelaIndexPessoaJuridica.css" />
-    <Content Include="Content\css\paginaInicial\paginaInicial.css" />
+    <Content Include="Content\css\paginaInicial\estilo.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\Imagem\logo-blue.png" />
@@ -5630,6 +5630,8 @@
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\notify.min.js" />
+    <Content Include="Scripts\PaginaInicial\animacao.js" />
+    <Content Include="Scripts\PaginaInicial\app.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-cadastro.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-editar.js" />
     <Content Include="Scripts\popper-utils.js" />
@@ -5771,7 +5773,6 @@
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
-    <Content Include="Views\PaginaInicial\home.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
     <Content Include="Views\Transacao\Cadastro.cshtml" />
@@ -5780,6 +5781,7 @@
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
+    <Content Include="Views\PaginaInicial\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
