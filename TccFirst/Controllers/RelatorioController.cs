@@ -37,8 +37,43 @@ namespace TccFirst.Controllers
             var dadosCaixa = caixaRepository.ObterDadosSumarizados(dataInicial, dataFinal);
             var dadosTransacao = transacaoRepository.ObterDadosSumarizados(dataInicial, dataFinal);
 
-            var json = new { };
-            return Json(json, JsonRequestBehavior.AllowGet);
+            List<Dados> retorno = new List<Dados>();
+            int quantidade = (dataFinal - dataInicial).TotalDays;
+
+            for(int i = 0; i < quantidade; i++){
+                DateTime data = dataInicial.AddDays(quantidade);
+                retorno.Add(new Dados(){
+                    Data = data
+                });
+            }
+
+            foreach (var caixa in dadosCaixa)
+            {
+                foreach (var dado in retorno)
+                {
+                    if(caixa.Data.Date == dado.Data.Date){
+                        dado.Caixa = caixa.Valor;
+                    }
+                }
+            }
+
+            foreach (var transacao in dadosTransacao)
+            {
+                foreach (var dado in retorno)
+                {
+                    if(transacao.Data.Date == dado.Data.Date){
+                        dado.Transacao = transacao.Valor;
+                    }
+                }
+            }
+            
+            return Json(retorno, JsonRequestBehavior.AllowGet);
         }
+    }
+
+    public class Dados{
+        public DateTime Data { get;set;}
+        public int Caixa {get;set;}
+        public int Transacao {get;set;}
     }
 }

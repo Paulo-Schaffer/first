@@ -42,7 +42,7 @@ namespace Repository.Repositories
 
         public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {
-            return 
+            throw new NotImplementedException();
             //return context.Database
             //    .SqlQuery<FluxoCaixa>(@"
             //        SELECT FORMAT(transacoes.data_lancamento, 'dd/MM/yyyy') AS data, SUM(valor) as valor

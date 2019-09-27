@@ -8,7 +8,7 @@ namespace Model.Grafico
 {
     public class FluxoCaixa
     {
-        public string Data { get; set; }
+        public DateTime Data { get; set; }
         public decimal Valor { get; set; }
     }
 }
