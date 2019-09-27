@@ -1,0 +1,75 @@
+﻿#clientePessoaJuridica-campo-razaoSocial {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-atividade {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-nomeFantasia {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-dataCadastro {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-cnpj {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-email {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-filial {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-telefone {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-cep {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-logradouro {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-numero {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-bairro {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-uf {
+    border-color: black;
+}
+
+#clientePessoaJuridica-campo-cidade {
+    border-color: black;
+}
+
+#fonte {
+    color: black;
+    font-weight: bold;
+}
+
+#clientePessoaJuridica-botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
+#botao-cancelar {
+    background-color: red;
+    height: 40px;
+    width: 160px;
+    color: white;
+    border-radius: 5px;
+}

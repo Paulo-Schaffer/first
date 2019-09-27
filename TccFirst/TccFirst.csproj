@@ -99,6 +99,8 @@
     <Content Include="Content\css\Agencia\TelaCadastroAgencia.css" />
     <Content Include="Content\css\Agencia\TelaEditarAgencia.css" />
     <Content Include="Content\css\Agencia\TelaIndexAgencia.css" />
+    <Content Include="Content\css\ClientePessoaJuridica\TelaCadastroPessoaJuridica.css" />
+    <Content Include="Content\css\ClientePessoaJuridica\TelaIndexPessoaJuridica.css" />
     <Content Include="Content\css\paginaInicial\paginaInicial.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
@@ -5763,7 +5765,6 @@
     <Content Include="Views\TituloReceber\Editar.cshtml" />
     <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
-    <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
     <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
@@ -5780,6 +5781,7 @@
     <Content Include="Views\Transacao\Index.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
