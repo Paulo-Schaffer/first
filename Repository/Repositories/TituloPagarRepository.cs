@@ -20,7 +20,7 @@ namespace Repository.Repositories
         public bool Alterar(TituloPagar tituloPagar)
         {
             var tituloPagarOficial = context.TitulosPagar.Where(x => x.Id == tituloPagar.Id).FirstOrDefault();
-            if (tituloPagar == null)
+            if (tituloPagarOficial == null)
                 return false;
 
             tituloPagarOficial.IdFornecedor = tituloPagar.IdFornecedor;

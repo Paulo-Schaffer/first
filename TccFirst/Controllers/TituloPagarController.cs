@@ -60,13 +60,13 @@ namespace TccFirst.Controllers
         }
 
         #region Editar
-        [HttpPost, Route("editar")]
-        public JsonResult Editar(TituloPagar tituloPagar)
-        {
-            var alterou = repository.Alterar(tituloPagar);
-            var resultado = new { status = alterou };
-            return Json(resultado);
-        }
+        //[HttpPost, Route("editar")]
+        //public JsonResult Editar(TituloPagar tituloPagar)
+        //{
+        //    var alterou = repository.Alterar(tituloPagar);
+        //    var resultado = new { status = alterou };
+        //    return Json(resultado, JsonRequestBehavior.AllowGet);
+        //}
 
         public ActionResult Editar(int id)
         {
