@@ -8,13 +8,13 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    //[Route("tituloPagar/")]
+    [Route("tituloPagar/")]
     public class TituloPagarController : BaseController
     {
         private TituloPagarRepository repository;
 
         public TituloPagarController()
-        {  
+        {
             repository = new TituloPagarRepository();
         }
 
@@ -45,9 +45,9 @@ namespace TccFirst.Controllers
         {
             tituloPagar.RegistroAtivo = true;
             tituloPagar.Status = TituloPagar.StatusPendente;
-            int id = repository.Inserir(tituloPagar);
+            var id = repository.Inserir(tituloPagar);
             var resultado = new { id = id };
-            return RedirectToAction("Index",resultado);
+            return RedirectToAction("Index", resultado);
         }
         #endregion 
 
@@ -60,17 +60,21 @@ namespace TccFirst.Controllers
         }
 
         #region Editar
-        //[HttpPost, Route("editar")]
-        //public JsonResult Editar(TituloPagar tituloPagar)
-        //{
-        //    var alterou = repository.Alterar(tituloPagar);
-        //    var resultado = new { status = alterou };
-        //    return Json(resultado, JsonRequestBehavior.AllowGet);
-        //}
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(TituloPagar tituloPagar)
+        {
+            var alterou = repository.Alterar(tituloPagar);
+            var resultado = new { status = alterou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
 
+        [HttpGet]
         public ActionResult Editar(int id)
         {
             var tituloPagar = repository.ObterPeloId(id);
+            if (tituloPagar == null)
+                return RedirectToAction("Index");
+
             ViewBag.TituloPagar = tituloPagar;
             return View();
         }
