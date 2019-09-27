@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.Grafico;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -39,10 +40,25 @@ namespace Repository.Repositories
 
         }
 
-        public object ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
+        public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {
-            throw new NotImplementedException();
+
+            return context.Database
+                .SqlQuery<FluxoCaixa>(@"
+                    SELECT FORMAT(transacoes.data_lancamento, 'dd/MM/yyyy') AS data, SUM(valor) as valor
+                    FROM transacoes 
+                    GROUP BY FORMAT(caixas.data_lancamento, 'dd/MM/yyyy')
+                    ").ToList();
+            /*
+             * WHERE 
+	YEAR(transacoes.data_lancamento) >= 2019 AND
+	MONTH(transacoes.data_lancamento) >= 01 AND
+	DAY(transacoes.data_lancamento) >= 02 AND
+	YEAR(transacoes.data_lancamento) <= 2019 AND
+	MONTH(transacoes.data_lancamento) <= 01 AND
+	DAY(transacoes.data_lancamento) <= 12 */
         }
+
 
         public bool Apagar(int id)
         {
