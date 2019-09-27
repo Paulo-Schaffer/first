@@ -17,7 +17,7 @@
                 <label id="fonte" class="font-weight-bold" for="campo-cadastrocontacorrente">Conta Corrente<span class="text-danger">*</span></label>
                 <select name="IdCadastrosContaCorrente" id="campo" required="" class="form-control text-dark">
                     <option selected="" disabled="disabled">Selecione uma Conta</option>
-                    @foreach (Model.CadastroContaCorrente cadastrosContaCorrente in ViewBag.CadastrosContaCorrente)
+                    @foreach (Model.CadastroContaCorrente cadastrosContaCorrente in ViewBag.CadastroContaCorrentes)
                     {
                         <option value="@cadastrosContaCorrente.Id">@cadastrosContaCorrente.NumeroConta</option>
 

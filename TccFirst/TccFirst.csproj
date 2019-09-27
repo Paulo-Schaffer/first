@@ -5698,7 +5698,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
     <Content Include="Views\TituloReceber\Index.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
@@ -5779,6 +5778,8 @@
     <Content Include="Views\Transacao\Cadastro.cshtml" />
     <Content Include="Views\Transacao\Editar.cshtml" />
     <Content Include="Views\Transacao\Index.cshtml" />
+    <Content Include="Views\Funcionario\Cadastro.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
