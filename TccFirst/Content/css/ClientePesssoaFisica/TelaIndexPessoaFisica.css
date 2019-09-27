@@ -1,6 +1,10 @@
 ﻿body {
 }
-#botao-novaAgencia {
+
+body {
+}
+
+#botao-novoCliente {
     background-color: forestgreen;
     color: white;
     border-radius: 5px;
@@ -10,16 +14,17 @@
 }
 
 #botao-apagar {
-    background-color:darkred;
-    border-color:red;
-    border-collapse:collapse;
-    margin-right:auto;
-    margin:15px;
-    margin-top:auto;
+    background-color: darkred;
+    border-color: red;
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-top: auto;
+    margin: 10px;
     width: 60px;
-    height: 20px;   
+    height: 20px;
     border-radius: 5px;
 }
+
 #botao-editar {
     margin-left: auto;
     margin-top: auto;
@@ -29,3 +34,4 @@
     height: 20px;
     border-radius: 5px;
 }
+

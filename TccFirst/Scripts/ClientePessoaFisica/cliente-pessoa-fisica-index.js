@@ -156,7 +156,7 @@ $(function () {
             { 'data': 'LimiteCredito' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '" id="botao-editar"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '" id="botao-apagar"><i class="fa fa-trash"></i>Apagar</button>'
 
                 }
             }
@@ -231,19 +231,19 @@ $(function () {
         else {
             $('.alert').alert("");
         }
-        $nome = $('#clientePessoaFisica-campo-nome').val();
-        $cpf = $('#clientePessoaFisica-campo-cpf').val();
+        $nome =           $('#clientePessoaFisica-campo-nome          ').val();
+        $cpf =            $('#clientePessoaFisica-campo-cpf           ').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
-        $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito').val();
-        $email = $('#clientePessoaFisica-campo-email').val();
-        $telefone = $('#clientePessoaFisica-campo-telefone').val();
-        $cep = $('#clientePessoaFisica-campo-cep').val();
-        $rua = $('#clientePessoaFisica-campo-rua').val();
-        $numero = $('#clientePessoaFisica-campo-numero').val();
-        $bairro = $('#clientePessoaFisica-campo-bairro').val();
-        $cidade = $('#clientePessoaFisica-campo-cidade').val();
-        $uf = $('#clientePessoaFisica-campo-uf').val();
-        $complemento = $('#clientePessoaFisica-campo-complemento').val();
+        $limiteCredito =  $('#clientePessoaFisica-campo-limiteCredito ').val();
+        $email =          $('#clientePessoaFisica-campo-email         ').val();
+        $telefone =       $('#clientePessoaFisica-campo-telefone      ').val();
+        $cep =            $('#clientePessoaFisica-campo-cep           ').val();
+        $rua =            $('#clientePessoaFisica-campo-rua           ').val();
+        $numero =         $('#clientePessoaFisica-campo-numero        ').val();
+        $bairro =         $('#clientePessoaFisica-campo-bairro        ').val();
+        $cidade =         $('#clientePessoaFisica-campo-cidade        ').val();
+        $uf =             $('#clientePessoaFisica-campo-uf            ').val();
+        $complemento =    $('#clientePessoaFisica-campo-complemento   ').val();
 
         if ($idAlterar == -1) {
             inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento);
