@@ -3,13 +3,117 @@
     $('#fornecedor-campo-telefone').mask('(00) 0000-0000');
     $('#fornecedor-campo-cep').mask('00000-000');
 
+
+    $(document).ready(function () {
+
+        function limpa_formulário_cep() {
+
+            $("#fornecedor-campo-logradouro").val("");
+            $("#fornecedor-campo-bairro").val("");
+            $("#fornecedor-campo-cidade").val("");
+            $("#fornecedor-campo-sigla").val("");
+
+        }
+
+        //Quando o campo cep perde o foco.
+        $("#fornecedor-campo-cep").blur(function () {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = $(this).val().replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    $("#fornecedor-campo-logradouro").val("...");
+                    $("#fornecedor-campo-bairro").val("...");
+                    $("#fornecedor-campo-cidade").val("...");
+                    $("#fornecedor-campo-sigla").val("...");
+
+
+                    //Consulta o webservice viacep.com.br/
+                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                        if (!("erro" in dados)) {
+                            //Atualiza os campos com os valores da consulta.
+
+                            $("#fornecedor-campo-logradouro").val(dados.logradouro);
+                            $("#fornecedor-campo-bairro").val(dados.bairro);
+                            $("#fornecedor-campo-cidade").val(dados.localidade);
+                            $("#fornecedor-campo-sigla").val(dados.uf);
+
+                        } //end if.
+                        else {
+                            //CEP pesquisado não foi encontrado.
+                            limpa_formulário_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        });
+    });
+
+    $(function () {
+        $('#fornecedor-nome-razaoSocial').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#fornecedor-campo-nomeFantasia').focus();
+            }
+        });
+        $('#fornecedor-campo-nomeFantasia').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#fornecedor-campo-cnpj').focus();
+            }
+        });
+        $('#fornecedor-campo-dataCadastro').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#fornecedor-campo-email').focus();
+            }
+        });
+        $('#fornecedor-campo-cnpj').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#fornecedor-campo-dataCadastro').focus();
+            }
+        });
+        $('#fornecedor-campo-email').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#fornecedor-campo-telefone').focus();
+            }
+        });
+        $('#fornecedor-campo-telefone').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#fornecedor-campo-cep').focus();
+            }
+        });
+        $('#fornecedor-campo-cep').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#fornecedor-batao-salvar').focus();
+            }
+        });
+    });
+
     $idAlterar = -1;
 
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
         ajax: '/fornecedor/obtertodos',
         serverSide: true,
         columns: [
-            { 'data': 'Id' },   
+            { 'data': 'Id' },
             { 'data': 'RazaoSocial' },
             { 'data': 'Email' },
             { 'data': 'Telefone' },
@@ -23,15 +127,17 @@
 
         ]
     });
+    function monstrarMensagem(texto, titulo, tipo) {
+        // Tipo -> error ,info, primary, success, default
+        new PNotify({
+            title: titulo,
+            text: texto,
+            icon: 'icofont icofont-info-circle',
+            type: tipo
+        });
+    }
 
     $('#fornecedor-batao-salvar').on('click', function () {
-        //if ($('#fornecedor-nome-razaoSocial').val() = "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão social </div>');
-        //    $('#fornecedor-nome-razaoSocial').focus();
-        //    return false;
-        //} else if () { };
-
-
 
         $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
         $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
@@ -46,6 +152,32 @@
         $cidade = $('#fornecedor-campo-cidade').val();
         $uf = $('#fornecedor-campo-sigla').val();
         $complemento = $('#fornecedor-campo-complemento').val();
+
+        if ($razaoSocial == '') {
+            monstrarMensagem('Digite a Razão Social', '', 'error');
+            return false;
+        } else if ($nomeFantasia == '') {
+            monstrarMensagem('Digite o Nome Fantasia da Empresa', '', 'error');
+            return false;
+        } else if ($dataCadastro == '') {
+            monstrarMensagem('Digite a Data de Lançamento', '', 'error');
+            return false;
+        } else if ($cnpj == '') {
+            monstrarMensagem('Digite o CNPJ da Empresa', '', 'error');
+            return false;
+        } else if ($email == '') {
+            monstrarMensagem('Digite o E-mail', '', 'error');
+            return false;
+        } else if ($telefone == '') {
+            monstrarMensagem('Digite o Telefone', '', 'error');
+            return false;
+        } else if ($cep == '') {
+            monstrarMensagem('Digite o CEP', '', 'error');
+            return false;
+        }else if ($complemento == '') {
+            monstrarMensagem('Digite o Complemento', '', 'error');
+            return false;
+        }
 
         if ($idAlterar == -1) {
             inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento)

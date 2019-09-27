@@ -152,7 +152,6 @@ namespace Repository
 
             #endregion
 
-
             #region caixa
 
 
@@ -621,7 +620,7 @@ namespace Repository
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "123456",
+                Senha = "sembraco",
                 RegistroAtivo = true
 
             });
@@ -674,7 +673,7 @@ namespace Repository
             context.Funcionarios.AddRange(funcionarios);
             #endregion
 
-            #region tituloPagar
+            #region tituloReceber
             var tituloReceber = new List<TituloReceber>() {
                 new TituloReceber()
                 {
