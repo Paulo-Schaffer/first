@@ -272,6 +272,15 @@ namespace Repository
                 RegistroAtivo = true
 
             });
+            funcionarios.Add(new Funcionario()
+            {
+                NomeFuncionario = "Paul",
+                TipoFuncionario = "Gerente",
+                Usuario = "Paul",
+                Senha = "123",
+                RegistroAtivo = true
+
+            });
             context.Funcionarios.AddRange(funcionarios);
             #endregion
 
@@ -448,7 +457,7 @@ namespace Repository
                 ValorTotal = 343234,
                 Status = "Pendente",
                 DataLancamento = new DateTime(2017, 02, 09),
-                DataRecebimento = null,
+                DataRecebimento = new DateTime(2017, 01, 04),
                 DataVencimento = new DateTime(2017, 03, 10),
                 Complemento = "Não sei o que por, desculpa",
                 QuantidadeParcela = 24,
