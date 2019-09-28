@@ -1,4 +1,53 @@
-﻿
+﻿$(function () {
+
+    // Ao pressionar o botão enter focar no próximo campo
+    $('#caixa-campo-descricao').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-documento').focus();
+        }
+    });
+    $('#caixa-campo-documento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-valor').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-descricao').focus();
+        }
+    });
+    $('#caixa-campo-valor').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-forma-pagamento').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-documento').focus();
+        }
+    });
+    $('#caixa-campo-forma-pagamento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-forma-data-Lancamento').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-valor').focus();
+        }
+    });
+    $('#caixa-campo-data-lancamento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-historico').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-forma-pagamento').focus();
+        }
+    });
+    $('#caixa-campo-historico').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-botao-salvar').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-data-lancamento').focus();
+        }
+    });
+    $('#caixa-campo-historico').keyup(function (e) {
+        if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-historico').focus();
+        }
+    });
+
+});
 $(function () {
     $idAlterar = -1;
     $tabelaCaixa = $("#caixa-tabela").DataTable({
@@ -10,13 +59,13 @@ $(function () {
             { data: 'Descricao' },
             { data: 'Documento' },
             { data: 'Valor' },
-            { data: 'FormaPagamento'},
+            { data: 'FormaPagamento' },
             {
-                render: function(data, type, row) {
+                render: function (data, type, row) {
                     return moment(row.DataLancamento).format('DD/MM/YYYY')
                 }
             },
-            { data: 'Historico.Descricao'},
+            { data: 'Historico.Descricao' },
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar ml-2"data-id="' + row.Id + '">Apagar</button>'
@@ -24,7 +73,7 @@ $(function () {
                 }
             }
         ]
-        
+
     });
     $('#caixa-botao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
@@ -94,7 +143,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
-                
+
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {

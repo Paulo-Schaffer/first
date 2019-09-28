@@ -1,10 +1,9 @@
-﻿$(function () {
+﻿
+$(function () {
     $('#fornecedor-campo-cnpj').mask('00.000.000.0000/00', { reverse: true });
     $('#fornecedor-campo-telefone').mask('(00) 0000-0000');
-    $('#fornecedor-campo-cep').mask('00000-000');
-
+    $('#fornecedor-campo-cep').mask('00000-000') 
     $idAlterar = -1;
-
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
         ajax: '/fornecedor/obtertodos',
         serverSide: true,
@@ -23,6 +22,7 @@
 
         ]
     });
+
     
     $('#fornecedor-batao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
@@ -223,5 +223,149 @@
                 alert('não foi possível carregar');
             }
         });
+    });
+});
+$(function () {
+
+    // Ao pressionar o botão enter focar no próximo campo
+    $('#fornecedor-nome-razaoSocial').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
+            $('#fornecedor-campo-nomeFantasia').focus();
+        } else if (e.keyCode == 39) {
+            $('#fornecedor-campo-nomeFantasia').focus();
+        }
+    });
+    $('#fornecedor-campo-nomeFantasia').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
+            $('#fornecedor-campo-cnpj').focus();
+        } else if (e.keyCode == 39) {
+            $('#fornecedor-campo-cnpj').focus();
+        } else if (e.keyCode == 37) { // seta p/ esquerda
+            $('#fornecedor-nome-razaoSocial').focus();
+        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-nome-razaoSocial').focus();
+        }
+    });
+    $('#fornecedor-campo-cnpj').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-dataCadastro').focus();
+        } else if (e.keyCode == 38 || e.keyCode == 37) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-nomeFantasia').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-email').focus();
+        }
+    });
+    $('#fornecedor-campo-dataCadastro').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-email').focus();
+        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+            $('#fornecedor-campo-cnpj').focus();
+        }
+        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-nomeFantasia').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-telefone').focus();
+        }
+    });
+
+    $('#fornecedor-campo-email').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-telefone').focus();
+        } else if (e.keyCode == 37) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-dataCadastro').focus();
+        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-cnpj').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-logradouro').focus();
+        }
+    });
+    $('#fornecedor-campo-telefone').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-logradouro').focus();
+        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+            $('#fornecedor-campo-email').focus();
+        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-dataCadastro').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-logradouro').focus();
+        }
+    });
+    $('#fornecedor-campo-logradouro').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-cep').focus();
+        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+            $('#fornecedor-campo-telefone').focus();
+        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-email').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-cep').focus();
+        }
+    });
+    $('#fornecedor-campo-cep').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-numero').focus();
+        } else if (e.keyCode == 38 || e.keyCode == 37) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-logradouro').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-bairro').focus();
+        }
+    });
+    $('#fornecedor-campo-numero').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-bairro').focus();
+        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+            $('#fornecedor-campo-cep').focus();
+        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-logradouro').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-bairro').focus();
+        }
+    });
+    $('#fornecedor-campo-bairro').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-cidade').focus();
+        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+            $('#fornecedor-campo-numero').focus();
+        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-cep').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-cidade').focus();
+        }
+    });
+    $('#fornecedor-campo-cidade').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-sigla').focus();
+        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+            $('#fornecedor-campo-bairro').focus();
+        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-bairro').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-campo-sigla').focus();
+        }
+    });
+    $('#fornecedor-campo-sigla').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-campo-complemento').focus();
+        }
+        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-cidade').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-batao-salvar').focus();
+        }
+    });
+    $('#fornecedor-campo-complemento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+            $('#fornecedor-batao-salvar').focus();
+        }
+        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-cidade').focus();
+        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+            $('#fornecedor-batao-salvar').focus();
+        }
+    });
+    $('#fornecedor-batao-salvar').keyup(function (e) {
+        if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+            $('#fornecedor-campo-complemento').focus();
+        } else { };
     });
 });

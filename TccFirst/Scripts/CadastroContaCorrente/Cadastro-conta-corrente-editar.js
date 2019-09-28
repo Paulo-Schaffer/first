@@ -1,4 +1,21 @@
 ﻿$(function () {
+
+    // Ao pressionar o botão enter focar no próximo campo
+    $('#cadastro-conta-corrente-campo-idAgencia').keyup(function (e) {
+        if (e.keyCode == 40 || e.keyCode == 13) {
+            $('#cadastro-conta-corrente-campo-numero-conta').focus();
+        } 
+    });
+    $('#cadastro-conta-corrente-campo-numero-conta').keyup(function (e) {
+        if (e.keyCode == 38) {
+            $('#cadastro-conta-corrente-campo-idAgencia').focus();
+        } else if (e.keyCode == 40) {
+            $('#cadastro-conta-corrente-botao-salvar').focus();
+        }
+    });
+});
+
+$(function () {
     $idAlterar = -1;
 
     $tabelaCadastroContaCorrente =$('#cadastro-conta-corrente-tabela').DataTable({

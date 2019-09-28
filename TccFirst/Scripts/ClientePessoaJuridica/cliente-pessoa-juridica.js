@@ -2,73 +2,104 @@
 
     // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaJuridica-campo-razaoSocial').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-atividade').focus();
         }
     });
     $('#clientePessoaJuridica-campo-atividade').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-nomeFantasia').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-razaoSocial').focus();
         }
     });
     $('#clientePessoaJuridica-campo-nomeFantasia').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-dataCadastro').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-atividade').focus();
         }
     });
     $('#clientePessoaJuridica-campo-dataCadastro').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-cnpj').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-nomeFantasia').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cnpj').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-email').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-dataCadastro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-email').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-filial').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-cnpj').focus();
         }
     });
     $('#clientePessoaJuridica-campo-filial').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-telefone').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-email').focus();
         }
     });
     $('#clientePessoaJuridica-campo-telefone').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-cep').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-filial').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cep').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-logradouro').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-telefone').focus();
         }
     });
     $('#clientePessoaJuridica-campo-logradouro').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-numero').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-cep').focus();
         }
     });
     $('#clientePessoaJuridica-campo-numero').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-bairro').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-logradouro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-bairro').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-uf').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-numero').focus();
         }
     });
     $('#clientePessoaJuridica-campo-uf').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-cidade').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-bairro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cidade').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaJuridica-batao-salvar').focus();
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#clientePessoaJuridica-botao-salvar').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-uf').focus();
+        }
+    });
+    $('#clientePessoaJuridica-botao-salvar').keyup(function (e) {
+        if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-cidade').focus();
         }
     });
 });

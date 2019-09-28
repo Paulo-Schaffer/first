@@ -8,70 +8,125 @@ $(function () {
 
     // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaFisica-campo-nome').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-cpf').focus();
+        } else if (e.keyCode == 40) {
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
+        } 
+    });
+    $('#clientePessoaFisica-campo-cpf').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39 ) {
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-nome').focus();
+        } else if (e.keyCode == 40) {
+            $('#clientePessoaFisica-campo-limiteCredito').focus();
+        } 
+    });
+    $('#clientePessoaFisica-campo-dataNascimento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-limiteCredito').focus();
+        } else if (e.keyCode == 40) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-nome').focus();
+        } else if (e.keyCode == 37) {
             $('#clientePessoaFisica-campo-cpf').focus();
         }
     });
-    $('#clientePessoaFisica-campo-cpf').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-limiteCredito').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39 || e.keyCode == 40) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-cpf').focus();
+        } else if (e.keyCode == 37) {
             $('#clientePessoaFisica-campo-dataNascimento').focus();
         }
     });
-    $('#clientePessoaFisica-campo-dataNascimento').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-campo-limiteCredito').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-limiteCredito').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-campo-email').focus();
-        }
-    });
     $('#clientePessoaFisica-campo-email').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 39 || e.keyCode == 40) {
             $('#clientePessoaFisica-campo-telefone').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-limiteCredito').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
         }
     });
     $('#clientePessoaFisica-campo-telefone').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
             $('#clientePessoaFisica-campo-cep').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-cep').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-campo-rua').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-rua').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-campo-numero').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-numero').keyup(function (e) {
-        if (e.keyCode == 13) {
+        } else if (e.keyCode == 38 || e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-bairro').focus();
         }
     });
-    $('#clientePessoaFisica-campo-bairro').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-cep').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-numero').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-cidade').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-telefone').focus();
         }
     });
-    $('#clientePessoaFisica-campo-cidade').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-numero').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-bairro').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-email').focus();
+        }else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-cep').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-uf').focus();
         }
     });
-    $('#clientePessoaFisica-campo-uf').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-bairro').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-cidade').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-telefone').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-numero').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-complemento').focus();
         }
     });
-    $('#clientePessoaFisica-campo-complemento').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-batao-salvar').focus();
+    $('#clientePessoaFisica-campo-cidade').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-uf').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-cep').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-bairro').focus();
+        } else if (e.keyCode == 40) {
+            $('#clientePessoaFisica-campo-complemento').focus();
         }
     });
+    $('#clientePessoaFisica-campo-uf').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39 ) {
+            $('#clientePessoaFisica-campo-complemento').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-cidade').focus();
+        }
+    });
+    $('#clientePessoaFisica-campo-complemento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39 || e.keyCode == 40) {
+            $('#clientePessoaFisica-batao-salvar').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-bairro').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-uf').focus();
+        }
+    });
+    $('#clientePessoaFisica-batao-salvar').keyup(function (e) {
+        if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-complemento').focus();
+        }
+    });
+    
 });
 $(document).ready(function () {
 

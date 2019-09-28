@@ -158,3 +158,50 @@
         LimparCampos();
     })
 });
+$(function () {
+
+    // Ao pressionar o botão enter focar no próximo campo
+    // 37 --> Esquerda
+    // 38 --> cima
+    // 39 --> Direita
+    // 40 --> baixo
+    $('#funcionario-campo-nome').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
+            $('#funcionario-campo-tipo').focus();
+        } else if (e.keyCode == 39) {
+            $('#funcionario-campo-tipo').focus();
+        }
+    });
+    $('#funcionario-campo-tipo').keyup(function (e) {
+        if (e.keyCode == 13) { // Enter ou seta p/ baixo
+            $('#funcionario-campo-usuario').focus();
+        } else if (e.keyCode == 39) {
+            $('#funcionario-campo-usuario').focus(); // direita
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-nome').focus(); // esquerda
+        }
+    });
+    $('#funcionario-campo-usuario').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { 
+            $('#funcionario-campo-senha').focus();
+        } else if (e.keyCode == 40) {
+            $('#funcionario-botao-salvar').focus;
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-tipo').focus(); // esquerda
+        }
+    });
+    $('#funcionario-campo-senha').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ baixo
+            $('#funcionario-botao-salvar').focus();
+        } else if (e.keyCode == 40) {
+            $('#funcionario-botao-salvar');
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-usuario').focus(); // esquerda
+        }
+    });
+    $('#funcionario-botao-salvar').keyup(function (e) {
+           if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-senha').focus(); // esquerda
+        }
+    });
+});
