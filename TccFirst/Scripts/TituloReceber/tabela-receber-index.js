@@ -56,7 +56,9 @@ $(function () {
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: 'NomeCliente' },
+            { data: 'NomeCliente' },                                
+            { data: "ValorTotal" },
+            { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
                     let cor = "";
@@ -81,14 +83,13 @@ $(function () {
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
+
             {
                 render: function (data, type, row) {
                     return moment(row.DataVencimento).format('DD/MM/YYYY')
                 }
             },
             { data: "Descricao" },
-            { data: "ValorTotal" },
-            { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
                     return "\

@@ -51,13 +51,13 @@
 
     });
     $('#parcelasReceber-botao-salvar').on('click', function () {
-        $dataRecebimento = $('#tituloReceber-campo-data-recebimento').val();
+        $dataRecebimento = $('#parcelasReceber-campo-data-recebimento').val();
         debugger;
         $.ajax({
             url: "/ParcelasReceber/Update",
             method: "post",
             data: {
-                DataRecibimento: $dataRecebimento,
+                DataRecebimento: $dataRecebimento,
                 id: $idAlterar
             },
             success: function (data) {

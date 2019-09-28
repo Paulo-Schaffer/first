@@ -23,7 +23,7 @@ namespace Model
         [Column("status")]
         public string Status { get; set; }
 
-        [Column("DataVecimento")]
+        [Column("DataVencimento")]
         public DateTime? DataVencimento { get; set; }
 
         [Column("DataRecebimento")]
