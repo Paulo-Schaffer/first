@@ -109,8 +109,8 @@
             url: '/parcelasReceber/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
-                $('#tituloReceber-campo-data-recebimento').val(data.DataRecebimento);
-                $('#tituloReceber-campo-status').val(data.Status);
+                $('#parcelasReceber-campo-data-recebimento').val(data.DataRecebimento);
+                $('#parcelasReceber-campo-status').val(data.Status);
                 $('#modal-parcelasReceber').modal('show');
             },
             error: function (err) {
