@@ -43,18 +43,19 @@
             return false;
         } else if ($TipoFuncionario == undefined) {
             monstrarMensagem('Selecione um Funcionário', '', 'error');
-            $('#funcionario-campo-tipo').select2('open');
+            $('#funcionario-campo-tipo').focus();
             return false;
         } else if ($Usuario == "") {
-            monstrarMensagem('Digite uma senha', '', 'error');
-            ('#funcionario-campo-usuario').focus();
+            monstrarMensagem('Digite uma Usuário', '', 'error');
+            $('#funcionario-campo-usuario').focus();
             return false;
         }
         else if ($Senha == "") {
             monstrarMensagem('Digite uma senha', '', 'error');
-            $('#funcionario-campo-tipo').focus();
+            $('#funcionario-campo-senha').focus();
             return false;
         } else { };
+
 
         if ($idAlterar == -1) {
             inserir($Nome, $TipoFuncionario, $Usuario, $Senha);
