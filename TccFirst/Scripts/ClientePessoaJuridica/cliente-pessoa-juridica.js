@@ -247,7 +247,7 @@ $(function () {
             $('#clientePessoaJuridica-campo-cidade').focus();
             return false;
         } else {
-
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         };
 
             

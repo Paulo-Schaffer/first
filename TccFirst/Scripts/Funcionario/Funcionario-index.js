@@ -54,7 +54,9 @@
             monstrarMensagem('Digite uma senha', '', 'error');
             $('#funcionario-campo-senha').focus();
             return false;
-        } else { };
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        };
 
 
         if ($idAlterar == -1) {

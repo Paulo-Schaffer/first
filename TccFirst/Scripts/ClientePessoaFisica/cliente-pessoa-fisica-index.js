@@ -163,73 +163,6 @@ $(function () {
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
-        //if ($('#clientePessoaFisica-campo-nome').val() == "") {
-        //    $('#clientePessoaFisica-campo-nome').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaFisica-campo-cpf').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cpf </div>');
-        //    $('#clientePessoaFisica-campo-cpf').focus();
-        //    $.notify("Warning: Self-destruct in 3.. 2..", "warn");
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-dataNascimento').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Data de Nascimento </div>');
-        //    $('#clientePessoaFisica-campo-dataNascimento').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-limiteCredito').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Limite de Crédito </div>');
-        //    $('#clientePessoaFisica-campo-limiteCredito').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-email').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo de E-mail </div>');
-        //    $('#clientePessoaFisica-campo-email').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-telefone').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Telefone </div>');
-        //    $('#clientePessoaFisica-campo-telefone').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-cep').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cep </div>');
-        //    $('#clientePessoaFisica-campo-cep').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-rua').val == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Rua </div>');
-        //    $('#clientePessoaFisica-campo-rua').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-numero').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
-        //    $('#clientePessoaFisica-campo-numero').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-bairro').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Bairro </div>');
-        //    $('#clientePessoaFisica-campo-bairro').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-cidade').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cidade </div>');
-        //    $('#clientePessoaFisica-campo-cidade').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-uf').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Uf </div>');
-        //    $('#clientePessoaFisica-campo-uf').focus();
-        //    return false;
-        //}
-        //else if ($('#clientePessoaFisica-campo-complemento').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Complemento </div>');
-        //    $('#clientePessoaFisica-campo-complemento').focus();
-        //    return false;
-        //else {
-        //    $('.alert').alert("");
-        //}
         $nome = $('#clientePessoaFisica-campo-nome').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
@@ -306,7 +239,7 @@ $(function () {
             $('#clientePessoaFisica-campo-complemento').focus();
             return false;
         } else {
-
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         }
 
         if ($idAlterar == -1) {

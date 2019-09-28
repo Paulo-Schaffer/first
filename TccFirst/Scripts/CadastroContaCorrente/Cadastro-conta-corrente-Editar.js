@@ -54,7 +54,9 @@
             monstrarMensagem('Digite o Número da Conta Corrente', '', 'error');
             $('#cadastro-conta-corrente-campo-numero-conta').focus();
             return false;
-        } else {}
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        }
 
         if ($idAlterar == -1) {
             inserir($IdAgencia, $NumeroConta);

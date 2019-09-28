@@ -101,7 +101,9 @@
             monstrarMensagem('Digite o Complemento', '', 'error');
             $('#fornecedor-campo-complemento').focus();
             return false;
-        } else { }; 
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        }; 
 
         if ($idAlterar == -1) {
             inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento)

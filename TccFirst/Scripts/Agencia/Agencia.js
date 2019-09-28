@@ -46,6 +46,8 @@
             monstrarMensagem('Digite o Número da Agência', '', 'error');
             $("#campo-numeroAgencia").focus();
             return false;
-        };
+        } else {
+            
+        }
     })
 });

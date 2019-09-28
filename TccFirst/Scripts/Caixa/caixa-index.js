@@ -68,6 +68,8 @@ $(function () {
             monstrarMensagem('Selecione o Histórico', '', 'error');
             $('#caixa-campo-historico').select2('open');
             return false;
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         }
 
         if ($idAlterar == -1) {
