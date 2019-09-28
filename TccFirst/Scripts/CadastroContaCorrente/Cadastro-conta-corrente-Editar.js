@@ -51,7 +51,7 @@
             $('#cadastro-conta-corrente-campo-idAgencia').select2('open');
             return false;
         } else if ($NumeroConta == "") {
-            monstrarMensagem('Digite a Agência', '', 'error');
+            monstrarMensagem('Digite o Número da Conta Corrente', '', 'error');
             $('#cadastro-conta-corrente-campo-numero-conta').focus();
             return false;
         } else {}

@@ -30,7 +30,7 @@
             });
         }
         $nomeBanco = $("#campo-banco").val();
-        $nomeAgencia = $("#campo-Agencia").val();
+        $nomeAgencia = $("#campo-nomeAgencia").val();
         $numeroAgencia = $("#campo-numeroAgencia").val();
 
         //Validação
@@ -40,11 +40,12 @@
             return false;
         } else if ($nomeAgencia == "") {
             monstrarMensagem('Digite o Nome da Agência', '', 'error');
-            $("#campo-Agencia").focus();
+            $("#campo-nomeAgencia").focus();
             return false;
         } else if ($numeroAgencia == "") {
             monstrarMensagem('Digite o Número da Agência', '', 'error');
             $("#campo-numeroAgencia").focus();
             return false;
-        }
+        };
+    })
 });

@@ -95,7 +95,7 @@
             return false;
         } else if ($uf == undefined) {
             monstrarMensagem('Selecione o Estado ', '', 'error');
-            $('#fornecedor-campo-sigla').select2('open');
+            $('#fornecedor-campo-sigla').focus();
             return false;
         } else if ($complemento == '') {
             monstrarMensagem('Digite o Complemento', '', 'error');
