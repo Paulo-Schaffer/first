@@ -23,10 +23,39 @@
     });
 
     $('#funcionario-botao-salvar').on('click', function () {
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
         $Nome = $('#funcionario-campo-nome').val();
         $TipoFuncionario = $('#funcionario-campo-tipo').val();
         $Usuario = $('#funcionario-campo-usuario').val();
         $Senha = $('#funcionario-campo-senha').val();
+        //Validação
+        if ($Nome == "") {
+            monstrarMensagem('Digite o Nome', '', 'error');
+            $('#funcionario-campo-nome').focus();
+            return false;
+        } else if ($TipoFuncionario == undefined) {
+            monstrarMensagem('Selecione um Funcionário', '', 'error');
+            $('#funcionario-campo-tipo').focus();
+            return false;
+        } else if ($Usuario == "") {
+            monstrarMensagem('Digite uma Usuário', '', 'error');
+            $('#funcionario-campo-usuario').focus();
+            return false;
+        }
+        else if ($Senha == "") {
+            monstrarMensagem('Digite uma senha', '', 'error');
+            $('#funcionario-campo-senha').focus();
+            return false;
+        } else { };
+
 
         if ($idAlterar == -1) {
             inserir($Nome, $TipoFuncionario, $Usuario, $Senha);

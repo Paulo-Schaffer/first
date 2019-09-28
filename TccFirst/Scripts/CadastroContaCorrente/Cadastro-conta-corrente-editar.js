@@ -1,8 +1,4 @@
 ﻿$(function () {
-
-
-
-
     $idAlterar = -1;
 
     $tabelaCadastroContaCorrente =$('#cadastro-conta-corrente-tabela').DataTable({
@@ -34,28 +30,31 @@
             }
         });
     });
-    function monstrarMensagem(texto, titulo, tipo) {
-        // Tipo -> error ,info, primary, success, default
-        new PNotify({
-            title: titulo,
-            text: texto,
-            icon: 'icofont icofont-info-circle',
-            type: tipo
-        });
-    }
+
     
 
     $('#cadastro-conta-corrente-botao-salvar').on('click', function () {
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
         $IdAgencia = $('#cadastro-conta-corrente-campo-idAgencia').val();
         $NumeroConta = $('#cadastro-conta-corrente-campo-numero-conta').val();
-
+        //Validação
         if ($IdAgencia == undefined) {
-            monstrarMensagem('Selecione uma Agencia', '', 'error');
+            monstrarMensagem('Selecione uma Agência', '', 'error');
+            $('#cadastro-conta-corrente-campo-idAgencia').select2('open');
             return false;
-        } else if ($NumeroConta == '') {
-            monstrarMensagem('Digite o Numero da Conta', '', 'error');
+        } else if ($NumeroConta == "") {
+            monstrarMensagem('Digite a Agência', '', 'error');
+            $('#cadastro-conta-corrente-campo-numero-conta').focus();
             return false;
-        } 
+        } else {}
 
         if ($idAlterar == -1) {
             inserir($IdAgencia, $NumeroConta);

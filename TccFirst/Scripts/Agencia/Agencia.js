@@ -19,6 +19,33 @@
 
         ]
     });
-});
+    $('#botao-salvar').on('click', function () {
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
+        $nomeBanco = $("#campo-banco").val();
+        $nomeAgencia = $("#campo-nomeAgencia").val();
+        $numeroAgencia = $("#campo-numeroAgencia").val();
 
-   
+        //Validação
+        if ($nomeBanco == "") {
+            monstrarMensagem('Digite o Nome do Banco', '', 'error');
+            $("#campo-banco").focus();
+            return false;
+        } else if ($nomeAgencia == "") {
+            monstrarMensagem('Digite o Nome da Agência', '', 'error');
+            $("#campo-nomeAgencia").focus();
+            return false;
+        } else if ($numeroAgencia == "") {
+            monstrarMensagem('Digite o Número da Agência', '', 'error');
+            $("#campo-numeroAgencia").focus();
+            return false;
+        };
+    })
+});

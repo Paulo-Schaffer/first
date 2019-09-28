@@ -27,39 +27,49 @@ $(function () {
         
     });
     $('#caixa-botao-salvar').on('click', function () {
-        if ($('#caixa-campo-descricao').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Descrição </div>');
-            $('#caixa-campo-nome').focus();
-            return false;
-
-        } else if ($('#caixa-campo-documento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Documento </div>');
-            $('#caixa-campo-documento').focus();
-            return false;
-        } else if ($('#caixa-campo-valor').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Valor </div>');
-            $('#caixa-campo-valor').focus();
-            return false;
-        } else if ($('#caixa-campo-forma-pagamento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a forme de Pagamento</div>');
-            $('#caixa-campo-forma-pagamento').focus();
-            return false;
-        } else if ($('#caixa-campo-data-lancamento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a Data de Lançamento </div>');
-            $('#caixa-campo-data-lancamento').focus();
-            return false;
-        } else if ($('#caixa-campo-historico').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione o Historico </div>');
-            $('#caixa-campo-historico').focus();
-            return false;
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
         }
-
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
         $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $valor = $('#caixa-campo-valor').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
         $IdHistoricos = $('#caixa-campo-historico').val();
+
+        //Validação
+        if ($descricao == "") {
+            monstrarMensagem('Digite Descrição', '', 'error');
+            $('#caixa-campo-descricao').focus();
+            return false;
+        } else if ($documento == "") {
+            monstrarMensagem('Digite o Documento', '', 'error');
+            $('#caixa-campo-documento').focus();
+            return false;
+        } else if ($valor == "") {
+            monstrarMensagem('Digite o Valor', '', 'error');
+            $('#caixa-campo-valor').focus();
+            return false;
+        } else if ($formaPagamento == undefined) {
+            monstrarMensagem('Selecione a Forma de Pagamento', '', 'error');
+            $('#caixa-campo-forma-pagamento').focus();
+            return false;
+        } else if ($dataLancamento == "") {
+            monstrarMensagem('Digite a Data de Lançamneto', '', 'error');
+            $('#caixa-campo-data-lancamento').focus();
+            return false;
+        } else if ($IdHistoricos == undefined) {
+            monstrarMensagem('Selecione o Histórico', '', 'error');
+            $('#caixa-campo-historico').select2('open');
+            return false;
+        }
+
         if ($idAlterar == -1) {
             inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         } else {
