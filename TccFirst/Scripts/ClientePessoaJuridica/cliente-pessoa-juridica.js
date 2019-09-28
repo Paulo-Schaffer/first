@@ -163,53 +163,7 @@ $(function () {
         ]
     });
     $('#clientePessoaJuridica-botao-salvar').on('click', function () {
-        //if ($('#clientePessoaJuridica-campo-razaoSocial').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão Social </div>');
-        //    $('#clientePessoaJuridica-campo-razaoSocial').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-atividade').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Atividade </div>');
-        //    $('#clientePessoaJuridica-campo-atividade').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-nomeFantasia').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Nome Fantasia </div>');
-        //    $('#clientePessoaJuridica-campo-nomeFantasia').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-dataCadastro').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Data Cadastro </div>');
-        //    $('#clientePessoaJuridica-campo-dataCadastro').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-cnpj').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo CNPJ </div>');
-        //    $('#clientePessoaJuridica-campo-cnpj').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-email').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo E-Mail </div>');
-        //    $('#clientePessoaJuridica-campo-email').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-telefone').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Telefone </div>');
-        //    $('#clientePessoaJuridica-campo-telefone').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-cep').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo CEP </div>');
-        //    $('#clientePessoaJuridica-campo-cep').focus();
-        //    return false;
-
-        //} else if ($('#clientePessoaJuridica-campo-numero').val() == "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
-        //    $('#clientePessoaJuridica-campo-numero').focus();
-        //    return false;
-        //}else {
-        //        $('.alert').alert("");
-        //}
+        
         function monstrarMensagem(texto, titulo, tipo) {
             // Tipo -> error ,info, primary, success, default
             new PNotify({
