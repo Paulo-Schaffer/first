@@ -38,7 +38,7 @@ namespace TccFirst.Controllers
             var dadosTransacao = transacaoRepository.ObterDadosSumarizados(dataInicial, dataFinal);
 
             List<Dados> retorno = new List<Dados>();
-            int quantidade = (dataFinal - dataInicial).TotalDays;
+            double quantidade = (dataFinal - dataInicial).TotalDays;
 
             for(int i = 0; i < quantidade; i++){
                 DateTime data = dataInicial.AddDays(quantidade);
@@ -73,7 +73,7 @@ namespace TccFirst.Controllers
 
     public class Dados{
         public DateTime Data { get;set;}
-        public int Caixa {get;set;}
-        public int Transacao {get;set;}
+        public decimal Caixa {get;set;}
+        public decimal Transacao {get;set;}
     }
 }
