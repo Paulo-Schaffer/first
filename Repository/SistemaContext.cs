@@ -21,7 +21,7 @@ namespace Repository
         public DbSet<CategoriaReceita> CategoriasReceitas { get; set; }
         public DbSet<ClientePessoaJuridica> ClientesPessoasJuridicas { get; set; }
         public DbSet<ClientePessoaFisica> ClientesPessoasFisicas { get; set; }
-        public DbSet<ContaCorrente> ContasCorrentes { get; set; }
+        public DbSet<Transacao> Transacoes { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Historico> Historicos { get; set; }

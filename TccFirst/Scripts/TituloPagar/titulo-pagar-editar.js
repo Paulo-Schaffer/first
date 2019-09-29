@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
     $idAlterar = -1;
     $idTituloPagar = $("#id").val();
 
@@ -53,7 +53,7 @@
         $dataPagamento = $('#parcelasPagar-campo-data-pagamento').val();
         debugger;
         $.ajax({
-            url: "/parcelasPagar/update",
+            url: "/ParcelasPagar/Update",
             method: "post",
             data: {
                 DataPagamento: $dataPagamento,
@@ -63,6 +63,7 @@
                 $("#modal-parcelaPagar").modal("hide");
                 $idAlterar = -1;
                 $tabelaParcelas.ajax.reload();
+                alert('esse aqui mesmo');
             },
             error: function (err) {
                 alert("Não foi possível alterar");

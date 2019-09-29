@@ -22,6 +22,11 @@ namespace TccFirst.Controllers
         //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         //}
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         [HttpGet]
         public JsonResult ObterTodos(int idTituloPagar)
         {
@@ -70,7 +75,7 @@ namespace TccFirst.Controllers
         //public JsonResult ObterTodosSelect(string termo)
         //{
         //    var parcelasPagar = repository.ObterTodos();
-        //    List<object> parcelasPagarSelect = new List<object>();
+        //    List<object> parcelasPagarSelect2 = new List<object>();
         //    foreach (parcelasPagar parcelasPagar in parcelasPagar)
         //    {
         //        parcelasPagarSelect.Add(new

@@ -55,7 +55,6 @@
     <Compile Include="CategoriaReceita.cs" />
     <Compile Include="ClientePessoaFisica.cs" />
     <Compile Include="ClientePessoaJuridica.cs" />
-    <Compile Include="ContaCorrente.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Funcionario.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TituloPagar.cs" />
     <Compile Include="TituloReceber.cs" />
+    <Compile Include="Transacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

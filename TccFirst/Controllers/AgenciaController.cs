@@ -17,13 +17,47 @@ namespace TccFirst.Controllers
             repository = new AgenciaRepository();
         }
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
         [HttpGet]
-        public ActionResult Index() 
+        public ActionResult Index()
         {
             AgenciaRepository repositoryAgencia = new AgenciaRepository();
             ViewBag.Agencias = repositoryAgencia.ObterTodos();
             return View();
         }
+
+        #region obtertodos
 
         [HttpGet]
         public JsonResult ObterTodos()
@@ -33,9 +67,10 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
         }
+        #endregion
 
         #region cadastro
-        [HttpGet]
+        [HttpGet, Route("Index")]
         public ActionResult Cadastro()
         {
             return View();
@@ -47,24 +82,30 @@ namespace TccFirst.Controllers
             agencia.RegistroAtivo = true;
             var id = repository.Inserir(agencia);
             var resultado = new { id = id };
-            return RedirectToAction("Editar", new { id = id });
+            return RedirectToAction("Index", new { id = id });
         }
         #endregion
 
-        [HttpGet,Route("apagar")]
-        public JsonResult Apagar(int id)
+        #region apagar
+
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
         {
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", new { id = id });
         }
+        #endregion
+
+        #region editar
 
         [HttpPost, Route("editar")]
-        public JsonResult Editar(Agencia agencia)
+        public ActionResult Editar(Agencia agencia)
         {
             var alterou = repository.Alterar(agencia);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return RedirectToAction("Index", new { id = resultado });
+
         }
 
         [HttpGet]
@@ -74,9 +115,12 @@ namespace TccFirst.Controllers
             ViewBag.Agencia = agencia;
             return View();
         }
+        #endregion
 
-        [HttpGet, Route("agencia/obtertodosselect")]
-        public JsonResult ObterTodosSelect(string termo)
+        #region obtertodosselect2
+
+        [HttpGet, Route("agencia/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string termo)
         {
             var agencias = repository.ObterTodos();
             List<object> ObterTodosSelect2 = new List<object>();
@@ -95,9 +139,15 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
         }
+        #endregion
+
+
+
+
+
+
+
     }
+
+
 }
-
-
-
-

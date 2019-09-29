@@ -11,11 +11,6 @@ namespace Model
     [Table("titulos_receber")]
     public class TituloReceber
     {
-        public const string StatusPendente = "Pendente";
-        public const string StatusPagoParcialmente = "Parcialmente";
-        public const string StatusCancelado = "Cancelado";
-        public const string StatusFinalizado = "Finalizado";
-
         [Key, Column("id")]
         public int Id { get; set; }
 
@@ -32,10 +27,13 @@ namespace Model
         public DateTime DataLancamento { get; set; }
 
         [Column("data_recebimento")]
-        public DateTime DataRecebimento { get; set; }
+        public DateTime? DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
         public DateTime DataVencimento { get; set; }
+
+        [Column("complemento")]
+        public string Complemento { get; set; }
 
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
