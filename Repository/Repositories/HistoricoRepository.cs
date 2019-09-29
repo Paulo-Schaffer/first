@@ -8,62 +8,62 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-        public class HistoricoRepository : IHistoricoRepository
+    public class HistoricoRepository : IHistoricoRepository
+    {
+        private SistemaContext context;
+
+        public HistoricoRepository()
         {
-            private SistemaContext context;
+            context = new SistemaContext();
+        }
 
-            public HistoricoRepository()
+
+        public bool Alterar(Historico historico)
+        {
+            var historicoOriginal = context.Historicos
+                .FirstOrDefault(x => x.Id == historico.Id);
+            if (historico == null)
             {
-                context = new SistemaContext();
+                return false;
             }
+            historicoOriginal.Descricao = historico.Descricao;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+        }
 
-
-            public bool Alterar(Historico historico)
+        public bool Apagar(int id)
+        {
+            var historico = context.Historicos.FirstOrDefault(x => x.Id == id);
+            if (historico == null)
             {
-                var historicoOriginal = context.Historicos
-                    .FirstOrDefault(x => x.Id == historico.Id);
-                if (historico == null)
-                {
-                    return false;
-                }
-                historicoOriginal.Descricao = historico.Descricao;
-                int quantidadeAfetada = context.SaveChanges();
-                return quantidadeAfetada == 1;
+                return false;
             }
+            historico.RegistroAtivo = false;
+            int quantidadeAfetada = context.SaveChanges();
+            return quantidadeAfetada == 1;
+        }
 
-            public bool Apagar(int id)
-            {
-                var historico = context.Historicos.FirstOrDefault(x => x.Id == id);
-                if (historico == null)
-                {
-                    return false;
-                }
-                historico.RegistroAtivo = false;
-                int quantidadeAfetada = context.SaveChanges();
-                return quantidadeAfetada == 1;
-            }
+        public int Inserir(Historico historico)
+        {
+            historico.RegistroAtivo = true;
+            context.Historicos.Add(historico);
+            context.SaveChanges();
+            return historico.Id;
+        }
 
-            public int Inserir(Historico historico)
-            {
-                historico.RegistroAtivo = true;
-                context.Historicos.Add(historico);
-                context.SaveChanges();
-                return historico.Id;
-            }
+        public Historico ObterPeloId(int id)
+        {
+            var historico = context.Historicos
+                 .FirstOrDefault(x => x.Id == id);
+            return historico;
+        }
 
-            public Historico ObterPeloId(int id)
-            {
-                var historico = context.Historicos
-                     .FirstOrDefault(x => x.Id == id);
-                return historico;
-            }
-
-            public List<Historico> ObterTodos()
-            {
-                return context.Historicos
-                   .Where(x => x.RegistroAtivo == true)
-                   .OrderBy(x => x.Id)
-                   .ToList();
-            }
+        public List<Historico> ObterTodos()
+        {
+            return context.Historicos
+               .Where(x => x.RegistroAtivo == true)
+               .OrderBy(x => x.Id)
+               .ToList();
         }
     }
+}

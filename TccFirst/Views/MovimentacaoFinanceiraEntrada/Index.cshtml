@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movimentações Financeiras Entradas</h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="############">
+    Criar movimentação Entrada
+</button>
+<table id="movimentacao-entrada-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Valor</th>
+            <th>Quantidade de Parcelas</th>
+            <th>Conta corrente</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+@RenderPage("CadastroMovimentacaoFinanceiraEntrada.cshtml")
+@section js{
+    }
