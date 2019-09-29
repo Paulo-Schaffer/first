@@ -1,0 +1,69 @@
+﻿<div class="row">
+    <div class="col-6">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <span class="font-weight-bold">Quantidade de Parcelas:</span>
+                    <span>@ViewBag.TituloReceber.QuantidadeParcela</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <span class="font-weight-bold">Valor Total:</span>
+                    <span>R$ @ViewBag.TituloReceber.ValorTotal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <button type="button" id="gerar-parcelas" class="btn btn-info float-right mb-3">
+            <i class="fa fa-history"></i>Gerar Parcelas
+        </button>
+    </div>
+</div>
+
+<table id="titulo-receber-parcelas-tabela" class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Data Vencimento</th>
+            <th>Data Recebimento</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+</table>
+
+<div id="modal-parcelasReceber" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Parcelas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label form="parcelasReceber-campo-data-recebimento" mas>Data Recebimento<span class="text-danger">*</span></label>
+                            <input type="date" id="parcelasPagar-campo-data-recebimento" class="form-control" name="DataRecebimento" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="parcelasReceber-botao-salvar">
+                        <i class="fa fa-floppy-o"></i> Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section js{
+    <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>
+}

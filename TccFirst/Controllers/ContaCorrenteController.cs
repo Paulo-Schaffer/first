@@ -39,7 +39,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro()
         {
             CadastroContaCorrenteRepository cadastroContaCorrenteRepository = new CadastroContaCorrenteRepository();
-            ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos();
+            ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos(CadastroContaCorrente.FiltroSemAgencia);
 
             HistoricoRepository historicoRepository = new HistoricoRepository();
             ViewBag.Historicos = historicoRepository.ObterTodos(); 
@@ -72,11 +72,11 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost, Route("editar")]
-        public JsonResult Editar(ContaCorrente contaCorrente)
+        public ActionResult Editar(ContaCorrente contaCorrente)
         {
             var alterou = repository.Alterar(contaCorrente);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return RedirectToAction("Index", new { id = resultado });
         }
 
 

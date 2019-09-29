@@ -2,104 +2,73 @@
 
     // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaJuridica-campo-razaoSocial').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-atividade').focus();
         }
     });
     $('#clientePessoaJuridica-campo-atividade').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-nomeFantasia').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-razaoSocial').focus();
         }
     });
     $('#clientePessoaJuridica-campo-nomeFantasia').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-dataCadastro').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-atividade').focus();
         }
     });
     $('#clientePessoaJuridica-campo-dataCadastro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-cnpj').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-nomeFantasia').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cnpj').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-email').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-dataCadastro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-email').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-filial').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-cnpj').focus();
         }
     });
     $('#clientePessoaJuridica-campo-filial').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-telefone').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-email').focus();
         }
     });
     $('#clientePessoaJuridica-campo-telefone').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-cep').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-filial').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cep').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-logradouro').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-telefone').focus();
         }
     });
     $('#clientePessoaJuridica-campo-logradouro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-numero').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-cep').focus();
         }
     });
     $('#clientePessoaJuridica-campo-numero').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-bairro').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-logradouro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-bairro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-uf').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-numero').focus();
         }
     });
     $('#clientePessoaJuridica-campo-uf').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+        if (e.keyCode == 13) {
             $('#clientePessoaJuridica-campo-cidade').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-bairro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cidade').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
-            $('#clientePessoaJuridica-botao-salvar').focus();
-        } else if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-uf').focus();
-        }
-    });
-    $('#clientePessoaJuridica-botao-salvar').keyup(function (e) {
-        if (e.keyCode == 37 || e.keyCode == 38) {
-            $('#clientePessoaJuridica-campo-cidade').focus();
+        if (e.keyCode == 13) {
+            $('#clientePessoaJuridica-batao-salvar').focus();
         }
     });
 });
@@ -174,108 +143,75 @@ $(function () {
 });
 
 $(function () {
-    $idAlterar = -1;    
+    $idAlterar = -1;
     $tabelaClientePessoaJuridica = $("#cliente-pessoa-juridica-tabela").DataTable({
         "scrollX": true,
         ajax: '/clientePessoaJuridica/obtertodos',
         severSide: true,
         columns: [
             { 'data': 'Id' },
-            { 'data': 'RazaoSocial' },            
-            { 'data': 'NomeFantasia' }, 
+            { 'data': 'RazaoSocial' },
+            { 'data': 'NomeFantasia' },
             { 'data': 'Cnpj' },
             { 'data': 'Uf' },
             { 'data': 'Cidade' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" id="botao-editar" data-id="' + row.Id + '"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar" id="botao-apagar" data-id="' + row.Id + '"><i class="fa fa-trash"></i>Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar  fa fa-pencil-square-o " data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger fa fa-trash botao-apagar ml-2 " data-id="' + row.Id + '">Apagar</button>'
                 }
             }
         ]
     });
     $('#clientePessoaJuridica-botao-salvar').on('click', function () {
-        
-        function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
-            new PNotify({
-                title: titulo,
-                text: texto,
-                icon: 'icofont icofont-info-circle',
-                type: tipo
-            });
-        }
+        $razaoSocial = $('#clientePessoaJuridica-campo-razaoSocial').val();
+        $atividade = $('#clientePessoaJuridica-campo-atividade').val();
+        $nomeFantasia = $('#clientePessoaJuridica-campo-nomeFantasia').val();
+        $dataCadastro = $('#clientePessoaJuridica-campo-dataCadastro').val();
+        $cnpj = $('#clientePessoaJuridica-campo-cnpj').val();
+        $email = $('#clientePessoaJuridica-campo-email').val();
+        $filial = $('#clientePessoaJuridica-campo-filial').val();
+        $telefone = $('#clientePessoaJuridica-campo-telefone').val();
+        $cep = $('#clientePessoaJuridica-campo-cep').val();
+        $logradouro = $('#clientePessoaJuridica-campo-logradouro').val();
+        $numero = $('#clientePessoaJuridica-campo-numero').val();
+        $bairro = $('#clientePessoaJuridica-campo-bairro').val();
+        $uf = $('#clientePessoaJuridica-campo-uf').val();
+        $cidade = $('#clientePessoaJuridica-campo-cidade').val();
 
-        $razaoSocial= $('#clientePessoaJuridica-campo-razaoSocial').val();
-        $atividade= $('#clientePessoaJuridica-campo-atividade').val();
-        $nomeFantasia= $('#clientePessoaJuridica-campo-nomeFantasia').val();
-        $dataCadastro= $('#clientePessoaJuridica-campo-dataCadastro').val();
-        $cnpj= $('#clientePessoaJuridica-campo-cnpj').val();
-        $email= $('#clientePessoaJuridica-campo-email').val();
-        $filial= $('#clientePessoaJuridica-campo-filial').val();
-        $telefone= $('#clientePessoaJuridica-campo-telefone').val();
-        $cep= $('#clientePessoaJuridica-campo-cep').val();
-        $logradouro= $('#clientePessoaJuridica-campo-logradouro').val();
-        $numero= $('#clientePessoaJuridica-campo-numero').val();
-        $bairro= $('#clientePessoaJuridica-campo-bairro').val();
-        $uf= $('#clientePessoaJuridica-campo-uf').val();
-        $cidade= $('#clientePessoaJuridica-campo-cidade').val();
+        if ($.trim($('#clientePessoaJuridica-campo-razaoSocial').val()) == '') {
+            alert('Preencha o campo Razão Social');           
+            return false;
+            
+        } else if ($.trim($('#clientePessoaJuridica-campo-atividade').val()) == "") {
+            alert('Preencha o campo Atividade ');           
+            return false;
 
-            //Validação
-        if ($razaoSocial == "") {
-            monstrarMensagem('Digite a Razão Social', '', 'error');
-            $("#clientePessoaJuridica-campo-razaoSocial").focus();
+        } else if ($.trim($('#clientePessoaJuridica-campo-nomeFantasia').val()) == "") {
+            alert('Preencha o campo Nome Fantasia');          
             return false;
-        } else if ($atividade == "") {
-            monstrarMensagem('Digite a Atividade', '', 'error');
-            $('#clientePessoaJuridica-campo-atividade').focus();
+
+        } else if ($.trim ($('#clientePessoaJuridica-campo-dataCadastro').val()) == "") {
+           alert("Preencha o campo Data Cadastro");
             return false;
-        } else if ($nomeFantasia == "") {
-            monstrarMensagem('Digite o Nome Fantasia', '', 'error');
-            $('#clientePessoaJuridica-campo-nomeFantasia').focus();
+
+        } else if ($.trim($('#clientePessoaJuridica-campo-cnpj').val()) == "") {
+            alert("Preencha o campo CNPJ");
             return false;
-        } else if ($dataCadastro == "") {
-            monstrarMensagem('Digite a Data Cadastro', '', 'error');
-            $('#clientePessoaJuridica-campo-dataCadastro').focus();
+
+        } else if ($.trim($('#clientePessoaJuridica-campo-email').val()) == "") {
+            alert("Preencha o campo E-Mail");
             return false;
-        } else if ($cnpj == "") {
-            monstrarMensagem('Digite o Cnpj', '', 'error');
-            $('#clientePessoaJuridica-campo-cnpj').focus();
+
+        } else if ($.trim($('#clientePessoaJuridica-campo-telefone').val()) == "") {
+            alert("Preencha o campo Telefone");
             return false;
-        } else if ($email == "") {
-            monstrarMensagem('Digite o E-mail', '', 'error');
-            $('#clientePessoaJuridica-campo-email').focus();
+
+        } else if ($.trim($('#clientePessoaJuridica-campo-cep').val()) == "") {
+            alert("Preencha o campo CEP");
             return false;
-        } else if ($filial == "") {
-            monstrarMensagem('Digite a Filial', '', 'error');
-            $('#clientePessoaJuridica-campo-filial').focus();
-            return false;
-        } else if ($telefone == "") {
-            monstrarMensagem('Digite o Telefone', '', 'error');
-            $('#clientePessoaJuridica-campo-telefone').focus();
-            return false;
-        } else if ($cep == "") {
-            monstrarMensagem('Digite o Cep', '', 'error');
-            $('#clientePessoaJuridica-campo-cep').focus();
-            return false;
-        } else if ($logradouro == "") {
-            monstrarMensagem('Digite o Logradouro', '', 'error');
-            $('#clientePessoaJuridica-campo-logradouro').focus();
-            return false;
-        } else if ($numero == "") {
-            monstrarMensagem('Digite o Número', '', 'error');
-            $('#clientePessoaJuridica-campo-numero').focus();
-            return false;
-        } else if ($bairro == "") {
-            monstrarMensagem('Digite o Bairro', '', 'error');
-            $('#clientePessoaJuridica-campo-bairro').focus();
-            return false;
-        } else if ($uf == "") {
-            monstrarMensagem('Digite a UF', '', 'error');
-            $('#clientePessoaJuridica-campo-uf').focus();
-            return false;
-        } else if ($cidade == "") {
-            monstrarMensagem('Digite a Cidade', '', 'error');
-            $('#clientePessoaJuridica-campo-cidade').focus();
+
+        } else if ($.trim($('#clientePessoaJuridica-campo-numero').val()) == "") {
+          alert("Preencha o campo Numero");
             return false;
         } else {
             monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
@@ -359,10 +295,11 @@ $(function () {
                 Cidade: $cidade
             },
             success: function (data) {
+                LimparCampos();
                 $('#modal-clientePessoaJuridica').modal('hide');
-                $(".modal-backdrop").hide();               
+                $(".modal-backdrop").hide();
                 $tabelaClientePessoaJuridica.ajax.reload();
-                              
+
             },
             error: function (err) {
                 alert("Não foi possivel cadastrar")
@@ -421,12 +358,33 @@ $(function () {
                 $('#clientePessoaJuridica-campo-uf').val(data.Uf);
                 $('#clientePessoaJuridica-campo-cidade').val(data.Cidade);
                 $('#modal-clientePessoaJuridica').modal('show');
-                
+
             },
             error: function (err) {
                 alert("Não foi possivel editar")
             }
         });
     });
+    function LimparCampos() {
+        $('#clientePessoaJuridica-campo-razaoSocial').val("");
+        $('#clientePessoaJuridica-campo-atividade').val("");
+        $('#clientePessoaJuridica-campo-nomeFantasia').val("");
+        $('#clientePessoaJuridica-campo-dataCadastro').val("");
+        $('#clientePessoaJuridica-campo-cnpj').val("");
+        $('#clientePessoaJuridica-campo-email').val("");
+        $('#clientePessoaJuridica-campo-filial').val("");
+        $('#clientePessoaJuridica-campo-telefone').val("");
+        $('#clientePessoaJuridica-campo-cep').val("");
+        $('#clientePessoaJuridica-campo-logradouro').val("");
+        $('#clientePessoaJuridica-campo-numero').val("");
+        $('#clientePessoaJuridica-campo-bairro').val("");
+        $('#clientePessoaJuridica-campo-uf').val("");
+        $('#clientePessoaJuridica-campo-cidade').val("");
+        $idAlterar = -1;
+    }
+    $('#modal-clientePessoaJuridica').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 
-});
+  
+});   

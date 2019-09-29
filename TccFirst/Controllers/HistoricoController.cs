@@ -100,7 +100,7 @@ namespace TccFirst.Controllers
                 historicoSelect2.Add(new
                 {
                     id = historico.Id,
-                    text = historico.Descricao
+                    descricao = historico.Descricao
 
 
                 });

@@ -1,0 +1,42 @@
+﻿
+
+<table id="contacorrente-tabela" class="table table-light table-hover table-border-style table-striped">
+    <thead>
+        <tr>
+            <th>Numero da Conta</th>
+            <th>Descricao</th>
+            <th>Documento</th>
+            <th>Tipo Receita Despesa</th>
+            <th>Tipo Pagamento </th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Data Lançamento</th>
+            <th>Data Vencimento</th>
+            <th>Data Recebimento</th>
+            <th>Nome Banco</th>
+            <th>Numero Banco</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Model.ContaCorrente contaCorrente in ViewBag.ContaCorrentes)
+        {
+            <tr>    
+                <td>@contaCorrente.Id</td>
+                <td>@contaCorrente.NumeroConta</td>
+                <td>@contaCorrente.Descricao</td>
+                <td>@contaCorrente.Documento</td>
+                <td>@contaCorrente.TipoReceitaDespesa</td>
+                <td>@contaCorrente.TipoPagamento</td>
+                <td>@contaCorrente.Valor</td>
+                <td>@contaCorrente.Status</td>
+                <td>@contaCorrente.DataLancamento</td>
+                <td>@contaCorrente.DataVencimento</td>
+                <td>@contaCorrente.DataRecebimento</td>
+                <td>@contaCorrente.NomeBanco</td>
+                <td>@contaCorrente.NumeroBanco</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

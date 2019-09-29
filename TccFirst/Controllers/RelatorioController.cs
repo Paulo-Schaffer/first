@@ -13,11 +13,5 @@ namespace TccFirst.Controllers
         {
             return View();
         }
-
-        // GET: Relatorio
-        public ActionResult FluxoCaixa()
-        {
-            return View();
-        }
     }
 }

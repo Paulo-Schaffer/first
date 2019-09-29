@@ -19,14 +19,12 @@ namespace Repository.Repositories
 
         public bool Alterar(TituloPagar tituloPagar)
         {
-
             var tituloPagarOficial = context.TitulosPagar.Where(x => x.Id == tituloPagar.Id).FirstOrDefault();
-            if (tituloPagar == null)
-            {
+            if (tituloPagarOficial == null)
                 return false;
-            }
-            tituloPagarOficial.IdCategoriaDespesa = tituloPagar.IdCategoriaDespesa;
+
             tituloPagarOficial.IdFornecedor = tituloPagar.IdFornecedor;
+            tituloPagarOficial.IdCategoriaDespesa = tituloPagar.IdCategoriaDespesa;
             tituloPagarOficial.Descricao = tituloPagar.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagar.FormaPagamento;
             tituloPagarOficial.Caixa = tituloPagar.Caixa;
@@ -57,7 +55,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloPagar tituloPagar) 
         {
-            // tituloPagar.RegistroAtivo = true;
+             //tituloPagar.RegistroAtivo = true;
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
