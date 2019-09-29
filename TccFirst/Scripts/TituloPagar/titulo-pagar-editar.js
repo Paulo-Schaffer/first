@@ -53,7 +53,7 @@
         $dataPagamento = $('#parcelasPagar-campo-data-pagamento').val();
         debugger;
         $.ajax({
-            url: "/ParcelasPagar/update",
+            url: "/parcelasPagar/update",
             method: "post",
             data: {
                 DataPagamento: $dataPagamento,
