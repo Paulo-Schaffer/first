@@ -143,7 +143,8 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
-
+                LimparCampos();
+                $idAlterar = -1;
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {
@@ -203,8 +204,9 @@ $(function () {
                 $('#caixa-campo-documento').val(data.Documento);
                 $('#caixa-campo-valor').val(data.Valor);
                 $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
-
-                $("#caixa-campo-data-lancamento").val(data.DataLancamento);
+                var dataLancamento = moment(data.DataLancamento);
+                console.log();
+                $("#caixa-campo-data-lancamento").val(dataLancamento.format('YYYY-MM-DD'));
                 $('#caixa-campo-historico').val(data.IdHistoricos);
                 $('#modal-caixa').modal('show');
             },
@@ -217,8 +219,8 @@ $(function () {
     function LimparCampos() {
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-forma-pagamento").val("");
         $("#caixa-campo-valor").val("");
+        $("#caixa-campo-forma-pagamento").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;

@@ -439,7 +439,6 @@ $('.table').on('click', '.botao-editar', function () {
             $('#clientePessoaFisica-campo-cpf').val(data.Cpf);
             var dataNascimento = moment(data.DataNascimento);
             console.log();
-
             $('#clientePessoaFisica-campo-dataNascimento').val(dataNascimento.format('YYYY-MM-DD'));
             $('#clientePessoaFisica-campo-limiteCredito').val(data.LimiteCredito);
             $('#clientePessoaFisica-campo-email').val(data.Email);
