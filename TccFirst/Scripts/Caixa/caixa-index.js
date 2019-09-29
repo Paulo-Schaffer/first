@@ -122,13 +122,13 @@ $(function () {
         }
 
         if ($idAlterar == -1) {
-            inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
+            inserir($descricao, $documento,  $formaPagamento,  $valor,  $dataLancamento, $IdHistoricos);
         } else {
-            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
+            alterar($descricao, $documento,  $formaPagamento,  $valor,  $dataLancamento, $IdHistoricos);
         }
     });
 
-    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
+    function alterar($descricao, $documento, $formaPagamento, $valor,  $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: "/Caixa/update",
             method: "post",
@@ -136,8 +136,8 @@ $(function () {
                 id: $idAlterar,
                 Descricao: $descricao,
                 Documento: $documento,
-                Valor: $valor,
                 FormaPagamento: $formaPagamento,
+                Valor: $valor,
                 DataLancamento: $dataLancamento,
                 IdHistoricos: $IdHistoricos,
             },
@@ -160,8 +160,8 @@ $(function () {
             data: {
                 Descricao: $descricao,
                 Documento: $documento,
-                Valor: $valor,
                 FormaPagamento: $formaPagamento,
+                Valor: $valor,
                 DataLancamento: $dataLancamento,
                 IdHistoricos: $IdHistoricos,
             },
@@ -180,18 +180,34 @@ $(function () {
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
-        $.ajax({
-            url: '/Caixa/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaCaixa.ajax.reload();
-            },
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/Caixa/apagar?id=' + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaCaixa.ajax.reload();
+                            },
 
-            error: function (err) {
-                alert('Moisés');
+                            error: function (err) {
+                                alert('Moisés');
+                            }
+
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
 
         });
+
+        
     });
 
     $('.table').on('click', '.botao-editar', function () {
@@ -202,8 +218,8 @@ $(function () {
             success: function (data) {
                 $('#caixa-campo-descricao').val(data.Descricao);
                 $('#caixa-campo-documento').val(data.Documento);
-                $('#caixa-campo-valor').val(data.Valor);
                 $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
+                $('#caixa-campo-valor').val(data.Valor);
                 var dataLancamento = moment(data.DataLancamento);
                 console.log();
                 $("#caixa-campo-data-lancamento").val(dataLancamento.format('YYYY-MM-DD'));
@@ -219,8 +235,8 @@ $(function () {
     function LimparCampos() {
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-valor").val("");
         $("#caixa-campo-forma-pagamento").val("");
+        $("#caixa-campo-valor").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;
