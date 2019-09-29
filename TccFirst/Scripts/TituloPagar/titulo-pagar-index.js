@@ -57,21 +57,31 @@ $(function () {
     });
 
     $("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja realmente apagar?");
-        if (confirma == true) {
-            $id = $(this).data('id');
-            $.ajax({
-                url: '/tituloPagar/apagar?id=' + $id,
-                method: "get",
-                success: function (data) {
-                    $tabelaTituloPagar.ajax.reload();
-                    alert('...');
+        $id = $(this).data('id');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão Apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/tituloPagar/apagar?id=' + $id,
+                            method: "get",
+                            success: function (data) {
+                                $tabelaTituloPagar.ajax.reload();
+                                alert('...');
+                            },
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            }
+                        });
+                    }
                 },
-                error: function (err) {
-                    alert('Não foi possível apagar');
-                }
-            });
-        }
+                cancelar: function () {
+                },
+            }
+        });
         $('#funcionario-botao-salvar').on('click', function () {
             function monstrarMensagem(texto, titulo, tipo) {
                 // Tipo -> error ,info, primary, success, default
