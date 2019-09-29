@@ -1,4 +1,4 @@
-$(function () {
+﻿$(function () {
     $idAlterar = -1;
     $idTituloPagar = $("#id").val();
 
@@ -63,7 +63,6 @@ $(function () {
                 $("#modal-parcelaPagar").modal("hide");
                 $idAlterar = -1;
                 $tabelaParcelas.ajax.reload();
-                alert('esse aqui mesmo');
             },
             error: function (err) {
                 alert("Não foi possível alterar");

@@ -51,7 +51,7 @@ namespace Model
 
         #region fk__fornecedores
         [Column("id_fornecedor")]
-        public int? IdFornecedor { get; set; }
+        public int IdFornecedor { get; set; }
 
         [ForeignKey("IdFornecedor")]
         public Fornecedor Fornecedor { get; set; }

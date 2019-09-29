@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Interfaces
 {
-    public interface IParcelaPagarRepository
+    interface IParcelaPagarRepository
     {
         void GerarParcelas(int idTituloPagar);
 
@@ -15,6 +15,6 @@ namespace Repository.Interfaces
         List<ParcelaPagar> ObterTodos(int idTitloPagar);
 
 
-        ParcelaPagar ObterPeloId(int id);
+        ParcelaPagar ObterPeloId(int id); 
     }
 }

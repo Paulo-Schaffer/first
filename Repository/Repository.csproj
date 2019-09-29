@@ -54,7 +54,7 @@
     <Compile Include="Interfaces\ICategoriaDespesaRepository.cs" />
     <Compile Include="Interfaces\ICategoriaReceitaRepository.cs" />
     <Compile Include="Interfaces\IClientePessoaFisicaRepository.cs" />
-    <Compile Include="Interfaces\ITransacoes.cs" />
+    <Compile Include="Interfaces\IContaCorrenteRepository.cs" />
     <Compile Include="Interfaces\IClientePessoaJuridicaRepository.cs" />
     <Compile Include="Interfaces\IFornecedorRepository.cs" />
     <Compile Include="Interfaces\IFuncionarioRepository.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="Repositories\CategoriaDespesaRepository.cs" />
     <Compile Include="Repositories\CategoriaReceitaRepository.cs" />
     <Compile Include="Repositories\ClientePessoaFisicaRepository.cs" />
-    <Compile Include="Repositories\TransacoesRepository.cs" />
+    <Compile Include="Repositories\ContaCorrenteRepository.cs" />
     <Compile Include="Repositories\ClientePessoaJuridicaRepository.cs" />
     <Compile Include="Repositories\FornecedorRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />

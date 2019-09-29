@@ -1,14 +1,15 @@
-﻿
-$(function () {
+﻿$(function () {
     $('#fornecedor-campo-cnpj').mask('00.000.000.0000/00', { reverse: true });
     $('#fornecedor-campo-telefone').mask('(00) 0000-0000');
-    $('#fornecedor-campo-cep').mask('00000-000') 
+    $('#fornecedor-campo-cep').mask('00000-000');
+
     $idAlterar = -1;
+
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
         ajax: '/fornecedor/obtertodos',
         serverSide: true,
         columns: [
-            { 'data': 'Id' },
+            { 'data': 'Id' },   
             { 'data': 'RazaoSocial' },
             { 'data': 'Email' },
             { 'data': 'Telefone' },
@@ -23,17 +24,15 @@ $(function () {
         ]
     });
 
-    
     $('#fornecedor-batao-salvar').on('click', function () {
-        function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
-            new PNotify({
-                title: titulo,
-                text: texto,
-                icon: 'icofont icofont-info-circle',
-                type: tipo
-            });
-        }
+        //if ($('#fornecedor-nome-razaoSocial').val() = "") {
+        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão social </div>');
+        //    $('#fornecedor-nome-razaoSocial').focus();
+        //    return false;
+        //} else if () { };
+
+
+
         $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
         $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
         $dataCadastro = $('#fornecedor-campo-dataCadastro').val();
@@ -47,63 +46,6 @@ $(function () {
         $cidade = $('#fornecedor-campo-cidade').val();
         $uf = $('#fornecedor-campo-sigla').val();
         $complemento = $('#fornecedor-campo-complemento').val();
-
-        if ($razaoSocial == "") {
-            monstrarMensagem('Digite a Razão Social', '', 'error');
-            $('#fornecedor-nome-razaoSocial').focus();
-            return false;
-        } else if ($nomeFantasia == '') {
-            monstrarMensagem('Digite o Nome Fantasia da Empresa', '', 'error');
-            $('#fornecedor-campo-nomeFantasia').focus();
-            return false;
-        } else if ($cnpj == '') {
-            monstrarMensagem('Digite o CNPJ da Empresa', '', 'error');
-            $('#fornecedor-campo-cnpj').focus();
-            return false;
-        } else if ($dataCadastro == '') {
-            monstrarMensagem('Digite a Data de Lançamento', '', 'error');
-            $('#fornecedor-campo-dataCadastro').focus();
-            return false;
-        } else if ($email == '') {
-            monstrarMensagem('Digite o E-mail', '', 'error');
-            $('#fornecedor-campo-email').focus();
-            return false;
-        } else if ($telefone == '') {
-            monstrarMensagem('Digite o Telefone', '', 'error');
-            $('#fornecedor-campo-telefone').focus();
-            return false;
-        } else if ($logradouro == '') {
-            monstrarMensagem('Digite o Logradouro (rua,aveninda, estrada etc', '', 'error');
-            $('#fornecedor-campo-logradouro').focus();
-            return false;
-        } else if ($cep == '') {
-            monstrarMensagem('Digite o Cep', '', 'error');
-            $('#fornecedor-campo-cep').focus();
-            return false;
-            monstrarMensagem('Digite o Cep ', '', 'error');
-        } else if ($numero == '') {
-            monstrarMensagem('Digite o Número', '', 'error');
-            $('#fornecedor-campo-numero').focus();
-            return false;
-        } else if ($bairro == "") {
-            monstrarMensagem('Digite o Bairro', '', 'error');
-            $('#fornecedor-campo-bairro').focus();
-            return false;
-        } else if ($cidade == '') {
-            monstrarMensagem('Digite a Cidade', '', 'error');
-            $('#fornecedor-campo-cidade').focus();
-            return false;
-        } else if ($uf == undefined) {
-            monstrarMensagem('Selecione o Estado ', '', 'error');
-            $('#fornecedor-campo-sigla').focus();
-            return false;
-        } else if ($complemento == '') {
-            monstrarMensagem('Digite o Complemento', '', 'error');
-            $('#fornecedor-campo-complemento').focus();
-            return false;
-        } else {
-            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
-        }; 
 
         if ($idAlterar == -1) {
             inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento)
@@ -136,7 +78,6 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-fornecedor").modal("hide");
-                $(".modal-backdrop").hide();
                 $idAlterar = -1;
                 $tabelafornecedor.ajax.reload();
             },
@@ -167,7 +108,6 @@ $(function () {
             },
             success: function (data) {
                 $('#modal-fornecedor').modal('hide');
-                $(".modal-backdrop").hide();
                 $tabelafornecedor.ajax.reload();
             },
             error: function (err) {
@@ -223,149 +163,5 @@ $(function () {
                 alert('não foi possível carregar');
             }
         });
-    });
-});
-$(function () {
-
-    // Ao pressionar o botão enter focar no próximo campo
-    $('#fornecedor-nome-razaoSocial').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
-            $('#fornecedor-campo-nomeFantasia').focus();
-        } else if (e.keyCode == 39) {
-            $('#fornecedor-campo-nomeFantasia').focus();
-        }
-    });
-    $('#fornecedor-campo-nomeFantasia').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
-            $('#fornecedor-campo-cnpj').focus();
-        } else if (e.keyCode == 39) {
-            $('#fornecedor-campo-cnpj').focus();
-        } else if (e.keyCode == 37) { // seta p/ esquerda
-            $('#fornecedor-nome-razaoSocial').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-nome-razaoSocial').focus();
-        }
-    });
-    $('#fornecedor-campo-cnpj').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-dataCadastro').focus();
-        } else if (e.keyCode == 38 || e.keyCode == 37) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-nomeFantasia').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-email').focus();
-        }
-    });
-    $('#fornecedor-campo-dataCadastro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-email').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
-            $('#fornecedor-campo-cnpj').focus();
-        }
-        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-nomeFantasia').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-telefone').focus();
-        }
-    });
-
-    $('#fornecedor-campo-email').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-telefone').focus();
-        } else if (e.keyCode == 37) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-dataCadastro').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-cnpj').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-logradouro').focus();
-        }
-    });
-    $('#fornecedor-campo-telefone').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-logradouro').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
-            $('#fornecedor-campo-email').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-dataCadastro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-logradouro').focus();
-        }
-    });
-    $('#fornecedor-campo-logradouro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-cep').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
-            $('#fornecedor-campo-telefone').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-email').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-cep').focus();
-        }
-    });
-    $('#fornecedor-campo-cep').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-numero').focus();
-        } else if (e.keyCode == 38 || e.keyCode == 37) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-logradouro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-bairro').focus();
-        }
-    });
-    $('#fornecedor-campo-numero').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-bairro').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
-            $('#fornecedor-campo-cep').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-logradouro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-bairro').focus();
-        }
-    });
-    $('#fornecedor-campo-bairro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-cidade').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
-            $('#fornecedor-campo-numero').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-cep').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-cidade').focus();
-        }
-    });
-    $('#fornecedor-campo-cidade').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-sigla').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
-            $('#fornecedor-campo-bairro').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-bairro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-campo-sigla').focus();
-        }
-    });
-    $('#fornecedor-campo-sigla').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-campo-complemento').focus();
-        }
-        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-cidade').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-batao-salvar').focus();
-        }
-    });
-    $('#fornecedor-campo-complemento').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
-            $('#fornecedor-batao-salvar').focus();
-        }
-        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-cidade').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
-            $('#fornecedor-batao-salvar').focus();
-        }
-    });
-    $('#fornecedor-batao-salvar').keyup(function (e) {
-        if (e.keyCode == 38) { // seta p/ cima foca campo de cima
-            $('#fornecedor-campo-complemento').focus();
-        } else { };
     });
 });
