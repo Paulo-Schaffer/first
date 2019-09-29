@@ -2,7 +2,7 @@
 $(function () {
     $('#fornecedor-campo-cnpj').mask('00.000.000.0000/00', { reverse: true });
     $('#fornecedor-campo-telefone').mask('(00) 0000-0000');
-    $('#fornecedor-campo-cep').mask('00000-000') 
+    $('#fornecedor-campo-cep').mask('00000-000')
     $idAlterar = -1;
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
         ajax: '/fornecedor/obtertodos',
@@ -23,7 +23,7 @@ $(function () {
         ]
     });
 
-    
+
     $('#fornecedor-batao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
             // Tipo -> error ,info, primary, success, default
@@ -103,7 +103,7 @@ $(function () {
             return false;
         } else {
             monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
-        }; 
+        };
 
         if ($idAlterar == -1) {
             inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento)
@@ -179,21 +179,33 @@ $(function () {
 
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão Apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/fornecedor/apagar?id=' + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelafornecedor.ajax.reload();
+                            },
 
-        $.ajax({
-            url: '/fornecedor/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelafornecedor.ajax.reload();
-            },
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            }
 
-            error: function (err) {
-                alert('Não foi possível apagar');
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
 
         });
     });
-
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
 

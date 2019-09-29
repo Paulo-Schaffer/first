@@ -382,7 +382,7 @@ $(function () {
         $idApagar = $(this).data('id');
         $.confirm({
             title: 'Deseja Realmente Apagar?',
-            content: 'Clique no botão confirm para apagar',
+            content: 'Clique no botão apagar para apagar o registro',
             buttons: {
                 Apagar: {
                     btnClass: 'btn-red any-other-class',
@@ -401,8 +401,7 @@ $(function () {
                         });
                     }
                 },
-                cancel: function () {
-                    $.alert('Canceled!');
+                cancelar: function () {
                 },
             }
 

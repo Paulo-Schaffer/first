@@ -355,16 +355,29 @@ $(function () {
     }
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
-
-        $.ajax({
-            url: "/clientePessoaJuridica/apagar?id=" + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaClientePessoaJuridica.ajax.reload();
-            },
-            error: function (err) {
-                alert('Não foi possivel apagar');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão Apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: "/clientePessoaJuridica/apagar?id=" + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaClientePessoaJuridica.ajax.reload();
+                            },
+                            error: function (err) {
+                                alert('Não foi possivel apagar');
+                            }
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
+
         });
     });
     $('.table').on('click', '.botao-editar', function () {

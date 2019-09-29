@@ -67,21 +67,31 @@
     });
 
     $('#funcionario-tabela').on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja realmente Apagar?");
-        if (confirma == true) {
-            $id = $(this).data('id');
-            $.ajax({
-                url: '/Funcionario/apagar?id=' + $id,
-                method: 'get',
-                success: function (data) {
-                    $tabelaFuncionario.ajax.reload();
-                },
-                error: function (err) {
-                    alert('Não foi possível apagar');
-                }
+        $id = $(this).data('id');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão Apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/Funcionario/apagar?id=' + $id,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaFuncionario.ajax.reload();
+                            },
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            }
 
-            });
-        }
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
+            }
+        });
     });
 
     $('.table').on('click', '.botao-editar', function () {

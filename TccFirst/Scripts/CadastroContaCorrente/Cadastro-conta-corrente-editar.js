@@ -36,15 +36,29 @@ $(function () {
 
     $("#cadastro-conta-corrente-tabela").on("click", ".botao-apagar", function () {
         $id = $(this).data("id");
-        $.ajax({
-            url: '/cadastrocontacorrente/apagar?id=' + $id,
-            method: "get",
-            success: function (data) {
-                $tabelaCadastroContaCorrente.ajax.reload();
-            },
-            error: function (err) {
-                alert('Não foi possível apagar');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão Apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/cadastrocontacorrente/apagar?id=' + $id,
+                            method: "get",
+                            success: function (data) {
+                                $tabelaCadastroContaCorrente.ajax.reload();
+                            },
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            }
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
+
         });
     });
 
