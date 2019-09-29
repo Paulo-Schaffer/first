@@ -280,9 +280,6 @@ $(function () {
         } else {
             monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         };
-
-            
-
         if ($idAlterar == -1) {
             inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade);
         } else {
@@ -313,6 +310,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-clientePessoaJuridica").modal("hide");
+                Limparcampos();
                 $idAlterar = -1;
                 $tabelaClientePessoaJuridica.ajax.reload();
             },
@@ -321,6 +319,25 @@ $(function () {
             }
         });
     }
+    function Limparcampos() {
+        $('#clientePessoaJuridica-campo-razaoSocial').val("");
+        $('#clientePessoaJuridica-campo-atividade').val("");
+        $('#clientePessoaJuridica-campo-nomeFantasia').val("");
+        $('#clientePessoaJuridica-campo-dataCadastro').val("");
+        $('#clientePessoaJuridica-campo-cnpj').val("");
+        $('#clientePessoaJuridica-campo-email').val("");
+        $('#clientePessoaJuridica-campo-filial').val("");
+        $('#clientePessoaJuridica-campo-telefone').val("");
+        $('#clientePessoaJuridica-campo-cep').val("");
+        $('#clientePessoaJuridica-campo-logradouro').val("");
+        $('#clientePessoaJuridica-campo-numero').val("");
+        $('#clientePessoaJuridica-campo-bairro').val("");
+        $('#clientePessoaJuridica-campo-uf').val("");
+        $('#clientePessoaJuridica-campo-cidade').val("");
+    }
+    $('#modal-clientePessoaJuridica').on('hidden.bs.modal', function (e) {
+        Limparcampos();
+    })
     function inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
         $.ajax({
             url: "/clientePessoaJuridica/inserir",

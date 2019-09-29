@@ -326,7 +326,9 @@ $(function () {
                 complemento: $complemento
             },
             success: function (data) {
-                $("#modal-clientePessoaFisicaEditar").modal("hide");
+                //$("#modal-clientePessoaFisicaEditar").modal("hide");
+                $('#modal-clientePessoaFisica').modal('hide');
+                LimparCampos();
                 $idAlterar = -1;
                 $tabelaClientePessoaFisica.ajax.reload();
             },
@@ -335,6 +337,25 @@ $(function () {
             }
         })
     }
+    function LimparCampos() {
+        $(".modal-backdrop").hide();
+        $('#clientePessoaFisica-campo-nome').val("");
+        $('#clientePessoaFisica-campo-cpf').val("");
+        $('#clientePessoaFisica-campo-dataNascimento').val("");
+        $('#clientePessoaFisica-campo-limiteCredito').val("");
+        $('#clientePessoaFisica-campo-email').val("");
+        $('#clientePessoaFisica-campo-telefone').val("");
+        $('#clientePessoaFisica-campo-cep').val("");
+        $('#clientePessoaFisica-campo-numero').val("");
+        $('#clientePessoaFisica-campo-bairro').val("");
+        $('#clientePessoaFisica-campo-cidade').val("");
+        $('#clientePessoaFisica-campo-uf').val("");
+        $('#clientePessoaFisica-campo-complemento').val("");
+        $idAlterar = -1;
+    }
+    $('#modal-clientePessoaFisica').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 
     function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
@@ -435,5 +456,6 @@ $('.table').on('click', '.botao-editar', function () {
             alert('não foi possível carregar');
         }
     });
+    
 });
 });

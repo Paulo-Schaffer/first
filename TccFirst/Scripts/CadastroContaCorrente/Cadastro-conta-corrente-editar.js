@@ -146,8 +146,9 @@ $(function () {
                 NumeroConta: $NumeroConta
             },
             success: function (data) {
-                limparCampos();
                 $('#modal-cadastro-conta-corrente').modal('hide');
+                limparCampos();
+                $idAlterar = -1;
                 $(".modal-backdrop").hide();
                 $tabelaCadastroContaCorrente.ajax.reload();
             }
@@ -155,8 +156,11 @@ $(function () {
     }
 
     function limparCampos() {
-        $('#cadastro-conta-corrente-campo-idAgencia').val("");
+        $('#cadastro-conta-corrente-campo-idAgencia').val(null);
         $('#cadastro-conta-corrente-campo-numero-conta').val("");
         $idAlterar = -1;
     }
+    $('#modal-cadastro-conta-corrente').on('hidden.bs.modal', function (e) {
+        limparCampos();
+    })
 });
