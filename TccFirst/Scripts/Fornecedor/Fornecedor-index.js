@@ -137,6 +137,7 @@ $(function () {
             success: function (data) {
                 $("#modal-fornecedor").modal("hide");
                 $(".modal-backdrop").hide();
+                LimparCampos();
                 $idAlterar = -1;
                 $tabelafornecedor.ajax.reload();
             },
@@ -145,6 +146,25 @@ $(function () {
             }
         })
     }
+    function LimparCampos() {
+        $('#fornecedor-nome-razaoSocial').val("");
+        $('#fornecedor-campo-nomeFantasia').val("");
+        $('#fornecedor-campo-dataCadastro').val("");
+        $('#fornecedor-campo-cnpj').val("");
+        $('#fornecedor-campo-email').val("");
+        $('#fornecedor-campo-telefone').val("");
+        $('#fornecedor-campo-cep').val("");
+        $('#fornecedor-campo-logradouro').val("");
+        $('#fornecedor-campo-numero').val("");
+        $('#fornecedor-campo-bairro').val("");
+        $('#fornecedor-campo-cidade').val("");
+        $('#fornecedor-campo-sigla').val("");
+        $('#fornecedor-campo-complemento').val("");
+        $idAlterar = -1;
+    }
+    $("#modal-fornecedor").on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 
     function inserir($razaoSocial, $nomeFantasia, $dataCadastro, $cnpj, $email, $telefone, $cep, $logradouro, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
@@ -227,7 +247,7 @@ $(function () {
                 $('#fornecedor-campo-numero').val(data.Numero);
                 $('#fornecedor-campo-bairro').val(data.Bairro);
                 $('#fornecedor-campo-cidade').val(data.Cidade);
-                $('#fornecedor-campo-uf').val(data.Uf);
+                $('#fornecedor-campo-sigla').val(data.Uf);
                 $('#fornecedor-campo-complemento').val(data.Complemento);
                 $('#modal-fornecedor').modal('show');
             },
@@ -236,6 +256,7 @@ $(function () {
             }
         });
     });
+    
 });
 $(function () {
 
