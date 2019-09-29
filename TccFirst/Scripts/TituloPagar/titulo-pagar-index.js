@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
     $tabelaTituloPagar = $("#tituloPagar-tabela").DataTable({
         "scrollX": true,
         ajax: '/titulopagar/obtertodos',
@@ -65,13 +65,42 @@
                 method: "get",
                 success: function (data) {
                     $tabelaTituloPagar.ajax.reload();
+                    alert('...');
                 },
                 error: function (err) {
                     alert('Não foi possível apagar');
                 }
             });
         }
-    });
+        $('#funcionario-botao-salvar').on('click', function () {
+            function monstrarMensagem(texto, titulo, tipo) {
+                // Tipo -> error ,info, primary, success, default
+                new PNotify({
+                    title: titulo,
+                    text: texto,
+                    icon: 'icofont icofont-info-circle',
+                    type: tipo
+                });
+            }
+
+        });
+        $fornecedor = $('#tituloPagar-campo-fornecedor').val();
+        $dispesa = $('#tituloPagar-campo-categoria-despesa').val();
+        $formaPagamneto = $('#tituloPagar-campo-forma-pagamento').val();
+        $status = $('#tituloPagar-campo-status').val();
+        $caixa = $('#tituloPagar-campo-caixa').val();
+        $dataLancamento = $('#tituloPagar-campo-data-lancamento').val();
+        $dataRecebimento = $('#tituloPagar-campo-data-recebimento').val();
+        $dataVencimento = $('#tituloPagar-campo-data-vencimento').val();
+        $quantidadeParcela = $('#tituloPagar-campo-quantidade-parcela').val();
+        $descricao = $('#tituloPagar-campo-descricao').val();
+        $valorTotal = $('#tituloPagar-campo-valor-total');
+
+        if ($fornecedor == undefined) {
+            monstrarMensagem('Digite a Razão Social', '', 'error');
+            $('#tituloPagar-campo-fornecedor').focus();
+            return false;
+        } else { };
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data("id");

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
+    public class ParcelaReceberRepository : IParcelaReceberRepository
+    {
+        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber)
    public class ParcelaReceberRepository : IParcelaReceberRepository
    {
         private SistemaContext context;
@@ -52,8 +55,7 @@ namespace Repository.Repositories
 
         public ParcelaReceber ObterPeloId(int id)
         {
-            var parcela = context.ParcelasReceber.Where(x => x.Id == id).FirstOrDefault();
-            return parcela;
+            throw new NotImplementedException();
         }
 
         public List<ParcelaReceber> ObterTodos(int idTituloReceber)

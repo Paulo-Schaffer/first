@@ -23,10 +23,41 @@
     });
 
     $('#funcionario-botao-salvar').on('click', function () {
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
         $Nome = $('#funcionario-campo-nome').val();
         $TipoFuncionario = $('#funcionario-campo-tipo').val();
         $Usuario = $('#funcionario-campo-usuario').val();
         $Senha = $('#funcionario-campo-senha').val();
+        //Validação
+        if ($Nome == "") {
+            monstrarMensagem('Digite o Nome', '', 'error');
+            $('#funcionario-campo-nome').focus();
+            return false;
+        } else if ($TipoFuncionario == undefined) {
+            monstrarMensagem('Selecione um Funcionário', '', 'error');
+            $('#funcionario-campo-tipo').focus();
+            return false;
+        } else if ($Usuario == "") {
+            monstrarMensagem('Digite uma Usuário', '', 'error');
+            $('#funcionario-campo-usuario').focus();
+            return false;
+        }
+        else if ($Senha == "") {
+            monstrarMensagem('Digite uma senha', '', 'error');
+            $('#funcionario-campo-senha').focus();
+            return false;
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        };
+
 
         if ($idAlterar == -1) {
             inserir($Nome, $TipoFuncionario, $Usuario, $Senha);
@@ -126,4 +157,51 @@
     $('#modal-funcionario').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })
+});
+$(function () {
+
+    // Ao pressionar o botão enter focar no próximo campo
+    // 37 --> Esquerda
+    // 38 --> cima
+    // 39 --> Direita
+    // 40 --> baixo
+    $('#funcionario-campo-nome').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
+            $('#funcionario-campo-tipo').focus();
+        } else if (e.keyCode == 39) {
+            $('#funcionario-campo-tipo').focus();
+        }
+    });
+    $('#funcionario-campo-tipo').keyup(function (e) {
+        if (e.keyCode == 13) { // Enter ou seta p/ baixo
+            $('#funcionario-campo-usuario').focus();
+        } else if (e.keyCode == 39) {
+            $('#funcionario-campo-usuario').focus(); // direita
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-nome').focus(); // esquerda
+        }
+    });
+    $('#funcionario-campo-usuario').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { 
+            $('#funcionario-campo-senha').focus();
+        } else if (e.keyCode == 40) {
+            $('#funcionario-botao-salvar').focus;
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-tipo').focus(); // esquerda
+        }
+    });
+    $('#funcionario-campo-senha').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ baixo
+            $('#funcionario-botao-salvar').focus();
+        } else if (e.keyCode == 40) {
+            $('#funcionario-botao-salvar');
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-usuario').focus(); // esquerda
+        }
+    });
+    $('#funcionario-botao-salvar').keyup(function (e) {
+           if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#funcionario-campo-senha').focus(); // esquerda
+        }
+    });
 });

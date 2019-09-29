@@ -46,10 +46,8 @@ namespace TccFirst.Controllers
             tituloReceber.RegistroAtivo = true;
             tituloReceber.Status = TituloReceber.StatusPendente;
             int id = repository.Inserir(tituloReceber);
-            var resultado = new { id = id };
-            return RedirectToAction("Index",resultado);
+            return Json(new { id = id });
         }
-        #endregion
 
         #region Editar
         [HttpPost, Route("editar")]
@@ -59,14 +57,19 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult Editar(int id)
+        
+        [HttpGet,Route("apagar")]
+        JsonResult Apagar(int id)
         {
-            var tituloReceber = repository.ObterPeloId(id);
-            ViewBag.TituloReceber = tituloReceber;
-            return View();
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        #endregion
+
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public ActionResult Index()
         {

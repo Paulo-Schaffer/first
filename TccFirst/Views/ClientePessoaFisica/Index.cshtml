@@ -1,25 +1,38 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Clientes Pessoa Fisica</h2>
-<button data-toggle="modal" data-target="#modal-clientePessoaFisica" class="btn btn-primary">Novo Cliente Pessoa Fisica</button>
-<span id="msg"></span>
-<table id="cliente-pessoa-fisica-tabela" class="table table-hover table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Cpf</th>
-            <th>Data Nascimento </th>
-            <th>Limite de Crédito</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-</table>
-@RenderPage("CadastroPessoaFisica.cshtml")
+<h2><b>Clientes Pessoa Fisica</b></h2>
+<hr />
+<div class="row">
 
+    <div class="col-12">
+        <button id="botao-novoCliente" data-toggle="modal" data-target="#modal-clientePessoaFisica" class="btn btn-primary float-right"><i class="fa fa-plus"></i>Novo Cliente </button>
+        <span id="msg"></span>
+    </div>
+</div>
+<br />
+<br />
+
+
+<div class="row">
+    <div class="col-12">
+        <table id="cliente-pessoa-fisica-tabela" class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Cpf</th>
+                    <th>Data Nascimento </th>
+                    <th>Limite de Crédito</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@RenderPage("CadastroPessoaFisica.cshtml")
+<link rel="stylesheet" href="~/Content/css/ClientePesssoaFisica/TelaIndexPessoaFisica.css">
 @section js{
     <script src="~/Scripts/ClientePessoaFisica/cliente-pessoa-fisica-index.js"></script>
 }
