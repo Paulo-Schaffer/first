@@ -22,7 +22,7 @@ namespace Model
         [Column("id_conta_corrente")]
         public int IdContaCorrente { get; set; }
         [ForeignKey("IdContaCorrente")]
-        public ContaCorrente ContaCorrente { get; set; }
+        public Transacao transacao { get; set; }
         #endregion
 
         #region fk_caixa

@@ -2,38 +2,43 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Login First</title>
-    <link rel="icon" href="~/Content/Imagem/logo-blue.png" />
-    <link rel="stylesheet" href="~/Scripts/bootstrap.min.js" />
-    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
-</head>
-<body class="text-center">
-    <form action="/login/VerificaLogin" method="post">
-        <div class="row">
-            <div class="col-sm">
-            </div>
-            <div class="col-sm">
-                <img src="~/Content/Imagem/logo-blue.png" />
-                <div>
-                    <input type="text" id="campo-usuario" name="usuario" class="form-control" maxlength="45" placeholder="Usuario" />
-                </div>
-                <div>
-                    <input type="password" id="campo-senha" name="senha" class="form-control " maxlength="45" placeholder="Senha" />
-                </div>
-                <button class="btn btn-primary mt-3 " type="submit"><i class="fa fa-sign-in"></i> Entrar</button>
-            </div>
-            <div class="col-sm">
-            </div>
-        </div>
-    </form>
+<div class="container">
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Login First</title>
+        <link rel="icon" href="~/Content/Imagem/logo-blue.png" />
+        <link rel="stylesheet" href="~/Scripts/bootstrap.min.js" />
+        <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/Content/css/TelaLogin.css">
+    </head>
+    <body class="text-center">
+        <center>
 
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
-    <script src="~/Scripts/popper.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-</body>
+            <form action="/login/VerificaLogin" method="post">
+                <div class="row">
+                    <div class="col-sm">
+                    </div>
+                    <div class="col-sm">
+                        <img src="~/Content/Imagem/first.jpg" />
+                        <div>
+                            <input type="text" id="campo-usuario" size="1600" name="usuario" class="form-control" maxlength="45" placeholder="Usuario" />
+                        </div>
+                        <div>
+                            <input type="password" id="campo-senha" name="senha" class="form-control " maxlength="45" placeholder="Senha" />
+                        </div>
+                        <br />
+                        <button id="botao-login" class="btn btn-primary mt-3 btn-lg" type="submit"><i class="fa fa-sign-in"></i> Entrar</button>
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                </div>
+            </form>
+        </center>
+        <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+        <script src="~/Scripts/popper.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </body>
 </html>
+</div>

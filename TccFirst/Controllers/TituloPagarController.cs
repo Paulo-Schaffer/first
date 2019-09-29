@@ -45,7 +45,7 @@ namespace TccFirst.Controllers
         {
             tituloPagar.RegistroAtivo = true;
             tituloPagar.Status = TituloPagar.StatusPendente;
-            var id = repository.Inserir(tituloPagar);
+            int id = repository.Inserir(tituloPagar);
             var resultado = new { id = id };
             return RedirectToAction("Index", resultado);
         }
@@ -65,16 +65,13 @@ namespace TccFirst.Controllers
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return Json(resultado);
         }
 
-        [HttpGet]
         public ActionResult Editar(int id)
         {
-            var tituloPagar = repository.ObterPeloId(id);
-            if (tituloPagar == null)
-                return RedirectToAction("Index");
 
+            var tituloPagar = repository.ObterPeloId(id);
             ViewBag.TituloPagar = tituloPagar;
             return View();
         }

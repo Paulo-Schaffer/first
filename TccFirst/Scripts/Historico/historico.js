@@ -74,7 +74,7 @@ $(function () {
             }
         });
     }
-   
+
     $('.table').on('click', '.botao-apagar', function () {
         confirma = confirm("Deseja Realmente Apagar?")
         if (confirma == true) {
@@ -91,7 +91,7 @@ $(function () {
                 }
             });
         }
-       
+
     });
 
     $('.table').on('click', '.botao-editar', function () {
