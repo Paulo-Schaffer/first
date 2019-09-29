@@ -5,73 +5,128 @@
 
 });
 $(function () {
-    
+
     // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaFisica-campo-nome').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
             $('#clientePessoaFisica-campo-cpf').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-cpf').keyup(function (e) {
-        if (e.keyCode == 13) {
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-dataNascimento').focus();
         }
     });
-    $('#clientePessoaFisica-campo-dataNascimento').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-cpf').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-nome').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-limiteCredito').focus();
         }
     });
-    $('#clientePessoaFisica-campo-limiteCredito').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-dataNascimento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-limiteCredito').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-nome').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-cpf').focus();
+        }
+    });
+    $('#clientePessoaFisica-campo-limiteCredito').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39 || e.keyCode == 40) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-cpf').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
         }
     });
     $('#clientePessoaFisica-campo-email').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 39 || e.keyCode == 40) {
             $('#clientePessoaFisica-campo-telefone').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-limiteCredito').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
         }
     });
     $('#clientePessoaFisica-campo-telefone').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
             $('#clientePessoaFisica-campo-cep').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-cep').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-campo-rua').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-rua').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-campo-numero').focus();
-        }
-    });
-    $('#clientePessoaFisica-campo-numero').keyup(function (e) {
-        if (e.keyCode == 13) {
+        } else if (e.keyCode == 38 || e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-bairro').focus();
         }
     });
-    $('#clientePessoaFisica-campo-bairro').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-cep').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-numero').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-cidade').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-telefone').focus();
         }
     });
-    $('#clientePessoaFisica-campo-cidade').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-numero').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-bairro').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-email').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-cep').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-uf').focus();
         }
     });
-    $('#clientePessoaFisica-campo-uf').keyup(function (e) {
-        if (e.keyCode == 13) {
+    $('#clientePessoaFisica-campo-bairro').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-cidade').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-telefone').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-numero').focus();
+        } else if (e.keyCode == 40) {
             $('#clientePessoaFisica-campo-complemento').focus();
         }
     });
-    $('#clientePessoaFisica-campo-complemento').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaFisica-batao-salvar').focus();
+    $('#clientePessoaFisica-campo-cidade').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-uf').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-cep').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-bairro').focus();
+        } else if (e.keyCode == 40) {
+            $('#clientePessoaFisica-campo-complemento').focus();
         }
     });
+    $('#clientePessoaFisica-campo-uf').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39) {
+            $('#clientePessoaFisica-campo-complemento').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-cidade').focus();
+        }
+    });
+    $('#clientePessoaFisica-campo-complemento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 39 || e.keyCode == 40) {
+            $('#clientePessoaFisica-batao-salvar').focus();
+        } else if (e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-bairro').focus();
+        } else if (e.keyCode == 37) {
+            $('#clientePessoaFisica-campo-uf').focus();
+        }
+    });
+    $('#clientePessoaFisica-batao-salvar').keyup(function (e) {
+        if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaFisica-campo-complemento').focus();
+        }
+    });
+
 });
 $(document).ready(function () {
 
@@ -156,85 +211,17 @@ $(function () {
             { 'data': 'LimiteCredito' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '" id="botao-editar"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '" id="botao-apagar"><i class="fa fa-trash"></i>Apagar</button>'
 
                 }
             }
         ]
     });
     $('#clientePessoaFisica-batao-salvar').on('click', function () {
-        if ($('#clientePessoaFisica-campo-nome').val() == "") {
-            $('#clientePessoaFisica-campo-nome').focus();
-            return false;
-
-        } else if ($('#clientePessoaFisica-campo-cpf').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cpf </div>');
-            $('#clientePessoaFisica-campo-cpf').focus();
-            $.notify("Warning: Self-destruct in 3.. 2..", "warn");
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-dataNascimento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Data de Nascimento </div>');
-            $('#clientePessoaFisica-campo-dataNascimento').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-limiteCredito').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Limite de Crédito </div>');
-            $('#clientePessoaFisica-campo-limiteCredito').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-email').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo de E-mail </div>');
-            $('#clientePessoaFisica-campo-email').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-telefone').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Telefone </div>');
-            $('#clientePessoaFisica-campo-telefone').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-cep').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cep </div>');
-            $('#clientePessoaFisica-campo-cep').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-rua').val == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Rua </div>');
-            $('#clientePessoaFisica-campo-rua').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-numero').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
-            $('#clientePessoaFisica-campo-numero').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-bairro').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Bairro </div>');
-            $('#clientePessoaFisica-campo-bairro').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-cidade').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cidade </div>');
-            $('#clientePessoaFisica-campo-cidade').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-uf').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Uf </div>');
-            $('#clientePessoaFisica-campo-uf').focus();
-            return false;
-        }
-        else if ($('#clientePessoaFisica-campo-complemento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Complemento </div>');
-            $('#clientePessoaFisica-campo-complemento').focus();
-            return false;
-        }
-        else {
-            $('.alert').alert("");
-        }
         $nome = $('#clientePessoaFisica-campo-nome').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
-        $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito').val();
+        $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito ').val();
         $email = $('#clientePessoaFisica-campo-email').val();
         $telefone = $('#clientePessoaFisica-campo-telefone').val();
         $cep = $('#clientePessoaFisica-campo-cep').val();
@@ -244,6 +231,71 @@ $(function () {
         $cidade = $('#clientePessoaFisica-campo-cidade').val();
         $uf = $('#clientePessoaFisica-campo-uf').val();
         $complemento = $('#clientePessoaFisica-campo-complemento').val();
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
+        //Validação
+        if ($nome == "") {
+            monstrarMensagem('Digite o Nome', '', 'error');
+            $('#clientePessoaFisica-campo-nome').focus();
+            return false;
+        } else if ($cpf == "") {
+            monstrarMensagem('Digite o Cpf', '', 'error');
+            $('#clientePessoaFisica-campo-cpf').focus();
+            return false;
+        } else if ($dataNascimento == "") {
+            monstrarMensagem('Digite a Data de Nascimento', '', 'error');
+            $('#clientePessoaFisica-campo-dataNascimento').focus();
+            return false;
+        } else if ($limiteCredito == "") {
+            monstrarMensagem('Digite o Limite de Crédito', '', 'error');
+            $('#clientePessoaFisica-campo-limiteCredito').focus();
+            return false;
+        } else if ($email == "") {
+            monstrarMensagem('Digite o E-mail', '', 'error');
+            $('#clientePessoaFisica-campo-email').focus();
+            return false;
+        } else if ($telefone == "") {
+            monstrarMensagem('Digite o Telefone', '', 'error');
+            $('#clientePessoaFisica-campo-telefone').focus();
+            return false;
+        } else if ($cep == "") {
+            monstrarMensagem('Digite o Cep', '', 'error');
+            $('#clientePessoaFisica-campo-cep').focus();
+            return false;
+        } else if ($rua == "") {
+            monstrarMensagem('Digite a Rua', '', 'error');
+            $('#clientePessoaFisica-campo-rua').focus();
+            return false;
+        } else if ($numero == "") {
+            monstrarMensagem('Digite a Número', '', 'error');
+            $('#clientePessoaFisica-campo-numero').focus();
+            return false;
+        } else if ($bairro == "") {
+            monstrarMensagem('Digite a Bairro', '', 'error');
+            $('#clientePessoaFisica-campo-bairro').focus();
+            return false;
+        } else if ($cidade == "") {
+            monstrarMensagem('Digite a Cidade', '', 'error');
+            $('#clientePessoaFisica-campo-cidade').focus();
+            return false;
+        } else if ($uf == undefined) {
+            monstrarMensagem('Selecione a Uf', '', 'error');
+            $('#clientePessoaFisica-campo-uf').focus();
+            return false;
+        } else if ($complemento == "") {
+            monstrarMensagem('Digite um Complemento', '', 'error');
+            $('#clientePessoaFisica-campo-complemento').focus();
+            return false;
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        }
 
         if ($idAlterar == -1) {
             inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento);
@@ -376,9 +428,8 @@ $(function () {
 
         });
     });
-
-    $('.table').on('click', '.botao-editar', function () {
-        $idAlterar = $(this).data('id');
+$('.table').on('click', '.botao-editar', function () {
+    $idAlterar = $(this).data('id');
 
     $.ajax({
         url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,

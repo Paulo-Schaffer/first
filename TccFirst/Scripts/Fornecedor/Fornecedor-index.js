@@ -1,14 +1,14 @@
-﻿$(function () {
+﻿
+$(function () {
     $('#fornecedor-campo-cnpj').mask('00.000.000.0000/00', { reverse: true });
     $('#fornecedor-campo-telefone').mask('(00) 0000-0000');
     $('#fornecedor-campo-cep').mask('00000-000')
     $idAlterar = -1;
-
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
         ajax: '/fornecedor/obtertodos',
         serverSide: true,
         columns: [
-            { 'data': 'Id' },   
+            { 'data': 'Id' },
             { 'data': 'RazaoSocial' },
             { 'data': 'Email' },
             { 'data': 'Telefone' },
@@ -25,14 +25,15 @@
 
 
     $('#fornecedor-batao-salvar').on('click', function () {
-        //if ($('#fornecedor-nome-razaoSocial').val() = "") {
-        //    $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão social </div>');
-        //    $('#fornecedor-nome-razaoSocial').focus();
-        //    return false;
-        //} else if () { };
-
-
-
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
         $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
         $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
         $dataCadastro = $('#fornecedor-campo-dataCadastro').val();
@@ -186,6 +187,7 @@
             },
             success: function (data) {
                 $('#modal-fornecedor').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelafornecedor.ajax.reload();
             },
             error: function (err) {

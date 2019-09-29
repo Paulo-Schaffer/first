@@ -23,8 +23,9 @@ namespace Repository.Repositories
             var tituloReceberOriginal = context.TitulosReceber.Where(x => x.Id == tituloReceber.Id).FirstOrDefault();
 
             if(tituloReceberOriginal == null)
+            {
                 return false;
-            
+            }
             tituloReceberOriginal.IdClientePessoaJuridica = tituloReceber.IdClientePessoaJuridica;
             tituloReceberOriginal.IdClientePessoaFisica = tituloReceber.IdClientePessoaFisica;
             tituloReceberOriginal.IdCategoriaReceita = tituloReceber.IdCategoriaReceita;
@@ -34,6 +35,7 @@ namespace Repository.Repositories
             tituloReceberOriginal.DataLancamento = tituloReceber.DataLancamento;
             tituloReceberOriginal.DataRecebimento = tituloReceber.DataRecebimento;
             tituloReceberOriginal.DataVencimento = tituloReceber.DataVencimento;
+            tituloReceberOriginal.Complemento = tituloReceber.Complemento;
             tituloReceberOriginal.QuantidadeParcela = tituloReceber.QuantidadeParcela;
 
             int quantidadeAfetada = context.SaveChanges();
@@ -55,7 +57,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloReceber tituloReceber)
         {
-           // tituloReceber.RegistroAtivo = true; 
+           // tituloReceber.RegistroAtivo = true; // adicionado  dia 12/09/2019
             context.TitulosReceber.Add(tituloReceber);
             context.SaveChanges();
             return tituloReceber.Id;

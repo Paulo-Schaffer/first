@@ -29,6 +29,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public JsonResult Inserir(CategoriaReceita categoriaReceita)    
         {
@@ -58,6 +59,8 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
+
+
         [HttpGet, Route("categoriareceita/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
