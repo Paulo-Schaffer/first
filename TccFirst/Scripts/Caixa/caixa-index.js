@@ -99,18 +99,34 @@ $(function () {
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
-        $.ajax({
-            url: '/Caixa/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaCaixa.ajax.reload();
-            },
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/Caixa/apagar?id=' + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaCaixa.ajax.reload();
+                            },
 
-            error: function (err) {
-                alert('Moisés');
+                            error: function (err) {
+                                alert('Moisés');
+                            }
+
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
 
         });
+
+        
     });
 
     $('.table').on('click', '.botao-editar', function () {
@@ -124,7 +140,6 @@ $(function () {
                 $('#caixa-campo-documento').val(data.Documento);
                 $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
                 $('#caixa-campo-valor').val(data.Valor);
-                $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
                 var dataLancamento = moment(data.DataLancamento);
                 console.log();
                 $("#caixa-campo-data-lancamento").val(dataLancamento.format('YYYY-MM-DD'));
@@ -140,8 +155,8 @@ $(function () {
     function LimparCampos() {
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-valor").val("");
         $("#caixa-campo-forma-pagamento").val("");
+        $("#caixa-campo-valor").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;
