@@ -18,7 +18,7 @@ namespace Model
         public int Id { get; set; }
 
         [Column("valor")]
-        public decimal Valor { get; set; }
+        public int Valor { get; set; }
 
         [Column("status"), StringLength(50)]
         public string Status { get; set; }
@@ -27,17 +27,10 @@ namespace Model
         public DateTime? DataVencimento { get; set; }
 
         [Column("DataPagamento")]
-        public DateTime? DataPagamento { get; set; }
+        public DateTime DataPagamento { get; set; }
 
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
-        #region fk titulo pagar
-        [Column("id_titulo_pagar")]
-        public int IdTituloPagar { get; set; }
-
-        //[ForeignKey("IdTituloPagar")]
-        //public TituloPagar TitulosPagar { get; set; }
-        #endregion
     }
 }

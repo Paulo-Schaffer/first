@@ -49,7 +49,7 @@ namespace Model
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
-        #region fk__fornecedores
+        #region fk_fornecedores
         [Column("id_fornecedor")]
         public int IdFornecedor { get; set; }
 

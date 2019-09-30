@@ -16,7 +16,7 @@ namespace Repository
             {
                 Id = 1,
                 NomeAgencia = "Agencia da Vida",
-                NumeroAgencia = 2001,
+                NumeroAgencia = "2001",
                 Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
@@ -24,7 +24,7 @@ namespace Repository
             {
                 Id = 2,
                 NomeAgencia = "Agencia do Paulo",
-                NumeroAgencia = 666,
+                NumeroAgencia = "666",
                 Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
@@ -33,7 +33,7 @@ namespace Repository
             {
                 Id = 3,
                 NomeAgencia = "Você consegue",
-                NumeroAgencia = 8001,
+                NumeroAgencia = "8001",
                 Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
@@ -358,7 +358,7 @@ namespace Repository
             context.Caixas.AddRange(caixas);
             #endregion
 
-            #region categoriaDespesa
+            #region categoriasDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
@@ -375,7 +375,7 @@ namespace Repository
             context.CategoriasDespesas.AddRange(categoriaDespesa);
             #endregion
 
-            #region categoriaReceita
+            #region categoriasReceita
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
@@ -431,7 +431,7 @@ namespace Repository
             context.ClientesPessoasFisicas.AddRange(clientesPessoaFisica);
             #endregion
 
-            #region clientePessoaJuridica
+            #region clientesPessoasJuridicas
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
@@ -542,6 +542,7 @@ namespace Repository
 
             #endregion
 
+            
             #region fornecedores
             var fornecedores = new List<Fornecedor>();
             fornecedores.Add(new Fornecedor()
@@ -564,6 +565,23 @@ namespace Repository
             });
             context.Fornecedores.AddRange(fornecedores);
             #endregion
+
+            var transacao = new List<Transacao>();
+            transacao.Add(new Transacao()
+            {
+
+                RegistroAtivo = true,
+                IdCadastrosContaCorrente = 1,
+                IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                DescricaoTransacao = "alo",
+                Documento = "daskdaksd",
+                TipoPagamento = "dinheiro",
+                Valor = 111,
+                DataLancamento = Convert.ToDateTime("04/09/2019"),
+                DataRecebimento = Convert.ToDateTime("04/09/2019")
+            });
 
             #region historico
             var historico = new List<Historico>();
@@ -628,7 +646,7 @@ namespace Repository
                 Id = 2,
                 NomeFuncionario = "André",
                 TipoFuncionario = "Funcionario",
-                Usuario = "andrezinho",
+                Usuario = "Andre",
                 Senha = "123",
                 RegistroAtivo = true
 

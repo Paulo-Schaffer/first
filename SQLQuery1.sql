@@ -1,0 +1,1 @@
+﻿INSERT INTO cadastros_conta_corrente(id_agencia ,numero_conta ,registro_ativo )VALUES(1,12345,1);
