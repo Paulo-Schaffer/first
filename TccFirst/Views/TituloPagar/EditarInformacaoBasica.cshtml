@@ -1,4 +1,4 @@
-<div class="container">
+﻿<div class="container">
     <form action="/tituloPagar/editar" method="post">
         <div class="row">
             <div class="col-12">
@@ -37,21 +37,21 @@
                         {
                             <option value="Dinheiro">Dinheiro</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao Debito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Debito")
                         {
-                            <option value="CartaoDebito" selected="selected">Cartão Debito</option>
+                            <option value="Cartão de Débito" selected="selected">Cartão de Debito</option>
                         }
                         else
                         {
-                            <option value="CartaoDebito">Cartão Débito</option>
+                            <option value="Cartão de Débito">Cartão de Débito</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao Credito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Crédito")
                         {
-                            <option value="CartaoCredito" selected="selected"></option>
+                            <option value="Cartão de Crédito" selected="selected"></option>
                         }
                         else
                         {
-                            <option value="CartaoCredito">Cartão de Crédito</option>
+                            <option value="Cartão de Crédito">Cartão de Crédito</option>
                         }
                     </select>
                 </div>
@@ -76,14 +76,6 @@
                         else
                         {
                             <option value="Pago">Pago</option>
-                        }
-                        @if (ViewBag.TituloPagar.Status == "Pago Parcialmente")
-                        {
-                            <option value="PagoParcialmente" selected="selected">Pago parcialmente</option>
-                        }
-                        else
-                        {
-                            <option value="PagoParcialmente">Pago Parcialmente</option>
                         }
                         @if (ViewBag.TituloPagar.Status == "Cancelado")
                         {
@@ -160,7 +152,8 @@
         </div>
         <div class="modal-footer">
             <button class="btn btn-grd-success float-left mt-3" type="submit" id="tituloPagar-botao-salvar">
-            <i class="fa fa-save"></i> Salvar</button>
+                <i class="fa fa-save"></i> Salvar
+            </button>
         </div>
     </form>
 </div>
@@ -169,3 +162,4 @@
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
+

@@ -11,6 +11,11 @@ namespace Model
     [Table("titulos_receber")]
     public class TituloReceber
     {
+        public const string StatusPendente = "Pendente";
+        public const string StatusPagoParcialmente = "Parcialmente";
+        public const string StatusCancelado = "Cancelado";
+        public const string StatusFinalizado = "Finalizado";
+
         [Key, Column("id")]
         public int Id { get; set; }
 
