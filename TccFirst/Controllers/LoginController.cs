@@ -15,7 +15,6 @@ namespace TccFirst.Controllers
             return View();
         }
         
-        [HttpGet,Route("sair")]
         public ActionResult Sair()
         {
             Session["UsuarioLogadoId"] = null;

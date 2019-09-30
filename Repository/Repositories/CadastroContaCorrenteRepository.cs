@@ -17,16 +17,18 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public bool Alterar(CadastroContaCorrente cadastrosContaCorrente)
+        
+        public bool Alterar(CadastroContaCorrente cadastrocontacorrente)
         {
-            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
-            if (cadastrosContaCorrente == null)
+            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.Where(x => x.Id == cadastrocontacorrente.Id).FirstOrDefault();
+            if (cadastroContaCorrenteOriginal == null)
             {
                 return false;
             }
 
-            cadastrosContaCorrente.IdAgencia = cadastrosContaCorrente.IdAgencia;
-            cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
+            cadastroContaCorrenteOriginal.IdAgencia = cadastrocontacorrente.IdAgencia;
+            cadastroContaCorrenteOriginal.NumeroConta = cadastrocontacorrente.NumeroConta;
+
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -53,13 +55,23 @@ namespace Repository.Repositories
 
         public CadastroContaCorrente ObterPeloId(int id)
         {
-            return context.CadastroContaCorrentes.Include("Agencias").FirstOrDefault(x => x.Id == id);
+            var cadastroContaCorrente = context.CadastroContaCorrentes
+                .Where(x => x.Id == id).FirstOrDefault();
+            return cadastroContaCorrente;
         }
 
-        public List<CadastroContaCorrente> ObterTodos()
+        public List<CadastroContaCorrente> ObterTodos(int idAgencia)
         {
-            return context.CadastroContaCorrentes.Where(x => x.RegistroAtivo == true)
-                .ToList();
+            var query = context
+                .CadastroContaCorrentes
+                .Where(x => x.RegistroAtivo);
+
+            if(idAgencia != CadastroContaCorrente.FiltroSemAgencia)
+            {
+                query = query.Where(x => x.IdAgencia == idAgencia);
+            }
+
+            return query.ToList();
         }
     }
 }

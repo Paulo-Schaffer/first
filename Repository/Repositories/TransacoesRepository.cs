@@ -10,8 +10,8 @@ namespace Repository.Repositories
 {
     public class TransacoesRepository : ITransacoes
     {
-        private SistemaContext context; 
-        
+        private SistemaContext context;
+
         public TransacoesRepository()
         {
             context = new SistemaContext();
@@ -28,14 +28,14 @@ namespace Repository.Repositories
             transacaoOriginal.IdHistorico = transacao.IdHistorico;
             transacaoOriginal.IdCategoriaReceita = transacao.IdCategoriaReceita;
             transacaoOriginal.IdCategoriaDespesa = transacao.IdCategoriaDespesa;
-            transacaoOriginal.DescricaoTransacao = transacao.DescricaoTransacao;
+            transacaoOriginal.Descricao = transacao.Descricao;
             transacaoOriginal.Documento = transacao.Documento;
             transacaoOriginal.TipoPagamento = transacao.TipoPagamento;
             transacaoOriginal.Valor = transacao.Valor;
             transacaoOriginal.DataLancamento = transacao.DataLancamento;
             transacaoOriginal.DataRecebimento = transacao.DataRecebimento;
             int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == 1;   
+            return quantidadeAfetada == 1;
 
         }
 
@@ -43,13 +43,13 @@ namespace Repository.Repositories
         {
             var transacao = context.Transacoes.FirstOrDefault(x => x.Id == id);
 
-                if(transacao == null)
+            if (transacao == null)
             {
                 return false;
             }
             transacao.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == 1; 
+            return quantidadeAfetada == 1;
         }
 
         public int Inserir(Transacao transacao)
@@ -61,17 +61,17 @@ namespace Repository.Repositories
 
         public Transacao ObterPeloId(int id)
         {
-            var transacao = context.Transacoes.Include("CadastrosContaCorrente")
+            var transacao = context.Transacoes.Include("CadastroContaCorrente")
                 .Include("Historico")
                 .Include("CategoriaReceita")
                 .Include("CategoriaDespesa").FirstOrDefault(x => x.Id == id);
-            return transacao; 
+            return transacao;
         }
 
         public List<Transacao> ObterTodos()
         {
             return context.Transacoes
-                .Include("CadastrosContaCorrente")
+                .Include("CadastroContaCorrente")
                 .Include("Historico")
                 .Include("CategoriaReceita")
                 .Include("CategoriaDespesa")

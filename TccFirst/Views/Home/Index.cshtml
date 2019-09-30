@@ -3,124 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-
-<div style="width:313px; height:400px">
-    <canvas id="myChart" width="500" height="400"></canvas>
-</div>
-<script>
-
-                var ctx = document.getElementById('myChart');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Contas Pagar', 'Contas Receber'],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [ '@ViewBag.ContasPagar', '@ViewBag.ContasReceber' ],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
-                });
-</script>
-<head>
-    <title>Polar Area Chart</title>
-    <script src="../../dist/Chart.min.js"></script>
-    <script src="../utils.js"></script>
-    <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-    </style>
-</head>
-
-<body>
-    <div id="canvas-holder" style="width:50%">
-        <canvas id="chart-area"></canvas>
-    </div>
-    <script>
-        var randomScalingFactor = function () {
-            return Math.round(Math.random() * 100);
-        };
-        var chartColors = window.chartColors;
-        var color = Chart.helpers.color;
-        var config = {
-            data: {
-                datasets: [{
-                    data: [
-                        50,
-                        50, 
-                        50,
-                        50,
-                        50
-                    ],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(0,0,255',
-                        'rgba(50,124)'
-                    ],
-                    label: 'My dataset' // for legend
-                }],
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Orange',
-                    'Yellow',
-                    'Green'
-                ]
-            },
-            options: {
-                responsive: true,
-                legend: {
-                    position: 'right',
-                },
-                title: {
-                    display: true,
-                    text: 'Chart.js Polar Area Chart'
-                },
-                scale: {
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    reverse: false
-                },
-                animation: {
-                    animateRotate: false,
-                    animateScale: true
-                }
-            }
-        };
-        window.onload = function () {
-            var ctx = document.getElementById('chart-area');
-            window.myPolarArea = Chart.PolarArea(ctx, config);
-        };
-       
-      
-        
-    </script>
-</body>
-
+@if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario")
+{
+    <h1>@Session["usuarioLogadoFuncionario"].ToString()</h1>
+}
+else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
+{
+    <h1> Bem Vindo, @Session["UsuarioLogadoNome"]</h1>
+}
 
 
 </div>

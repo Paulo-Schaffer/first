@@ -9,32 +9,33 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
     public class ParcelaPagarRepository : IParcelaPagarRepository
+
     {
         private SistemaContext context;
 
         public ParcelaPagarRepository()
         {
-            context = new SistemaContext(); 
+            context = new SistemaContext();
         }
 
-        public bool Alterar(ParcelaPagar parcelaPagar)
+        public void GerarParcelas(int idTituloPagar)
         {
-            var parcelaPagarOriginal = context.ParcelasPagar.FirstOrDefault(x => x.Id == parcelaPagar.Id);
+            var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == idTituloPagar);
 
-            if (parcelaPagarOriginal == null)
-                return false;
+            var dataAtual = DateTime.Now.AddDays(30);
 
-            parcelaPagarOriginal.Valor = parcelaPagar.Valor;
-            parcelaPagarOriginal.Status = parcelaPagar.Status;
-            parcelaPagarOriginal.DataVencimento = parcelaPagar.DataVencimento;
-            parcelaPagarOriginal.DataPagamento =parcelaPagar.DataPagamento;
-            int quantidadeAfetada = context.SaveChanges();  
-            return quantidadeAfetada == 1;
-        }
+            decimal valorTotal = tituloPagar.ValorTotal;
+            decimal valorParcela = valorTotal / tituloPagar.QuantidadeParcela;
+            string texto = valorParcela.ToString();
+            int posicaoPonto = texto.IndexOf(",");
+            texto = texto.Substring(0, posicaoPonto) + "," + texto.Substring(posicaoPonto + 1, 2);
+            valorParcela = Decimal.Parse(texto);
 
-        public bool Apagar(int id)
-        {
-            var parcelaPagar = context.ParcelasPagar.FirstOrDefault(x => x.Id == id);
+            decimal totalAcumulado = 0;
+
+            for (int i = 0; i < tituloPagar.QuantidadeParcela; i++)
+            {
+                var dataVencimento = dataAtual.AddMonths(i);
 
                 if(i + 1 >= tituloPagar.QuantidadeParcela)
                 {
@@ -51,6 +52,8 @@ namespace Repository.Repositories
 
                 totalAcumulado += valorParcela;
             }
+            context.SaveChanges();
+        }
 
         public bool Alterar(ParcelaPagar parcelaPagar)
         {
@@ -72,9 +75,9 @@ namespace Repository.Repositories
             return quantidadeAfetada == 1;
         }
 
-            parcelaPagar.RegistroAtivo = false;
-            int quantidadeAfetada = context.SaveChanges();
-            return quantidadeAfetada == 1;
+        public bool Apagar(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public int Inserir(ParcelaPagar parcelaPagar)
@@ -84,15 +87,14 @@ namespace Repository.Repositories
 
         public ParcelaPagar ObterPeloId(int id)
         {
-            var parcelaPagar = context.ParcelasPagar.FirstOrDefault(x => x.Id == id);
-            return parcelaPagar;
-
+            var parcela = context.ParcelasPagar.Where(x => x.Id == id).FirstOrDefault();
+            return parcela;
         }
 
-        public List<ParcelaPagar> ObterTodos()
+        public List<ParcelaPagar> ObterTodos(int idTituloPagar)
         {
-            return context.ParcelasPagar.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
-
+            return context.ParcelasPagar
+                .Where(x => x.RegistroAtivo && x.IdTituloPagar == idTituloPagar).ToList();
         }
     }
 }
