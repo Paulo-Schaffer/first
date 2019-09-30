@@ -5490,6 +5490,7 @@
     <Content Include="Scripts\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
+    <Content Include="Scripts\FluxoCaixa\Fluxo-Caixa.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
     <Content Include="Scripts\i18n\af.js" />
@@ -5642,6 +5643,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
@@ -5668,6 +5670,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
+    <Content Include="Views\Nova pasta\Caixa\caixa-cadastro.js" />
+    <Content Include="Views\Nova pasta\Caixa\caixa-index.js" />
+    <Content Include="Views\Nova pasta\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5734,7 +5739,6 @@
     <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
-    <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Historico\CadastroHistorico.cshtml" />
@@ -5759,9 +5763,6 @@
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\TituloPagar\Editar.cshtml" />
-    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
-    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\Relatorio\FluxoCaixa.cshtml" />
     <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
@@ -5770,12 +5771,7 @@
     <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
-    <Content Include="Views\TituloPagar\Editar.cshtml" />
-    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
-    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
@@ -5786,6 +5782,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <Content Include="Views\PaginaInicial\View.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\TituloPagar\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5798,6 +5798,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
+    <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>

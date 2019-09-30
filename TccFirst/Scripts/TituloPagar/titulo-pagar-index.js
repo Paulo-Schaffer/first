@@ -56,6 +56,7 @@ $(function () {
         ]
     });
 
+
     $("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
         confirma = confirm("Deseja realmente apagar?");
         if (confirma == true) {
