@@ -107,7 +107,7 @@ $(function () {
         });
     });
 
-    $('#clientePessoaFisica-batao-salvar').on('click', function () {
+   /* $('#clientePessoaFisica-batao-salvar').on('click', function () {
 
         $fornecedor = $('#tituloPagar-campo-fornecedor').val();
         $categoriaDespesas = $('#tituloPagar-campo-categoria-despesa').val();
@@ -177,6 +177,6 @@ $(function () {
         } else {
             alterar($fornecedor, $categoriaDespesas, $formaPagamento, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $quantidadeParcelas, $descricao, $valorTotal);
         }
-    });
+    });*/
 });
 
