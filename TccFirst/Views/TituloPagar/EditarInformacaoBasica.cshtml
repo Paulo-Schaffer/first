@@ -17,7 +17,7 @@
 
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-categoria-despesa">Categoria despesas<span class="text-danger">*</span></label>
+                    <label for="tituloPagar-campo-categoria-despesa">Categoria despesas</label>
                     <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
                 </div>
             </div>
@@ -31,27 +31,26 @@
                         @if (ViewBag.TituloPagar.FormaPagamento == "Dinheiro")
                         {
                             <option value="Dinheiro" selected="selected">Dinheiro</option>
-
                         }
                         else
                         {
                             <option value="Dinheiro">Dinheiro</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao Debito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Débito")
                         {
-                            <option value="CartaoDebito" selected="selected">Cartão Debito</option>
+                            <option value="Cartão de Débito" selected="selected">Cartão de Débito</option>
                         }
                         else
                         {
-                            <option value="CartaoDebito">Cartão Débito</option>
+                            <option value="Cartão de Débito">Cartão de Débito</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao Credito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Crédito")
                         {
-                            <option value="CartaoCredito" selected="selected"></option>
+                            <option value="Cartão de Crédito" selected="selected">Cartão de Crédito</option>
                         }
                         else
                         {
-                            <option value="CartaoCredito">Cartão de Crédito</option>
+                            <option value="Cartão de Crédito">Cartão de Crédito</option>
                         }
                     </select>
                 </div>
@@ -76,14 +75,6 @@
                         else
                         {
                             <option value="Pago">Pago</option>
-                        }
-                        @if (ViewBag.TituloPagar.Status == "Pago Parcialmente")
-                        {
-                            <option value="PagoParcialmente" selected="selected">Pago parcialmente</option>
-                        }
-                        else
-                        {
-                            <option value="PagoParcialmente">Pago Parcialmente</option>
                         }
                         @if (ViewBag.TituloPagar.Status == "Cancelado")
                         {
