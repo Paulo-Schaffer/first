@@ -61,11 +61,11 @@ namespace TccFirst.Controllers
 
         #region Editar
         [HttpPost, Route("editar")]
-        public ActionResult Editar(TituloPagar tituloPagar)
+        public JsonResult Editar(TituloPagar tituloPagar)
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return RedirectToAction("Index", new {id= resultado});
+            return Json(resultado);
         }
 
         public ActionResult Editar(int id)
