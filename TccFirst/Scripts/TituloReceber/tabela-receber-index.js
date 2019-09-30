@@ -54,10 +54,11 @@ $(function () {
         "scrollX": true,
         ajax: '/tituloreceber/obtertodos',
         serverSide: true,
+        info: false,
         columns: [
             { data: "Id" },
-            { data: 'NomeCliente' }, 
-            { data:"IdCategoriaReceita"},
+            { data: "NomeCliente" }, 
+            { data: "IdCategoriaReceita"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             {
@@ -103,6 +104,7 @@ $(function () {
             }
         ]
     });
+
     $("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
         confirma = confirm("Deseja Realmente Apagar?")
         if (confirma == true) {

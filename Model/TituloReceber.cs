@@ -81,7 +81,7 @@ namespace Model
         [Column("id_categoria_receita")]
         public int? IdCategoriaReceita { get; set; }
         [ForeignKey("IdCategoriaReceita")]
-        public CategoriaReceita TipoCategoriaReceita { get; set; }
+        public CategoriaReceita CategoriaReceita { get; set; }
         #endregion
 
     }

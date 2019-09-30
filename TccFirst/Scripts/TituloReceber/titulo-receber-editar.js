@@ -50,9 +50,9 @@
         ]
 
     });
+
     $('#parcelasReceber-botao-salvar').on('click', function () {
         $dataRecebimento = $('#parcelasReceber-campo-data-recebimento').val();
-        debugger;
         $.ajax({
             url: "/ParcelasReceber/Update",
             method: "post",
@@ -70,6 +70,15 @@
             }
         })
     });
+
+
+
+
+
+
+
+
+
     //$("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
     //    confirma = confirm("Deseja Realmente Apagar?")
     //    if (confirma == true) {
