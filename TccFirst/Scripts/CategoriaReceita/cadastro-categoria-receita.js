@@ -2,7 +2,6 @@
     $idAlterar = -1;
 
     $tabelaCategoriaReceita = $('#categoria-receita-tabela').DataTable({
-        "scrollX": true,
         ajax: '/categoriareceita/obterTodos',
         serverSide: true,
         columns: [
