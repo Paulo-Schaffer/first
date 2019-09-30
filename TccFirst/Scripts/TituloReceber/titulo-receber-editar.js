@@ -1,4 +1,4 @@
-﻿    $(function () {
+﻿$(function () {
     $idTituloReceber = $("#id").val();
     $idAlterar = -1;
 
@@ -7,7 +7,7 @@
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: "IdClientePessoaJuridica"},
+            { data: "IdClientePessoaJuridica" },
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             { data: "Status" },
@@ -40,22 +40,42 @@
     });
 
     $("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja Realmente Apagar?")
-        if (confirma == true) {
-            $id = $(this).data('id');
-            $.ajax({
-                url: '/tituloreceber/apagar?id=' + $id,
-                method: "get",
-                success: function (data) {
-                    $tabelaTituloReceber.ajax.reload();
+        $id = $(this).data('id');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão Apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/tituloreceber/apagar?id=' + $id,
+                            method: "get",
+                            success: function (data) {
+                                $tabelaTituloReceber.ajax.reload();
+                            },
+                            error: function (err) {
+                                $.confirm({
+                                    title: 'Não foi possível Apagar',
+                                    content: 'Houve algum problema ao tentar apagar este registro',
+                                    type: 'red',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        
+                                        Ok: function () {
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
                 },
-                error: function (err) {
-                    alert('Não foi possível apagar');
-                }
-            });
-        }
+                cancelar: function () {
+                },
+            }
         });
-      
+    });
+
 
     $("#titulo-receber-botao-salvar").on("click", function () {
         $IdClientePessoaJuridica = $("#tituloReceber-campo-pessoa-Juridica").val();
@@ -75,12 +95,12 @@
         }
     });
 
-    function inserir($IdClientePessoaJuridica , $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
+    function inserir($IdClientePessoaJuridica, $IdCategoriaReceita, $ValorTotal, $QuantidadeParcela, $Status, $DataLancamento, $DataRecebimento, $DataVencimento, $Descricao, $Complemento) {
         $.ajax({
             url: '/tituloreceber/cadastro',
             method: 'post',
             data: {
-                IdClientePessoaJuridica : $IdClientePessoaJuridica ,
+                IdClientePessoaJuridica: $IdClientePessoaJuridica,
                 IdCategoriaReceita: $IdCategoriaReceita,
                 ValorTotal: $ValorTotal,
                 QuantidadeParcela: $QuantidadeParcela,
@@ -104,14 +124,14 @@
         });
     }
 
-        $('.table').on("click", ".botao-editar", function () {
-            $id = $(this).data("id");
-            $.ajax({
-                url: "/tituloreceber/obterpeloid?id=" + $id,
-                method: "get",
-                success: function (data) {
+    $('.table').on("click", ".botao-editar", function () {
+        $id = $(this).data("id");
+        $.ajax({
+            url: "/tituloreceber/obterpeloid?id=" + $id,
+            method: "get",
+            success: function (data) {
                 $idAlterar = $id;
-                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica );
+                $("#tituloReceber-campo-pessoa-Juridica").val(data.IdClientePessoaJuridica);
                 $("#tituloReceber-campo-categoria-Receita").val(data.IdCategoriaReceita);// NÃO PUXOU
                 $("#tituloReceber-campo-valor-total").val(data.ValorTotal);
                 $("#tituloReceber-campo-quantidade-Parcelas").val(data.QuantidadeParcela);
@@ -140,7 +160,7 @@
             url: "/tituloreceber/editar",
             method: "post",
             data: {
-                IdClientePessoaJuridica: $IdClientePessoaJuridica ,
+                IdClientePessoaJuridica: $IdClientePessoaJuridica,
                 idCategoriareceita: $IdCategoriaReceita,
                 ValorTotal: $ValorTotal,
                 QuantidadeParcela: $QuantidadeParcela,

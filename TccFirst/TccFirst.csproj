@@ -125,6 +125,7 @@
     <Content Include="Content\Imagem\login.jpg" />
     <Content Include="Content\Imagem\logo-blue.png" />
     <Content Include="Content\css\usuario-do-homem.png" />
+    <Content Include="Content\jquery-confirm.min.css" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
@@ -5646,12 +5647,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-confirm.min.js" />
     <Content Include="Scripts\jquery.form-validator.min.js" />
     <Content Include="Scripts\Login\jquery.form-validator.min.js" />
     <Content Include="Scripts\Login\login-cadastro.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\notify.min.js" />
+    <Content Include="Scripts\PaginaInicial\animacao.js" />
+    <Content Include="Scripts\PaginaInicial\app.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-cadastro.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-editar.js" />
     <Content Include="Scripts\popper-utils.js" />
@@ -5793,7 +5796,6 @@
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
-    <Content Include="Views\PaginaInicial\home.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
     <Content Include="Views\Transacao\Cadastro.cshtml" />
@@ -5802,6 +5804,7 @@
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
+    <Content Include="Views\PaginaInicial\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,53 @@
-﻿
+﻿$(function () {
+
+    // Ao pressionar o botão enter focar no próximo campo
+    $('#caixa-campo-descricao').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-documento').focus();
+        }
+    });
+    $('#caixa-campo-documento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-valor').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-descricao').focus();
+        }
+    });
+    $('#caixa-campo-valor').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-forma-pagamento').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-documento').focus();
+        }
+    });
+    $('#caixa-campo-forma-pagamento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-forma-data-Lancamento').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-valor').focus();
+        }
+    });
+    $('#caixa-campo-data-lancamento').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-historico').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-forma-pagamento').focus();
+        }
+    });
+    $('#caixa-campo-historico').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-botao-salvar').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-data-lancamento').focus();
+        }
+    });
+    $('#caixa-campo-historico').keyup(function (e) {
+        if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-historico').focus();
+        }
+    });
+
+});
 $(function () {
     $idAlterar = -1;
     $tabelaCaixa = $("#caixa-tabela").DataTable({
@@ -10,13 +59,13 @@ $(function () {
             { data: 'Descricao' },
             { data: 'Documento' },
             { data: 'Valor' },
-            { data: 'FormaPagamento'},
+            { data: 'FormaPagamento' },
             {
-                render: function(data, type, row) {
+                render: function (data, type, row) {
                     return moment(row.DataLancamento).format('DD/MM/YYYY')
                 }
             },
-            { data: 'Historico.Descricao'},
+            { data: 'Historico.Descricao' },
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar ml-2"data-id="' + row.Id + '">Apagar</button>'
@@ -24,42 +73,54 @@ $(function () {
                 }
             }
         ]
-        
+
     });
     $('#caixa-botao-salvar').on('click', function () {
-        if ($('#caixa-campo-descricao').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Descrição </div>');
-            $('#caixa-campo-nome').focus();
-            return false;
-
-        } else if ($('#caixa-campo-documento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Documento </div>');
-            $('#caixa-campo-documento').focus();
-            return false;
-        } else if ($('#caixa-campo-valor').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Valor </div>');
-            $('#caixa-campo-valor').focus();
-            return false;
-        } else if ($('#caixa-campo-forma-pagamento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a forme de Pagamento</div>');
-            $('#caixa-campo-forma-pagamento').focus();
-            return false;
-        } else if ($('#caixa-campo-data-lancamento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a Data de Lançamento </div>');
-            $('#caixa-campo-data-lancamento').focus();
-            return false;
-        } else if ($('#caixa-campo-historico').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione o Historico </div>');
-            $('#caixa-campo-historico').focus();
-            return false;
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
         }
-
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
         $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $valor = $('#caixa-campo-valor').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
         $IdHistoricos = $('#caixa-campo-historico').val();
+
+        //Validação
+        if ($descricao == "") {
+            monstrarMensagem('Digite Descrição', '', 'error');
+            $('#caixa-campo-descricao').focus();
+            return false;
+        } else if ($documento == "") {
+            monstrarMensagem('Digite o Documento', '', 'error');
+            $('#caixa-campo-documento').focus();
+            return false;
+        } else if ($valor == "") {
+            monstrarMensagem('Digite o Valor', '', 'error');
+            $('#caixa-campo-valor').focus();
+            return false;
+        } else if ($formaPagamento == undefined) {
+            monstrarMensagem('Selecione a Forma de Pagamento', '', 'error');
+            $('#caixa-campo-forma-pagamento').focus();
+            return false;
+        } else if ($dataLancamento == "") {
+            monstrarMensagem('Digite a Data de Lançamneto', '', 'error');
+            $('#caixa-campo-data-lancamento').focus();
+            return false;
+        } else if ($IdHistoricos == undefined) {
+            monstrarMensagem('Selecione o Histórico', '', 'error');
+            $('#caixa-campo-historico').select2('open');
+            return false;
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        }
+
         if ($idAlterar == -1) {
             inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         } else {
@@ -82,7 +143,8 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-caixa").modal("hide");
-                
+                LimparCampos();
+                $idAlterar = -1;
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {
@@ -142,8 +204,9 @@ $(function () {
                 $('#caixa-campo-documento').val(data.Documento);
                 $('#caixa-campo-valor').val(data.Valor);
                 $('#caixa-campo-forma-pagamento').val(data.FormaPagamento);
-
-                $("#caixa-campo-data-lancamento").val(data.DataLancamento);
+                var dataLancamento = moment(data.DataLancamento);
+                console.log();
+                $("#caixa-campo-data-lancamento").val(dataLancamento.format('YYYY-MM-DD'));
                 $('#caixa-campo-historico').val(data.IdHistoricos);
                 $('#modal-caixa').modal('show');
             },
@@ -156,8 +219,8 @@ $(function () {
     function LimparCampos() {
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-forma-pagamento").val("");
         $("#caixa-campo-valor").val("");
+        $("#caixa-campo-forma-pagamento").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;

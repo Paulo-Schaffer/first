@@ -8,8 +8,9 @@
     <div class="col-12"><h2><b>Lista de Agencias</b></h2></div>
     <hr />
     <div class="col-12">
-        <a id="botao-novaAgencia" class="btn float-right mb-3"  href="/Agencia/Cadastro"> 
-        <i class="fa fa-plus"></i>Nova Agencia </a>
+        <a id="botao-novaAgencia" class="btn float-right mb-3" href="/Agencia/Cadastro">
+            <i class="fa fa-plus"></i>Nova Agencia
+        </a>
     </div>
     <br />
     <br />
@@ -45,17 +46,19 @@
                                 </a>
                             </div>
 
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 <link rel="stylesheet" href="~/Content/css/Agencia/TelaIndexAgencia.css" />
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+
+
 <script>
     $(document).ready(function () {
         $('#agencia-tabela').DataTable({
@@ -68,7 +71,11 @@
             }
         });
 
-    });</script>
+    });
+</script>
+    
+
+
 
 
 

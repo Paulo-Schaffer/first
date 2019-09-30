@@ -2,73 +2,104 @@
 
     // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaJuridica-campo-razaoSocial').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-atividade').focus();
         }
     });
     $('#clientePessoaJuridica-campo-atividade').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-nomeFantasia').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-razaoSocial').focus();
         }
     });
     $('#clientePessoaJuridica-campo-nomeFantasia').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-dataCadastro').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-atividade').focus();
         }
     });
     $('#clientePessoaJuridica-campo-dataCadastro').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-cnpj').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-nomeFantasia').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cnpj').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-email').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-dataCadastro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-email').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-filial').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-cnpj').focus();
         }
     });
     $('#clientePessoaJuridica-campo-filial').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-telefone').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-email').focus();
         }
     });
     $('#clientePessoaJuridica-campo-telefone').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-cep').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-filial').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cep').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-logradouro').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-telefone').focus();
         }
     });
     $('#clientePessoaJuridica-campo-logradouro').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-numero').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-cep').focus();
         }
     });
     $('#clientePessoaJuridica-campo-numero').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-bairro').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-logradouro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-bairro').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-uf').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-numero').focus();
         }
     });
     $('#clientePessoaJuridica-campo-uf').keyup(function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-cidade').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-bairro').focus();
         }
     });
     $('#clientePessoaJuridica-campo-cidade').keyup(function (e) {
-        if (e.keyCode == 13) {
-            $('#clientePessoaJuridica-batao-salvar').focus();
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#clientePessoaJuridica-botao-salvar').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-uf').focus();
+        }
+    });
+    $('#clientePessoaJuridica-botao-salvar').keyup(function (e) {
+        if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#clientePessoaJuridica-campo-cidade').focus();
         }
     });
 });
@@ -163,53 +194,16 @@ $(function () {
         ]
     });
     $('#clientePessoaJuridica-botao-salvar').on('click', function () {
-        if ($('#clientePessoaJuridica-campo-razaoSocial').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão Social </div>');
-            $('#clientePessoaJuridica-campo-razaoSocial').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-atividade').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Atividade </div>');
-            $('#clientePessoaJuridica-campo-atividade').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-nomeFantasia').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Nome Fantasia </div>');
-            $('#clientePessoaJuridica-campo-nomeFantasia').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-dataCadastro').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Data Cadastro </div>');
-            $('#clientePessoaJuridica-campo-dataCadastro').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-cnpj').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo CNPJ </div>');
-            $('#clientePessoaJuridica-campo-cnpj').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-email').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo E-Mail </div>');
-            $('#clientePessoaJuridica-campo-email').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-telefone').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Telefone </div>');
-            $('#clientePessoaJuridica-campo-telefone').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-cep').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo CEP </div>');
-            $('#clientePessoaJuridica-campo-cep').focus();
-            return false;
-
-        } else if ($('#clientePessoaJuridica-campo-numero').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
-            $('#clientePessoaJuridica-campo-numero').focus();
-            return false;
-        }else {
-                $('.alert').alert("");
-            }
+        
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
 
         $razaoSocial= $('#clientePessoaJuridica-campo-razaoSocial').val();
         $atividade= $('#clientePessoaJuridica-campo-atividade').val();
@@ -226,6 +220,66 @@ $(function () {
         $uf= $('#clientePessoaJuridica-campo-uf').val();
         $cidade= $('#clientePessoaJuridica-campo-cidade').val();
 
+            //Validação
+        if ($razaoSocial == "") {
+            monstrarMensagem('Digite a Razão Social', '', 'error');
+            $("#clientePessoaJuridica-campo-razaoSocial").focus();
+            return false;
+        } else if ($atividade == "") {
+            monstrarMensagem('Digite a Atividade', '', 'error');
+            $('#clientePessoaJuridica-campo-atividade').focus();
+            return false;
+        } else if ($nomeFantasia == "") {
+            monstrarMensagem('Digite o Nome Fantasia', '', 'error');
+            $('#clientePessoaJuridica-campo-nomeFantasia').focus();
+            return false;
+        } else if ($dataCadastro == "") {
+            monstrarMensagem('Digite a Data Cadastro', '', 'error');
+            $('#clientePessoaJuridica-campo-dataCadastro').focus();
+            return false;
+        } else if ($cnpj == "") {
+            monstrarMensagem('Digite o Cnpj', '', 'error');
+            $('#clientePessoaJuridica-campo-cnpj').focus();
+            return false;
+        } else if ($email == "") {
+            monstrarMensagem('Digite o E-mail', '', 'error');
+            $('#clientePessoaJuridica-campo-email').focus();
+            return false;
+        } else if ($filial == "") {
+            monstrarMensagem('Digite a Filial', '', 'error');
+            $('#clientePessoaJuridica-campo-filial').focus();
+            return false;
+        } else if ($telefone == "") {
+            monstrarMensagem('Digite o Telefone', '', 'error');
+            $('#clientePessoaJuridica-campo-telefone').focus();
+            return false;
+        } else if ($cep == "") {
+            monstrarMensagem('Digite o Cep', '', 'error');
+            $('#clientePessoaJuridica-campo-cep').focus();
+            return false;
+        } else if ($logradouro == "") {
+            monstrarMensagem('Digite o Logradouro', '', 'error');
+            $('#clientePessoaJuridica-campo-logradouro').focus();
+            return false;
+        } else if ($numero == "") {
+            monstrarMensagem('Digite o Número', '', 'error');
+            $('#clientePessoaJuridica-campo-numero').focus();
+            return false;
+        } else if ($bairro == "") {
+            monstrarMensagem('Digite o Bairro', '', 'error');
+            $('#clientePessoaJuridica-campo-bairro').focus();
+            return false;
+        } else if ($uf == "") {
+            monstrarMensagem('Digite a UF', '', 'error');
+            $('#clientePessoaJuridica-campo-uf').focus();
+            return false;
+        } else if ($cidade == "") {
+            monstrarMensagem('Digite a Cidade', '', 'error');
+            $('#clientePessoaJuridica-campo-cidade').focus();
+            return false;
+        } else {
+            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        };
         if ($idAlterar == -1) {
             inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade);
         } else {
@@ -256,6 +310,7 @@ $(function () {
             },
             success: function (data) {
                 $("#modal-clientePessoaJuridica").modal("hide");
+                Limparcampos();
                 $idAlterar = -1;
                 $tabelaClientePessoaJuridica.ajax.reload();
             },
@@ -264,6 +319,25 @@ $(function () {
             }
         });
     }
+    function Limparcampos() {
+        $('#clientePessoaJuridica-campo-razaoSocial').val("");
+        $('#clientePessoaJuridica-campo-atividade').val("");
+        $('#clientePessoaJuridica-campo-nomeFantasia').val("");
+        $('#clientePessoaJuridica-campo-dataCadastro').val("");
+        $('#clientePessoaJuridica-campo-cnpj').val("");
+        $('#clientePessoaJuridica-campo-email').val("");
+        $('#clientePessoaJuridica-campo-filial').val("");
+        $('#clientePessoaJuridica-campo-telefone').val("");
+        $('#clientePessoaJuridica-campo-cep').val("");
+        $('#clientePessoaJuridica-campo-logradouro').val("");
+        $('#clientePessoaJuridica-campo-numero').val("");
+        $('#clientePessoaJuridica-campo-bairro').val("");
+        $('#clientePessoaJuridica-campo-uf').val("");
+        $('#clientePessoaJuridica-campo-cidade').val("");
+    }
+    $('#modal-clientePessoaJuridica').on('hidden.bs.modal', function (e) {
+        Limparcampos();
+    })
     function inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
         $.ajax({
             url: "/clientePessoaJuridica/inserir",
@@ -298,16 +372,29 @@ $(function () {
     }
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
-
-        $.ajax({
-            url: "/clientePessoaJuridica/apagar?id=" + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaClientePessoaJuridica.ajax.reload();
-            },
-            error: function (err) {
-                alert('Não foi possivel apagar');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão Apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: "/clientePessoaJuridica/apagar?id=" + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaClientePessoaJuridica.ajax.reload();
+                            },
+                            error: function (err) {
+                                alert('Não foi possivel apagar');
+                            }
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
+
         });
     });
     $('.table').on('click', '.botao-editar', function () {
