@@ -1,0 +1,30 @@
+﻿#cadastro-conta-corrente-botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
+
+#botao-cancelar {
+    background-color: red;
+    height: 40px;
+    width: 160px;
+    color: white;
+    border-radius: 5px;
+}
+
+#cadastro-conta-corrente-campo-numero-conta {
+    border-color: black;
+}
+
+#cadastro-conta-corrente-campo-idAgencia {
+    font-weight: bold;
+    border-color: black;
+}
+
+#fonte {
+    border-color:black;
+    color: black;
+    font-weight: bold;
+}
