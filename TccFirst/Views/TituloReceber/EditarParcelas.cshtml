@@ -1,10 +1,10 @@
-<div class="row">
+﻿<div class="row">
     <div class="col-6">
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
                     <span class="font-weight-bold">Quantidade de Parcelas:</span>
-                    <span>@ViewBag.TituloPagar.QuantidadeParcela</span>
+                    <span>@ViewBag.TituloReceber.QuantidadeParcela</span>
                 </div>
             </div>
         </div>
@@ -12,7 +12,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <span class="font-weight-bold">Valor Total:</span>
-                    <span>R$ @ViewBag.TituloPagar.ValorTotal</span>
+                    <span>R$ @ViewBag.TituloReceber.ValorTotal</span>
                 </div>
             </div>
         </div>
@@ -24,11 +24,11 @@
     </div>
 </div>
 
-<table id="parcelasPagar-tabela" class="table table-hover table-bordered table-striped">
+<table id="titulo-receber-parcelas-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Data Vencimento</th>
-            <th>Data Pagamento</th>
+            <th>Data Recebimento</th>
             <th>Valor</th>
             <th>Status</th>
             <th>Ação</th>
@@ -36,7 +36,7 @@
     </thead>
 </table>
 
-<div id="modal-parcelasPagar" class="modal fade" tabindex="-1" role="dialog">
+<div id="modal-parcelasReceber" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -49,13 +49,13 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label form="parcelasPagar-campo-data-pagamento" mas>Data Pagamento<span class="text-danger">*</span></label>
-                            <input type="date" id="parcelasPagar-campo-data-pagamento" class="form-control" name="DataPagamento" />
+                            <label form="parcelasReceber-campo-data-recebimento" mas>Data Recebimento<span class="text-danger">*</span></label>
+                            <input type="date" id="parcelasReceber-campo-data-recebimento" class="form-control" name="DataRecebimento" />
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="parcelasPagar-botao-salvar">
+                    <button type="button" class="btn btn-success" id="parcelasReceber-botao-salvar">
                         <i class="fa fa-floppy-o"></i> Salvar
                     </button>
                 </div>
@@ -65,6 +65,5 @@
 </div>
 
 @section js{
-    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
+    <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>
 }
-

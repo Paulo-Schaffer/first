@@ -68,34 +68,18 @@
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
-        $.confirm({
-            title: 'Deseja Realmente Apagar?',
-            content: 'Clique no botão apagar para apagar o registro',
-            buttons: {
-                Apagar: {
-                    btnClass: 'btn-red any-other-class',
-                    action: function () {
-                        $.ajax({
-                            url: '/categoriareceita/apagar?id=' + $idApagar,
-                            method: 'get',
-                            success: function (data) {
-                                $tabelaCategoriaReceita.ajax.reload();
-                            },
+        $.ajax({
+            url: '/categoriareceita/apagar?id=' + $idApagar,
+            method: 'get',
+            success: function (data) {
+                $tabelaCategoriaReceita.ajax.reload();
+            },
 
-                            error: function (err) {
-                                alert('Não foi possível apagar');
-                            }
-
-                        });
-                    }
-                },
-                cancelar: function () {
-                },
+            error: function (err) {
+                alert('Não foi possível apagar');
             }
 
         });
-
-        
     });
 
     $('.table').on('click', '.botao-editar', function () {

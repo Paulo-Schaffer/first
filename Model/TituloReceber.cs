@@ -11,6 +11,11 @@ namespace Model
     [Table("titulos_receber")]
     public class TituloReceber
     {
+        public const string StatusPendente = "Pendente";
+        public const string StatusPagoParcialmente = "Parcialmente";
+        public const string StatusCancelado = "Cancelado";
+        public const string StatusFinalizado = "Finalizado";
+
         [Key, Column("id")]
         public int Id { get; set; }
 
@@ -24,16 +29,13 @@ namespace Model
         public string Status { get; set; }
 
         [Column("data_lancamento")]
-        public DateTime DataLancamento { get; set; }
+        public DateTime? DataLancamento { get; set; }
 
         [Column("data_recebimento")]
         public DateTime? DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
-        public DateTime DataVencimento { get; set; }
-
-        [Column("complemento")]
-        public string Complemento { get; set; }
+        public DateTime? DataVencimento { get; set; }
 
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
@@ -79,7 +81,7 @@ namespace Model
         [Column("id_categoria_receita")]
         public int? IdCategoriaReceita { get; set; }
         [ForeignKey("IdCategoriaReceita")]
-        public CategoriaReceita TipoCategoriaReceita { get; set; }
+        public CategoriaReceita CategoriaReceita { get; set; }
         #endregion
 
     }

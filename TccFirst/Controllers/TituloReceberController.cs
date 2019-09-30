@@ -26,50 +26,84 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost, Route("cadastro")]
+        [HttpGet, Route("apagar")]
+        public ActionResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return RedirectToAction("Index", new { id = id });
+        }
+
+        #region Cadastro
+        [HttpGet, Route("Index")]
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult Cadastro(TituloReceber tituloReceber)
         {
             tituloReceber.RegistroAtivo = true;
+            tituloReceber.Status = TituloReceber.StatusPendente;
             int id = repository.Inserir(tituloReceber);
-            return Json(new { id = id });
+            var resultado = new { id = id };
+            return RedirectToAction("Index", resultado);
         }
+        #endregion
 
-        [HttpPost, Route("editar")] 
+        #region Editar
+        [HttpPost, Route("editar")]
         public ActionResult Editar(TituloReceber tituloReceber)
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
-            return RedirectToAction("Index", new { id = resultado});
+            return RedirectToAction("Index", new { id = resultado });
         }
-        
-        [HttpGet,Route("apagar")]
-        JsonResult Apagar(int id)
+
+        public ActionResult Editar(int id)
         {
-            var apagou = repository.Apagar(id);
-            var resultado = new { status = apagou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            var tituloReceber = repository.ObterPeloId(id);
+            ViewBag.TituloReceber = tituloReceber;
+            return View();
         }
+        #endregion
 
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        #region Index
-        [HttpGet]
         public ActionResult Index()
         {
             TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
             ViewBag.TitulosReceber = tituloReceberRepository.ObterTodos();
             return View();
         }
-        #endregion
 
-        //[HttpGet, Route("tituloreceber")]
-        //public JsonResult ObterPeloId(int id)
-        //{
-        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        //}
+        [HttpGet, Route("tituloReceber/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term)
+        {
+            var titulosReceber = repository.ObterTodos();
+            List<object> tituloRecebersSelect2 =
+                 new List<object>();
+            foreach (TituloReceber tituloReceber in titulosReceber)
+            {
+                tituloRecebersSelect2.Add(new
+                {
+                    id = tituloReceber.Id,
+                    text = tituloReceber.Descricao,
+                    tituloReceber.ValorTotal,
+                    tituloReceber.DataLancamento,
 
+                });
+            }
+            var resultado = new
+            {
+                results = tituloRecebersSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
+        }
     }
+    //[HttpGet, Route("tituloreceber")]
+    //public JsonResult ObterPeloId(int id)
+    //{
+    //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+    //}
 }

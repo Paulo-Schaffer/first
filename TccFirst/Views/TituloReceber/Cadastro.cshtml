@@ -1,25 +1,34 @@
-﻿div class="row">
-<div class="col-12">
-    <div class="form-check-inline ml-3 mr-3 mb-3">
-        <input type="radio" id="tituloReceber-campo-tipo-pessoa-fisica"
-               name="tituloReceber-campo-tipo-pessoa" class="form-check-input" />
-        <label for="tituloReceber-campo-tipo-pessoa-fisica"
-               class="form-check-label" style="
+﻿<div class="row">
+    <div class="col-6">
+        <h2>Cadastro de Titulo a Receber</h2>
+    </div>
+    <div class="col-6">
+        <a class="btn btn-info float-right mb-3" href="/TituloReceber/index">Ir para tabela</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-check-inline ml-3 mr-3 mb-3">
+            <input type="radio" id="tituloReceber-campo-tipo-pessoa-fisica"
+                   name="tituloReceber-campo-tipo-pessoa" class="form-check-input" />
+            <label for="tituloReceber-campo-tipo-pessoa-fisica"
+                   class="form-check-label" style="
     padding-left: 4px;
     padding-bottom: 3px;
 ">Pessoa Física</label>
 
-    </div>
-    <div class="form-check-inline">
-        <input type="radio" id="tituloReceber-campo-tipo-pessoa-juridica"
-               name="tituloReceber-campo-tipo-pessoa" class="form-check-input" />
-        <label for="tituloReceber-campo-tipo-pessoa-juridica"
-               class="form-check-label" style="
+        </div>
+        <div class="form-check-inline">
+            <input type="radio" id="tituloReceber-campo-tipo-pessoa-juridica"
+                   name="tituloReceber-campo-tipo-pessoa" class="form-check-input" />
+            <label for="tituloReceber-campo-tipo-pessoa-juridica"
+                   class="form-check-label" style="
     padding-left: 4px;
     padding-bottom: 4px;
 ">Pessoa Jurídica</label>
+        </div>
     </div>
-</div>
 </div>
 <form action="/tituloreceber/cadastro" method="post">
     <div class="row">
@@ -27,7 +36,7 @@
             <div class="form-group">
                 <label for="tituloReceber-campo-pessoa-fisica">Pessoa Física</label>
                 <select class="form-control" id="tituloReceber-campo-pessoa-fisica" name="idClientePessoaFisica">
-                    <option disabled selected>Selecione um opção</option>
+                    <option disabled selected>Selecione uma Pessoa Fisica</option>
                 </select>
             </div>
         </div>
@@ -36,7 +45,7 @@
             <div class="form-group">
                 <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
                 <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="IdClientePessoaJuridica">
-                    <option disabled selected>Selecione um opção</option>
+                    <option disabled selected>Selecione uma Pessoa Juridica</option>
                 </select>
             </div>
         </div>
@@ -46,7 +55,7 @@
     <div class="row">
         <div class="col-12">
             <div class="form-group">
-                <label for="campo-tituloReceber-categoria" mas>Categoria Receita</label>
+                <label for="campo-tituloReceber-categoria-receita" mas>Categoria Receita<span class="text-danger">*</span></label>
                 <select class="form-control" id="tituloReceber-campo-categoria-Receita" name="IdCategoriaReceita"></select>
             </div>
         </div>
@@ -55,18 +64,19 @@
     <div class="row">
         <div class="col-6">
             <div class="form-group">
-                <label for="titulo-receber-campo-status">Status</label>
+                <label for="titulo-receber-campo-status">Status<span class="text-danger">*</span></label>
                 <select class="form-control" id="tituloReceber-campo-status" name="Status">
-                    <option disabled selected>Selecione uma opção</option>
+                    <option disabled selected>Selecione um status</option>
+                    <option>Pendente</option>
                     <option>Pago</option>
-                    <option>Em Aberto</option>
-                    <option>Devedor</option>
+                    <option>Pago parcialmente</option>
+                    <option>Cancelado</option>
                 </select>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
+                <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento<span class="text-danger">*</span></label>
                 <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control" name="DataLancamento" />
             </div>
         </div>
@@ -75,40 +85,42 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
+                    <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento<span class="text-danger">*</span></label>
                     <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control" name="DataRecebimento" />
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
+                    <label form="campo-titulo-receber-campo-data-vencimento" mas>Data Vencimento<span class="text-danger">*</span></label>
                     <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" name="DataVencimento" />
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-6" >
-            <div class="form-group">
-                <label for="campo-tituloReceber-valor-total" mas>Valor</label>
-                <input type="text" id="tituloReceber-campo-valor-total" class="form-control" name="ValorTotal" />
-            </div>
-        </div>
         <div class="col-6">
             <div class="form-group">
-                <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
-                <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control" name="QuantidadeParcela" />
+                <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas<span class="text-danger">*</span></label>
+                <input type="number" id="tituloReceber-campo-quantidade-Parcelas" class="form-control" name="QuantidadeParcela" />
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-group">
+                <label for="campo-tituloReceber-valor-total" mas>Valor<span class="text-danger">*</span></label>
+                <input type="text" id="tituloReceber-campo-valor-total" class="form-control" name="ValorTotal" />
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="campo-tituloReceber-descricao" mas>Descrição</label>
+        <label for="campo-tituloReceber-descricao" mas>Descrição<span class="text-danger">*</span></label>
         <textarea class="form-control" id="tituloReceber-campo-descricao" name="Descricao" rows="3"></textarea>
     </div>
+
     <div class="modal-footer">
         <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
     </div>
-    @*<button type="button" class="btn btn-success" id="titulo-receber-botao-salvar"><i class="fa fa-floppy-o"></i> Salvar</button>*@
+
 
 </form>
 @section js{

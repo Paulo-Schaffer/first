@@ -18,8 +18,7 @@
 $(function () {
     $idAlterar = -1;
 
-    $tabelaCadastroContaCorrente = $('#cadastro-conta-corrente-tabela').DataTable({
-        "scrollX": true,
+    $tabelaCadastroContaCorrente =$('#cadastro-conta-corrente-tabela').DataTable({
         ajax: '/cadastrocontacorrente/ObterTodos',
         serverSide: true,
         columns: [
