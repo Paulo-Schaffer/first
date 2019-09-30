@@ -1,126 +1,402 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-
-<div style="width:313px; height:400px">
-    <canvas id="myChart" width="500" height="400"></canvas>
-</div>
-<script>
-
-                var ctx = document.getElementById('myChart');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Contas Pagar', 'Contas Receber'],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [ '@ViewBag.ContasPagar', '@ViewBag.ContasReceber' ],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
-                });
-</script>
 <head>
-    <title>Polar Area Chart</title>
-    <script src="../../dist/Chart.min.js"></script>
-    <script src="../utils.js"></script>
-    <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-    </style>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="~/content/tema/bower_components/bootstrap/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- HTML5Shiv -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <![endif]-->
+    <!-- Estilo customizado -->
+    <link href="~/Content/css/paginaInicial/estilo.css" rel="stylesheet" />
+    <title>First Financial Report System</title>
+    <link rel="icon" href="https://i.imgur.com/SjBQWC4.png">
+    <!--Para poder iniciar
+    <!----------------------->
 </head>
 
 <body>
-    <div id="canvas-holder" style="width:50%">
-        <canvas id="chart-area"></canvas>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-ligth fixed-top navbar-transparente">
+            <div class="container" style="
+    height: 50px;
+    padding-top: 7px;
+    margin-right: 182px;
+">
+                <a href="#">
+                    <img src="https://i.imgur.com/rPzQWFp.png" width="200" height="100">
+                </a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+                    <i class="fas fa-bars text-white"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="nav-principal">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#first" class="nav-link">O que é o First?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#vantagens" id=hr-vantagens class="nav-link">Vantagens</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#recursos" class="nav-link">Recursos</a>
+                        </li>
+                        <li class="nav-item divisor"></li>
+
+                        <li class="nav-item">
+                            <a href="/login" target="_self" class="nav-link">Entrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+    <!-- a maior gambiarra de todos os tempos-->
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+    <p id="first" class="texto-transparente">....</p>
+    <p class="texto-transparente">....</p>
+
+    <section class="anime">
+        <div class="servicos">
+            <div class="container" style="
+    padding-top: 30px;
+">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row albuns">
+                            <div class="col-md-12">
+                                <img src="https://i.imgur.com/y4uApLy.jpg" class="img-fluid" style="
+          height: 300px;
+
+          ">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="first" class="col-md-6">
+                        <h2> O que é o First?</h2>
+                        <p style="margin-bottom: 37px
+        ">
+                            O First é um sistema financeiro voltado para o controle de contas, com o intuito de demonstrar os resultados
+                            financeiros de forma prática e de fácil entendimento.
+                        </p>
+                        <h3>O que gerou o First?</h3>
+                        <p>
+                            O sistema foi desenvolvido devido a uma necessidade vista pelos desenvolvedores no segmento de controle
+                            financeiro. Com as ferramentas do sistema, uma empresa pode obter relatórios objetivos sobre sua condição
+                            financeira. Você pode ver seus ganhos e perdas financeiras em curto, médio ou longo prazo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     </div>
-    <script>
-        var randomScalingFactor = function () {
-            return Math.round(Math.random() * 100);
-        };
-        var chartColors = window.chartColors;
-        var color = Chart.helpers.color;
-        var config = {
-            data: {
-                datasets: [{
-                    data: [
-                        50,
-                        50, 
-                        50,
-                        50,
-                        50
-                    ],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(0,0,255',
-                        'rgba(50,124)'
-                    ],
-                    label: 'My dataset' // for legend
-                }],
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Orange',
-                    'Yellow',
-                    'Green'
-                ]
-            },
-            options: {
-                responsive: true,
-                legend: {
-                    position: 'right',
-                },
-                title: {
-                    display: true,
-                    text: 'Chart.js Polar Area Chart'
-                },
-                scale: {
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    reverse: false
-                },
-                animation: {
-                    animateRotate: false,
-                    animateScale: true
-                }
-            }
-        };
-        window.onload = function () {
-            var ctx = document.getElementById('chart-area');
-            window.myPolarArea = Chart.PolarArea(ctx, config);
-        };
-       
-      
-        
-    </script>
+    </div>
+    <section class="anime">
+        <div class="servicos">
+            <div class="container">
+                <p id="vantagens" class="texto-transparente">...</p>
+                <p class="texto-transparente">...</p>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <h2 style="
+         margin-top: 34px;">
+                            Vantagens do First
+                        </h2>
+                        <p class="texto-transparente">....</p>
+
+                        <h3>Praticidade</h3>
+                        <p>O Firts é uma aplicação web e isso faz com que tenha uma usuabilidade e uma praticidade incrível.</p>
+
+                        <h3>Produtividade</h3>
+                        <p>O First tem uma interface simples e eficaz totalmente dedicada à aumentar a produtividade do cliente.</p>
+
+                        <h3>Controle</h3>
+                        <p>
+                            Com dedicados ao controle financeiro e a geração instantânia de relatórios o First é o sistema perfeito
+                            para controlar suas financias.
+                        </p>
+                    </div>
+
+
+                    <div class="col-md-8">
+                        <img src="https://i.imgur.com/Jv9QXjY.png" class="imf-fluid" style="
+    width: 640px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="anime">
+        <div class="servicos">
+            <div class="container">
+                <p id="recursos" class="texto-transparente">...</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 style="
+   margin-top:75px;
+   ">
+                            Recursos do First
+                        </h1>
+                    </div>
+                    <p class="texto-transparente">....</p>
+                    <p class="texto-transparente">....</p>
+                    <section class="anime">
+                        <div class="servicos">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row albuns">
+                                                <div class="col-md-12">
+                                                    <img src="https://i.imgur.com/Gf5kpqu.png" class="img-fluid" style="
+          height: 254px;
+
+          ">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h2 style=" margin-top: 73px;">Relatórios</h2>
+                                            <p>
+                                                Esse recurso te possibilitará fazer comparações de de todos os tipos, isso faz com que você
+                                                tenha total noção de qual a situação fianceira que sua empresa se encontra no momento.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    </section>
+    <section class="anime">
+        <div class="servicos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 style=" margin-top: 73px;">Gráficos</h2>
+                        <p>
+                            Com gráficos estratégicamente integrados o First consegue demonstrar seus resultados de forma estatistica
+                            e visual. Essa ferramenta possibilita que o First tenha um facíl entendimento podendo ser utilizado até
+                            por pessoas que não tem nenhum conhecimento na área.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row albuns">
+                            <div class="col-md-12">
+                                <img src="https://i.imgur.com/jeVkN09.jpg" class="img-fluid" style="
+          height: 250px;
+          margin-left: 160px;
+          margin-top: 56px;
+          ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="anime">
+        <div class="servicos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row albuns">
+                            <div class="col-md-12">
+                                <img src="https://i.imgur.com/7fQxX8g.png" class="img-fluid" style="
+          height: 254px;
+          margin-top: 53px;
+          ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 id="gerador-pdf" style=" margin-top: 73px;">Gerador de PDF</h2>
+                        <p>
+                            Mesmo que todos os processos de digitializem ainda é muito importante ter um controle de forma fisíca.
+                            Sabendo disso o first possibilita que o usuário crie arquivos em pdf.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 style="margin-top: 20px;
+      color: #C0C0C0;">
+                        Desenvolvedores
+                    </h4>
+                    <img src="https://i.imgur.com/HRQZ8Cl.png" style="
+    width: 23px;
+    margin-bottom: 10px;
+    margin-left: 8px;
+">
+                    <img src="https://i.imgur.com/PIS6EqJ.png" style="
+    width: 23px;
+    margin-left: 12px;
+    margin-bottom: 10px;
+">
+                    <a href="#" onclick="window.open('https://api.whatsapp.com/send?1=pt_BR&phone=5547991416020');
+    window.open('https://www.linkedin.com/in/andr%C3%A9-w-9a7812124/');">
+                        <span style="display: block; color: #C0C0C0;
+    ">André Wenceslau de Oliveira</span>
+                    </a>
+                    <a href="#" onclick="window.open('https://api.whatsapp.com/send?1=pt_BR&phone=554797414458');
+    window.open('https://www.linkedin.com/in/cleber-gomes-motta-1b9762178/');">
+                        <span style="display: block; color: #C0C0C0;">Cléber Gomes Motta</span>
+                    </a>
+                    <a href="#" onclick="window.open('https://api.whatsapp.com/send?1=pt_BR&phone=554799614947');
+    window.open('https://www.linkedin.com/in/gustavo-maia-4b098618a/');">
+                        <span style="display: block; color: #C0C0C0;">Gustavo Henrique Maia</span>
+                    </a>
+                    <a href="#" onclick="window.open('https://api.whatsapp.com/send?1=pt_BR&phone=554784777763');
+    window.open('https://www.linkedin.com/in/jo%C3%A3o-stein-031471184/');">
+                        <span style="display: block; color: #C0C0C0;">João Paulo Stein de Campos</span>
+                    </a>
+                    <a href="#" onclick="window.open('https://api.whatsapp.com/send?1=pt_BR&phone=554799324646');
+    window.open('https://www.linkedin.com/in/paul-ewald-lewandowski-45467b105/');">
+                        <span style="display: block; color: #C0C0C0;">Paul Lewandowski</span>
+                    </a>
+                    <a href="#" onclick="window.open('https://api.whatsapp.com/send?1=pt_BR&phone=554791335785');
+    window.open('https://www.linkedin.com/in/paulo-eduardo-a8bb44184/');">
+                        <span style="display: block; color: #C0C0C0;">Paulo Eduardo Schaffer</span>
+                    </a>
+
+                    <h4 class="cor-cinza" style="padding-top: 25px;
+      color: #C0C0C0;">
+                        Instrutor do Projeto
+                    </h4>
+                    <img src="https://i.imgur.com/PIS6EqJ.png" style="
+    width: 23px;
+    margin-left: 3px;
+    margin-bottom: 10px;
+">
+                    <a href="https://www.linkedin.com/in/francisco-lucas-sens/" target="_blank" rel="noopener noreferrer">
+                        <span style="display: block;
+      margin-top: -33px;
+      margin-bottom: 20px;
+      margin-left: 40px;
+      ">Francisco Lucas Sens</span>
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <h4 style="
+      margin-top: 20px;
+      color: #C0C0C0;">
+                        Patrocínio
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="https://www.pagueveloz.com.br/" target="_blank" rel="noopener noreferrer">
+                                <img src="https://i.imgur.com/iCMITso.png" style="
+    width: 150px;
+    margin-top: -30px;
+">
+
+                                <a href="https://www4.benner.com.br/" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.imgur.com/Z30lCfR.png" style="
+      width: 150px;
+      margin-bottom: 20px
+      ">
+                                </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="https://www.indyxa.com.br/?gclid=Cj0KCQjww7HsBRDkARIsAARsIT4aWZBC6coEt4BcU-dJYIdmmlSx4KOVZwpyKIothUw1EIUwrJsvxIkaAntOEALw_wcB"
+                               target="_blank" rel="noopener noreferrer">
+                                <img src="https://www.indyxa.com.br/img/logo-indyxa.svg"
+                                     style="
+    width: 150px;
+    margin-top: 29px;
+">
+                            </a>
+
+                            <a href="https://hbsis.com.br/" target="_blank" rel="noopener noreferrer">
+                                <img src="http://www.blusoft.org.br/novo/uploads/empresas/118/logo.png" style="
+    width: 150px;
+    height: 50px;
+    margin-top: 43px;
+">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="https://www.senior.com.br/" target="_blank" rel="noopener noreferrer">
+                                <img src="https://dev.senior.com.br/wp-content/uploads/2017/11/Logo-Senior-2017_BRANCO-PNG.png" style="
+    width: 150px;
+    margin-top: 29px;
+">
+                            </a>
+                            <a href="https://www.philips.com.br/" target="_blank" rel="noopener noreferrer">
+                                <img src="https://logodownload.org/wp-content/uploads/2014/05/Philips-logo.png" style="
+    width: 150px;
+    margin-top: 38px;
+">
+                            </a>
+
+                        </div>
+                        <a href="https://www.havan.com.br/?gclid=Cj0KCQjww7HsBRDkARIsAARsIT7dJijkpJRUdoNdJMsBQeKVjxHLvjm3qgb5E35T0gshVlBCYak9TdMaAiWPEALw_wcB"
+                           target="_blank" rel="noopener noreferrer">
+                            <img src="https://i.imgur.com/Sfu2Lrb.png" style="
+    width: 150px;
+    height: 80px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script type="text/javascript" src="~/content/tema/bower_components/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/content/tema/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/content/tema/bower_components/popper.js/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/content/tema/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/PaginaInicial/app.js"></script>
+    <script src="~/Scripts/PaginaInicial/animacao.js"></script>
 </body>
 
-
-
-</div>
+</html>

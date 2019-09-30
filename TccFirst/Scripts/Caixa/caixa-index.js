@@ -1,9 +1,16 @@
 ﻿$(function () {
 
     // Ao pressionar o botão enter focar no próximo campo
+    $('#caixa-campo-operacao').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-descricao').focus();
+        }
+    });
     $('#caixa-campo-descricao').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#caixa-campo-documento').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-operacao').focus();
         }
     });
     $('#caixa-campo-documento').keyup(function (e) {
@@ -56,6 +63,7 @@ $(function () {
 
         serverSide: true,
         columns: [
+            { data: 'Operacao'},
             { data: 'Descricao' },
             { data: 'Documento' },
             { data: 'Valor' },
@@ -85,15 +93,21 @@ $(function () {
                 type: tipo
             });
         }
+        $operacao = $('#caixa-campo-operacao').val();
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
-        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $valor = $('#caixa-campo-valor').val();
+        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
         $IdHistoricos = $('#caixa-campo-historico').val();
 
         //Validação
-        if ($descricao == "") {
+        if ($operacao == "") {
+            monstrarMensagem('Digite Descrição', '', 'error');
+            $('#caixa-campo-operacao').focus();
+            return false;
+        }
+        else if ($descricao == "") {
             monstrarMensagem('Digite Descrição', '', 'error');
             $('#caixa-campo-descricao').focus();
             return false;
@@ -122,18 +136,19 @@ $(function () {
         }
 
         if ($idAlterar == -1) {
-            inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
+            inserir($operacao, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         } else {
-            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
+            alterar($operacao, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         }
     });
 
-    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
+    function alterar($operacão, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: "/Caixa/update",
             method: "post",
             data: {
                 id: $idAlterar,
+                Operacao: $operacao,
                 Descricao: $descricao,
                 Documento: $documento,
                 Valor: $valor,
@@ -153,11 +168,12 @@ $(function () {
         })
     }
 
-    function inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
+    function inserir($operacao, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: '/Caixa/inserir',
             method: 'post',
             data: {
+                Operacao: $operacao,
                 Descricao: $descricao,
                 Documento: $documento,
                 Valor: $valor,
@@ -200,6 +216,7 @@ $(function () {
             url: '/caixa/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
+                $('#caixa-campo-operacao').val(data.Operacao)
                 $('#caixa-campo-descricao').val(data.Descricao);
                 $('#caixa-campo-documento').val(data.Documento);
                 $('#caixa-campo-valor').val(data.Valor);
@@ -217,10 +234,11 @@ $(function () {
     });
 
     function LimparCampos() {
+        $("#caixa-campo-operacao").val("");
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-valor").val("");
         $("#caixa-campo-forma-pagamento").val("");
+        $("#caixa-campo-valor").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;
@@ -228,4 +246,14 @@ $(function () {
     $('#modal-caixa').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })
+
+function monstrarMensagem(texto, titulo, tipo) {
+    return false;
+    new PNotify({
+        title: titulo,
+        text: texto,
+        icon: 'icofont icofont-info-circle',
+        type: tipo
+    });
+}
 });

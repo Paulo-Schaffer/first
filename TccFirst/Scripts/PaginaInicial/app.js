@@ -1,10 +1,14 @@
-$('nav a').click(function(e){
-	e.preventDefault();
-	var id = $(this).attr('href'),
-	targetOffset = $(id).offset().top;
+$('nav a').click(function (e) {
+    var id = $(this).attr('href'),
 
-	$('html, body').animate({ 
-		scrollTop: targetOffset -100
-	  }, 500);
+    //if (id == "/login") {
+    //    return;
+    //}
+    //e.preventDefault();
+    targetOffset = $(id).offset().top;
+
+    $('html, body').animate({
+        scrollTop: targetOffset - 100
+    }, 500);
 });
 

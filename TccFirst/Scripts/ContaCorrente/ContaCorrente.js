@@ -3,6 +3,7 @@
     $idAlterar = -1;
 
     $tabelaContaCorrente = $("#conta-corrente-tabela").DataTabble({
+        "scrollX": true,
         ajax = '/ContaCorrente/obtertodos',
         serverSide = true,
         Columns: [

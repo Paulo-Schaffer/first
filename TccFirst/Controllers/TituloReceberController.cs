@@ -18,38 +18,6 @@ namespace TccFirst.Controllers
             repository = new TituloReceberRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
-
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
         {
@@ -67,11 +35,11 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost, Route("editar")] 
-        public JsonResult Editar(TituloReceber tituloReceber)
+        public ActionResult Editar(TituloReceber tituloReceber)
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", new { id = resultado});
         }
         
         [HttpGet,Route("apagar")]
