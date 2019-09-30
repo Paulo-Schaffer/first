@@ -3,6 +3,7 @@
     $idAlterar = -1;
 
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
+        "scrollX": true,
         ajax: '/tituloreceber/obtertodos',
         serverSide: true,
         columns: [

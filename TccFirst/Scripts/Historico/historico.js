@@ -4,7 +4,7 @@ $(function () {
     $idAlterar = -1;
 
     $tabelaHistorico = $("#historico-tabela").DataTable({
-
+        "scrollX": true,
         ajax: '/historico/obtertodos',
         severSide: true,
         columns: [
