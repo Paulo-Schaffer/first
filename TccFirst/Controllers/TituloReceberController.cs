@@ -35,11 +35,11 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost, Route("editar")] 
-        public JsonResult Editar(TituloReceber tituloReceber)
+        public ActionResult Editar(TituloReceber tituloReceber)
         {
             var alterou = repository.Alterar(tituloReceber);
             var resultado = new { status = alterou };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", new { id = resultado});
         }
         
         [HttpGet,Route("apagar")]

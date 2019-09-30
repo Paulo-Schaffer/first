@@ -1,5 +1,4 @@
-﻿
-<div class="row">
+﻿<div class="row">
     <div class="col-6">
         <h2>Cadastro de Titulo a Pagar</h2>
     </div>
@@ -9,8 +8,8 @@
     </div>
 </div>
 
-<form action="/titulopagar/cadastro" method="post">
-    <div class="container">
+<div class="container">
+    <form action="/titulopagar/cadastro" method="post">
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
@@ -33,9 +32,9 @@
                     <label for="tituloPagar-campo-forma-pagamento" mas>Forma de Pagamento<span class="text-danger">*</span></label>
                     <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                         <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
-                        <option>Dinheiro</option>
-                        <option>Cartão Débito</option>
-                        <option>Cartão de Crédito</option>
+                        <option value="Dinheiro" >Dinheiro</option>
+                        <option value="Cartão de Débito" >Cartão de Débito</option>
+                        <option value="Cartão de Crédito" >Cartão de Crédito</option>
                     </select>
                 </div>
             </div>
@@ -45,10 +44,10 @@
                     <label for="tituloPagar-campo-status" mas>Status<span class="text-danger">*</span></label>
                     <select class="form-control" id="tituloPagar-campo-status" name="Status">
                         <option disabled="disabled" selected="selected">Selecione um status</option>
-                        <option>Pendente</option>
-                        <option>Pago</option>
-                        <option>Pago parcialmente</option>
-                        <option>Cancelado</option>
+                        <option value="Pendente" >Pendente</option>
+                        <option value="Pago" >Pago</option>
+                        <option value="Pago parcialmente" >Pago parcialmente</option>
+                        <option value="Cancelado" >Cancelado</option>
                     </select>
                 </div>
             </div>
@@ -116,15 +115,16 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal-footer">
-        <button class="btn btn-grd-success float-left mt-3" type="button" id="tituloPagar-botao-salvar"><i class="fa fa-save"></i> Salvar</button>
-    </div>
-</form>
+        <div class="modal-footer">
+            <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+        </div>
+    </form>
+</div>
 
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
-    <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
+    <script src="~/Scripts/TituloPagar/titulo-pagar-index.js"></script>
 }
+
 

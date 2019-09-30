@@ -96,8 +96,8 @@ $(function () {
         $operacao = $('#caixa-campo-operacao').val();
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
-        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $valor = $('#caixa-campo-valor').val();
+        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
         $IdHistoricos = $('#caixa-campo-historico').val();
 
@@ -237,8 +237,8 @@ $(function () {
         $("#caixa-campo-operacao").val("");
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-valor").val("");
         $("#caixa-campo-forma-pagamento").val("");
+        $("#caixa-campo-valor").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;
