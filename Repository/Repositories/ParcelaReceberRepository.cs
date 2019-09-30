@@ -9,8 +9,15 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
     public class ParcelaReceberRepository : IParcelaReceberRepository
+        
+        private SistemaContext context;
+
+    public ParcelaReceberRepository()
     {
-        public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber)
+        context = new SistemaContext();
+    }
+    
+        public void GerarParcelas(int idTituloReceber)
         {
             throw new NotImplementedException();
         }
@@ -20,7 +27,7 @@ namespace Repository.Repositories
             throw new NotImplementedException();
         }
 
-        public List<ParcelaReceber> ObterTodos(int idTitloPagar)
+        public List<ParcelaReceber> ObterTodos(int idTituloReceber)
         {
             throw new NotImplementedException();
         }
