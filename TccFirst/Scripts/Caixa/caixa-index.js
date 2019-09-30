@@ -87,8 +87,8 @@ $(function () {
         }
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
-        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $valor = $('#caixa-campo-valor').val();
+        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
         $IdHistoricos = $('#caixa-campo-historico').val();
 
@@ -122,13 +122,13 @@ $(function () {
         }
 
         if ($idAlterar == -1) {
-            inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
+            inserir($descricao, $documento,  $valor, $formaPagamento, $dataLancamento, $IdHistoricos);
         } else {
-            alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
+            alterar($descricao, $documento, $valor, $formaPagamento, $dataLancamento, $IdHistoricos);
         }
     });
 
-    function alterar($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
+    function alterar($descricao, $documento, $valor, $formaPagamento, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: "/Caixa/update",
             method: "post",
@@ -153,7 +153,7 @@ $(function () {
         })
     }
 
-    function inserir($descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
+    function inserir($descricao, $documento,  $valor, $formaPagamento, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: '/Caixa/inserir',
             method: 'post',
@@ -219,8 +219,8 @@ $(function () {
     function LimparCampos() {
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-valor").val("");
         $("#caixa-campo-forma-pagamento").val("");
+        $("#caixa-campo-valor").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;

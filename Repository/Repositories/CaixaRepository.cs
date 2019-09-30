@@ -26,8 +26,8 @@ namespace Repository.Repositories
             caixaRegistro.IdHistoricos = caixa.IdHistoricos;
             caixaRegistro.Descricao = caixa.Descricao;
             caixaRegistro.Documento = caixa.Documento;
-            caixaRegistro.FormaPagamento = caixa.FormaPagamento;
             caixaRegistro.Valor = caixa.Valor;
+            caixaRegistro.FormaPagamento = caixa.FormaPagamento;
             caixaRegistro.DataLancamento = caixa.DataLancamento;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
