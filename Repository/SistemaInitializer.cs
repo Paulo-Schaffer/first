@@ -687,7 +687,7 @@ namespace Repository
                     ValorTotal = 1999,
                     QuantidadeParcela = 1,
                     Descricao = "Titulo feio por Paulo",
-                    Complemento = "Usuario pagou corretamente",
+                    
                     RegistroAtivo = true,
                 }
 

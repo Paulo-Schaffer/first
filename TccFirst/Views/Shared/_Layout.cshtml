@@ -42,6 +42,9 @@
     <link rel="stylesheet" type="text/css" href="~/Content/tema/assets/pages/data-table/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/tema/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/replaces.css">
+
+    <!--jquery Confirm -->
+    <link href="~/Content/jquery-confirm.min.css" rel="stylesheet" />
     @RenderSection("css", false)
 </head>
 
@@ -400,45 +403,60 @@
                                             </a>
                                         </li>
                                         <li class=" ">
+                                            <a href="/categoriareceita">
                                             <a href="/clientepessoajuridica ">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Juridica</span>
+                                                      data-i18n="nav.basic-components.breadcrumbs">Categoria Receita</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
                                         <li class="">
                                             <a href="/clientepessoafisica/index">
+                                        <li class=" ">
+                                            <a href="/categoriadespesa">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Categoria Despesa</span>
                                                       data-i18n="nav.basic-components.breadcrumbs">Cliente Pessoa Fisica</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li class=" ">
+                                            <a href="/Fornecedor/Index">
                                         <li class="">
                                             <a href="/historico">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
                                                       data-i18n="nav.basic-components.alert">Historicos</span>
+                                                      data-i18n="nav.basic-components.breadcrumbs">Fornecedor</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
                                         <li class="">
                                             <a href="/categoriareceita">
+                                        <li class=" ">
+                                            <a href="/Funcionario/Index">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.breadcrumbs">Funcionarios</span>
                                                       data-i18n="nav.basic-components.alert">Categoria Receita</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li class=" ">
+                                            <a href="/historico/index">
                                         <li class="">
                                             <a href="/categoriadespesa">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext"
+                                                      data-i18n="nav.basic-components.alert">Historico</span>
                                                       data-i18n="nav.basic-components.alert">Categoria Despesa</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        
                                     </ul>
                                 </li>
 
@@ -543,22 +561,35 @@
     <script src="~/Content/tema/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="~/Content/tema/assets/js/script.min.js"></script>
 
-    <!-- data-table js -->
-    <script src="~/Content/tema/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="~/Content/tema/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="~/Content/tema/assets/pages/data-table/js/jszip.min.js"></script>
-    <script src="~/Content/tema/assets/pages/data-table/js/pdfmake.min.js"></script>
-    <script src="~/Content/tema/assets/pages/data-table/js/vfs_fonts.js"></script>
-    <script src="~/Content/tema/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="~/Content/tema/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <script src="~/Scripts/jquery.mask.js"></script>
-    <script src="~/Scripts/moment.js"></script>
-    <script src="~/Scripts/select2.min.js"></script>
-    <script src="~/Scripts/datetime.js"></script>
-    @RenderSection("js", false)
+        <!-- pnotify js -->
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.desktop.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.buttons.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.confirm.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.callbacks.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.animate.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.history.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.mobile.js"></script>
+        <script type="text/javascript" src="~/Content/tema/bower_components/pnotify/js/pnotify.nonblock.js"></script>
+
+        <!-- data-table js -->
+        <script src="~/Content/tema/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="~/Content/tema/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/Content/tema/assets/pages/data-table/js/jszip.min.js"></script>
+        <script src="~/Content/tema/assets/pages/data-table/js/pdfmake.min.js"></script>
+        <script src="~/Content/tema/assets/pages/data-table/js/vfs_fonts.js"></script>
+        <script src="~/Content/tema/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="~/Content/tema/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/Content/tema/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/Content/tema/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/Content/tema/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <script src="~/Scripts/jquery.mask.js"></script>
+        <script src="~/Scripts/moment.js"></script>
+        <script src="~/Scripts/select2.min.js"></script>
+        <script src="~/Scripts/datetime.js"></script>
+        <script src="~/Scripts/mdb.min.js"></script>
+        <script src="~/Scripts/jquery-confirm.min.js"></script>
+        @RenderSection("js", false)
 </body>
 
 </html>

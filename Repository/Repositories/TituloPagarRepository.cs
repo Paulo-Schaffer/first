@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class TituloPagarRepository : ITituloPagarRepository
+   public class TituloPagarRepository : ITituloPagarRepository
     {
         public SistemaContext context;
 
@@ -19,18 +19,15 @@ namespace Repository.Repositories
 
         public bool Alterar(TituloPagar tituloPagar)
         {
-
             var tituloPagarOficial = context.TitulosPagar.Where(x => x.Id == tituloPagar.Id).FirstOrDefault();
-            if (tituloPagar == null)
-            {
+            if (tituloPagarOficial == null)
                 return false;
-            }
-            tituloPagarOficial.IdCategoriaDespesa = tituloPagar.IdCategoriaDespesa;
+
             tituloPagarOficial.IdFornecedor = tituloPagar.IdFornecedor;
+            tituloPagarOficial.IdCategoriaDespesa = tituloPagar.IdCategoriaDespesa;
             tituloPagarOficial.Descricao = tituloPagar.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagar.FormaPagamento;
             tituloPagarOficial.Caixa = tituloPagar.Caixa;
-            tituloPagarOficial.ValorTotal = tituloPagar.ValorTotal;
             tituloPagarOficial.Status = tituloPagar.Status;
             tituloPagarOficial.DataLancamento = tituloPagar.DataLancamento;
             tituloPagarOficial.DataRecebimento = tituloPagar.DataRecebimento;
@@ -57,7 +54,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloPagar tituloPagar) 
         {
-            // tituloPagar.RegistroAtivo = true;
+             //tituloPagar.RegistroAtivo = true;
             context.TitulosPagar.Add(tituloPagar);
             context.SaveChanges();
             return tituloPagar.Id;
