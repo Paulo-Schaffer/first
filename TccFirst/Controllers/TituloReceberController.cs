@@ -88,9 +88,6 @@ namespace TccFirst.Controllers
                 {
                     id = tituloReceber.Id,
                     text = tituloReceber.Descricao,
-                    tituloReceber.ValorTotal,
-                    tituloReceber.DataLancamento,
-
                 });
             }
             var resultado = new

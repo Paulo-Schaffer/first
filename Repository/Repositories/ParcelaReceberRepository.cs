@@ -35,6 +35,7 @@ namespace Repository.Repositories
             for (int i = 0; i < tituloReceber.QuantidadeParcela; i++)
             {
                 var dataVencimento = dataAtual.AddMonths(i);
+
                 if (i + 1 >= tituloReceber.QuantidadeParcela)
                 {
                     valorParcela = valorTotal - totalAcumulado;
@@ -45,7 +46,7 @@ namespace Repository.Repositories
                 parcela.DataVencimento = dataVencimento;
                 parcela.IdTituloReceber = idTituloReceber;
                 parcela.RegistroAtivo = true;
-                parcela.Status = TituloReceber.StatusPendente;
+                parcela.Status = ParcelaPagar.StatusPendente;
                 context.ParcelasReceber.Add(parcela);
 
                 totalAcumulado += valorParcela;
