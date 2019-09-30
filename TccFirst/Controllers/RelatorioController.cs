@@ -30,6 +30,10 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+        public ActionResult RelatorioCaixa()
+        {
+            return View();
+        }
 
         [HttpGet]
         public JsonResult FluxoCaixaDados(DateTime dataInicial, DateTime dataFinal)

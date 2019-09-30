@@ -1,4 +1,4 @@
-﻿using Model;
+﻿    using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -65,11 +65,10 @@ namespace TccFirst.Controllers
         {
             var caixas = repository.ObterTodos(0,"",0);
 
-            List<object> caixasSelect2 =
-                new List<object>();
+            List<object> ObterTodosSelect2 = new List<object>();
             foreach (Caixa caixa in caixas)
             {
-                caixasSelect2.Add(new
+                ObterTodosSelect2.Add(new
                 {
                     id = caixa.Id,
                     text = caixa.Descricao,
@@ -79,7 +78,7 @@ namespace TccFirst.Controllers
             }
             var resultado = new
             {
-                results = caixasSelect2
+                results = ObterTodosSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }

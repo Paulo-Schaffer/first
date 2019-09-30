@@ -1,10 +1,10 @@
 ﻿(function () {
 
-    $idAgencia = 0;
+    $idHistorico= 0;
 
     $("#filtro-hisotirico").select2({
         ajax: {
-            url: "/caixa/obtertodosselect2",
+            url: "/historico/obtertodosselect2",
             dataType: "json"
         }
     }).on('change', function () {
@@ -24,7 +24,7 @@
 
 
     function buscarValores() {
-        $idAgencia = $("#filtro-agencia").val();
+        $idHistorico = $("#filtro-hisotirico").val();
         $valor = $("#filtro-valor").val();
         $documento = $("#filtro-documento").val();
     }
@@ -35,15 +35,15 @@
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
         ajax: {
-            url: '/cadastrocontacorrente/obterTodos',
+            url: '/caixa/obterTodos',
             data: function (d) {
-                d.idAgencia = $idAgencia,
-                    d.nome = $nome
+                d.$idHistorico = $$idHistorico,
+                    d.$valor = $valor,
+                    d.$documento = $documento
             }
         },
         serverSide: true,
         columns: [
-            //{ data: "Id" },
             { data: "Descricao" },
             { data: "Documento" },
             { data: "FormaPagamento" },
