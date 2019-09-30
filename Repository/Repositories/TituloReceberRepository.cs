@@ -29,7 +29,6 @@ namespace Repository.Repositories
             tituloReceberOriginal.IdClientePessoaJuridica = tituloReceber.IdClientePessoaJuridica;
             tituloReceberOriginal.IdClientePessoaFisica = tituloReceber.IdClientePessoaFisica;
             tituloReceberOriginal.IdCategoriaReceita = tituloReceber.IdCategoriaReceita;
-            tituloReceberOriginal.ValorTotal = tituloReceber.ValorTotal;
             tituloReceberOriginal.Descricao = tituloReceber.Descricao;
             tituloReceberOriginal.Status = tituloReceber.Status;
             tituloReceberOriginal.DataLancamento = tituloReceber.DataLancamento;
