@@ -14,18 +14,16 @@ namespace Model
         [Key, Column("id")]
         public int Id { get; set; }
 
-        [Required]
+        
         [Column("razao_social")]
         public string RazaoSocial { get; set; }
 
         [Column("nome_fantasia")]
         public string NomeFantasia { get; set; }
 
-        [Required]
         [Column("data_cadastro")]
         public DateTime DataCadastro { get; set; }
 
-        [Required]
         [Column("cnpj")]
         public string Cnpj { get; set; }
 

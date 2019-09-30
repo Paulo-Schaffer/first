@@ -6,7 +6,7 @@
         ajax: '/categoriareceita/obterTodos',
         serverSide: true,
         columns: [
-            { 'data': 'Id' },
+            { 'data': 'Idw' },
             { 'data': 'TipoCategoriaReceita' },
             {
                 render: function (data, type, row) {
