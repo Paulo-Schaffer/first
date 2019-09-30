@@ -7,9 +7,9 @@ function animeScroll() {
 console.log(documentTop)
     $target.each(function () {
         var itemTop = $(this).offset().top;
-        console.log(itemTop)
+        //console.log(itemTop)
         if (documentTop < itemTop) {
-            $(this).addClass('anime-start');
+            $(this).removeClass('anime');
             
         } else {
             $(this).removeClass('anime-start');
