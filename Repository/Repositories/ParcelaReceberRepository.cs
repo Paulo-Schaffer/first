@@ -10,6 +10,8 @@ namespace Repository.Repositories
 {
     public class ParcelaReceberRepository : IParcelaReceberRepository
     {
+        private SistemaContext context;
+
         public void GerarParcelas(decimal valor, int quantidadesPacelas, int idTituloReceber)
         {
             context = new SistemaContext();

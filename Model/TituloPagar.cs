@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-     [Table("titulos_pagar")]
+    [Table("titulos_pagar")]
     public class TituloPagar
     {
         public const string StatusPendente = "Pendente";
@@ -49,7 +49,7 @@ namespace Model
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
 
-        #region fk_fornecedores
+        #region fk__fornecedores
         [Column("id_fornecedor")]
         public int IdFornecedor { get; set; }
 

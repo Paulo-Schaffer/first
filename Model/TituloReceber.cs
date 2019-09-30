@@ -11,6 +11,11 @@ namespace Model
     [Table("titulos_receber")]
     public class TituloReceber
     {
+        public const string StatusPendente = "Pendente";
+        public const string StatusPagoParcialmente = "Parcialmente";
+        public const string StatusCancelado = "Cancelado";
+        public const string StatusFinalizado = "Finalizado";
+
         [Key, Column("id")]
         public int Id { get; set; }
 
@@ -27,13 +32,10 @@ namespace Model
         public DateTime DataLancamento { get; set; }
 
         [Column("data_recebimento")]
-        public DateTime? DataRecebimento { get; set; }
+        public DateTime DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
         public DateTime DataVencimento { get; set; }
-
-        [Column("complemento")]
-        public string Complemento { get; set; }
 
         [Column("quantidade_parcela")]
         public int QuantidadeParcela { get; set; }
@@ -50,7 +52,7 @@ namespace Model
                 {
                     return ClientePessoaJuridica.RazaoSocial;
                 }
-                else if(ClientePessoaFisica != null)
+                else if (ClientePessoaFisica != null)
                 {
                     return ClientePessoaFisica.Nome;
                 }
@@ -72,7 +74,7 @@ namespace Model
         [Column("id_cliente_pessoa_juridica")]
         public int? IdClientePessoaJuridica { get; set; }
         [ForeignKey("IdClientePessoaJuridica")]
-        public ClientePessoaJuridica PessoaJuridica { get; set; }
+        public ClientePessoaJuridica ClientePessoaJuridica { get; set; }
         #endregion
 
         #region fk_categoria_receita 

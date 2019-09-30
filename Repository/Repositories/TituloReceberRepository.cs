@@ -34,7 +34,6 @@ namespace Repository.Repositories
             tituloReceberOriginal.DataLancamento = tituloReceber.DataLancamento;
             tituloReceberOriginal.DataRecebimento = tituloReceber.DataRecebimento;
             tituloReceberOriginal.DataVencimento = tituloReceber.DataVencimento;
-            tituloReceberOriginal.Complemento = tituloReceber.Complemento;
             tituloReceberOriginal.QuantidadeParcela = tituloReceber.QuantidadeParcela;
 
             int quantidadeAfetada = context.SaveChanges();

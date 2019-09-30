@@ -5,16 +5,16 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
-    internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
+    internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+ //   internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
+
             #region agencias
             var agencias = new List<Agencia>();
             agencias.Add(new Agencia()
             {
-                Id = 1,
                 NomeAgencia = "Agencia da Vida",
                 NumeroAgencia = "2001",
                 Banco = "Banco de Vida",
@@ -22,7 +22,6 @@ namespace Repository
             });
             agencias.Add(new Agencia()
             {
-                Id = 2,
                 NomeAgencia = "Agencia do Paulo",
                 NumeroAgencia = "666",
                 Banco = "Banco do Paulo",
@@ -31,7 +30,6 @@ namespace Repository
 
             agencias.Add(new Agencia()
             {
-                Id = 3,
                 NomeAgencia = "Você consegue",
                 NumeroAgencia = "8001",
                 Banco = "Banco do Goku",
@@ -41,335 +39,17 @@ namespace Repository
 
             #endregion
 
-            #region Transação
-            var transacao = new List<Transacao>();
-            transacao.Add(new Transacao()
-            {
-                Id = 1,
-                Descricao = "Recebimento de venda de produto",
-                Documento = "1-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 100,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                DataRecebimento = Convert.ToDateTime("2019-01-02"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 2,
-                Descricao = "Recebimento de venda de produto",
-                Documento = "1-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 101,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                DataRecebimento = Convert.ToDateTime("2019-01-02"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 3,
-                Descricao = "Recebimento de venda de produto",
-                Documento = "3-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 300,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                DataRecebimento = Convert.ToDateTime("2019-01-05"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 4,
-                Descricao = "Recebimento de venda de produto",
-                Documento = "4-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 150,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                DataRecebimento = Convert.ToDateTime("2019-01-05"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 5,
-                Descricao = "Recebimento de venda de produto",
-                Documento = "5-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 1545,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                DataRecebimento = Convert.ToDateTime("2019-01-05"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            }); transacao.Add(new Transacao()
-            {
-                Id = 6,
-                Descricao = "Recebimento de venda de produto",
-                Documento = "1-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 515,
-                DataLancamento = Convert.ToDateTime("2019-01-10"),
-                DataRecebimento = Convert.ToDateTime("2019-01-10"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 7,
-                Descricao = "Recebimento de venda de produto",
-                Documento = "7-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 750,
-                DataLancamento = Convert.ToDateTime("2019-01-10"),
-                DataRecebimento = Convert.ToDateTime("2019-01-10"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            context.Transacoes.AddRange(transacao);
-
-
-            #endregion
-
-            #region caixa
-
-
-            var caixas = new List<Caixa>();
-            caixas.Add(new Caixa()
-            {
-                Id = 1,
-                Descricao = "recebimento serviço",
-                Documento = "171-1",
-                FormaPagamento = "Debito",
-                Valor = 1500,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 2,
-                Descricao = "Pagamento Energia",
-                Documento = "172-1",
-                FormaPagamento = "Debito",
-                Valor = 36,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 3,
-                Descricao = "Recebimento serviço",
-                Documento = "173-1",
-                FormaPagamento = "Debito",
-                Valor = 1900,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 4,
-                Descricao = "Recebimento serviço",
-                Documento = "174-1",
-                FormaPagamento = "Debito",
-                Valor = 60,
-                DataLancamento = Convert.ToDateTime("2019-01-03"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 5,
-                Descricao = "Recebimento serviço",
-                Documento = "175-1",
-                FormaPagamento = "Debito",
-                Valor = 100,
-                DataLancamento = Convert.ToDateTime("2019-01-03"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 6,
-                Descricao = "Recebimento serviço",
-                Documento = "176-1",
-                FormaPagamento = "Debito",
-                Valor = 190,
-                DataLancamento = Convert.ToDateTime("2019-01-03"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 7,
-                Descricao = "Recebimento serviço",
-                Documento = "177-1",
-                FormaPagamento = "Debito",
-                Valor = 650,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 8,
-                Descricao = "Recebimento serviço",
-                Documento = "178-1",
-                FormaPagamento = "Debito",
-                Valor = 320,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 9,
-                Descricao = "Recebimento serviço",
-                Documento = "179-1",
-                FormaPagamento = "Debito",
-                Valor = 270,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 10,
-                Descricao = "Recebimento serviço",
-                Documento = "180-1",
-                FormaPagamento = "Debito",
-                Valor = 120,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 11,
-                Descricao = "Recebimento serviço",
-                Documento = "181-1",
-                FormaPagamento = "Debito",
-                Valor = 336,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 12,
-                Descricao = "Recebimento serviço",
-                Documento = "182-1",
-                FormaPagamento = "Debito",
-                Valor = 765,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 13,
-                Descricao = "Recebimento serviço",
-                Documento = "183-1",
-                FormaPagamento = "Debito",
-                Valor = 426,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 18,
-                Descricao = "Recebimento serviço",
-                Documento = "184-1",
-                FormaPagamento = "Debito",
-                Valor = 953,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 14,
-                Descricao = "Recebimento serviço",
-                Documento = "184-1",
-                FormaPagamento = "Debito",
-                Valor = 125,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 15,
-                Descricao = "Recebimento serviço",
-                Documento = "185-1",
-                FormaPagamento = "Debito",
-                Valor = 452,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 16,
-                Descricao = "Recebimento serviço",
-                Documento = "186-1",
-                FormaPagamento = "Debito",
-                Valor = 100,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 17,
-                Descricao = "Recebimento serviço",
-                Documento = "187-1",
-                FormaPagamento = "Debito",
-                Valor = 333,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-
-            context.Caixas.AddRange(caixas);
-            #endregion
 
             #region categoriasDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
             {
-                Id = 1,
-                TipoCategoriaDespesa = "Despesa com Toddynho",
+                TipoCategoriaDespesa = "Despesa com Funcionário",
                 RegistroAtivo = true,
             });
             categoriaDespesa.Add(new CategoriaDespesa()
             {
-                Id = 2,
-                TipoCategoriaDespesa = "Despesa com Salgadinho",
+                TipoCategoriaDespesa = "Despesa com Lanche",
                 RegistroAtivo = true,
             });
             context.CategoriasDespesas.AddRange(categoriaDespesa);
@@ -379,24 +59,22 @@ namespace Repository
             var categoriaReceita = new List<CategoriaReceita>();
             categoriaReceita.Add(new CategoriaReceita()
             {
-                Id = 1,
                 TipoCategoriaReceita = "Despesa com Paulo",
                 RegistroAtivo = true,
             });
             categoriaReceita.Add(new CategoriaReceita()
             {
-                Id = 2,
                 TipoCategoriaReceita = "Despesa com Joao",
                 RegistroAtivo = true,
             });
             context.CategoriasReceitas.AddRange(categoriaReceita);
             #endregion
 
-            #region clientes pessoa fisica
+            #region clientesPessoasFisicas
+
             var clientesPessoaFisica = new List<ClientePessoaFisica>();
             clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
-                Id = 1,
                 Nome = "Paulo",
                 Cpf = "093.455.789-50",
                 DataNascimento = Convert.ToDateTime("19/04/2000"),
@@ -413,7 +91,6 @@ namespace Repository
             });
             clientesPessoaFisica.Add(new ClientePessoaFisica()
             {
-                Id = 2,
                 Nome = "João",
                 Cpf = "033.555.119-22",
                 DataNascimento = Convert.ToDateTime("09/08/1996"),
@@ -435,7 +112,6 @@ namespace Repository
             var clientesPessoaJuridica = new List<ClientePessoaJuridica>();
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
-                Id = 1,
                 RazaoSocial = "First",
                 Atividade = "Sistemas e SoftWares",
                 NomeFantasia = "Financial Report System",
@@ -456,7 +132,6 @@ namespace Repository
 
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
-                Id = 2,
                 RazaoSocial = "HBSIS",
                 Atividade = "Sistemas e SoftWares",
                 NomeFantasia = "HBSIS",
@@ -476,78 +151,61 @@ namespace Repository
             context.ClientesPessoasJuridicas.AddRange(clientesPessoaJuridica);
             #endregion
 
-            #region tituloPagar
-            var tituloPagar = new List<TituloPagar>();
-            tituloPagar.Add(new TituloPagar()
+            #region endereços
+            var enderecos = new List<Endereco>();
+            enderecos.Add(new Endereco()
             {
-                Id = 1,
-                Descricao = "Titulo feio por Paulo",
-                FormaPagamento = "Dinheiro",
-                Caixa = true,
-                ValorTotal = 100,
-                Status = "Pago",
-                DataLancamento = Convert.ToDateTime("23/06/2016"),
-                DataRecebimento = Convert.ToDateTime("22/07/2016"),
-                DataVencimento = Convert.ToDateTime("23/07/2016"),
-                QuantidadeParcela = 4,
-                RegistroAtivo = true,
-                IdCategoriaDespesa = 1,
-                IdFornecedor = 1
+                Email = "paulo.md10@gmail.com",
+                Telefone = "988575072",
+                Cep = "89031-492",
+                Logradouro = "XX",
+                Numero = 88,
+                Bairro = "Vila Nova",
+                Cidade = "Bluemanu",
+                Uf = "SC",
+                Complemento = "Bloco-7",
+                RegistroAtivo = true
+
             });
-            tituloPagar.Add(new TituloPagar()
+
+            enderecos.Add(new Endereco()
             {
-                Id = 2,
-                Descricao = "Paulo o mais feio do mundo",
-                FormaPagamento = "Dinheiro",
-                Caixa = true,
-                ValorTotal = 2000,
-                Status = "Pendente",
-                DataLancamento = Convert.ToDateTime("23/06/2016"),
-                DataRecebimento = Convert.ToDateTime("23/06/2016"),
-                DataVencimento = Convert.ToDateTime("23/06/2016"),
-                QuantidadeParcela = 5,
-                RegistroAtivo = true,
-                IdCategoriaDespesa = 1,
-                IdFornecedor = 1
+                Email = "juquinha@hotmail.com",
+                Telefone = "987234573",
+                Cep = "56432-452",
+                Logradouro = "XX",
+                Numero = 142,
+                Bairro = "itoupava Norte",
+                Cidade = "Bluemanu",
+                Uf = "SC",
+                Complemento = "Rua da Direita",
+                RegistroAtivo = true
             });
-            context.TitulosPagar.AddRange(tituloPagar);
-            #endregion
-
-            #region cadastrocontacorrente
-            var cadastroscontacorrente = new List<CadastroContaCorrente>() {
-                new CadastroContaCorrente()
-                {
-                    Id = 1,
-                    NumeroConta = 80,
-                    IdAgencia = 1,
-                    RegistroAtivo = true,
-                },
-
-                  new CadastroContaCorrente()
-                  {
-                      Id = 2,
-                      NumeroConta = 1000,
-                      IdAgencia = 2,
-                      RegistroAtivo = true,
-                  },
-                  new CadastroContaCorrente()
-                  {
-                      Id = 3,
-                      NumeroConta = 1000,
-                      IdAgencia = 1,
-                      RegistroAtivo = true,
-                  }
-            };
-            context.CadastroContaCorrentes.AddRange(cadastroscontacorrente);
 
             #endregion
 
-            
+            #region cadastroscontacorrente
+            var cadastroscontacorrente = new List<CadastroContaCorrente>();
+            cadastroscontacorrente.Add(new CadastroContaCorrente()
+            {
+
+                IdAgencia = 1,
+                NumeroConta = 1,
+                RegistroAtivo = true,
+            });
+            cadastroscontacorrente.Add(new CadastroContaCorrente()
+            {
+                NumeroConta = 1,
+                IdAgencia = 1,
+                RegistroAtivo = true,
+            });
+            #endregion
+
+
             #region fornecedores
             var fornecedores = new List<Fornecedor>();
             fornecedores.Add(new Fornecedor()
             {
-                Id = 1,
                 RazaoSocial = "Peugeot",
                 NomeFantasia = "strabourg",
                 DataCadastro = Convert.ToDateTime("04/09/2019"),
@@ -563,7 +221,6 @@ namespace Repository
                 Complemento = "casa",
                 RegistroAtivo = true,
             });
-            context.Fornecedores.AddRange(fornecedores);
             #endregion
 
             var transacao = new List<Transacao>();
@@ -587,63 +244,41 @@ namespace Repository
             var historico = new List<Historico>();
             historico.Add(new Historico()
             {
-                Id = 1,
-                Descricao = "Conta adicionada dia 19/07/2000",
+                Descricao = "Conta adicionada dia 19/07/2012",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
             {
-                Id = 2,
                 Descricao = "Conta paga com sucesso",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
             {
-                Id = 3,
                 Descricao = "Conta em atraso, pagar até dia 29/08/1996",
+                RegistroAtivo = true
+            });
+            historico.Add(new Historico()
+            {
+                Descricao = "Babalu, babala, babalo",
                 RegistroAtivo = true
             });
             context.Historicos.AddRange(historico);
             #endregion
 
-            #region parcelaPagar
-            var parcelaPagar = new List<ParcelaPagar>();
-            parcelaPagar.Add(new ParcelaPagar()
-            {
-                Id = 1,
-                Valor = 2333,
-                Status = "Pago",
-                DataVencimento = Convert.ToDateTime("17/02/2019"),
-                DataPagamento = Convert.ToDateTime("17/02/2019"),
-                RegistroAtivo = true
-            });
-            parcelaPagar.Add(new ParcelaPagar()
-            {
-                Id = 2,
-                Valor = 9523,
-                Status = "Pendente",
-                DataVencimento = Convert.ToDateTime("04/09/2019"),
-                DataPagamento = Convert.ToDateTime("05/09/2019"),
-                RegistroAtivo = true
-            });
-            context.ParcelasPagar.AddRange(parcelaPagar);
-            #endregion
 
             #region funcionario
             var funcionarios = new List<Funcionario>();
             funcionarios.Add(new Funcionario()
             {
-                Id = 1,
                 NomeFuncionario = "João Stein",
                 TipoFuncionario = "Gerente",
                 Usuario = "Joao",
-                Senha = "sembraco",
+                Senha = "123456",
                 RegistroAtivo = true
 
             });
             funcionarios.Add(new Funcionario()
             {
-                Id = 2,
                 NomeFuncionario = "André",
                 TipoFuncionario = "Funcionario",
                 Usuario = "Andre",
@@ -653,7 +288,6 @@ namespace Repository
             });
             funcionarios.Add(new Funcionario()
             {
-                Id = 3,
                 NomeFuncionario = "Paulo",
                 TipoFuncionario = "Gerente",
                 Usuario = "Paulo",
@@ -662,7 +296,6 @@ namespace Repository
             });
             funcionarios.Add(new Funcionario()
             {
-                Id = 3,
                 NomeFuncionario = "Gustavo",
                 TipoFuncionario = "Gerente",
                 Usuario = "Gustavo",
@@ -671,35 +304,172 @@ namespace Repository
             });
             funcionarios.Add(new Funcionario()
             {
-                Id = 3,
+                NomeFuncionario = "Paul",
+                TipoFuncionario = "Gerente",
+                Usuario = "Paul",
+                Senha = "123",
+                RegistroAtivo = true
+            });
+            funcionarios.Add(new Funcionario()
+            {
                 NomeFuncionario = "Cleber",
                 TipoFuncionario = "Gerente",
-                Usuario = "cleber",
+                Usuario = "Cleber",
                 Senha = "123",
                 RegistroAtivo = true
             });
             context.Funcionarios.AddRange(funcionarios);
             #endregion
 
-            #region tituloReceber
-            var tituloReceber = new List<TituloReceber>() {
-                new TituloReceber()
-                {
-                    Id = 1,
-                    IdClientePessoaFisica = 1,
-                    IdCategoriaReceita = 1,
-                    Status = "Pago",
-                    DataLancamento = DateTime.Now,
-                    DataRecebimento = Convert.ToDateTime("22/07/2016"),
-                    DataVencimento = Convert.ToDateTime("23/07/2016"),
-                    ValorTotal = 1999,
-                    QuantidadeParcela = 1,
-                    Descricao = "Titulo feio por Paulo",
-                    Complemento = "Usuario pagou corretamente",
-                    RegistroAtivo = true,
-                }
 
-            };
+            //#endregion
+
+            //    #region fornecedor
+            //    var fornecedor = new List<Fornecedor>();
+            //    fornecedor.Add(new Fornecedor()
+            //    {
+            //        RazaoSocial = "Benner",
+            //        NomeFantasia = "Paulo",
+            //        DataCadastro = Convert.ToDateTime("19/08/2005"),
+            //        Cnpj = "93.591.110/0001-56",
+            //        RegistroAtivo = true,
+            //    });
+            //    fornecedor.Add(new Fornecedor()
+            //    {
+            //        RazaoSocial = "HBSIS",
+            //        NomeFantasia = "Francisco",
+            //        DataCadastro = Convert.ToDateTime("20/07/2015"),
+            //        Cnpj = "39.552.667/0001-32",
+            //        RegistroAtivo = true,
+            //    });
+            //    context.Fornecedores.AddRange(fornecedor);
+
+            //    #endregion
+
+
+
+
+
+
+            //#region movimentacaoFinanceiraEntrada
+            //var movimentacaoFinanceiraEntrada = new List<MovimentacaoFinanceiraEntrada>();
+            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            //{
+            //    Valor = 568,
+            //    RegistroAtivo = true
+            //});
+            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            //{
+            //    Valor = -2422,
+            //    RegistroAtivo = true,
+            //});
+            //movimentacaoFinanceiraEntrada.Add(new MovimentacaoFinanceiraEntrada()
+            //{
+            //    Valor = 255244,
+            //    RegistroAtivo = true,
+            //});
+            //context.MovimentacaoFinanceiraEntradas.AddRange(movimentacaoFinanceiraEntrada);
+            //#endregion
+
+            //#region movimentacaoFinanceiraSaida
+            //var movimentacaoFinanceiraSaida = new List<MovimentacaoFinanceiraSaida>();
+            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            //{
+            //    Valor = 77,
+            //    RegistroAtivo = true
+            //});
+            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            //{
+            //    Valor = -7555,
+            //    RegistroAtivo = true
+            //});
+            //movimentacaoFinanceiraSaida.Add(new MovimentacaoFinanceiraSaida()
+            //{
+            //    Valor = 72866457,
+            //    RegistroAtivo = true
+            //});
+            //context.MovimentacaoFinanceiraSaidas.AddRange(movimentacaoFinanceiraSaida);
+            //#endregion
+
+
+            //#region parcelaReceber
+            //var parcelaReceber = new List<ParcelaReceber>();
+            //parcelaReceber.Add(new ParcelaReceber()
+            //{
+            //    Valor = 12312,
+            //    Status = "Vencido",
+            //    DataVencimento = Convert.ToDateTime("01/01/2019"),
+            //    DataRecebimento = Convert.ToDateTime("02/02/2019"),
+            //    RegistroAtivo = true,
+            //});
+            //parcelaReceber.Add(new ParcelaReceber()
+            //{
+            //    Valor = 18657328,
+            //    Status = "Pago",
+            //    DataVencimento = Convert.ToDateTime("13/08/2018"),
+            //    DataRecebimento = Convert.ToDateTime("05/08/2018"),
+            //    RegistroAtivo = true,
+            //});
+            //context.ParcelasReceber.AddRange(parcelaReceber);
+            //#endregion ParcelaReceber
+
+            #region titulosPagar
+            var tituloPagar = new List<TituloPagar>();
+            tituloPagar.Add(new TituloPagar()
+            {
+                IdCategoriaDespesa = 1,
+                IdFornecedor = 1,
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Dinheiro",
+                Caixa = true,
+                ValorTotal = 1999,
+                Status = "Pago",
+                DataLancamento = Convert.ToDateTime("23/06/2016"),
+                DataRecebimento = Convert.ToDateTime("22/07/2016"),
+                DataVencimento = Convert.ToDateTime("23/07/2016"),
+                QuantidadeParcela = 1,
+                RegistroAtivo = true
+
+            });
+            tituloPagar.Add(new TituloPagar()
+            {
+                Descricao = "Titulo feio por Paulo",
+                FormaPagamento = "Credito",
+                Caixa = false,
+                ValorTotal = 1,
+                Status = "Pendente",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
+                QuantidadeParcela = 6,
+                RegistroAtivo = true
+            });
+            #endregion
+
+            #region tituloReceber
+            var tituloReceber = new List<TituloReceber>();
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao = "Titulo sem compromisso",
+                ValorTotal = 125,
+                Status = "Pago",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
+                QuantidadeParcela = 36,
+                RegistroAtivo = true
+            });
+            tituloReceber.Add(new TituloReceber()
+            {
+                Descricao = "Titulo com compromisso",
+                ValorTotal = 175,
+                Status = "Pendente",
+                DataLancamento = Convert.ToDateTime("13/06/2016"),
+                DataRecebimento = Convert.ToDateTime("12/07/2019"),
+                DataVencimento = Convert.ToDateTime("13/07/2016"),
+                QuantidadeParcela = 24,
+                RegistroAtivo = true
+            });
             context.TitulosReceber.AddRange(tituloReceber);
             #endregion
 
@@ -708,4 +478,3 @@ namespace Repository
 
     }
 }
-

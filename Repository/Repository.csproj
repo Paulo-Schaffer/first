@@ -91,13 +91,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BancoDados\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{b0d07cb3-4d2e-4988-9ef0-62e4fe558af4}</Project>
       <Name>Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BancoDados\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

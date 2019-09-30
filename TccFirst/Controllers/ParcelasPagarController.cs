@@ -51,16 +51,14 @@ namespace TccFirst.Controllers
 
         public ActionResult Index()
         {
-            ParcelaPagarRepository repositoryParcelaPagar = new ParcelaPagarRepository();
-            ViewBag.ParcelaPagar = repositoryParcelaPagar.ObterTodos();
             return View();
         }
 
         #region obtertodos
         [HttpGet]
-        public JsonResult ObterTodos()
+        public JsonResult ObterTodos(int idTituloPagar)
         {
-            var parcelaspagar = repository.ObterTodos();
+            var parcelaspagar = repository.ObterTodos(idTituloPagar);
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -91,7 +89,7 @@ namespace TccFirst.Controllers
         [HttpPost]
         public ActionResult Cadastro(ParcelaPagar parcelaPagar)
         {
-            var alterou = repository.Alterar(parcelaPagar );
+            var alterou = repository.Alterar(parcelaPagar);
             var resultado = new { status = alterou };
             return Json(resultado);
         }
@@ -117,14 +115,22 @@ namespace TccFirst.Controllers
         //            dataVencimento = parcelasPagar.DataVencimento,
         //            dataPagamento = parcelasPagar.DataPagamento
 
-        }
+        #region editar
 
-        [HttpGet]
-        public ActionResult Editar(int id)
+        [HttpPost]
+        public JsonResult Update(ParcelaPagar parcelaPagar)
         {
-            repository.GerarParcelas(idTituloPagar);
-            return Json(idTituloPagar, JsonRequestBehavior.AllowGet);
+            var alterou = repository.Alterar(parcelaPagar);
+            var resultado = new { status = alterou };
+            return Json(resultado);
         }
         #endregion
+
+        [HttpGet]
+        public ActionResult GerarParcelas(int idTitulosPagar)
+        {
+            repository.GerarParcelas(idTitulosPagar);
+            return Json(idTitulosPagar, JsonRequestBehavior.AllowGet);
+        }
     }
 }
