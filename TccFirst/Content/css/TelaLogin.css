@@ -1,31 +1,62 @@
 ﻿body {
+    margin: 0px;
+    padding: 0px;
+    background-size: cover;
+    background-position: center;
+}
+
+.tela {
+    background-color: #E8E8E8;
+    position: center;
+    color: red;
+    box-sizing: border-box;
+    width: 400px;
+    height: 300px;
+    margin: -66px;
+    border-radius: 5px;
+    background-size: cover;
 }
 
 #botao-login {
     background-color: deepskyblue;
     color: white;
-    height: 50px;
+    height: 40px;
     text-transform: uppercase;
     width: 174px;
     border: none;
     padding: 0 20px;
-    border-radius:5px;
+    border-radius: 5px;
 }
 
 #campo-usuario {
     border-top: 50px;
-    border: groove;
+    border: solid;
     height: 40px;
-    width: 280px;
+    width: 300px;
     border-radius: 5px;
+    border-color: gray;
+    border-width: 1px;
+    background: url('login (4).png')no-repeat;
+    background-position: 6px;
+    padding-left: 30px;
+    background-color: white;
 }
 
 #campo-senha {
-    border-top:5px; 
-
-    border-color:brown;
-    border:groove;
+    color: black;
+    border-top: 5px;
+    border: solid;
     height: 40px;
-    width: 280px;
+    width: 300px;
     border-radius: 5px;
+    border-color: gray;
+    border-width: 1px;
+    background: url('cadeado (1) (1).png')no-repeat;
+    background-position: 6px;
+    padding-left: 30px;
+    background-color: white;
+}
+
+#img-login {
+    opacity: 0.8;
 }

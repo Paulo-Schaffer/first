@@ -3,21 +3,29 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista de Contas Correntes</h2>
-
-<button data-toggle="modal" data-target="#modal-cadastro-conta-corrente" class="btn btn-primary">Nova Conta Corrente</button>
-<table id="cadastro-conta-corrente-tabela" class="table table-hover table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Agencia</th>
-            <th>Numero da Conta</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-</table>
-@RenderPage("Cadastro-conta-corrente.cshtml")
-@section js {
-    <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-cadastro.js"></script>
-    <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-editar.js"></script>
-}
+<h2><b>Lista de Contas Correntes</b></h2>
+<hr />
+<div class="col-12">
+    <button id="botao-novaConta" data-toggle="modal" data-target="#modal-cadastro-conta-corrente" class="btn btn-primary float-right"><i class="fa fa-plus"></i>Nova Conta Corrente</button>
+</div>
+<br />
+<br />
+<br />
+<div class="col-12">
+    <table id="cadastro-conta-corrente-tabela" class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Agencia</th>
+                <th>Numero da Conta</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+    <link rel="stylesheet" href="~/Content/css/CadastroContaCorrente/TelaIndexContaCorrente.css">
+    @RenderPage("Cadastro-conta-corrente.cshtml")
+    @section js {
+        <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-cadastro.js"></script>
+        <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-editar.js"></script>
+    }
