@@ -4,28 +4,36 @@
 }
 
 <h2>Lista de Títulos a Receber</h2>
-<a href="/tituloreceber/cadastro" class="btn btn-info float-right mb-3">
-    <i class="fa fa-plus"></i>Novo Titulo a Receber
-</a>
 
-<table id="tituloReceber-tabela" class="table table-hover table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Cliente</th>
-            <th>Categoria Receita</th>
-            <th>Valor</th>
-            <th>Quantidadede <br />de parcelas</th>
-            <th>Status</th>
-            <th>Data de Lançamento</th>
-            <th>Data de Recebimento</th>
-            <th>Data de Vencimento</th>
-            <th>Descrição</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-</table>
+<div class="row">
+    <div class="col-12">
+        <a href="/tituloreceber/cadastro" class="btn btn-info float-right mb-3">
+            <i class="fa fa-plus"></i>Novo Titulo a Receber
+        </a>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-12">
+        <table id="tituloReceber-tabela" class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Cliente</th>
+                    <th>Categoria Receita</th>
+                    <th>Valor</th>
+                    <th>Quantidadede <br />de parcelas</th>
+                    <th>Status</th>
+                    <th>Data de Lançamento</th>
+                    <th>Data de Recebimento</th>
+                    <th>Data de Vencimento</th>
+                    <th>Descrição</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 @section js{
     <script src="~/Scripts/TituloReceber/tabela-receber-index.js"></script>
 }
