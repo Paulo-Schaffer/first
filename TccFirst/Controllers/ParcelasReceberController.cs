@@ -12,7 +12,7 @@ namespace TccFirst.Controllers
     {
         public ParcelaReceberRepository repository;
 
-        public ParcelasReceberController()
+        public  ParcelasReceberController()
         {
             repository = new ParcelaReceberRepository();
         }
