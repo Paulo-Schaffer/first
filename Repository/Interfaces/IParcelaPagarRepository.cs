@@ -9,9 +9,11 @@ namespace Repository.Interfaces
 {
     public interface IParcelaPagarRepository
     {
-        void GerarParcelas(int idTitutloPagar); 
+        void GerarParcelas(int idTituloPagar);
+
 
         List<ParcelaPagar> ObterTodos(int idTitloPagar);
+
 
         ParcelaPagar ObterPeloId(int id);
     }

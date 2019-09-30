@@ -55,6 +55,7 @@ namespace Repository.Repositories
 
         public int Inserir(TituloReceber tituloReceber)
         {
+           // tituloReceber.RegistroAtivo = true; // adicionado  dia 12/09/2019
             context.TitulosReceber.Add(tituloReceber);
             context.SaveChanges();
             return tituloReceber.Id;

@@ -36,8 +36,8 @@ namespace Model
         [Column("id_titulo_pagar")]
         public int IdTituloPagar { get; set; }
 
-        [ForeignKey("IdTituloPagar")]
-        public TituloPagar TitulosPagar { get; set; }
+        //[ForeignKey("IdTituloPagar")]
+        //public TituloPagar TitulosPagar { get; set; }
         #endregion
     }
 }

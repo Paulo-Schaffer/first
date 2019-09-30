@@ -116,11 +116,10 @@
     <Content Include="Content\css\login.jpg" />
     <Content Include="Content\css\login2.png" />
     <Content Include="Content\css\login %282%29.png" />
+    <Content Include="Content\css\paginaInicial\estilo.css" />
     <Content Include="Content\css\paginaInicial\paginaInicial.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
-    <Content Include="Content\css\Agencia\TelaCadastroAgencia.css" />
-    <Content Include="Content\css\Agencia\TelaEditarAgencia.css" />
     <Content Include="Content\css\TelaLogin.css" />
     <Content Include="Content\css\usuario-do-homem %281%29.png" />
     <Content Include="Content\Imagem\homem %282%29.png" />
@@ -5512,6 +5511,7 @@
     <Content Include="Scripts\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
+    <Content Include="Scripts\FluxoCaixa\Fluxo-Caixa.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
     <Content Include="Scripts\i18n\af.js" />
@@ -5664,6 +5664,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
@@ -5677,7 +5678,6 @@
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
-    <Content Include="Scripts\Transacao\Transacao.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -5688,10 +5688,14 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
+    <Content Include="Views\Nova pasta\Caixa\caixa-cadastro.js" />
+    <Content Include="Views\Nova pasta\Caixa\caixa-index.js" />
+    <Content Include="Views\Nova pasta\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Views\Transacao\Cadastro.cshtml" />
     <Content Include="Views\Transacao\Index.cshtml" />
     <Content Include="Web.config" />
@@ -5705,9 +5709,9 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
-    <Compile Include="Controllers\TransacaoController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
@@ -5716,6 +5720,7 @@
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5761,7 +5766,6 @@
     <Content Include="Views\ClientePessoaJuridica\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Caixa\CadastroCaixa.cshtml" />
-    <Content Include="Views\TituloPagar\CadastroTituloPagar.cshtml" />
     <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
     <Content Include="Views\Historico\CadastroHistorico.cshtml" />
@@ -5786,9 +5790,6 @@
     <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
     <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\TituloPagar\Editar.cshtml" />
-    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
-    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\Relatorio\FluxoCaixa.cshtml" />
     <Content Include="Views\ParcelaReceber\CadastroParcelaReceber.cshtml" />
@@ -5797,12 +5798,7 @@
     <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
     <Content Include="Views\TituloReceber\CadastroTituloReceber.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
-    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
-    <Content Include="Views\TituloPagar\Editar.cshtml" />
-    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
-    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
@@ -5811,6 +5807,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
     <Content Include="Views\PaginaInicial\View.cshtml" />
+    <Content Include="Views\TituloPagar\Cadastro.cshtml" />
+    <Content Include="Views\TituloPagar\Editar.cshtml" />
+    <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5823,6 +5823,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
+    <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>

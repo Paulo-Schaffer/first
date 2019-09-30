@@ -17,44 +17,16 @@ namespace TccFirst.Controllers
             repository = new ParcelaPagarRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
+        //public ActionResult Index()
+        //{
+        //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
 
         public ActionResult Index()
         {
             return View();
         }
 
-        #region obtertodos
         [HttpGet]
         public JsonResult ObterTodos(int idTituloPagar)
         {
@@ -62,7 +34,6 @@ namespace TccFirst.Controllers
             var resultado = new { data = parcelaspagar };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        #endregion
 
         //[HttpGet, Route("parcelasPagar/obtertodosselect2")]
         //public JsonResult ObterTodosSelect2(string termo)
@@ -87,7 +58,7 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastro(ParcelaPagar parcelaPagar)
+        public JsonResult Update(ParcelaPagar parcelaPagar)
         {
             var alterou = repository.Alterar(parcelaPagar);
             var resultado = new { status = alterou };
@@ -125,9 +96,12 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
         #endregion
+        //        });
+        //    }
+        //}
 
         [HttpGet]
-        public ActionResult GerarParcelas(int idTitulosPagar)
+        public ActionResult GerarParcelas(int idTituloPagar)
         {
             repository.GerarParcelas(idTitulosPagar);
             return Json(idTitulosPagar, JsonRequestBehavior.AllowGet);
