@@ -3,7 +3,6 @@ $(function () {
     $idTituloPagar = $("#id").val();
 
     $tabelaParcelas = $("#parcelasPagar-tabela").DataTable({
-        "scrollX": true,
         ajax: '/parcelaspagar/obtertodos?idTituloPagar=' + $idTituloPagar,
         serverSide: true,
         info: false,

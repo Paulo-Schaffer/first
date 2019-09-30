@@ -43,7 +43,7 @@ nav.navbar-transparente{
 	padding-bottom: 30px; 
 }
 /*scroll animado*/
-  .anime{
+ /* .anime{
 	opacity: 0;
     transform: translate3d(-100px,0,0);
 	transition: .5s;
@@ -51,7 +51,7 @@ nav.navbar-transparente{
 .anime-start{
 	opacity: 1;
 	transform: translate3d(0,0,0);
-}  
+}  */
 
 /*Rodapé*/
 footer{
