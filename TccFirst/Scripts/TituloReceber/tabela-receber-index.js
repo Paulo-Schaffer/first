@@ -56,7 +56,8 @@ $(function () {
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: 'NomeCliente' },                                
+            { data: 'NomeCliente' }, 
+            { data:"IdCategoriaReceita"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             {

@@ -37,7 +37,7 @@
             <div class="col-12" id="tituloReceber-pessoa-fisica">
                 <div class="form-group">
                     <label for="tituloReceber-campo-pessoa-fisica">Pessoa Física</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-fisica" name="idPessoaFisica">
+                    <select class="form-control" id="tituloReceber-campo-pessoa-fisica" name="idClientePessoaFisica">
                         <option disabled selected>Selecione um opção</option>
                     </select>
                 </div>
@@ -46,7 +46,7 @@
             <div class="col-12" id="tituloReceber-pessoa-juridica">
                 <div class="form-group">
                     <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="idPessoaJuridica">
+                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica"  name="IdClientePessoaJuridica">
                         <option disabled selected>Selecione um opção</option>
                     </select>
                 </div>
@@ -67,7 +67,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="titulo-receber-campo-status">Status</label>
-                    <select class="form-control" id="tituloReceber-campo-status">
+                    <select class="form-control" id="tituloReceber-campo-status" name="Status">
                         @if (ViewBag.TituloReceber.Status == "Pendente")
                         {
                             <option value="Pendente" selected="selected">Pendente</option>
@@ -107,7 +107,7 @@
                 <div class="form-group">
                     <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
                     <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control"
-                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")" />
+                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")" name="DataLancamento"/>
                 </div>
             </div>
         </div>
@@ -117,14 +117,14 @@
                     <div class="form-group">
                         <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
                         <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control"
-                               value="@ViewBag.TituloReceber.DataRecebimento.ToString("yyyy-MM-dd")" />
+                               value="@ViewBag.TituloReceber.DataRecebimento.ToString("yyyy-MM-dd")" name="DataRecebimento" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
                         <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control"
-                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")" />
+                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")"name="DataVencimento" />
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@
                 <div class="form-group">
                     <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
                     <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control"
-                           value="@ViewBag.TituloReceber.QuantidadeParcela" />
+                           value="@ViewBag.TituloReceber.QuantidadeParcela"name="QuantidadeParcela" />
                 </div>
             </div>
 
