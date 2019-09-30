@@ -109,6 +109,8 @@
     <Content Include="Content\css\ClientePesssoaFisica\TelaIndexPessoaFisica.css" />
     <Content Include="Content\css\do-utilizador.png" />
     <Content Include="Content\css\first.png" />
+    <Content Include="Content\css\Historico\TelaCadastroHistorico.css" />
+    <Content Include="Content\css\Historico\TelaIndexHistorico.css" />
     <Content Include="Content\css\homem %283%29.png" />
     <Content Include="Content\css\login %283%29.png" />
     <Content Include="Content\css\login %284%29.png" />
@@ -5804,6 +5806,7 @@
     <Content Include="Views\TituloPagar\Editar.cshtml" />
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
+    <Content Include="Views\Historico\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
