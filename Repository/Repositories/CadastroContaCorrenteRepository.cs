@@ -71,6 +71,11 @@ namespace Repository.Repositories
                 query = query.Where(x => x.IdAgencia == idAgencia);
             }
 
+            //if (!string.IsNullOrEmpty(numero))
+            //{
+            //    query = query.Where(x => x.NumeroConta = numero);
+            //}
+
             return query.ToList();
         }
     }

@@ -11,6 +11,8 @@ namespace Model
     [Table("caixas")]
     public class Caixa
     {
+        public const int FiltroSemHistorico = 0;
+
         [Key, Column("id")]
         public int Id { get; set; }
 

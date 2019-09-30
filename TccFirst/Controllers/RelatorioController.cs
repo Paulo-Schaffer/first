@@ -40,9 +40,13 @@ namespace TccFirst.Controllers
             List<Dados> retorno = new List<Dados>();
             double quantidade = (dataFinal - dataInicial).TotalDays;
 
-            for(int i = 0; i < quantidade; i++){
-                DateTime data = dataInicial.AddDays(quantidade);
-                retorno.Add(new Dados(){
+            for (int i = 0; i < quantidade; i++)
+            {
+                DateTime data = dataInicial.AddDays(i);
+                retorno.Add(new Dados()
+                {
+                    Caixa = 0,
+                    Transacao = 0,
                     Data = data
                 });
             }
@@ -51,7 +55,8 @@ namespace TccFirst.Controllers
             {
                 foreach (var dado in retorno)
                 {
-                    if(caixa.Data.Date == dado.Data.Date){
+                    if (caixa.DataOriginal.Date == dado.Data.Date)
+                    {
                         dado.Caixa = caixa.Valor;
                     }
                 }
@@ -61,19 +66,28 @@ namespace TccFirst.Controllers
             {
                 foreach (var dado in retorno)
                 {
-                    if(transacao.Data.Date == dado.Data.Date){
+                    if (transacao.DataOriginal.Date == dado.Data.Date)
+                    {
                         dado.Transacao = transacao.Valor;
                     }
                 }
             }
-            
+
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
     }
 
-    public class Dados{
-        public DateTime Data { get;set;}
-        public decimal Caixa {get;set;}
-        public decimal Transacao {get;set;}
+    public class Dados
+    {
+        public DateTime Data { get; set; }
+        public decimal Caixa { get; set; }
+        public decimal Transacao { get; set; }
+        public string DataCompleta
+        {
+            get
+            {
+                return Data.ToString("dd/MM/yyyy");
+            }
+        }
     }
 }

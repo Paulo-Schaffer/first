@@ -50,7 +50,7 @@ namespace TccFirst.Controllers
         #endregion
 
         [HttpGet, Route("obtertodos")]
-        public JsonResult ObterTodos(int idAgencia = 0)
+        public JsonResult ObterTodos(int idAgencia = 0, string nome = "")
         {
             var cadastroContaCorrente = repository.ObterTodos(idAgencia);
             var resultado = new { data = cadastroContaCorrente };

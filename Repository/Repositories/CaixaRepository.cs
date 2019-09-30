@@ -40,9 +40,9 @@ namespace Repository.Repositories
 
             return context.Database
                 .SqlQuery<FluxoCaixa>(@"
-                    SELECT FORMAT(caixas.data_lancamento, 'dd/MM/yyyy') AS data, SUM(valor) as valor
+                    SELECT FORMAT(caixas.data_lancamento, 'yyyy-MM-dd') AS data,  SUM(valor) as valor
                     FROM caixas 
-                    GROUP BY FORMAT(caixas.data_lancamento, 'dd/MM/yyyy')
+                    GROUP BY FORMAT(caixas.data_lancamento, 'yyyy-MM-dd')
                     ").ToList();
             /*
              * WHERE 
@@ -77,9 +77,28 @@ namespace Repository.Repositories
             return caixa;
         }
 
-        public List<Caixa> ObterTodos()
+        public List<Caixa> ObterTodos(int idHistorico, string descricao, int valor/*, DateTime dataLancamento*/)
         {
-            return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+            var query = context
+                .Caixas.Include("Historico")
+                .Where(x => x.RegistroAtivo == true);
+
+            if (idHistorico != Caixa.FiltroSemHistorico)
+            {
+                query = query.Where(x => x.IdHistoricos == idHistorico);
+            }
+            if (!string.IsNullOrEmpty(descricao))
+            {
+                query = query.Where(x => x.Descricao == descricao);
+            }
+            
+            return query
+
+                .OrderBy(x => x.Id)
+                .ToList();
+
+
+            //return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
     }
 }

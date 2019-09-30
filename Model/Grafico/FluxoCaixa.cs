@@ -8,7 +8,14 @@ namespace Model.Grafico
 {
     public class FluxoCaixa
     {
-        public DateTime Data { get; set; }
+        public string Data { get; set; }
+        public DateTime DataOriginal
+        {
+            get
+            {
+                return DateTime.Parse(Data);
+            }
+        }
         public decimal Valor { get; set; }
     }
 }

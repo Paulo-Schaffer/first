@@ -5632,6 +5632,7 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\Relatorio\fluxo-caixa.js" />
+    <Content Include="Scripts\Relatorio\Relatorio-caixa.js" />
     <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
@@ -5683,6 +5684,7 @@
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
+    <Compile Include="Controllers\TransacaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5774,6 +5776,7 @@
     <Content Include="Views\Transacao\Cadastro.cshtml" />
     <Content Include="Views\Transacao\Editar.cshtml" />
     <Content Include="Views\Transacao\Index.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioCaixa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

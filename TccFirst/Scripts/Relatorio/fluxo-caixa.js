@@ -1,45 +1,53 @@
 ﻿
-$.ajax({
-    url: '/relatorio/fluxocaixadados',
-    data: {
-        dataInicial: "2019-06-20",
-        dataFinal: "2019-06-20"
-    },
-    success: function (data) {
+$("#data-inicial").on("change", function () {
+    buscarDados();
+})
 
+$("#data-final").on("change", function () {
+    buscarDados();
+});
+$chart = null;
+
+
+function buscarDados() {
+    $dataInicial = $("#data-inicial").val();
+    $dataFinal = $("#data-final").val();
+
+    if ($dataInicial == "" || $dataFinal == "") {
+        return;
     }
-});
 
 
-Morris.Area({
-    element: 'morris-extra-area',
-    data: [
-        {
-            period: '2010',
-            transacao: 0,
-            caixa: 0
+    $.ajax({
+        url: '/relatorio/fluxocaixadados',
+        data: {
+            dataInicial: $dataInicial,
+            dataFinal: $dataFinal
         },
-        {
-            period: '2011',
-            transacao: 50,
-            caixa: 15
-        },
-        {
-            period: '2012',
-            transacao: 20,
-            caixa: 50
+        success: function (data) {
+
+            if ($chart == null) {
+
+                $chart = Morris.Area({
+                    element: 'morris-extra-area',
+                    data: data,
+                    lineColors: ['#7E81CB', '#f54257'],
+                    xkey: 'DataCompleta',
+                    ykeys: ['Transacao', 'Caixa'],
+                    labels: ['Caixa', 'Transação'],
+                    pointSize: 0,
+                    lineWidth: 0,
+                    resize: true,
+                    fillOpacity: 0.8,
+                    behaveLikeLine: true,
+                    gridLineColor: '#5FBEAA',
+                    hideHover: 'auto',
+
+                });
+            } else {
+                $chart.setData(data);
+            }
         }
-    ],
-    lineColors: ['#7E81CB', '#01C0C8'],
-    xkey: 'period',
-    ykeys: ['transacao', 'caixa'],
-    labels: ['Caixa', 'Transação'],
-    pointSize: 0,
-    lineWidth: 0,
-    resize: true,
-    fillOpacity: 0.8,
-    behaveLikeLine: true,
-    gridLineColor: '#5FBEAA',
-    hideHover: 'auto'
+    });
 
-});
+}
