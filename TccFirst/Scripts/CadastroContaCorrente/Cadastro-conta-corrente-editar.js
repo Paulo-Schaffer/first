@@ -18,13 +18,13 @@
 $(function () {
     $idAlterar = -1;
 
-    $tabelaCadastroContaCorrente =$('#cadastro-conta-corrente-tabela').DataTable({
-        ajax: '/cadastrocontacorrente/ObterTodos',
+    $tabelaCadastroContaCorrente = $('#cadastro-conta-corrente').DaraTable({
+        ajax: '/CadastroContaCorrente/ObterTodos',
         serverSide: true,
-        columns: [
-            { data: "Id" },
-            { data: "IdAgencia" },
-            { data: "NumeroConta" },
+        Columns: [
+            { 'data': 'Id' },
+            { 'data': 'IdAgencia' },
+            { 'data': 'NumeroConta' },
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '" id="botao-editar"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar ml-2" data-id="' + row.Id + '" id="botao-apagar"><i class="fa fa-trash"></i>Apagar</button>'
@@ -34,7 +34,7 @@ $(function () {
     });
 
 
-    $("#cadastro-conta-corrente-tabela").on("click", ".botao-apagar", function () {
+    $("#cadastro-conta-corrente-tabelaa").on("click", ".botao-apagar", function () {
         $id = $(this).data("id");
         $.confirm({
             title: 'Deseja Realmente Apagar?',
@@ -62,7 +62,6 @@ $(function () {
         });
     });
 
-    
 
     $('#cadastro-conta-corrente-botao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
@@ -90,21 +89,19 @@ $(function () {
         }
 
         if ($idAlterar == -1) {
-            inserir($IdAgencia, $NumeroConta);
+            inserir($idAgencia, $numeroConta);
         } else {
-            alterar($IdAgencia, $NumeroConta);
-            //alert('sadds');
+            alterar($idAgencia, $numeroConta);
         }
-
     });
 
-    function inserir($IdAgencia, $NumeroConta) {
+    function inserir($idAngecia, $numeroConta) {
         $.ajax({
-            url: '/cadastrocontacorrente/cadastro',
+            url: '/CadastroContaCorrete/cadastro',
             method: 'post',
             data: {
-                IdAgencia: $IdAgencia,
-                NumeroConta: $NumeroConta
+                idagencia: $idAngecia,
+                numeroAgencia: $numeroConta
             },
             success: function (data) {
                 limparCampos();
@@ -119,31 +116,33 @@ $(function () {
     }
 
     $('.table').on("click", ".botao-editar", function () {
-        $idAlterar = $(this).data("id");
-        $.ajax({
-            url: '/cadastrocontacorrente/obterpeloid?id=' + $idAlterar,
+        $id = $(this).data("id");
+        $.ajax ({
+            url: '/cadastrocontacorrente/obterpeloid?id=' + $id,
             method: 'get',
             success: function (data) {
-                $('#cadastro-conta-corrente-campo-idAgencia').val(data.IdAgencia);
-                $('#cadastro-conta-corrente-campo-numero-conta').val(data.NumeroConta);
-                $("#modal-cadastro-conta-corrente").modal('show');
+                $idAlterar = $id;
+                $('#cadastro-conta-corrente-campo-idAgencia').val(data.idagencia);
+                $('#cadastro-conta-corrente-campo-numero-conta').val(data.numeroAgencia);
             },
             error: function (data) {
                 alert("Não foi possível buscar o registro");
             }
-        });
+        })//pornto e virgula?
 
     });
 
 
-    function alterar($IdAgencia, $NumeroConta) {
-        $.ajax({
-            url: '/cadastrocontacorrente/editar',
+
+
+    function alterar($idAgencia, $numeroConta) {
+        S.ajax({
+            url: 'cadastrocontacorrente/alterar',
             method: 'post',
             data: {
-                id: $idAlterar,
-                IdAgencia: $IdAgencia,
-                NumeroConta: $NumeroConta
+                id= $idAlterar,
+                idagencia = $idAgencia,
+                numeroConta = $numeroConta
             },
             success: function (data) {
                 $('#modal-cadastro-conta-corrente').modal('hide');
