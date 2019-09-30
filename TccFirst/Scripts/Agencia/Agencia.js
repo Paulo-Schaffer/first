@@ -2,6 +2,7 @@
     $idAlterar = -1;
 
     $tabelaAgencia = $('#agencia-cadastro').DataTable({
+        "scrollX": true,
         ajax: 'Agencia/obtertodos',
         serverSide: true,
         columns: [
