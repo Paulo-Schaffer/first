@@ -37,21 +37,21 @@
                         {
                             <option value="Dinheiro">Dinheiro</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao Debito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Debito")
                         {
-                            <option value="CartaoDebito" selected="selected">Cartão Debito</option>
+                            <option value="Cartao de Debito" selected="selected">Cartao de Debito</option>
                         }
                         else
                         {
-                            <option value="CartaoDebito">Cartão Débito</option>
+                            <option value="Cartao de Debito">Cartao de Debito</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao Credito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Credito")
                         {
-                            <option value="CartaoCredito" selected="selected"></option>
+                            <option value="Cartao de Credito" selected="selected">Cartao de Credito</option>
                         }
                         else
                         {
-                            <option value="CartaoCredito">Cartão de Crédito</option>
+                            <option value="Cartao de Credito">Cartao de Credito</option>
                         }
                     </select>
                 </div>
@@ -76,14 +76,6 @@
                         else
                         {
                             <option value="Pago">Pago</option>
-                        }
-                        @if (ViewBag.TituloPagar.Status == "Pago Parcialmente")
-                        {
-                            <option value="PagoParcialmente" selected="selected">Pago parcialmente</option>
-                        }
-                        else
-                        {
-                            <option value="PagoParcialmente">Pago Parcialmente</option>
                         }
                         @if (ViewBag.TituloPagar.Status == "Cancelado")
                         {
@@ -113,7 +105,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-data-lancamento">Data de Lançamento</label>
+                    <label for="tituloPagar-campo-data-lancamento">Data de Lancamento</label>
                     <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control"
                            name="DataLancamento" value="@ViewBag.TituloPagar.DataLancamento.ToString("yyyy-MM-dd")" />
                 </div>
@@ -147,7 +139,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="tituloPagar-campo-descricao">Descrição</label>
+                        <label for="tituloPagar-campo-descricao">Descricao</label>
                         <textarea id="tituloPagar-campo-descricao" class="form-control" name="Descricao">@ViewBag.TituloPagar.Descricao</textarea>
                     </div>
                 </div>

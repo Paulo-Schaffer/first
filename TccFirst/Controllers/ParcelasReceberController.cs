@@ -10,9 +10,9 @@ namespace TccFirst.Controllers
 {
     public class ParcelasReceberController : BaseController
     {
-        private ParcelaReceberRepository repository;
+        public ParcelaReceberRepository repository;
 
-        public ParcelaReceberController()
+        public ParcelasReceberController()
         {
             repository = new ParcelaReceberRepository();
         }

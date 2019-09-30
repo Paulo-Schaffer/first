@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {
     public class ParcelaReceberRepository : IParcelaReceberRepository
-        
+    {
         private SistemaContext context;
 
-    public ParcelaReceberRepository()
-    {
-        context = new SistemaContext();
-    }
-    
+        public ParcelaReceberRepository()
+        {
+            context = new SistemaContext();
+        }
+
         public void GerarParcelas(int idTituloReceber)
         {
             throw new NotImplementedException();
