@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,17 @@ namespace TccFirst.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            //int tituloPagarOficial = 21;
+            TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
+            decimal totalReceber = tituloReceberRepository.ObterTodos().Sum(x => x.ValorTotal);
+
+            TituloPagarRepository tituloPagarRepository = new TituloPagarRepository();
+            decimal totalPagar = tituloPagarRepository.ObterTodos().Sum(x => x.ValorTotal);
+
+            ViewBag.ContasPagar = Convert.ToString(totalPagar).Replace(",", ".");
+            ViewBag.ContasReceber = Convert.ToString(totalReceber).Replace(",", ".");
+
+
             return View();
         }
     }

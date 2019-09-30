@@ -24,6 +24,7 @@ namespace Repository.Repositories
             if (agenciaOriginal == null)
                 return false;
 
+            agenciaOriginal.Banco = agencia.Banco;
             agenciaOriginal.NomeAgencia = agencia.NomeAgencia;
             agenciaOriginal.NumeroAgencia = agencia.NumeroAgencia;
             int quantidadeAfetada = context.SaveChanges();
