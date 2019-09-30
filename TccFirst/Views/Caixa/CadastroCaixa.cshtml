@@ -7,58 +7,53 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="row">
-                <div class="col-6 ml-4">
-                    <div class="form-check">
-                        <input type="checkbox" id="caixa-campo-operacao-entrada" class="form-check-input" />
-                        <label for="caixa-campo-operacao-entrada" class="form-check-label">Entrada</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" id="caixa-campo-operacao-saida" class="form-check-input" />
-                        <label for="caixa-campo-operacao-saida" class="form-check-label">Saída</label>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="caixa-campo-descricao">Descrição</label>
-                    <input type="text" id="caixa-campo-descricao" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="campo-caixa-documento" mas>Documento</label>
-                    <input type="text" id="caixa-campo-documento" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="campo-caixa-valor" mas>Valor</label>
-                    <input type="text" id="caixa-campo-valor" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="campo-caixa-forma-pagamento">Forma de Pagamento</label>
-                    <select class="form-control" name="forma-pagamento" id="caixa-campo-forma-pagamento">
-                        <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
-                        <option>Dinheiro</option>
-                        <option>Cartão Débito</option>
-                        <option>Cartão de Crédito</option>
-                    </select>
+            <div class="form-group">
+                <label for="campo-caixa-operacao">Operação</label>
+                <select class="form-control" name="forma-pagamento" id="caixa-campo-operacao">
+                    <option disabled="disabled" selected="selected">Selecione uma operação</option>
+                    <option>Entrada</option>
+                    <option>Saida</option>
+                </select>
+                <div class="modal-body">
                     <div class="form-group">
-                        <label for="campo-caixa-data-lancamento" mas>Data de Lançamento</label>
-                        <input type="date" id="caixa-campo-data-lancamento" class="form-control" />
+                        <label for="caixa-campo-descricao">Descrição</label>
+                        <input type="text" id="caixa-campo-descricao" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label for="campo-caixa-historico" mas>Historico</label>
-                        <select class="form-control" id="caixa-campo-historico" name="IdHistorico">
-                            <option disabled selected>Selecione um opção</option>
+                        <label for="campo-caixa-documento" mas>Documento</label>
+                        <input type="text" id="caixa-campo-documento" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="campo-caixa-valor" mas>Valor</label>
+                        <input type="text" id="caixa-campo-valor" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="campo-caixa-forma-pagamento">Forma de Pagamento</label>
+                        <select class="form-control" name="forma-pagamento" id="caixa-campo-forma-pagamento">
+                            <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
+                            <option>Dinheiro</option>
+                            <option>Cartão Débito</option>
+                            <option>Cartão de Crédito</option>
                         </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="campo-caixa-data-lancamento" mas>Data de Lançamento</label>
+                            <input type="date" id="caixa-campo-data-lancamento" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="campo-caixa-historico" mas>Historico</label>
+                            <select class="form-control" id="caixa-campo-historico" name="IdHistorico">
+                                <option disabled selected>Selecione um opção</option>
+                            </select>
+                        </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success" id="caixa-botao-salvar">Salvar</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="caixa-botao-salvar">Salvar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     </div>
 </div>
 @section js{
