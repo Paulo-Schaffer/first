@@ -12,7 +12,7 @@ $(function () {
             { 'data': 'Descricao' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar fa fa-pencil-square-o" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger fa fa-trash botao-apagar ml-2" data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar fa fa-pencil-square-o" data-id="' + row.Id + '" id="botao-editar"">Editar</button>\<button class="btn btn-danger fa fa-trash botao-apagar ml-2" data-id="' + row.Id + '"id="botao-apagar">Apagar</button>'
                 }
             }
         ]
@@ -20,14 +20,25 @@ $(function () {
     });
 
     $('#historico-botao-salvar').on('click', function () {
-        if ($.trim($('#historico-campo-descricao').val()) == "") {
-            alert("Preencha o campo Descrição");
-            $('#historico-campo-descricao').focus();
+        $descricao = $('#historico-campo-descricao').val();
+        function mostrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
+        //Validação
+       
+        if ($descricao == "") {
+            mostrarMensagem('Digite a Descrição', '', 'error');
+            $("#historico-campo-descricao").focus();
             return false;
         } else {
-            $('.alert').alert("");
-        }
-        $descricao = $('#historico-campo-descricao').val();
+            mostrarMensagem('Registro Salvo com Sucesso', '', 'success');
+        };
 
         if ($idAlterar == -1) {
             inserir($descricao);
@@ -76,22 +87,32 @@ $(function () {
     }
 
     $('.table').on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja Realmente Apagar?")
-        if (confirma == true) {
-            $idApagar = $(this).data('id');
+        $idApagar = $(this).data('id');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
 
-            $.ajax({
-                url: "/historico/apagar?id=" + $idApagar,
-                method: 'get',
-                success: function (data) {
-                    $tabelaHistorico.ajax.reload();
+                        $.ajax({
+                            url: "/historico/apagar?id=" + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaHistorico.ajax.reload();
+                            },
+                            error: function (err) {
+                                alert('Não foi possivel apagar');
+                            }
+                        });
+                    }
                 },
-                error: function (err) {
-                    alert('Não foi possivel apagar');
-                }
-            });
-        }
-
+                 cancelar: function () {
+                },
+            }
+        });
+        
     });
 
     $('.table').on('click', '.botao-editar', function () {
