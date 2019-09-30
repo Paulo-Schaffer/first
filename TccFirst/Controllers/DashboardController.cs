@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class HomeController : Controller
+    public class DashboardController : BaseController
     {
         // GET: Home
         public ActionResult Index()

@@ -18,11 +18,11 @@ $(function () {
                         cor = "bg-success";
                     } else if (row.Status == "Pendente") {
                         cor = "bg-warning";
-                    } else {
+                    }
+                    else if (row.Status == "Cancelado") {
                         cor = "bg-danger";
                     }
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
-
                 }
             },
             {
@@ -55,6 +55,7 @@ $(function () {
             }
         ]
     });
+
 
     $("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
         confirma = confirm("Deseja realmente apagar?");

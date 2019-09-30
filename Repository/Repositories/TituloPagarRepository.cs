@@ -28,8 +28,6 @@ namespace Repository.Repositories
             tituloPagarOficial.Descricao = tituloPagar.Descricao;
             tituloPagarOficial.FormaPagamento = tituloPagar.FormaPagamento;
             tituloPagarOficial.Caixa = tituloPagar.Caixa;
-            tituloPagarOficial.ValorTotal = tituloPagar.ValorTotal;
-            tituloPagarOficial.Status = tituloPagar.Status;
             tituloPagarOficial.DataLancamento = tituloPagar.DataLancamento;
             tituloPagarOficial.DataRecebimento = tituloPagar.DataRecebimento;
             tituloPagarOficial.DataVencimento = tituloPagar.DataVencimento;

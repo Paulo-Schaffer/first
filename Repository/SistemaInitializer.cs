@@ -159,6 +159,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 1,
+                Operacao = "Entrada",
                 Descricao = "recebimento serviço",
                 Documento = "171-1",
                 FormaPagamento = "Debito",
@@ -170,6 +171,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 2,
+                Operacao = "Saida",
                 Descricao = "Pagamento Energia",
                 Documento = "172-1",
                 FormaPagamento = "Debito",
@@ -181,6 +183,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 3,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "173-1",
                 FormaPagamento = "Debito",
@@ -192,6 +195,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 4,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "174-1",
                 FormaPagamento = "Debito",
@@ -203,6 +207,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 5,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "175-1",
                 FormaPagamento = "Debito",
@@ -214,6 +219,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 6,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "176-1",
                 FormaPagamento = "Debito",
@@ -225,6 +231,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 7,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "177-1",
                 FormaPagamento = "Debito",
@@ -236,6 +243,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 8,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "178-1",
                 FormaPagamento = "Debito",
@@ -247,6 +255,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 9,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "179-1",
                 FormaPagamento = "Debito",
@@ -258,6 +267,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 10,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "180-1",
                 FormaPagamento = "Debito",
@@ -269,6 +279,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 11,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "181-1",
                 FormaPagamento = "Debito",
@@ -280,6 +291,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 12,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "182-1",
                 FormaPagamento = "Debito",
@@ -291,6 +303,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 13,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "183-1",
                 FormaPagamento = "Debito",
@@ -302,6 +315,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 18,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "184-1",
                 FormaPagamento = "Debito",
@@ -313,6 +327,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 14,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "184-1",
                 FormaPagamento = "Debito",
@@ -324,6 +339,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 15,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "185-1",
                 FormaPagamento = "Debito",
@@ -335,6 +351,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 16,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "186-1",
                 FormaPagamento = "Debito",
@@ -346,6 +363,7 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 17,
+                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "187-1",
                 FormaPagamento = "Debito",
