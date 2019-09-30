@@ -56,6 +56,7 @@ $(function () {
 
         serverSide: true,
         columns: [
+            { data: 'Operacao'},
             { data: 'Descricao' },
             { data: 'Documento' },
             { data: 'Valor' },
@@ -85,6 +86,7 @@ $(function () {
                 type: tipo
             });
         }
+        $operacao = $('#caixa-campo-operacao').val();
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
         $valor = $('#caixa-campo-valor').val();
@@ -93,7 +95,12 @@ $(function () {
         $IdHistoricos = $('#caixa-campo-historico').val();
 
         //Validação
-        if ($descricao == "") {
+        if ($operacao == "") {
+            monstrarMensagem('Digite Descrição', '', 'error');
+            $('#caixa-campo-operacao').focus();
+            return false;
+        }
+        else if ($descricao == "") {
             monstrarMensagem('Digite Descrição', '', 'error');
             $('#caixa-campo-descricao').focus();
             return false;
@@ -122,18 +129,19 @@ $(function () {
         }
 
         if ($idAlterar == -1) {
-            inserir($descricao, $documento,  $valor, $formaPagamento, $dataLancamento, $IdHistoricos);
+            inserir($operacao, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         } else {
-            alterar($descricao, $documento, $valor, $formaPagamento, $dataLancamento, $IdHistoricos);
+            alterar($operacao, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         }
     });
 
-    function alterar($descricao, $documento, $valor, $formaPagamento, $dataLancamento, $IdHistoricos) {
+    function alterar($operacão, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: "/Caixa/update",
             method: "post",
             data: {
                 id: $idAlterar,
+                Operacao: $operacao,
                 Descricao: $descricao,
                 Documento: $documento,
                 Valor: $valor,
@@ -153,11 +161,12 @@ $(function () {
         })
     }
 
-    function inserir($descricao, $documento,  $valor, $formaPagamento, $dataLancamento, $IdHistoricos) {
+    function inserir($operacao, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos) {
         $.ajax({
             url: '/Caixa/inserir',
             method: 'post',
             data: {
+                Operacao: $operacao,
                 Descricao: $descricao,
                 Documento: $documento,
                 Valor: $valor,
@@ -200,6 +209,7 @@ $(function () {
             url: '/caixa/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
+                $('#caixa-campo-operacao').val(data.Operacao)
                 $('#caixa-campo-descricao').val(data.Descricao);
                 $('#caixa-campo-documento').val(data.Documento);
                 $('#caixa-campo-valor').val(data.Valor);
@@ -217,6 +227,7 @@ $(function () {
     });
 
     function LimparCampos() {
+        $("#caixa-campo-operacao").val("");
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
         $("#caixa-campo-forma-pagamento").val("");
