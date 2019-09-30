@@ -17,6 +17,11 @@ namespace TccFirst.Controllers
             repository = new ParcelaReceberRepository();
         }
 
+        //public ActionResult Index()
+        //{
+        //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
+
         public ActionResult Index()
         {
             return View();
@@ -28,20 +33,6 @@ namespace TccFirst.Controllers
             var parcelasReceber = repository.ObterTodos(idTituloReceber);
             var resultado = new { data = parcelasReceber };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
-
-
-        [HttpGet, Route("parcelaReceber/")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public ActionResult GerarParcelas(int idTituloReceber)
-        {
-            repository.GerarParcelas(idTituloReceber);
-            return Json(idTituloReceber, JsonRequestBehavior.AllowGet);
         }
 
         // [HttpGet,Route("parcelaReceber/obtertodosselect2")]
@@ -68,11 +59,43 @@ namespace TccFirst.Controllers
 
         // }
 
-        public ActionResult Cadastro()
+        [HttpPost]
+        public JsonResult Inserir(ParcelaReceber parcelaReceber)
         {
-            return View();
+            parcelaReceber.RegistroAtivo = true;
+            var id = repository.Inserir(parcelaReceber);
+            var resultado = new { id = id };
+            return Json(resultado);
+        }
+
+        [HttpGet]
+        public JsonResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return Json(resultado);
+        }
+
+        [HttpPost]
+        public JsonResult Update(ParcelaReceber parcelaReceber)
+        {
+            var alterou = repository.Alterar(parcelaReceber);
+            var resultado = new { status = alterou };
+            return Json(resultado);
+        }
+
+        [HttpGet, Route("parcelaReceber/")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult GerarParcelas(int idTituloReceber)
+        {
+            repository.GerarParcelas(idTituloReceber);
+            return Json(idTituloReceber, JsonRequestBehavior.AllowGet);
         }
 
     }
-
 }

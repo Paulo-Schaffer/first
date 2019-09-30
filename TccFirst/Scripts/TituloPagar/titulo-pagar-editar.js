@@ -51,7 +51,6 @@ $(function () {
 
     $('#parcelasPagar-botao-salvar').on('click', function () {
         $dataPagamento = $('#parcelasPagar-campo-data-pagamento').val();
-        debugger;
         $.ajax({
             url: "/parcelasPagar/update",
             method: "post",

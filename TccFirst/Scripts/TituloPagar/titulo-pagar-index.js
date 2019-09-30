@@ -5,7 +5,7 @@ $(function () {
         serverSide: true,
         info: false,
         columns: [
-            { data: 'Id' },
+            { data: "Id" },
             { data: "Fornecedor.RazaoSocial" },
             { data: "CategoriaDespesa.TipoCategoriaDespesa" },
             { data: "FormaPagamento" },
@@ -95,5 +95,5 @@ $(function () {
             }
         });
     });
-
 });
+

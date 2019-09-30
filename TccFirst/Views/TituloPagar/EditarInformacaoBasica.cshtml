@@ -1,4 +1,4 @@
-<div class="container">
+﻿<div class="container">
     <form action="/tituloPagar/editar" method="post">
         <div class="row">
             <div class="col-12">
@@ -30,28 +30,28 @@
                     <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                         @if (ViewBag.TituloPagar.FormaPagamento == "Dinheiro")
                         {
-                            <option value="Dinheiro" selected="selected">Dinheiro</option>
+                        <option value="Dinheiro" selected="selected">Dinheiro</option>
 
                         }
                         else
                         {
-                            <option value="Dinheiro">Dinheiro</option>
+                        <option value="Dinheiro">Dinheiro</option>
                         }
                         @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Debito")
                         {
-                            <option value="Cartao de Debito" selected="selected">Cartao de Debito</option>
+                        <option value="Cartao de Debito" selected="selected">Cartao de Debito</option>
                         }
                         else
                         {
-                            <option value="Cartao de Debito">Cartao de Debito</option>
+                        <option value="Cartao de Debito">Cartao de Debito</option>
                         }
                         @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Credito")
                         {
-                            <option value="Cartao de Credito" selected="selected">Cartao de Credito</option>
+                        <option value="Cartao de Credito" selected="selected">Cartao de Credito</option>
                         }
                         else
                         {
-                            <option value="Cartao de Credito">Cartao de Credito</option>
+                        <option value="Cartao de Credito">Cartao de Credito</option>
                         }
                     </select>
                 </div>
@@ -63,27 +63,27 @@
                     <select class="form-control" id="tituloPagar-campo-status" name="Status">
                         @if (ViewBag.TituloPagar.Status == "Pendente")
                         {
-                            <option value="Pendente" selected="selected">Pendente</option>
+                        <option value="Pendente" selected="selected">Pendente</option>
                         }
                         else
                         {
-                            <option value="Pendente">Pendente</option>
+                        <option value="Pendente">Pendente</option>
                         }
                         @if (ViewBag.TituloPagar.Status == "Pago")
                         {
-                            <option value="Pago" selected="selected">Pago</option>
+                        <option value="Pago" selected="selected">Pago</option>
                         }
                         else
                         {
-                            <option value="Pago">Pago</option>
+                        <option value="Pago">Pago</option>
                         }
                         @if (ViewBag.TituloPagar.Status == "Cancelado")
                         {
-                            <option value="Cancelado" selected="selected">Cancelado</option>
+                        <option value="Cancelado" selected="selected">Cancelado</option>
                         }
                         else
                         {
-                            <option value="Cancelado">Cancelado</option>
+                        <option value="Cancelado">Cancelado</option>
                         }
                     </select>
                 </div>
@@ -152,7 +152,8 @@
         </div>
         <div class="modal-footer">
             <button class="btn btn-grd-success float-left mt-3" type="submit" id="tituloPagar-botao-salvar">
-            <i class="fa fa-save"></i> Salvar</button>
+                <i class="fa fa-save"></i> Salvar
+            </button>
         </div>
     </form>
 </div>
@@ -161,3 +162,4 @@
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
+
