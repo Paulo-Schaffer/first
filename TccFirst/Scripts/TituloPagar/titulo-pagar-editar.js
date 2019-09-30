@@ -29,7 +29,7 @@ $(function () {
                     if (row.Status == "Pago") {
                         cor = "bg-success";
                     } else if (row.Status == "Pendente") {
-                         cor = "bg-warning";
+                        cor = "bg-warning";
                     } else {
                         cor = "bg-danger";
                     }
@@ -43,7 +43,7 @@ $(function () {
                     <button class='btn btn-primary botao-editar fa fa-edit'\
                         data-id" + row.Id + "'\
                         data-id=" + row.Id + "> Editar</button>";
-               
+
                 }
             }
         ]
@@ -97,14 +97,7 @@ $(function () {
             }
         });
     });
-
-    function monstrarMensagem(texto, titulo, tipo) {
-        return false;
-        new PNotify({
-            title: titulo,
-            text: texto,
-            icon: 'icofont icofont-info-circle',
-            type: tipo
-        });
-    }
+    
 });
+    
+
