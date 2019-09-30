@@ -66,7 +66,7 @@ namespace Repository.Repositories
             parcelasPagarOriginal.Status = ParcelaPagar.StatusPago;
             int quantidadeAfetada = context.SaveChanges();
 
-            parcelaPagar.Status = TituloPagar.StatusPagoParcialmente;
+            //parcelaPagar.Status = TituloPagar.StatusPagoParcialmente;
 
             // Pegar o titulo a pagar
             // Definir o status como StatusPagoParcialmente
