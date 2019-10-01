@@ -119,6 +119,9 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\TelaLogin.css" />
+    <Content Include="Content\css\TituloPagar\TelaCadastroTituloPagar.css" />
+    <Content Include="Content\css\TituloPagar\TelaEditarTituloPagar.css" />
+    <Content Include="Content\css\TituloPagar\TelaIndexTituloPagar.css" />
     <Content Include="Content\css\usuario-do-homem %281%29.png" />
     <Content Include="Content\Imagem\homem %282%29.png" />
     <Content Include="Content\Imagem\logar.png" />
@@ -5509,6 +5512,7 @@
     <Content Include="Scripts\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
+    <Content Include="Scripts\FluxoCaixa\Fluxo-Caixa.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
     <Content Include="Scripts\i18n\af.js" />
@@ -5661,6 +5665,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />

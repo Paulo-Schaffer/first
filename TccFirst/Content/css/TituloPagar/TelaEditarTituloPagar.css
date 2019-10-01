@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.botao-editar {
+    margin-right: auto;
+    margin-top: auto;
+    background-color: darkblue;
+    border-color: mediumblue;
+    width: 60px;
+    height: 20px;
+    border-radius: 5px;
+}
