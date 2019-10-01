@@ -1,8 +1,8 @@
 ﻿$(function () {
 
     $idHistorico = 0;
-    $valor = 0;
-    $descricao = "";
+    //$valor = 0;
+    //$descricao = "";
 
     $("#filtro-historico").select2({
         ajax: {
@@ -13,26 +13,26 @@
         buscarValores();
     });
 
-    $("#filtro-valor").on("keyup", function (e) {
-        if (e.keyCode === 13) {
+    //$("#filtro-valor").on("keyup", function (e) {
+    //    if (e.keyCode === 13) {
 
-        buscarValores();
-        }
+    //    buscarValores();
+    //    }
 
-    });
-    $("#filtro-descricao").on("keyup", function (e) {
-        if (e.keyCode === 13) {
+    //});
+    //$("#filtro-descricao").on("keyup", function (e) {
+    //    if (e.keyCode === 13) {
 
-            buscarValores();
-        }
-    });
+    //        buscarValores();
+    //    }
+    //});
 });
 
 
     function buscarValores() {
         $idHistorico = $("#filtro-historico").val();
-        $valor = $("#filtro-valor").val();
-        $descricao = $("#filtro-descricao").val();
+        //$valor = $("#filtro-valor").val();
+        //$descricao = $("#filtro-descricao").val();
         $('#relatorio-conta-caixa').DataTable().ajax.reload();
     }
 
@@ -45,8 +45,8 @@
             url: '/caixa/obterTodosRelatorio',
             data: function (d) {
                 d.idHistorico = $idHistorico;
-                d.valor = $valor;
-                d.descricao = $descricao;
+                //d.valor = $valor;
+                //d.descricao = $descricao;
             }
         },
         serverSide: true,

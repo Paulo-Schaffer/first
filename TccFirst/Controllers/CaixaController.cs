@@ -90,27 +90,6 @@ namespace TccFirst.Controllers
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpGet, Route("caixa/obtertodosselect2")]
-        public JsonResult ObterTodosSelect02(string term)
-        {
-            var caixas = repository.ObterTodosRelatorio(0, "", 0);
-
-            List<object> ObterTodosSelect02 = new List<object>();
-            foreach (Caixa caixa in caixas)
-            {
-                ObterTodosSelect02.Add(new
-                {
-                    id = caixa.Id,
-                    text = caixa.Descricao,
-                    idHistorico = caixa.IdHistoricos,
-
-                });
-            }
-            var resultado = new
-            {
-                results = ObterTodosSelect02
-            };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
+      
     }
 }
