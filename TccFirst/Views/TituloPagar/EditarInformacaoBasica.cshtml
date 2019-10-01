@@ -37,21 +37,21 @@
                         {
                         <option value="Dinheiro">Dinheiro</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Debito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Debito")
                         {
-                        <option value="Cartao de Debito" selected="selected">Cartao de Debito</option>
+                            <option value="Cartão de Débito" selected="selected">Cartão de Debito</option>
                         }
                         else
                         {
-                        <option value="Cartao de Debito">Cartao de Debito</option>
+                            <option value="Cartão de Débito">Cartão de Débito</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Credito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Crédito")
                         {
-                        <option value="Cartao de Credito" selected="selected">Cartao de Credito</option>
+                            <option value="Cartão de Crédito" selected="selected"></option>
                         }
                         else
                         {
-                        <option value="Cartao de Credito">Cartao de Credito</option>
+                            <option value="Cartão de Crédito">Cartão de Crédito</option>
                         }
                     </select>
                 </div>
@@ -110,16 +110,7 @@
                            name="DataLancamento" value="@ViewBag.TituloPagar.DataLancamento.ToString("yyyy-MM-dd")" />
                 </div>
             </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="tituloPagar-campo-data-recebimento">Data de Recebimento</label>
-                    <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control"
-                           name="DataRecebimento" value="@ViewBag.TituloPagar.DataRecebimento.ToString("yyyy-MM-dd")" />
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
             <div class="col-6">
                 <div class="form-group">
                     <label form="tituloPagar-campo-data-vencimento">Data Vencimento</label>
@@ -127,7 +118,14 @@
                            name="DataVencimento" value="@ViewBag.TituloPagar.DataVencimento.ToString("yyyy-MM-dd")" />
                 </div>
             </div>
+        </div>
 
+        <div class="row">
+            <div class="col-6">
+                <label for="tituloPagar-campo-valor-total" style="display: block">Valor Total</label>
+                <span type="text" id="tituloPagar-campo-valor-total">R$ @ViewBag.TituloPagar.ValorTotal</span>
+            </div>
+        
             <div class="col-6">
                 <div class="form-group">
                     <label for="tituloPagar-campo-quantidade-parcela">Quantidade de Parcelas</label>
@@ -135,8 +133,9 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="form-group">
                     <div class="form-group">
                         <label for="tituloPagar-campo-descricao">Descricao</label>
@@ -144,12 +143,8 @@
                     </div>
                 </div>
             </div>
+        </div> 
 
-            <div class="col-6">
-                <label for="tituloPagar-campo-valor-total" style="display: block">Valor Total</label>
-                <span type="text" id="tituloPagar-campo-valor-total">R$ @ViewBag.TituloPagar.ValorTotal</span>
-            </div>
-        </div>
         <div class="modal-footer">
             <button class="btn btn-grd-success float-left mt-3" type="submit" id="tituloPagar-botao-salvar">
                 <i class="fa fa-save"></i> Salvar
@@ -163,3 +158,4 @@
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
 
+    <link href="~/Content/css/TituloPagar/TelaEditarTituloPagar.css" rel="stylesheet" />

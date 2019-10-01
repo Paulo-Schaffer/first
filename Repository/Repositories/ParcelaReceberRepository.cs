@@ -20,7 +20,6 @@ namespace Repository.Repositories
         public void GerarParcelas(int idTituloReceber)
         {
             var tituloReceber = context.TitulosReceber.FirstOrDefault(x => x.Id == idTituloReceber);
-
             var dataAtual = DateTime.Now.AddDays(30);
 
             decimal valorTotal = tituloReceber.ValorTotal;
@@ -40,15 +39,13 @@ namespace Repository.Repositories
                 {
                     valorParcela = valorTotal - totalAcumulado;
                 }
-
                 var parcela = new ParcelaReceber();
                 parcela.Valor = valorParcela;
                 parcela.DataVencimento = dataVencimento;
                 parcela.IdTituloReceber = idTituloReceber;
                 parcela.RegistroAtivo = true;
-                parcela.Status = ParcelaPagar.StatusPendente;
+                parcela.Status = TituloReceber.StatusPendente;
                 context.ParcelasReceber.Add(parcela);
-
                 totalAcumulado += valorParcela;
             }
             context.SaveChanges();
@@ -65,7 +62,6 @@ namespace Repository.Repositories
             parcelaReceberOriginal.Status = ParcelaReceber.StatusPago;
             int quantidadeAfeada = context.SaveChanges();
 
-            parcelaReceber.Status = TituloReceber.StatusPagoParcialmente;
             return quantidadeAfeada == 1;
         }
 
@@ -88,15 +84,7 @@ namespace Repository.Repositories
         public List<ParcelaReceber> ObterTodos(int idTituloReceber)
         {
             return context.ParcelasReceber
-               .Where(x => x.RegistroAtivo && x.IdTituloReceber == idTituloReceber).ToList();
+                .Where(x => x.RegistroAtivo && x.IdTituloReceber == idTituloReceber).ToList();
         }
     }
 }
-
-
-        
-
-    
-    
-       
-

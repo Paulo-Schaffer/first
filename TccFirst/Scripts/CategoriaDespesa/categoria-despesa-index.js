@@ -21,6 +21,22 @@
 
     $('#categoria-despesa-botao-salvar').on('click', function () {
         $categoriaDespesa = $('#categoria-despesa-campo-despesa').val();
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
+        if ($categoriaDespesa == '') {
+            monstrarMensagem('Digite a Categoria Despesa', '', 'error');
+            $('#categoria-receita-campo-receita').focus();
+            return false;
+        } else {
+            monstrarMensagem('Registro Salvo Com Sucesso', '', 'success');
+        };
 
         if ($idAlterar == -1) {
             inserir($categoriaDespesa);
@@ -70,18 +86,34 @@
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
-        $.ajax({
-            url: '/categoriadespesa/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaCategoriaDespesa.ajax.reload();
-            },
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/categoriadespesa/apagar?id=' + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaCategoriaDespesa.ajax.reload();
+                            },
 
-            error: function (err) {
-                alert('Não foi possível apagar');
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            }
+
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
 
         });
+
+       
     });
 
     $('.table').on('click', '.botao-editar', function () {

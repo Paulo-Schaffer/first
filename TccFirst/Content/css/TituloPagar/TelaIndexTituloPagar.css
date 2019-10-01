@@ -1,27 +1,28 @@
-﻿body {  
+﻿body {
 }
-#botao-novoCliente {
+
+#botao-novoTituloPagar {
     background-color: forestgreen;
     color: white;
     border-radius: 5px;
-    width: 160px;
+    width: 190px;
     height: 40px;
+    margin: -6px;
 }
 
-#botao-apagar {
+.botao-apagar {
     background-color: darkred;
     border-color: red;
     border-collapse: collapse;
     margin-right: auto;
     margin-top: auto;
-    margin: 10px;
     width: 60px;
     height: 20px;
     border-radius: 5px;
 }
 
-#botao-editar {
-    margin-left: auto;
+.botao-editar {
+    margin-right: auto;
     margin-top: auto;
     background-color: darkblue;
     border-color: mediumblue;
@@ -30,6 +31,5 @@
     border-radius: 5px;
 }
 
-#cliente-pessoa-juridica-tabela {
-    width: 1800px;
-}
+
+

@@ -22,6 +22,7 @@
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
+            
             { data: "Valor" },
             {
                 render: function (data, type, row) {
@@ -36,7 +37,7 @@
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
 
                 }
-            },
+            },          
             {
                 render: function (data, type, row) {
                     return "\
@@ -110,10 +111,10 @@
             monstrarMensagem('Digite a Quantidade de Parcelas', '', 'error');
             $("#tituloReceber-campo-quantidade-Parcelas").focus();
             return false;
-        } else if ($ValorTotal == '') {
-            monstrarMensagem('Digite a Data de Valor Total', '', 'error');
-            $("#tituloReceber-campo-valor-total").focus();
-            return false;
+        //} else if ($ValorTotal == '') {
+        //    monstrarMensagem('Digite a Data de Valor Total', '', 'error');
+        //    $("#tituloReceber-campo-valor-total").focus();
+        //    return false;
         } else if ($Descricao == '') {
             monstrarMensagem('Digite a Descrição', '', 'error');
             $("#tituloReceber-campo-descricao").focus();
@@ -128,14 +129,14 @@
         $dataRecebimento = $('#parcelasReceber-campo-data-recebimento').val();
 
        
-        if ($categoriaReceita == undefined) {
-            monstrarMensagem('Digite o Nome', '', 'error');
-            $('#clientePessoaFisica-campo-nome').focus();
-            return false;
-        } else
+        //if ($categoriaReceita == undefined) {
+        //    monstrarMensagem('Digite o Nome', '', 'error');
+        //    $('#clientePessoaFisica-campo-nome').focus();
+        //    return false;
+        //} else
 
         $.ajax({
-            url: "/parcelasReceber/update",
+            url: "/parcelasReceber/Update",
             method: "post",
             data: {
                 DataRecebimento: $dataRecebimento,
@@ -180,5 +181,14 @@
             }
         });
     });
-    
+
+    function monstrarMensagem(texto, titulo, tipo) {
+        return false;
+        new PNotify({
+            title: titulo,
+            text: texto,
+            icon: 'icofont icofont-info-circle',
+            type: tipo
+        });
+    }
 });
