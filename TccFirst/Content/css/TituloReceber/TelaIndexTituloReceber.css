@@ -1,0 +1,34 @@
+﻿body {
+
+}
+#botao-novoTituloReceber {
+    background-color: forestgreen;
+    color: white;
+    border-radius: 5px;
+    width: 205px;
+    height: 40px;
+}
+.botao-apagar {
+    color:white;
+    background-color: darkred;
+    border-color: red;
+    border-collapse: collapse;
+    margin-right: auto;
+    margin: 15px;
+    margin-top: auto;
+    width: 60px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.botao-editar {
+    color: white;   
+    margin-left: auto;
+    margin-top: auto;
+    background-color: darkblue;
+    border-color: mediumblue;
+    width: 60px;
+    height: 20px;
+    border-radius: 5px;
+}
+}

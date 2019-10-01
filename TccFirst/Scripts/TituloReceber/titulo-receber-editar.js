@@ -22,6 +22,7 @@
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
+            
             { data: "Valor" },
             {
                 render: function (data, type, row) {
@@ -36,7 +37,7 @@
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
 
                 }
-            },
+            },          
             {
                 render: function (data, type, row) {
                     return "\
@@ -135,7 +136,7 @@
         } else
 
         $.ajax({
-            url: "/parcelasReceber/update",
+            url: "/parcelasReceber/Update",
             method: "post",
             data: {
                 DataRecebimento: $dataRecebimento,
@@ -180,5 +181,14 @@
             }
         });
     });
-    
+
+    function monstrarMensagem(texto, titulo, tipo) {
+        return false;
+        new PNotify({
+            title: titulo,
+            text: texto,
+            icon: 'icofont icofont-info-circle',
+            type: tipo
+        });
+    }
 });

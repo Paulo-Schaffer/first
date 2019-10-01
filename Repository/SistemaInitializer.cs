@@ -5,16 +5,16 @@ using System.Data.Entity;
 
 namespace Repository
 {
- //   internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
+    //internal class SistemaInitializer : CreateDatabaseIfNotExists<SistemaContext>
     internal class SistemaInitializer : DropCreateDatabaseAlways<SistemaContext>
     {
         protected override void Seed(SistemaContext context)
         {
-
             #region agencias
             var agencias = new List<Agencia>();
             agencias.Add(new Agencia()
             {
+                Id = 1,
                 NomeAgencia = "Agencia da Vida",
                 NumeroAgencia = 2001,
                 Banco = "Banco de Vida",
@@ -22,6 +22,7 @@ namespace Repository
             });
             agencias.Add(new Agencia()
             {
+                Id = 2,
                 NomeAgencia = "Agencia do Paulo",
                 NumeroAgencia = 666,
                 Banco = "Banco do Paulo",
@@ -30,6 +31,7 @@ namespace Repository
 
             agencias.Add(new Agencia()
             {
+                Id = 3,
                 NomeAgencia = "Você consegue",
                 NumeroAgencia = 8001,
                 Banco = "Banco do Goku",
@@ -37,6 +39,212 @@ namespace Repository
             });
             context.Agencias.AddRange(agencias);
 
+            #endregion
+
+            #region caixa
+
+
+            var caixas = new List<Caixa>();
+            caixas.Add(new Caixa()
+            {
+                Id = 1,
+                Descricao = "recebimento serviço",
+                Documento = "171-1",
+                FormaPagamento = "Debito",
+                Valor = 1500,
+                DataLancamento = Convert.ToDateTime("2019-01-02"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 2,
+                Descricao = "Pagamento Energia",
+                Documento = "172-1",
+                FormaPagamento = "Debito",
+                Valor = 36,
+                DataLancamento = Convert.ToDateTime("2019-01-02"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 3,
+                Descricao = "Recebimento serviço",
+                Documento = "173-1",
+                FormaPagamento = "Debito",
+                Valor = 1900,
+                DataLancamento = Convert.ToDateTime("2019-01-02"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 4,
+                Descricao = "Recebimento serviço",
+                Documento = "174-1",
+                FormaPagamento = "Debito",
+                Valor = 60,
+                DataLancamento = Convert.ToDateTime("2019-01-03"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 5,
+                Descricao = "Recebimento serviço",
+                Documento = "175-1",
+                FormaPagamento = "Debito",
+                Valor = 100,
+                DataLancamento = Convert.ToDateTime("2019-01-03"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 6,
+                Descricao = "Recebimento serviço",
+                Documento = "176-1",
+                FormaPagamento = "Debito",
+                Valor = 190,
+                DataLancamento = Convert.ToDateTime("2019-01-03"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 7,
+                Descricao = "Recebimento serviço",
+                Documento = "177-1",
+                FormaPagamento = "Debito",
+                Valor = 650,
+                DataLancamento = Convert.ToDateTime("2019-01-05"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 8,
+                Descricao = "Recebimento serviço",
+                Documento = "178-1",
+                FormaPagamento = "Debito",
+                Valor = 320,
+                DataLancamento = Convert.ToDateTime("2019-01-05"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 9,
+                Descricao = "Recebimento serviço",
+                Documento = "179-1",
+                FormaPagamento = "Debito",
+                Valor = 270,
+                DataLancamento = Convert.ToDateTime("2019-01-05"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 10,
+                Descricao = "Recebimento serviço",
+                Documento = "180-1",
+                FormaPagamento = "Debito",
+                Valor = 120,
+                DataLancamento = Convert.ToDateTime("2019-01-12"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 11,
+                Descricao = "Recebimento serviço",
+                Documento = "181-1",
+                FormaPagamento = "Debito",
+                Valor = 336,
+                DataLancamento = Convert.ToDateTime("2019-01-12"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 12,
+                Descricao = "Recebimento serviço",
+                Documento = "182-1",
+                FormaPagamento = "Debito",
+                Valor = 765,
+                DataLancamento = Convert.ToDateTime("2019-01-12"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 13,
+                Descricao = "Recebimento serviço",
+                Documento = "183-1",
+                FormaPagamento = "Debito",
+                Valor = 426,
+                DataLancamento = Convert.ToDateTime("2019-01-12"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 18,
+                Descricao = "Recebimento serviço",
+                Documento = "184-1",
+                FormaPagamento = "Debito",
+                Valor = 953,
+                DataLancamento = Convert.ToDateTime("2019-01-23"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 14,
+                Descricao = "Recebimento serviço",
+                Documento = "184-1",
+                FormaPagamento = "Debito",
+                Valor = 125,
+                DataLancamento = Convert.ToDateTime("2019-01-23"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 15,
+                Descricao = "Recebimento serviço",
+                Documento = "185-1",
+                FormaPagamento = "Debito",
+                Valor = 452,
+                DataLancamento = Convert.ToDateTime("2019-01-23"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 16,
+                Descricao = "Recebimento serviço",
+                Documento = "186-1",
+                FormaPagamento = "Debito",
+                Valor = 100,
+                DataLancamento = Convert.ToDateTime("2019-01-23"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+            caixas.Add(new Caixa()
+            {
+                Id = 17,
+                Descricao = "Recebimento serviço",
+                Documento = "187-1",
+                FormaPagamento = "Debito",
+                Valor = 333,
+                DataLancamento = Convert.ToDateTime("2019-01-23"),
+                IdHistoricos = 1,
+                RegistroAtivo = true
+            });
+
+            context.Caixas.AddRange(caixas);
             #endregion
 
             #region Transação
@@ -148,229 +356,6 @@ namespace Repository
             context.Transacoes.AddRange(transacao);
 
 
-            #endregion
-
-            #region caixa
-
-            var caixas = new List<Caixa>();
-            caixas.Add(new Caixa()
-            {
-                Id = 1,
-                Operacao = "Entrada",
-                Descricao = "recebimento serviço",
-                Documento = "171-1",
-                FormaPagamento = "Debito",
-                Valor = 1500,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 2,
-                Operacao = "Saida",
-            Descricao = "Pagamento Energia",
-                Documento = "172-1",
-                FormaPagamento = "Debito",
-                Valor = 36,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 3,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "173-1",
-                FormaPagamento = "Debito",
-                Valor = 1900,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 4,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "174-1",
-                FormaPagamento = "Debito",
-                Valor = 60,
-                DataLancamento = Convert.ToDateTime("2019-01-03"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 5,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "175-1",
-                FormaPagamento = "Debito",
-                Valor = 100,
-                DataLancamento = Convert.ToDateTime("2019-01-03"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 6,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "176-1",
-                FormaPagamento = "Debito",
-                Valor = 190,
-                DataLancamento = Convert.ToDateTime("2019-01-03"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 7,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "177-1",
-                FormaPagamento = "Debito",
-                Valor = 650,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 8,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "178-1",
-                FormaPagamento = "Debito",
-                Valor = 320,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 9,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "179-1",
-                FormaPagamento = "Debito",
-                Valor = 270,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 10,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "180-1",
-                FormaPagamento = "Debito",
-                Valor = 120,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 11,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "181-1",
-                FormaPagamento = "Debito",
-                Valor = 336,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 12,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "182-1",
-                FormaPagamento = "Debito",
-                Valor = 765,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 13,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "183-1",
-                FormaPagamento = "Debito",
-                Valor = 426,
-                DataLancamento = Convert.ToDateTime("2019-01-12"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 18,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "184-1",
-                FormaPagamento = "Debito",
-                Valor = 953,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 14,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "184-1",
-                FormaPagamento = "Debito",
-                Valor = 125,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 15,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "185-1",
-                FormaPagamento = "Debito",
-                Valor = 452,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 16,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "186-1",
-                FormaPagamento = "Debito",
-                Valor = 100,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-            caixas.Add(new Caixa()
-            {
-                Id = 17,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
-                Documento = "187-1",
-                FormaPagamento = "Debito",
-                Valor = 333,
-                DataLancamento = Convert.ToDateTime("2019-01-23"),
-                IdHistoricos = 1,
-                RegistroAtivo = true
-            });
-
-            context.Caixas.AddRange(caixas);
             #endregion
 
             #region categoriaDespesa
@@ -709,6 +694,7 @@ namespace Repository
             };
             context.TitulosReceber.AddRange(tituloReceber);
             #endregion
+
             base.Seed(context);
         }
 

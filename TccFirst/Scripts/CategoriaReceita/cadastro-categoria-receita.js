@@ -21,81 +21,114 @@
     $('#categoria-receita-botao-salvar').on('click', function () {
         $categoriaReceita = $('#categoria-receita-campo-receita').val();
 
-        if ($idAlterar == -1) {
-            inserir($categoriaReceita);
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
+        if ($categoriaReceita == '') {
+            monstrarMensagem('Digite a Categoria Receita', '', 'error');
+            $('#categoria-receita-campo-receita').focus();
+            return false;
         } else {
-            alterar($categoriaReceita);
+            monstrarMensagem('Registro Salvo Com Sucesso', '', 'success');
+        };
+
+        if ($idAlterar == -1) {
+        inserir($categoriaReceita);
+    } else {
+        alterar($categoriaReceita);
+    }
+});
+
+function alterar($categoriaReceita) {
+    $.ajax({
+        url: "/categoriareceita/update",
+        method: "post",
+        data: {
+            id: $idAlterar,
+            TipoCategoriaReceita: $categoriaReceita
+        },
+        success: function (data) {
+            $("#modal-categoria-receita").modal("hide");
+            $idAlterar = -1;
+            $tabelaCategoriaReceita.ajax.reload();
+        },
+        error: function (err) {
+            alert("Não foi possível alterar");
+        }
+    })
+}
+
+function inserir($categoriaReceita) {
+    $.ajax({
+        url: '/categoriareceita/inserir',
+        method: 'post',
+        data: {
+            TipoCategoriaReceita: $categoriaReceita,
+        },
+        success: function (data) {
+            $('#modal-categoria-receita').modal('hide');
+            $(".modal-backdrop").hide();
+            $tabelaCategoriaReceita.ajax.reload();
+        },
+        error: function (err) {
+
         }
     });
+}
 
-    function alterar($categoriaReceita) {
-        $.ajax({
-            url: "/categoriareceita/update",
-            method: "post",
-            data: {
-                id: $idAlterar,
-                TipoCategoriaReceita: $categoriaReceita
+$('.table').on('click', '.botao-apagar', function () {
+    $idApagar = $(this).data('id');
+
+    $.confirm({
+        title: 'Deseja Realmente Apagar?',
+        content: 'Clique no botão apagar para apagar o registro',
+        buttons: {
+            Apagar: {
+                btnClass: 'btn-red any-other-class',
+                action: function () {
+                    $.ajax({
+                        url: '/categoriareceita/apagar?id=' + $idApagar,
+                        method: 'get',
+                        success: function (data) {
+                            $tabelaCategoriaReceita.ajax.reload();
+                        },
+
+                        error: function (err) {
+                            alert('Não foi possível apagar');
+                        }
+
+                    });
+                }
             },
-            success: function (data) {
-                $("#modal-categoria-receita").modal("hide");
-                $idAlterar = -1;
-                $tabelaCategoriaReceita.ajax.reload();
+            cancelar: function () {
             },
-            error: function (err) {
-                alert("Não foi possível alterar");
-            }
-        })
-    }
+        }
 
-    function inserir($categoriaReceita) {
-        $.ajax({
-            url: '/categoriareceita/inserir',
-            method: 'post',
-            data: {
-                TipoCategoriaReceita: $categoriaReceita,
-            },
-            success: function (data) {
-                $('#modal-categoria-receita').modal('hide');
-                $(".modal-backdrop").hide();
-                $tabelaCategoriaReceita.ajax.reload();
-            },
-            error: function (err) {
-
-            }
-        });
-    }
-
-    $('.table').on('click', '.botao-apagar', function () {
-        $idApagar = $(this).data('id');
-
-        $.ajax({
-            url: '/categoriareceita/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaCategoriaReceita.ajax.reload();
-            },
-
-            error: function (err) {
-                alert('Não foi possível apagar');
-            }
-
-        });
     });
 
-    $('.table').on('click', '.botao-editar', function () {
-        $idAlterar = $(this).data('id');
 
-        $.ajax({
-            url: '/categoriareceita/obterpeloid?id=' + $idAlterar,
-            method: 'get',
+});
 
-            success: function (data) {
-                $('#categoria-receita-campo-receita').val(data.TipoCategoriaReceita);
-                $('#modal-categoria-receita').modal('show');
-            },
-            error: function (err) {
-                alert('não foi possível carregar');
-            }
-        });
+$('.table').on('click', '.botao-editar', function () {
+    $idAlterar = $(this).data('id');
+
+    $.ajax({
+        url: '/categoriareceita/obterpeloid?id=' + $idAlterar,
+        method: 'get',
+
+        success: function (data) {
+            $('#categoria-receita-campo-receita').val(data.TipoCategoriaReceita);
+            $('#modal-categoria-receita').modal('show');
+        },
+        error: function (err) {
+            alert('não foi possível carregar');
+        }
     });
+});
 });

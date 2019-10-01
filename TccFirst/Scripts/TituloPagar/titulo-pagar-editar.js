@@ -164,7 +164,7 @@ $(function () {
             url: '/parcelasPagar/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
-                $('#parcelasPagar-campo-data-pagamento').val(data.DataPagamento);
+                $('#parcelasPagar-campo-data-pagamentoz').val(data.DataPagamento);
                 $('#parcelasPagar-campo-status').val(data.Status);
                 $('#modal-parcelasPagar').modal('show');
             },
