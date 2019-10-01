@@ -5698,10 +5698,9 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\Relatorio\GaficoTitulo.js" />
-    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\Relatorio\fluxo-caixa.js" />
     <Content Include="Scripts\Relatorio\Relatorio-caixa.js" />
-    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
+    <Content Include="Scripts\Relatorio\Relatorio-transacao.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
@@ -5853,6 +5852,7 @@
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\Relatorio\RelatorioCaixa.cshtml" />
     <Content Include="Views\GraficoTitulo\Index.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioTransacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5864,7 +5864,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Dashboard\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
     <Folder Include="Views\MovimentacaoFinanceiraSaida\" />

@@ -12,7 +12,7 @@ namespace TccFirst.Controllers
     {
         private CaixaRepository repository;
 
-        public CaixaController()
+        public CaixaController() 
         {
             repository = new CaixaRepository();
         }

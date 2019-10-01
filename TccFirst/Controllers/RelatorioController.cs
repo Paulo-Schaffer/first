@@ -35,6 +35,11 @@ namespace TccFirst.Controllers
             return View();
         }
 
+        public ActionResult RelatorioTransacao()
+        {
+            return View();
+        }
+
         [HttpGet]
         public JsonResult FluxoCaixaDados(DateTime dataInicial, DateTime dataFinal)
         {

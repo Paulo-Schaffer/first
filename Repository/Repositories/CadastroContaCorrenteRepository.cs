@@ -19,14 +19,14 @@ namespace Repository.Repositories
 
         public bool Alterar(CadastroContaCorrente cadastrocontacorrente)
         {
-            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
-            if (cadastrosContaCorrente == null)
+            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrocontacorrente.Id);
+            if (cadastrocontacorrente == null)
             {
                 return false;
             }
 
-            cadastrosContaCorrente.IdAgencia = cadastrosContaCorrente.IdAgencia;
-            cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
+            cadastrocontacorrente.IdAgencia = cadastrocontacorrente.IdAgencia;
+            cadastrocontacorrente.NumeroConta = cadastrocontacorrente.NumeroConta;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }

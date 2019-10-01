@@ -59,6 +59,31 @@ namespace Repository.Repositories
 	DAY(transacoes.data_lancamento) <= 12 */
         }
 
+        public List<Transacao> ObterTodosRelatorio(int idReceita, int IdDespesa, string documento)
+        {
+            var query = context
+                .Transacoes
+                .Where(x => x.RegistroAtivo);
+
+            if (idReceita != Transacao.FiltroSemReceita)
+            {
+                query = query.Where(x => x.IdCategoriaReceita == idReceita);
+            }
+            if (IdDespesa != Transacao.FiltroSemReceita)
+            {
+                query = query.Where(x => x.IdCategoriaDespesa == IdDespesa);
+            }
+
+            if (!string.IsNullOrEmpty(documento))
+            {
+                query = query.Where(x => x.Documento.Contains(documento));
+            }
+            //if(dataLancamento != null)
+            //{
+            //    query = query.Where(x => x.DataLancamento.Date == dataLancamento.Date);
+            //}
+            return query.ToList();
+        }
 
         public bool Apagar(int id)
         {
