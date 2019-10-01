@@ -89,7 +89,7 @@ namespace TccFirst.Controllers
         #region editar
 
         [HttpPost]
-        public JsonResult Update(ParcelaPagar parcelaPagar)
+        public JsonResult Alterar(ParcelaPagar parcelaPagar)
         {
             var alterou = repository.Alterar(parcelaPagar);
             var resultado = new { status = alterou };
@@ -103,8 +103,8 @@ namespace TccFirst.Controllers
         [HttpGet]
         public ActionResult GerarParcelas(int idTituloPagar)
         {
-            repository.GerarParcelas(idTitulosPagar);
-            return Json(idTitulosPagar, JsonRequestBehavior.AllowGet);
+            repository.GerarParcelas(idTituloPagar);
+            return Json(idTituloPagar, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -1,0 +1,86 @@
+﻿body {
+}
+#fornecedor-nome-razaoSocial {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-nomeFantasia {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-dataCadastro {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-cnpj {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-email {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-telefone {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-cep {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-logradouro {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-numero {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-bairro {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-cidade {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-sigla {
+    border-color: black;
+    height: 35px;
+}
+
+#fornecedor-campo-complemento {
+    border-color: black;
+    height: 35px;
+}
+#fonte {
+    color: black;
+    font-weight: bold;
+}
+
+#clientePessoaJuridica-botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
+
+#botao-cancelar {
+    background-color: red;
+    height: 40px;
+    width: 160px;
+    color: white;
+    border-radius: 5px;
+}

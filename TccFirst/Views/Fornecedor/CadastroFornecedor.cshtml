@@ -9,15 +9,22 @@
             </div>
             <div class="modal-body">
 
-                <div class="form-group">
-                    <!--razao-->
-                    <label for="fornecedor-campo-razaoSocial"><b>Razão Social</b> <span class="text-danger">*</</span></label>
-                    <input type="text" id="fornecedor-nome-razaoSocial" class="form-control border-dark" placeholder="Digite a razão socila da empresa" />
-                </div>
-                <div class="form-group">
-                    <!--fantasia-->
-                    <label for="fornecedor-campo-nomeFantasia"><b>Nome Fantasia</b></label>
-                    <input type="text" id="fornecedor-campo-nomeFantasia" class="form-control border-dark" placeholder="Digite o nome fantasia da empresa" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <!--razao-->
+                            <label for="fornecedor-campo-razaoSocial"><b>Razão Social</b> <span class="text-danger">*</</span></label>
+                            <input type="text" id="fornecedor-nome-razaoSocial" class="form-control border-dark" placeholder="Digite a razão socila da empresa" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <!--fantasia-->
+                            <label for="fornecedor-campo-nomeFantasia"><b>Nome Fantasia</b></label>
+                            <input type="text" id="fornecedor-campo-nomeFantasia" class="form-control border-dark" placeholder="Digite o nome fantasia da empresa" />
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
@@ -35,52 +42,56 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <!--email-->
+                    <label for="fornecedor-campo-email"><b>E-mail</b> <span class="text-danger">*</span> </label>
+                    <input type="text" id="fornecedor-campo-email" class="form-control border-dark" placeholder="Digite seu E-mail" />
+                </div>
                 <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <!--email-->
-                            <label for="fornecedor-campo-email"><b>E-mail</b> <span class="text-danger">*</span> </label>
-                            <input type="text" id="fornecedor-campo-email" class="form-control border-dark" placeholder="Digite seu E-mail" />
-                        </div>
-                    </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="form-group">
                             <label for="fornecedor-campo-telefone"><b>Telefone</b> <span class="text-danger">*</span> </label>
                             <input type="text" id="fornecedor-campo-telefone" class="form-control border-dark" placeholder="Digite o telefone " />
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-logradouro"><b>Logradouro</b></label>
-                    <input type="text" id="fornecedor-campo-logradouro" class="form-control border-dark" placeholder="Digite o nome da rua" />
-                </div>
-                <div class="row">
-                    <div class="col-6">
+
+                    <div class="col-4">
 
                         <div class="form-group">
                             <label for="fornecedor-campo-cep"><b>Cep</b></label>
                             <input type="text" id="fornecedor-campo-cep" class="form-control border-dark" placeholder="Digite o cep" />
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="fornecedor-campo-logradouro"><b>Logradouro</b></label>
+                            <input type="text" id="fornecedor-campo-logradouro" class="form-control border-dark" placeholder="Digite o nome da rua" />
+                        </div>
 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="fornecedor-campo-cidade"><b>Cidade</b></label>
+                            <input type="text" id="fornecedor-campo-cidade" class="form-control border-dark" placeholder="Digite o nome da cidade" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="fornecedor-campo-bairro"><b>Bairro</b></label>
+                            <input type="text" id="fornecedor-campo-bairro" class="form-control border-dark" placeholder="Digite o nome do bairro" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="fornecedor-campo-numero"><b>Numero</b></label>
                             <input type="text" id="fornecedor-campo-numero" class="form-control border-dark" placeholder="Digite o numero residencia" />
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-bairro"><b>Bairro</b></label>
-                    <input type="text" id="fornecedor-campo-bairro" class="form-control border-dark" placeholder="Digite o nome do bairro" />
-                </div>
-                <div class="form-group">
-                    <label for="fornecedor-campo-cidade"><b>Cidade</b></label>
-                    <input type="text" id="fornecedor-campo-cidade" class="form-control border-dark" placeholder="Digite o nome da cidade" />
-                </div>
-                <div class="row">
-                    <div class="col-6">
-
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="fornecedor-campo-sigla"><b>Sigla do Estado</b></label>
                             <select class="form-control border-dark" name="estados-brasil" id="fornecedor-campo-sigla">
@@ -114,7 +125,6 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="col-6">
                         <div class="form-group">
                             <label for="fornecedor-campo-complemento"><b>Complemento</b></label>
@@ -130,3 +140,4 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="~/Content/css/Fornecedor/TelaCadastroFornecedor.css">
