@@ -1,6 +1,11 @@
 $('nav a').click(function(e){
+    var id = $(this).attr('href');
+
+    debugger;
+    if (id == "/login") {
+        return;
+    }
 	e.preventDefault();
-	var id = $(this).attr('href'),
 	targetOffset = $(id).offset().top;
 
 	$('html, body').animate({ 

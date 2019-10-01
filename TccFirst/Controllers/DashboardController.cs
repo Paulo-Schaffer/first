@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    public class DefaultController : BaseController
+    public class DashboardController : BaseController
     {
-        // GET: Default
+        // GET: Dashboard
         public ActionResult Index()
         {
             return View();
