@@ -12,7 +12,9 @@ Alunos:
 
 [Slides]
 
-## Questão 01 - Fluxo do sistema first
+## - O Sistema First
+
+O First é um sistema financeiro voltado para o controle de contas, com o intuito de demonstrar os resultados financeiros de forma prática e de fácil entendimento.
 
 
 
