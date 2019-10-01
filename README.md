@@ -20,7 +20,7 @@ O First é um sistema financeiro voltado para o controle de contas, com o intuit
 
 O sistema foi desenvolvido devido a uma necessidade vista pelos desenvolvedores no segmento de controle financeiro. Com as ferramentas do sistema, uma empresa pode obter relatórios objetivos sobre sua condição financeira. Você pode ver seus ganhos e perdas financeiras em curto, médio ou longo prazo.
 
-## Vantagens do First
+##           Vantagens
 
 - Praticidade:
  O Firts é uma aplicação web e isso faz com que tenha uma usuabilidade e uma praticidade incrível.
@@ -31,7 +31,7 @@ O sistema foi desenvolvido devido a uma necessidade vista pelos desenvolvedores 
 - Controle:
  Com dedicados ao controle financeiro e a geração instantânia de relatórios o First é o sistema perfeito para controlar suas financias.
 
-## Recursos do First
+##           Recursos 
 
 - Relatórios:
  Esse recurso te possibilitará fazer comparações de de todos os tipos, isso faz com que você tenha total noção de qual a situação fianceira que sua empresa se encontra no momento.
