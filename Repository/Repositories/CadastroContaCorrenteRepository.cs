@@ -17,7 +17,6 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        
         public bool Alterar(CadastroContaCorrente cadastrocontacorrente)
         {
             var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.Where(x => x.Id == cadastrocontacorrente.Id).FirstOrDefault();

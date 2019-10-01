@@ -45,11 +45,11 @@
         serverSide: true,
         columns: [
             { data: "Descricao" },
-            { data: "Documento" },
-            { data: "FormaPagamento" },
-            { data: "Valor" },
-            { data: "DataLancamento" },
-            { data: "IdHistoricos" },
+            //{ data: "Documento" },
+            //{ data: "FormaPagamento" },
+            //{ data: "Valor" },
+            //{ data: "DataLancamento" },
+            //{ data: "IdHistoricos" },
 
 
         ]

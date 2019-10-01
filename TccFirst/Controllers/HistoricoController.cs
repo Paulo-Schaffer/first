@@ -103,7 +103,6 @@ namespace TccFirst.Controllers
                     id = historico.Id,
                     text = historico.Descricao
 
-
                 });
             }
             var resultado = new

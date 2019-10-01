@@ -73,7 +73,8 @@ namespace Repository.Repositories
 
         public Caixa ObterPeloId(int id)
         {
-            var caixa = context.Caixas.FirstOrDefault(x => x.Id == id);
+            var caixa = context.Caixas
+                .Where(x => x.Id == id).FirstOrDefault();
             return caixa;
         }
 
@@ -92,9 +93,7 @@ namespace Repository.Repositories
             //    query = query.Where(x => x.Descricao == descricao);
             //}
             
-            return query
-                //.OrderBy(x => x.Id)
-                .ToList();
+            return query.ToList();
 
 
             //return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
