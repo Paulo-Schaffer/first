@@ -37,21 +37,21 @@
                         {
                         <option value="Dinheiro">Dinheiro</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Debito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Debito")
                         {
-                        <option value="Cartao de Debito" selected="selected">Cartao de Debito</option>
+                            <option value="Cartão de Débito" selected="selected">Cartão de Debito</option>
                         }
                         else
                         {
-                        <option value="Cartao de Debito">Cartao de Debito</option>
+                            <option value="Cartão de Débito">Cartão de Débito</option>
                         }
-                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartao de Credito")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Crédito")
                         {
-                        <option value="Cartao de Credito" selected="selected">Cartao de Credito</option>
+                            <option value="Cartão de Crédito" selected="selected"></option>
                         }
                         else
                         {
-                        <option value="Cartao de Credito">Cartao de Credito</option>
+                            <option value="Cartão de Crédito">Cartão de Crédito</option>
                         }
                     </select>
                 </div>
@@ -163,3 +163,4 @@
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
 
+    <link href="~/Content/css/TituloPagar/TelaEditarTituloPagar.css" rel="stylesheet" />

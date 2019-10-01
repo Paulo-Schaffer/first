@@ -126,6 +126,10 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\TelaLogin.css" />
+    <Content Include="Content\css\TituloPagar\TelaCadastroTituloPagar.css" />
+    <Content Include="Content\css\TituloPagar\TelaEditarTituloPagar.css" />
+    <Content Include="Content\css\TituloPagar\TelaIndexTituloPagar.css" />
+    <Content Include="Content\css\usuario-do-homem %281%29.png" />
     <Content Include="Content\css\Teste\teste.css" />
     <Content Include="Content\css\TituloReceber\TelaCadastroTituloReceber.css" />
     <Content Include="Content\css\TituloReceber\TelaEditarTituloReceber.css" />
@@ -5821,8 +5825,6 @@
     <Content Include="Views\TituloPagar\Editar.cshtml" />
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
-    <Content Include="Views\Historico\Index.cshtml" />
-    <Content Include="Views\Dashboard\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5831,10 +5833,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
+    <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>

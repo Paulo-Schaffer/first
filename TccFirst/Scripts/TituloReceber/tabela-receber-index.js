@@ -6,8 +6,8 @@
         info: false,
         columns: [
             { data: "Id" },
-            { data: "NomeCliente" },
-            { data: "IdCategoriaReceita" },
+            { data: "NomeCliente" }, 
+            { data: "IdCategoriaReceita"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             {
@@ -82,4 +82,5 @@
 
         });
     });
+
 });
