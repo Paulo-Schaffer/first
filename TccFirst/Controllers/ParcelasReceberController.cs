@@ -17,62 +17,53 @@ namespace TccFirst.Controllers
             repository = new ParcelaReceberRepository();
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
 
         [HttpGet]
         public JsonResult ObterTodos(int idTituloReceber)
         {
-            var parcelasReceber = repository.ObterTodos(idTituloReceber);
-            var resultado = new { data = parcelasReceber };
+            var parcelasreceber = repository.ObterTodos(idTituloReceber);
+            var resultado = new { data = parcelasreceber };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-
-        [HttpGet, Route("parcelaReceber/")]
+        [HttpPost]
+        public JsonResult Inserir(ParcelaReceber parcelaReceber)
+        {
+            parcelaReceber.RegistroAtivo = true;
+            var id = repository.Inserir(parcelaReceber);
+            var resultado = new { id = id };
+            return Json(resultado);
+        }
+        [HttpGet]
+        public JsonResult Apagar(int id)
+        {
+            var apagou = repository.Apagar(id);
+            var resultado = new { status = apagou };
+            return Json(resultado);
+        }
+        [HttpPost]
+        public JsonResult Update(ParcelaReceber parcelaReceber)
+        {
+            var alterou = repository.Alterar(parcelaReceber);
+            var resultado = new { status = alterou };
+            return Json(resultado);
+        }
+        [HttpGet, Route("parcelasReceber/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
-
-        [HttpPost]
+        [HttpGet]
         public ActionResult GerarParcelas(int idTituloReceber)
         {
+
             repository.GerarParcelas(idTituloReceber);
             return Json(idTituloReceber, JsonRequestBehavior.AllowGet);
+
         }
-
-        // [HttpGet,Route("parcelaReceber/obtertodosselect2")]
-        //public JsonResult ObterTodosSelect2(string term)
-        //{
-        //  var parcelasReceber = repository.ObterTodos(idTituloReceber);
-        //List<object>parcelaRecebersSelect2=
-        //         new List<object>();
-        //    foreach(ParcelaReceber parcelaReceber in parcelasReceber)
-        //    {
-        //        parcelaRecebersSelect2.Add(new
-        //        {
-        //            id = parcelaReceber.Id,
-        //            valor= parcelaReceber.Valor,
-        //             status=parcelaReceber.Status,
-        //
-        //         });
-        //     }
-        //     var resultado = new
-        //     {
-        //         results = parcelaRecebersSelect2
-        //     };
-        //     return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        // }
-
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
     }
-
 }

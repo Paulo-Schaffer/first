@@ -21,7 +21,6 @@ namespace Repository.Repositories
         public void GerarParcelas(int idTituloPagar)
         {
             var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == idTituloPagar);
-
             var dataAtual = DateTime.Now.AddDays(30);
 
             decimal valorTotal = tituloPagar.ValorTotal;

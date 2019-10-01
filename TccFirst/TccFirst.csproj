@@ -5686,8 +5686,6 @@
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
-    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Views\Nova pasta\Caixa\caixa-cadastro.js" />
     <Content Include="Views\Nova pasta\Caixa\caixa-index.js" />
     <Content Include="Views\Nova pasta\CategoriaDespesa\categoria-despesa-index.js" />
@@ -5811,6 +5809,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />

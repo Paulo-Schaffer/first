@@ -2,7 +2,7 @@
     $idAlterar = -1;
     $idTituloReceber = $("#id").val();
 
-    $tabelaParcelas = $("#titulo-receber-parcelas-tabela").DataTable({
+    $tabelaParcelas = $("#parcelasReceber-tabela").DataTable({
         ajax: '/parcelasreceber/obtertodos?idTituloReceber=' + $idTituloReceber,
         serverSide: true,
         info: false,
@@ -22,7 +22,7 @@
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
-
+            
             { data: "Valor" },
             {
                 render: function (data, type, row) {
@@ -37,7 +37,7 @@
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
 
                 }
-            },
+            },          
             {
                 render: function (data, type, row) {
                     return "\
@@ -54,7 +54,7 @@
     $('#parcelasReceber-botao-salvar').on('click', function () {
         $dataRecebimento = $('#parcelasReceber-campo-data-recebimento').val();
         $.ajax({
-            url: "/ParcelasReceber/Update",
+            url: "/parcelasReceber/Update",
             method: "post",
             data: {
                 DataRecebimento: $dataRecebimento,
@@ -99,6 +99,7 @@
             }
         });
     });
+
     function monstrarMensagem(texto, titulo, tipo) {
         return false;
         new PNotify({

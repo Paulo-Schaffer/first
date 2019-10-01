@@ -19,8 +19,7 @@ namespace Repository.Repositories
 
         public void GerarParcelas(int idTituloReceber)
         {
-            var tituloReceber = context.TitulosPagar.FirstOrDefault(x => x.Id == idTituloReceber);
-
+            var tituloReceber = context.TitulosReceber.FirstOrDefault(x => x.Id == idTituloReceber);
             var dataAtual = DateTime.Now.AddDays(30);
 
             decimal valorTotal = tituloReceber.ValorTotal;
@@ -40,38 +39,30 @@ namespace Repository.Repositories
                 {
                     valorParcela = valorTotal - totalAcumulado;
                 }
-
                 var parcela = new ParcelaReceber();
                 parcela.Valor = valorParcela;
                 parcela.DataVencimento = dataVencimento;
                 parcela.IdTituloReceber = idTituloReceber;
                 parcela.RegistroAtivo = true;
-                parcela.Status = ParcelaPagar.StatusPendente;
+                parcela.Status = TituloReceber.StatusPendente;
                 context.ParcelasReceber.Add(parcela);
-
                 totalAcumulado += valorParcela;
             }
             context.SaveChanges();
         }
 
-        public bool Alterar(ParcelaReceber parcelasReceber)
+        public bool Alterar(ParcelaReceber parcelaReceber)
         {
-            var parcelasReceberOriginal = context.ParcelasReceber
-                .FirstOrDefault(x => x.Id == parcelasReceber.Id);
-            if (parcelasReceber == null)
+            var parcelaReceberOriginal = context.ParcelasReceber.FirstOrDefault(x => x.Id == parcelaReceber.Id);
+            if (parcelaReceber == null)
+            {
                 return false;
+            }
+            parcelaReceberOriginal.DataRecebimento = parcelaReceber.DataRecebimento;
+            parcelaReceberOriginal.Status = ParcelaReceber.StatusPago;
+            int quantidadeAfeada = context.SaveChanges();
 
-            parcelasReceberOriginal.DataRecebimento = parcelasReceber.DataRecebimento;
-            parcelasReceberOriginal.Status = ParcelaPagar.StatusPago;
-            int quantidadeAfetada = context.SaveChanges();
-
-            parcelasReceber.Status = TituloPagar.StatusPagoParcialmente;
-
-            // Pegar o titulo a pagar
-            // Definir o status como StatusPagoParcialmente
-            // Atualizar
-
-            return quantidadeAfetada == 1;
+            return quantidadeAfeada == 1;
         }
 
         public bool Apagar(int id)
@@ -79,7 +70,7 @@ namespace Repository.Repositories
             throw new NotImplementedException();
         }
 
-        public int Inserir(ParcelaPagar parcelaPagar)
+        public int Inserir(ParcelaReceber parcelaReceber)
         {
             throw new NotImplementedException();
         }

@@ -46,7 +46,7 @@
             <div class="col-12" id="tituloReceber-pessoa-juridica">
                 <div class="form-group">
                     <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="IdClientePessoaJuridica">
+                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica"  name="IdClientePessoaJuridica">
                         <option disabled selected>Selecione um opção</option>
                     </select>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="form-group">
                     <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
                     <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control"
-                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")" name="DataLancamento" />
+                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")" name="DataLancamento"/>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
                     <div class="form-group">
                         <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
                         <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control"
-                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")" name="DataVencimento" />
+                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")"name="DataVencimento" />
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                 <div class="form-group">
                     <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
                     <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control"
-                           value="@ViewBag.TituloReceber.QuantidadeParcela" name="QuantidadeParcela" />
+                           value="@ViewBag.TituloReceber.QuantidadeParcela"name="QuantidadeParcela" />
                 </div>
             </div>
 
@@ -144,7 +144,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+            <button class="btn btn-grd-success float-left mt-3" type="submit" id="tituloReceber-botao-salvar"><i class="fa fa-save"></i> Salvar</button>
         </div>
     </div>
 </form>
