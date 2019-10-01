@@ -104,6 +104,10 @@
     <Content Include="Content\css\cadeado %281%29 %281%29.png" />
     <Content Include="Content\css\cadeado %281%29.png" />
     <Content Include="Content\css\cadeado.png" />
+    <Content Include="Content\css\Caixa\TelaCadastroCaixa.css" />
+    <Content Include="Content\css\Caixa\TelaIndexCaixa.css" />
+    <Content Include="Content\css\CategoriaDespesa\TelaCadastroCategoriaDespesa.css" />
+    <Content Include="Content\css\CategoriaDespesa\TelaIndexCategoriaDespesa.css" />
     <Content Include="Content\css\CategoriaReceita\TelaCadastroCategoriaReceita.css" />
     <Content Include="Content\css\CategoriaReceita\TelaIndexCategoriaReceita.css" />
     <Content Include="Content\css\ClientePessoaJuridica\TelaCadastroPessoaJuridica.css" />

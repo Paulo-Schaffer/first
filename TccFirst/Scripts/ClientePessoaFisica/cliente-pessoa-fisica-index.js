@@ -196,7 +196,6 @@ $(document).ready(function () {
 $(function () {
     $idAlterar = -1;
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
-        responsive: true,
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [
@@ -217,7 +216,7 @@ $(function () {
             }
         ]
     });
-    $('#clientePessoaFisica-batao-salvar').on('click', function () {
+        $('#clientePessoaFisica-batao-salvar').on('click', function () {
         $nome = $('#clientePessoaFisica-campo-nome').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();

@@ -1,8 +1,7 @@
 ﻿body {
 }
 
-
-#botao-novoCliente {
+#botao-novoCaixa {
     background-color: forestgreen;
     color: white;
     border-radius: 5px;
@@ -10,19 +9,18 @@
     height: 40px;
 }
 
-#botao-apagar {
+.botao-apagar {
     background-color: darkred;
     border-color: red;
     border-collapse: collapse;
     margin-right: auto;
     margin-top: auto;
-    margin: 10px;
     width: 60px;
     height: 20px;
     border-radius: 5px;
 }
 
-#botao-editar {
+.botao-editar {
     margin-left: auto;
     margin-top: auto;
     background-color: darkblue;
@@ -31,4 +29,3 @@
     height: 20px;
     border-radius: 5px;
 }
-

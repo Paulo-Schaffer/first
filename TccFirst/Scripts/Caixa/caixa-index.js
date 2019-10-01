@@ -76,7 +76,7 @@ $(function () {
             { data: 'Historico.Descricao' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar ml-2"data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '"><i class="fa fa-edit"></i> Editar</button>\<button class="btn btn-danger botao-apagar ml-2"data-id="' + row.Id + '"><i class="fa fa-trash"></i> Apagar</button>'
 
                 }
             }
@@ -211,7 +211,7 @@ $(function () {
                             },
 
                             error: function (err) {
-                                alert('Moisés');
+                                alert('Não foi possivel apagar  ');
                             }
 
                         });

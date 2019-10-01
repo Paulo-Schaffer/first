@@ -3,9 +3,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Caixa</h2>
-
-<button data-toggle="modal" data-target="#modal-caixa" class="btn btn-primary">Cadastrar</button>
+<h2><b>Caixas</b></h2>
+<hr />
+<button data-toggle="modal" data-target="#modal-caixa" class="btn float-right" id="botao-novoCaixa"><i class="fa fa-plus"></i>Novo Caixa</button>
+<br />
+<br />
+<br />
 <table id="caixa-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -22,7 +25,7 @@
     </thead>
 </table>
 @RenderPage("CadastroCaixa.cshtml")
-
+<link href="~/Content/css/Caixa/TelaIndexCaixa.css" rel="stylesheet" />
 @section js{
     <script src="~/Scripts/Caixa/caixa-index.js"></script>
     <script src="~/Scripts/Caixa/caixa-cadastro.js"></script>

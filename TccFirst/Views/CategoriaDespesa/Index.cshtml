@@ -3,8 +3,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Categoria de Despesas</h2>
-<button data-toggle="modal" data-target="#modal-categoria-despesa" class="btn btn-primary">Nova Categoria</button>
+<h2><b>Categoria de Despesas</b></h2>
+<hr />
+<button data-toggle="modal" data-target="#modal-categoria-despesa" class="btn float-right" id="botao-novaCategoria">Nova Categoria</button>
+<br />
+<br />
+<br />
 <table id="categoria-despesa-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -18,4 +22,4 @@
 @section js{
     <script src="~/Scripts/CategoriaDespesa/categoria-despesa-index.js"></script>
 }
-
+    <link href="~/Content/css/CategoriaDespesa/TelaIndexCategoriaDespesa.css" rel="stylesheet" />

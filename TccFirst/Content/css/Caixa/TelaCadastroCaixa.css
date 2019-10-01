@@ -1,0 +1,48 @@
+﻿body {
+}
+#botao-cancelar {
+    background-color: red;
+    height: 40px;
+    width: 160px;
+    color: white;
+    border-radius: 5px;
+}
+
+#caixa-botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
+
+#caixa-campo-operacao {
+    border-color: black;
+    height: 40px;
+}
+#caixa-campo-descricao {
+    border-color: black;
+    height: 40px;
+}
+#caixa-campo-documento {
+    border-color: black;
+    height: 40px;
+}
+#caixa-campo-valor {
+    border-color: black;
+    height: 40px;
+}
+#caixa-campo-forma-pagamento {
+    border-color: black;
+    height: 40px;
+}
+#caixa-campo-data-lancamento {
+    border-color: black;
+    height: 40px;
+}
+#caixa-campo-historico{
+    border-color:black;
+}
+#fonte {
+    font-weight: bold;
+}

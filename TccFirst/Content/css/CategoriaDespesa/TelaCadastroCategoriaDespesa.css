@@ -1,0 +1,27 @@
+﻿body {
+}
+
+#categoria-despesa-campo-despesa {
+    border-color: black;
+}
+
+#fonte {
+    border-color: black;
+    height: 35px;
+}
+
+#botao-cancelar {
+    background-color: red;
+    height: 40px;
+    width: 160px;
+    color: white;
+    border-radius: 5px;
+}
+
+#categoria-despesa-botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
