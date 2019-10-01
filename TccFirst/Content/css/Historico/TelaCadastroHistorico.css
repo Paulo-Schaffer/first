@@ -1,0 +1,25 @@
+﻿#historico-campo-descricao {
+    border-color: black;
+    height: 35px;
+}
+
+#fonte {
+    color: black;
+    font-weight: bold;
+}
+
+#historico-botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
+
+#botao-cancelar {
+    background-color: red;
+    height: 40px;
+    width: 160px;
+    color: white;
+    border-radius: 5px;
+}

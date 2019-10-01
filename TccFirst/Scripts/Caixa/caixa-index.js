@@ -96,8 +96,8 @@ $(function () {
         $operacao = $('#caixa-campo-operacao').val();
         $descricao = $('#caixa-campo-descricao').val();
         $documento = $('#caixa-campo-documento').val();
-        $valor = $('#caixa-campo-valor').val();
         $formaPagamento = $('#caixa-campo-forma-pagamento').val();
+        $valor = $('#caixa-campo-valor').val();
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
         $IdHistoricos = $('#caixa-campo-historico').val();
 
@@ -196,18 +196,34 @@ $(function () {
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
 
-        $.ajax({
-            url: '/Caixa/apagar?id=' + $idApagar,
-            method: 'get',
-            success: function (data) {
-                $tabelaCaixa.ajax.reload();
-            },
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/Caixa/apagar?id=' + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaCaixa.ajax.reload();
+                            },
 
-            error: function (err) {
-                alert('Moisés');
+                            error: function (err) {
+                                alert('Moisés');
+                            }
+
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
             }
 
         });
+
+       
     });
 
     $('.table').on('click', '.botao-editar', function () {
@@ -237,8 +253,8 @@ $(function () {
         $("#caixa-campo-operacao").val("");
         $("#caixa-campo-descricao").val("");
         $("#caixa-campo-documento").val("");
-        $("#caixa-campo-forma-pagamento").val("");
         $("#caixa-campo-valor").val("");
+        $("#caixa-campo-forma-pagamento").val("");
         $("#caixa-campo-data-lancamento").val("");
         $("#caixa-campo-historico").val("");
         $idAlterar = -1;
@@ -246,14 +262,4 @@ $(function () {
     $('#modal-caixa').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })
-
-function monstrarMensagem(texto, titulo, tipo) {
-    return false;
-    new PNotify({
-        title: titulo,
-        text: texto,
-        icon: 'icofont icofont-info-circle',
-        type: tipo
-    });
-}
 });

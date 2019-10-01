@@ -12,11 +12,6 @@ namespace TccFirst.Controllers
     {
         public ActionResult Index()
         {
-            if (Session["usuarioLogadoId"] != null)
-            {
-                return RedirectToAction("Index", "Dashboard");
-            }
-
             return View();
         }
         
@@ -37,11 +32,11 @@ namespace TccFirst.Controllers
                 Session["usuarioLogadoId"] = funcionario.Id;
                 Session["usuarioLogadoNome"] = funcionario.NomeFuncionario;
                 Session["usuarioLogadoTipoFuncionario"] = funcionario.TipoFuncionario;
-                return RedirectToAction("Index", "Dashboard");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index", "Home");
             }
         }
 

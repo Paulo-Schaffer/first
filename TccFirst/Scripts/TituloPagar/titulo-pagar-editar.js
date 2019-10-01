@@ -3,7 +3,6 @@ $(function () {
     $idTituloPagar = $("#id").val();
 
     $tabelaParcelas = $("#parcelasPagar-tabela").DataTable({
-        "scrollX": true,
         ajax: '/parcelaspagar/obtertodos?idTituloPagar=' + $idTituloPagar,
         serverSide: true,
         info: false,
@@ -30,7 +29,7 @@ $(function () {
                     if (row.Status == "Pago") {
                         cor = "bg-success";
                     } else if (row.Status == "Pendente") {
-                         cor = "bg-warning";
+                        cor = "bg-warning";
                     } else {
                         cor = "bg-danger";
                     }
@@ -44,7 +43,7 @@ $(function () {
                     <button class='btn btn-primary botao-editar fa fa-edit'\
                         data-id" + row.Id + "'\
                         data-id=" + row.Id + "> Editar</button>";
-               
+
                 }
             }
         ]
@@ -52,7 +51,6 @@ $(function () {
 
     $('#parcelasPagar-botao-salvar').on('click', function () {
         $dataPagamento = $('#parcelasPagar-campo-data-pagamento').val();
-        debugger;
         $.ajax({
             url: "/parcelasPagar/update",
             method: "post",
@@ -99,14 +97,7 @@ $(function () {
             }
         });
     });
-
-    function monstrarMensagem(texto, titulo, tipo) {
-        return false;
-        new PNotify({
-            title: titulo,
-            text: texto,
-            icon: 'icofont icofont-info-circle',
-            type: tipo
-        });
-    }
+    
 });
+    
+

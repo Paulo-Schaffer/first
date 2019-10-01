@@ -5,7 +5,6 @@ $(function () {
     $('#fornecedor-campo-cep').mask('00000-000')
     $idAlterar = -1;
     $tabelafornecedor = $("#fornecedor-tabela").DataTable({
-        "scrollX": true,
         ajax: '/fornecedor/obtertodos',
         serverSide: true,
         columns: [

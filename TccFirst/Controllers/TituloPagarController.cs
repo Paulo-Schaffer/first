@@ -65,12 +65,11 @@ namespace TccFirst.Controllers
         {
             var alterou = repository.Alterar(tituloPagar);
             var resultado = new { status = alterou };
-            return RedirectToAction("Index", new {id= resultado});
+            return RedirectToAction("Index", new { id = resultado});
         }
 
         public ActionResult Editar(int id)
         {
-
             var tituloPagar = repository.ObterPeloId(id);
             ViewBag.TituloPagar = tituloPagar;
             return View();
