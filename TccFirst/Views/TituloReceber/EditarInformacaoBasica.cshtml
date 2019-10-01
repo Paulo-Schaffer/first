@@ -84,14 +84,6 @@
                         {
                             <option value="Pago">Pago</option>
                         }
-                        @if (ViewBag.TituloReceber.Status == "Pago Parcialmente")
-                        {
-                            <option value="PagoParcialmente" selected="selected">Pago parcialmente</option>
-                        }
-                        else
-                        {
-                            <option value="PagoParcialmente">Pago Parcialmente</option>
-                        }
                         @if (ViewBag.TituloReceber.Status == "Cancelado")
                         {
                             <option value="Cancelado" selected="selected">Cancelado</option>

@@ -59,7 +59,7 @@ namespace Repository.Repositories
         {
             var parcelasPagarOriginal = context.ParcelasPagar
                 .FirstOrDefault(x => x.Id == parcelaPagar.Id);
-            if (parcelaPagar == null)
+            if (parcelasPagarOriginal == null)
                 return false;
 
             parcelasPagarOriginal.DataPagamento = parcelaPagar.DataPagamento;
