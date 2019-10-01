@@ -21,7 +21,6 @@ namespace Repository.Repositories
         public void GerarParcelas(int idTituloPagar)
         {
             var tituloPagar = context.TitulosPagar.FirstOrDefault(x => x.Id == idTituloPagar);
-
             var dataAtual = DateTime.Now.AddDays(30);
 
             decimal valorTotal = tituloPagar.ValorTotal;
@@ -37,7 +36,7 @@ namespace Repository.Repositories
             {
                 var dataVencimento = dataAtual.AddMonths(i);
 
-                if(i + 1 >= tituloPagar.QuantidadeParcela)
+                if (i + 1 >= tituloPagar.QuantidadeParcela)
                 {
                     valorParcela = valorTotal - totalAcumulado;
                 }
@@ -59,7 +58,7 @@ namespace Repository.Repositories
         {
             var parcelasPagarOriginal = context.ParcelasPagar
                 .FirstOrDefault(x => x.Id == parcelaPagar.Id);
-            if (parcelaPagar == null)
+            if (parcelasPagarOriginal == null)
                 return false;
 
             parcelasPagarOriginal.DataPagamento = parcelaPagar.DataPagamento;

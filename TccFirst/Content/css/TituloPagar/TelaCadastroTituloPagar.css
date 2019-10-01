@@ -1,0 +1,13 @@
+﻿body {
+}
+
+.botao-tabela {
+    background-color: forestgreen;
+    color: white;
+    border-radius: 5px;
+    width: 190px;
+    height: 40px;
+    margin: -6px;
+}
+
+

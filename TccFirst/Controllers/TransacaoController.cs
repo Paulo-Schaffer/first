@@ -1,9 +1,5 @@
 ﻿using Model;
 using Repository.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -39,7 +35,7 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro()
         {
             CadastroContaCorrenteRepository cadastroContaCorrenteRepository = new CadastroContaCorrenteRepository();
-            ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos(0);
+            ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos();
 
             HistoricoRepository historicoRepository = new HistoricoRepository();
             ViewBag.Historicos = historicoRepository.ObterTodos();
@@ -85,6 +81,20 @@ namespace TccFirst.Controllers
         {
             var transacao = repository.ObterPeloId(id);
             ViewBag.Transacoes = transacao;
+
+            CadastroContaCorrenteRepository cadastroContaCorrenteRepository = new CadastroContaCorrenteRepository();
+            ViewBag.CadastroContaCorrentes = cadastroContaCorrenteRepository.ObterTodos();
+
+            HistoricoRepository historicoRepository = new HistoricoRepository();
+            ViewBag.Historicos = historicoRepository.ObterTodos();
+
+            CategoriaDespesaRepository categoriaDespesaRepository = new CategoriaDespesaRepository();
+            ViewBag.CategoriasDespesa = categoriaDespesaRepository.ObterTodos();
+
+            CategoriaReceitaRepository categoriaReceitaRepository = new CategoriaReceitaRepository();
+            ViewBag.CategoriasReceita = categoriaReceitaRepository.ObterTodos();
+
+
             return View();
         }
 

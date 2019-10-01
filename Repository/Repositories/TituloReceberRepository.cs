@@ -19,7 +19,7 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public bool Alterar(TituloReceber tituloReceber)
+        public bool Alterar(TituloReceber tituloReceber)    
         {
             var tituloReceberOriginal = context.TitulosReceber.Where(x => x.Id == tituloReceber.Id).FirstOrDefault();
 
@@ -29,7 +29,6 @@ namespace Repository.Repositories
             tituloReceberOriginal.IdClientePessoaJuridica = tituloReceber.IdClientePessoaJuridica;
             tituloReceberOriginal.IdClientePessoaFisica = tituloReceber.IdClientePessoaFisica;
             tituloReceberOriginal.IdCategoriaReceita = tituloReceber.IdCategoriaReceita;
-
             tituloReceberOriginal.Descricao = tituloReceber.Descricao;
             tituloReceberOriginal.Status = tituloReceber.Status;
             tituloReceberOriginal.DataLancamento = tituloReceber.DataLancamento;
@@ -61,6 +60,7 @@ namespace Repository.Repositories
             tituloReceber.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
+
         }
 
         public int Inserir(TituloReceber tituloReceber)
@@ -84,6 +84,7 @@ namespace Repository.Repositories
                 .Include("ClientePessoaJuridica")
                 .Include("ClientePessoaFisica")
                 .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+
         }
     }
 }

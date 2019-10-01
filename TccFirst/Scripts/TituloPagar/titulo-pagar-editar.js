@@ -29,7 +29,7 @@ $(function () {
                     if (row.Status == "Pago") {
                         cor = "bg-success";
                     } else if (row.Status == "Pendente") {
-                         cor = "bg-warning";
+                        cor = "bg-warning";
                     } else {
                         cor = "bg-danger";
                     }
@@ -43,11 +43,86 @@ $(function () {
                     <button class='btn btn-primary botao-editar fa fa-edit'\
                         data-id" + row.Id + "'\
                         data-id=" + row.Id + "> Editar</button>";
-               
+
                 }
             }
         ]
     });
+    $('#tituloPagar-botao-salvar').on('click', function () {
+
+        $Fornecedor = $("#tituloPagar-campo-fornecedor").val();
+        $CategoriaDespesa = $("#tituloPagar-campo-categoria-despesa").val();
+        $FormaPagamento = $("#tituloPagar-campo-forma-pagamento").val();
+        $Status = $("#tituloPagar-campo-status").val();
+        $Caixa = $("#tituloPagar-campo-caixa").val();
+        $Banco = $("#tituloPagar-campo-banco").val();
+        $DataLancamento = $("#tituloPagar-campo-data-lancamento").val();
+        $DataRecebimento = $("#tituloPagar-campo-data-recebimento").val();
+        $DataVencimento = $("#tituloPagar-campo-data-vencimento").val();
+        $QuantidadeParcela = $("#tituloPagar-campo-quantidade-parcela").val();
+        $Descricao = $("#tituloPagar-campo-descricao").val();
+        $Valor = $("#tituloPagar-campo-valor-total").val();
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
+        if ($('#tituloPagar-campo-caixa').is(':checked') || $('#tituloPagar-campo-banco').is(':checked')) {
+
+        } else {
+            monstrarMensagem('Escolha entra Caixa ou Banco', '', 'error');
+            return false;
+        }
+
+        if ($Fornecedor == undefined) {
+            monstrarMensagem('Selecione um Fornecedor', '', 'error');
+            $("#tituloPagar-campo-fornecedor").select2('open');
+            return false;
+        } else if ($CategoriaDespesa == undefined) {
+            monstrarMensagem('Selecione uma Categoria Despesa', '', 'error');
+            $("#tituloPagar-campo-categoria-despesa").select2('open');
+            return false;
+        } else if ($FormaPagamento == undefined) {
+            monstrarMensagem('Selecione uma Forma de Pagamento', '', 'error');
+            $("#tituloPagar-campo-forma-pagamento").focus();
+            return false;
+        } else if ($Status == undefined) {
+            monstrarMensagem('Selecione um status', '', 'error');
+            $("#tituloPagar-campo-status").focus();
+            return false;
+        } else if ($DataLancamento == '') {
+            monstrarMensagem('Selecione uma Data de Lançamento', '', 'error');
+            $("#tituloPagar-campo-data-lancamento").focus();
+            return false;
+        //} else if ($DataRecebimento == '') {
+        //    monstrarMensagem('Selecione uma Data Recebimento', '', 'error');
+        //    $("#tituloPagar-campo-data-recebimento").focus();
+        //    return false;
+        } else if ($DataVencimento == '') {
+            monstrarMensagem('Selecione uma Data de Vencimento', '', 'error');
+            $("#tituloPagar-campo-data-vencimento").focus();
+            return false;
+        } else if ($QuantidadeParcela == '') {
+            monstrarMensagem('Digite uma Quantidade de Parcelas', '', 'error');
+            $("#tituloPagar-campo-quantidade-parcela").val();
+            return false;
+        } 
+        else if ($Descricao == '') {
+            monstrarMensagem('Digite uma Descrição', '', 'error');
+            $("#tituloPagar-campo-descricao").val();
+            return false;
+        } 
+        //else if ($Valor == '') {
+        //    monstrarMensagem('Digite um Valor', '', 'error');
+        //    $("#tituloPagar-campo-valor").val();
+        //    return false;
+        //} 
+        }
+    );
 
     $('#parcelasPagar-botao-salvar').on('click', function () {
         $dataPagamento = $('#parcelasPagar-campo-data-pagamento').val();
@@ -88,7 +163,7 @@ $(function () {
             url: '/parcelasPagar/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
-                $('#parcelasPagar-campo-data-pagamento').val(data.DataPagamento);
+                $('#parcelasPagar-campo-data-pagamentoz').val(data.DataPagamento);
                 $('#parcelasPagar-campo-status').val(data.Status);
                 $('#modal-parcelasPagar').modal('show');
             },
@@ -98,13 +173,6 @@ $(function () {
         });
     });
 
-    function monstrarMensagem(texto, titulo, tipo) {
-        return false;
-        new PNotify({
-            title: titulo,
-            text: texto,
-            icon: 'icofont icofont-info-circle',
-            type: tipo
-        });
-    }
 });
+
+

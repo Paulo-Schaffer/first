@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace TccFirst.Controllers
 {
-    //[Route("tituloreceber/")]
     public class TituloReceberController : BaseController
     {
         private TituloReceberRepository repository;
@@ -88,9 +87,6 @@ namespace TccFirst.Controllers
                 {
                     id = tituloReceber.Id,
                     text = tituloReceber.Descricao,
-                    tituloReceber.ValorTotal,
-                    tituloReceber.DataLancamento,
-
                 });
             }
             var resultado = new

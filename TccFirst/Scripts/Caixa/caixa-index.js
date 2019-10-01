@@ -1,9 +1,16 @@
 ﻿$(function () {
 
     // Ao pressionar o botão enter focar no próximo campo
+    $('#caixa-campo-operacao').keyup(function (e) {
+        if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
+            $('#caixa-campo-descricao').focus();
+        }
+    });
     $('#caixa-campo-descricao').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#caixa-campo-documento').focus();
+        } else if (e.keyCode == 37 || e.keyCode == 38) {
+            $('#caixa-campo-operacao').focus();
         }
     });
     $('#caixa-campo-documento').keyup(function (e) {

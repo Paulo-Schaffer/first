@@ -29,7 +29,7 @@ namespace Repository.Repositories
             transacaoOriginal.IdHistorico = transacao.IdHistorico;
             transacaoOriginal.IdCategoriaReceita = transacao.IdCategoriaReceita;
             transacaoOriginal.IdCategoriaDespesa = transacao.IdCategoriaDespesa;
-            transacaoOriginal.Descricao = transacao.Descricao;
+            transacaoOriginal.DescricaoTransacao = transacao.DescricaoTransacao;
             transacaoOriginal.Documento = transacao.Documento;
             transacaoOriginal.TipoPagamento = transacao.TipoPagamento;
             transacaoOriginal.Valor = transacao.Valor;
@@ -82,7 +82,7 @@ namespace Repository.Repositories
 
         public Transacao ObterPeloId(int id)
         {
-            var transacao = context.Transacoes.Include("CadastroContaCorrente")
+            var transacao = context.Transacoes.Include("CadastrosContaCorrente")
                 .Include("Historico")
                 .Include("CategoriaReceita")
                 .Include("CategoriaDespesa").FirstOrDefault(x => x.Id == id);
@@ -92,7 +92,7 @@ namespace Repository.Repositories
         public List<Transacao> ObterTodos()
         {
             return context.Transacoes
-                .Include("CadastroContaCorrente")
+                .Include("CadastrosContaCorrente")
                 .Include("Historico")
                 .Include("CategoriaReceita")
                 .Include("CategoriaDespesa")

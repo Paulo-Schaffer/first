@@ -2,21 +2,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Cadastrar categoria de Receita</h5>
+                <h5 class="modal-title"><b>Cadastrar categoria de Receita</b></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label for="categoria-receita">Categoria de Receita</label>
+                <div class="form-group" id="fonte">
+                    <label for="categoria-receita"><b>Categoria de Receita<span class="text-danger">*</span></b></label>
                     <input type="text" id="categoria-receita-campo-receita" class="form-control" />
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="categoria-receita-botao-salvar">Salvar</button>
+                <button type="button" class="btn " data-dismiss="modal" id="botao-cancelar"><i class="fa"></i>Cancelar</button>
+                <button type="button" class="btn " id="categoria-receita-botao-salvar"><i class="fa fa-save"></i> Salvar</button>
             </div>
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="~/Content/css/CategoriaReceita/TelaCadastroCategoriaReceita.css" />

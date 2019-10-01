@@ -31,35 +31,36 @@
     </div>
 </div>
 <form action="/tituloreceber/cadastro" method="post">
-    <div class="row">
-        <div class="col-12" id="tituloReceber-pessoa-fisica">
-            <div class="form-group">
-                <label for="tituloReceber-campo-pessoa-fisica">Pessoa Física</label>
-                <select class="form-control" id="tituloReceber-campo-pessoa-fisica" name="idClientePessoaFisica">
-                    <option disabled selected>Selecione uma Pessoa Fisica</option>
-                </select>
+    <div class="container">
+        <div class="row">
+            <div class="col-12" id="tituloReceber-pessoa-fisica">
+                <div class="form-group">
+                    <label for="tituloReceber-campo-pessoa-fisica">Pessoa Física</label>
+                    <select class="form-control" id="tituloReceber-campo-pessoa-fisica" name="idClientePessoaFisica">
+                        <option disabled selected>Selecione uma Pessoa Fisica</option>
+                    </select>
+                </div>
             </div>
+
+            <div class="col-12" id="tituloReceber-pessoa-juridica">
+                <div class="form-group">
+                    <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
+                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="IdClientePessoaJuridica">
+                        <option disabled selected>Selecione uma Pessoa Juridica</option>
+                    </select>
+                </div>
+            </div>
+
         </div>
 
-        <div class="col-12" id="tituloReceber-pessoa-juridica">
-            <div class="form-group">
-                <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
-                <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="IdClientePessoaJuridica">
-                    <option disabled selected>Selecione uma Pessoa Juridica</option>
-                </select>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-tituloReceber-categoria-receita" mas>Categoria Receita<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloReceber-campo-categoria-Receita" name="IdCategoriaReceita"></select>
+                </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="campo-tituloReceber-categoria-receita" mas>Categoria Receita<span class="text-danger">*</span></label>
-                <select class="form-control" id="tituloReceber-campo-categoria-Receita" name="IdCategoriaReceita"></select>
-            </div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-6">
@@ -67,10 +68,9 @@
                 <label for="titulo-receber-campo-status">Status<span class="text-danger">*</span></label>
                 <select class="form-control" id="tituloReceber-campo-status" name="Status">
                     <option disabled selected>Selecione um status</option>
-                    <option>Pendente</option>
-                    <option>Pago</option>
-                    <option>Pago parcialmente</option>
-                    <option>Cancelado</option>
+                    <option value="Pendente">Pendente</option>
+                    <option value="Pago">Pago</option>
+                    <option value="Cancelado">Cancelado</option>
                 </select>
             </div>
         </div>
@@ -91,7 +91,7 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label form="campo-titulo-receber-campo-data-vencimento" mas>Data Vencimento<span class="text-danger">*</span></label>
+                    <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento<span class="text-danger">*</span></label>
                     <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control" name="DataVencimento" />
                 </div>
             </div>
@@ -105,23 +105,21 @@
             </div>
         </div>
 
-        <div class="col-6">
-            <div class="form-group">
-                <label for="campo-tituloReceber-valor-total" mas>Valor<span class="text-danger">*</span></label>
-                <input type="text" id="tituloReceber-campo-valor-total" class="form-control" name="ValorTotal" />
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="campo-tituloReceber-valor-total" mas>Valor<span class="text-danger">*</span></label>
+                    <input type="text" id="tituloReceber-campo-valor-total" class="form-control" name="ValorTotal" />
+                </div>
             </div>
         </div>
+        <div class="form-group">
+            <label for="campo-tituloReceber-descricao" mas>Descrição<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="tituloReceber-campo-descricao" name="Descricao" rows="3"></textarea>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="campo-tituloReceber-descricao" mas>Descrição<span class="text-danger">*</span></label>
-        <textarea class="form-control" id="tituloReceber-campo-descricao" name="Descricao" rows="3"></textarea>
-    </div>
-
     <div class="modal-footer">
-        <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
+        <button class="btn btn-grd-success float-left mt-3" type="submit" id="tituloReceber-botao-salvar"><i class="fa fa-save"></i> Salvar</button>
     </div>
-
-
 </form>
 @section js{
     <script src="~/Scripts/TituloReceber/titulo-receber-cadastro.js"></script>

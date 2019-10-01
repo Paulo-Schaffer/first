@@ -196,7 +196,7 @@ $(document).ready(function () {
 $(function () {
     $idAlterar = -1;
     $tabelaClientePessoaFisica = $("#cliente-pessoa-fisica-tabela").DataTable({
-        responsive: true,
+        "scrollX": true,
         ajax: '/ClientePessoaFisica/obtertodos',
         severSide: true,
         columns: [

@@ -4,7 +4,7 @@
     </div>
     <div class="col-6">
         <a class="btn btn-info   float-right mb-3"
-           href="/TituloPagar/index">Ir para tabela</a>
+           href="/TituloPagar/index" id="botao-tabela">Ir para tabela</a>
     </div>
 </div>
 
@@ -33,8 +33,8 @@
                     <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                         <option disabled="disabled" selected="selected">Selecione uma forma de pagamento</option>
                         <option value="Dinheiro">Dinheiro</option>
-                        <option value="Cartao de Debito">Cartao de Debito</option>
-                        <option value="Cartao de Credito">Cartao de Credito</option>
+                        <option value="Cartão de Débito">Cartão de Débito</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
                     </select>
                 </div>
             </div>
@@ -75,35 +75,17 @@
 
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-data-recebimento">Data de Recebimento<span class="text-danger">*</span></label>
-                    <input type="date" id="tituloPagar-campo-data-recebimento" class="form-control" name="DataRecebimento" />
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="form-group">
                     <label form="tituloPagar-campo-data-vencimento">Data Vencimento<span class="text-danger">*</span></label>
                     <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control" name="DataVencimento" />
                 </div>
             </div>
-
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="tituloPagar-campo-quantidade-parcela">Quantidade de Parcelas<span class="text-danger">*</span></label>
-                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" name="QuantidadeParcela" />
-                </div>
-            </div>
         </div>
 
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <div class="form-group">
-                        <label for="tituloPagar-campo-descricao">Descrição<span class="text-danger">*</span></label>
-                        <textarea id="tituloPagar-campo-descricao" class="form-control" rows="3" name="Descricao"></textarea>
-                    </div>
+                    <label for="tituloPagar-campo-quantidade-parcela">Quantidade de Parcelas<span class="text-danger">*</span></label>
+                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" name="QuantidadeParcela" />
                 </div>
             </div>
 
@@ -111,6 +93,17 @@
                 <div class="form-group">
                     <label for="tituloPagar-campo-valor-total">Valor Total<span class="text-danger">*</span></label>
                     <input type="text" id="tituloPagar-campo-valor-total" class="form-control" name="ValorTotal" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="tituloPagar-campo-descricao">Descrição<span class="text-danger">*</span></label>
+                        <textarea id="tituloPagar-campo-descricao" class="form-control" rows="3" name="Descricao"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,4 +119,5 @@
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
 
+<link  rel="stylesheet" href="~/Content/css/TituloPagar/TelaCadastroTituloPagar.css"/>
 

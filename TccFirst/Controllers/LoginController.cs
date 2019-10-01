@@ -32,7 +32,7 @@ namespace TccFirst.Controllers
                 Session["usuarioLogadoId"] = funcionario.Id;
                 Session["usuarioLogadoNome"] = funcionario.NomeFuncionario;
                 Session["usuarioLogadoTipoFuncionario"] = funcionario.TipoFuncionario;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {

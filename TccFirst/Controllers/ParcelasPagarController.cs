@@ -60,7 +60,7 @@ namespace TccFirst.Controllers
         [HttpPost]
         public JsonResult Update(ParcelaPagar parcelaPagar)
         {
-            var alterou = repository.Alterar(parcelaPagar );
+            var alterou = repository.Alterar(parcelaPagar);
             var resultado = new { status = alterou };
             return Json(resultado);
         }
@@ -86,6 +86,16 @@ namespace TccFirst.Controllers
         //            dataVencimento = parcelasPagar.DataVencimento,
         //            dataPagamento = parcelasPagar.DataPagamento
 
+        #region editar
+
+        [HttpPost]
+        public JsonResult Alterar(ParcelaPagar parcelaPagar)
+        {
+            var alterou = repository.Alterar(parcelaPagar);
+            var resultado = new { status = alterou };
+            return Json(resultado);
+        }
+        #endregion
         //        });
         //    }
         //}

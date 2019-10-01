@@ -32,15 +32,9 @@ $(function () {
             },
             {
                 render: function (data, type, row) {
-                    return moment(row.DataRecebimento).format('DD/MM/YYYY')
-                }
-            },
-            {
-                render: function (data, type, row) {
                     return moment(row.DataVencimento).format('DD/MM/YYYY')
                 }
             },
-
             { data: "QuantidadeParcela" },
             { data: "Descricao" },
             {
@@ -57,20 +51,31 @@ $(function () {
     });
 
     $("#tituloPagar-tabela").on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja realmente apagar?");
-        if (confirma == true) {
-            $id = $(this).data('id');
-            $.ajax({
-                url: '/tituloPagar/apagar?id=' + $id,
-                method: "get",
-                success: function (data) {
-                    $tabelaTituloPagar.ajax.reload();
+        $idApagar = $(this).data('id');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+
+                        $.ajax({
+                            url: '/tituloPagar/apagar?id=' + $id,
+                            method: "get",
+                            success: function (data) {
+                                $tabelaTituloPagar.ajax.reload();
+                            },
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            }
+                        });
+                    }
                 },
-                error: function (err) {
-                    alert('Não foi possível apagar');
-                }
-            });
-        }
+                cancelar: function () {
+                },
+            }
+        });
     });
 
     $('.table').on('click', '.botao-editar', function () {
@@ -85,7 +90,6 @@ $(function () {
                 $('#tituloPagar-campo-caixa').val(data.Caixa);
                 $('#tituloPagar-campo-status').val(data.Status);
                 $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento);
-                $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento);
                 $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
                 $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
                 $('#tituloPagar-campo-descricao').val(data.Descricao);
@@ -95,5 +99,9 @@ $(function () {
             }
         });
     });
+
+  
+        
+       
 });
 

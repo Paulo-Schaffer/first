@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-     [Table("titulos_pagar")]
+    [Table("titulos_pagar")]
     public class TituloPagar
     {
         public const string StatusPendente = "Pendente";
@@ -36,9 +36,6 @@ namespace Model
 
         [Column("data_lancamento")]
         public DateTime DataLancamento { get; set; }
-
-        [Column("data_recebimento")]
-        public DateTime DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
         public DateTime DataVencimento { get; set; }

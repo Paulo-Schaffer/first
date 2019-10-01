@@ -32,7 +32,7 @@ namespace Model
         public DateTime? DataLancamento { get; set; }
 
         [Column("data_recebimento")]
-        public DateTime? DataRecebimento { get; set; }
+        public DateTime DataRecebimento { get; set; }
 
         [Column("data_vencimento")]
         public DateTime? DataVencimento { get; set; }
@@ -52,7 +52,7 @@ namespace Model
                 {
                     return ClientePessoaJuridica.RazaoSocial;
                 }
-                else if(ClientePessoaFisica != null)
+                else if (ClientePessoaFisica != null)
                 {
                     return ClientePessoaFisica.Nome;
                 }

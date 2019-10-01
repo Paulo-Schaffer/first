@@ -51,9 +51,9 @@ namespace TccFirst.Controllers
 
 
         [HttpGet, Route("obtertodos")]
-        public JsonResult ObterTodos(int idAgencia = 0, string nome = "")
+        public JsonResult ObterTodos()
         {
-            var cadastroContaCorrente = repository.ObterTodos(idAgencia);
+            var cadastroContaCorrente = repository.ObterTodos();
             var resultado = new { data = cadastroContaCorrente };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -62,10 +62,10 @@ namespace TccFirst.Controllers
         public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)
         {
             int id = repository.Inserir(cadastroContaCorrente);
-            return Json(new { id = id });
+            return RedirectToAction("Editar", new { id = id });
         }
 
-        [HttpPost, Route("alterar")]
+        [HttpPost, Route("editar")]
         public JsonResult Editar(CadastroContaCorrente cadastroContaCorrente)
         {
             var alterou = repository.Alterar(cadastroContaCorrente);
@@ -80,39 +80,14 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
-        [HttpGet, Route("cadastrocontacorrente")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-
-
-        [HttpGet, Route("cadastrocontacorrente/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string termo)
-        {
-            var agencias = repository.ObterTodos(0);
-            List<object> ObterTodosSelect2 = new List<object>();
-            foreach (CadastroContaCorrente cadastroContaCorrente in agencias)
-            {
-                ObterTodosSelect2.Add(new
-                {
-                    id = cadastroContaCorrente.Id,
-                    text = cadastroContaCorrente.NumeroConta,
-                    idconta = cadastroContaCorrente.IdAgencia,
-                });
-            }
-            var resultado = new
-            {
-                results = ObterTodosSelect2
-            };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-
-        }
-
         public ActionResult Index()
         {
-           return View();
+            return View();
+        }
+
+        public ActionResult Cadastro()
+        {
+            return View();
         }
     }
 }

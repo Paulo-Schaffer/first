@@ -116,6 +116,7 @@
             success: function (data) {
                 LimparCampos(); 
                 $('#modal-funcionario').modal('hide');
+                $(".modal-backdrop").hide();
                 $tabelaFuncionario.ajax.reload();
             },
             error: function (err) {

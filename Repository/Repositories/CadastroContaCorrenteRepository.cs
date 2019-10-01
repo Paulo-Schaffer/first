@@ -19,15 +19,14 @@ namespace Repository.Repositories
 
         public bool Alterar(CadastroContaCorrente cadastrocontacorrente)
         {
-            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.Where(x => x.Id == cadastrocontacorrente.Id).FirstOrDefault();
-            if (cadastroContaCorrenteOriginal == null)
+            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
+            if (cadastrosContaCorrente == null)
             {
                 return false;
             }
 
-            cadastroContaCorrenteOriginal.IdAgencia = cadastrocontacorrente.IdAgencia;
-            cadastroContaCorrenteOriginal.NumeroConta = cadastrocontacorrente.NumeroConta;
-
+            cadastrosContaCorrente.IdAgencia = cadastrosContaCorrente.IdAgencia;
+            cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -54,28 +53,13 @@ namespace Repository.Repositories
 
         public CadastroContaCorrente ObterPeloId(int id)
         {
-            var cadastroContaCorrente = context.CadastroContaCorrentes
-                .Where(x => x.Id == id).FirstOrDefault();
-            return cadastroContaCorrente;
+            return context.CadastroContaCorrentes.Include("Agencias").FirstOrDefault(x => x.Id == id);
         }
 
-        public List<CadastroContaCorrente> ObterTodos(int idAgencia)
+        public List<CadastroContaCorrente> ObterTodos()
         {
-            var query = context
-                .CadastroContaCorrentes
-                .Where(x => x.RegistroAtivo);
-
-            if(idAgencia != CadastroContaCorrente.FiltroSemAgencia)
-            {
-                query = query.Where(x => x.IdAgencia == idAgencia);
-            }
-
-            //if (!string.IsNullOrEmpty(numero))
-            //{
-            //    query = query.Where(x => x.NumeroConta = numero);
-            //}
-
-            return query.ToList();
+            return context.CadastroContaCorrentes.Where(x => x.RegistroAtivo == true)
+                .ToList();
         }
     }
 }

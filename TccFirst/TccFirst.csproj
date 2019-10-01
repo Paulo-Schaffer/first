@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -46,10 +47,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
@@ -103,6 +104,8 @@
     <Content Include="Content\css\cadeado %281%29 %281%29.png" />
     <Content Include="Content\css\cadeado %281%29.png" />
     <Content Include="Content\css\cadeado.png" />
+    <Content Include="Content\css\CategoriaReceita\TelaCadastroCategoriaReceita.css" />
+    <Content Include="Content\css\CategoriaReceita\TelaIndexCategoriaReceita.css" />
     <Content Include="Content\css\ClientePessoaJuridica\TelaCadastroPessoaJuridica.css" />
     <Content Include="Content\css\ClientePessoaJuridica\TelaIndexPessoaJuridica.css" />
     <Content Include="Content\css\ClientePesssoaFisica\TelaCadastroPessoaFisica.css" />
@@ -111,6 +114,8 @@
     <Content Include="Content\css\first.png" />
     <Content Include="Content\css\Historico\TelaCadastroHistorico.css" />
     <Content Include="Content\css\Historico\TelaIndexHistorico.css" />
+    <Content Include="Content\css\Fornecedor\TelaCadastroFornecedor.css" />
+    <Content Include="Content\css\Fornecedor\TelaIndexFornecedor.css" />
     <Content Include="Content\css\homem %283%29.png" />
     <Content Include="Content\css\login %283%29.png" />
     <Content Include="Content\css\login %284%29.png" />
@@ -121,12 +126,39 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\TelaLogin.css" />
+    <Content Include="Content\css\TituloPagar\TelaCadastroTituloPagar.css" />
+    <Content Include="Content\css\TituloPagar\TelaEditarTituloPagar.css" />
+    <Content Include="Content\css\TituloPagar\TelaIndexTituloPagar.css" />
     <Content Include="Content\css\usuario-do-homem %281%29.png" />
+    <Content Include="Content\css\Teste\teste.css" />
+    <Content Include="Content\css\TituloReceber\TelaCadastroTituloReceber.css" />
+    <Content Include="Content\css\TituloReceber\TelaEditarTituloReceber.css" />
+    <Content Include="Content\css\TituloReceber\TelaIndexTituloReceber.css" />
+    <Content Include="Content\css\Transacao\TelaCadastroTransacao.css" />
+    <Content Include="Content\css\Transacao\TelaEditarTransacao.css" />
+    <Content Include="Content\css\Transacao\TelaIndexTransacao.css" />
     <Content Include="Content\Imagem\homem %282%29.png" />
     <Content Include="Content\Imagem\logar.png" />
     <Content Include="Content\Imagem\login.jpg" />
     <Content Include="Content\Imagem\logo-blue.png" />
-    <Content Include="Content\css\usuario-do-homem.png" />
+    <Content Include="Content\ImagensTcc\logos\logoNavBar.jpg" />
+    <Content Include="Content\Imagem\logoNavBar.png" />
+    <Content Include="Content\ImagensTcc\footer\linkdinLogo.png" />
+    <Content Include="Content\ImagensTcc\footer\whatsLogo.png" />
+    <Content Include="Content\ImagensTcc\geradorPDF.png" />
+    <Content Include="Content\ImagensTcc\graficos.jpg" />
+    <Content Include="Content\ImagensTcc\logos\logoNavBar.png" />
+    <Content Include="Content\ImagensTcc\logos\logoNavegador.png" />
+    <Content Include="Content\ImagensTcc\oQueE.jpg" />
+    <Content Include="Content\ImagensTcc\patrocinio\benner.png" />
+    <Content Include="Content\ImagensTcc\patrocinio\havan.png" />
+    <Content Include="Content\ImagensTcc\patrocinio\hbsis.png" />
+    <Content Include="Content\ImagensTcc\patrocinio\logo-indyxa.svg" />
+    <Content Include="Content\ImagensTcc\patrocinio\pagueveloz.png" />
+    <Content Include="Content\ImagensTcc\patrocinio\philips.png" />
+    <Content Include="Content\ImagensTcc\patrocinio\senior.png" />
+    <Content Include="Content\ImagensTcc\recursos.png" />
+    <Content Include="Content\ImagensTcc\vantagensFirst.png" />
     <Content Include="Content\jquery-confirm.min.css" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
@@ -5681,8 +5713,8 @@
     <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
+    <Content Include="Scripts\TituloReceber\tabela-receber-index.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
-    <Content Include="Scripts\TituloReceber\titulo-receber-index.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
@@ -5694,10 +5726,15 @@
     <Content Include="Scripts\datetime.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Views\Fornecedor\CadastroFornecedor.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
+    <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
     <Content Include="Views\Nova pasta\Caixa\caixa-cadastro.js" />
     <Content Include="Views\Nova pasta\Caixa\caixa-index.js" />
     <Content Include="Views\Nova pasta\CategoriaDespesa\categoria-despesa-index.js" />
+    <Content Include="Views\Transacao\Cadastro.cshtml" />
+    <Content Include="Views\Transacao\Index.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5709,6 +5746,8 @@
     <Compile Include="Controllers\CategoriaDespesaController.cs" />
     <Compile Include="Controllers\CategoriaReceitaController.cs" />
     <Compile Include="Controllers\ClientePessoaFisicaController.cs" />
+    <Compile Include="Controllers\ContaCorrenteController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\GraficoTituloController.cs" />
@@ -5759,6 +5798,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\ClientePessoaFisica\CadastroPessoaFisica.cshtml" />
     <Content Include="Views\ClientePessoaJuridica\CadastroPessoaJuridica.cshtml" />
@@ -5797,9 +5837,7 @@
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
-    <Content Include="Views\Transacao\Cadastro.cshtml" />
     <Content Include="Views\Transacao\Editar.cshtml" />
-    <Content Include="Views\Transacao\Index.cshtml" />
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
@@ -5811,6 +5849,7 @@
     <Content Include="Views\TituloPagar\Editar.cshtml" />
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Historico\Index.cshtml" />
     <Content Include="Views\Relatorio\RelatorioCaixa.cshtml" />
     <Content Include="Views\GraficoTitulo\Index.cshtml" />
@@ -5822,11 +5861,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Dashboard\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
+    <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>
@@ -5901,7 +5942,10 @@
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -3,8 +3,12 @@
 }
 
 <h2>Lista de Fornecedor</h2>
+<hr />
+<button data-toggle="modal" data-target="#modal-fornecedor" class="btn float-right" id="botao-novoFuncionario"><i class="fa fa-plus"></i>Novo Fornecedor</button>
+<br />
+<br />
+<br />
 
-<button data-toggle="modal" data-target="#modal-fornecedor" class="btn btn-primary">Novo Fornecedor</button>
 <table id="fornecedor-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -17,8 +21,11 @@
     </thead>
 </table>
 
+
+
 @RenderPage("CadastroFornecedor.cshtml")
 
-@section js{
+<link rel="stylesheet" href="~/Content/css/Fornecedor/TelaIndexFornecedor.css" />
+    @section js{
     <script src="~/Scripts/Fornecedor/Fornecedor-index.js"></script>
 }

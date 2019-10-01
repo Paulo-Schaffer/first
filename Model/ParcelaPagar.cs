@@ -14,7 +14,7 @@ namespace Model
         public const string StatusPendente = "Pendente";
         public const string StatusPago = "Pago";
 
-        [Key,Column("id")]
+        [Key, Column("id")]
         public int Id { get; set; }
 
         [Column("valor")]

@@ -6,8 +6,8 @@
         info: false,
         columns: [
             { data: "Id" },
-            { data: "NomeCliente" },
-            { data: "IdCategoriaReceita" },
+            { data: "NomeCliente" }, 
+            { data: "IdCategoriaReceita"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             {
@@ -44,30 +44,43 @@
             {
                 render: function (data, type, row) {
                     return "\
-                   <a class='btn btn-primary botao-editar fa fa-edit'\
+                   <a class='btn botao-editar'\
                         href='/tituloreceber/editar?id=" + row.Id + "'\
-                        data-id=" + row.Id + "> Editar</a>\
-                    <button class='btn btn-danger botao-apagar fa fa-trash'\
-                        data-id=" + row.Id + "> Apagar</button>";
+                        data-id=" + row.Id + "><i class='fa fa-edit'></i>Editar</a>\
+                    <button class='btn botao-apagar'\
+                        data-id=" + row.Id + "><i class='fa fa-trash'></i>Apagar</button>";
                 }
             }
         ]
     });
 
     $("#tituloReceber-tabela").on('click', '.botao-apagar', function () {
-        confirma = confirm("Deseja Realmente Apagar?")
-        if (confirma == true) {
-            $id = $(this).data('id');
-            $.ajax({
-                url: '/tituloreceber/apagar?id=' + $id,
-                method: "get",
-                success: function (data) {
-                    $tabelaTituloReceber.ajax.reload();
+        $id = $(this).data('id');
+
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/tituloreceber/apagar?id=' + $id,
+                            method: "get",
+                            success: function (data) {
+                                $tabelaTituloReceber.ajax.reload();
+                            },
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            }
+                        });
+                    }
                 },
-                error: function (err) {
-                    alert('Não foi possível apagar');
-                }
-            });
-        }
+                cancelar: function () {
+                },
+            }
+
+        });
     });
+
 });
