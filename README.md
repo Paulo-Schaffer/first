@@ -31,5 +31,14 @@ O sistema foi desenvolvido devido a uma necessidade vista pelos desenvolvedores 
 - Controle:
  Com dedicados ao controle financeiro e a geração instantânia de relatórios o First é o sistema perfeito para controlar suas financias.
 
+## Recursos do First
 
+- Relatórios:
+ Esse recurso te possibilitará fazer comparações de de todos os tipos, isso faz com que você tenha total noção de qual a situação fianceira que sua empresa se encontra no momento.
+ 
+ - Gráficos:
+  Com gráficos estratégicamente integrados o First consegue demonstrar seus resultados de forma estatistica e visual. Essa ferramenta possibilita que o First tenha um facíl entendimento podendo ser utilizado até por pessoas que não tem nenhum conhecimento na área.
+  
+  - Gerador de PDF:
+   Mesmo que todos os processos de digitializem ainda é muito importante ter um controle de forma fisíca. Sabendo disso o first possibilita que o usuário crie arquivos em pdf.
 
