@@ -1,32 +1,39 @@
-﻿(function () {
+﻿$(function () {
 
-    $idHistorico= 0;
+    $idHistorico = 0;
+    $valor = 0;
+    $descricao = "";
 
-    $("#filtro-hisotirico").select2({
+    $("#filtro-historico").select2({
         ajax: {
             url: "/historico/obtertodosselect2",
             dataType: "json"
         }
     }).on('change', function () {
         buscarValores();
-        $('#relatorio-conta-caixa').DataTable().ajax.reload();
     });
 
-    //$("#filtro-valor").on("change", function () {
-    //    buscarValores();
-    //    $('#relatorio - conta - caixa').DataTable().ajax.reload();
-    //});
-    //$("filtro-documento").on("change", function () {
-    //    buscarValores();
-    //    $('#relatorio-conta-caixa').DataTable().ajax.reload();
-    //});
+    $("#filtro-valor").on("keyup", function (e) {
+        if (e.keyCode === 13) {
 
+        buscarValores();
+        }
+
+    });
+    $("#filtro-descricao").on("keyup", function (e) {
+        if (e.keyCode === 13) {
+
+            buscarValores();
+        }
+    });
+});
 
 
     function buscarValores() {
-        $idHistorico = $("#filtro-hisotirico").val();
-        //$valor = $("#filtro-valor").val();
-        //$documento = $("#filtro-documento").val();
+        $idHistorico = $("#filtro-historico").val();
+        $valor = $("#filtro-valor").val();
+        $descricao = $("#filtro-descricao").val();
+        $('#relatorio-conta-caixa').DataTable().ajax.reload();
     }
 
     $tabelaCaixa = $('#relatorio-conta-caixa').DataTable({
@@ -35,23 +42,22 @@
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
         ajax: {
-            url: '/caixa/obterTodos',
+            url: '/caixa/obterTodosRelatorio',
             data: function (d) {
-                d.$idHistorico = $$idHistorico,
-                    //d.$valor = $valor,
-                    //d.$documento = $documento
+                d.idHistorico = $idHistorico;
+                d.valor = $valor;
+                d.descricao = $descricao;
             }
         },
         serverSide: true,
         columns: [
             { data: "Descricao" },
-            //{ data: "Documento" },
-            //{ data: "FormaPagamento" },
-            //{ data: "Valor" },
-            //{ data: "DataLancamento" },
-            //{ data: "IdHistoricos" },
+            { data: "Documento" },
+            { data: "Valor" },
+            { data: "FormaPagamento" },
+            { data: "DataLancamento" },
+            { data: "IdHistoricos" },
 
 
         ]
     });
-});

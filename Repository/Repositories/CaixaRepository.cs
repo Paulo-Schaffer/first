@@ -78,26 +78,33 @@ namespace Repository.Repositories
             return caixa;
         }
 
-        public List<Caixa> ObterTodos(int idHistorico/*, string descricao, int valor*//*, DateTime dataLancamento*/)
+        public List<Caixa> ObterTodos()
+        {
+            return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+        }
+        public List<Caixa> ObterTodosRelatorio(/*DateTime dataLancamento, */int idHistorico, string descricao, int valor)
         {
             var query = context
-                .Caixas/*.Include("Historico")*/
+                .Caixas
                 .Where(x => x.RegistroAtivo);
 
             if (idHistorico != Caixa.FiltroSemHistorico)
             {
                 query = query.Where(x => x.IdHistoricos == idHistorico);
             }
-            //if (!string.IsNullOrEmpty(descricao))
+            if (!string.IsNullOrEmpty(descricao))
+            {
+                query = query.Where(x => x.Descricao.Contains(descricao));
+            }
+            //if(dataLancamento != null)
             //{
-            //    query = query.Where(x => x.Descricao == descricao);
+            //    query = query.Where(x => x.DataLancamento.Date == dataLancamento.Date);
             //}
-            
+
             return query.ToList();
-
-
-            //return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
+
+        
     }
 }
 

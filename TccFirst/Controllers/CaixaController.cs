@@ -25,12 +25,20 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet, Route("obterTodos")]
-        public JsonResult ObterTodos(int idHistorico = 0 /*, string descricao = "", int valor =0*//*, DateTime dataLancamento =*/)
+        public JsonResult ObterTodos()
         {
-            var caixa = repository.ObterTodos(idHistorico/*,descricao,valor, dataLancamento*/);
+            var caixa = repository.ObterTodos();
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public JsonResult ObterTodosRelatorio (/*DateTime dataLancamento, */int idHistorico = 0, string descricao = "", int valor = 0)
+        {
+            var caixa = repository.ObterTodosRelatorio(/*dataLancamento, */idHistorico, descricao, valor);
+            var resultado = new { data = caixa };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost, Route("inserir")]
         public JsonResult Inserir(Caixa caixa)
         {
@@ -63,7 +71,7 @@ namespace TccFirst.Controllers
         [HttpGet, Route("caixa/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
-            var caixas = repository.ObterTodos(0/*,"",0*/);
+            var caixas = repository.ObterTodos();
 
             List<object> ObterTodosSelect2 = new List<object>();
             foreach (Caixa caixa in caixas)
@@ -79,6 +87,28 @@ namespace TccFirst.Controllers
             var resultado = new
             {
                 results = ObterTodosSelect2
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet, Route("caixa/obtertodosselect2")]
+        public JsonResult ObterTodosSelect02(string term)
+        {
+            var caixas = repository.ObterTodosRelatorio(0, "", 0);
+
+            List<object> ObterTodosSelect02 = new List<object>();
+            foreach (Caixa caixa in caixas)
+            {
+                ObterTodosSelect02.Add(new
+                {
+                    id = caixa.Id,
+                    text = caixa.Descricao,
+                    idHistorico = caixa.IdHistoricos,
+
+                });
+            }
+            var resultado = new
+            {
+                results = ObterTodosSelect02
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }

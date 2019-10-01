@@ -91,7 +91,7 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
         [HttpGet, Route("historico/obtertodosselect2")]
-        public JsonResult ObterTodosSelect2(string termo)
+        public JsonResult ObterTodosSelect2(string term)
         {
             var historicos = repository.ObterTodos();
 

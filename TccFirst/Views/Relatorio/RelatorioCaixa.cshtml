@@ -7,18 +7,18 @@
 <h2>Relatorio de Caixa</h2>
 
 <div class="form-group">
-    <label for="filtro-hisotirico">Historico</label>
-    <select class="form-control" id="filtro-hisotirico">
-        @*
-        <option value="0">Todos</option>*@
+    <label for="filtro-historico">Historico</label>
+    <select class="form-control" id="filtro-historico">
+
+        <option value="0">Todos</option>
     </select>
 </div>
 
-@*<div class="row">
+<div class="row">
     <div class="">
         <div class="form-group">
-            <label for="filtro-documento">Documento</label>
-            <input type="text" id="filtro-documento" />
+            <label for="filtro-documento">Descrição</label>
+            <input type="text" id="filtro-descricao" />
         </div>
     </div>
     <div class="">
@@ -27,26 +27,31 @@
             <input type="text" id="filtro-valor" />
         </div>
     </div>
-</div>*@
+</div>
 
 @*<div class="form-control">
-    <label for="filtro-data">Date de Lançamento</label>
-    <input type="date" id="filtro-data" />
-</div>*@
+        <label for="filtro-data">Date Incial do Lançamento</label>
+        <input type="date" id="filtro-data" />
+    </div>*@
+
+@*<div class="form-control">
+        <label for="filtro-data">Date Final do Lançamento</label>
+        <input type="date" id="filtro-data" />
+    </div>*@
 
 <table id="relatorio-conta-caixa" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Descrição</th>
-            @*<th>Documento</th>
+            <th>Documento</th>
             <th>Valor</th>
             <th>Forma de Pagamento</th>
             <th>Data de Lançamento</th>
-            <th>Historico</th>*@
+            <th>Historico</th>
 
         </tr>
     </thead>
 </table>
 @section js{
-<script src="~/Scripts/Relatorio/Relatorio-caixa.js"></script>
-    }
+    <script src="~/Scripts/Relatorio/Relatorio-caixa.js"></script>
+}
