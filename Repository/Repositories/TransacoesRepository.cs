@@ -61,7 +61,7 @@ namespace Repository.Repositories
 
         public Transacao ObterPeloId(int id)
         {
-            var transacao = context.Transacoes.Include("CadastroContaCorrente")
+            var transacao = context.Transacoes.Include("CadastrosContaCorrente")
                 .Include("Historico")
                 .Include("CategoriaReceita")
                 .Include("CategoriaDespesa").FirstOrDefault(x => x.Id == id);
@@ -71,7 +71,7 @@ namespace Repository.Repositories
         public List<Transacao> ObterTodos()
         {
             return context.Transacoes
-                .Include("CadastroContaCorrente")
+                .Include("CadastrosContaCorrente")
                 .Include("Historico")
                 .Include("CategoriaReceita")
                 .Include("CategoriaDespesa")

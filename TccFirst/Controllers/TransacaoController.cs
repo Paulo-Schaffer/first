@@ -1,11 +1,7 @@
 ﻿using Model;
 using Repository.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-  
+
 namespace TccFirst.Controllers
 {
     public class TransacaoController : Controller
@@ -55,7 +51,7 @@ namespace TccFirst.Controllers
         }
         [HttpPost]
         public ActionResult Cadastro(Transacao transacao)
-            {
+        {
             transacao.RegistroAtivo = true;
             var id = repository.Inserir(transacao);
             var resultado = new { id = id };
@@ -105,4 +101,3 @@ namespace TccFirst.Controllers
     }
 
 }
-    

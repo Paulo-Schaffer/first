@@ -126,6 +126,13 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\TelaLogin.css" />
+    <Content Include="Content\css\Teste\teste.css" />
+    <Content Include="Content\css\TituloReceber\TelaCadastroTituloReceber.css" />
+    <Content Include="Content\css\TituloReceber\TelaEditarTituloReceber.css" />
+    <Content Include="Content\css\TituloReceber\TelaIndexTituloReceber.css" />
+    <Content Include="Content\css\Transacao\TelaCadastroTransacao.css" />
+    <Content Include="Content\css\Transacao\TelaEditarTransacao.css" />
+    <Content Include="Content\css\Transacao\TelaIndexTransacao.css" />
     <Content Include="Content\Imagem\homem %282%29.png" />
     <Content Include="Content\Imagem\logar.png" />
     <Content Include="Content\Imagem\login.jpg" />

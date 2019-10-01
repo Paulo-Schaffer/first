@@ -1,23 +1,19 @@
 ﻿body {
 }
-
-#botao-novoHistorico {
+#botao-novaTransacao {
     background-color: forestgreen;
     color: white;
     border-radius: 5px;
     width: 160px;
     height: 40px;
-    margin: -6px;
 }
-
-
 #botao-apagar {
     background-color: darkred;
     border-color: red;
     border-collapse: collapse;
     margin-right: auto;
+    margin: 15px;
     margin-top: auto;
-    margin: 10px;
     width: 60px;
     height: 20px;
     border-radius: 5px;
@@ -32,3 +28,4 @@
     height: 20px;
     border-radius: 5px;
 }
+
