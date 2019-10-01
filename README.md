@@ -11,3 +11,9 @@ Alunos:
 - [Paulo Schaffer](https://github.com/Paulo-Schaffer)
 
 [Slides]
+
+## Questão 01 - Fluxo do sistema first
+
+
+
+
