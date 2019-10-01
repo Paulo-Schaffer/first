@@ -1,12 +1,12 @@
 # First
 
 
-##Alunos:
+#Alunos:
 
-## André
-## Cléber
-## Gustavo
-## João
-## Paul
-## Paulo
+ André
+ Cléber
+ Gustavo
+ João
+ Paul
+ Paulo
 
