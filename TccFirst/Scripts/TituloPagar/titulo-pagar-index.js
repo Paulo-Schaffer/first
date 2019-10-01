@@ -32,15 +32,9 @@ $(function () {
             },
             {
                 render: function (data, type, row) {
-                    return moment(row.DataRecebimento).format('DD/MM/YYYY')
-                }
-            },
-            {
-                render: function (data, type, row) {
                     return moment(row.DataVencimento).format('DD/MM/YYYY')
                 }
             },
-
             { data: "QuantidadeParcela" },
             { data: "Descricao" },
             {
@@ -96,7 +90,6 @@ $(function () {
                 $('#tituloPagar-campo-caixa').val(data.Caixa);
                 $('#tituloPagar-campo-status').val(data.Status);
                 $('#tituloPagar-campo-data-lancamento').val(data.DataLancamento);
-                $('#tituloPagar-campo-data-recebimento').val(data.DataRecebimento);
                 $('#tituloPagar-campo-data-vencimento').val(data.DataVencimento);
                 $('#tituloPagar-campo-quantidade-parcela').val(data.QuantidadeParcela);
                 $('#tituloPagar-campo-descricao').val(data.Descricao);

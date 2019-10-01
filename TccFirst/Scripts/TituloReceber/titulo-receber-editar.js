@@ -111,10 +111,10 @@
             monstrarMensagem('Digite a Quantidade de Parcelas', '', 'error');
             $("#tituloReceber-campo-quantidade-Parcelas").focus();
             return false;
-        } else if ($ValorTotal == '') {
-            monstrarMensagem('Digite a Data de Valor Total', '', 'error');
-            $("#tituloReceber-campo-valor-total").focus();
-            return false;
+        //} else if ($ValorTotal == '') {
+        //    monstrarMensagem('Digite a Data de Valor Total', '', 'error');
+        //    $("#tituloReceber-campo-valor-total").focus();
+        //    return false;
         } else if ($Descricao == '') {
             monstrarMensagem('Digite a Descrição', '', 'error');
             $("#tituloReceber-campo-descricao").focus();
@@ -129,11 +129,11 @@
         $dataRecebimento = $('#parcelasReceber-campo-data-recebimento').val();
 
        
-        if ($categoriaReceita == undefined) {
-            monstrarMensagem('Digite o Nome', '', 'error');
-            $('#clientePessoaFisica-campo-nome').focus();
-            return false;
-        } else
+        //if ($categoriaReceita == undefined) {
+        //    monstrarMensagem('Digite o Nome', '', 'error');
+        //    $('#clientePessoaFisica-campo-nome').focus();
+        //    return false;
+        //} else
 
         $.ajax({
             url: "/parcelasReceber/Update",

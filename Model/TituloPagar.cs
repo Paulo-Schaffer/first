@@ -37,9 +37,6 @@ namespace Model
         [Column("data_lancamento")]
         public DateTime DataLancamento { get; set; }
 
-        [Column("data_recebimento")]
-        public DateTime DataRecebimento { get; set; }
-
         [Column("data_vencimento")]
         public DateTime DataVencimento { get; set; }
 

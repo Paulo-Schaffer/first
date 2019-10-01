@@ -79,7 +79,7 @@ $(function () {
         }
 
         if ($Fornecedor == undefined) {
-            monstrarMensagem('Selecione um   Fornecedor', '', 'error');
+            monstrarMensagem('Selecione um Fornecedor', '', 'error');
             $("#tituloPagar-campo-fornecedor").select2('open');
             return false;
         } else if ($CategoriaDespesa == undefined) {
@@ -87,7 +87,7 @@ $(function () {
             $("#tituloPagar-campo-categoria-despesa").select2('open');
             return false;
         } else if ($FormaPagamento == undefined) {
-            monstrarMensagem('Selecione uma Forma Pagamento', '', 'error');
+            monstrarMensagem('Selecione uma Forma de Pagamento', '', 'error');
             $("#tituloPagar-campo-forma-pagamento").focus();
             return false;
         } else if ($Status == undefined) {
@@ -95,33 +95,32 @@ $(function () {
             $("#tituloPagar-campo-status").focus();
             return false;
         } else if ($DataLancamento == '') {
-            monstrarMensagem('Selecione uma Data Lançamento', '', 'error');
+            monstrarMensagem('Selecione uma Data de Lançamento', '', 'error');
             $("#tituloPagar-campo-data-lancamento").focus();
             return false;
-        } else if ($DataRecebimento == '') {
-            monstrarMensagem('Selecione uma Data Recebimento', '', 'error');
-            $("#tituloPagar-campo-data-recebimento").focus();
-            return false;
+        //} else if ($DataRecebimento == '') {
+        //    monstrarMensagem('Selecione uma Data Recebimento', '', 'error');
+        //    $("#tituloPagar-campo-data-recebimento").focus();
+        //    return false;
         } else if ($DataVencimento == '') {
-            monstrarMensagem('Selecione uma Data Vencimento', '', 'error');
+            monstrarMensagem('Selecione uma Data de Vencimento', '', 'error');
             $("#tituloPagar-campo-data-vencimento").focus();
             return false;
         } else if ($QuantidadeParcela == '') {
-            monstrarMensagem('Digite um Quantidade Parcela', '', 'error');
+            monstrarMensagem('Digite uma Quantidade de Parcelas', '', 'error');
             $("#tituloPagar-campo-quantidade-parcela").val();
             return false;
         } 
         else if ($Descricao == '') {
-            monstrarMensagem('Digite uma Descricao', '', 'error');
+            monstrarMensagem('Digite uma Descrição', '', 'error');
             $("#tituloPagar-campo-descricao").val();
             return false;
         } 
-        else if ($Valor == '') {
-            monstrarMensagem('Digite um Valor', '', 'error');
-            $("#tituloPagar-campo-valor").val();
-            return false;
-        } 
-
+        //else if ($Valor == '') {
+        //    monstrarMensagem('Digite um Valor', '', 'error');
+        //    $("#tituloPagar-campo-valor").val();
+        //    return false;
+        //} 
         }
     );
 
