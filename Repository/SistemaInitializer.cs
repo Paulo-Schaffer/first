@@ -363,13 +363,13 @@ namespace Repository
             categoriaDespesa.Add(new CategoriaDespesa()
             {
                 Id = 1,
-                TipoCategoriaDespesa = "Despesa com Toddynho",
+                TipoCategoriaDespesa = "Despesa com Funcionário",
                 RegistroAtivo = true,
             });
             categoriaDespesa.Add(new CategoriaDespesa()
             {
                 Id = 2,
-                TipoCategoriaDespesa = "Despesa com Salgadinho",
+                TipoCategoriaDespesa = "Despesa com Manutenção",
                 RegistroAtivo = true,
             });
             context.CategoriasDespesas.AddRange(categoriaDespesa);
@@ -481,13 +481,13 @@ namespace Repository
                 new TituloPagar()
                 {
                     Id = 1,
-                    Descricao = "Titulo feio por Paulo",
+                    Descricao = "Titulo a pagar",
                     FormaPagamento = "Cartão de Crédito",
                     Caixa = true,
                     ValorTotal = 2000,
                     Status = "Pendente",
-                    DataLancamento = Convert.ToDateTime("23/06/2016"),
-                    DataVencimento = Convert.ToDateTime("23/07/2016"),
+                    DataLancamento = DateTime.Now,
+                    DataVencimento = DateTime.Now,
                     QuantidadeParcela = 4,
                     RegistroAtivo = true,
                     IdCategoriaDespesa = 1,
@@ -496,20 +496,20 @@ namespace Repository
                 new TituloPagar()
                 {
                     Id = 2,
-                    Descricao = "Paulo o mais feio do mundo",
+                    Descricao = "Titulo a pagar",
                     FormaPagamento = "Dinheiro",
                     Caixa = true,
-                    ValorTotal = 2000,
+                    ValorTotal = 198,
                     Status = "Pendente",
                     DataLancamento = DateTime.Now,
                     DataVencimento = DateTime.Now,
-                    QuantidadeParcela = 8,
+                    QuantidadeParcela = 5,
                     RegistroAtivo = true,
                     IdCategoriaDespesa = 1,
                     IdFornecedor = 1
                 }
             };
-            //context.TitulosPagar.AddRange(tituloPagar);
+            context.TitulosPagar.AddRange(tituloPagar);
             #endregion
 
             #region cadastrocontacorrente
@@ -542,13 +542,14 @@ namespace Repository
             #endregion
 
             #region fornecedores
-            var fornecedores = new List<Fornecedor>();
-            fornecedores.Add(new Fornecedor()
+            var fornecedores = new List<Fornecedor>()
             {
+                new Fornecedor()
+                {
                 Id = 1,
                 RazaoSocial = "Peugeot",
                 NomeFantasia = "strabourg",
-                DataCadastro = Convert.ToDateTime("04/09/2019"),
+                DataCadastro = DateTime.Now,
                 Cnpj = "83.590.870/0001-95",
                 Email = "first@outlook.com",
                 Telefone = "3345-5567",
@@ -559,8 +560,27 @@ namespace Repository
                 Cidade = "São Paulo",
                 Uf = "SP",
                 Complemento = "casa",
-                RegistroAtivo = true,
-            });
+                RegistroAtivo = true
+                },
+                new Fornecedor()
+                {
+                Id = 2,
+                RazaoSocial = "Honda",
+                NomeFantasia = "Honda",
+                DataCadastro = DateTime.Now,
+                Cnpj = "83.590.870/0001-95",
+                Email = "first@outlook.com",
+                Telefone = "3345-5567",
+                Cep = "09432-876",
+                Logradouro = "UBATUBA",
+                Numero = 675,
+                Bairro = "Bairro Vila Olimpia",
+                Cidade = "São Paulo",
+                Uf = "SP",
+                Complemento = "casa",
+                RegistroAtivo = true
+                }
+            };
             context.Fornecedores.AddRange(fornecedores);
             #endregion
 
