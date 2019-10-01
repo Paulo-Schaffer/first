@@ -22,13 +22,13 @@ O sistema foi desenvolvido devido a uma necessidade vista pelos desenvolvedores 
 
 ## Vantagens do First
 
-#- Praticidade
+-[Praticidade]
 O Firts é uma aplicação web e isso faz com que tenha uma usuabilidade e uma praticidade incrível.
 
-#- Produtividade
+-[Produtividade]
 O First tem uma interface simples e eficaz totalmente dedicada à aumentar a produtividade do cliente.
 
-#- Controle
+-[Controle]
 Com dedicados ao controle financeiro e a geração instantânia de relatórios o First é o sistema perfeito para controlar suas financias.
 
 
