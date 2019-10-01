@@ -107,76 +107,8 @@ $(function () {
         });
     });
 
-   /* $('#clientePessoaFisica-batao-salvar').on('click', function () {
-
-        $fornecedor = $('#tituloPagar-campo-fornecedor').val();
-        $categoriaDespesas = $('#tituloPagar-campo-categoria-despesa').val();
-        $formaPagamento = $('#tituloPagar-campo-forma-pagamento').val();
-        $status = $('#tituloPagar-campo-status').val();
-        $dataLancamento = $('#tituloPagar-campo-data-lancamento').val();
-        $dataRecebimento = $('#tituloPagar-campo-data-recebimento').val();
-        $dataVencimento = $('#tituloPagar-campo-data-vencimento').val();
-        $quantidadeParcelas = $('#tituloPagar-campo-quantidade-parcela').val();
-        $valorTotal = $('#tituloPagar-campo-valor-total').val();
-        $descricao = $('#tituloPagar-campo-descricao').val();
-        function mostrarMensagem(texto, titulo, tipo) {
-            return false;
-            new PNotify({
-                title: titulo,
-                text: texto,
-                icon: 'icofont icofont-info-circle',
-                type: tipo
-            });
-        }
-        if ($fornecedor == "") {
-            monstrarMensagem('Digite o Fornecedor', '', 'error');
-            $('#tituloPagar-campo-fornecedor').focus();
-            return false;
-        } else if ($categoriaDespesas == "") {
-            monstrarMensagem('Digite a Categoria Despesas', '', 'error');
-            $('#tituloPagar-campo-categoria-despesa').focus();
-            return false;
-        } else if ($formaPagamento == "") {
-            monstrarMensagem('Digite a Forma Pagamento', '', 'error');
-            $('#tituloPagar-campo-forma-pagamento').focus();
-            return false;
-        } else if ($status == "") {
-            monstrarMensagem('Digite o Status', '', 'error');
-            $('#tituloPagar-campo-status').focus();
-            return false;
-        } else if ($dataLancamento == "") {
-            monstrarMensagem('Digite o Data Lançamento', '', 'error');
-            $('#tituloPagar-campo-data-lancamento').focus();
-            return false;
-        } else if ($dataRecebimento == "") {
-            monstrarMensagem('Digite o Data Recebimento', '', 'error');
-            $('#tituloPagar-campo-data-recebimento').focus();
-            return false;
-        } else if ($dataVencimento == "") {
-            monstrarMensagem('Digite o Data Vencimento', '', 'error');
-            $('#tituloPagar-campo-data-vencimento').focus();
-            return false;
-        } else if ($quantidadeParcelas == "") {
-            monstrarMensagem('Digite a Quantidade de Parcela', '', 'error');
-            $('#tituloPagar-campo-quantidade-parcela').focus();
-            return false;
-        } else if ($descricao == "") {
-            monstrarMensagem('Digite a Descriçao', '', 'error');
-            $('#tituloPagar-campo-descricao').focus();
-            return false;
-        } else if ($valorTotal == "") {
-            monstrarMensagem('Digite o Valor Total', '', 'error');
-            $('#tituloPagar-campo-valor-total').focus();
-            return false;
-        } else {
-            monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
-        }
-        if ($idAlterar == -1) {
-            inserir($fornecedor, $categoriaDespesas, $formaPagamento, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $quantidadeParcelas, $descricao, $valorTotal);
-
-        } else {
-            alterar($fornecedor, $categoriaDespesas, $formaPagamento, $status, $dataLancamento, $dataRecebimento, $dataVencimento, $quantidadeParcelas, $descricao, $valorTotal);
-        }
-    });*/
+  
+        
+       
 });
 
