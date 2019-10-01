@@ -10,18 +10,18 @@ namespace TccFirst.Controllers
 {
     public class ContaCorrenteController : Controller
     {
-        private ContaCorrenteRepository repository;
+        private TransacoesRepository repository;
 
         public ContaCorrenteController()
         {
-            repository = new ContaCorrenteRepository();
+            repository = new TransacoesRepository();
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            
-            ContaCorrenteRepository repositoryContaCorrente = new ContaCorrenteRepository();
+
+            TransacoesRepository repositoryContaCorrente = new TransacoesRepository();
             ViewBag.ContaCorrentes = repositoryContaCorrente.ObterTodos();
             return View();
         }
@@ -54,10 +54,10 @@ namespace TccFirst.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Cadastro(ContaCorrente contaCorrente)
+        public ActionResult Cadastro(Transacao transacao)
         {
-            contaCorrente.RegistroAtivo = true;
-            var id = repository.Inserir(contaCorrente);
+            transacao.RegistroAtivo = true;
+            var id = repository.Inserir(transacao);
             var resultado = new { id = id };
             return RedirectToAction("Index", new { id = id });
         }
@@ -72,9 +72,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpPost, Route("editar")]
-        public JsonResult Editar(ContaCorrente contaCorrente)
+        public JsonResult Editar(Transacao transacao)
         {
-            var alterou = repository.Alterar(contaCorrente);
+            var alterou = repository.Alterar(transacao);
             var resultado = new { status = alterou };
             return Json(resultado);
         }
@@ -92,14 +92,14 @@ namespace TccFirst.Controllers
         [HttpGet, Route("contacorrente/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
-            var contasCorrente = repository.ObterTodos();
+            var transacaos = repository.ObterTodos();
             List<object> contaCorrenteSelect2 = new List<object>();
-            foreach (ContaCorrente contaCorrente in contasCorrente)
+            foreach (Transacao transacao in transacaos)
             {
                 contaCorrenteSelect2.Add(new
                 {
-                    id = contaCorrente.Id,
-                    text = contaCorrente.Documento
+                    id = transacao.Id,
+                    text = transacao.Documento
                 });
             }
             var resultado = new

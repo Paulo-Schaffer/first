@@ -28,7 +28,7 @@ namespace Repository.Repositories
             transacaoOriginal.IdHistorico = transacao.IdHistorico;
             transacaoOriginal.IdCategoriaReceita = transacao.IdCategoriaReceita;
             transacaoOriginal.IdCategoriaDespesa = transacao.IdCategoriaDespesa;
-            transacaoOriginal.Descricao = transacao.Descricao;
+            transacaoOriginal.DescricaoTransacao = transacao.DescricaoTransacao;
             transacaoOriginal.Documento = transacao.Documento;
             transacaoOriginal.TipoPagamento = transacao.TipoPagamento;
             transacaoOriginal.Valor = transacao.Valor;
