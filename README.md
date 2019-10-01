@@ -10,3 +10,4 @@ Alunos:
 - [Paul Lew](https://github.com/paullew94)
 - [Paulo Schaffer](https://github.com/Paulo-Schaffer)
 
+[Slides]
