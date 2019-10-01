@@ -25,9 +25,9 @@ namespace TccFirst.Controllers
         }
 
         [HttpGet, Route("obterTodos")]
-        public JsonResult ObterTodos(int idHistorico = 0, string descricao = "", int valor =0/*, DateTime dataLancamento =*/)
+        public JsonResult ObterTodos(int idHistorico = 0 /*, string descricao = "", int valor =0*//*, DateTime dataLancamento =*/)
         {
-            var caixa = repository.ObterTodos(idHistorico,descricao,valor/*,dataLancamento*/);
+            var caixa = repository.ObterTodos(idHistorico/*,descricao,valor, dataLancamento*/);
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
@@ -63,7 +63,7 @@ namespace TccFirst.Controllers
         [HttpGet, Route("caixa/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {
-            var caixas = repository.ObterTodos(0,"",0);
+            var caixas = repository.ObterTodos(0/*,"",0*/);
 
             List<object> ObterTodosSelect2 = new List<object>();
             foreach (Caixa caixa in caixas)

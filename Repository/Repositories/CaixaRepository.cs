@@ -77,24 +77,23 @@ namespace Repository.Repositories
             return caixa;
         }
 
-        public List<Caixa> ObterTodos(int idHistorico, string descricao, int valor/*, DateTime dataLancamento*/)
+        public List<Caixa> ObterTodos(int idHistorico/*, string descricao, int valor*//*, DateTime dataLancamento*/)
         {
             var query = context
-                .Caixas.Include("Historico")
-                .Where(x => x.RegistroAtivo == true);
+                .Caixas/*.Include("Historico")*/
+                .Where(x => x.RegistroAtivo);
 
             if (idHistorico != Caixa.FiltroSemHistorico)
             {
                 query = query.Where(x => x.IdHistoricos == idHistorico);
             }
-            if (!string.IsNullOrEmpty(descricao))
-            {
-                query = query.Where(x => x.Descricao == descricao);
-            }
+            //if (!string.IsNullOrEmpty(descricao))
+            //{
+            //    query = query.Where(x => x.Descricao == descricao);
+            //}
             
             return query
-
-                .OrderBy(x => x.Id)
+                //.OrderBy(x => x.Id)
                 .ToList();
 
 

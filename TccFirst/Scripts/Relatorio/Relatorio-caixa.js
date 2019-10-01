@@ -12,21 +12,21 @@
         $('#relatorio-conta-caixa').DataTable().ajax.reload();
     });
 
-    $("#filtro-valor").on("change", function () {
-        buscarValores();
-        $('#relatorio - conta - caixa').DataTable().ajax.reload();
-    });
-    $("filtro-documento").on("change", function () {
-        buscarValores();
-        $('#relatorio-conta-caixa').DataTable().ajax.reload();
-    });
+    //$("#filtro-valor").on("change", function () {
+    //    buscarValores();
+    //    $('#relatorio - conta - caixa').DataTable().ajax.reload();
+    //});
+    //$("filtro-documento").on("change", function () {
+    //    buscarValores();
+    //    $('#relatorio-conta-caixa').DataTable().ajax.reload();
+    //});
 
 
 
     function buscarValores() {
         $idHistorico = $("#filtro-hisotirico").val();
-        $valor = $("#filtro-valor").val();
-        $documento = $("#filtro-documento").val();
+        //$valor = $("#filtro-valor").val();
+        //$documento = $("#filtro-documento").val();
     }
 
     $tabelaCaixa = $('#relatorio-conta-caixa').DataTable({
@@ -38,8 +38,8 @@
             url: '/caixa/obterTodos',
             data: function (d) {
                 d.$idHistorico = $$idHistorico,
-                    d.$valor = $valor,
-                    d.$documento = $documento
+                    //d.$valor = $valor,
+                    //d.$documento = $documento
             }
         },
         serverSide: true,

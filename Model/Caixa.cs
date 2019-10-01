@@ -33,9 +33,6 @@ namespace Model
         [Column("data_lancamento")]
         public DateTime DataLancamento { get; set; }
 
-        [Column("operacao")]
-        public bool Operacao { get; set; }
-
         #region fk_historico
         [Column("id_historicos")]
         public int IdHistoricos { get; set; }

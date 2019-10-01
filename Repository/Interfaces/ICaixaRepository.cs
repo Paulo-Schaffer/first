@@ -13,7 +13,7 @@ namespace Repository.Interfaces
 
         bool Alterar(Caixa caixa);
 
-        List<Caixa> ObterTodos(int idHistorico, string descricao, int valor/*, DateTime dataLancamento*/);
+        List<Caixa> ObterTodos(int idHistorico/*, string descricao, int valor*//*, DateTime dataLancamento*/);
 
         bool Apagar(int id);
 
