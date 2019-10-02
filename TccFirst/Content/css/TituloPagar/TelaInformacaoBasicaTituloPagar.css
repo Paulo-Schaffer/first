@@ -1,7 +1,4 @@
-﻿body {
-}
-
-#botao-irtabela {
+﻿#botao-irtabela {
     color: white;
     background-color: gray;
     border-color: darkgray;
@@ -18,12 +15,8 @@
     border-radius: 5px;
 }
 
-#fonte-pessoa-fisica {
-    color: black;
-    font-weight: bold;
-}
 
-#fonte-pessoa-juridica {
+#fonte-fornecedor {
     color: black;
     font-weight: bold;
 }
@@ -43,13 +36,18 @@
     font-weight: bold;
 }
 
-#fonte-lancamento {
+#fonte-caixa {
     color: black;
     font-weight: bold;
 }
 
-#fonte-recebimento{
-    color:black;
+#fonte-banco {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-lancamento {
+    color: black;
     font-weight: bold;
 }
 

@@ -1,13 +1,74 @@
 ﻿body {
 }
 
-.botao-tabela {
-    background-color: forestgreen;
+#botao-irtabela {
     color: white;
-    border-radius: 5px;
-    width: 190px;
+    background-color: gray;
+    border-color: darkgray;
+    width: 160px;
     height: 40px;
-    margin: -6px;
+    border-radius: 5px;
 }
 
+#botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
 
+#fonte-fornecedor {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-categoria {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-pagamento {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-status {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-caixa {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-banco {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-lancamento {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-vencimento {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-parcela {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-valor {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-descricao {
+    color: black;
+    font-weight: bold;
+}

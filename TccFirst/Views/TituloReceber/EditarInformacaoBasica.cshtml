@@ -1,12 +1,10 @@
 ﻿<form method="post" action="/tituloreceber/editar">
     <div class="row">
         <div class="col-12">
-            <a class="btn btn-info float-right mb-3"
-               href="/TituloReceber/index">Ir para tabela</a>
+            <a id="botao-irtabela" class="btn float-right form-group"
+               href="/TituloPagar/index"><i class="fa fa-backward"></i>Ir para tabela</a>
         </div>
-        <input type="hidden" name="id"
-               id="id"
-               value="@ViewBag.TituloReceber.Id" />
+        <input type="hidden" name="id"  value="@ViewBag.TituloReceber.Id" />
     </div>
 
     <div class="container container-fluid">
@@ -15,7 +13,7 @@
                 <div class="form-check-inline ml-3 mr-3 mb-3">
                     <input type="radio" id="tituloReceber-campo-tipo-pessoa-fisica"
                            name="tituloReceber-campo-tipo-pessoa" class="form-check-input" />
-                    <label for="tituloReceber-campo-tipo-pessoa-fisica"
+                    <label id="fonte-pessoa-fisica" for="tituloReceber-campo-tipo-pessoa-fisica"
                            class="form-check-label" style="
     padding-left: 4px;
     padding-bottom: 3px;
@@ -25,7 +23,7 @@
                 <div class="form-check-inline">
                     <input type="radio" id="tituloReceber-campo-tipo-pessoa-juridica"
                            name="tituloReceber-campo-tipo-pessoa" class="form-check-input" />
-                    <label for="tituloReceber-campo-tipo-pessoa-juridica"
+                    <label id="fonte-pessoa-juridica" for="tituloReceber-campo-tipo-pessoa-juridica"
                            class="form-check-label" style="
     padding-left: 4px;
     padding-bottom: 4px;
@@ -36,7 +34,7 @@
         <div class="row">
             <div class="col-12" id="tituloReceber-pessoa-fisica">
                 <div class="form-group">
-                    <label for="tituloReceber-campo-pessoa-fisica">Pessoa Física</label>
+                    <label id="fonte-pessoa-fisica" for="tituloReceber-campo-pessoa-fisica">Pessoa Física</label>
                     <select class="form-control" id="tituloReceber-campo-pessoa-fisica" name="idClientePessoaFisica">
                         <option disabled selected>Selecione um opção</option>
                     </select>
@@ -45,8 +43,8 @@
 
             <div class="col-12" id="tituloReceber-pessoa-juridica">
                 <div class="form-group">
-                    <label for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
-                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica"  name="IdClientePessoaJuridica">
+                    <label id="fonte-pessoa-juridica" for="campo-tituloreceber-pessoaJuridica">Pessoa Juridica</label>
+                    <select class="form-control" id="tituloReceber-campo-pessoa-Juridica" name="IdClientePessoaJuridica">
                         <option disabled selected>Selecione um opção</option>
                     </select>
                 </div>
@@ -57,7 +55,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <label for="campo-tituloReceber-categoria" mas>Categoria Receita</label>
+                    <label id="fonte-categoria" for="campo-tituloReceber-categoria" mas>Categoria Receita</label>
                     <select class="form-control" id="tituloReceber-campo-categoria-Receita" name="idCategoriaReceita"></select>
                 </div>
             </div>
@@ -66,7 +64,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="titulo-receber-campo-status">Status</label>
+                    <label id="fonte-status" for="titulo-receber-campo-status">Status</label>
                     <select class="form-control" id="tituloReceber-campo-status" name="Status">
                         @if (ViewBag.TituloReceber.Status == "Pendente")
                         {
@@ -97,9 +95,9 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
+                    <label id="fonte-lancamento" for="campo-tituloReceber-data-lancamento" mas>Data de Lançamento</label>
                     <input type="date" id="tituloReceber-campo-data-lancamento" class="form-control"
-                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")" name="DataLancamento"/>
+                           value="@ViewBag.TituloReceber.DataLancamento.ToString("yyyy-MM-dd")" name="DataLancamento" />
                 </div>
             </div>
         </div>
@@ -107,48 +105,48 @@
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
+                        <label id="fonte-recebimento" for="campo-tituloReceber-data-recebimento" mas>Data de Recebimento</label>
                         <input type="date" id="tituloReceber-campo-data-recebimento" class="form-control"
                                value="@ViewBag.TituloReceber.DataRecebimento.ToString("yyyy-MM-dd")" name="DataRecebimento" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
-                        <label form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
+                        <label id="fonte-vencimento" form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
                         <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control"
-                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")"name="DataVencimento" />
+                               value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")" name="DataVencimento" />
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="campo-tituloReceber-descricao" mas>Descrição</label>
+            <label id="fonte-descricao" for="campo-tituloReceber-descricao" mas>Descrição</label>
             <textarea class="form-control" id="tituloReceber-campo-descricao" name="Descricao">@ViewBag.TituloReceber.Descricao</textarea>
         </div>
 
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
+                    <label id="fonte-parcela" for="campo-titulo-campo-quantidadeParcelas" mas>Quantidade de Parcelas</label>
                     <input type="text" id="tituloReceber-campo-quantidade-Parcelas" class="form-control"
-                           value="@ViewBag.TituloReceber.QuantidadeParcela"name="QuantidadeParcela" />
+                           value="@ViewBag.TituloReceber.QuantidadeParcela" name="QuantidadeParcela" />
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
-                    <label for="campo-tituloReceber-valor-total" style="display: block">Valor Total</label>
+                    <label id="fonte-valor" for="campo-tituloReceber-valor-total" style="display: block">Valor Total</label>
                     <span type="text" id="tituloReceber-campo-valor-total">R$ @ViewBag.TituloReceber.ValorTotal </span>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button class="btn btn-grd-success float-left mt-3" type="submit" id="tituloReceber-botao-salvar"><i class="fa fa-save"></i> Salvar</button>
-        </div>
+        <button id="botao-salvar" class="btn float-right mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
     </div>
 </form>
 @section js{
     <script src="~/Scripts/TituloReceber/titulo-receber-cadastro.js"></script>
     <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>
 }
+
+    <link href="~/Content/css/TituloReceber/TelaInformacaoBasicaTituloReceber.css" rel="stylesheet" />
