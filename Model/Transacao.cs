@@ -11,7 +11,8 @@ namespace Model
     [Table("transacoes")]
     public class Transacao
     {
-
+        public const int FiltroSemDespesa = 0;
+        public const int FiltroSemReceita = 0;
 
         [Key,Column("id")]
         public int Id { get; set; }

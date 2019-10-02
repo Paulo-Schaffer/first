@@ -5696,13 +5696,17 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\PaginaInicial\animacao.js" />
     <Content Include="Scripts\PaginaInicial\app.js" />
+    <Content Include="Scripts\notify.min.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-cadastro.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-editar.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
+    <Content Include="Scripts\Relatorio\GaficoTitulo.js" />
+    <Content Include="Scripts\Relatorio\fluxo-caixa.js" />
+    <Content Include="Scripts\Relatorio\Relatorio-caixa.js" />
+    <Content Include="Scripts\Relatorio\Relatorio-transacao.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
@@ -5751,6 +5755,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\GraficoTituloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MovimentacaoFinanceiraEntradaController.cs" />
@@ -5850,6 +5855,10 @@
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Historico\Index.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioCaixa.cshtml" />
+    <Content Include="Views\GraficoTitulo\Index.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioTransacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
