@@ -61,6 +61,39 @@ namespace Repository.Repositories
         {
             return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
+        public List<Caixa> ObterTodosRelatorio(/*DateTime dataLancamento, */int idHistorico, string descricao, int valor)
+        {
+            var query = context
+                .Caixas
+                .Where(x => x.RegistroAtivo);
+
+            if (idHistorico != Caixa.FiltroSemHistorico)
+            {
+                query = query.Where(x => x.IdHistoricos == idHistorico);
+            }
+            if (!string.IsNullOrEmpty(descricao))
+            {
+                query = query.Where(x => x.Descricao.Contains(descricao));
+            }
+            //if(dataLancamento != null)
+            //{
+            //    query = query.Where(x => x.DataLancamento.Date == dataLancamento.Date);
+            //}
+
+            return query.ToList();
+        }
+        public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
+        {
+
+            return context.Database
+                .SqlQuery<FluxoCaixa>(@"
+                    SELECT FORMAT(caixas.data_lancamento, 'yyyy-MM-dd') AS data,  SUM(valor) as valor
+                    FROM caixas 
+                    GROUP BY FORMAT(caixas.data_lancamento, 'yyyy-MM-dd')
+                    ").ToList();
+      
+        }
     }
+
 }
 

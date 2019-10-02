@@ -19,5 +19,9 @@ namespace Repository.Interfaces
         bool Apagar(int id);
 
         Transacao ObterPeloId(int id);
+
+        List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal);
+
+        List<Transacao> ObterTodosRelatorio(int idReceita, int IdDespesa, string documento);
     }
 }

@@ -97,6 +97,12 @@ namespace TccFirst.Controllers
 
             return View();
         }
+        public JsonResult ObterTodosRelatorio(int idReceita = 0, int IdDespesa = 0, string documento = "")
+        {
+            var transacao = repository.ObterTodosRelatorio(idReceita, IdDespesa, documento);
+            var resultado = new { data = transacao };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
 
     }
 

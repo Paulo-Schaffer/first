@@ -5704,7 +5704,9 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Relatorio\relatorio-caixa.js" />
     <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
+    <Content Include="Scripts\Relatorio\Relatorio-transacao.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
@@ -5847,6 +5849,8 @@
     <Content Include="Views\TituloPagar\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloPagar\EditarParcelas.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioCaixa.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioTransacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

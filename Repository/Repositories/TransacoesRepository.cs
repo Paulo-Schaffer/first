@@ -77,5 +77,41 @@ namespace Repository.Repositories
                 .Include("CategoriaDespesa")
                 .Where(x => x.RegistroAtivo == true).ToList();
         }
+        public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
+        {
+
+            return context.Database
+                .SqlQuery<FluxoCaixa>(@"
+                    SELECT FORMAT(transacoes.data_lancamento, 'yyyy-MM-dd') AS data, SUM(valor) as valor
+                    FROM transacoes 
+                    GROUP BY FORMAT(transacoes.data_lancamento, 'yyyy-MM-dd')
+                    ").ToList();
+      
+        }
+        public List<Transacao> ObterTodosRelatorio(int idReceita, int IdDespesa, string documento)
+        {
+            var query = context
+                .Transacoes
+                .Where(x => x.RegistroAtivo);
+
+            if (idReceita != Transacao.FiltroSemReceita)
+            {
+                query = query.Where(x => x.IdCategoriaReceita == idReceita);
+            }
+            if (IdDespesa != Transacao.FiltroSemReceita)
+            {
+                query = query.Where(x => x.IdCategoriaDespesa == IdDespesa);
+            }
+
+            if (!string.IsNullOrEmpty(documento))
+            {
+                query = query.Where(x => x.Documento.Contains(documento));
+            }
+            //if(dataLancamento != null)
+            //{
+            //    query = query.Where(x => x.DataLancamento.Date == dataLancamento.Date);
+            //}
+            return query.ToList();
+        }
     }
 }

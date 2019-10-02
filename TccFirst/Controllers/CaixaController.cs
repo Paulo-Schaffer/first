@@ -82,5 +82,12 @@ namespace TccFirst.Controllers
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public JsonResult ObterTodosRelatorio(/*DateTime dataLancamento, */int idHistorico = 0, string descricao = "", int valor = 0)
+        {
+            var caixa = repository.ObterTodosRelatorio(/*dataLancamento, */idHistorico, descricao, valor);
+            var resultado = new { data = caixa };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
     }
 }
