@@ -17,6 +17,7 @@ namespace TccFirst.Controllers
             repository = new ParcelaPagarRepository();
         }
 
+
         //public ActionResult Index()
         //{
         //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);

@@ -8,6 +8,39 @@ namespace TccFirst.Controllers
     {
         private TransacoesRepository repository;
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
+
         public TransacaoController()
         {
             repository = new TransacoesRepository();
@@ -96,6 +129,12 @@ namespace TccFirst.Controllers
 
 
             return View();
+        }
+        public JsonResult ObterTodosRelatorio(int idReceita = 0, int IdDespesa = 0, string documento = "")
+        {
+            var transacao = repository.ObterTodosRelatorio(idReceita, IdDespesa, documento);
+            var resultado = new { data = transacao };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
     }

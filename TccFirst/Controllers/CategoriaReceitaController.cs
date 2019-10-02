@@ -16,6 +16,7 @@ namespace TccFirst.Controllers
         {
             repository = new CategoriaReceitaRepository();
         }
+
         [HttpGet]
         public JsonResult ObterTodos()
         {

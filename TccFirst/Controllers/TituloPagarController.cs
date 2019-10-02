@@ -18,6 +18,7 @@ namespace TccFirst.Controllers
             repository = new TituloPagarRepository();
         }
 
+
         public ActionResult Index()
         {
             TituloPagarRepository repositoryTituloPagar = new TituloPagarRepository();

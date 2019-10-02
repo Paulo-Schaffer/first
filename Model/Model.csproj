@@ -59,8 +59,10 @@
     <Compile Include="ClientePessoaFisica.cs" />
     <Compile Include="ClientePessoaJuridica.cs" />
     <Compile Include="Endereco.cs" />
+    <Compile Include="FluxoCaixa.cs" />
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="GraficoTitulo.cs" />
     <Compile Include="Historico.cs" />
     <Compile Include="MovimentacaoFinanceiraEntrada.cs" />
     <Compile Include="MovimentacaoFinanceiraSaida.cs" />

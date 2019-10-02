@@ -17,38 +17,6 @@ namespace TccFirst.Controllers
             repository = new CategoriaDespesaRepository();
         }
 
-        #region Verificações Login
-        private bool VerificaLogado()
-        {
-            if (Session["usuarioLogadoTipoFuncionario"] == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private ActionResult VerificaPermisssao()
-        {
-            if (VerificaLogado() == false)
-            {
-                return Redirect("/login");
-            }
-
-            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
-            {
-                return Redirect("/login/sempermissao");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        #endregion
-
         public ActionResult Index()
         {
             return View();
@@ -79,12 +47,17 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Updtate (CategoriaDespesa categoriaDespesa)
+        [HttpPost,]
+        public JsonResult Alterar (CategoriaDespesa categoriaDespesa)
         {
             var alterou = repository.Alterar(categoriaDespesa);
             var resultado = new { status = alterou };
             return Json(resultado);   
+        }
+        [HttpGet, Route("obterpeloid")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet, Route("categoriadespesa/obtertodosselect2")]

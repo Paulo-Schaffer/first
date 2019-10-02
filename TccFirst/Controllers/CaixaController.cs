@@ -17,7 +17,6 @@ namespace TccFirst.Controllers
             repository = new CaixaRepository();
         }
 
-
         [HttpGet]
         public ActionResult Index()
         {
@@ -80,6 +79,13 @@ namespace TccFirst.Controllers
             {
                 results = caixasSelect2
             };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public JsonResult ObterTodosRelatorio(/*DateTime dataLancamento, */int idHistorico = 0, string descricao = "", int valor = 0)
+        {
+            var caixa = repository.ObterTodosRelatorio(/*dataLancamento, */idHistorico, descricao, valor);
+            var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }

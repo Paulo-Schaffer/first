@@ -75,5 +75,14 @@ namespace Repository.Repositories
                 .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
 
         }
+        public List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
+        {
+            return context.Database
+                .SqlQuery<GraficoTitulo>(@"
+                    SELECT FORMAT(titulos_receber.data_lancamento, 'yyyy-MM-dd') AS data,  SUM(valor_total) as valor
+                    FROM titulos_receber 
+                    GROUP BY FORMAT(titulos_receber.data_lancamento, 'yyyy-MM-dd')
+                    ").ToList();
+        }
     }
 }
