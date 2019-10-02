@@ -1,4 +1,118 @@
-﻿
+﻿$(document).ready(function () {
+
+    // Adicionamos o evento onclick ao botão com o ID "pesquisar"
+    $('#fornecedor-campo-cnpj').blur(function () {
+
+
+        // Aqui recuperamos o cnpj preenchido do campo e usamos uma expressão regular para limpar da string tudo aquilo que for diferente de números
+        var cnpj = $('#fornecedor-campo-cnpj').val().replace(/[^0-9]/g, '');
+
+        // Fazemos uma verificação simples do cnpj confirmando se ele tem 14 caracteres
+        if (cnpj.length == 14) {
+
+            // Aqui rodamos o ajax para a url da API concatenando o número do CNPJ na url
+            $.ajax({
+                url: 'https://www.receitaws.com.br/v1/cnpj/' + cnpj,
+                method: 'GET',
+                dataType: 'jsonp', // Em requisições AJAX para outro domínio é necessário usar o formato "jsonp" que é o único aceito pelos navegadores por questão de segurança
+                complete: function (xhr) {
+
+                    // Aqui recuperamos o json retornado
+                    response = xhr.responseJSON;
+
+                    // Na documentação desta API tem esse campo status que retorna "OK" caso a consulta tenha sido efetuada com sucesso
+                    if (response.status == 'OK') {
+
+                        // Agora preenchemos os campos com os valores retornados
+                        $('#fornecedor-nome-razaoSocial').val(response.nome);
+                        $('#fornecedor-campo-nomeFantasia').val(response.fantasia);
+                        $('#fornecedor-campo-logradouro').val(response.logradouro);
+                        $('#fornecedor-campo-cep').val(response.cep);
+                        $('#fornecedor-campo-telefone').val(response.telefone);
+                        $('#fornecedor-campo-numero').val(response.numero);
+                        $('#fornecedor-campo-bairro').val(response.bairro);
+                        $('#fornecedor-campo-cidade').val(response.cidade);
+                        $('#fornecedor-campo-sigla').val(response.estado);
+
+
+                        // Aqui exibimos uma mensagem caso tenha ocorrido algum erro
+                    } else {
+                        alert(response.message); // Neste caso estamos imprimindo a mensagem que a própria API retorna
+                    }
+                }
+            });
+
+            // Tratativa para caso o CNPJ não tenha 14 caracteres
+        } else {
+            alert('CNPJ inválido');
+        }
+    });
+})
+$(document).ready(function () {
+
+    function limpa_formulário_cep() {
+        // Limpa valores do formulário de cep.
+        $('#fornecedor-campo-logradouro').val("");
+        $('#fornecedor-campo-bairro').val("");
+        $('#fornecedor-campo-cidade').val("");
+        $('#fornecedor-campo-sigla').val("");
+
+    }
+
+    //Quando o campo cep perde o foco.
+    $('#fornecedor-campo-cep').blur(function () {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if (validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                $('#fornecedor-campo-logradouro').val("...");
+                $('#fornecedor-campo-bairro').val("...");
+                $('#fornecedor-campo-cidade').val("...");
+                $('#fornecedor-campo-sigla').val("...");
+
+
+                //Consulta o webservice viacep.com.br/
+                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                    if (!("erro" in dados)) {
+                        //Atualiza os campos com os valores da consulta.
+
+                        $('#fornecedor-campo-logradouro').val(dados.logradouro);
+                        $('#fornecedor-campo-bairro').val(dados.bairro);
+                        $('#fornecedor-campo-cidade').val(dados.localidade);
+                        $('#fornecedor-campo-sigla').val(dados.uf);
+
+                    } //end if.
+                    else {
+                        //CEP pesquisado não foi encontrado.
+                        limpa_formulário_cep();
+                        alert("CEP não encontrado.");
+                    }
+                });
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    });
+});
+
 $(function () {
     $('#fornecedor-campo-cnpj').mask('00.000.000.0000/00', { reverse: true });
     $('#fornecedor-campo-telefone').mask('(00) 0000-0000');
@@ -34,19 +148,19 @@ $(function () {
                 type: tipo
             });
         }
-        $razaoSocial =  $('#fornecedor-nome-razaoSocial  ').val();
+        $razaoSocial = $('#fornecedor-nome-razaoSocial').val();
         $nomeFantasia = $('#fornecedor-campo-nomeFantasia').val();
         $dataCadastro = $('#fornecedor-campo-dataCadastro').val();
-        $cnpj =         $('#fornecedor-campo-cnpj        ').val();
-        $email =        $('#fornecedor-campo-email       ').val();
-        $telefone =     $('#fornecedor-campo-telefone    ').val();
-        $cep =          $('#fornecedor-campo-cep         ').val();
-        $logradouro =   $('#fornecedor-campo-logradouro  ').val();
-        $numero =       $('#fornecedor-campo-numero      ').val();
-        $bairro =       $('#fornecedor-campo-bairro      ').val();
-        $cidade =       $('#fornecedor-campo-cidade      ').val();
-        $uf =           $('#fornecedor-campo-sigla       ').val();
-        $complemento =  $('#fornecedor-campo-complemento ').val();
+        $cnpj = $('#fornecedor-campo-cnpj').val();
+        $email = $('#fornecedor-campo-email').val();
+        $telefone = $('#fornecedor-campo-telefone').val();
+        $cep = $('#fornecedor-campo-cep').val();
+        $logradouro = $('#fornecedor-campo-logradouro').val();
+        $numero = $('#fornecedor-campo-numero').val();
+        $bairro = $('#fornecedor-campo-bairro').val();
+        $cidade = $('#fornecedor-campo-cidade').val();
+        $uf = $('#fornecedor-campo-sigla').val();
+        $complemento = $('#fornecedor-campo-complement').val();
 
         if ($razaoSocial == "") {
             monstrarMensagem('Digite a Razão Social', '', 'error');
@@ -256,7 +370,7 @@ $(function () {
             }
         });
     });
-    
+
 });
 $(function () {
 
