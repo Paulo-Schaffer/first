@@ -1,0 +1,13 @@
+﻿body {
+}
+#fonte{
+    font-weight:bold;
+}
+#campo-confirmar-senha,
+#nova-senha, #senha-atual {
+    border-color: black;
+    height: 35px;
+    width: 250px;
+    border-width: 1px;  
+    
+}
