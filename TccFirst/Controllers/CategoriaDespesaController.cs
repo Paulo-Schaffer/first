@@ -79,12 +79,17 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Updtate (CategoriaDespesa categoriaDespesa)
+        [HttpPost,]
+        public JsonResult Alterar (CategoriaDespesa categoriaDespesa)
         {
             var alterou = repository.Alterar(categoriaDespesa);
             var resultado = new { status = alterou };
             return Json(resultado);   
+        }
+        [HttpGet, Route("obterpeloid")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet, Route("categoriadespesa/obtertodosselect2")]
