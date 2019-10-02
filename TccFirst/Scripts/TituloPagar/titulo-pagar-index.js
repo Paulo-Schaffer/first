@@ -61,7 +61,7 @@ $(function () {
                     action: function () {
 
                         $.ajax({
-                            url: '/tituloPagar/apagar?id=' + $id,
+                            url: '/tituloPagar/apagar?id=' + $idApagar,
                             method: "get",
                             success: function (data) {
                                 $tabelaTituloPagar.ajax.reload();
