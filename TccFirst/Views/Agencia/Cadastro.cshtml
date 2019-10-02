@@ -1,19 +1,22 @@
 ﻿
-        <h2>Cadastro de Agencias</h2>
+<div class="container container-fluid">
+    <h2><b>Cadastro de Agencias</b></h2>
 
+    <hr />
+
+    <div>
+
+        <a id="botao-irtabela" class="btn float-right form-group"
+           href="/Agencia/index"><i class="fa fa-backward"></i>Ir para tabela</a>
     </div>
-    <div class="col-6">
-        <a class="btn btn-primary   float-right mb-3"
-           href="/Agencia/index">Ir para tabela</a>
-    </div>
-</div>
-<br />
-<form action="/Agencia/cadastro" method="post">
-    <div class="container">
+    <br />
+    <br />
+    <br />
+    <form action="/Agencia/cadastro" method="post">
         <div class="row">
             <div class="col-12">
-                <label for="campo-banco">Banco<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="banco" id="campo-banco" required="" />
+                <label id="fonte-banco" for="campo-banco">Nome do Banco<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="banco" id="campo-banco" />
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -39,7 +42,3 @@
 <link rel="stylesheet" href="~/Content/css/Agencia/TelaCadastroAgencia.css">
 
 
-    <div class="modal-footer">
-        <button class="btn btn-grd-success float-left mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
-    </div>
-</form>

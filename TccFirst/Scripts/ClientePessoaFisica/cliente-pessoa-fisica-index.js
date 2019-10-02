@@ -211,7 +211,7 @@ $(function () {
             { 'data': 'LimiteCredito' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '">Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '" id="botao-editar"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '" id="botao-apagar"><i class="fa fa-trash"></i>Apagar</button>'
 
                 }
             }
@@ -245,83 +245,57 @@ $(function () {
             monstrarMensagem('Digite o Nome', '', 'error');
             $('#clientePessoaFisica-campo-nome').focus();
             return false;
-
-        } else if ($('#clientePessoaFisica-campo-cpf').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cpf </div>');
+        } else if ($cpf == "") {
+            monstrarMensagem('Digite o Cpf', '', 'error');
             $('#clientePessoaFisica-campo-cpf').focus();
-            $.notify("Warning: Self-destruct in 3.. 2..", "warn");
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-dataNascimento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Data de Nascimento </div>');
+        } else if ($dataNascimento == "") {
+            monstrarMensagem('Digite a Data de Nascimento', '', 'error');
             $('#clientePessoaFisica-campo-dataNascimento').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-limiteCredito').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Limite de Crédito </div>');
+        } else if ($limiteCredito == "") {
+            monstrarMensagem('Digite o Limite de Crédito', '', 'error');
             $('#clientePessoaFisica-campo-limiteCredito').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-email').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo de E-mail </div>');
+        } else if ($email == "") {
+            monstrarMensagem('Digite o E-mail', '', 'error');
             $('#clientePessoaFisica-campo-email').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-telefone').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Telefone </div>');
+        } else if ($telefone == "") {
+            monstrarMensagem('Digite o Telefone', '', 'error');
             $('#clientePessoaFisica-campo-telefone').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-cep').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cep </div>');
+        } else if ($cep == "") {
+            monstrarMensagem('Digite o Cep', '', 'error');
             $('#clientePessoaFisica-campo-cep').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-rua').val == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Rua </div>');
+        } else if ($rua == "") {
+            monstrarMensagem('Digite a Rua', '', 'error');
             $('#clientePessoaFisica-campo-rua').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-numero').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
+        } else if ($numero == "") {
+            monstrarMensagem('Digite a Número', '', 'error');
             $('#clientePessoaFisica-campo-numero').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-bairro').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Bairro </div>');
+        } else if ($bairro == "") {
+            monstrarMensagem('Digite a Bairro', '', 'error');
             $('#clientePessoaFisica-campo-bairro').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-cidade').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Cidade </div>');
+        } else if ($cidade == "") {
+            monstrarMensagem('Digite a Cidade', '', 'error');
             $('#clientePessoaFisica-campo-cidade').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-uf').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Uf </div>');
+        } else if ($uf == undefined) {
+            monstrarMensagem('Selecione a Uf', '', 'error');
             $('#clientePessoaFisica-campo-uf').focus();
             return false;
-        }
-        else if ($('#clientePessoaFisica-campo-complemento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Complemento </div>');
+        } else if ($complemento == "") {
+            monstrarMensagem('Digite um Complemento', '', 'error');
             $('#clientePessoaFisica-campo-complemento').focus();
             return false;
         } else {
             monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         }
-        $nome = $('#clientePessoaFisica-campo-nome').val();
-        $cpf = $('#clientePessoaFisica-campo-cpf').val();
-        $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
-        $limiteCredito = $('#clientePessoaFisica-campo-limiteCredito').val();
-        $email = $('#clientePessoaFisica-campo-email').val();
-        $telefone = $('#clientePessoaFisica-campo-telefone').val();
-        $cep = $('#clientePessoaFisica-campo-cep').val();
-        $rua = $('#clientePessoaFisica-campo-rua').val();
-        $numero = $('#clientePessoaFisica-campo-numero').val();
-        $bairro = $('#clientePessoaFisica-campo-bairro').val();
-        $cidade = $('#clientePessoaFisica-campo-cidade').val();
-        $uf = $('#clientePessoaFisica-campo-uf').val();
-        $complemento = $('#clientePessoaFisica-campo-complemento').val();
 
         if ($idAlterar == -1) {
             inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento);

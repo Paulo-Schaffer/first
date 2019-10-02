@@ -19,7 +19,19 @@
 
         ]
     });
-});
+    $('#botao-salvar').on('click', function () {
+        function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
+            new PNotify({
+                title: titulo,
+                text: texto,
+                icon: 'icofont icofont-info-circle',
+                type: tipo
+            });
+        }
+        $nomeBanco = $("#campo-banco").val();
+        $nomeAgencia = $("#campo-nomeAgencia").val();
+        $numeroAgencia = $("#campo-numeroAgencia").val();
 
         //Validação
         if ($nomeBanco == "") {

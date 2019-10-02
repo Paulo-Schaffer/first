@@ -12,8 +12,6 @@ namespace TccFirst.Controllers
     {
         private HistoricoRepository repository;
 
-        public int ConvertToInt32 { get; private set; }
-
         public HistoricoController()
         {
             repository = new HistoricoRepository();
@@ -95,19 +93,21 @@ namespace TccFirst.Controllers
         {
             var historicos = repository.ObterTodos();
 
-            List<object> ObterTodosSelect2 = new List<object>();
+            List<object> historicoSelect2 =
+                new List<object>();
             foreach (Historico historico in historicos)
             {
-                ObterTodosSelect2.Add(new
+                historicoSelect2.Add(new
                 {
                     id = historico.Id,
                     text = historico.Descricao
+
 
                 });
             }
             var resultado = new
             {
-                results = ObterTodosSelect2
+                results = historicoSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }

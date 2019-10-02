@@ -49,7 +49,6 @@ namespace TccFirst.Controllers
 
         #endregion
 
-
         [HttpGet, Route("obtertodos")]
         public JsonResult ObterTodos()
         {

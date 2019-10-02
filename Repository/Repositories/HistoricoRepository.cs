@@ -17,6 +17,7 @@ namespace Repository.Repositories
                 context = new SistemaContext();
             }
 
+
             public bool Alterar(Historico historico)
             {
                 var historicoOriginal = context.Historicos
@@ -52,13 +53,17 @@ namespace Repository.Repositories
 
             public Historico ObterPeloId(int id)
             {
-                var historico = context.Historicos.FirstOrDefault(x => x.Id == id);
+                var historico = context.Historicos
+                     .FirstOrDefault(x => x.Id == id);
                 return historico;
             }
 
             public List<Historico> ObterTodos()
             {
-                return context.Historicos.Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
+                return context.Historicos
+                   .Where(x => x.RegistroAtivo == true)
+                   .OrderBy(x => x.Id)
+                   .ToList();
             }
         }
     }

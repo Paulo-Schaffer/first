@@ -11,13 +11,8 @@ namespace Model
     [Table("caixas")]
     public class Caixa
     {
-        public const int FiltroSemHistorico = 0;
-
         [Key, Column("id")]
         public int Id { get; set; }
-
-        [Column("Operacao")]
-        public bool Operacao { get; set; }
         [Column("descricao")]
         public string Descricao { get; set; }
 
@@ -33,6 +28,8 @@ namespace Model
         [Column("data_lancamento")]
         public DateTime DataLancamento { get; set; }
 
+        [Column("operacao")]
+        public string Operacao { get; set; }
 
         #region fk_historico
         [Column("id_historicos")]
