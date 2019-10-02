@@ -9,13 +9,17 @@ namespace Repository.Interfaces
 {
     public interface ICaixaRepository 
     {
-        int Inserir(Caixa caixa);
 
         bool Alterar(Caixa caixa);
 
+        bool Apagar(int id);
+
+        int Inserir(Caixa caixa);
+
         List<Caixa> ObterTodos();
 
-        bool Apagar(int id);
+        List<Caixa> ObterTodosRelatorio(/*DateTime dataLancamento,*/ int idHistorico, string descricao, int valor);
+
 
         Caixa ObterPeloId(int id);
 

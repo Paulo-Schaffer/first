@@ -41,6 +41,117 @@ namespace Repository
 
             #endregion
 
+            #region Transação
+            var transacao = new List<Transacao>();
+            transacao.Add(new Transacao()
+            {
+                Id = 1,
+                DescricaoTransacao = "Recebimento de venda de produto",
+                Documento = "1-2",
+                TipoPagamento = "Dinheiro",
+                Valor = 100,
+                DataLancamento = Convert.ToDateTime("2019-01-02"),
+                DataRecebimento = Convert.ToDateTime("2019-01-02"),
+                IdCadastrosContaCorrente = 1,
+                //IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true,
+            });
+            transacao.Add(new Transacao()
+            {
+                Id = 2,
+                DescricaoTransacao = "Recebimento de venda de produto",
+                Documento = "1-2",
+                TipoPagamento = "Dinheiro",
+                Valor = 101,
+                DataLancamento = Convert.ToDateTime("2019-01-02"),
+                DataRecebimento = Convert.ToDateTime("2019-01-02"),
+                IdCadastrosContaCorrente = 1,
+                //IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true,
+            });
+            transacao.Add(new Transacao()
+            {
+                Id = 3,
+                DescricaoTransacao = "Recebimento de venda de produto",
+                Documento = "3-2",
+                TipoPagamento = "Dinheiro",
+                Valor = 300,
+                DataLancamento = Convert.ToDateTime("2019-01-05"),
+                DataRecebimento = Convert.ToDateTime("2019-01-05"),
+                IdCadastrosContaCorrente = 1,
+                //IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true,
+            });
+            transacao.Add(new Transacao()
+            {
+                Id = 4,
+                DescricaoTransacao = "Recebimento de venda de produto",
+                Documento = "4-2",
+                TipoPagamento = "Dinheiro",
+                Valor = 150,
+                DataLancamento = Convert.ToDateTime("2019-01-05"),
+                DataRecebimento = Convert.ToDateTime("2019-01-05"),
+                IdCadastrosContaCorrente = 1,
+                //IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true,
+            });
+            transacao.Add(new Transacao()
+            {
+                Id = 5,
+                DescricaoTransacao = "Recebimento de venda de produto",
+                Documento = "5-2",
+                TipoPagamento = "Dinheiro",
+                Valor = 1545,
+                DataLancamento = Convert.ToDateTime("2019-01-05"),
+                DataRecebimento = Convert.ToDateTime("2019-01-05"),
+                IdCadastrosContaCorrente = 1,
+                //IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true,
+            }); transacao.Add(new Transacao()
+            {
+                Id = 6,
+                DescricaoTransacao = "Recebimento de venda de produto",
+                Documento = "1-2",
+                TipoPagamento = "Dinheiro",
+                Valor = 515,
+                DataLancamento = Convert.ToDateTime("2019-01-10"),
+                DataRecebimento = Convert.ToDateTime("2019-01-10"),
+                IdCadastrosContaCorrente = 1,
+                //IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true,
+            });
+            transacao.Add(new Transacao()
+            {
+                Id = 7,
+                DescricaoTransacao = "Recebimento de venda de produto",
+                Documento = "7-2",
+                TipoPagamento = "Dinheiro",
+                Valor = 750,
+                DataLancamento = Convert.ToDateTime("2019-01-10"),
+                DataRecebimento = Convert.ToDateTime("2019-01-10"),
+                IdCadastrosContaCorrente = 1,
+                //IdCategoriaDespesa = 1,
+                IdCategoriaReceita = 1,
+                IdHistorico = 1,
+                RegistroAtivo = true,
+            });
+            context.Transacoes.AddRange(transacao);
+
+
+            #endregion
+
             #region caixa
 
 
@@ -247,117 +358,6 @@ namespace Repository
             context.Caixas.AddRange(caixas);
             #endregion
 
-            #region Transação
-            var transacao = new List<Transacao>();
-            transacao.Add(new Transacao()
-            {
-                Id = 1,
-                //Descricao = "Recebimento de venda de produto",
-                Documento = "1-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 100,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                DataRecebimento = Convert.ToDateTime("2019-01-02"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 2,
-                //Descricao = "Recebimento de venda de produto",
-                Documento = "1-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 101,
-                DataLancamento = Convert.ToDateTime("2019-01-02"),
-                DataRecebimento = Convert.ToDateTime("2019-01-02"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 3,
-                //Descricao = "Recebimento de venda de produto",
-                Documento = "3-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 300,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                DataRecebimento = Convert.ToDateTime("2019-01-05"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 4,
-                //Descricao = "Recebimento de venda de produto",
-                Documento = "4-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 150,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                DataRecebimento = Convert.ToDateTime("2019-01-05"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 5,
-                //Descricao = "Recebimento de venda de produto",
-                Documento = "5-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 1545,
-                DataLancamento = Convert.ToDateTime("2019-01-05"),
-                DataRecebimento = Convert.ToDateTime("2019-01-05"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            }); transacao.Add(new Transacao()
-            {
-                Id = 6,
-                //Descricao = "Recebimento de venda de produto",
-                Documento = "1-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 515,
-                DataLancamento = Convert.ToDateTime("2019-01-10"),
-                DataRecebimento = Convert.ToDateTime("2019-01-10"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            transacao.Add(new Transacao()
-            {
-                Id = 7,
-                //Descricao = "Recebimento de venda de produto",
-                Documento = "7-2",
-                TipoPagamento = "Dinheiro",
-                Valor = 750,
-                DataLancamento = Convert.ToDateTime("2019-01-10"),
-                DataRecebimento = Convert.ToDateTime("2019-01-10"),
-                IdCadastrosContaCorrente = 1,
-                //IdCategoriaDespesa = 1,
-                IdCategoriaReceita = 1,
-                IdHistorico = 1,
-                RegistroAtivo = true,
-            });
-            context.Transacoes.AddRange(transacao);
-
-
-            #endregion
-
             #region categoriaDespesa
             var categoriaDespesa = new List<CategoriaDespesa>();
             categoriaDespesa.Add(new CategoriaDespesa()
@@ -488,7 +488,7 @@ namespace Repository
                     Status = "Pendente",
                     DataLancamento = DateTime.Now,
                     DataVencimento = DateTime.Now,
-                    QuantidadeParcela = 4,
+                    QuantidadeParcela = 1,
                     RegistroAtivo = true,
                     IdCategoriaDespesa = 1,
                     IdFornecedor = 1
@@ -502,6 +502,7 @@ namespace Repository
                     ValorTotal = 198,
                     Status = "Pendente",
                     DataLancamento = DateTime.Now,
+                    //DataRecebimento = DateTime.Now,
                     DataVencimento = DateTime.Now,
                     QuantidadeParcela = 5,
                     RegistroAtivo = true,
@@ -705,7 +706,7 @@ namespace Repository
                     ValorTotal = 1999,
                     QuantidadeParcela = 1,
                     Descricao = "Titulo feio por Paulo",
-
+                    
                     RegistroAtivo = true,
                 }
 
@@ -718,3 +719,4 @@ namespace Repository
 
     }
 }
+

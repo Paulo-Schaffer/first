@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.Grafico;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,51 @@ namespace Repository.Repositories
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
 
+        }
+
+        public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
+        {
+
+            return context.Database
+                .SqlQuery<FluxoCaixa>(@"
+                    SELECT FORMAT(transacoes.data_lancamento, 'yyyy-MM-dd') AS data, SUM(valor) as valor
+                    FROM transacoes 
+                    GROUP BY FORMAT(transacoes.data_lancamento, 'yyyy-MM-dd')
+                    ").ToList();
+            /*
+             * WHERE 
+	YEAR(transacoes.data_lancamento) >= 2019 AND
+	MONTH(transacoes.data_lancamento) >= 01 AND
+	DAY(transacoes.data_lancamento) >= 02 AND
+	YEAR(transacoes.data_lancamento) <= 2019 AND
+	MONTH(transacoes.data_lancamento) <= 01 AND
+	DAY(transacoes.data_lancamento) <= 12 */
+        }
+
+        public List<Transacao> ObterTodosRelatorio(int idReceita, int IdDespesa, string documento)
+        {
+            var query = context
+                .Transacoes
+                .Where(x => x.RegistroAtivo);
+
+            if (idReceita != Transacao.FiltroSemReceita)
+            {
+                query = query.Where(x => x.IdCategoriaReceita == idReceita);
+            }
+            if (IdDespesa != Transacao.FiltroSemReceita)
+            {
+                query = query.Where(x => x.IdCategoriaDespesa == IdDespesa);
+            }
+
+            if (!string.IsNullOrEmpty(documento))
+            {
+                query = query.Where(x => x.Documento.Contains(documento));
+            }
+            //if(dataLancamento != null)
+            //{
+            //    query = query.Where(x => x.DataLancamento.Date == dataLancamento.Date);
+            //}
+            return query.ToList();
         }
 
         public bool Apagar(int id)

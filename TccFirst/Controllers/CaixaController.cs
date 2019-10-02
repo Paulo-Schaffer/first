@@ -1,4 +1,4 @@
-﻿using Model;
+﻿    using Model;
 using Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace TccFirst.Controllers
     {
         private CaixaRepository repository;
 
-        public CaixaController()
+        public CaixaController() 
         {
             repository = new CaixaRepository();
         }
@@ -31,6 +31,14 @@ namespace TccFirst.Controllers
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public JsonResult ObterTodosRelatorio (/*DateTime dataLancamento, */int idHistorico = 0, string descricao = "", int valor = 0)
+        {
+            var caixa = repository.ObterTodosRelatorio(/*dataLancamento, */idHistorico, descricao, valor);
+            var resultado = new { data = caixa };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost, Route("inserir")]
         public JsonResult Inserir(Caixa caixa)
         {
@@ -65,22 +73,23 @@ namespace TccFirst.Controllers
         {
             var caixas = repository.ObterTodos();
 
-            List<object> caixasSelect2 =
-                new List<object>();
+            List<object> ObterTodosSelect2 = new List<object>();
             foreach (Caixa caixa in caixas)
             {
-                caixasSelect2.Add(new
+                ObterTodosSelect2.Add(new
                 {
                     id = caixa.Id,
-                    text = caixa.Descricao
+                    text = caixa.Descricao,
+                    idHistorico = caixa.IdHistoricos,
 
                 });
             }
             var resultado = new
             {
-                results = caixasSelect2
+                results = ObterTodosSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+      
     }
 }

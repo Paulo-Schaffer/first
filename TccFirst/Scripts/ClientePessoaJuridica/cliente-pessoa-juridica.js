@@ -188,81 +188,54 @@ $(function () {
             { 'data': 'Cidade' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" id="botao-editar" data-id="' + row.Id + '"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar" id="botao-apagar" data-id="' + row.Id + '"><i class="fa fa-trash"></i>Apagar</button>'
+                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
                 }
             }
         ]
     });
     $('#clientePessoaJuridica-botao-salvar').on('click', function () {
-        
-        function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
-            new PNotify({
-                title: titulo,
-                text: texto,
-                icon: 'icofont icofont-info-circle',
-                type: tipo
-            });
-        }
-
-        $razaoSocial= $('#clientePessoaJuridica-campo-razaoSocial').val();
-        $atividade= $('#clientePessoaJuridica-campo-atividade').val();
-        $nomeFantasia= $('#clientePessoaJuridica-campo-nomeFantasia').val();
-        $dataCadastro= $('#clientePessoaJuridica-campo-dataCadastro').val();
-        $cnpj= $('#clientePessoaJuridica-campo-cnpj').val();
-        $email= $('#clientePessoaJuridica-campo-email').val();
-        $filial= $('#clientePessoaJuridica-campo-filial').val();
-        $telefone= $('#clientePessoaJuridica-campo-telefone').val();
-        $cep= $('#clientePessoaJuridica-campo-cep').val();
-        $logradouro= $('#clientePessoaJuridica-campo-logradouro').val();
-        $numero= $('#clientePessoaJuridica-campo-numero').val();
-        $bairro= $('#clientePessoaJuridica-campo-bairro').val();
-        $uf= $('#clientePessoaJuridica-campo-uf').val();
-        $cidade= $('#clientePessoaJuridica-campo-cidade').val();
-
-            //Validação
-        if ($razaoSocial == "") {
-            monstrarMensagem('Digite a Razão Social', '', 'error');
-            $("#clientePessoaJuridica-campo-razaoSocial").focus();
+        if ($('#clientePessoaJuridica-campo-razaoSocial').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Razão Social </div>');
+            $('#clientePessoaJuridica-campo-razaoSocial').focus();
             return false;
-        } else if ($atividade == "") {
-            monstrarMensagem('Digite a Atividade', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-atividade').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Atividade </div>');
             $('#clientePessoaJuridica-campo-atividade').focus();
             return false;
-        } else if ($nomeFantasia == "") {
-            monstrarMensagem('Digite o Nome Fantasia', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-nomeFantasia').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Nome Fantasia </div>');
             $('#clientePessoaJuridica-campo-nomeFantasia').focus();
             return false;
-        } else if ($dataCadastro == "") {
-            monstrarMensagem('Digite a Data Cadastro', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-dataCadastro').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Data Cadastro </div>');
             $('#clientePessoaJuridica-campo-dataCadastro').focus();
             return false;
-        } else if ($cnpj == "") {
-            monstrarMensagem('Digite o Cnpj', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-cnpj').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo CNPJ </div>');
             $('#clientePessoaJuridica-campo-cnpj').focus();
             return false;
-        } else if ($email == "") {
-            monstrarMensagem('Digite o E-mail', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-email').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo E-Mail </div>');
             $('#clientePessoaJuridica-campo-email').focus();
             return false;
-        } else if ($filial == "") {
-            monstrarMensagem('Digite a Filial', '', 'error');
-            $('#clientePessoaJuridica-campo-filial').focus();
-            return false;
-        } else if ($telefone == "") {
-            monstrarMensagem('Digite o Telefone', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-telefone').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Telefone </div>');
             $('#clientePessoaJuridica-campo-telefone').focus();
             return false;
-        } else if ($cep == "") {
-            monstrarMensagem('Digite o Cep', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-cep').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo CEP </div>');
             $('#clientePessoaJuridica-campo-cep').focus();
             return false;
-        } else if ($logradouro == "") {
-            monstrarMensagem('Digite o Logradouro', '', 'error');
-            $('#clientePessoaJuridica-campo-logradouro').focus();
-            return false;
-        } else if ($numero == "") {
-            monstrarMensagem('Digite o Número', '', 'error');
+
+        } else if ($('#clientePessoaJuridica-campo-numero').val() == "") {
+            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Numero </div>');
             $('#clientePessoaJuridica-campo-numero').focus();
             return false;
         } else if ($bairro == "") {
