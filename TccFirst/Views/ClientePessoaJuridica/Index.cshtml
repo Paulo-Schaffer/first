@@ -1,8 +1,6 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
-<div class="container">
     <h2><b>Cliente Pessoa Juridica</b></h2>
     <hr />
     <button data-toggle="modal" id="botao-novoCliente" data-target="#modal-clientePessoaJuridica" class="btn float-right"><i class="fa fa-plus"></i>Novo Cliente</button>
@@ -25,7 +23,7 @@
 </table>
 
 @RenderPage("CadastroPessoaJuridica.cshtml")
-
+    <link href="~/Content/css/ClientePessoaJuridica/TelaIndexPessoaJuridica.css" rel="stylesheet" />
 @section js {
     <script src="~/Scripts/ClientePessoaJuridica/cliente-pessoa-juridica.js"></script>
 }

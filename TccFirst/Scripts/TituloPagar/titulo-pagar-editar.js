@@ -48,6 +48,7 @@ $(function () {
             }
         ]
     });
+
     $('#tituloPagar-botao-salvar').on('click', function () {
 
         $Fornecedor = $("#tituloPagar-campo-fornecedor").val();
@@ -134,9 +135,9 @@ $(function () {
                 id: $idAlterar
             },
             success: function (data) {
-                $("#modal-parcelaPagar").modal("hide");
-                $idAlterar = -1;
                 $tabelaParcelas.ajax.reload();
+                $idAlterar = -1;
+                $("#modal-parcelaPagar").modal("hide");
             },
             error: function (err) {
                 alert("Não foi possível alterar");
