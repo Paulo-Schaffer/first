@@ -3,17 +3,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista de Funcionarios</h2>
-
-<button data-toggle="modal" data-target="#modal-funcionario" class="btn btn-info float-right">
-    <i class="fa fa-plus"></i>Novo Funcionario</button>
-<table id="funcionario-tabela" class="table table-hover table-bordered table-striped">
+<h2><b>Lista de Funcionarios</b></h2>
+<hr />
+<button data-toggle="modal" data-target="#modal-funcionario" class="btn float-right" id="botao-novoFuncionario"><i class="fa fa-plus"></i>Novo Funcionario</button>
+<br />
+<br />
+<br />
+<table id="funcionario-tabela" class="table table-light table-hover table-striped table-border-style">
     <thead>
         <tr>
             <th>Código</th>
             <th>Nome do funcionário</th>
-            <th>Tipo do funcionário</th>
-            <th>Usuario</th>
+            <th width="25%">Tipo do funcionário</th>
+            <th width="25%">Usuario</th>
             <th>Ação</th>
         </tr>
     </thead>
@@ -23,3 +25,4 @@
 @section js{
     <script src="~/Scripts/Funcionario/Funcionario-index.js"></script>
     }
+    <link href="~/Content/css/Funcionario/TelaIndexFuncionario.css" rel="stylesheet" />

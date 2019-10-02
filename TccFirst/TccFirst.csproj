@@ -116,6 +116,8 @@
     <Content Include="Content\css\ClientePesssoaFisica\TelaIndexPessoaFisica.css" />
     <Content Include="Content\css\do-utilizador.png" />
     <Content Include="Content\css\first.png" />
+    <Content Include="Content\css\Funcionario\TelaCadastroFuncionario.css" />
+    <Content Include="Content\css\Funcionario\TelaIndexFuncionario.css" />
     <Content Include="Content\css\Historico\TelaCadastroHistorico.css" />
     <Content Include="Content\css\Historico\TelaIndexHistorico.css" />
     <Content Include="Content\css\Fornecedor\TelaCadastroFornecedor.css" />
