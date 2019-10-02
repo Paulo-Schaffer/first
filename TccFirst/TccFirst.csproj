@@ -129,6 +129,8 @@
     <Content Include="Content\css\TituloPagar\TelaCadastroTituloPagar.css" />
     <Content Include="Content\css\TituloPagar\TelaEditarTituloPagar.css" />
     <Content Include="Content\css\TituloPagar\TelaIndexTituloPagar.css" />
+    <Content Include="Content\css\TituloPagar\TelaInformacaoBasicaTituloPagar.css" />
+    <Content Include="Content\css\TituloReceber\TelaInformacaoBasicaTituloReceber.css" />
     <Content Include="Content\css\usuario-do-homem %281%29.png" />
     <Content Include="Content\css\Teste\teste.css" />
     <Content Include="Content\css\TituloReceber\TelaCadastroTituloReceber.css" />
@@ -5853,6 +5855,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\css\CategoriaDespesa\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />

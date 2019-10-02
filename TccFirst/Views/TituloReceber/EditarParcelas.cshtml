@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <span class="font-weight-bold">Quantidade de Parcelas:</span>
+                    <span id="fonte-parcelas" class="font-weight-bold">Quantidade de Parcelas:</span>
                     <span>@ViewBag.TituloReceber.QuantidadeParcela</span>
                 </div>
             </div>
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <span class="font-weight-bold">Valor Total:</span>
+                    <span id="fonte-valortotal" class="font-weight-bold">Valor Total:</span>
                     <span>R$ @ViewBag.TituloReceber.ValorTotal</span>
                 </div>
             </div>
@@ -49,16 +49,12 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label form="parcelasReceber-campo-data-recebimento" mas>Data Recebimento<span class="text-danger">*</span></label>
+                            <label id="fonte-recebimento" form="parcelasReceber-campo-data-recebimento" mas>Data Recebimento<span class="text-danger">*</span></label>
                             <input type="date" id="parcelasReceber-campo-data-recebimento" class="form-control" name="DataRecebimento" />
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="parcelasReceber-botao-salvar">
-                        <i class="fa fa-floppy-o"></i> Salvar
-                    </button>
-                </div>
+                <button id="parcelasReceber-botao-salvar" class="btn float-right mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
             </div>
         </div>
     </div>  
@@ -67,3 +63,5 @@
 @section js{
     <script src="~/Scripts/TituloReceber/titulo-receber-editar.js"></script>
 }
+
+    <link href="~/Content/css/TituloReceber/TelaEditarTituloReceber.css" rel="stylesheet" />

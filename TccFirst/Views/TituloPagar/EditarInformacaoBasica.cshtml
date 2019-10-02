@@ -2,22 +2,22 @@
     <form action="/tituloPagar/editar" method="post">
         <div class="row">
             <div class="col-12">
-                <a class="btn btn-info float-right mb-3"
-                   href="/TituloPagar/index">Ir para tabela</a>
+                <a id="botao-irtabela" class="btn float-right form-group"
+                   href="/TituloPagar/index"><i class="fa fa-backward"></i>Ir para tabela</a>
             </div>
             <input type="hidden" name="id" value="@ViewBag.TituloPagar.Id" />
         </div>
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-fornecedor">Fornecedores</label>
+                    <label  id="fonte-fornecedor" for="tituloPagar-campo-fornecedor">Fornecedores</label>
                     <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-categoria-despesa">Categoria despesas<span class="text-danger">*</span></label>
+                    <label id="fonte-categoria" for="tituloPagar-campo-categoria-despesa">Categoria despesas<span class="text-danger">*</span></label>
                     <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
                 </div>
             </div>
@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-forma-pagamento">Forma de Pagamento</label>
+                    <label id="fonte-pagamento" for="tituloPagar-campo-forma-pagamento">Forma de Pagamento</label>
                     <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                             @if (ViewBag.TituloPagar.FormaPagamento == "Dinheiro")
                         {
@@ -59,7 +59,7 @@
 
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-status">Status</label>
+                    <label id="fonte-status" for="tituloPagar-campo-status">Status</label>
                     <select class="form-control" id="tituloPagar-campo-status" name="Status">
                         @if (ViewBag.TituloPagar.Status == "Pendente")
                         {
@@ -94,18 +94,18 @@
             <div class="col-6 ml-4">
                 <div class="form-check">
                     <input type="checkbox" id="tituloPagar-campo-caixa" class="form-check-input" />
-                    <label for="tituloPagar-campo-caixa" class="form-check-label">Caixa</label>
+                    <label id="fonte-caixa" for="tituloPagar-campo-caixa" class="form-check-label">Caixa</label>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" id="tituloPagar-campo-banco" class="form-check-input" />
-                    <label for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
+                    <label id="fonte-banco" for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-data-lancamento">Data de Lancamento</label>
+                    <label id="fonte-lancamento" for="tituloPagar-campo-data-lancamento">Data de Lancamento</label>
                     <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control"
                            name="DataLancamento" value="@ViewBag.TituloPagar.DataLancamento.ToString("yyyy-MM-dd")" />
                 </div>
@@ -113,7 +113,7 @@
 
             <div class="col-6">
                 <div class="form-group">
-                    <label form="tituloPagar-campo-data-vencimento">Data Vencimento</label>
+                    <label id="fonte-vencimento" form="tituloPagar-campo-data-vencimento">Data Vencimento</label>
                     <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control"
                            name="DataVencimento" value="@ViewBag.TituloPagar.DataVencimento.ToString("yyyy-MM-dd")" />
                 </div>
@@ -122,13 +122,13 @@
 
         <div class="row">
             <div class="col-6">
-                <label for="tituloPagar-campo-valor-total" style="display: block">Valor Total</label>
+                <label id="fonte-valor" for="tituloPagar-campo-valor-total" style="display: block">Valor Total</label>
                 <span type="text" id="tituloPagar-campo-valor-total">R$ @ViewBag.TituloPagar.ValorTotal</span>
             </div>
         
             <div class="col-6">
                 <div class="form-group">
-                    <label for="tituloPagar-campo-quantidade-parcela">Quantidade de Parcelas</label>
+                    <label id="fonte-parcela" for="tituloPagar-campo-quantidade-parcela">Quantidade de Parcelas</label>
                     <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" name="QuantidadeParcela" value="@ViewBag.TituloPagar.QuantidadeParcela" />
                 </div>
             </div>
@@ -138,18 +138,13 @@
             <div class="col-12">
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="tituloPagar-campo-descricao">Descricao</label>
+                        <label id="fonte-descricao" for="tituloPagar-campo-descricao">Descricao</label>
                         <textarea id="tituloPagar-campo-descricao" class="form-control" name="Descricao">@ViewBag.TituloPagar.Descricao</textarea>
                     </div>
                 </div>
             </div>
         </div> 
-
-        <div class="modal-footer">
-            <button class="btn btn-grd-success float-left mt-3" type="submit" id="tituloPagar-botao-salvar">
-                <i class="fa fa-save"></i> Salvar
-            </button>
-        </div>
+        <button id="botao-salvar" class="btn float-right mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
     </form>
 </div>
 
@@ -158,4 +153,4 @@
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
 
-    <link href="~/Content/css/TituloPagar/TelaEditarTituloPagar.css" rel="stylesheet" />
+    <link href="~/Content/css/TituloPagar/TelaInformacaoBasicaTituloPagar.css" rel="stylesheet" />

@@ -1,2 +1,43 @@
 ﻿body {
 }
+
+.botao-editar {
+    margin-right: auto;
+    margin-top: auto;
+    background-color: darkblue;
+    border-color: mediumblue;
+    width: 60px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+#gerar-parcelas {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
+
+#fonte-recebimento {
+    color: black;
+    font-weight: bold;
+}
+
+#parcelasReceber-botao-salvar {
+    height: 40px;
+    width: 160px;
+    color: white;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+}
+
+#fonte-parcelas {
+    color: black;
+    font-weight: bold;
+}
+
+#fonte-valortotal {
+    color: black;
+    font-weight: bold;
+}
