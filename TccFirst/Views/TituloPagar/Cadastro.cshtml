@@ -2,24 +2,26 @@
     <h2><b>Cadastro de Titulo Pagar</b></h2>
     <hr />
     <div>
-        <a id="botao-irtabela" class="btn float-right form-group"
+        <a id="botao-irtabela" class="btn float-right color:gray form-group"
            href="/TituloPagar/index"><i class="fa fa-backward"></i>Ir para tabela</a>
     </div>
+    <br />
+    <br />
     <br />
 
     <form action="/titulopagar/cadastro" method="post">
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label  id="fonte-fornecedor"for="tituloPagar-campo-fornecedor">Fornecedores<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
+                    <label id="fonte-fornecedor"for="tituloPagar-campo-fornecedor">Fornecedores<span class="text-danger">*</span></label>
+                    <select  class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-categoria"for="tituloPagar-campo-categoria-despesa">Categoria despesas<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
+                    <select class="form-control border-dark" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
                 </div>
             </div>
         </div>
@@ -28,7 +30,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-pagamento"for="tituloPagar-campo-forma-pagamento">Forma de Pagamento<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
+                    <select class="form-control border-dark" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                         <option disabled="disabled" selected="selected"  id="campo-pagamento" >Selecione uma forma de pagamento</option>
                         <option value="Dinheiro">Dinheiro</option>
                         <option value="Cartão de Débito">Cartão de Débito</option>
@@ -40,7 +42,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-status" for="tituloPagar-campo-status">Status<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-status" name="Status">
+                    <select class="form-control border-dark" id="tituloPagar-campo-status" name="Status">
                         <option disabled="disabled" selected="selected">Selecione um status</option>
                         <option value="Pendente">Pendente</option>
                         <option value="Pago">Pago</option>
@@ -51,14 +53,17 @@
         </div>
 
         <div class="row">
-            <div class="col-6 ml-4">
+            <div class="col-1"></div>
+            <div class="col-6">
                 <div class="form-check">
                     <input type="checkbox" id="tituloPagar-campo-caixa" class="form-check-input" />
-                    <label id="fonte-caixa" for="tituloPagar-campo-caixa" class="form-check-label">Caixa</label>
+                    <label id="fonte-caixa" for="tituloPagar-campo-caixa" class="form-check-label border-dark">Caixa</label>
                 </div>
+                </div>
+            <div class="col-4">
                 <div class="form-check">
                     <input type="checkbox" id="tituloPagar-campo-banco" class="form-check-input" />
-                    <label id="fonte-banco" for="tituloPagar-campo-banco" class="form-check-label">Banco</label>
+                    <label id="fonte-banco" for="tituloPagar-campo-banco" class="form-check-label border-dark">Banco</label>
                 </div>
             </div>
         </div>
@@ -67,14 +72,14 @@
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-lancamento" for="tituloPagar-campo-data-lancamento">Data de Lançamento<span class="text-danger">*</span></label>
-                    <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control" name="DataLancamento" />
+                    <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control border-dark" name="DataLancamento" />
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-vencimento" form="tituloPagar-campo-data-vencimento">Data Vencimento<span class="text-danger">*</span></label>
-                    <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control" name="DataVencimento" />
+                    <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control border-dark" name="DataVencimento" />
                 </div>
             </div>
         </div>
@@ -83,14 +88,14 @@
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-parcela" for="tituloPagar-campo-quantidade-parcela">Quantidade de Parcelas<span class="text-danger">*</span></label>
-                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control" name="QuantidadeParcela" />
+                    <input type="number" id="tituloPagar-campo-quantidade-parcela" class="form-control border-dark" name="QuantidadeParcela" />
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-valor" for="tituloPagar-campo-valor-total">Valor Total<span class="text-danger">*</span></label>
-                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control" name="ValorTotal" />
+                    <input type="text" id="tituloPagar-campo-valor-total" class="form-control border-dark" name="ValorTotal" />
                 </div>
             </div>
         </div>
@@ -100,7 +105,7 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label id="fonte-descricao" for="tituloPagar-campo-descricao">Descrição<span class="text-danger">*</span></label>
-                        <textarea id="tituloPagar-campo-descricao" class="form-control" rows="3" name="Descricao"></textarea>
+                        <textarea id="tituloPagar-campo-descricao" class="form-control border-dark" rows="3" name="Descricao"></textarea>
                     </div>
                 </div>
             </div>

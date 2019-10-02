@@ -5733,9 +5733,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
-    <Content Include="Views\Nova pasta\Caixa\caixa-cadastro.js" />
-    <Content Include="Views\Nova pasta\Caixa\caixa-index.js" />
-    <Content Include="Views\Nova pasta\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Views\Transacao\Cadastro.cshtml" />
     <Content Include="Views\Transacao\Index.cshtml" />
     <Content Include="Web.config" />
@@ -5828,8 +5825,6 @@
     <Content Include="Views\CadastroContaCorrente\Index.cshtml" />
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\MovimentacaoFinanceiraEntrada\Index.cshtml" />
-    <Content Include="Views\MovimentacaoFinanceiraEntrada\CadastroMovimentacaoFinanceiraEntrada.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\Relatorio\FluxoCaixa.cshtml" />
@@ -5861,12 +5856,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\CategoriaDespesa\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
-    <Folder Include="Views\MovimentacaoFinanceiraSaida\" />
     <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>

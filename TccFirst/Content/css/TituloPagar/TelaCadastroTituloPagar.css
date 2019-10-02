@@ -17,6 +17,9 @@
     background-color: mediumseagreen;
     border-radius: 5px;
 }
+.tituloPagar-campo-fornecedor{
+    padding:0;
+}
 
 #fonte-fornecedor {
     color: black;

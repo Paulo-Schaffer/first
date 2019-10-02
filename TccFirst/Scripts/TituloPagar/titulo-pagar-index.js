@@ -40,11 +40,11 @@ $(function () {
             {
                 render: function (data, type, row) {
                     return "\
-                    <a class='btn btn-primary botao-editar fa fa-edit'\
+                    <a class='btn btn-primary botao-editar'\
                         href='/titulopagar/editar?id=" + row.Id + "'\
-                        data-id=" + row.Id + "> Editar</a>\
-                    <button class='btn btn-danger botao-apagar fa fa-trash'\
-                        data-id=" + row.Id + "> Apagar</button>";
+                        data-id=" + row.Id + "><i class=' fa fa-edit'></i> Editar</a>\
+                    <button class='btn btn-danger botao-apagar'\
+                        data-id=" + row.Id + "><i class=' fa fa-trash'></i> Apagar</button>";
                 }
             }
         ]

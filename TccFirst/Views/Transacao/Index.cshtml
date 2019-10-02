@@ -46,14 +46,14 @@
                             <td>@transacao.DataLancamento</td>
                             <td>@transacao.DataRecebimento</td>
                             <td>
-                                <div style="margin-left: 5px">
-                                    <a id="botao-editar" class="btn btn-primary float-right mb-3" href="/transacao/editar?id=@transacao.Id">
-                                        <i class="fa fa-edit"></i>Editar
+                                <div style="margin-left: 20px">
+                                    <a id="botao-apagar" class="btn float-right" href="/transacao/apagar?id=@transacao.Id">
+                                        <i class="fa fa-trash"></i>Apagar
                                     </a>
                                 </div>
-                                <div style="margin-right: 110px">
-                                    <a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/transacao/apagar?id=@transacao.Id">
-                                        <i class="fa fa-trash"></i>Apagar
+                                <div style="margin-right: 130px">
+                                    <a id="botao-editar" class="btn float-right" href="/transacao/editar?id=@transacao.Id">
+                                        <i class="fa fa-edit"></i>Editar
                                     </a>
                                 </div>
 
