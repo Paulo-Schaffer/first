@@ -73,5 +73,14 @@ namespace Repository.Repositories
                 .Include("CategoriaDespesa")
                 .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
+        public List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
+        {
+            return context.Database
+                .SqlQuery<GraficoTitulo>(@"
+                    SELECT FORMAT(titulos_pagar.data_lancamento, 'yyyy-MM-dd') AS data,  SUM(valor_total) as valor
+                    FROM titulos_pagar 
+                    GROUP BY FORMAT(titulos_pagar.data_lancamento, 'yyyy-MM-dd')
+                    ").ToList();
+        }
     }
 }

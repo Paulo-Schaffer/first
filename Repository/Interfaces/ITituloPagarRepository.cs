@@ -18,5 +18,7 @@ namespace Repository.Interfaces
         TituloPagar ObterPeloId(int id);
 
         bool Apagar(int id);
+
+        List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal);
     }
 }
