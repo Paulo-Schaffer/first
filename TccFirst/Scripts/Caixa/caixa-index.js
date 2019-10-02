@@ -111,37 +111,30 @@ $(function () {
             monstrarMensagem('Digite Descrição', '', 'error');
             $('#caixa-campo-descricao').focus();
             return false;
-
-        } else if ($('#caixa-campo-documento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Documento </div>');
+        } else if ($documento == "") {
+            monstrarMensagem('Digite o Documento', '', 'error');
             $('#caixa-campo-documento').focus();
             return false;
-        } else if ($('#caixa-campo-valor').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Preencha o campo Valor </div>');
+        } else if ($valor == "") {
+            monstrarMensagem('Digite o Valor', '', 'error');
             $('#caixa-campo-valor').focus();
             return false;
-        } else if ($('#caixa-campo-forma-pagamento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a forme de Pagamento</div>');
+        } else if ($formaPagamento == undefined) {
+            monstrarMensagem('Selecione a Forma de Pagamento', '', 'error');
             $('#caixa-campo-forma-pagamento').focus();
             return false;
-        } else if ($('#caixa-campo-data-lancamento').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione a Data de Lançamento </div>');
+        } else if ($dataLancamento == "") {
+            monstrarMensagem('Digite a Data de Lançamneto', '', 'error');
             $('#caixa-campo-data-lancamento').focus();
             return false;
-        } else if ($('#caixa-campo-historico').val() == "") {
-            $('#msg-error').html('<div class="alert alert-danger" role="alert">Selecione o Historico </div>');
-            $('#caixa-campo-historico').focus();
+        } else if ($IdHistoricos == undefined) {
+            monstrarMensagem('Selecione o Histórico', '', 'error');
+            $('#caixa-campo-historico').select2('open');
             return false;
         } else {
             monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         }
 
-        $descricao = $('#caixa-campo-descricao').val();
-        $documento = $('#caixa-campo-documento').val();
-        $formaPagamento = $('#caixa-campo-forma-pagamento').val();
-        $valor = $('#caixa-campo-valor').val();
-        $dataLancamento = $('#caixa-campo-data-lancamento').val();
-        $IdHistoricos = $('#caixa-campo-historico').val();
         if ($idAlterar == -1) {
             inserir($operacao, $descricao, $documento, $formaPagamento, $valor, $dataLancamento, $IdHistoricos);
         } else {

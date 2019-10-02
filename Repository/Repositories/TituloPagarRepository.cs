@@ -1,5 +1,4 @@
 ﻿using Model;
-using Model.Grafico;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -37,16 +36,6 @@ namespace Repository.Repositories
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
 
-        }
-
-        public List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
-        {
-            return context.Database
-                .SqlQuery<GraficoTitulo>(@"
-                    SELECT FORMAT(titulos_pagar.data_lancamento, 'yyyy-MM-dd') AS data,  SUM(valor_total) as valor
-                    FROM titulos_pagar 
-                    GROUP BY FORMAT(titulos_pagar.data_lancamento, 'yyyy-MM-dd')
-                    ").ToList();
         }
 
         public bool Apagar(int id)

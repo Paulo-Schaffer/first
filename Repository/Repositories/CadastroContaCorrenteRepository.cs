@@ -17,16 +17,16 @@ namespace Repository.Repositories
             context = new SistemaContext();
         }
 
-        public bool Alterar(CadastroContaCorrente cadastrocontacorrente)
+        public bool Alterar(CadastroContaCorrente cadastrosContaCorrente)
         {
-            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrocontacorrente.Id);
-            if (cadastrocontacorrente == null)
+            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
+            if (cadastrosContaCorrente == null)
             {
                 return false;
             }
 
-            cadastrocontacorrente.IdAgencia = cadastrocontacorrente.IdAgencia;
-            cadastrocontacorrente.NumeroConta = cadastrocontacorrente.NumeroConta;
+            cadastrosContaCorrente.IdAgencia = cadastrosContaCorrente.IdAgencia;
+            cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }

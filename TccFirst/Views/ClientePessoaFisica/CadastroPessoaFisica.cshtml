@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Cadastrar Cliente pessoa Fisica</h5>
+                <h5 class="modal-title"><b>Cadastrar Cliente pessoa Fisica</b></h5>
                 <button type="button" class="close" data-dismiss="modal" arial-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,28 +11,28 @@
                 <span id="msg-error"></span>
                 <div class="row">
                     <div class="col-6">
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-nome">Nome</label>
+                        <div id="fonte" class="form-group">
+                            <label for="clientePessoaFisica-campo-nome">Nome<span class="text-danger">*</span></label>
                             <input type="text" required="required" id="clientePessoaFisica-campo-nome" class="form-control" />
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-cpf">Cpf</label>
+                    <div  class="col-6">
+                        <div id="fonte" class="form-group">
+                            <label for="clientePessoaFisica-campo-cpf">Cpf<span class="text-danger">*</span></label>
                             <input type="text" id="clientePessoaFisica-campo-cpf" class="form-control" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-dataNascimento">Data de Nascimento</label>
+                        <div id="fonte" class="form-group">
+                            <label for="clientePessoaFisica-campo-dataNascimento">Data de Nascimento<span class="text-danger">*</span></label>
                             <input type="date" id="clientePessoaFisica-campo-dataNascimento" class="form-control" />
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="form-group">
-                            <label for="clientePessoaFisica-campo-limiteCredito">Limite de Crédito</label>
+                        <div id="fonte" class="form-group">
+                            <label for="clientePessoaFisica-campo-limiteCredito">Limite de Crédito<span class="text-danger">*</span></label>
                             <input type="text" id="clientePessoaFisica-campo-limiteCredito" class="form-control" />
                         </div>
                     </div>
@@ -120,11 +120,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="clientePessoaFisica-batao-salvar">
-                    <i class="fa fa-floppy-o"></i> Salvar
+                <button type="button" class="btn btn-outline-danger" id="botao-cancelar" data-dismiss="modal"><i class="fa fa-window-close"></i> Cancelar</button>
+
+                <button type="button" class="btn" id="clientePessoaFisica-batao-salvar">
+                    <i class="fa fa-save"></i> Salvar
                 </button>
             </div>
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" href="~/Content/css/ClientePesssoaFisica/TelaCadastroPessoaFisica.css">
