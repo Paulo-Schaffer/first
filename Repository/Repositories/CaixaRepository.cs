@@ -61,7 +61,7 @@ namespace Repository.Repositories
         {
             return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
-        public List<Caixa> ObterTodosRelatorio(/*DateTime dataLancamento, */int idHistorico, string descricao, int valor)
+        public List<Caixa> ObterTodosRelatorio(DateTime dataLancamentoInicial, int idHistorico, string descricao, int valor)
         {
             var query = context
                 .Caixas
@@ -75,10 +75,14 @@ namespace Repository.Repositories
             {
                 query = query.Where(x => x.Descricao.Contains(descricao));
             }
-            //if(dataLancamento != null)
-            //{
-            //    query = query.Where(x => x.DataLancamento.Date == dataLancamento.Date);
-            //}
+            if (dataLancamentoInicial != null)
+            {
+                query = query.Where(x => x.DataLancamento.Date == dataLancamentoInicial.Date);
+            }
+            if (valor != 0)
+            {
+                query = query.Where(x => x.Valor == valor);
+            }
 
             return query.ToList();
         }
@@ -91,7 +95,7 @@ namespace Repository.Repositories
                     FROM caixas 
                     GROUP BY FORMAT(caixas.data_lancamento, 'yyyy-MM-dd')
                     ").ToList();
-      
+
         }
     }
 

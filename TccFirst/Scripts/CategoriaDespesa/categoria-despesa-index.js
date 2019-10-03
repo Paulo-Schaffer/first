@@ -13,9 +13,7 @@
 <button class="btn botao-apagar" data-id="' + row.Id + '"><i class=" fa fa-trash"></i> Apagar</button>'
 
                 }
-
             }
-
         ]
     });
 
@@ -99,7 +97,6 @@
                             success: function (data) {
                                 $tabelaCategoriaDespesa.ajax.reload();
                             },
-
                             error: function (err) {
                                 alert('Não foi possível apagar');
                             }

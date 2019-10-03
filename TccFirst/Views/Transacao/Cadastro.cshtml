@@ -44,7 +44,7 @@
                     <option selected="" disabled="disabled">Selecione uma Categoria Receita</option>
                     @foreach (Model.CategoriaReceita categoriaReceita in ViewBag.CategoriasReceita)
                     {
-                        <option  value="@categoriaReceita.Id">@categoriaReceita.TipoCategoriaReceita</option>
+                        <option value="@categoriaReceita.Id">@categoriaReceita.TipoCategoriaReceita</option>
 
                     }
                 </select>
@@ -92,7 +92,7 @@
 
             <div class="col-6">
                 <lable id="fonte" for="campo-datarecebimento">Data Recebimento<span class="text-danger">*</span></lable>
-                <input data-mask="00/00/0000" data-mask-selectonfocus="true" type="date" id="campo" name="datarecebimento" class="form-control" required />
+                <input type="date" id="campo" name="datarecebimento" class="form-control" required />
             </div>
         </div>
         <div class="row">
@@ -109,13 +109,5 @@
     </form>
 </div>
 
-<script src="~/Scripts/Transacao/Transacao.js"></script>
-
-
-
-
-
-
-
-
+<script src="~/Scripts/Transacao/tela-cadastro.js"></script>
 

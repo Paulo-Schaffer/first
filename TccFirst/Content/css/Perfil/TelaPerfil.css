@@ -1,0 +1,23 @@
+﻿body {
+}
+#campo-nome {
+    border-color: black;
+    height: 35px;
+    width: 250px;   
+    border-width:1px;
+}
+#campo-usuario-login {
+    border-color: black;
+    height: 35px;
+    width: 250px;
+    border-width: 1px;
+}
+#campo-tipo-usuario {
+    border-color: black;
+    height: 35px;
+    width: 250px;
+    border-width: 1px;
+}
+#fonte {
+    font-weight: bold;
+}
