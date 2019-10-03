@@ -132,9 +132,11 @@ $(function () {
                 id: $idAlterar
             },
             success: function (data) {
+                alert('eae');
                 $tabelaParcelas.ajax.reload();
                 $idAlterar = -1;
-                $("#modal-parcelaPagar").modal("hide");
+                $("#modal-parcelasPagar").modal("show");
+                $(".modal-backdrop").hide();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
