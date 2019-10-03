@@ -1,0 +1,5 @@
+﻿.linha-vertical {
+    height: 500px; /*Altura da linha*/
+    border-left: 2px solid; /* Adiciona borda esquerda na div como ser fosse uma linha.*/
+    margin:600px;
+}
