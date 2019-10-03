@@ -29,8 +29,8 @@
                 <td>@agencia.NomeAgencia</td>
                 <td>@agencia.NumeroAgencia</td>
                 <td>
-                        <a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/agencia/apagar?id=@agencia.Id"><i class="fa fa-trash"></i>Apagar </a>
-                        <a id="botao-editar" class="btn btn-primary float-right mb-3" href="/agencia/editar?id=@agencia.Id"><i class="fa fa-edit"></i>Editar</a>
+                    @*<a id="botao-apagar" class="btn btn-danger float-right mb-3" href="/agencia/apagar?id=@agencia.Id"><i class="fa fa-trash"></i>Apagar </a>*@
+                    <a id="botao-editar" class="btn botao-editar float-right mb-3" href="/agencia/editar?id=@agencia.Id"><i class="fa fa-edit"></i>Editar</a>
                 </td>
             </tr>
         }
@@ -41,23 +41,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#agencia-tabela').DataTable({
-            "language": {
-                "lengthMenu": "Mostrando _MENU_ registros por página",
-                "zeroRecords": "Nada encontrado - Desculpe",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
-                "infoEmpty": "Nenhum registro disponivel",
-                "infoFiltered": "(filtrado de _MAX_ registros no total)",
-                "search": "Procurar:"
-            }
-        });
+@*<script>
+        $(document).ready(function () {
+            $('#agencia-tabela').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Nada encontrado - Desculpe",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum registro disponivel",
+                    "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                    "search": "Procurar:"
+                }
+            });
 
-    });
-</script>
+        });
+    </script>*@
 @section js{
-<script src="~/Scripts/Agencia/Agencia.js"></script>
+    <script src="~/Scripts/Agencia/Agencia.js"></script>
 }
 
 
