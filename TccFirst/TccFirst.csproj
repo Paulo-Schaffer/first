@@ -129,6 +129,7 @@
     <Content Include="Content\css\login2.png" />
     <Content Include="Content\css\login %282%29.png" />
     <Content Include="Content\css\paginaInicial\paginaInicial.css" />
+    <Content Include="Content\css\Replaces.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\TelaLogin.css" />

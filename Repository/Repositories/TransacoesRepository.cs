@@ -86,7 +86,7 @@ namespace Repository.Repositories
                     FROM transacoes 
                     GROUP BY FORMAT(transacoes.data_lancamento, 'yyyy-MM-dd')
                     ").ToList();
-      
+
         }
         public List<Transacao> ObterTodosRelatorio(int idReceita, int IdDespesa, string documento)
         {
@@ -98,7 +98,7 @@ namespace Repository.Repositories
             {
                 query = query.Where(x => x.IdCategoriaReceita == idReceita);
             }
-            if (IdDespesa != Transacao.FiltroSemReceita)
+            if (IdDespesa != Transacao.FiltroSemDespesa)
             {
                 query = query.Where(x => x.IdCategoriaDespesa == IdDespesa);
             }
