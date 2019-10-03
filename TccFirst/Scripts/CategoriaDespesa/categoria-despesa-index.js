@@ -13,9 +13,7 @@
 <button class="btn botao-apagar" data-id="' + row.Id + '"><i class=" fa fa-trash"></i> Apagar</button>'
 
                 }
-
             }
-
         ]
     });
 

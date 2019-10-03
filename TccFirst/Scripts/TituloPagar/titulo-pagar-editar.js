@@ -132,7 +132,6 @@ $(function () {
                 id: $idAlterar
             },
             success: function (data) {
-                alert('eae');
                 $tabelaParcelas.ajax.reload();
                 $idAlterar = -1;
                 $("#modal-parcelasPagar").modal("show");
