@@ -29,7 +29,7 @@
     });
     $('#clientePessoaJuridica-campo-cnpj').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
-            $('#clientePessoaJuridica-campo-email').focus();
+            $('#clientePessoaJuridica-campo--dataCadastro').focus();
         } else if (e.keyCode == 37 || e.keyCode == 38) {
             $('#clientePessoaJuridica-campo-dataCadastro').focus();
         }
@@ -103,6 +103,58 @@
         }
     });
 });
+$(document).ready(function () {
+
+    // Adicionamos o evento onclick ao botão com o ID "pesquisar"
+    $('#clientePessoaJuridica-campo-cnpj').blur(function () {
+
+
+        // Aqui recuperamos o cnpj preenchido do campo e usamos uma expressão regular para limpar da string tudo aquilo que for diferente de números
+        var cnpj = $('#clientePessoaJuridica-campo-cnpj').val().replace(/[^0-9]/g, '');
+
+        // Fazemos uma verificação simples do cnpj confirmando se ele tem 14 caracteres
+        if (cnpj.length == 14) {
+
+            // Aqui rodamos o ajax para a url da API concatenando o número do CNPJ na url
+            $.ajax({
+                url: 'https://www.receitaws.com.br/v1/cnpj/' + cnpj,
+                method: 'GET',
+                dataType: 'jsonp', // Em requisições AJAX para outro domínio é necessário usar o formato "jsonp" que é o único aceito pelos navegadores por questão de segurança
+                complete: function (xhr) {
+
+                    // Aqui recuperamos o json retornado
+                    response = xhr.responseJSON;
+
+                    // Na documentação desta API tem esse campo status que retorna "OK" caso a consulta tenha sido efetuada com sucesso
+                    if (response.status == 'OK') {
+
+                        // Agora preenchemos os campos com os valores retornados                        
+                        $('#clientePessoaJuridica-campo-nomeFantasia').val(response.fantasia);                       
+                        $('#clientePessoaJuridica-campo-email').val(response.email);
+                        $('#clientePessoaJuridica-campo-razaoSocial').val(response.nome);
+                        $('#clientePessoaJuridica-campo-nomeFantasia').val(response.fantasia);
+                        $('#clientePessoaJuridica-campo-logradouro').val(response.logradouro);
+                        $('#clientePessoaJuridica-campo-cep').val(response.cep);
+                        $('#clientePessoaJuridica-campo-telefone').val(response.telefone);
+                        $('#clientePessoaJuridica-campo-numero').val(response.numero);
+                        $('#clientePessoaJuridica-campo-bairro').val(response.bairro);
+                        $('#clientePessoaJuridica-campo-cidade').val(response.municipio);
+                        $('#clientePessoaJuridica-campo-uf').val(response.uf);
+
+
+                        // Aqui exibimos uma mensagem caso tenha ocorrido algum erro
+                    } else {
+                        alert(response.message); // Neste caso estamos imprimindo a mensagem que a própria API retorna
+                    }
+                }
+            });
+
+            // Tratativa para caso o CNPJ não tenha 14 caracteres
+        } else {
+            alert('CNPJ inválido');
+        }
+    });
+})
 $(document).ready(function () {
 
     function limpa_formulário_cep() {
