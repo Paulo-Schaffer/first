@@ -132,10 +132,12 @@
             }
         });
     });
+
     function LimparCampos() {
         $("#categoria-despesa-campo-despesa").val("");
         $idAlterar = -1;
     }
+
     $('#modal-categoria-despesa').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })

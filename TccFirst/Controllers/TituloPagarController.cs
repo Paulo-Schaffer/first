@@ -83,13 +83,22 @@ namespace TccFirst.Controllers
         //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         //}
 
-        [HttpGet, Route("tituloPagar/obtertodosselect")]
+        [HttpGet, Route("tituloPagar/obtertodosselect2")]
         public JsonResult ObterTodosSelect(string termo)
         {
             var tituloPagars = repository.ObterTodos();
             List<object> ObterTodosSelect2 = new List<object>();
             foreach (TituloPagar tituloPagar in tituloPagars)
             {
+                if (tituloPagar.Id == 1)
+                {
+                    ObterTodosSelect2.Add(new
+                    {
+                        id = tituloPagar.Id,
+                        text = tituloPagar.Descricao,
+                        selected = true,
+                    });
+                }
                 ObterTodosSelect2.Add(new
                 {
                     id = tituloPagar.Id,

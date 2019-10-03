@@ -41,13 +41,12 @@ $(function () {
                 render: function (data, type, row) {
                     return "\
                     <button class='btn btn-primary botao-editar fa fa-edit'\
-                        data-id" + row.Id + "'\
                         data-id=" + row.Id + "> Editar</button>";
-
                 }
             }
         ]
     });
+
     $('#tituloPagar-botao-salvar').on('click', function () {
 
         $Fornecedor = $("#tituloPagar-campo-fornecedor").val();
@@ -98,10 +97,10 @@ $(function () {
             monstrarMensagem('Selecione uma Data de Lançamento', '', 'error');
             $("#tituloPagar-campo-data-lancamento").focus();
             return false;
-        //} else if ($DataRecebimento == '') {
-        //    monstrarMensagem('Selecione uma Data Recebimento', '', 'error');
-        //    $("#tituloPagar-campo-data-recebimento").focus();
-        //    return false;
+            //} else if ($DataRecebimento == '') {
+            //    monstrarMensagem('Selecione uma Data Recebimento', '', 'error');
+            //    $("#tituloPagar-campo-data-recebimento").focus();
+            //    return false;
         } else if ($DataVencimento == '') {
             monstrarMensagem('Selecione uma Data de Vencimento', '', 'error');
             $("#tituloPagar-campo-data-vencimento").focus();
@@ -110,19 +109,18 @@ $(function () {
             monstrarMensagem('Digite uma Quantidade de Parcelas', '', 'error');
             $("#tituloPagar-campo-quantidade-parcela").val();
             return false;
-        } 
+        }
         else if ($Descricao == '') {
             monstrarMensagem('Digite uma Descrição', '', 'error');
             $("#tituloPagar-campo-descricao").val();
             return false;
-        } 
+        }
         //else if ($Valor == '') {
         //    monstrarMensagem('Digite um Valor', '', 'error');
         //    $("#tituloPagar-campo-valor").val();
         //    return false;
         //} 
-        }
-    );
+    });
 
     $('#parcelasPagar-botao-salvar').on('click', function () {
         $dataPagamento = $('#parcelasPagar-campo-data-pagamento').val();
@@ -134,9 +132,11 @@ $(function () {
                 id: $idAlterar
             },
             success: function (data) {
-                $("#modal-parcelaPagar").modal("hide");
-                $idAlterar = -1;
+                alert('eae');
                 $tabelaParcelas.ajax.reload();
+                $idAlterar = -1;
+                $("#modal-parcelasPagar").modal("show");
+                $(".modal-backdrop").hide();
             },
             error: function (err) {
                 alert("Não foi possível alterar");
@@ -163,8 +163,7 @@ $(function () {
             url: '/parcelasPagar/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
-                $('#parcelasPagar-campo-data-pagamentoz').val(data.DataPagamento);
-                $('#parcelasPagar-campo-status').val(data.Status);
+                $('#parcelasPagar-campo-data-pagamento').val(data.DataPagamento);
                 $('#modal-parcelasPagar').modal('show');
             },
             error: function (err) {
@@ -173,6 +172,53 @@ $(function () {
         });
     });
 
+    function inserir($DataPagamento) {
+        $.ajax({
+            url: "/parcelasPagar/inserir",
+            method: "post",
+            data: {
+                DataPagamento: $DataPagamento,
+            },
+            success: function (data) {
+                LimparCampos();
+                $('#modal-parcelasPagar').modal('hide');
+                $(".modal-backdrop").hide();
+                $tabelaParcelas.ajax.reload();
+            },
+            error: function (err) {
+            }
+        });
+    }
+
+    function alterar($DataPagamento) {
+        $.ajax({
+            url: "/parcelasPagar/update",
+            method: "post",
+            data: {
+                id: $idAlterar,
+                DataPagamento: $DataPagamento
+            },
+            success: function (data) {
+                $('#modal-parcelasPagar').modal('hide');
+                LimparCampos();
+                $idAlterar = -1;
+                $tabelaParcelas.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possivel alterar");
+            }
+        });
+    }
+
+    function LimparCampos() {
+        $(".modal-backdrop").hide();
+        $('#parcelasPagar-campo-data-pagamento').val("");
+        $idAlterar = -1;
+    }
+
+    $('#modal-parcelasPagar').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
 });
 
 

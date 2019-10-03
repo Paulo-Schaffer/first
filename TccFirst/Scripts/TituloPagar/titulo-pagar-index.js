@@ -85,7 +85,7 @@ $(function () {
             method: 'get',
             success: function (data) {
                 $('#tituloPagar-campo-fornecedor').val(data.Fornecedor);
-                $('#tituloPagar-campo-categoria-despesa').val(data.TipoFuncionario);
+                $('#tituloPagar-campo-categoria-despesa').val(data.CategoriaDespesa);
                 $('#tituloPagar-campo-forma-pagamento').val(data.FormaPagamento);
                 $('#tituloPagar-campo-caixa').val(data.Caixa);
                 $('#tituloPagar-campo-status').val(data.Status);
@@ -99,9 +99,5 @@ $(function () {
             }
         });
     });
-
-  
-        
-       
 });
 

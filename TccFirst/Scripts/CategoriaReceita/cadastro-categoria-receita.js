@@ -72,6 +72,7 @@ function inserir($categoriaReceita) {
             TipoCategoriaReceita: $categoriaReceita,
         },
         success: function (data) {
+            LimparCampos();
             $('#modal-categoria-receita').modal('hide');
             $(".modal-backdrop").hide();
             $tabelaCategoriaReceita.ajax.reload();
@@ -130,5 +131,15 @@ $('.table').on('click', '.botao-editar', function () {
             alert('não foi possível carregar');
         }
     });
-});
+    });
+
+    function LimparCampos() {
+        $("#categoria-despesa-campo-despesa").val("");
+        $idAlterar = -1;
+    }
+
+    $('#modal-categoria-receita').on('hidden.bs.modal', function (e) {
+        LimparCampos();
+    })
+    
 });

@@ -1,5 +1,7 @@
 ﻿
 @{
+    /**/
+
     ViewBag.Title = "Index";
 }
 
@@ -11,4 +13,63 @@ else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
 {
     <h1> Bem Vindo, @Session["UsuarioLogadoNome"]</h1>
 }
+<hr />
+<div class="row">
+    <div class="col-6">
 
+
+                <div class="col-lg-8">
+                    <div class="card bg-c-green text-white widget-visitor-card">
+                        <div class="card-block-small text-center">
+                            <h5>R$@ViewBag.ContasReceber</h5>
+                            <h6>Contas Receber</h6>
+                            <i class="icofont icofont-paper"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="col-lg-6">
+                    <div class="card bg-c-pink text-white widget-visitor-card">
+                        <div class="card-block-small text-center">
+                            <h5>R$@ViewBag.ContasPagar</h5>
+                            <h6 class="text-dark">Contas Pagar</h6>
+                            <i class="icofont icofont-paper"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (@ViewBag.Saldo < 0)
+        {
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-lg">
+                        <div class="card bg-c-pink text-white widget-visitor-card">
+                            <div class="card-block-small text-center">
+                                <h3>Valor Total</h3>
+                                <h2>R$@ViewBag.Saldo</h2>
+                                <i class="icofont icofont-paper"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-lg">
+                        <div class="card bg-c-blue text-white widget-visitor-card">
+                            <div class="card-block-small text-center">
+                                <h3>Valor Total</h3>
+                                <h2>R$@ViewBag.Saldo</h2>
+                                <i class="icofont icofont-paper"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+<hr />
