@@ -10,15 +10,17 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label  id="fonte-fornecedor" for="tituloPagar-campo-fornecedor">Fornecedores</label>
-                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor"></select>
+                    <label  id="fonte-fornecedor" for="tituloPagar-campo-fornecedor">Fornecedores<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor" value="@ViewBag.TituloPagar.IdFornecedor">
+
+                    </select>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-categoria" for="tituloPagar-campo-categoria-despesa">Categoria despesas<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa"></select>
+                    <select class="form-control" id="tituloPagar-campo-categoria-despesa" name="IdCategoriaDespesa" value="@ViewBag.TituloPagar.IdCategoriaDespesa"></select>
                 </div>
             </div>
         </div>
@@ -26,7 +28,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label id="fonte-pagamento" for="tituloPagar-campo-forma-pagamento">Forma de Pagamento</label>
+                    <label id="fonte-pagamento" for="tituloPagar-campo-forma-pagamento">Forma de Pagamento<span class="text-danger">*</span></label>
                     <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
                             @if (ViewBag.TituloPagar.FormaPagamento == "Dinheiro")
                         {
@@ -59,7 +61,7 @@
 
             <div class="col-6">
                 <div class="form-group">
-                    <label id="fonte-status" for="tituloPagar-campo-status">Status</label>
+                    <label id="fonte-status" for="tituloPagar-campo-status">Status<span class="text-danger">*</span></label>
                     <select class="form-control" id="tituloPagar-campo-status" name="Status">
                         @if (ViewBag.TituloPagar.Status == "Pendente")
                         {
@@ -105,7 +107,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label id="fonte-lancamento" for="tituloPagar-campo-data-lancamento">Data de Lancamento</label>
+                    <label id="fonte-lancamento" for="tituloPagar-campo-data-lancamento">Data de Lancamento<span class="text-danger">*</span></label>
                     <input type="date" id="tituloPagar-campo-data-lancamento" class="form-control"
                            name="DataLancamento" value="@ViewBag.TituloPagar.DataLancamento.ToString("yyyy-MM-dd")" />
                 </div>
@@ -113,7 +115,7 @@
 
             <div class="col-6">
                 <div class="form-group">
-                    <label id="fonte-vencimento" form="tituloPagar-campo-data-vencimento">Data Vencimento</label>
+                    <label id="fonte-vencimento" form="tituloPagar-campo-data-vencimento">Data Vencimento<span class="text-danger">*</span></label>
                     <input type="date" id="tituloPagar-campo-data-vencimento" class="form-control"
                            name="DataVencimento" value="@ViewBag.TituloPagar.DataVencimento.ToString("yyyy-MM-dd")" />
                 </div>
@@ -138,7 +140,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <div class="form-group">
-                        <label id="fonte-descricao" for="tituloPagar-campo-descricao">Descricao</label>
+                        <label id="fonte-descricao" for="tituloPagar-campo-descricao">Descricao<span class="text-danger">*</span></label>
                         <textarea id="tituloPagar-campo-descricao" class="form-control" name="Descricao">@ViewBag.TituloPagar.Descricao</textarea>
                     </div>
                 </div>

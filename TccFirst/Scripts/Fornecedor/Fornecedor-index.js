@@ -372,8 +372,8 @@ $(function () {
     });
 
 });
-$(function () {
 
+$(function () {
     // Ao pressionar o botão enter focar no próximo campo
     $('#fornecedor-nome-razaoSocial').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
@@ -414,7 +414,6 @@ $(function () {
             $('#fornecedor-campo-telefone').focus();
         }
     });
-
     $('#fornecedor-campo-email').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
             $('#fornecedor-campo-telefone').focus();
