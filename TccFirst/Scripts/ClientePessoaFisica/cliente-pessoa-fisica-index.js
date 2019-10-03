@@ -217,7 +217,8 @@ $(function () {
             }
         ]
     });
-        $('#clientePessoaFisica-batao-salvar').on('click', function () {
+
+    $('#clientePessoaFisica-batao-salvar').on('click', function () {
         $nome = $('#clientePessoaFisica-campo-nome').val();
         $cpf = $('#clientePessoaFisica-campo-cpf').val();
         $dataNascimento = $('#clientePessoaFisica-campo-dataNascimento').val();
@@ -337,6 +338,7 @@ $(function () {
             }
         })
     }
+
     function LimparCampos() {
         $(".modal-backdrop").hide();
         $('#clientePessoaFisica-campo-nome').val("");
@@ -353,11 +355,12 @@ $(function () {
         $('#clientePessoaFisica-campo-complemento').val("");
         $idAlterar = -1;
     }
+
     $('#modal-clientePessoaFisica').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })
 
-    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento) {
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento){
         $.ajax({
             url: '/clientePessoaFisica/inserir',
             method: 'post',
@@ -428,33 +431,34 @@ $(function () {
 
         });
     });
-$('.table').on('click', '.botao-editar', function () {
-    $idAlterar = $(this).data('id');
 
-    $.ajax({
-        url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,
-        method: 'get',
-        success: function (data) {
-            $('#clientePessoaFisica-campo-nome').val(data.Nome);
-            $('#clientePessoaFisica-campo-cpf').val(data.Cpf);
-            var dataNascimento = moment(data.DataNascimento);
-            console.log();
-            $('#clientePessoaFisica-campo-dataNascimento').val(dataNascimento.format('YYYY-MM-DD'));
-            $('#clientePessoaFisica-campo-limiteCredito').val(data.LimiteCredito);
-            $('#clientePessoaFisica-campo-email').val(data.Email);
-            $('#clientePessoaFisica-campo-telefone').val(data.Telefone);
-            $('#clientePessoaFisica-campo-cep').val(data.Cep);
-            $('#clientePessoaFisica-campo-numero').val(data.Numero);
-            $('#clientePessoaFisica-campo-bairro').val(data.Bairro);
-            $('#clientePessoaFisica-campo-cidade').val(data.Cidade);
-            $('#clientePessoaFisica-campo-uf').val(data.Uf);
-            $('#clientePessoaFisica-campo-complemento').val(data.Complemento);
-            $('#modal-clientePessoaFisica').modal('show');
-        },
-        error: function (err) {
-            alert('não foi possível carregar');
-        }
+    $('.table').on('click', '.botao-editar', function () {
+        $idAlterar = $(this).data('id');
+
+        $.ajax({
+            url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                $('#clientePessoaFisica-campo-nome').val(data.Nome);
+                $('#clientePessoaFisica-campo-cpf').val(data.Cpf);
+                var dataNascimento = moment(data.DataNascimento);
+                console.log();
+                $('#clientePessoaFisica-campo-dataNascimento').val(dataNascimento.format('YYYY-MM-DD'));
+                $('#clientePessoaFisica-campo-limiteCredito').val(data.LimiteCredito);
+                $('#clientePessoaFisica-campo-email').val(data.Email);
+                $('#clientePessoaFisica-campo-telefone').val(data.Telefone);
+                $('#clientePessoaFisica-campo-cep').val(data.Cep);
+                $('#clientePessoaFisica-campo-numero').val(data.Numero);
+                $('#clientePessoaFisica-campo-bairro').val(data.Bairro);
+                $('#clientePessoaFisica-campo-cidade').val(data.Cidade);
+                $('#clientePessoaFisica-campo-uf').val(data.Uf);
+                $('#clientePessoaFisica-campo-complemento').val(data.Complemento);
+                $('#modal-clientePessoaFisica').modal('show');
+            },
+            error: function (err) {
+                alert('não foi possível carregar');
+            }
+        });
+
     });
-    
-});
 });
