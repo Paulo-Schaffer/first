@@ -457,12 +457,12 @@ namespace Repository
             clientesPessoaJuridica.Add(new ClientePessoaJuridica()
             {
                 Id = 2,
-                RazaoSocial = "HBSIS",
-                Atividade = "Sistemas e SoftWares",
-                NomeFantasia = "HBSIS",
+                RazaoSocial = "FG",
+                Atividade = "Construção Civil",
+                NomeFantasia = "FG",
                 DataCadastro = Convert.ToDateTime("14/06/2009"),
                 Cnpj = "83.590.870/0001-95",
-                Email = "HBSIS@gmail.com",
+                Email = "FG@gmail.com",
                 Filial = "XX",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
