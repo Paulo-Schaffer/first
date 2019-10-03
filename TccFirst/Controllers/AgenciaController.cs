@@ -70,20 +70,31 @@ namespace TccFirst.Controllers
         [HttpPost, Route("editar")]
         public ActionResult Editar(Agencia agencia)
         {
-            var alterou = repository.Alterar(agencia);
+           var alterou = repository.Alterar(agencia);
             var resultado = new { status = alterou };
             return RedirectToAction("Index", new { id = resultado });
 
         }
-
-        [HttpGet]
         public ActionResult Editar(int id)
         {
             var agencia = repository.ObterPeloId(id);
             ViewBag.Agencia = agencia;
             return View();
         }
+        [HttpGet, Route("agencia")]
+        public JsonResult ObterPeloId(int id)
+        {
+            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
+        [HttpPost]
+        public JsonResult Update (Agencia agencia)
+        {
+            var alterou = repository.Alterar(agencia);
+            var resultado = new { status = alterou };
+            return Json(resultado);
+        }
 
         #region obtertodosselect2
 
