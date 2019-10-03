@@ -97,7 +97,6 @@
                             success: function (data) {
                                 $tabelaCategoriaDespesa.ajax.reload();
                             },
-
                             error: function (err) {
                                 alert('Não foi possível apagar');
                             }

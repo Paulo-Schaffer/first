@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -8,7 +7,7 @@
 
 <button data-toggle="modal" data-target="#modal-categoria-receita" class="btn float-right" id="botao-novaCategoria"><i class="fa fa-plus"></i>Nova Categoria</button>
 <br />
-    
+
 <table id="categoria-receita-tabela" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
@@ -20,7 +19,7 @@
 </table>
 @RenderPage("CadastroCategoriaReceita.cshtml")
 @section js{
-<script src="~/Scripts/CategoriaReceita/cadastro-categoria-receita.js"></script>
-    }
+    <script src="~/Scripts/CategoriaReceita/cadastro-categoria-receita.js"></script>
+}
 <link rel="stylesheet" href="~/Content/css/CategoriaReceita/TelaIndexCategoriaReceita.css" />
 

@@ -71,6 +71,7 @@
                 TipoCategoriaReceita: $categoriaReceita,
             },
             success: function (data) {
+                LimparCampos();
                 $('#modal-categoria-receita').modal('hide');
                 $(".modal-backdrop").hide();
                 $tabelaCategoriaReceita.ajax.reload();
@@ -132,7 +133,7 @@
     });
 
     function LimparCampos() {
-        $("#categoria-despesa-campo-despesa").val("");
+        $("#categoria-receita-campo-receita").val("");
         $idAlterar = -1;
     }
 
