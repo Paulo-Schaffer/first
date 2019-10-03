@@ -118,6 +118,7 @@
     <Content Include="Content\css\first.png" />
     <Content Include="Content\css\Funcionario\TelaCadastroFuncionario.css" />
     <Content Include="Content\css\Funcionario\TelaIndexFuncionario.css" />
+    <Content Include="Content\css\Graficos\Graficos.css" />
     <Content Include="Content\css\Historico\TelaCadastroHistorico.css" />
     <Content Include="Content\css\Historico\TelaIndexHistorico.css" />
     <Content Include="Content\css\Fornecedor\TelaCadastroFornecedor.css" />
@@ -129,7 +130,8 @@
     <Content Include="Content\css\login2.png" />
     <Content Include="Content\css\login %282%29.png" />
     <Content Include="Content\css\paginaInicial\paginaInicial.css" />
-    <Content Include="Content\css\Replaces.css" />
+    <Content Include="Content\css\Perfil\TelaEditarSenha.css" />
+    <Content Include="Content\css\Perfil\TelaPerfil.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\TelaLogin.css" />
@@ -5724,6 +5726,7 @@
     <Content Include="Scripts\TituloReceber\tabela-receber-index.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
+    <Content Include="Scripts\Transacao\tela-cadastro.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -5764,6 +5767,7 @@
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
@@ -5855,6 +5859,9 @@
     <Content Include="Views\Relatorio\RelatorioCaixa.cshtml" />
     <Content Include="Views\Relatorio\RelatorioTransacao.cshtml" />
     <Content Include="Views\GraficoTitulo\Index.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Perfil\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\Perfil\EditarSenha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
