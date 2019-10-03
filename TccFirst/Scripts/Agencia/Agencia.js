@@ -1,8 +1,8 @@
 ﻿$(function () {
     $idAlterar = -1;
 
-    $tabelaAgencia = $('#agencia-cadastro').DataTable({
-        ajax: 'Agencia/obtertodos',
+    $tabelaAgencia = $('#agencia-tabela').DataTable({
+        ajax: '/Agencia/obtertodos',
         serverSide: true,
         columns: [
             { 'data': 'Id' },
@@ -11,10 +11,13 @@
             { 'data': 'NumeroAgencia' },
             {
                 render: function (data, type, row) {
-                    return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
-
+                    return "\
+                   <a class='btn btn-primary botao-editar'\
+                        href='/agencia/editar?id=" + row.Id + "'\
+                        data-id=" + row.Id + "><i class='fa fa-edit'></i>Editar</a>\
+                    <button class='btn btn-danger botao-apagar'\
+                        data-id=" + row.Id + "><i class='fa fa-trash'></i>Apagar</button>";
                 }
-
             }
 
         ]
@@ -49,21 +52,110 @@
         } else {
 
         }
+
+        if ($idAlterar == -1) {
+            inserir($nomeBanco, $nomeAgencia, $numeroAgencia);
+
+        } else {
+            alterar($nomeBanco, $nomeAgencia, $numeroAgencia);
+        }
+
     });
-    //$(function keyup() {
-    //    // Ao pressionar o botão enter focar no próximo campo
-    //    $("#campo-banco").keyup(function (e) {
-    //        if (e.keyCode == 13)
-    //            $("#campo-nomeAgencia").focus();
-    //    });
-    //    $("#campo-nomeAgencia").keyup(function (e) {
-    //        if (e.keyCode == 13)
-    //            $("#campo-numeroAgencia").focus();
-    //    });
-    //    $("#campo-numeroAgencia").keyup(function (e) {
-    //        if (e.keyCode == 13)
-    //            $("#botao-salvar").focus();
-    //    });
-    //});
-        
+    function alterar($nomeBanco, $nomeAgencia, $numeroAgencia) {
+        $.ajax({
+            url: "/agencia/update",
+            method: "post",
+            data: {
+                id: $idAlterar,
+                nomeBanco: $nomeBanco,
+                nomeAgencia: $nomeAgencia,
+                numeroagencia: $numeroAgencia
+            },
+            success: function (data) {
+
+                LimparCampos();
+                $idAlterar = -1;
+                $tabelaAgencia.ajax.reload();
+            },
+            error: function (err) {
+                alert("Não foi possível alterar");
+            }
+        })
+    }
+    function LimparCampos() {
+
+        $("#campo-banco").val("");
+        $("#campo-nomeAgencia").val("");
+        $("#campo-numeroAgencia").val("");
+        $idAlterar = -1;
+    };
+    function inserir($nomeBanco, $nomeAgencia, $numeroAgencia) {
+        $.ajax({
+            url: '/agencia/inserir',
+            method: 'post',
+            data: {
+                NomeBanco: $nomeBanco,
+                nomeAgencia: $nomeAgencia,
+                NumeroAgencia: $numeroAgencia
+            },
+            success: function (data) {
+                LimparCampos();
+                $tabelaAgencia.ajax.reload();
+            },
+            error: function (err) {
+
+            }
+        });
+    }
+
+    $('.table').on('click', '.botao-apagar', function () {
+        $idApagar = $(this).data('id');
+        $.confirm({
+            title: 'Deseja Realmente Apagar?',
+            content: 'Clique no botão apagar para apagar o registro',
+            buttons: {
+                Apagar: {
+                    btnClass: 'btn-red any-other-class',
+                    action: function () {
+                        $.ajax({
+                            url: '/agencia/apagar?id=' + $idApagar,
+                            method: 'get',
+                            success: function (data) {
+                                $tabelaAgencia.ajax.reload();
+                            },
+
+                            error: function (err) {
+                                alert('Não foi possível apagar');
+                            },
+
+                        });
+                    }
+                },
+                cancelar: function () {
+                },
+            }
+
+        });
+    });
+    $('.table').on('click', '.botao-editar', function () {
+        debugger
+        $idAlterar = $(this).data('id');
+
+        $.ajax({
+            url: '/agencia/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                $("#campo-banco").val(data.NomeBanco);
+                $("#campo-nomeAgencia").val(data.NomeAgencia);
+                $("#campo-numeroAgencia").val(data.NumeroAgencia);
+                $tabelaAgencia.ajax.reload();
+
+            },
+            error: function (err) {
+                alert('não foi possível carregar');
+            }
+        });
+
+    });
+
 });
