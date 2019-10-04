@@ -88,5 +88,6 @@ namespace TccFirst.Controllers
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+        
     }
 }

@@ -61,7 +61,7 @@ namespace Repository.Repositories
         {
             return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
-        public List<Caixa> ObterTodosRelatorio(DateTime dataLancamentoInicial, int idHistorico, string descricao, int valor)
+        public List<Caixa> ObterTodosRelatorio(DateTime dataLancamentoInicial, DateTime dataLancamentoFinal, int idHistorico, string descricao, int valor)
         {
             var query = context
                 .Caixas
