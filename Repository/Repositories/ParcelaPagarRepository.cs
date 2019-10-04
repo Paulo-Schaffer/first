@@ -26,8 +26,18 @@ namespace Repository.Repositories
             decimal valorTotal = tituloPagar.ValorTotal;
             decimal valorParcela = valorTotal / tituloPagar.QuantidadeParcela;
             string texto = valorParcela.ToString();
-            int posicaoPonto = texto.IndexOf(",");
-            texto = texto.Substring(0, posicaoPonto) + "," + texto.Substring(posicaoPonto + 1, 2);
+
+            if (texto.Contains(","))
+            {
+
+                int posicaoPonto = texto.IndexOf(",");
+                texto = texto.Substring(0, posicaoPonto) + "," + texto.Substring(posicaoPonto + 1, 2);
+            }
+            else
+            {
+                int posicaoPonto = texto.IndexOf(".");
+                texto = texto.Substring(0, posicaoPonto) + "." + texto.Substring(posicaoPonto + 1, 2);
+            }
             valorParcela = Decimal.Parse(texto);
 
             decimal totalAcumulado = 0;
