@@ -72,6 +72,7 @@ namespace Repository.Repositories
             return context.TitulosReceber
                 .Include("ClientePessoaJuridica")
                 .Include("ClientePessoaFisica")
+                .Include("CategoriaReceita")
                 .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
 
         }

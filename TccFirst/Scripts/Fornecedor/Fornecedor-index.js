@@ -24,6 +24,7 @@
                     if (response.status == 'OK') {
 
                         // Agora preenchemos os campos com os valores retornados
+                        $('#fornecedor-campo-email').val(response.email);
                         $('#fornecedor-nome-razaoSocial').val(response.nome);
                         $('#fornecedor-campo-nomeFantasia').val(response.fantasia);
                         $('#fornecedor-campo-logradouro').val(response.logradouro);
@@ -31,8 +32,8 @@
                         $('#fornecedor-campo-telefone').val(response.telefone);
                         $('#fornecedor-campo-numero').val(response.numero);
                         $('#fornecedor-campo-bairro').val(response.bairro);
-                        $('#fornecedor-campo-cidade').val(response.cidade);
-                        $('#fornecedor-campo-sigla').val(response.estado);
+                        $('#fornecedor-campo-cidade').val(response.municipio);
+                        $('#fornecedor-campo-sigla').val(response.uf);
 
 
                         // Aqui exibimos uma mensagem caso tenha ocorrido algum erro
