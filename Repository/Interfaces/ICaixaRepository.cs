@@ -19,7 +19,7 @@ namespace Repository.Interfaces
 
         Caixa ObterPeloId(int id);
 
-        List<Caixa> ObterTodosRelatorio(DateTime dataInicial, DateTime dataFinal, int idHistorico, string descricao, int valor);
+        List<Caixa> ObterTodosRelatorio(string dataInicial, string dataFinal, int idHistorico, string descricao, int valor);
 
         List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal);
 
