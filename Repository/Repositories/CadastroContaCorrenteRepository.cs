@@ -19,14 +19,15 @@ namespace Repository.Repositories
 
         public bool Alterar(CadastroContaCorrente cadastrosContaCorrente)
         {
-            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
+            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes
+                .FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
             if (cadastrosContaCorrente == null)
             {
                 return false;
             }
 
-            cadastrosContaCorrente.IdAgencia = cadastrosContaCorrente.IdAgencia;
-            cadastrosContaCorrente.NumeroConta = cadastrosContaCorrente.NumeroConta;
+            cadastroContaCorrenteOriginal.IdAgencia = cadastrosContaCorrente.IdAgencia;
+            cadastroContaCorrenteOriginal.NumeroConta = cadastrosContaCorrente.NumeroConta;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
         }
@@ -53,15 +54,17 @@ namespace Repository.Repositories
 
         public CadastroContaCorrente ObterPeloId(int id)
         {
-            return context.CadastroContaCorrentes.Include("Agencias").FirstOrDefault(x => x.Id == id);
+            var contacorrente = context.CadastroContaCorrentes
+                .Include("Agencia")
+               .FirstOrDefault(x => x.Id == id);
+            return contacorrente;
         }
 
         public List<CadastroContaCorrente> ObterTodos()
         {
             return context.CadastroContaCorrentes
                 .Include("Agencia")
-                .Where(x => x.RegistroAtivo == true)
-                .ToList();
+                .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
     }
 }
