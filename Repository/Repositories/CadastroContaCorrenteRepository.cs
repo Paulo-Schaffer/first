@@ -19,7 +19,7 @@ namespace Repository.Repositories
 
         public bool Alterar(CadastroContaCorrente cadastrosContaCorrente)
         {
-            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.FirstOrDefault(x => x.Id == cadastrosContaCorrente.Id);
+            var cadastroContaCorrenteOriginal = context.CadastroContaCorrentes.Where(x => x.Id == cadastrosContaCorrente.Id).FirstOrDefault();
             if (cadastrosContaCorrente == null)
             {
                 return false;
@@ -53,15 +53,17 @@ namespace Repository.Repositories
 
         public CadastroContaCorrente ObterPeloId(int id)
         {
-            return context.CadastroContaCorrentes.Include("Agencias").FirstOrDefault(x => x.Id == id);
+            var contacorrente = context.CadastroContaCorrentes
+                .Include("Agencia.IdAgencia")
+               .FirstOrDefault(x => x.Id == id);
+            return contacorrente;
         }
 
         public List<CadastroContaCorrente> ObterTodos()
         {
             return context.CadastroContaCorrentes
                 .Include("Agencia")
-                .Where(x => x.RegistroAtivo == true)
-                .ToList();
+                .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
     }
 }
