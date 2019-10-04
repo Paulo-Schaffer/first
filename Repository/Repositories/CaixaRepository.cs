@@ -2,6 +2,8 @@
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,8 +63,16 @@ namespace Repository.Repositories
         {
             return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
-        public List<Caixa> ObterTodosRelatorio(DateTime dataLancamentoInicial, DateTime dataLancamentoFinal, int idHistorico, string descricao, int valor)
+        public List<Caixa> ObterTodosRelatorio(string dataInicial, string dataFinal, int idHistorico, string descricao, int valor)
         {
+            if (dataInicial == "")
+            {
+                dataInicial = null;
+            }
+            if (dataFinal == "")
+            {
+                dataFinal = null;
+            }
             var query = context
                 .Caixas
                 .Where(x => x.RegistroAtivo);
@@ -75,9 +85,15 @@ namespace Repository.Repositories
             {
                 query = query.Where(x => x.Descricao.Contains(descricao));
             }
-            if (dataLancamentoInicial != null)
+            if ((dataInicial != null) && (dataFinal != null))
             {
-                query = query.Where(x => x.DataLancamento.Date == dataLancamentoInicial.Date);
+               DateTime dataInicialConvertida = Convert.ToDateTime(dataInicial);
+               DateTime dataFinalConvertida = Convert.ToDateTime(dataFinal);
+                query = query.Where(x => x.DataLancamento == dataInicialConvertida || x.DataLancamento <= dataFinalConvertida);
+                //query = query.Where(x => x.DataLancamento.Date == dataInicial.Date);
+                //query = query.Where(x => x.DataLancamento.Date == dataFinal.Date);
+
+
             }
             if (valor != 0)
             {

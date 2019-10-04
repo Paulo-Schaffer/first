@@ -81,12 +81,12 @@ namespace TccFirst.Controllers
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        //[HttpGet]
-        //public JsonResult ObterTodosRelatorio(DateTime dataLancamentoInicial, DateTime dataLancamentoFinal, int idHistorico = 0, string descricao = "", int valor = 0)
-        //{
-        //    var caixa = repository.ObterTodosRelatorio(dataLancamentoInicial, dataLancamentoFinal, idHistorico, descricao, valor);
-        //    var resultado = new { data = caixa };
-        //    return Json(resultado, JsonRequestBehavior.AllowGet);
-        //}
+        [HttpGet]
+        public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, int idHistorico = 0, string descricao = "", int valor = 0)
+        {
+            var caixa = repository.ObterTodosRelatorio(dataInicial,dataFinal, idHistorico, descricao, valor);
+            var resultado = new { data = caixa };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
     }
 }
