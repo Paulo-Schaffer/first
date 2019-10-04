@@ -75,10 +75,13 @@ namespace Repository.Repositories
             {
                 query = query.Where(x => x.Descricao.Contains(descricao));
             }
-            if ((dataInicial != null)&&(dataFinal != null))
+            if ((dataInicial != null) && (dataFinal != null))
             {
-                query = query.Where(x => x.DataLancamento.Date == dataInicial.Date);
-                query = query.Where(x => x.DataLancamento.Date == dataFinal.Date);
+                query = query.Where(x => x.DataLancamento.Date == dataInicial.Date || x.DataLancamento.Date <= dataFinal.Date);
+                //query = query.Where(x => x.DataLancamento.Date == dataInicial.Date);
+                //query = query.Where(x => x.DataLancamento.Date == dataFinal.Date);
+
+                
             }
             if (valor != 0)
             {

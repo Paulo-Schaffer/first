@@ -1,11 +1,11 @@
 ﻿$(function () {
-
-    $idHistorico = 0;
-    $valor = 0;
-    //$descricao = "";
-    //$dataInicial = null;
-    //$datafinal = null;
-
+    
+        $dataInicial = "";
+        $datafinal = "";
+        $idHistorico = 0;
+        $valor = 0;
+        $descricao = "";
+    
     $("#filtro-historico").select2({
         ajax: {
             url: "/historico/obtertodosselect2",
@@ -28,19 +28,19 @@
             buscarValores();
         }
     });
-    $("#filtro-data-inicial").on("keyup", function (e) {
-        if (e.keyCode === 13) {
+    $("#filtro-data-inicial").on("change", function (e) {
 
             buscarValores();
-        }
+        //if (e.keyCode === 13) {
+
+        //}
     });
-    $("#filtro-data-final").on("keyup", function (e) {
-        if (e.keyCode === 13) {
+    $("#filtro-data-final").on("change", function (e) {
 
             buscarValores();
-        }
+        //if (e.keyCode === 13) {
+        //}
     });
-    $chart = null;
 
 
 
