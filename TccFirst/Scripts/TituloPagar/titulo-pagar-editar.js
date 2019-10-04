@@ -162,6 +162,9 @@ $(function () {
             url: '/parcelasPagar/obterpeloid?id=' + $idAlterar,
             method: 'get',
             success: function (data) {
+                if ($idTituloPagar.Status == "Pago") {
+                    $('.botao-editar') = false;
+                }
                 $('#parcelasPagar-campo-data-pagamento').val(data.DataPagamento);
                 $('#modal-parcelasPagar').modal('show');
             },
