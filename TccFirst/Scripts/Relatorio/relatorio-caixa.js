@@ -33,15 +33,15 @@
     });
     $("#filtro-data-inicial").on("change", function (e) {
 
+            buscarValores();
         if (e.keyCode === 13) {
 
-            buscarValores();
         }
     });
     $("#filtro-data-final").on("change", function (e) {
 
-        if (e.keyCode === 13) {
             buscarValores();
+        if (e.keyCode === 13) {
         }
     });
 
@@ -60,10 +60,10 @@
         if ($controle == 0) {
 
             $tabelaCaixa = $('#relatorio-conta-caixa').DataTable({
-                //dom: 'Bfrtip',
-                //buttons: [
-                //    'copy', 'csv', 'excel', 'pdf', 'print'
-                //],
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
                 ajax: {
                     url: '/caixa/obterTodosRelatorio',
                     data: function (d) {

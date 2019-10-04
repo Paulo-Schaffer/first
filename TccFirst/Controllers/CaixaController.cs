@@ -84,14 +84,6 @@ namespace TccFirst.Controllers
         [HttpGet]
         public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, int idHistorico = 0, string descricao = "", int valor = 0)
         {
-            //if (dataFinal == null)
-            //{
-            //    dataFinal = DateTime.Now.ToString();
-            //}
-            //if (dataInicial == null)
-            //{
-            //    dataInicial = DateTime.Now.ToString();
-            //}
             var caixa = repository.ObterTodosRelatorio(dataInicial,dataFinal, idHistorico, descricao, valor);
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);

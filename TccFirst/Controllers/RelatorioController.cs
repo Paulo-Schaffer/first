@@ -20,8 +20,8 @@ namespace TccFirst.Controllers
         }
 
 
-        // GET: Relatorio
-        public ActionResult Index()
+        // GET: Relatorio Titulo Receber
+        public ActionResult RelatorioTituloReceber()
         {
             return View();
         }
