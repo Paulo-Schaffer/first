@@ -7,7 +7,7 @@
         columns: [
             { data: "Id" },
             { data: "NomeCliente" }, 
-            { data: "CategoriaReceita.TipoCategoriaReceita"},
+            { data: "IdCategoriaReceita"},
             { data: "ValorTotal" },
             { data: "QuantidadeParcela" },
             {
