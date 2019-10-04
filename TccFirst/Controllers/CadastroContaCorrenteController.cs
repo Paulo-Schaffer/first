@@ -24,36 +24,20 @@ namespace TccFirst.Controllers
             var resultado = new { data = cadastroContaCorrente };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-        [HttpGet, Route("cadastrocontacorrente")]
-        public JsonResult ObterPeloId(int id)
-        {
-            return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        public JsonResult Inserir(CadastroContaCorrente cadastroContaCorrente)
-        {
-            cadastroContaCorrente.RegistroAtivo = true;
-            var id = repository.Inserir(cadastroContaCorrente);
-            var resultado = new { id = id };
-            return Json(resultado);
-        }
-
 
         [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)
         {
-            cadastroContaCorrente.RegistroAtivo = true;
             int id = repository.Inserir(cadastroContaCorrente);
-            var resultado = new { id = id };
-            return RedirectToAction("Index",resultado);
+            return RedirectToAction("Editar", new { id = id });
         }
 
-        [HttpPost]
-        public JsonResult Update(CadastroContaCorrente cadastroContaCorrente)
+        [HttpPost, Route("editar")]
+        public JsonResult Editar(CadastroContaCorrente cadastroContaCorrente)
         {
             var alterou = repository.Alterar(cadastroContaCorrente);
             var resultado = new { status = alterou };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet, Route("apagar")]
@@ -67,7 +51,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }
-        [HttpGet, Route("Index")]
+
         public ActionResult Cadastro()
         {
             return View();
