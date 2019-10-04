@@ -23,7 +23,7 @@ $(function () {
         serverSide: true,
         columns: [
             { data: "Id" },
-            { data: "Agencia.NomeAgencia" },
+            { data: "IdAgencia" },
             { data: "NumeroConta" },
             {
                 render: function (data, type, row) {
@@ -74,14 +74,14 @@ $(function () {
                 type: tipo
             });
         }
-        $idAgencia = $('#cadastro-conta-corrente-campo-idAgencia').val();
-        $numeroConta = $('#cadastro-conta-corrente-campo-numero-conta').val();
+        $IdAgencia = $('#cadastro-conta-corrente-campo-idAgencia').val();
+        $NumeroConta = $('#cadastro-conta-corrente-campo-numero-conta').val();
         //Validação
-        if ($idAgencia == undefined) {
+        if ($IdAgencia == undefined) {
             monstrarMensagem('Selecione uma Agência', '', 'error');
             $('#cadastro-conta-corrente-campo-idAgencia').select2('open');
             return false;
-        } else if ($numeroConta == "") {
+        } else if ($NumeroConta == "") {
             monstrarMensagem('Digite o Número da Conta Corrente', '', 'error');
             $('#cadastro-conta-corrente-campo-numero-conta').focus();
             return false;
@@ -90,22 +90,59 @@ $(function () {
         }
 
         if ($idAlterar == -1) {
-            inserir($idAgencia, $numeroConta);
+            inserir($IdAgencia, $NumeroConta);
         } else {
-            alterar($idAgencia, $numeroConta);
+            alterar($IdAgencia, $NumeroConta);
             //alert('sadds');
         }
 
     });
 
-    function alterar($idAgencia, $numeroConta) {
+    function inserir($IdAgencia, $NumeroConta) {
         $.ajax({
-            url: '/cadastrocontacorrente/update',
+            url: '/cadastrocontacorrente/cadastro',
+            method: 'post',
+            data: {
+                IdAgencia: $IdAgencia,
+                NumeroConta: $NumeroConta
+            },
+            success: function (data) {
+                limparCampos();
+                $('#modal-cadastro-conta-corrente').modal('hide');
+                $(".modal-backdrop").hide();
+                $tabelaCadastroContaCorrente.ajax.reload();
+            },
+            error: function (err) {
+            }
+        });
+    }
+
+    $('.table').on("click", ".botao-editar", function () {
+        $idAlterar = $(this).data("id");
+        $.ajax({
+            url: '/cadastrocontacorrente/obterpeloid?id=' + $idAlterar,
+            method: 'get',
+            success: function (data) {
+                $('#cadastro-conta-corrente-campo-idAgencia').val(data.IdAgencia);
+                $('#cadastro-conta-corrente-campo-numero-conta').val(data.NumeroConta);
+                $("#modal-cadastro-conta-corrente").modal('show');
+            },
+            error: function (data) {
+                alert("Não foi possível buscar o registro");
+            }
+        });
+
+    });
+
+
+    function alterar($IdAgencia, $NumeroConta) {
+        $.ajax({
+            url: '/cadastrocontacorrente/editar',
             method: 'post',
             data: {
                 id: $idAlterar,
-                IdAgencia: $idAgencia,
-                NumeroConta: $numeroConta
+                IdAgencia: $IdAgencia,
+                NumeroConta: $NumeroConta
             },
             success: function (data) {
                 $('#modal-cadastro-conta-corrente').modal('hide');
@@ -118,53 +155,11 @@ $(function () {
     }
 
     function limparCampos() {
-        $(".modal-backdrop").hide();
-        $('#cadastro-conta-corrente-campo-idAgencia').val("");
+        $('#cadastro-conta-corrente-campo-idAgencia').val(null);
         $('#cadastro-conta-corrente-campo-numero-conta').val("");
         $idAlterar = -1;
     }
     $('#modal-cadastro-conta-corrente').on('hidden.bs.modal', function (e) {
         limparCampos();
     })
-    function inserir($idAgencia, $numeroConta) {
-        $.ajax({
-            url: '/cadastrocontacorrente/cadastro',
-            method: 'post',
-            data: {
-                IdAgencia: $idAgencia,
-                NumeroConta: $numeroConta,
-                Agencia: Agencia.NomeAgencia
-                
-            },
-            success: function (data) {
-                limparCampos();
-                $('#modal-cadastro-conta-corrente').modal('hide');
-                $(".modal-backdrop").hide();
-                $tabelaCadastroContaCorrente.ajax.reload();
-            },
-            error: function (err) {
-            }
-        });
-
-    }
-
-    $('.table').on("click", ".botao-editar", function () {
-        $idAlterar = $(this).data("id");
-        $.ajax({
-            url: '/cadastrocontacorrente/obterpeloid?id=' + $idAlterar,
-            method: 'get',
-            success: function (data) {
-                $('#cadastro-conta-corrente-campo-idAgencia').val(data.IdAgencia);
-                $('#cadastro-conta-corrente-campo-numero-conta').val(data.NumeroConta);
-                $("#modal-cadastro-conta-corrente").modal('show');
-                debugger
-            },
-            error: function (data) {
-                alert("Não foi possível buscar o registro");
-            }
-        });
-
-    });
-
-
 });
