@@ -61,7 +61,7 @@ namespace Repository.Repositories
         {
             return context.Caixas.Include("Historico").Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
-        public List<Caixa> ObterTodosRelatorio(DateTime dataLancamentoInicial, int idHistorico, string descricao, int valor)
+        public List<Caixa> ObterTodosRelatorio(DateTime dataInicial, DateTime dataFinal, int idHistorico, string descricao, int valor)
         {
             var query = context
                 .Caixas
@@ -75,9 +75,10 @@ namespace Repository.Repositories
             {
                 query = query.Where(x => x.Descricao.Contains(descricao));
             }
-            if (dataLancamentoInicial != null)
+            if ((dataInicial != null)&&(dataFinal != null))
             {
-                query = query.Where(x => x.DataLancamento.Date == dataLancamentoInicial.Date);
+                query = query.Where(x => x.DataLancamento.Date == dataInicial.Date);
+                query = query.Where(x => x.DataLancamento.Date == dataFinal.Date);
             }
             if (valor != 0)
             {
