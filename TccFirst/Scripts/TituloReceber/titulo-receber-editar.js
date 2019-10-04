@@ -144,6 +144,7 @@
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
+                $(".modal-backdrop").hide();
                 $idAlterar = -1;
                 $tabelaParcelas.ajax.reload();
             },
