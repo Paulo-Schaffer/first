@@ -483,7 +483,7 @@ namespace Repository
                 DataCadastro = Convert.ToDateTime("04/09/2019"),
                 Cnpj = "83.590.870/0001-95",
                 Email = "first@outlook.com",
-                Filial = "Hbsis",
+                Filial = "First",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
                 Logradouro = "Ubatuba",
