@@ -1,4 +1,4 @@
-﻿$(function () {   
+﻿$(function () {
     $idAlterar = -1;
 
     $tabelaParcelaReceber = $("#parcelaReceber-tabela").DataTable({
@@ -7,7 +7,7 @@
         serverSide: true,
         coluns: [
             { data: "IdTituloReceber" },
-            { data: "Valor" },           
+            { data: "Valor" },
             { data: "Status" },
             {
                 render: function (data, type, row) {
@@ -19,13 +19,13 @@
                     return moment(row.DataRecebimento).format('YYYY-MM-DD')
                 }
             },
-           
+
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
                 }
-            }            
-        ]            
+            }
+        ]
     });
 
     $("#parcelaReceber-botao-salvar").on("click", function () {
@@ -34,7 +34,7 @@
         $status = $('#parcelaReceber-campo-status').val();
         $dataVencimento = $('#parcelaReceber-campo-dataVencimento').val();
         $dataRecebimento = $('#parcelaReceber-campo-dataRecebimento').val();
-          
+
         if ($idAlterar == -1) {
             inserir($idTituloReceber, $valor, $status, $dataVencimento, $dataRecebimento);
         } else {
@@ -47,17 +47,17 @@
             url: "/parcelaReceber/editar",
             method: "post",
             data: {
-                
-                idTitulosReceber:$idTituloReceber,
+
+                idTitulosReceber: $idTituloReceber,
                 valor: $valor,
-                status:$status,
+                status: $status,
                 dataVencimento: $dataVencimento,
                 dataRecebimento: $dataRecebimento,
                 idAlterar: $idAlterar
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
-               
+
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -71,7 +71,7 @@
             url: '/parcelaReceber/cadastro',
             method: 'post',
             data: {
-                
+
                 idTituloReceber: $idTituloReceber,
                 valor: $valor,
                 status: $status,
@@ -80,7 +80,7 @@
             },
             success: function (data) {
                 $("#modal-parcelaReceber").modal("hide");
-                
+
                 $tabelaParcelaReceber.ajax.reload();
             },
             error: function (err) {
@@ -104,7 +104,7 @@
         });
     });
     $('#parcelaReceber-tabela').on('click', '.botao-editar', function () {
-        $id= $(this).data('id');
+        $id = $(this).data('id');
 
         $.ajax({
             url: "/parcelaReceber/obterpeloid?id=" + $idAlterar,
@@ -121,6 +121,14 @@
             error: function (err) {
                 alert("Não foi possivel editar")
             }
+
         });
+        if ($("#parcelaReceber-campo-status")== "Pago") {
+            $(".botao-editar").hide();
+        }
+        else {
+            $(".botao-editar").show();
+        }
+
     });
 });
