@@ -97,6 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\andré %281%29.jpg" />
+    <Content Include="Content\andré.jpg" />
+    <Content Include="Content\cleber %281%29.jpg" />
+    <Content Include="Content\cleber.jpg" />
     <Content Include="Content\css\Agencia\TelaCadastroAgencia.css" />
     <Content Include="Content\css\Agencia\TelaEditarAgencia.css" />
     <Content Include="Content\css\Agencia\TelaIndexAgencia.css" />
@@ -114,6 +118,7 @@
     <Content Include="Content\css\ClientePessoaJuridica\TelaIndexPessoaJuridica.css" />
     <Content Include="Content\css\ClientePesssoaFisica\TelaCadastroPessoaFisica.css" />
     <Content Include="Content\css\ClientePesssoaFisica\TelaIndexPessoaFisica.css" />
+    <Content Include="Content\css\Colaboradores\Colaboradores.css" />
     <Content Include="Content\css\do-utilizador.png" />
     <Content Include="Content\css\first.png" />
     <Content Include="Content\css\Funcionario\TelaCadastroFuncionario.css" />
@@ -133,6 +138,7 @@
     <Content Include="Content\css\Perfil\TelaPerfil.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\swiper.min.css" />
     <Content Include="Content\css\TelaLogin.css" />
     <Content Include="Content\css\TituloPagar\TelaCadastroTituloPagar.css" />
     <Content Include="Content\css\TituloPagar\TelaEditarTituloPagar.css" />
@@ -168,7 +174,15 @@
     <Content Include="Content\ImagensTcc\patrocinio\senior.png" />
     <Content Include="Content\ImagensTcc\recursos.png" />
     <Content Include="Content\ImagensTcc\vantagensFirst.png" />
+    <Content Include="Content\joao %281%29.jpg" />
+    <Content Include="Content\joao.jpg" />
     <Content Include="Content\jquery-confirm.min.css" />
+    <Content Include="Content\paul %281%29.jpg" />
+    <Content Include="Content\paul.jpg" />
+    <Content Include="Content\Paulo %281%29.jpg" />
+    <Content Include="Content\Paulo %282%29.jpg" />
+    <Content Include="Content\Paulo %283%29.jpg" />
+    <Content Include="Content\Paulo.jpg" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
@@ -5537,6 +5551,7 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.eot" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
+    <Content Include="Content\css\swiper.css" />
     <Content Include="Scripts\Agencia\Agencia.js" />
     <Content Include="Scripts\CadastroContaCorrente\cadastro-conta-corrente-cadastro.js" />
     <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Editar.js" />
@@ -5717,6 +5732,7 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\select2.min.css" />
+    <Content Include="Scripts\swiper.min.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
@@ -5851,6 +5867,7 @@
     <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Perfil\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\Perfil\EditarSenha.cshtml" />
+    <Content Include="Views\Dashboard\Colaboradores.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
