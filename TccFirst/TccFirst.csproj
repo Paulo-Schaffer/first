@@ -5566,7 +5566,6 @@
     <Content Include="Scripts\CategoriaDespesa\categoria-despesa-index.js" />
     <Content Include="Scripts\CategoriaReceita\cadastro-categoria-receita.js" />
     <Content Include="Scripts\ContaCorrente\ContaCorrente.js" />
-    <Content Include="Scripts\FluxoCaixa\Fluxo-Caixa.js" />
     <Content Include="Scripts\Fornecedor\Fornecedor-index.js" />
     <Content Include="Scripts\Funcionario\Funcionario-index.js" />
     <Content Include="Scripts\i18n\af.js" />
@@ -5719,10 +5718,10 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\Relatorio\fluxo-caixa.js" />
-    <Content Include="Scripts\Relatorio\grafico-titulo.js" />
+    <Content Include="Scripts\Graficos\fluxo-caixa.js" />
+    <Content Include="Scripts\Graficos\grafico-titulo.js" />
     <Content Include="Scripts\Relatorio\relatorio-caixa.js" />
-    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
+    <Content Include="Scripts\Relatorio\relatorio-titulo-receber.js" />
     <Content Include="Scripts\Relatorio\Relatorio-transacao.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
@@ -5843,10 +5842,8 @@
     <Content Include="Views\CadastroContaCorrente\CadastroContaCorrente.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
     <Content Include="Views\Login\SemPermissao.cshtml" />
-    <Content Include="Views\Relatorio\Index.cshtml" />
-    <Content Include="Views\Relatorio\FluxoCaixa.cshtml" />
+    <Content Include="Views\GraficoTitulo\FluxoCaixa.cshtml" />
     <Content Include="Views\CadastroContaCorrente\Cadastro-conta-corrente.cshtml" />
-    <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\CategoriaDespesa\CadastroCategoriaDespesa.cshtml" />
     <Content Include="Views\CategoriaDespesa\Index.cshtml" />
     <Content Include="Views\Transacao\Editar.cshtml" />
@@ -5864,6 +5861,7 @@
     <Content Include="Views\Relatorio\RelatorioCaixa.cshtml" />
     <Content Include="Views\Relatorio\RelatorioTransacao.cshtml" />
     <Content Include="Views\GraficoTitulo\Index.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioTituloReceber.cshtml" />
     <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Perfil\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\Perfil\EditarSenha.cshtml" />
@@ -5883,9 +5881,6 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Login do Sistema\" />
-    <Folder Include="Views\ParcelaReceber\" />
-    <Folder Include="Views\ParcelasPagar\" />
-    <Folder Include="Views\ParcelasReceber\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>
   <ItemGroup>
