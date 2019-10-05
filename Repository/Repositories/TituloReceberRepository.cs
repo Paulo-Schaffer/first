@@ -76,44 +76,6 @@ namespace Repository.Repositories
                 .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
 
         }
-        public List<TituloReceber> ObterTodosRelatorio(string dataInicial, string dataFinal,string descricao,int valor, int idCliente)
-        {
-            if (dataInicial == "")
-            {
-                dataInicial = null;
-            }
-            if (dataFinal == "")
-            {
-                dataFinal = null;
-            }
-            var query = context
-                .TitulosReceber
-                .Where(x => x.RegistroAtivo);
-
-            if (idCliente != TituloReceber.FiltroSemCliente)
-            {
-                query = query.Where(x => x.IdClientePessoaFisica == idCliente || x.IdClientePessoaJuridica == idCliente);
-            }
-            if (!string.IsNullOrEmpty(descricao))
-            {
-                query = query.Where(x => x.Descricao.Contains(descricao));
-            }
-            if ((dataInicial != null) && (dataFinal != null))
-            {
-                DateTime dataInicialConvertida = Convert.ToDateTime(dataInicial);
-                DateTime dataFinalConvertida = Convert.ToDateTime(dataFinal);
-                query = query.Where(x => x.DataLancamento == dataInicialConvertida || x.DataLancamento <= dataFinalConvertida);
-                        }
-            if (valor != 0)
-            {
-                query = query.Where(x => x.ValorTotal == valor);
-            }
-
-            return query.ToList();
-        }
-
-
-
         public List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {
             return context.Database

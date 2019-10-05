@@ -15,26 +15,26 @@ namespace Repository
             agencias.Add(new Agencia()
             {
                 Id = 1,
-                NomeAgencia = "Agencia",
+                NomeAgencia = "Agencia da Vida",
                 NumeroAgencia = 2001,
-                Banco = "Banco",
+                Banco = "Banco de Vida",
                 RegistroAtivo = true
             });
             agencias.Add(new Agencia()
             {
                 Id = 2,
-                NomeAgencia = "Agencia",
-                NumeroAgencia = 6661,
-                Banco = "Banco",
+                NomeAgencia = "Agencia do Paulo",
+                NumeroAgencia = 666,
+                Banco = "Banco do Paulo",
                 RegistroAtivo = true
             });
 
             agencias.Add(new Agencia()
             {
                 Id = 3,
-                NomeAgencia = "Agencia",
+                NomeAgencia = "Você consegue",
                 NumeroAgencia = 8001,
-                Banco = "Banco",
+                Banco = "Banco do Goku",
                 RegistroAtivo = true,
             });
             context.Agencias.AddRange(agencias);
@@ -43,14 +43,14 @@ namespace Repository
 
             #region caixa
 
+
             var caixas = new List<Caixa>();
             caixas.Add(new Caixa()
             {
                 Id = 1,
-                Operacao = "Entrada",
-                Descricao = "Recebimento serviço",
+                Descricao = "recebimento serviço",
                 Documento = "171-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 1500,
                 DataLancamento = Convert.ToDateTime("2019-01-02"),
                 IdHistoricos = 1,
@@ -59,11 +59,10 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 2,
-                Operacao = "Saída",
                 Descricao = "Pagamento Energia",
                 Documento = "172-1",
-                FormaPagamento = "Débito",
-                Valor = 150,
+                FormaPagamento = "Debito",
+                Valor = 36,
                 DataLancamento = Convert.ToDateTime("2019-01-02"),
                 IdHistoricos = 1,
                 RegistroAtivo = true
@@ -71,10 +70,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 3,
-                Operacao = "Saída",
-                Descricao = "Pagamento de aluguel",
+                Descricao = "Recebimento serviço",
                 Documento = "173-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 1900,
                 DataLancamento = Convert.ToDateTime("2019-01-02"),
                 IdHistoricos = 1,
@@ -83,10 +81,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 4,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "174-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 60,
                 DataLancamento = Convert.ToDateTime("2019-01-03"),
                 IdHistoricos = 1,
@@ -95,10 +92,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 5,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "175-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 100,
                 DataLancamento = Convert.ToDateTime("2019-01-03"),
                 IdHistoricos = 1,
@@ -107,10 +103,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 6,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "176-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 190,
                 DataLancamento = Convert.ToDateTime("2019-01-03"),
                 IdHistoricos = 1,
@@ -119,10 +114,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 7,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "177-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 650,
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
                 IdHistoricos = 1,
@@ -131,10 +125,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 8,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "178-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 320,
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
                 IdHistoricos = 1,
@@ -143,10 +136,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 9,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "179-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 270,
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
                 IdHistoricos = 1,
@@ -155,10 +147,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 10,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "180-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 120,
                 DataLancamento = Convert.ToDateTime("2019-01-12"),
                 IdHistoricos = 1,
@@ -167,10 +158,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 11,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "181-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 336,
                 DataLancamento = Convert.ToDateTime("2019-01-12"),
                 IdHistoricos = 1,
@@ -179,10 +169,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 12,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "182-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 765,
                 DataLancamento = Convert.ToDateTime("2019-01-12"),
                 IdHistoricos = 1,
@@ -191,10 +180,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 13,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "183-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 426,
                 DataLancamento = Convert.ToDateTime("2019-01-12"),
                 IdHistoricos = 1,
@@ -203,10 +191,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 18,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "184-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 953,
                 DataLancamento = Convert.ToDateTime("2019-01-23"),
                 IdHistoricos = 1,
@@ -215,10 +202,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 14,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "184-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 125,
                 DataLancamento = Convert.ToDateTime("2019-01-23"),
                 IdHistoricos = 1,
@@ -227,10 +213,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 15,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "185-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 452,
                 DataLancamento = Convert.ToDateTime("2019-01-23"),
                 IdHistoricos = 1,
@@ -239,10 +224,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 16,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "186-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 100,
                 DataLancamento = Convert.ToDateTime("2019-01-23"),
                 IdHistoricos = 1,
@@ -251,10 +235,9 @@ namespace Repository
             caixas.Add(new Caixa()
             {
                 Id = 17,
-                Operacao = "Entrada",
                 Descricao = "Recebimento serviço",
                 Documento = "187-1",
-                FormaPagamento = "Débito",
+                FormaPagamento = "Debito",
                 Valor = 333,
                 DataLancamento = Convert.ToDateTime("2019-01-23"),
                 IdHistoricos = 1,
@@ -270,7 +253,7 @@ namespace Repository
             {
                 Id = 1,
                 DescricaoTransacao = "Recebimento de venda de produto",
-                Documento = "1-1",
+                Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 100,
                 DataLancamento = Convert.ToDateTime("2019-01-02"),
@@ -300,7 +283,7 @@ namespace Repository
             {
                 Id = 3,
                 DescricaoTransacao = "Recebimento de venda de produto",
-                Documento = "1-3",
+                Documento = "3-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 300,
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
@@ -315,7 +298,7 @@ namespace Repository
             {
                 Id = 4,
                 DescricaoTransacao = "Recebimento de venda de produto",
-                Documento = "1-4",
+                Documento = "4-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 150,
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
@@ -330,7 +313,7 @@ namespace Repository
             {
                 Id = 5,
                 DescricaoTransacao = "Recebimento de venda de produto",
-                Documento = "2-1",
+                Documento = "5-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 1545,
                 DataLancamento = Convert.ToDateTime("2019-01-05"),
@@ -344,7 +327,7 @@ namespace Repository
             {
                 Id = 6,
                 DescricaoTransacao = "Recebimento de venda de produto",
-                Documento = "2-2",
+                Documento = "1-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 515,
                 DataLancamento = Convert.ToDateTime("2019-01-10"),
@@ -359,7 +342,7 @@ namespace Repository
             {
                 Id = 7,
                 DescricaoTransacao = "Recebimento de venda de produto",
-                Documento = "2-3",
+                Documento = "7-2",
                 TipoPagamento = "Dinheiro",
                 Valor = 750,
                 DataLancamento = Convert.ToDateTime("2019-01-10"),
@@ -386,18 +369,6 @@ namespace Repository
             categoriaDespesa.Add(new CategoriaDespesa()
             {
                 Id = 2,
-                TipoCategoriaDespesa = "Despesa com Funcionário",
-                RegistroAtivo = true,
-            });
-            categoriaDespesa.Add(new CategoriaDespesa()
-            {
-                Id = 3,
-                TipoCategoriaDespesa = "Despesa com Manutenção",
-                RegistroAtivo = true,
-            });
-            categoriaDespesa.Add(new CategoriaDespesa()
-            {
-                Id = 4,
                 TipoCategoriaDespesa = "Despesa com Manutenção",
                 RegistroAtivo = true,
             });
@@ -409,25 +380,13 @@ namespace Repository
             categoriaReceita.Add(new CategoriaReceita()
             {
                 Id = 1,
-                TipoCategoriaReceita = "Recebimento de cliente",
+                TipoCategoriaReceita = "Despesa com Paulo",
                 RegistroAtivo = true,
             });
             categoriaReceita.Add(new CategoriaReceita()
             {
                 Id = 2,
-                TipoCategoriaReceita = "Recebimento de cliente",
-                RegistroAtivo = true,
-            });
-            categoriaReceita.Add(new CategoriaReceita()
-            {
-                Id = 3,
-                TipoCategoriaReceita = "Recebimento de terceiros",
-                RegistroAtivo = true,
-            });
-            categoriaReceita.Add(new CategoriaReceita()
-            {
-                Id = 4,
-                TipoCategoriaReceita = "Recebimento de terceiros",
+                TipoCategoriaReceita = "Despesa com Joao",
                 RegistroAtivo = true,
             });
             context.CategoriasReceitas.AddRange(categoriaReceita);
@@ -441,7 +400,7 @@ namespace Repository
                 Nome = "Paulo",
                 Cpf = "093.455.789-50",
                 DataNascimento = Convert.ToDateTime("19/04/2000"),
-                LimiteCredito = 19000,
+                LimiteCredito = 190000,
                 Email = "paulo.md10@gmail.com",
                 Telefone = "991334785",
                 Cep = "09456-293",
@@ -457,13 +416,13 @@ namespace Repository
                 Id = 2,
                 Nome = "João",
                 Cpf = "033.555.119-22",
-                DataNascimento = Convert.ToDateTime("28/08/1998"),
-                LimiteCredito = 50000,
+                DataNascimento = Convert.ToDateTime("09/08/1996"),
+                LimiteCredito = -500000,
                 Email = "jaoostein@gmail.com",
                 Telefone = "994546776",
                 Cep = "89031-492",
                 Numero = 1152,
-                Bairro = "Escola Agrícola",
+                Bairro = "Badenfurt",
                 Cidade = "Blumenau",
                 Uf = "SC",
                 Complemento = "APTO-02",
@@ -483,7 +442,7 @@ namespace Repository
                 DataCadastro = Convert.ToDateTime("04/09/2019"),
                 Cnpj = "83.590.870/0001-95",
                 Email = "first@outlook.com",
-                Filial = "First",
+                Filial = "Hbsis",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
                 Logradouro = "Ubatuba",
@@ -558,7 +517,7 @@ namespace Repository
                 new CadastroContaCorrente()
                 {
                     Id = 1,
-                    NumeroConta = 1860923-1,
+                    NumeroConta = 80,
                     IdAgencia = 1,
                     RegistroAtivo = true,
                 },
@@ -566,14 +525,14 @@ namespace Repository
                   new CadastroContaCorrente()
                   {
                       Id = 2,
-                      NumeroConta = 02602-7,
+                      NumeroConta = 1000,
                       IdAgencia = 2,
                       RegistroAtivo = true,
                   },
                   new CadastroContaCorrente()
                   {
                       Id = 3,
-                      NumeroConta = 0051681-3,
+                      NumeroConta = 1000,
                       IdAgencia = 1,
                       RegistroAtivo = true,
                   }
@@ -592,7 +551,7 @@ namespace Repository
                 NomeFantasia = "strabourg",
                 DataCadastro = DateTime.Now,
                 Cnpj = "83.590.870/0001-95",
-                Email = "peugeot@outlook.com",
+                Email = "first@outlook.com",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
                 Logradouro = "UBATUBA",
@@ -610,7 +569,7 @@ namespace Repository
                 NomeFantasia = "Honda",
                 DataCadastro = DateTime.Now,
                 Cnpj = "83.590.870/0001-95",
-                Email = "honda@gmail.com",
+                Email = "first@outlook.com",
                 Telefone = "3345-5567",
                 Cep = "09432-876",
                 Logradouro = "UBATUBA",
@@ -630,19 +589,19 @@ namespace Repository
             historico.Add(new Historico()
             {
                 Id = 1,
-                Descricao = "Despesa com eletrica",
+                Descricao = "Conta adicionada dia 19/07/2000",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
             {
                 Id = 2,
-                Descricao = "Despesa hidraulica",
+                Descricao = "Conta paga com sucesso",
                 RegistroAtivo = true
             });
             historico.Add(new Historico()
             {
                 Id = 3,
-                Descricao = "Despesa com restaurante",
+                Descricao = "Conta em atraso, pagar até dia 29/08/1996",
                 RegistroAtivo = true
             });
             context.Historicos.AddRange(historico);
@@ -656,7 +615,7 @@ namespace Repository
                 Valor = 2333,
                 Status = "Pago",
                 DataVencimento = Convert.ToDateTime("17/02/2019"),
-                DataPagamento = Convert.ToDateTime("23/02/2019"),
+                DataPagamento = Convert.ToDateTime("17/02/2019"),
                 RegistroAtivo = true
             });
             parcelaPagar.Add(new ParcelaPagar()
@@ -665,7 +624,7 @@ namespace Repository
                 Valor = 9523,
                 Status = "Pendente",
                 DataVencimento = Convert.ToDateTime("04/09/2019"),
-                DataPagamento = Convert.ToDateTime("20/09/2019"),
+                DataPagamento = Convert.ToDateTime("05/09/2019"),
                 RegistroAtivo = true
             });
             context.ParcelasPagar.AddRange(parcelaPagar);
@@ -741,8 +700,8 @@ namespace Repository
                     IdCategoriaReceita = 1,
                     Status = "Pago",
                     DataLancamento = DateTime.Now,
-                    DataRecebimento = Convert.ToDateTime("12/08/2020"),
-                    DataVencimento = Convert.ToDateTime("11/08/2020"),
+                    DataRecebimento = Convert.ToDateTime("22/07/2016"),
+                    DataVencimento = Convert.ToDateTime("23/07/2016"),
                     ValorTotal = 1999,
                     QuantidadeParcela = 1,
                     Descricao = "Titulo feio por Paulo",

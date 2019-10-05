@@ -191,6 +191,5 @@
             icon: 'icofont icofont-info-circle',
             type: tipo
         });
-      
     }
 });

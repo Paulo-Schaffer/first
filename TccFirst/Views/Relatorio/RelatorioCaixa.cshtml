@@ -1,5 +1,4 @@
 ﻿
-
 @{
     ViewBag.Title = "RelatorioCaixa";
 }
@@ -15,34 +14,29 @@
 </div>
 
 <div class="row">
-    <div class="">
-        <div class="form-group">
-            <label for="filtro-documento">Descrição</label>
-            <input type="text" id="filtro-descricao" />
+        <div class="">
+            <div class="form-group">
+                <label for="filtro-documento">Descrição</label>
+                <input type="text" id="filtro-descricao" />
+            </div>
+        </div>
+        <div class="">
+            <div clas="form-group">
+                <label class="filtro-valor">Valor</label>
+                <input type="text" id="filtro-valor" />
+            </div>
         </div>
     </div>
-    <div class="">
-        <div clas="form-group">
-            <label class="filtro-valor">Valor</label>
-            <input type="text" id="filtro-valor" />
-        </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-6">
-        <div class="form-control">
-            <label for="filtro-data-inicial">Date Incial do Lançamento</label>
-            <input type="date" id="filtro-data-inicial" />
-        </div>
+<div class="form-control">
+        <label for="filtro-data">Date Incial do Lançamento</label>
+        <input type="date" id="filtro-data" />
     </div>
-    <div class="col-6">
-        <div class="form-control">
-            <label for="filtro-data-final">Date Final do Lançamento</label>
-            <input type="date" id="filtro-data-final" />
-        </div>
-    </div>
-</div>
+
+@*<div class="form-control">
+        <label for="filtro-data">Date Final do Lançamento</label>
+        <input type="date" id="filtro-data" />
+    </div>*@
 
 <table id="relatorio-conta-caixa" class="table table-hover table-bordered table-striped">
     <thead>

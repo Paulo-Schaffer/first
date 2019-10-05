@@ -97,12 +97,10 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
         }
-        [HttpGet]
-        public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao, int valor, int idCliente)
-        {
-            var tituloReceber = repository.ObterTodosRelatorio(dataInicial, dataFinal, descricao, valor, idCliente);
-            var resultado = new { data = tituloReceber };
-            return Json(resultado, JsonRequestBehavior.AllowGet);
-        }
     }
+    //[HttpGet, Route("tituloreceber")]
+    //public JsonResult ObterPeloId(int id)
+    //{
+    //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+    //}
 }
