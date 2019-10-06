@@ -1,6 +1,6 @@
 ﻿<script src="~/Scripts/Transacao/Transacao.js"></script>
 <link rel="stylesheet" href="~/Content/css/Transacao/TelaCadastroTransacao.css">
-
+<script src="~/Scripts/Transacao/tela-cadastro.js"></script>
 <div class="container">
     <div class="col-12"><h2><b>Transações de Conta</b></h2></div>
     <hr />
@@ -44,7 +44,7 @@
                     <option selected="" disabled="disabled">Selecione uma Categoria Receita</option>
                     @foreach (Model.CategoriaReceita categoriaReceita in ViewBag.CategoriasReceita)
                     {
-                        <option  value="@categoriaReceita.Id">@categoriaReceita.TipoCategoriaReceita</option>
+                        <option value="@categoriaReceita.Id">@categoriaReceita.TipoCategoriaReceita</option>
 
                     }
                 </select>
@@ -92,7 +92,7 @@
 
             <div class="col-6">
                 <lable id="fonte" for="campo-datarecebimento">Data Recebimento<span class="text-danger">*</span></lable>
-                <input data-mask="00/00/0000" data-mask-selectonfocus="true" type="date" id="campo" name="datarecebimento" class="form-control" required />
+                <input type="date" id="campo" name="datarecebimento" class="form-control" required />
             </div>
         </div>
         <div class="row">
@@ -109,13 +109,13 @@
     </form>
 </div>
 
-<script src="~/Scripts/Transacao/Transacao.js"></script>
 
+<input type="radio" value="0" name="numero" checked> Zero
+<input type="radio" value="1" name="numero"> Um
+<input type="radio" value="2" name="numero"> Dois
+<div id="campo-escondido">
+    Número ímpar, entre outro dado:
+    <input type="text" name="nome" value="" />
+</div>
 
-
-
-
-
-
-
-
+<script src="~/Scripts/Transacao/tela-cadastro.js"></script>

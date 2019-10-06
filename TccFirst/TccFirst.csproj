@@ -97,6 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\andré %281%29.jpg" />
+    <Content Include="Content\andré.jpg" />
+    <Content Include="Content\cleber %281%29.jpg" />
+    <Content Include="Content\cleber.jpg" />
     <Content Include="Content\css\Agencia\TelaCadastroAgencia.css" />
     <Content Include="Content\css\Agencia\TelaEditarAgencia.css" />
     <Content Include="Content\css\Agencia\TelaIndexAgencia.css" />
@@ -114,10 +118,12 @@
     <Content Include="Content\css\ClientePessoaJuridica\TelaIndexPessoaJuridica.css" />
     <Content Include="Content\css\ClientePesssoaFisica\TelaCadastroPessoaFisica.css" />
     <Content Include="Content\css\ClientePesssoaFisica\TelaIndexPessoaFisica.css" />
+    <Content Include="Content\css\Colaboradores\Colaboradores.css" />
     <Content Include="Content\css\do-utilizador.png" />
     <Content Include="Content\css\first.png" />
     <Content Include="Content\css\Funcionario\TelaCadastroFuncionario.css" />
     <Content Include="Content\css\Funcionario\TelaIndexFuncionario.css" />
+    <Content Include="Content\css\Graficos\Graficos.css" />
     <Content Include="Content\css\Historico\TelaCadastroHistorico.css" />
     <Content Include="Content\css\Historico\TelaIndexHistorico.css" />
     <Content Include="Content\css\Fornecedor\TelaCadastroFornecedor.css" />
@@ -128,17 +134,18 @@
     <Content Include="Content\css\login.jpg" />
     <Content Include="Content\css\login2.png" />
     <Content Include="Content\css\login %282%29.png" />
-    <Content Include="Content\css\paginaInicial\paginaInicial.css" />
-    <Content Include="Content\css\Replaces.css" />
+    <Content Include="Content\css\paginaInicial\estilo.css" />
+    <Content Include="Content\css\Perfil\TelaEditarSenha.css" />
+    <Content Include="Content\css\Perfil\TelaPerfil.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\swiper.min.css" />
     <Content Include="Content\css\TelaLogin.css" />
     <Content Include="Content\css\TituloPagar\TelaCadastroTituloPagar.css" />
     <Content Include="Content\css\TituloPagar\TelaEditarTituloPagar.css" />
     <Content Include="Content\css\TituloPagar\TelaIndexTituloPagar.css" />
     <Content Include="Content\css\TituloPagar\TelaInformacaoBasicaTituloPagar.css" />
     <Content Include="Content\css\TituloReceber\TelaInformacaoBasicaTituloReceber.css" />
-    <Content Include="Content\css\usuario-do-homem %281%29.png" />
     <Content Include="Content\css\Teste\teste.css" />
     <Content Include="Content\css\TituloReceber\TelaCadastroTituloReceber.css" />
     <Content Include="Content\css\TituloReceber\TelaEditarTituloReceber.css" />
@@ -168,7 +175,15 @@
     <Content Include="Content\ImagensTcc\patrocinio\senior.png" />
     <Content Include="Content\ImagensTcc\recursos.png" />
     <Content Include="Content\ImagensTcc\vantagensFirst.png" />
+    <Content Include="Content\joao %281%29.jpg" />
+    <Content Include="Content\joao.jpg" />
     <Content Include="Content\jquery-confirm.min.css" />
+    <Content Include="Content\paul %281%29.jpg" />
+    <Content Include="Content\paul.jpg" />
+    <Content Include="Content\Paulo %281%29.jpg" />
+    <Content Include="Content\Paulo %282%29.jpg" />
+    <Content Include="Content\Paulo %283%29.jpg" />
+    <Content Include="Content\Paulo.jpg" />
     <Content Include="Content\replaces.css" />
     <Content Include="Content\tema\assets\css\component.css" />
     <Content Include="Content\tema\assets\css\font-awesome.min.css" />
@@ -5276,7 +5291,6 @@
     <Content Include="Content\tema\bower_components\typeahead.js\js\typeahead.bundle.min.js" />
     <Content Include="Content\tema\bower_components\underscore\js\underscore-min.js" />
     <Content Include="Content\tema\bower_components\underscore\js\underscore.js" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\tema\assets\css\pcoded-horizontal.min.css.map" />
     <Content Include="Content\tema\assets\css\style.css.map" />
@@ -5538,6 +5552,7 @@
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.eot" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\tema\bower_components\lightgallery\fonts\lg.woff" />
+    <Content Include="Content\css\swiper.css" />
     <Content Include="Scripts\Agencia\Agencia.js" />
     <Content Include="Scripts\CadastroContaCorrente\cadastro-conta-corrente-cadastro.js" />
     <Content Include="Scripts\CadastroContaCorrente\Cadastro-conta-corrente-Editar.js" />
@@ -5618,6 +5633,8 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
+    <None Include="Properties\PublishProfiles\first-system - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\first-system - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\Historico\historico.js" />
     <Content Include="Scripts\i18n\af.js" />
@@ -5692,13 +5709,11 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-confirm.min.js" />
     <Content Include="Scripts\jquery.form-validator.min.js" />
-    <Content Include="Scripts\Login\jquery.form-validator.min.js" />
     <Content Include="Scripts\Login\login-cadastro.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\PaginaInicial\animacao.js" />
     <Content Include="Scripts\PaginaInicial\app.js" />
-    <Content Include="Scripts\ParcelaReceber\parcela-receber-cadastro.js" />
     <Content Include="Scripts\ParcelaReceber\parcela-receber-editar.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -5718,12 +5733,14 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\select2.min.css" />
+    <Content Include="Scripts\swiper.min.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-index.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-cadastro.js" />
     <Content Include="Scripts\TituloPagar\titulo-pagar-editar.js" />
     <Content Include="Scripts\TituloReceber\tabela-receber-index.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-cadastro.js" />
     <Content Include="Scripts\TituloReceber\titulo-receber-editar.js" />
+    <Content Include="Scripts\Transacao\tela-cadastro.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -5764,6 +5781,7 @@
     <Compile Include="Controllers\ClientePessoaJuridicaController.cs" />
     <Compile Include="Controllers\HistoricoController.cs" />
     <Compile Include="Controllers\ParcelasReceberController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\TituloPagarController.cs" />
     <Compile Include="Controllers\TituloReceberController.cs" />
@@ -5775,9 +5793,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
@@ -5837,7 +5852,6 @@
     <Content Include="Views\Funcionario\Cadastro.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\TituloReceber\Cadastro.cshtml" />
-    <Content Include="Views\PaginaInicial\View.cshtml" />
     <Content Include="Views\TituloReceber\Editar.cshtml" />
     <Content Include="Views\TituloReceber\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\TituloReceber\EditarParcelas.cshtml" />
@@ -5850,6 +5864,10 @@
     <Content Include="Views\Relatorio\RelatorioTransacao.cshtml" />
     <Content Include="Views\GraficoTitulo\Index.cshtml" />
     <Content Include="Views\Relatorio\RelatorioTituloReceber.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Perfil\EditarInformacaoBasica.cshtml" />
+    <Content Include="Views\Perfil\EditarSenha.cshtml" />
+    <Content Include="Views\Dashboard\Colaboradores.cshtml" />
     <Content Include="Views\Relatorio\RelatorioTituPagar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -5860,6 +5878,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />

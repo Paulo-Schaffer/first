@@ -47,7 +47,7 @@ namespace TccFirst.Controllers
             parcelaPagar.RegistroAtivo = true;
             var id = repository.Inserir(parcelaPagar);
             var resultado = new { id = id };
-            return Json(resultado);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

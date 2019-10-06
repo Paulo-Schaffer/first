@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Colaboradores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link href="~/Content/css/swiper.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Colaboradores/Colaboradores.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="imgBx">
+                    <img src="~/Content/Paulo (3).jpg" />
+                </div>
+                <div class="details">
+                    <h4>Paulo Eduardo Schaffer<br><span>Desenvolvedor C#</span></h4>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="imgBx">
+                    <img src="~/Content/joao (1).jpg" />
+                </div>
+                <div class="details">
+                    <h4>João Stein de Campos<br><span>Desenvolvedor C#</span></h4>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="imgBx">
+                    <img src="~/Content/cleber (1).jpg" />
+                </div>
+                <div class="details">
+                    <h4>Cleber Gomes de Motta<br><span>Desenvolvedor C#</span></h4>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="imgBx">
+                    <img src="~/Content/paul (1).jpg" />
+                </div>
+                <div class="details">
+                    <h4>Paul Lewandovski<br><span>Desenvolvedor C#</span></h4>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="imgBx">
+                    <img src="~/Content/andré (1).jpg" />
+                </div>
+                <div class="details">
+                    <h4>André vai servir o quartel<br><span>Desenvolvedor C#</span></h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Add Pagination -->
+    <div class="swiper-pagination middle"></div>
+    <script src="~/Scripts/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+</body>
+</html>

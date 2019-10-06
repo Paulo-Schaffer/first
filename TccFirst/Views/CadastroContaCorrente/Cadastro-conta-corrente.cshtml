@@ -1,10 +1,8 @@
-﻿
-
-<div id="modal-cadastro-conta-corrente" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
+﻿<div id="modal-cadastro-conta-corrente" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1050;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><b>Cadastrar Titulo a receber</b></h5>
+                <h5 class="modal-title"><b>Cadastro de Conta Corrente</b></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,12 +10,12 @@
             <div class="modal-body">
                
                 <div class="form-group " id="fonte">
-                    <label for="cadastro-conta-corrente-campo-idAgencia">Agencia<span class="text-danger">*</span></label>
+                    <label for="cadastro-conta-corrente-campo-idAgencia">Agência<span class="text-danger">*</span></label>
                     <b><select class="form-control border-info" id="cadastro-conta-corrente-campo-idAgencia"></select></b>
                 </div>
                 
                 <div class="form-group">
-                    <label id="fonte" for="cadastro-conta-corrente-campo-numero-conta" mas>Numero da Conta Corrente<span class="text-danger">*</span></label>
+                    <label id="fonte" for="cadastro-conta-corrente-campo-numero-conta" mas>Número da Conta Corrente<span class="text-danger">*</span></label>
                     <input type="text" id="cadastro-conta-corrente-campo-numero-conta" class="form-control" />
                 </div>
 
@@ -33,6 +31,6 @@
 <link rel="stylesheet" href="~/Content/css/CadastroContaCorrente/TelaCadastroContaCorrente.css">
 @section js {
     <script src="~/Scripts/CadastroContaCorrente/Cadastro-conta-corrente-Editar.js"></script>
-    <script src="~/Scripts/CadastroContaCorrente/cadastro-conta-corrente-cadastro.js"></script>
-    <script src="~/Scripts/CadastroContaCorrente/valida-funcao.js"></script>
+    @*<script src="~/Scripts/CadastroContaCorrente/cadastro-conta-corrente-cadastro.js"></script>
+    <script src="~/Scripts/CadastroContaCorrente/valida-funcao.js"></script>*@
 }

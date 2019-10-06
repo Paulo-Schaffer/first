@@ -90,6 +90,15 @@ namespace TccFirst.Controllers
             List<object> ObterTodosSelect2 = new List<object>();
             foreach (TituloPagar tituloPagar in tituloPagars)
             {
+                if (tituloPagar.Id == 1)
+                {
+                    ObterTodosSelect2.Add(new
+                    {
+                        id = tituloPagar.Id,
+                        text = tituloPagar.Descricao,
+                        selected = true,
+                    });
+                }
                 ObterTodosSelect2.Add(new
                 {
                     id = tituloPagar.Id,

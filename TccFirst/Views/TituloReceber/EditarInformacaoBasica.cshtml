@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <a id="botao-irtabela" class="btn float-right form-group"
-               href="/TituloPagar/index"><i class="fa fa-backward"></i>Ir para tabela</a>
+               href="/TituloReceber/index"><i class="fa fa-backward"></i>Ir para tabela</a>
         </div>
         <input type="hidden" name="id"  value="@ViewBag.TituloReceber.Id" />
     </div>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-6">
                     <div class="form-group">
-                        <label id="fonte-vencimento" form="campo-titulo-receber-campo-data-vencimento" mas>Data vencimento</label>
+                        <label id="fonte-vencimento" form="campo-titulo-receber-campo-data-vencimento" mas>Data de Vencimento</label>
                         <input type="date" id="tituloReceber-campo-data-vencimento" class="form-control"
                                value="@ViewBag.TituloReceber.DataVencimento.ToString("yyyy-MM-dd")" name="DataVencimento" />
                     </div>
