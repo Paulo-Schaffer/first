@@ -83,8 +83,8 @@ namespace TccFirst.Controllers
         //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         //}
 
-        [HttpGet, Route("tituloPagar/obtertodosselect")]
-        public JsonResult ObterTodosSelect(string termo)
+        [HttpGet, Route("tituloPagar/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string termo)
         {
             var tituloPagars = repository.ObterTodos();
             List<object> ObterTodosSelect2 = new List<object>();
@@ -102,6 +102,12 @@ namespace TccFirst.Controllers
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
 
+        }
+        public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao = "", int valor = 0, int idDespesa = 0)
+        {
+            var tituloReceber = repository.ObterTodosRelatorio(dataInicial, dataFinal, descricao, valor, idDespesa);
+            var resultado = new { data = tituloReceber };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
 }

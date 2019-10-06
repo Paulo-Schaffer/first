@@ -73,6 +73,43 @@ namespace Repository.Repositories
                 .Include("CategoriaDespesa")
                 .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
         }
+
+        public List<TituloPagar> ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao, int valorTotal, int idDespesa)
+        {
+            if (dataInicial == "")
+            {
+                dataInicial = null;
+            }
+            if (dataFinal == "")
+            {
+                dataFinal = null;
+            }
+            var query = context
+                .TitulosPagar
+                .Where(x => x.RegistroAtivo);
+
+            if (idDespesa != TituloPagar.FiltroSemDespesa)
+            {
+                query = query.Where(x => x.IdCategoriaDespesa == idDespesa);
+            }
+            if (!string.IsNullOrEmpty(descricao))
+            {
+                query = query.Where(x => x.Descricao.Contains(descricao));
+            }
+            if ((dataInicial != null) && (dataFinal != null))
+            {
+                DateTime dataInicialConvertida = Convert.ToDateTime(dataInicial);
+                DateTime dataFinalConvertida = Convert.ToDateTime(dataFinal);
+                query = query.Where(x => x.DataLancamento == dataInicialConvertida || x.DataLancamento <= dataFinalConvertida);
+            }
+            if (valorTotal != 0)
+            {
+                query = query.Where(x => x.ValorTotal == valorTotal);
+            }
+
+            return query.ToList();
+        }
+
         public List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {
             return context.Database

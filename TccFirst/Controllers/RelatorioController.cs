@@ -19,6 +19,10 @@ namespace TccFirst.Controllers
             transacaoRepository = new TransacoesRepository();
         }
 
+        public ActionResult RelatorioTituPagar()
+        {
+            return View();
+        }
 
         // GET: Relatorio Titulo Receber
         public ActionResult RelatorioTituloReceber()

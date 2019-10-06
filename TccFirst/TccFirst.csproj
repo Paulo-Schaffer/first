@@ -5707,6 +5707,7 @@
     <Content Include="Scripts\Graficos\fluxo-caixa.js" />
     <Content Include="Scripts\Graficos\grafico-titulo.js" />
     <Content Include="Scripts\Relatorio\relatorio-caixa.js" />
+    <Content Include="Scripts\Relatorio\relatorio-titulo-pagar.js" />
     <Content Include="Scripts\Relatorio\relatorio-titulo-receber.js" />
     <Content Include="Scripts\Relatorio\Relatorio-transacao.js" />
     <Content Include="Scripts\select2.js" />
@@ -5849,6 +5850,7 @@
     <Content Include="Views\Relatorio\RelatorioTransacao.cshtml" />
     <Content Include="Views\GraficoTitulo\Index.cshtml" />
     <Content Include="Views\Relatorio\RelatorioTituloReceber.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioTituPagar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
