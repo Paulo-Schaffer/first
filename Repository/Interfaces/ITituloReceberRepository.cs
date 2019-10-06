@@ -19,6 +19,6 @@ namespace Repository.Interfaces
 
         TituloReceber ObterPeloId(int id);
 
-        List<TituloReceber> ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao, int valor, int idCliente);
+        List<TituloReceber> ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao, int valorTotal, int idReceita);
     }
 }
