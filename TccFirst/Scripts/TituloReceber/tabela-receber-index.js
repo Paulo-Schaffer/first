@@ -9,7 +9,10 @@
             { data: "Id" },
             { data: "NomeCliente" }, 
             { data: "CategoriaReceita.TipoCategoriaReceita"},
-            { data: "ValorTotal" },
+            {
+                render: function (data, type, row) {
+                    return "R$ " + row.ValorTotal
+                }},
             { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
