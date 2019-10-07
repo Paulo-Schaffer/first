@@ -12,7 +12,8 @@
             {
                 render: function (data, type, row) {
                     return "R$ " + row.ValorTotal
-                }},
+                }
+            },
             { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {
