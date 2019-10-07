@@ -86,6 +86,8 @@ namespace Repository.Repositories
             }
             var query = context
                 .TitulosPagar
+                .Include("Fornecedor")
+                .Include("CategoriaDespesa")
                 .Where(x => x.RegistroAtivo);
 
             if (idDespesa != TituloPagar.FiltroSemDespesa)

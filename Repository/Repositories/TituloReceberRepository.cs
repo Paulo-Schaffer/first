@@ -88,6 +88,7 @@ namespace Repository.Repositories
             }
             var query = context
                 .TitulosReceber
+                .Include("CategoriaReceita")
                 .Where(x => x.RegistroAtivo);
 
             if (idReceita != TituloReceber.FiltroSemReceita)
@@ -109,7 +110,8 @@ namespace Repository.Repositories
                 query = query.Where(x => x.ValorTotal == valorTotal);
             }
 
-            return query.ToList();
+            return query
+                .ToList();
         }
 
 

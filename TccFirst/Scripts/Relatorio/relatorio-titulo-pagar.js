@@ -79,8 +79,12 @@
                 columns: [
                     { data: "Descricao" },
                     { data: "ValorTotal" },
-                    { data: "DataLancamento" },
-                    { data: "IdCategoriaDespesa" },
+                    {
+                        render: function (data, type, row) {
+                            return moment(row.DataLancamento).format('DD/MM/YYYY')
+                        }
+                    },
+                    { data: "CategoriaDespesa.TipoCategoriaDespesa" },
 
 
                 ]
