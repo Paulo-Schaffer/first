@@ -56,6 +56,8 @@
 
 });
 $(function () {
+    $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
+
     $idAlterar = -1;
     $tabelaCaixa = $("#caixa-tabela").DataTable({
         "scrollX": true,

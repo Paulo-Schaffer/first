@@ -1,4 +1,6 @@
 ﻿$(function () {
+    $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
+
     $idAlterar = -1;
     $idTituloReceber = $("#id").val();
 
