@@ -33,14 +33,14 @@
     });
     $("#filtro-data-inicial").on("change", function (e) {
 
-            buscarValores();
+        buscarValores();
         if (e.keyCode === 13) {
 
         }
     });
     $("#filtro-data-final").on("change", function (e) {
 
-            buscarValores();
+        buscarValores();
         if (e.keyCode === 13) {
         }
     });
@@ -81,8 +81,12 @@
                     { data: "Documento" },
                     { data: "Valor" },
                     { data: "FormaPagamento" },
-                    { data: "DataLancamento" },
-                    { data: "IdHistoricos" },
+                    {
+                        render: function (data, type, row) {
+                            return moment(row.DataLancamento).format('DD/MM/YYYY')
+                        }
+                    },
+                    { data: "Historico.Descricao" },
 
 
                 ]
