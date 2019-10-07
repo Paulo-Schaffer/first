@@ -1,43 +1,57 @@
 ﻿@{
-                /**/
+    /**/
 
-                ViewBag.Title = "RelatorioTransacao";
+    ViewBag.Title = "RelatorioTransacao";
 }
 
 
-<h2>Relatorio de Transacao</h2>
-
-<div class="form-group">
-    <label for="filtro-receita">Categoria Receita</label>
-    <select class="form-control" id="filtro-receita">
-        <option value="0">Todos</option>
-    </select>
+<h2><b>Relatorio de Transacao</b></h2>
+<hr />
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="filtro-receita"><b>Categoria Receita</b></label>
+            <select class="form-control border-dark" id="filtro-receita">
+                <option value="0">Todos</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label for="filtro-despesa"><b>Categoria Despesa</b></label>
+            <select class="form-control border-dark" id="filtro-despesa">
+                <option value="0">Todos</option>
+            </select>
+        </div>
+    </div>
 </div>
-<div class="form-group">
-    <label for="filtro-despesa">Categoria Despesa</label>
-    <select class="form-control" id="filtro-despesa">
-        <option value="0">Todos</option>
-    </select>
-</div>
 
-<div class="form-group">
-    <label for="filtro-documento">Descrição</label>
-    <input type="text" id="filtro-documento" />
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="filtro-documento"><b>Descrição</b></label>
+            <input type="text" id="filtro-documento" class="form-control border-dark" />
+        </div>
+    </div>
 </div>
 <div class="row">
     <div class="col-6">
         <div class="form-group" id="fonte">
-            <label for="campo-filtro-data-inicial" mas>Data Inicial</label>
-            <input type="date" id="filtro-data-inicial" class="form-control" />
+            <label for="campo-filtro-data-inicial" mas><b>Data Inicial</b></label>
+            <input type="date" id="filtro-data-inicial" class="form-control border-dark" />
         </div>
-        <div class="col-6">
-            <div class="form-group" id="fonte">
-                <label for="campo-filtro-data-final" mas>Data Final</label>
-                <input type="date" id="filtro-data-final" class="form-control" />
-            </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group" id="fonte">
+            <label for="campo-filtro-data-final" mas><b>Data Final</b></label>
+            <input type="date" id="filtro-data-final" class="form-control border-dark" />
         </div>
     </div>
 </div>
+
+
+<br />
+
 
 
 

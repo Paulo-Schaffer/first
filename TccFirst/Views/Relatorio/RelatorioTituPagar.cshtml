@@ -5,41 +5,47 @@
 
 
 
-<h2>Relatorio Titulos a Pagar</h2>
-
-<div class="form-group">
-    <label for="filtro-despesa">Tipo de Receita</label>
-    <select class="form-control" id="filtro-despesa">
-        <option value="0">Todos</option>
-    </select>
-</div>
-
+<h2><b>Relatorio Titulos a Pagar</b></h2>
+<hr />
 <div class="row">
-    <div class="">
+    <div class="col-12">
         <div class="form-group">
-            <label for="filtro-documento">Descrição</label>
-            <input type="text" id="filtro-descricao" />
-        </div>
-    </div>
-    <div class="">
-        <div clas="form-group">
-            <label class="filtro-valor">Valor</label>
-            <input type="text" id="filtro-valor" />
+            <label for="filtro-despesa"><b>Tipo de Receita</b></label>
+            <select class="form-control" id="filtro-despesa">
+                <option value="0">Todos</option>
+            </select>
         </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-6">
-        <div class="form-control">
-            <label for="filtro-data-inicial">Date Incial do Lançamento</label>
-            <input type="date" id="filtro-data-inicial" />
+        <div class="form-group">
+            <label for="filtro-documento"><b>Descrição</b></label>
+            <input type="text" id="filtro-descricao" class="form-control border-dark" />
         </div>
     </div>
     <div class="col-6">
-        <div class="form-control">
-            <label for="filtro-data-final">Date Final do Lançamento</label>
-            <input type="date" id="filtro-data-final" />
+        <div class="form-group">
+            <label class="filtro-valor"><b>Valor</b></label>
+            <input type="text" id="filtro-valor" class="form-control border-dark" />
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="filtro-data-inicial"><b>Data Incial do Lançamento</b></label>
+            <input type="date" id="filtro-data-inicial" class="form-control border-dark"/>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label for="filtro-data-final"><b>Data Final do Lançamento</b></label>
+            <input type="date" id="filtro-data-final" class="form-control border-dark"/>
         </div>
     </div>
 </div>

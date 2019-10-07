@@ -1,0 +1,22 @@
+﻿body {
+}
+#filtro-historico {
+    border-color: black;
+    border-width: 1px;  
+}
+#filtro-descricao {
+    border-color: black;
+    border-width: 1px;
+}
+#filtro-valor {
+    border-color: black;
+    border-width: 1px;
+}
+#filtro-data-final {
+    border-color: black;
+    border-width: 1px;
+}
+#filtro-data-inicial {
+    border-color: black;
+    border-width:1px;
+}

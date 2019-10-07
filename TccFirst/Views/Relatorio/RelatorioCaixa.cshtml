@@ -5,44 +5,45 @@
 }
 
 
-<h2>Relatorio de Caixa</h2>
-
+<h2><b>Relatorio de Caixa</b></h2>
+<hr />
 <div class="form-group">
-    <label for="filtro-historico">Historico</label>
-    <select class="form-control" id="filtro-historico">
+    <label for="filtro-historico"><b>Historico</b></label>
+    <select class="form-control border-dark"     id="filtro-historico">
         <option value="0">Todos</option>
     </select>
 </div>
 
 <div class="row">
-    <div class="">
+    <div class="col-6">
         <div class="form-group">
-            <label for="filtro-documento">Descrição</label>
-            <input type="text" id="filtro-descricao" />
+            <label for="filtro-documento"><b>Descrição</b></label>
+            <input type="text" id="filtro-descricao" class=" form-control "/>
         </div>
     </div>
-    <div class="">
+    <div class="col-6">
         <div clas="form-group">
-            <label class="filtro-valor">Valor</label>
-            <input type="text" id="filtro-valor" />
+            <label class="filtro-valor"><b>Valor</b></label>
+            <input type="text" id="filtro-valor" class=" form-control "/>
         </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-6">
-        <div class="form-control">
-            <label for="filtro-data-inicial">Date Incial do Lançamento</label>
-            <input type="date" id="filtro-data-inicial" />
+        <div class="form-group">
+            <label for="filtro-data-inicial"><b>Data Incial do Lançamento</b></label><br />
+            <input type="date" id="filtro-data-inicial" class=" form-control " />
         </div>
     </div>
     <div class="col-6">
-        <div class="form-control">
-            <label for="filtro-data-final">Date Final do Lançamento</label>
-            <input type="date" id="filtro-data-final" />
+        <div class="form-group">
+            <label for="filtro-data-final"><b>Data Final do Lançamento</b></label><br />
+            <input type="date" id="filtro-data-final" class=" form-control " />
         </div>
     </div>
 </div>
+<br />
 
 <table id="relatorio-conta-caixa" class="table table-hover table-bordered table-striped">
     <thead>
@@ -60,3 +61,4 @@
 @section js{
     <script src="~/Scripts/Relatorio/relatorio-caixa.js"></script>
 }
+<link href="~/Content/css/Relatorios/RelatorioCaixa.css" rel="stylesheet" />
