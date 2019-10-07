@@ -11,9 +11,32 @@
 }
 else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
 {
-    <h1> Bem Vindo, @Session["UsuarioLogadoNome"]</h1>
 }
+<div class="row">
+    <div class="col-12">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+            <h1>Financial Report System Dashboard</h1>
+        <script>
+            function typeWriter(elemento) {
+                const textoArray = elemento.innerHTML.split('');
+                elemento.innerHTML = '';
+                for (let i = 0; i < textoArray.length; i++) {
+                    setTimeout(() => elemento.innerHTML += textoArray[i], 120 * i);
+                }
+            }
+
+            const titulo = document.querySelector('h1');
+            typeWriter(titulo);
+        </script>
+
+    </div>
+</div>
 <hr />
+<br />
 <div class="row">
     <div class="col-lg-3">
         <div class="card bg-c-green text-white widget-visitor-card">
@@ -51,7 +74,7 @@ else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
     else
     {
         <div class="col-lg-6">
-            <div class="card bg-c-blue text-white widget-visitor-card">
+            <div class="card bg-c-green text-white widget-visitor-card">
                 <div class="card-block-small text-center">
                     <h3>Valor Total</h3>
                     <h2>R$@ViewBag.Saldo</h2>
@@ -63,3 +86,7 @@ else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
 </div>
 <hr />
 <link href="~/Content/css/Graficos/Graficos.css" rel="stylesheet" />
+<br />
+<br />
+
+

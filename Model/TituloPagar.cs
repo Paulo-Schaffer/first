@@ -11,6 +11,8 @@ namespace Model
     [Table("titulos_pagar")]
     public class TituloPagar
     {
+        public const int FiltroSemDespesa = 0;
+
         public const string StatusPendente = "Pendente";
         public const string StatusPagoParcialmente = "Parcialmente";
         public const string StatusCancelado = "Cancelado";

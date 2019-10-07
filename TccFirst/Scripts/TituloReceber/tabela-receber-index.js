@@ -1,4 +1,5 @@
 ﻿$(function () {
+    $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
         "scrollX": true,
         ajax: '/tituloreceber/obtertodos',

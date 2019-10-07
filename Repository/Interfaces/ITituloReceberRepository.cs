@@ -18,5 +18,7 @@ namespace Repository.Interfaces
         bool Apagar(int id);
 
         TituloReceber ObterPeloId(int id);
+
+        List<TituloReceber> ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao, int valorTotal, int idReceita);
     }
 }

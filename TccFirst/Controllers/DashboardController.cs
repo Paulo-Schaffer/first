@@ -28,6 +28,10 @@ namespace TccFirst.Controllers
             return View();
 
         }
+        public ActionResult Colaboradores()
+        {
+            return View(); 
+        }
 
 
 

@@ -2,16 +2,16 @@
 
     $dataInicial = "";
     $dataFinal = "";
-    $idHistorico = 0;
+    $idReceita = 0;
     $valor = 0;
     $descricao = "";
 
 
     $controle = 0;
 
-    $("#filtro-historico").select2({
+    $("#filtro-receita").select2({
         ajax: {
-            url: "/historico/obtertodosselect2",
+            url: "/tituloReceber/obtertodosselect2",
             dataType: "json"
         }
     }).on('change', function () {
@@ -48,7 +48,7 @@
 
 
     function buscarValores() {
-        $idHistorico = $("#filtro-historico").val();
+        $idReceita = $("#filtro-receita").val();
         $valor = $("#filtro-valor").val();
         $descricao = $("#filtro-descricao").val();
         $dataInicial = $("#filtro-data-inicial").val();
@@ -59,15 +59,15 @@
     function Tabela() {
         if ($controle == 0) {
 
-            $tabelaCaixa = $('#relatorio-conta-caixa').DataTable({
+            $tabelaTitulo = $('#relatorio-titulo-receber').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
                 ],
                 ajax: {
-                    url: '/caixa/obterTodosRelatorio',
+                    url: '/tituloReceber/obterTodosRelatorio',
                     data: function (d) {
-                        d.idHistorico = $idHistorico,
+                        d.receita = $idReceita,
                             d.valor = $valor,
                             d.descricao = $descricao,
                             d.dataInicial = $dataInicial,
@@ -78,22 +78,20 @@
                 serverSide: true,
                 columns: [
                     { data: "Descricao" },
-                    { data: "Documento" },
-                    { data: "Valor" },
-                    { data: "FormaPagamento" },
+                    { data: "ValorTotal" },
                     {
                         render: function (data, type, row) {
                             return moment(row.DataLancamento).format('DD/MM/YYYY')
                         }
                     },
-                    { data: "Historico.Descricao" },
+                    { data: "CategoriaReceita.TipoCategoriaReceita" },
 
 
                 ]
             });
             $controle = 1;
         } else {
-            $tabelaCaixa.ajax.reload();
+            $tabelaTitulo.ajax.reload();
         }
     }
 });
