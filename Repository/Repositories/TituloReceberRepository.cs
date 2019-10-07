@@ -76,7 +76,7 @@ namespace Repository.Repositories
                 .Where(x => x.RegistroAtivo == true).OrderBy(x => x.Id).ToList();
 
         }
-        public List<TituloReceber> ObterTodosRelatorio(string dataInicial, string dataFinal,string descricao,int valor, int idCliente)
+        public List<TituloReceber> ObterTodosRelatorio(string dataInicial, string dataFinal,string descricao, int valorTotal, int idReceita)
         {
             if (dataInicial == "")
             {
@@ -88,11 +88,12 @@ namespace Repository.Repositories
             }
             var query = context
                 .TitulosReceber
+                .Include("CategoriaReceita")
                 .Where(x => x.RegistroAtivo);
 
-            if (idCliente != TituloReceber.FiltroSemCliente)
+            if (idReceita != TituloReceber.FiltroSemReceita)
             {
-                query = query.Where(x => x.IdClientePessoaFisica == idCliente || x.IdClientePessoaJuridica == idCliente);
+                query = query.Where(x => x.IdCategoriaReceita == idReceita );
             }
             if (!string.IsNullOrEmpty(descricao))
             {
@@ -104,12 +105,13 @@ namespace Repository.Repositories
                 DateTime dataFinalConvertida = Convert.ToDateTime(dataFinal);
                 query = query.Where(x => x.DataLancamento == dataInicialConvertida || x.DataLancamento <= dataFinalConvertida);
                         }
-            if (valor != 0)
+            if (valorTotal != 0)
             {
-                query = query.Where(x => x.ValorTotal == valor);
+                query = query.Where(x => x.ValorTotal == valorTotal);
             }
 
-            return query.ToList();
+            return query
+                .ToList();
         }
 
 

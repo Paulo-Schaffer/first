@@ -75,6 +75,7 @@ namespace Repository.Repositories
             }
             var query = context
                 .Caixas
+                .Include("Historico")
                 .Where(x => x.RegistroAtivo);
 
             if (idHistorico != Caixa.FiltroSemHistorico)

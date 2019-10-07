@@ -98,9 +98,9 @@ namespace TccFirst.Controllers
 
         }
         [HttpGet]
-        public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao, int valor, int idCliente)
+        public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao = "", int valor = 0, int idReceita = 0)
         {
-            var tituloReceber = repository.ObterTodosRelatorio(dataInicial, dataFinal, descricao, valor, idCliente);
+            var tituloReceber = repository.ObterTodosRelatorio(dataInicial, dataFinal, descricao, valor, idReceita);
             var resultado = new { data = tituloReceber };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }

@@ -19,6 +19,8 @@ namespace Repository.Interfaces
 
         bool Apagar(int id);
 
+        List<TituloPagar> ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao, int valorTotal, int idDespesa);
+
         List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal);
     }
 }

@@ -92,6 +92,8 @@ namespace Repository.Repositories
         {
             var query = context
                 .Transacoes
+                .Include("CategoriaReceita")
+                .Include("CategoriaDespesa")
                 .Where(x => x.RegistroAtivo);
 
             if (idReceita != Transacao.FiltroSemReceita)

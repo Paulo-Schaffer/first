@@ -134,6 +134,7 @@
     <Content Include="Content\css\login.jpg" />
     <Content Include="Content\css\login2.png" />
     <Content Include="Content\css\login %282%29.png" />
+    <Content Include="Content\css\paginaInicial\estilo.css" />
     <Content Include="Content\css\Perfil\TelaEditarSenha.css" />
     <Content Include="Content\css\Perfil\TelaPerfil.css" />
     <Content Include="Content\css\select2.css" />
@@ -5723,6 +5724,7 @@
     <Content Include="Scripts\Graficos\fluxo-caixa.js" />
     <Content Include="Scripts\Graficos\grafico-titulo.js" />
     <Content Include="Scripts\Relatorio\relatorio-caixa.js" />
+    <Content Include="Scripts\Relatorio\relatorio-titulo-pagar.js" />
     <Content Include="Scripts\Relatorio\relatorio-titulo-receber.js" />
     <Content Include="Scripts\Relatorio\Relatorio-transacao.js" />
     <Content Include="Scripts\select2.js" />
@@ -5868,6 +5870,7 @@
     <Content Include="Views\Perfil\EditarInformacaoBasica.cshtml" />
     <Content Include="Views\Perfil\EditarSenha.cshtml" />
     <Content Include="Views\Dashboard\Colaboradores.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioTituPagar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5877,7 +5880,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\paginaInicial\" />
     <Folder Include="fonts\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />

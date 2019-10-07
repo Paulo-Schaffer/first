@@ -1,15 +1,15 @@
 ﻿@{
-    ViewBag.Title = "RelatorioTituloReceber";
+    ViewBag.Title = "RelatorioTituloPagar";
 }
 
 
 
 
-<h2>Relatorio Titulos Receber</h2>
+<h2>Relatorio Titulos a Pagar</h2>
 
 <div class="form-group">
-    <label for="filtro-receita">Tipo de Receita</label>
-    <select class="form-control" id="filtro-receita">
+    <label for="filtro-despesa">Tipo de Receita</label>
+    <select class="form-control" id="filtro-despesa">
         <option value="0">Todos</option>
     </select>
 </div>
@@ -44,19 +44,18 @@
     </div>
 </div>
 
-<table id="relatorio-titulo-receber" class="table table-hover table-bordered table-striped">
+<table id="relatorio-titulo-pagar" class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>Descrição</th>
             <th>Valor</th>
             <th>Data de Lançamento</th>
-            <th>Tipo de Receita</th>
+            <th>Tipo de Despesa</th>
 
         </tr>
     </thead>
 </table>
 @section js{
-    <script src="~/Scripts/Relatorio/relatorio-titulo-receber.js"></script>
+    <script src="~/Scripts/Relatorio/relatorio-titulo-pagar.js"></script>
 }
-
 
