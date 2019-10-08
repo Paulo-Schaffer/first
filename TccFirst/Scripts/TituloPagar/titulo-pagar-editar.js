@@ -23,7 +23,11 @@ $(function () {
                     return moment(row.DataPagamento).format('DD/MM/YYYY')
                 }
             },
-            { data: "Valor" },
+            {
+                render: function (data, type, row) {
+                    return "R$ " + row.Valor
+                }
+            },
             {
                 render: function (data, type, row) {
                     let cor = "";
@@ -164,7 +168,7 @@ $(function () {
             method: 'get',
             success: function (data) {
                 if ($idTituloPagar.Status == "Pago") {
-                    $('.botao-editar') = false;
+                    $('.botao-editar').hide
                 }
                 $('#parcelasPagar-campo-data-pagamento').val(data.DataPagamento);
                 $('#modal-parcelasPagar').modal('show');

@@ -27,7 +27,7 @@
 
             {
                 render: function (data, type, row) {
-                    return "R$ " + row.ValorTotal
+                    return "R$ " + row.Valor
                 }
             },
             {
