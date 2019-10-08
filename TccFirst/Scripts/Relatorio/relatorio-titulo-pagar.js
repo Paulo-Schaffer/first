@@ -78,7 +78,11 @@
                 serverSide: true,
                 columns: [
                     { data: "Descricao" },
-                    { data: "ValorTotal" },
+                    {
+                        render: function (data, type, row) {
+                            return "R$ " + row.ValorTotal
+                        }
+                    },
                     {
                         render: function (data, type, row) {
                             return moment(row.DataLancamento).format('DD/MM/YYYY')

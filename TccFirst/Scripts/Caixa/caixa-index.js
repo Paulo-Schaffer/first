@@ -68,7 +68,11 @@ $(function () {
             { data: 'Operacao'},
             { data: 'Descricao' },
             { data: 'Documento' },
-            { data: 'Valor' },
+            {
+                render: function (data, type, row) {
+                    return "R$ " + row.Valor
+                }
+            },
             { data: 'FormaPagamento' },
             {
                 render: function (data, type, row) {
