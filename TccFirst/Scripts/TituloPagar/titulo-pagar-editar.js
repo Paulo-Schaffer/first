@@ -152,6 +152,7 @@ $(function () {
             url: '/parcelasPagar/GerarParcelas?idTituloPagar=' + $idTituloPagar,
             method: "get",
             success: function (data) {
+                $("#gerar-parcelas").hide();
                 $tabelaParcelas.ajax.reload();
             },
             error: function (err) {
