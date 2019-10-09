@@ -1,6 +1,5 @@
 ﻿$(function () {
     $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
-
     $idAlterar = -1;
     $idTituloReceber = $("#id").val();
 
@@ -24,7 +23,6 @@
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
-
             {
                 render: function (data, type, row) {
                     return "R$ " + row.Valor
@@ -35,7 +33,7 @@
                     let cor = "";
                     if (row.Status == "Pago") {
                         cor = "bg-success";
-  x                    } else if (row.Status == "Pendente") {
+                    } else if (row.Status == "Pendente") {
                         cor = "bg-warning";
                     } else {
                         cor = "bg-danger";
@@ -48,7 +46,6 @@
                 render: function (data, type, row) {
                     return "\
                     <button class='btn btn-primary botao-editar fa fa-edit'\
-                        data-id" + row.Id + " id='botao-editar''\
                         data-id=" + row.Id + "> Editar</button>";
                     ;
                 }
@@ -68,7 +65,6 @@
         $DataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
         $DataVencimento = $("#tituloReceber-campo-data-vencimento").val();
         $Descricao = $("#tituloReceber-campo-descricao").val();
-
         function monstrarMensagem(texto, titulo, tipo) {
             // Tipo -> error ,info, primary, success, default
             new PNotify({
@@ -203,6 +199,6 @@
             icon: 'icofont icofont-info-circle',
             type: tipo
         });
-      
+
     }
 });

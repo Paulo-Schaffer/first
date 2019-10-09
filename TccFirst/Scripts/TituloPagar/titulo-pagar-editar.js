@@ -53,7 +53,6 @@ $(function () {
     });
 
     $('#tituloPagar-botao-salvar').on('click', function () {
-
         $Fornecedor = $("#tituloPagar-campo-fornecedor").val();
         $CategoriaDespesa = $("#tituloPagar-campo-categoria-despesa").val();
         $FormaPagamento = $("#tituloPagar-campo-forma-pagamento").val();
