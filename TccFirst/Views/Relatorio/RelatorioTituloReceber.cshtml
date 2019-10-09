@@ -3,13 +3,16 @@
 }
 
 
+<head>
+    <link rel="stylesheet" type="text/javascript" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/javascript" href="//cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+</head>
 
-
-<h2><b>Relatorio Titulos Receber</b></h2>
+<h2><b>Relatorio Títulos Receber</b></h2>
 <hr />
 <div class="form-group">
-    <label for="filtro-receita"><b>Tipo de Receita</b></label>
-    <select class="form-control border-dark" id="filtro-receita" >
+    <label for="filtro-receita"><b>Tipo de Receita</b><span class="text-danger">*</span></label>
+    <select class="form-control border-dark" id="filtro-receita">
         <option value="0">Todos</option>
     </select>
 </div>
@@ -18,12 +21,12 @@
     <div class="col-6">
         <div class="form-group">
             <label for="filtro-documento"><b>Descrição</b></label>
-            <input type="text" id="filtro-descricao" class="form-control border-dark"/>
+            <input type="text" id="filtro-descricao" class="form-control border-dark" />
         </div>
     </div>
     <div class="col-6">
         <div clas="form-group">
-            <label class="filtro-valor"><b>Valor</b></label>
+            <label class="filtro-valor"><b>Valor Total</b></label>
             <input type="text" id="filtro-valor" class="form-control border-dark" />
         </div>
     </div>
@@ -32,13 +35,13 @@
 <div class="row">
     <div class="col-6">
         <div clas="form-group">
-            <label for="filtro-data-inicial"><b>Date Incial do Lançamento</b></label>
+            <label for="filtro-data-inicial"><b>Data Incial do Lançamento</b></label>
             <input type="date" id="filtro-data-inicial" class="form-control border-dark" />
         </div>
     </div>
     <div class="col-6">
         <div clas="form-group">
-            <label for="filtro-data-final"><b>Date Final do Lançamento</b></label>
+            <label for="filtro-data-final"><b>Data Final do Lançamento</b></label>
             <input type="date" id="filtro-data-final" class="form-control border-dark" />
         </div>
     </div>
@@ -48,7 +51,7 @@
     <thead>
         <tr>
             <th>Descrição</th>
-            <th>Valor</th>
+            <th>Valor Total</th>
             <th>Data de Lançamento</th>
             <th>Tipo de Receita</th>
 
@@ -57,6 +60,14 @@
 </table>
 @section js{
     <script src="~/Scripts/Relatorio/relatorio-titulo-receber.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 }
 
 

@@ -1,4 +1,6 @@
 $(function () {
+    $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
+
     $tabelaTituloPagar = $("#tituloPagar-tabela").DataTable({
         "scrollX": true,
         ajax: '/titulopagar/obtertodos',
@@ -10,7 +12,10 @@ $(function () {
             { data: "CategoriaDespesa.TipoCategoriaDespesa" },
             { data: "FormaPagamento" },
             { data: "Caixa" },
-            { data: "ValorTotal" },
+            {
+                render: function (data, type, row) {
+                    return "R$ " + row.ValorTotal
+                } },
             {
                 render: function (data, type, row) {
                     let cor = "";

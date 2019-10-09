@@ -1,4 +1,5 @@
 ﻿$(function () {
+    $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
     $tabelaTituloReceber = $("#tituloReceber-tabela").DataTable({
         "scrollX": true,
         ajax: '/tituloreceber/obtertodos',
@@ -8,7 +9,11 @@
             { data: "Id" },
             { data: "NomeCliente" }, 
             { data: "CategoriaReceita.TipoCategoriaReceita"},
-            { data: "ValorTotal" },
+            {
+                render: function (data, type, row) {
+                    return "R$ " + row.ValorTotal
+                }
+            },
             { data: "QuantidadeParcela" },
             {
                 render: function (data, type, row) {

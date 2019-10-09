@@ -56,6 +56,8 @@
 
 });
 $(function () {
+    $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
+
     $idAlterar = -1;
     $tabelaCaixa = $("#caixa-tabela").DataTable({
         "scrollX": true,
@@ -66,7 +68,11 @@ $(function () {
             { data: 'Operacao'},
             { data: 'Descricao' },
             { data: 'Documento' },
-            { data: 'Valor' },
+            {
+                render: function (data, type, row) {
+                    return "R$ " + row.Valor
+                }
+            },
             { data: 'FormaPagamento' },
             {
                 render: function (data, type, row) {

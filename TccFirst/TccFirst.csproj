@@ -5718,6 +5718,7 @@
     <Content Include="Scripts\Graficos\fluxo-caixa.js" />
     <Content Include="Scripts\Graficos\grafico-titulo.js" />
     <Content Include="Scripts\Relatorio\relatorio-caixa.js" />
+    <Content Include="Scripts\Relatorio\relatorio-conta-corrente.js" />
     <Content Include="Scripts\Relatorio\relatorio-titulo-pagar.js" />
     <Content Include="Scripts\Relatorio\relatorio-titulo-receber.js" />
     <Content Include="Scripts\Relatorio\Relatorio-transacao.js" />
@@ -5865,6 +5866,8 @@
     <Content Include="Views\Perfil\EditarSenha.cshtml" />
     <Content Include="Views\Dashboard\Colaboradores.cshtml" />
     <Content Include="Views\Relatorio\RelatorioTituPagar.cshtml" />
+    <Content Include="Views\Relatorio\Index.cshtml" />
+    <Content Include="Views\Relatorio\FluxoCaixa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

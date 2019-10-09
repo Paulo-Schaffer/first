@@ -1,4 +1,5 @@
 ﻿$(function () {
+    $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
     $idAlterar = -1;
     $idTituloReceber = $("#id").val();
 
@@ -22,8 +23,11 @@
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
-            
-            { data: "Valor" },
+            {
+                render: function (data, type, row) {
+                    return "R$ " + row.Valor
+                }
+            },
             {
                 render: function (data, type, row) {
                     let cor = "";
@@ -37,12 +41,11 @@
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
 
                 }
-            },          
+            },
             {
                 render: function (data, type, row) {
                     return "\
                     <button class='btn btn-primary botao-editar fa fa-edit'\
-                        data-id" + row.Id + "'\
                         data-id=" + row.Id + "> Editar</button>";
                     ;
                 }
@@ -62,7 +65,6 @@
         $DataRecebimento = $("#tituloReceber-campo-data-recebimento").val();
         $DataVencimento = $("#tituloReceber-campo-data-vencimento").val();
         $Descricao = $("#tituloReceber-campo-descricao").val();
-
         function monstrarMensagem(texto, titulo, tipo) {
             // Tipo -> error ,info, primary, success, default
             new PNotify({
@@ -111,10 +113,10 @@
             monstrarMensagem('Digite a Quantidade de Parcelas', '', 'error');
             $("#tituloReceber-campo-quantidade-Parcelas").focus();
             return false;
-        //} else if ($ValorTotal == '') {
-        //    monstrarMensagem('Digite a Data de Valor Total', '', 'error');
-        //    $("#tituloReceber-campo-valor-total").focus();
-        //    return false;
+            //} else if ($ValorTotal == '') {
+            //    monstrarMensagem('Digite a Data de Valor Total', '', 'error');
+            //    $("#tituloReceber-campo-valor-total").focus();
+            //    return false;
         } else if ($Descricao == '') {
             monstrarMensagem('Digite a Descrição', '', 'error');
             $("#tituloReceber-campo-descricao").focus();
@@ -125,10 +127,10 @@
     });
 
     $('#parcelasReceber-botao-salvar').on('click', function () {
-        
+
         $dataRecebimento = $('#parcelasReceber-campo-data-recebimento').val();
 
-       
+
         //if ($categoriaReceita == undefined) {
         //    monstrarMensagem('Digite o Nome', '', 'error');
         //    $('#clientePessoaFisica-campo-nome').focus();
@@ -176,6 +178,12 @@
                 $('#parcelasReceber-campo-data-recebimento').val(data.DataRecebimento);
                 $('#parcelasReceber-campo-status').val(data.Status);
                 $('#modal-parcelasReceber').modal('show');
+                if (row.Status == "Pago") {
+                    $('.botao-editar'.hide())
+                }
+                else {
+                    $('.botao-editar'.show())
+                }
             },
             error: function (err) {
                 alert('Não foi possível carregar');
@@ -191,6 +199,6 @@
             icon: 'icofont icofont-info-circle',
             type: tipo
         });
-      
+
     }
 });
