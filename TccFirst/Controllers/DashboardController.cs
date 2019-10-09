@@ -25,6 +25,21 @@ namespace TccFirst.Controllers
 
             ViewBag.Saldo = saldo;
 
+            CaixaRepository caixaRepositorySaida = new CaixaRepository();
+            decimal operacaoSaida = caixaRepositorySaida.ObterTodos().Where(w => w.Operacao =="Saída").Sum(x=> x.Valor);
+
+            ViewBag.Saida = operacaoSaida;
+
+            CaixaRepository caixaRepositoryEntrada = new CaixaRepository();
+            decimal operacaoEntrada = caixaRepositoryEntrada.ObterTodos().Where(w => w.Operacao == "Entrada").Sum(x => x.Valor);
+
+            ViewBag.Entrada = operacaoEntrada;
+
+            TituloPagarRepository tituloPagarData = new TituloPagarRepository();
+            decimal data = tituloPagarData.ObterTodos().Where(w => w.DataVencimento == DateTime.Now).Sum(x => x.ValorTotal);
+
+            ViewBag.Data = data;
+
             return View();
 
         }
@@ -32,7 +47,6 @@ namespace TccFirst.Controllers
         {
             return View(); 
         }
-
 
 
 
