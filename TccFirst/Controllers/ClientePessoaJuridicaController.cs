@@ -1,6 +1,9 @@
 ﻿using Model;
 using Repository.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -13,6 +16,7 @@ namespace TccFirst.Controllers
         {
             repository = new ClientePessoaJuridicaRepository();
         }
+
 
         [HttpGet]
         public ActionResult Index()
@@ -43,7 +47,6 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
         [HttpPost]
         public JsonResult Update(ClientePessoaJuridica clientePessoaJuridica)
         {
@@ -51,7 +54,6 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
-
         [HttpGet, Route("clientepessoajuridica/")]
         public JsonResult ObterPeloId(int id)
         {

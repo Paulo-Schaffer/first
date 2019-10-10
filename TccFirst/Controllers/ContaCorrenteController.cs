@@ -1,6 +1,9 @@
 ﻿using Model;
 using Repository.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -17,6 +20,7 @@ namespace TccFirst.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+
             TransacoesRepository repositoryContaCorrente = new TransacoesRepository();
             ViewBag.ContaCorrentes = repositoryContaCorrente.ObterTodos();
             return View();
@@ -46,6 +50,7 @@ namespace TccFirst.Controllers
             CategoriaReceitaRepository categoriaReceitaRepository = new CategoriaReceitaRepository();
             ViewBag.CategoriasReceita = categoriaReceitaRepository.ObterTodos(); 
 
+
             return View();
         }
         [HttpPost]
@@ -74,6 +79,7 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
 
+
         [HttpGet]
         public ActionResult Editar(int id)
         {
@@ -81,6 +87,7 @@ namespace TccFirst.Controllers
             ViewBag.ContaCorrentes = contaCorrente;
             return View();
         }
+
 
         [HttpGet, Route("contacorrente/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
@@ -100,6 +107,10 @@ namespace TccFirst.Controllers
                 results = contaCorrenteSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+
+
+
         }
+
     }
 }

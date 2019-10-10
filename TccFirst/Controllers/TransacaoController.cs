@@ -8,6 +8,39 @@ namespace TccFirst.Controllers
     {
         private TransacoesRepository repository;
 
+        #region Verificações Login
+        private bool VerificaLogado()
+        {
+            if (Session["usuarioLogadoTipoFuncionario"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private ActionResult VerificaPermisssao()
+        {
+            if (VerificaLogado() == false)
+            {
+                return Redirect("/login");
+            }
+
+            if ((Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario") || (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente"))
+            {
+                return Redirect("/login/sempermissao");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #endregion
+
+
         public TransacaoController()
         {
             repository = new TransacoesRepository();
@@ -16,6 +49,7 @@ namespace TccFirst.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+
             TransacoesRepository transacoesRepository = new TransacoesRepository();
             ViewBag.Transacoes = transacoesRepository.ObterTodos();
             return View();
@@ -45,6 +79,7 @@ namespace TccFirst.Controllers
             CategoriaReceitaRepository categoriaReceitaRepository = new CategoriaReceitaRepository();
             ViewBag.CategoriasReceita = categoriaReceitaRepository.ObterTodos();
 
+
             return View();
         }
         [HttpPost]
@@ -73,6 +108,7 @@ namespace TccFirst.Controllers
             return RedirectToAction("Index", new { id = resultado });
         }
 
+
         [HttpGet]
         public ActionResult Editar(int id)
         {
@@ -91,6 +127,7 @@ namespace TccFirst.Controllers
             CategoriaReceitaRepository categoriaReceitaRepository = new CategoriaReceitaRepository();
             ViewBag.CategoriasReceita = categoriaReceitaRepository.ObterTodos();
 
+
             return View();
         }
         public JsonResult ObterTodosRelatorio(int idReceita = 0, int IdDespesa = 0, string documento = "")
@@ -99,5 +136,7 @@ namespace TccFirst.Controllers
             var resultado = new { data = transacao };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
     }
+
 }

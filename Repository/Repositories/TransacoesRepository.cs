@@ -36,6 +36,7 @@ namespace Repository.Repositories
             transacaoOriginal.DataRecebimento = transacao.DataRecebimento;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
+
         }
 
         public bool Apagar(int id)
@@ -78,12 +79,14 @@ namespace Repository.Repositories
         }
         public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {
+
             return context.Database
                 .SqlQuery<FluxoCaixa>(@"
                     SELECT FORMAT(transacoes.data_lancamento, 'yyyy-MM-dd') AS data, SUM(valor) as valor
                     FROM transacoes 
                     GROUP BY FORMAT(transacoes.data_lancamento, 'yyyy-MM-dd')
                     ").ToList();
+
         }
         public List<Transacao> ObterTodosRelatorio(int idReceita, int IdDespesa, string documento)
         {
@@ -106,6 +109,10 @@ namespace Repository.Repositories
             {
                 query = query.Where(x => x.Documento.Contains(documento));
             }
+            //if(dataLancamento != null)
+            //{
+            //    query = query.Where(x => x.DataLancamento.Date == dataLancamento.Date);
+            //}
             return query.ToList();
         }
     }

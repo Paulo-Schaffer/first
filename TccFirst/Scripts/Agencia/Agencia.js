@@ -1,5 +1,6 @@
 ﻿$(function () {
     $idAlterar = -1;
+
     $tabelaAgencia = $('#agencia-tabela').DataTable({
         ajax: '/Agencia/obtertodos',
         serverSide: true,
@@ -18,10 +19,12 @@
                         data-id=" + row.Id + "><i class='fa fa-trash'></i>Apagar</button>";
                 }
             }
+
         ]
     });
     $('#botao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -33,6 +36,7 @@
         $nomeAgencia = $("#campo-nomeAgencia").val();
         $numeroAgencia = $("#campo-numeroAgencia").val();
 
+        //Validação
         if ($nomeBanco == "") {
             monstrarMensagem('Digite o Nome do Banco', '', 'error');
             $("#campo-banco").focus();
@@ -46,6 +50,7 @@
             $("#campo-numeroAgencia").focus();
             return false;
         } else {
+
         }
 
         if ($idAlterar == -1) {
@@ -54,8 +59,8 @@
         } else {
             alterar($nomeBanco, $nomeAgencia, $numeroAgencia);
         }
-    });
 
+    });
     function alterar($nomeBanco, $nomeAgencia, $numeroAgencia) {
         $.ajax({
             url: "/agencia/update",
@@ -67,6 +72,7 @@
                 numeroagencia: $numeroAgencia
             },
             success: function (data) {
+
                 LimparCampos();
                 $idAlterar = -1;
                 $tabelaAgencia.ajax.reload();
@@ -76,14 +82,13 @@
             }
         })
     }
-
     function LimparCampos() {
+
         $("#campo-banco").val("");
         $("#campo-nomeAgencia").val("");
         $("#campo-numeroAgencia").val("");
         $idAlterar = -1;
     };
-
     function inserir($nomeBanco, $nomeAgencia, $numeroAgencia) {
         $.ajax({
             url: '/agencia/inserir',
@@ -122,15 +127,16 @@
                             error: function (err) {
                                 alert('Não foi possível apagar');
                             },
+
                         });
                     }
                 },
                 cancelar: function () {
                 },
             }
+
         });
     });
-
     $('.table').on('click', '.botao-editar', function () {
         debugger
         $idAlterar = $(this).data('id');
@@ -143,10 +149,13 @@
                 $("#campo-nomeAgencia").val(data.NomeAgencia);
                 $("#campo-numeroAgencia").val(data.NumeroAgencia);
                 $tabelaAgencia.ajax.reload();
+
             },
             error: function (err) {
                 alert('não foi possível carregar');
             }
         });
+
     });
+
 });

@@ -25,8 +25,10 @@
         },
         serverSide: true,
         columns: [
+            //{ data: "Id" },
             { data: "IdAgencia" },
             { data: "NumeroConta" }
+
         ]
     });
 });

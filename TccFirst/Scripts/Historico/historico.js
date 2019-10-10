@@ -1,6 +1,10 @@
-﻿$(function () {
+﻿
+
+$(function () {
     $idAlterar = -1;
+
     $tabelaHistorico = $("#historico-tabela").DataTable({
+
         ajax: '/historico/obtertodos',
         severSide: true,
         columns: [
@@ -12,11 +16,13 @@
                 }
             }
         ]
+
     });
 
     $('#historico-botao-salvar').on('click', function () {
         $descricao = $('#historico-campo-descricao').val();
         function mostrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -24,6 +30,7 @@
                 type: tipo
             });
         }
+        //Validação
        
         if ($descricao == "") {
             mostrarMensagem('Digite a Descrição', '', 'error');
@@ -41,6 +48,7 @@
     });
 
     function alterar($descricao) {
+
         $.ajax({
             url: "/historico/update",
             method: "post",
@@ -108,7 +116,9 @@
     });
 
     $('.table').on('click', '.botao-editar', function () {
+
         $idAlterar = $(this).data('id');
+
         $.ajax({
             url: "/historico/obterpeloid?id=" + $idAlterar,
             method: 'get',

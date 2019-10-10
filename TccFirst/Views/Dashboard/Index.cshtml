@@ -1,8 +1,10 @@
-﻿@{
+﻿
+@{
     /**/
 
     ViewBag.Title = "Index";
 }
+
 @if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Funcionario")
 {
     <h1>@Session["usuarioLogadoFuncionario"].ToString()</h1>
@@ -12,9 +14,11 @@ else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
 }
 <div class="row">
     <div class="col-12">
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <h1>Financial Report System Dashboard</h1>
         <script>
             function typeWriter(elemento) {
@@ -24,9 +28,11 @@ else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
                     setTimeout(() => elemento.innerHTML += textoArray[i], 120 * i);
                 }
             }
+
             const titulo = document.querySelector('h1');
             typeWriter(titulo);
         </script>
+
     </div>
 </div>
 <hr />
@@ -85,7 +91,9 @@ else if (Session["usuarioLogadoTipoFuncionario"].ToString() == "Gerente")
         </div>
         <hr />
     </div>
+
     <hr />
+    <br />
     <br />
     <div class="col-7">
         <div class="col-6">

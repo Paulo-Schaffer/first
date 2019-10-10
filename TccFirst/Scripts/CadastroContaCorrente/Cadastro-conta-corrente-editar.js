@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+    // Ao pressionar o botão enter focar no próximo campo
     $('#cadastro-conta-corrente-campo-idAgencia').keyup(function (e) {
         if (e.keyCode == 40 || e.keyCode == 13) {
             $('#cadastro-conta-corrente-campo-numero-conta').focus();
@@ -16,6 +17,7 @@
 
 $(function () {
     $idAlterar = -1;
+
     $tabelaCadastroContaCorrente = $('#cadastro-conta-corrente-tabela').DataTable({
         ajax: '/cadastrocontacorrente/ObterTodos',
         serverSide: true,
@@ -56,6 +58,7 @@ $(function () {
                 cancelar: function () {
                 },
             }
+
         });
     });
 
@@ -63,6 +66,7 @@ $(function () {
 
     $('#cadastro-conta-corrente-botao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -72,6 +76,7 @@ $(function () {
         }
         $idAgencia = $('#cadastro-conta-corrente-campo-idAgencia').val();
         $numeroConta = $('#cadastro-conta-corrente-campo-numero-conta').val();
+        //Validação
         if ($idAgencia == undefined) {
             monstrarMensagem('Selecione uma Agência', '', 'error');
             $('#cadastro-conta-corrente-campo-idAgencia').select2('open');
@@ -83,11 +88,14 @@ $(function () {
         } else {
             monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         }
+
         if ($idAlterar == -1) {
             inserir($idAgencia, $numeroConta);
         } else {
             alterar($idAgencia, $numeroConta);
+            //alert('sadds');
         }
+
     });
 
     function alterar($idAgencia, $numeroConta) {
@@ -152,5 +160,8 @@ $(function () {
                 alert("Não foi possível buscar o registro");
             }
         });
+
     });
+
+
 });

@@ -1,6 +1,9 @@
 ﻿using Model;
 using Repository.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -14,6 +17,7 @@ namespace TccFirst.Controllers
         {
             repository = new TituloPagarRepository();
         }
+
 
         public ActionResult Index()
         {
@@ -73,6 +77,12 @@ namespace TccFirst.Controllers
         }
         #endregion
 
+        //[HttpGet, Route("tituloPagar/")]
+        //public JsonResult ObterPeloId(int id)
+        //{
+        //    return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
+
         [HttpGet, Route("tituloPagar/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string termo)
         {
@@ -100,6 +110,7 @@ namespace TccFirst.Controllers
                 results = ObterTodosSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+
         }
         public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao = "", int valor = 0, int idDespesa = 0)
         {

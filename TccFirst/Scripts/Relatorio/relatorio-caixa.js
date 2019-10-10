@@ -5,6 +5,8 @@
     $idHistorico = 0;
     $valor = 0;
     $descricao = "";
+
+
     $controle = 0;
 
     $("#filtro-historico").select2({
@@ -18,24 +20,32 @@
 
     $("#filtro-valor").on("keyup", function (e) {
         if (e.keyCode === 13) {
+
             buscarValores();
         }
+
     });
     $("#filtro-descricao").on("keyup", function (e) {
         if (e.keyCode === 13) {
+
             buscarValores();
         }
     });
     $("#filtro-data-inicial").on("change", function (e) {
+
         buscarValores();
         if (e.keyCode === 13) {
+
         }
     });
     $("#filtro-data-final").on("change", function (e) {
+
         buscarValores();
         if (e.keyCode === 13) {
         }
     });
+
+
 
     function buscarValores() {
         $idHistorico = $("#filtro-historico").val();
@@ -81,6 +91,8 @@
                         }
                     },
                     { data: "Historico.Descricao" },
+
+
                 ]
             });
             $controle = 1;

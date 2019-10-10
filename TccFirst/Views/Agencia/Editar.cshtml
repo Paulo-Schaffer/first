@@ -1,11 +1,15 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Editar";
 }
 
 <link rel="stylesheet" href="~/Content/css/Agencia/TelaEditarAgencia.css">
+
 <div class="container container-fluid">
     <h2><b>Edição de Agência '@ViewBag.Agencia.Id'</b></h2>
+
     <hr />
+
     <form method="post" action="/Agencia/editar">
         <div class="row">
             <div class="col-12">
@@ -42,4 +46,5 @@
         </div>
         <button id="botao-salvar" class="btn float-right" type="submit"><i class="fa fa-save"></i>Salvar</button>
     </form>
+
 </div>

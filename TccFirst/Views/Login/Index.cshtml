@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -14,20 +15,27 @@
 <body class="text-center">
     <div class="container">
         <center>
+
             <form action="/login/VerificaLogin" method="post">
                 <div class="row">
                     <div class="col-sm">
+
                     </div>
                     <div class="col-sm">
                             <img class="center" src="~/Content/css/first.png" id="img-login" />
                         <div class="tela">
                             <br />
+                            <br />
+                            <br />
+                            <br />
                             <div>
                                 <input type="text" id="campo-usuario" name="usuario" class="form-control" maxlength="45" placeholder="Usuario" />
+                                
                             </div>
                             <br />
                             <div>
                                 <input type="password" id="campo-senha" name="senha" class="form-control " maxlength="45" placeholder="Senha" />
+                                   
                             </div>
                             <br />
                             <button id="botao-login" class="btn btn-primary mt-3 btn-lg" type="submit"><i class="fa fa-sign-in"></i> Entrar</button>

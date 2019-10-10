@@ -1,5 +1,10 @@
 ﻿using Model;
+using Repository.Interfaces;
 using Repository.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -13,6 +18,7 @@ namespace TccFirst.Controllers
         {
             repository = new MovimentacaoFinaceiraEntradaRepository();
         }
+
 
         public ActionResult Index()
         {
@@ -42,6 +48,7 @@ namespace TccFirst.Controllers
             var apagou = repository.Apagar(id);
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
+
         }
 
         [HttpPost]
@@ -52,10 +59,34 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
+
         [HttpGet, Route("login/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
+
+        //[HttpGet, Route("movimentacaoFinanceiraEntrada/obtertodosselect2")]
+        //public JsonResult ObterTodosSelect2(string term)
+        //{
+        //    var movimentacaoFinanceiraEntrada = repository.ObterTodos();
+
+        //    List<object> movimentacaoFinanceiraEntradaSelect2 =
+        //        new List<object>();
+        //    foreach (MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada in movimentacaoFinanceiraEntradaSelect2)
+        //    {
+        //        movimentacaoFinanceiraEntradaSelect2.Add(new
+        //        {
+                
+        //        });
+        //    }
+        //    var resultado = new
+        //    {
+        //        results = movimentacaoFinanceiraEntradaSelect2
+        //    };
+        //    return Json(resultado,
+        //        JsonRequestBehavior.AllowGet);
+
+        //}
     }
 }

@@ -6,8 +6,10 @@
     <i class="fa fa-backward"></i>Voltar para tabela
 </a>
 <br />
+<br />
 <form method="post" action="/Transacao/editar">
     <input type="hidden" name="id" value="@ViewBag.Transacoes.Id" />
+
     <br />
     <div class="row">
         <div class="col-6">
@@ -32,6 +34,7 @@
             <div class="form-group" id="fonte">
                 <label for="campo-historico">Historico<span class="text-danger">*</span></label>
                 <select id="campo" class="form-control text-dark" name="idHistorico">
+
                     @foreach (Model.Historico historico in ViewBag.Historicos)
                     {
                         if (historico.Id == ViewBag.Transacoes.IdHistorico)
@@ -89,6 +92,7 @@
     <div class="row">
         <div class="col-4">
             <div class="form-group" id="fonte">
+
                 <label for="campo-documento">Documento<span class="text-danger">*</span></label>
                 <input type="text" name="documento" class="form-control" id="campo" value="@ViewBag.Transacoes.Documento" />
             </div>

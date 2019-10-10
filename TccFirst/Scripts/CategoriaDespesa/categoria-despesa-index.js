@@ -11,6 +11,7 @@
                 render: function (data, type, row) {
                     return '<button class="btn botao-editar" data-id="' + row.Id + '"><i class=" fa fa-edit"></i> Editar</button>\
 <button class="btn botao-apagar" data-id="' + row.Id + '"><i class=" fa fa-trash"></i> Apagar</button>'
+
                 }
             }
         ]
@@ -19,6 +20,7 @@
     $('#categoria-despesa-botao-salvar').on('click', function () {
         $categoriaDespesa = $('#categoria-despesa-campo-despesa').val();
         function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -74,12 +76,14 @@
                 $tabelaCategoriaDespesa.ajax.reload();
             },
             error: function (err) {
+
             }
         });
     }
 
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
+
         $.confirm({
             title: 'Deseja Realmente Apagar?',
             content: 'Clique no botão apagar para apagar o registro',
@@ -96,17 +100,22 @@
                             error: function (err) {
                                 alert('Não foi possível apagar');
                             }
+
                         });
                     }
                 },
                 cancelar: function () {
                 },
             }
+
         });
+
+       
     });
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
+
         $.ajax({
             url: '/categoriadespesa/obterpeloid?id=' + $idAlterar,
             method: 'get',

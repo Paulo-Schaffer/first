@@ -5,6 +5,8 @@
     $idDespesa = 0;
     $valor = 0;
     $descricao = "";
+
+
     $controle = 0;
 
     $("#filtro-despesa").select2({
@@ -18,12 +20,14 @@
 
     $("#filtro-valor").on("keyup", function (e) {
         if (e.keyCode === 13) {
+
             buscarValores();
         }
 
     });
     $("#filtro-descricao").on("keyup", function (e) {
         if (e.keyCode === 13) {
+
             buscarValores();
         }
     });
@@ -31,6 +35,7 @@
 
         buscarValores();
         if (e.keyCode === 13) {
+
         }
     });
     $("#filtro-data-final").on("change", function (e) {
@@ -39,6 +44,8 @@
         if (e.keyCode === 13) {
         }
     });
+
+
 
     function buscarValores() {
         $idDespesa = $("#filtro-despesa").val();
@@ -82,6 +89,8 @@
                         }
                     },
                     { data: "CategoriaDespesa.TipoCategoriaDespesa" },
+
+
                 ]
             });
             $controle = 1;

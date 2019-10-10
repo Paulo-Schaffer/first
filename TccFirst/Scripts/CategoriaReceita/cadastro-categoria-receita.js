@@ -10,14 +10,18 @@
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar" id="botao-editar" data-id="' + row.Id + '"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar" id="botao-apagar" data-id="' + row.Id + '"><i class="fa fa-trash"></i>Apagar</button>'
+
                 }
+
             }
+
         ]
     });
 
     $('#categoria-receita-botao-salvar').on('click', function () {
         $categoriaReceita = $('#categoria-receita-campo-receita').val();
         function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -32,6 +36,7 @@
         } else {
             monstrarMensagem('Registro Salvo Com Sucesso', '', 'success');
         };
+
         if ($idAlterar == -1) {
             inserir($categoriaReceita);
         } else {
@@ -79,6 +84,7 @@
 
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
+
         $.confirm({
             title: 'Deseja Realmente Apagar?',
             content: 'Clique no botão apagar para apagar o registro',
@@ -96,17 +102,22 @@
                             error: function (err) {
                                 alert('Não foi possível apagar');
                             }
+
                         });
                     }
                 },
                 cancelar: function () {
                 },
             }
+
         });
+
+
     });
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
+
         $.ajax({
             url: '/categoriareceita/obterpeloid?id=' + $idAlterar,
             method: 'get',
@@ -129,4 +140,5 @@
     $('#modal-categoria-receita').on('hidden.bs.modal', function (e) {
         LimparCampos();
     })
+
 });

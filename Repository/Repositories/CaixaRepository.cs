@@ -2,7 +2,11 @@
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
@@ -87,6 +91,10 @@ namespace Repository.Repositories
                DateTime dataInicialConvertida = Convert.ToDateTime(dataInicial);
                DateTime dataFinalConvertida = Convert.ToDateTime(dataFinal);
                 query = query.Where(x => x.DataLancamento == dataInicialConvertida || x.DataLancamento <= dataFinalConvertida);
+                //query = query.Where(x => x.DataLancamento.Date == dataInicial.Date);
+                //query = query.Where(x => x.DataLancamento.Date == dataFinal.Date);
+
+
             }
             if (valor != 0)
             {
@@ -97,13 +105,16 @@ namespace Repository.Repositories
         }
         public List<FluxoCaixa> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {
+
             return context.Database
                 .SqlQuery<FluxoCaixa>(@"
                     SELECT FORMAT(caixas.data_lancamento, 'yyyy-MM-dd') AS data,  SUM(valor) as valor
                     FROM caixas 
                     GROUP BY FORMAT(caixas.data_lancamento, 'yyyy-MM-dd')
                     ").ToList();
+
         }
     }
+
 }
 

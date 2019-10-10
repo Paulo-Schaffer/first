@@ -19,12 +19,16 @@
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar" data-id="' + row.Id + '">Editar</button>\<button class="btn btn-danger botao-apagar" data-id="' + row.Id + '">Apagar</button>'
+
                 }
+
             }
+
         ]
     });
     $('#botao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -32,12 +36,25 @@
                 type: tipo
             });
         }
-        $Valor = $("contacorrente-campo-valor").val();
 
+        //$ContaCorrente = $("campo-cadastrocontacorrente").val();
+        //$Historico = $("campo-historico").val();
+        //$CategoriReceita = $("campo-categoriaReceita").val();
+        //$CategoriaDespesa = $("campo-categoriaDespesa").val();
+        //$TipoPagamento = $("contacorrente-campo-tipopagamento").val();
+        $Valor = $("contacorrente-campo-valor").val();
+        //$Documento = $("contacorrente-campo-documento").val();
+        //$DataLançamento = $("campo-datalancamento").val();
+        //$DataRecebimento = $("campo-datarecebimento").val();
+        //$DataDescricao = $("campo-descricaotransacao").val();
+
+
+        //Validação
         if ($Valor == "") {
             monstrarMensagem('Digite o Nome do Banco', '', 'error');
             $("#contacorrente-campo-valor").focus();
             return false;
+        } 
         }
     });
 });

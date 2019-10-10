@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+    // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaJuridica-campo-razaoSocial').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#clientePessoaJuridica-campo-atividade').focus();
@@ -104,20 +105,30 @@
 });
 $(document).ready(function () {
 
+    // Adicionamos o evento onclick ao botão com o ID "pesquisar"
     $('#clientePessoaJuridica-campo-cnpj').blur(function () {
 
+
+        // Aqui recuperamos o cnpj preenchido do campo e usamos uma expressão regular para limpar da string tudo aquilo que for diferente de números
         var cnpj = $('#clientePessoaJuridica-campo-cnpj').val().replace(/[^0-9]/g, '');
 
+        // Fazemos uma verificação simples do cnpj confirmando se ele tem 14 caracteres
         if (cnpj.length == 14) {
+
+            // Aqui rodamos o ajax para a url da API concatenando o número do CNPJ na url
             $.ajax({
                 url: 'https://www.receitaws.com.br/v1/cnpj/' + cnpj,
                 method: 'GET',
-                dataType: 'jsonp', 
+                dataType: 'jsonp', // Em requisições AJAX para outro domínio é necessário usar o formato "jsonp" que é o único aceito pelos navegadores por questão de segurança
                 complete: function (xhr) {
 
+                    // Aqui recuperamos o json retornado
                     response = xhr.responseJSON;
 
+                    // Na documentação desta API tem esse campo status que retorna "OK" caso a consulta tenha sido efetuada com sucesso
                     if (response.status == 'OK') {
+
+                        // Agora preenchemos os campos com os valores retornados                        
                         $('#clientePessoaJuridica-campo-nomeFantasia').val(response.fantasia);                       
                         $('#clientePessoaJuridica-campo-email').val(response.email);
                         $('#clientePessoaJuridica-campo-razaoSocial').val(response.nome);
@@ -129,58 +140,81 @@ $(document).ready(function () {
                         $('#clientePessoaJuridica-campo-bairro').val(response.bairro);
                         $('#clientePessoaJuridica-campo-cidade').val(response.municipio);
                         $('#clientePessoaJuridica-campo-uf').val(response.uf);
+
+
+                        // Aqui exibimos uma mensagem caso tenha ocorrido algum erro
                     } else {
-                        alert(response.message);
+                        alert(response.message); // Neste caso estamos imprimindo a mensagem que a própria API retorna
                     }
                 }
             });
+
+            // Tratativa para caso o CNPJ não tenha 14 caracteres
         } else {
             alert('CNPJ inválido');
         }
     });
 })
-
 $(document).ready(function () {
 
     function limpa_formulário_cep() {
+
         $("#logradouroclientePessoaJuridica-campo-logradouro").val("");
         $("#clientePessoaJuridica-campo-bairro").val("");
         $("#clientePessoaJuridica-campo-cidade").val("");
         $("#clientePessoaJuridica-campo-uf").val("");
+
     }
 
+    //Quando o campo cep perde o foco.
     $("#clientePessoaJuridica-campo-cep").blur(function () {
 
+        //Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
         if (cep != "") {
 
+            //Expressão regular para validar o CEP.
             var validacep = /^[0-9]{8}$/;
 
+            //Valida o formato do CEP.
             if (validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
                 $("#clientePessoaJuridica-campo-logradouro").val("...");
                 $("#clientePessoaJuridica-campo-bairro").val("...");
                 $("#clientePessoaJuridica-campo-cidade").val("...");
                 $("#clientePessoaJuridica-campo-uf").val("...");
+
+
+                //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                     if (!("erro" in dados)) {
+                        //Atualiza os campos com os valores da consulta.
+
                         $("#clientePessoaJuridica-campo-logradouro").val(dados.logradouro);
                         $("#clientePessoaJuridica-campo-bairro").val(dados.bairro);
                         $("#clientePessoaJuridica-campo-cidade").val(dados.localidade);
                         $("#clientePessoaJuridica-campo-uf").val(dados.uf);
-                    } 
+
+                    } //end if.
                     else {
+                        //CEP pesquisado não foi encontrado.
                         limpa_formulário_cep();
                         alert("CEP não encontrado.");
                     }
                 });
-            } 
+            } //end if.
             else {
+                //cep é inválido.
                 limpa_formulário_cep();
                 alert("Formato de CEP inválido.");
             }
-        } 
+        } //end if.
         else {
+            //cep sem valor, limpa formulário.
             limpa_formulário_cep();
         }
     });
@@ -212,7 +246,9 @@ $(function () {
         ]
     });
     $('#clientePessoaJuridica-botao-salvar').on('click', function () {
+        
         function monstrarMensagem(texto, titulo, tipo) {
+            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -220,6 +256,7 @@ $(function () {
                 type: tipo
             });
         }
+
         $razaoSocial= $('#clientePessoaJuridica-campo-razaoSocial').val();
         $atividade= $('#clientePessoaJuridica-campo-atividade').val();
         $nomeFantasia= $('#clientePessoaJuridica-campo-nomeFantasia').val();
@@ -235,6 +272,7 @@ $(function () {
         $uf= $('#clientePessoaJuridica-campo-uf').val();
         $cidade= $('#clientePessoaJuridica-campo-cidade').val();
 
+            //Validação
         if ($razaoSocial == "") {
             monstrarMensagem('Digite a Razão Social', '', 'error');
             $("#clientePessoaJuridica-campo-razaoSocial").focus();
@@ -301,6 +339,7 @@ $(function () {
         }
     });
     function alterar($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
+
         $.ajax({
             url: "/clientePessoaJuridica/update",
             method: "post",
@@ -332,7 +371,6 @@ $(function () {
             }
         });
     }
-
     function Limparcampos() {
         $('#clientePessoaJuridica-campo-razaoSocial').val("");
         $('#clientePessoaJuridica-campo-atividade').val("");
@@ -352,7 +390,6 @@ $(function () {
     $('#modal-clientePessoaJuridica').on('hidden.bs.modal', function (e) {
         Limparcampos();
     })
-
     function inserir($razaoSocial, $atividade, $nomeFantasia, $dataCadastro, $cnpj, $email, $filial, $telefone, $cep, $logradouro, $numero, $bairro, $uf, $cidade) {
         $.ajax({
             url: "/clientePessoaJuridica/inserir",
@@ -377,13 +414,14 @@ $(function () {
                 $('#modal-clientePessoaJuridica').modal('hide');
                 $(".modal-backdrop").hide();               
                 $tabelaClientePessoaJuridica.ajax.reload();
+                              
             },
             error: function (err) {
                 alert("Não foi possivel cadastrar")
             }
+
         });
     }
-
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
         $.confirm({
@@ -408,11 +446,12 @@ $(function () {
                 cancelar: function () {
                 },
             }
+
         });
     });
-
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
+
         $.ajax({
             url: "/clientePessoaJuridica/obterpeloid?id=" + $idAlterar,
             method: 'get',
@@ -434,10 +473,12 @@ $(function () {
                 $('#clientePessoaJuridica-campo-uf').val(data.Uf);
                 $('#clientePessoaJuridica-campo-cidade').val(data.Cidade);
                 $('#modal-clientePessoaJuridica').modal('show');
+                
             },
             error: function (err) {
                 alert("Não foi possivel editar")
             }
         });
     });
+
 });

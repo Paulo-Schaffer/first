@@ -4,6 +4,7 @@
     $Documento = "";
     $controle = 0;
 
+
     $("#filtro-receita").select2({
         ajax: {
             url: "/categoriareceita/obtertodosselect2",
@@ -36,12 +37,14 @@
     $("#filtro-data-inicial").on("change", function (e) {
             buscarValores();
         if (e.keyCode === 13) {
+
         }
     });
 
     $("#filtro-data-final").on("change", function (e) {
             buscarValores();
         if (e.keyCode === 13) {
+
         }
     });
 
@@ -96,4 +99,5 @@
             $tabelaCaixa.ajax.reload();
         }
     }
+
 });

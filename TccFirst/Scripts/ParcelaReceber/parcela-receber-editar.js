@@ -90,6 +90,7 @@
     }
     $('#parcelaReceber-tabela').on('click', '.botao-apagar', function () {
         $id = $(this).data('id');
+
         $.ajax({
             url: '/parcelaReceber/apagar?id=' + $idAlterar,
             method: 'get',
@@ -104,6 +105,7 @@
     });
     $('#parcelaReceber-tabela').on('click', '.botao-editar', function () {
         $id = $(this).data('id');
+
         $.ajax({
             url: "/parcelaReceber/obterpeloid?id=" + $idAlterar,
             method: 'get',
@@ -119,6 +121,7 @@
             error: function (err) {
                 alert("Não foi possivel editar")
             }
+
         });
         if ($("#parcelaReceber-campo-status")== "Pago") {
             $(".botao-editar").hide();
@@ -126,5 +129,6 @@
         else {
             $(".botao-editar").show();
         }
+
     });
 });

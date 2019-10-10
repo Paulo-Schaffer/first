@@ -1,5 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Model
 {
@@ -8,12 +13,11 @@ namespace Model
     {
         [Key, Column("id")]
         public int Id { get; set; }
-
         [Column("Valor")]
         public decimal Valor { get; set; }
-
         [Column("registro_ativo")]
         public bool RegistroAtivo { get; set; }
+
 
         #region fk_conta_corrente
         [Column("id_conta_corrente")]
@@ -35,5 +39,7 @@ namespace Model
         [ForeignKey("IdParcelaPagar")]
         public ParcelaPagar ParcelaPagar { get; set; }
         #endregion
+
+
     }
 }

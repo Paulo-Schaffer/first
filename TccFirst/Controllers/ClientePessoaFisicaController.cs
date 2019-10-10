@@ -1,4 +1,5 @@
-﻿using Model;
+﻿
+using Model;
 using Repository.Repositories;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -13,6 +14,7 @@ namespace TccFirst.Controllers
         {
             repository = new ClientePessoaFisicaRepository();
         }
+
 
         public ActionResult Index()
         {
@@ -78,5 +80,6 @@ namespace TccFirst.Controllers
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

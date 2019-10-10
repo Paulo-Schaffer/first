@@ -1,5 +1,9 @@
 ﻿using Model;
 using Repository.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -8,10 +12,16 @@ namespace TccFirst.Controllers
     {
         public ParcelaReceberRepository repository;
 
+
         public ParcelasReceberController()
         {
             repository = new ParcelaReceberRepository();
         }
+
+        //public ActionResult Index()
+        //{
+        //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
+        //}
 
         [HttpGet]
         public JsonResult ObterTodos(int idTituloReceber)
@@ -51,8 +61,10 @@ namespace TccFirst.Controllers
         [HttpGet]
         public ActionResult GerarParcelas(int idTituloReceber)
         {
+
             repository.GerarParcelas(idTituloReceber);
             return Json(idTituloReceber, JsonRequestBehavior.AllowGet);
+
         }
     }
 }

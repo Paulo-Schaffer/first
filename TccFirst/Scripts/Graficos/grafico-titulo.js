@@ -7,6 +7,7 @@ $("#data-final").on("change", function () {
 });
 $chart = null;
 
+
 function buscarDados() {
     $dataInicial = $("#data-inicial").val();
     $dataFinal = $("#data-final").val();
@@ -14,6 +15,7 @@ function buscarDados() {
     if ($dataInicial == "" || $dataFinal == "") {
         return;
     }
+
 
     $.ajax({
         url: '/graficotitulo/graficodados',
@@ -46,4 +48,5 @@ function buscarDados() {
             }
         }
     });
+
 }
