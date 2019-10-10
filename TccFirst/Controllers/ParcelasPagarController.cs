@@ -1,9 +1,5 @@
 ﻿using Model;
 using Repository.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -16,12 +12,6 @@ namespace TccFirst.Controllers
         {
             repository = new ParcelaPagarRepository();
         }
-
-
-        //public ActionResult Index()
-        //{
-        //    //return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
-        //}
 
         public ActionResult Index()
         {
@@ -36,11 +26,6 @@ namespace TccFirst.Controllers
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpGet, Route("parcelasPagar/obtertodosselect2")]
-        //public JsonResult ObterTodosSelect2(string termo)
-        //{
-        //    var parcelasPagar = repository.ObterTodos();
-        //    List<object> parcelasPagarSelect2 = new List<object>();
         [HttpPost]
         public JsonResult Inserir(ParcelaPagar parcelaPagar)
         {
@@ -72,23 +57,7 @@ namespace TccFirst.Controllers
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpGet, Route("parcelasPagar/obtertodosselect")]
-        //public JsonResult ObterTodosSelect(string termo)
-        //{
-        //    var parcelasPagar = repository.ObterTodos();
-        //    List<object> parcelasPagarSelect2 = new List<object>();
-        //    foreach (parcelasPagar parcelasPagar in parcelasPagar)
-        //    {
-        //        parcelasPagarSelect.Add(new
-        //        {
-        //            id = parcelasPagar.Id,
-        //            valor = parcelasPagar.Valor,
-        //            status = parcelasPagar.Status,
-        //            dataVencimento = parcelasPagar.DataVencimento,
-        //            dataPagamento = parcelasPagar.DataPagamento
-
         #region editar
-
         [HttpPost]
         public JsonResult Alterar(ParcelaPagar parcelaPagar)
         {
@@ -97,9 +66,6 @@ namespace TccFirst.Controllers
             return Json(resultado);
         }
         #endregion
-        //        });
-        //    }
-        //}
 
         [HttpGet]
         public ActionResult GerarParcelas(int idTituloPagar)

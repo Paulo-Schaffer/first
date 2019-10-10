@@ -10,10 +10,8 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label  id="fonte-fornecedor" for="tituloPagar-campo-fornecedor">Fornecedores<span class="text-danger">*</span></label>
-                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor" value="@ViewBag.TituloPagar.IdFornecedor">
-
-                    </select>
+                    <label id="fonte-fornecedor" for="tituloPagar-campo-fornecedor">Fornecedores<span class="text-danger">*</span></label>
+                    <select class="form-control" id="tituloPagar-campo-fornecedor" name="IdFornecedor" value="@ViewBag.TituloPagar.IdFornecedor"></select>
                 </div>
             </div>
 
@@ -30,14 +28,13 @@
                 <div class="form-group">
                     <label id="fonte-pagamento" for="tituloPagar-campo-forma-pagamento">Forma de Pagamento<span class="text-danger">*</span></label>
                     <select class="form-control" id="tituloPagar-campo-forma-pagamento" name="FormaPagamento">
-                            @if (ViewBag.TituloPagar.FormaPagamento == "Dinheiro")
+                        @if (ViewBag.TituloPagar.FormaPagamento == "Dinheiro")
                         {
-                        <option value="Dinheiro" selected="selected">Dinheiro</option>
-
+                            <option value="Dinheiro" selected="selected">Dinheiro</option>
                         }
                         else
                         {
-                        <option value="Dinheiro">Dinheiro</option>
+                            <option value="Dinheiro">Dinheiro</option>
                         }
                         @if (ViewBag.TituloPagar.FormaPagamento == "Cartão de Debito")
                         {
@@ -65,27 +62,27 @@
                     <select class="form-control" id="tituloPagar-campo-status" name="Status">
                         @if (ViewBag.TituloPagar.Status == "Pendente")
                         {
-                        <option value="Pendente" selected="selected">Pendente</option>
+                            <option value="Pendente" selected="selected">Pendente</option>
                         }
                         else
                         {
-                        <option value="Pendente">Pendente</option>
+                            <option value="Pendente">Pendente</option>
                         }
                         @if (ViewBag.TituloPagar.Status == "Pago")
                         {
-                        <option value="Pago" selected="selected">Pago</option>
+                            <option value="Pago" selected="selected">Pago</option>
                         }
                         else
                         {
-                        <option value="Pago">Pago</option>
+                            <option value="Pago">Pago</option>
                         }
                         @if (ViewBag.TituloPagar.Status == "Cancelado")
                         {
-                        <option value="Cancelado" selected="selected">Cancelado</option>
+                            <option value="Cancelado" selected="selected">Cancelado</option>
                         }
                         else
                         {
-                        <option value="Cancelado">Cancelado</option>
+                            <option value="Cancelado">Cancelado</option>
                         }
                     </select>
                 </div>
@@ -127,7 +124,7 @@
                 <label id="fonte-valor" for="tituloPagar-campo-valor-total" style="display: block">Valor Total</label>
                 <span type="text" id="tituloPagar-campo-valor-total">R$ @ViewBag.TituloPagar.ValorTotal</span>
             </div>
-        
+
             <div class="col-6">
                 <div class="form-group">
                     <label id="fonte-parcela" for="tituloPagar-campo-quantidade-parcela">Quantidade de Parcelas</label>
@@ -145,14 +142,12 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <button id="botao-salvar" class="btn float-right mt-3" type="submit"><i class="fa fa-save"></i> Salvar</button>
     </form>
 </div>
-
 @section js{
     <script src="~/Scripts/TituloPagar/titulo-pagar-cadastro.js"></script>
     <script src="~/Scripts/TituloPagar/titulo-pagar-editar.js"></script>
 }
-
-    <link href="~/Content/css/TituloPagar/TelaInformacaoBasicaTituloPagar.css" rel="stylesheet" />
+<link href="~/Content/css/TituloPagar/TelaInformacaoBasicaTituloPagar.css" rel="stylesheet" />

@@ -1,10 +1,7 @@
 ﻿using Model;
 using Repository.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
@@ -44,7 +41,6 @@ namespace Repository.Repositories
             int quantidadeAfetada = context.SaveChanges();
 
             return quantidadeAfetada == 1;
-
         }
 
         public int Inserir(MovimentacaoFinanceiraEntrada movimentacaoFinanceiraEntrada)

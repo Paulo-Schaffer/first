@@ -1,29 +1,19 @@
 ﻿$(document).ready(function () {
-
-    // Adicionamos o evento onclick ao botão com o ID "pesquisar"
     $('#fornecedor-campo-cnpj').blur(function () {
 
-
-        // Aqui recuperamos o cnpj preenchido do campo e usamos uma expressão regular para limpar da string tudo aquilo que for diferente de números
         var cnpj = $('#fornecedor-campo-cnpj').val().replace(/[^0-9]/g, '');
 
-        // Fazemos uma verificação simples do cnpj confirmando se ele tem 14 caracteres
         if (cnpj.length == 14) {
 
-            // Aqui rodamos o ajax para a url da API concatenando o número do CNPJ na url
             $.ajax({
                 url: 'https://www.receitaws.com.br/v1/cnpj/' + cnpj,
                 method: 'GET',
-                dataType: 'jsonp', // Em requisições AJAX para outro domínio é necessário usar o formato "jsonp" que é o único aceito pelos navegadores por questão de segurança
+                dataType: 'jsonp', 
                 complete: function (xhr) {
 
-                    // Aqui recuperamos o json retornado
                     response = xhr.responseJSON;
-
-                    // Na documentação desta API tem esse campo status que retorna "OK" caso a consulta tenha sido efetuada com sucesso
                     if (response.status == 'OK') {
 
-                        // Agora preenchemos os campos com os valores retornados
                         $('#fornecedor-campo-email').val(response.email);
                         $('#fornecedor-nome-razaoSocial').val(response.nome);
                         $('#fornecedor-campo-nomeFantasia').val(response.fantasia);
@@ -34,16 +24,11 @@
                         $('#fornecedor-campo-bairro').val(response.bairro);
                         $('#fornecedor-campo-cidade').val(response.municipio);
                         $('#fornecedor-campo-sigla').val(response.uf);
-
-
-                        // Aqui exibimos uma mensagem caso tenha ocorrido algum erro
                     } else {
-                        alert(response.message); // Neste caso estamos imprimindo a mensagem que a própria API retorna
+                        alert(response.message); 
                     }
                 }
             });
-
-            // Tratativa para caso o CNPJ não tenha 14 caracteres
         } else {
             alert('CNPJ inválido');
         }
@@ -52,63 +37,48 @@
 $(document).ready(function () {
 
     function limpa_formulário_cep() {
-        // Limpa valores do formulário de cep.
         $('#fornecedor-campo-logradouro').val("");
         $('#fornecedor-campo-bairro').val("");
         $('#fornecedor-campo-cidade').val("");
         $('#fornecedor-campo-sigla').val("");
-
     }
 
-    //Quando o campo cep perde o foco.
     $('#fornecedor-campo-cep').blur(function () {
-
-        //Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
         if (cep != "") {
 
-            //Expressão regular para validar o CEP.
             var validacep = /^[0-9]{8}$/;
 
-            //Valida o formato do CEP.
             if (validacep.test(cep)) {
 
-                //Preenche os campos com "..." enquanto consulta webservice.
                 $('#fornecedor-campo-logradouro').val("...");
                 $('#fornecedor-campo-bairro').val("...");
                 $('#fornecedor-campo-cidade').val("...");
                 $('#fornecedor-campo-sigla').val("...");
 
 
-                //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                     if (!("erro" in dados)) {
-                        //Atualiza os campos com os valores da consulta.
 
                         $('#fornecedor-campo-logradouro').val(dados.logradouro);
                         $('#fornecedor-campo-bairro').val(dados.bairro);
                         $('#fornecedor-campo-cidade').val(dados.localidade);
                         $('#fornecedor-campo-sigla').val(dados.uf);
 
-                    } //end if.
+                    } /
                     else {
-                        //CEP pesquisado não foi encontrado.
                         limpa_formulário_cep();
                         alert("CEP não encontrado.");
                     }
                 });
-            } //end if.
+            } 
             else {
-                //cep é inválido.
                 limpa_formulário_cep();
                 alert("Formato de CEP inválido.");
             }
-        } //end if.
+        } 
         else {
-            //cep sem valor, limpa formulário.
             limpa_formulário_cep();
         }
     });
@@ -132,16 +102,12 @@ $(function () {
                     return '<button class="btn btn-primary botao-editar" id="botao-editar" data-id="' + row.Id + '"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar" id="botao-apagar" data-id="' + row.Id + '"><i class="fa fa-trash"></i>Apagar</button>'
 
                 }
-
             }
-
         ]
     });
 
-
     $('#fornecedor-batao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -246,8 +212,6 @@ $(function () {
                 Cidade: $cidade,
                 Uf: $uf,
                 Complemento: $complemento
-
-
             },
             success: function (data) {
                 $("#modal-fornecedor").modal("hide");
@@ -327,11 +291,9 @@ $(function () {
                             success: function (data) {
                                 $tabelafornecedor.ajax.reload();
                             },
-
                             error: function (err) {
                                 alert('Não foi possível apagar');
                             }
-
                         });
                     }
                 },
@@ -343,11 +305,9 @@ $(function () {
     });
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
-
         $.ajax({
             url: '/fornecedor/obterpeloid?id=' + $idAlterar,
             method: 'get',
-
             success: function (data) {
                 $('#fornecedor-nome-razaoSocial').val(data.RazaoSocial);
                 $('#fornecedor-campo-nomeFantasia').val(data.NomeFantasia);
@@ -375,143 +335,142 @@ $(function () {
 });
 
 $(function () {
-    // Ao pressionar o botão enter focar no próximo campo
     $('#fornecedor-nome-razaoSocial').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
+        if (e.keyCode == 13 || e.keyCode == 40) { 
             $('#fornecedor-campo-nomeFantasia').focus();
         } else if (e.keyCode == 39) {
             $('#fornecedor-campo-nomeFantasia').focus();
         }
     });
     $('#fornecedor-campo-nomeFantasia').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 40) { // Enter ou seta p/ baixo
+        if (e.keyCode == 13 || e.keyCode == 40) {
             $('#fornecedor-campo-cnpj').focus();
         } else if (e.keyCode == 39) {
             $('#fornecedor-campo-cnpj').focus();
-        } else if (e.keyCode == 37) { // seta p/ esquerda
+        } else if (e.keyCode == 37) { 
             $('#fornecedor-nome-razaoSocial').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38) { 
             $('#fornecedor-nome-razaoSocial').focus();
         }
     });
     $('#fornecedor-campo-cnpj').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) {
             $('#fornecedor-campo-dataCadastro').focus();
-        } else if (e.keyCode == 38 || e.keyCode == 37) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38 || e.keyCode == 37) {
             $('#fornecedor-campo-nomeFantasia').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) { 
             $('#fornecedor-campo-email').focus();
         }
     });
     $('#fornecedor-campo-dataCadastro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) {
             $('#fornecedor-campo-email').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+        } else if (e.keyCode == 37) { 
             $('#fornecedor-campo-cnpj').focus();
         }
-        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        else if (e.keyCode == 38) { 
             $('#fornecedor-campo-nomeFantasia').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) {
             $('#fornecedor-campo-telefone').focus();
         }
     });
     $('#fornecedor-campo-email').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) { 
             $('#fornecedor-campo-telefone').focus();
-        } else if (e.keyCode == 37) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 37) { 
             $('#fornecedor-campo-dataCadastro').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38) { 
             $('#fornecedor-campo-cnpj').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) { 
             $('#fornecedor-campo-logradouro').focus();
         }
     });
     $('#fornecedor-campo-telefone').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) { 
             $('#fornecedor-campo-logradouro').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+        } else if (e.keyCode == 37) { 
             $('#fornecedor-campo-email').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38) { 
             $('#fornecedor-campo-dataCadastro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) {
             $('#fornecedor-campo-logradouro').focus();
         }
     });
     $('#fornecedor-campo-logradouro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) { 
             $('#fornecedor-campo-cep').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+        } else if (e.keyCode == 37) { 
             $('#fornecedor-campo-telefone').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38) { 
             $('#fornecedor-campo-email').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) { 
             $('#fornecedor-campo-cep').focus();
         }
     });
     $('#fornecedor-campo-cep').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) { 
             $('#fornecedor-campo-numero').focus();
-        } else if (e.keyCode == 38 || e.keyCode == 37) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38 || e.keyCode == 37) { 
             $('#fornecedor-campo-logradouro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) { 
             $('#fornecedor-campo-bairro').focus();
         }
     });
     $('#fornecedor-campo-numero').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) { 
             $('#fornecedor-campo-bairro').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+        } else if (e.keyCode == 37) {
             $('#fornecedor-campo-cep').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38) { 
             $('#fornecedor-campo-logradouro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) { 
             $('#fornecedor-campo-bairro').focus();
         }
     });
     $('#fornecedor-campo-bairro').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) {
             $('#fornecedor-campo-cidade').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+        } else if (e.keyCode == 37) {
             $('#fornecedor-campo-numero').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38) { 
             $('#fornecedor-campo-cep').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) {
             $('#fornecedor-campo-cidade').focus();
         }
     });
     $('#fornecedor-campo-cidade').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) { 
             $('#fornecedor-campo-sigla').focus();
-        } else if (e.keyCode == 37) { // Enter ou seta p/ esquerda
+        } else if (e.keyCode == 37) {
             $('#fornecedor-campo-bairro').focus();
-        } else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        } else if (e.keyCode == 38) {
             $('#fornecedor-campo-bairro').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) { 
             $('#fornecedor-campo-sigla').focus();
         }
     });
     $('#fornecedor-campo-sigla').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) { 
             $('#fornecedor-campo-complemento').focus();
         }
-        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        else if (e.keyCode == 38) { 
             $('#fornecedor-campo-cidade').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) {
             $('#fornecedor-batao-salvar').focus();
         }
     });
     $('#fornecedor-campo-complemento').keyup(function (e) {
-        if (e.keyCode == 13 || e.keyCode == 39) { // Enter ou seta p/ direita
+        if (e.keyCode == 13 || e.keyCode == 39) {
             $('#fornecedor-batao-salvar').focus();
         }
-        else if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        else if (e.keyCode == 38) {
             $('#fornecedor-campo-cidade').focus();
-        } else if (e.keyCode == 40) { // seta p/ cima foca campo de baixo
+        } else if (e.keyCode == 40) {
             $('#fornecedor-batao-salvar').focus();
         }
     });
     $('#fornecedor-batao-salvar').keyup(function (e) {
-        if (e.keyCode == 38) { // seta p/ cima foca campo de cima
+        if (e.keyCode == 38) { 
             $('#fornecedor-campo-complemento').focus();
         } else { };
     });

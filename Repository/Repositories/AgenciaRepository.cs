@@ -1,10 +1,7 @@
 ﻿using Model;
 using Repository.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
@@ -29,7 +26,6 @@ namespace Repository.Repositories
             agenciaOriginal.NumeroAgencia = agencia.NumeroAgencia;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
-
         }
 
         public bool Apagar(int id)
@@ -40,7 +36,6 @@ namespace Repository.Repositories
             {
                 return false;
             }
-                    
 
             agencia.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();

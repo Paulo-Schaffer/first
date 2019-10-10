@@ -1,9 +1,6 @@
 ﻿using Model;
 using Repository.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -16,7 +13,6 @@ namespace TccFirst.Controllers
         {
             repository = new TituloReceberRepository();
         }
-
 
         [HttpGet, Route("obterTodos")]
         public JsonResult ObterTodos()
@@ -95,7 +91,6 @@ namespace TccFirst.Controllers
                 results = tituloRecebersSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-
         }
         [HttpGet]
         public JsonResult ObterTodosRelatorio(string dataInicial, string dataFinal, string descricao = "", int valor = 0, int idReceita = 0)

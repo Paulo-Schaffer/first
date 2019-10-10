@@ -1,8 +1,6 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
-
 <h2><b>Lista de Funcionarios</b></h2>
 <hr />
 <button data-toggle="modal" data-target="#modal-funcionario" class="btn float-right" id="botao-novoFuncionario"><i class="fa fa-plus"></i>Novo Funcionario</button>
@@ -21,7 +19,6 @@
     </thead>
 </table>
 @RenderPage("Cadastro.cshtml")
-
 @section js{
     <script src="~/Scripts/Funcionario/Funcionario-index.js"></script>
     }

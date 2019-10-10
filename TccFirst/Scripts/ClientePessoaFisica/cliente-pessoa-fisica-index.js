@@ -2,11 +2,9 @@
     $('#clientePessoaFisica-campo-cpf').mask('000.000.000-00', { reverse: true });
     $('#clientePessoaFisica-campo-telefone').mask('(00) 0000-0000');
     $('#clientePessoaFisica-campo-cep').mask('00000-000');
-
 });
 $(function () {
 
-    // Ao pressionar o botão enter focar no próximo campo
     $('#clientePessoaFisica-campo-nome').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 39) {
             $('#clientePessoaFisica-campo-cpf').focus();
@@ -126,68 +124,48 @@ $(function () {
             $('#clientePessoaFisica-campo-complemento').focus();
         }
     });
-
 });
 $(document).ready(function () {
 
     function limpa_formulário_cep() {
-        // Limpa valores do formulário de cep.
         $("#ruaclientePessoaFisica-campo-rua").val("");
         $("#clientePessoaFisica-campo-bairro").val("");
         $("#clientePessoaFisica-campo-cidade").val("");
         $("#clientePessoaFisica-campo-uf").val("");
-
     }
 
-    //Quando o campo cep perde o foco.
     $("#clientePessoaFisica-campo-cep").blur(function () {
-
-        //Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
         if (cep != "") {
 
-            //Expressão regular para validar o CEP.
             var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
             if (validacep.test(cep)) {
 
-                //Preenche os campos com "..." enquanto consulta webservice.
                 $("#clientePessoaFisica-campo-rua").val("...");
                 $("#clientePessoaFisica-campo-bairro").val("...");
                 $("#clientePessoaFisica-campo-cidade").val("...");
                 $("#clientePessoaFisica-campo-uf").val("...");
 
-
-                //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                     if (!("erro" in dados)) {
-                        //Atualiza os campos com os valores da consulta.
-
                         $("#clientePessoaFisica-campo-rua").val(dados.logradouro);
                         $("#clientePessoaFisica-campo-bairro").val(dados.bairro);
                         $("#clientePessoaFisica-campo-cidade").val(dados.localidade);
                         $("#clientePessoaFisica-campo-uf").val(dados.uf);
-
-                    } //end if.
+                    }
                     else {
-                        //CEP pesquisado não foi encontrado.
                         limpa_formulário_cep();
                         alert("CEP não encontrado.");
                     }
                 });
-            } //end if.
+            }
             else {
-                //cep é inválido.
                 limpa_formulário_cep();
                 alert("Formato de CEP inválido.");
             }
-        } //end if.
+        }
         else {
-            //cep sem valor, limpa formulário.
             limpa_formulário_cep();
         }
     });
@@ -216,7 +194,6 @@ $(function () {
             {
                 render: function (data, type, row) {
                     return '<button class="btn btn-primary botao-editar"data-id="' + row.Id + '" id="botao-editar"><i class="fa fa-edit"></i>Editar</button>\<button class="btn btn-danger botao-apagar"data-id="' + row.Id + '" id="botao-apagar"><i class="fa fa-trash"></i>Apagar</button>'
-
                 }
             }
         ]
@@ -237,7 +214,6 @@ $(function () {
         $uf = $('#clientePessoaFisica-campo-uf').val();
         $complemento = $('#clientePessoaFisica-campo-complemento').val();
         function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -245,7 +221,6 @@ $(function () {
                 type: tipo
             });
         }
-        //Validação
         if ($nome == "") {
             monstrarMensagem('Digite o Nome', '', 'error');
             $('#clientePessoaFisica-campo-nome').focus();
@@ -301,10 +276,8 @@ $(function () {
         } else {
             monstrarMensagem('Registro Salvo com Sucesso', '', 'success');
         }
-
         if ($idAlterar == -1) {
             inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento);
-
         } else {
             alterar($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento);
         }
@@ -331,7 +304,6 @@ $(function () {
                 complemento: $complemento
             },
             success: function (data) {
-                //$("#modal-clientePessoaFisicaEditar").modal("hide");
                 $('#modal-clientePessoaFisica').modal('hide');
                 LimparCampos();
                 $idAlterar = -1;
@@ -364,7 +336,7 @@ $(function () {
         LimparCampos();
     })
 
-    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento){
+    function inserir($nome, $cpf, $dataNascimento, $limiteCredito, $email, $telefone, $cep, $rua, $numero, $bairro, $cidade, $uf, $complemento) {
         $.ajax({
             url: '/clientePessoaFisica/inserir',
             method: 'post',
@@ -401,7 +373,6 @@ $(function () {
                 $tabelaClientePessoaFisica.ajax.reload();
             },
             error: function (err) {
-
             }
         });
     }
@@ -421,24 +392,20 @@ $(function () {
                             success: function (data) {
                                 $tabelaClientePessoaFisica.ajax.reload();
                             },
-
                             error: function (err) {
                                 alert('Não foi possível apagar');
                             },
-
                         });
                     }
                 },
                 cancelar: function () {
                 },
             }
-
         });
     });
 
     $('.table').on('click', '.botao-editar', function () {
         $idAlterar = $(this).data('id');
-
         $.ajax({
             url: '/clientePessoaFisica/obterpeloid?id=' + $idAlterar,
             method: 'get',
@@ -463,6 +430,5 @@ $(function () {
                 alert('não foi possível carregar');
             }
         });
-
     });
 });

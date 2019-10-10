@@ -1,9 +1,6 @@
 ﻿using Model;
 using Repository.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -30,6 +27,7 @@ namespace TccFirst.Controllers
             var resultado = new { data = caixa };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost, Route("inserir")]
         public JsonResult Inserir(Caixa caixa)
         {
@@ -46,6 +44,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost, Route("update")]
         public JsonResult Update(Caixa caixa)
         {
@@ -53,6 +52,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
+
         [HttpGet, Route("caixa")]
         public JsonResult ObterPeloId(int id)
         {

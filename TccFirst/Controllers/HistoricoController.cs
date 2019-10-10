@@ -1,9 +1,6 @@
 ﻿using Model;
 using Repository.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -22,6 +19,7 @@ namespace TccFirst.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public JsonResult ObterTodos()
         {
@@ -29,6 +27,7 @@ namespace TccFirst.Controllers
             var resultado = new { data = historico };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult Inserir(Historico historico)
         {
@@ -37,6 +36,7 @@ namespace TccFirst.Controllers
             var resultado = new { id = id };
             return Json(resultado);
         }
+
         [HttpGet]
         public JsonResult Apagar(int id)
         {
@@ -44,6 +44,7 @@ namespace TccFirst.Controllers
             var resultado = new { status = apagou };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult Update(Historico historico)
         {
@@ -51,11 +52,13 @@ namespace TccFirst.Controllers
             var resultado = new { status = alterou };
             return Json(resultado);
         }
+
         [HttpGet, Route("historico/")]
         public JsonResult ObterPeloId(int id)
         {
             return Json(repository.ObterPeloId(id), JsonRequestBehavior.AllowGet);
         }
+
         [HttpGet, Route("historico/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string term)
         {

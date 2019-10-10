@@ -39,7 +39,6 @@ $(function () {
                         cor = "bg-danger";
                     }
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
-
                 }
             },
             {
@@ -66,7 +65,6 @@ $(function () {
         $Descricao = $("#tituloPagar-campo-descricao").val();
         $Valor = $("#tituloPagar-campo-valor-total").val();
         function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -80,7 +78,6 @@ $(function () {
             monstrarMensagem('Escolha entra Caixa ou Banco', '', 'error');
             return false;
         }
-
         if ($Fornecedor == undefined) {
             monstrarMensagem('Selecione um Fornecedor', '', 'error');
             $("#tituloPagar-campo-fornecedor").select2('open');
@@ -101,10 +98,6 @@ $(function () {
             monstrarMensagem('Selecione uma Data de Lançamento', '', 'error');
             $("#tituloPagar-campo-data-lancamento").focus();
             return false;
-            //} else if ($DataRecebimento == '') {
-            //    monstrarMensagem('Selecione uma Data Recebimento', '', 'error');
-            //    $("#tituloPagar-campo-data-recebimento").focus();
-            //    return false;
         } else if ($DataVencimento == '') {
             monstrarMensagem('Selecione uma Data de Vencimento', '', 'error');
             $("#tituloPagar-campo-data-vencimento").focus();
@@ -119,11 +112,6 @@ $(function () {
             $("#tituloPagar-campo-descricao").val();
             return false;
         }
-        //else if ($Valor == '') {
-        //    monstrarMensagem('Digite um Valor', '', 'error');
-        //    $("#tituloPagar-campo-valor").val();
-        //    return false;
-        //} 
     });
 
     $('#parcelasPagar-botao-salvar').on('click', function () {

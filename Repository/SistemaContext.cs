@@ -1,11 +1,7 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -25,7 +21,6 @@ namespace Repository
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Historico> Historicos { get; set; }
-        //public DbSet<Login> Logins { get; set; }
         public DbSet<MovimentacaoFinanceiraEntrada> MovimentacaoFinanceiraEntradas { get; set; }
         public DbSet<MovimentacaoFinanceiraSaida> MovimentacaoFinanceiraSaidas { get; set; }
         public DbSet<ParcelaReceber> ParcelasReceber { get; set; }
@@ -38,6 +33,5 @@ namespace Repository
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
-
     }
 }

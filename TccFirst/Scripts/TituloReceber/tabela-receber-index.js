@@ -26,7 +26,6 @@
                         cor = "bg-danger";
                     }
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
-
                 }
             },
             {
@@ -39,7 +38,6 @@
                     return moment(row.DataRecebimento).format('DD/MM/YYYY')
                 }
             },
-
             {
                 render: function (data, type, row) {
                     return moment(row.DataVencimento).format('DD/MM/YYYY')
@@ -84,8 +82,6 @@
                 cancelar: function () {
                 },
             }
-
         });
     });
-
 });

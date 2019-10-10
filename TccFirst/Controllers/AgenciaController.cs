@@ -7,7 +7,6 @@ namespace TccFirst.Controllers
 {
     public class AgenciaController : BaseController
     {
-
         private AgenciaRepository repository;
 
         public int ConvertToInt32 { get; private set; }
@@ -26,14 +25,12 @@ namespace TccFirst.Controllers
         }
 
         #region obtertodos
-
         [HttpGet]
         public JsonResult ObterTodos()
         {
             var agencias = repository.ObterTodos();
             var resultado = new { data = agencias };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-
         }
         #endregion
 
@@ -73,7 +70,6 @@ namespace TccFirst.Controllers
            var alterou = repository.Alterar(agencia);
             var resultado = new { status = alterou };
             return RedirectToAction("Index", new { id = resultado });
-
         }
         public ActionResult Editar(int id)
         {
@@ -81,6 +77,7 @@ namespace TccFirst.Controllers
             ViewBag.Agencia = agencia;
             return View();
         }
+
         [HttpGet, Route("agencia")]
         public JsonResult ObterPeloId(int id)
         {
@@ -97,7 +94,6 @@ namespace TccFirst.Controllers
         }
 
         #region obtertodosselect2
-
         [HttpGet, Route("agencia/obtertodosselect2")]
         public JsonResult ObterTodosSelect2(string termo)
         {
@@ -116,17 +112,7 @@ namespace TccFirst.Controllers
                 results = ObterTodosSelect2
             };
             return Json(resultado, JsonRequestBehavior.AllowGet);
-
         }
         #endregion
-
-
-
-
-
-
-
     }
-
-
 }

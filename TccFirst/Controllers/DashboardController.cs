@@ -1,6 +1,5 @@
 ﻿using Repository.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,7 +8,6 @@ namespace TccFirst.Controllers
 {
     public class DashboardController : BaseController
     {
-        // GET: Dashboard
         public ActionResult Index()
         {
             TituloReceberRepository tituloReceberRepository = new TituloReceberRepository();
@@ -41,15 +39,10 @@ namespace TccFirst.Controllers
             ViewBag.Data = data;
 
             return View();
-
         }
         public ActionResult Colaboradores()
         {
             return View(); 
         }
-
-
-
     }
-
 }

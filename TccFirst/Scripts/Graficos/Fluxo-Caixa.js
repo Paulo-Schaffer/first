@@ -1,5 +1,4 @@
-﻿
-$("#data-inicial").on("change", function () {
+﻿$("#data-inicial").on("change", function () {
     buscarDados();
 })
 
@@ -8,7 +7,6 @@ $("#data-final").on("change", function () {
 });
 $chart = null;
 
-
 function buscarDados() {
     $dataInicial = $("#data-inicial").val();
     $dataFinal = $("#data-final").val();
@@ -16,8 +14,6 @@ function buscarDados() {
     if ($dataInicial == "" || $dataFinal == "") {
         return;
     }
-
-
     $.ajax({
         url: '/relatorio/fluxocaixadados',
         data: {
@@ -42,12 +38,10 @@ function buscarDados() {
                     behaveLikeLine: true,
                     gridLineColor: '#5FBEAA',
                     hideHover: 'auto',
-
                 });
             } else {
                 $chart.setData(data);
             }
         }
     });
-
 }

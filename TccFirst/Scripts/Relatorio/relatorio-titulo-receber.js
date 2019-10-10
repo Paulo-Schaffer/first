@@ -5,8 +5,6 @@
     $idReceita = 0;
     $valor = 0;
     $descricao = "";
-
-
     $controle = 0;
 
     $("#filtro-receita").select2({
@@ -20,14 +18,12 @@
 
     $("#filtro-valor").on("keyup", function (e) {
         if (e.keyCode === 13) {
-
             buscarValores();
         }
 
     });
     $("#filtro-descricao").on("keyup", function (e) {
         if (e.keyCode === 13) {
-
             buscarValores();
         }
     });
@@ -35,7 +31,6 @@
 
         buscarValores();
         if (e.keyCode === 13) {
-
         }
     });
     $("#filtro-data-final").on("change", function (e) {
@@ -44,8 +39,6 @@
         if (e.keyCode === 13) {
         }
     });
-
-
 
     function buscarValores() {
         $idReceita = $("#filtro-receita").val();
@@ -58,7 +51,6 @@
 
     function Tabela() {
         if ($controle == 0) {
-
             $tabelaTitulo = $('#relatorio-titulo-receber').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
@@ -83,15 +75,12 @@
                             return "R$ " + row.ValorTotal
                         }
                     },
-
                     {
                         render: function (data, type, row) {
                             return moment(row.DataLancamento).format('DD/MM/YYYY')
                         }
                     },
                     { data: "CategoriaReceita.TipoCategoriaReceita" },
-
-
                 ]
             });
             $controle = 1;

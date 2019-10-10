@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -12,7 +8,6 @@ namespace Model
     public class TituloReceber
     {
         public const int FiltroSemReceita = 0;
-
         public const string StatusPendente = "Pendente";
         public const string StatusPagoParcialmente = "Parcialmente";
         public const string StatusCancelado = "Cancelado";
@@ -85,6 +80,5 @@ namespace Model
         [ForeignKey("IdCategoriaReceita")]
         public CategoriaReceita CategoriaReceita { get; set; }
         #endregion
-
     }
 }

@@ -7,11 +7,8 @@
     <a id="botao-irtabela" class="btn float-right mb-3"
        href="/Transacao/index"><i class="fa fa-backward"></i>Ir para tabela</a>
     <br />
-    <br />
-    <br />
 
     <form action="/Transacao/cadastro" method="post">
-
         <div class="row">
             <div class="col-6">
                 <label id="fonte" class="font-weight-bold" for="campo-cadastrocontacorrente">Conta Corrente<span class="text-danger">*</span></label>
@@ -31,7 +28,6 @@
                     @foreach (Model.Historico historico in ViewBag.Historicos)
                     {
                         <option value="@historico.Id">@historico.Descricao</option>
-
                     }
                 </select>
             </div>
@@ -45,7 +41,6 @@
                     @foreach (Model.CategoriaReceita categoriaReceita in ViewBag.CategoriasReceita)
                     {
                         <option value="@categoriaReceita.Id">@categoriaReceita.TipoCategoriaReceita</option>
-
                     }
                 </select>
             </div>
@@ -56,7 +51,6 @@
                     @foreach (Model.CategoriaDespesa categoriaDespesa in ViewBag.CategoriasDespesa)
                     {
                         <option value="@categoriaDespesa.Id">@categoriaDespesa.TipoCategoriaDespesa</option>
-
                     }
                 </select>
             </div>
@@ -105,10 +99,8 @@
         <div class="modal-footer">
             <button id="botao-cadastrar" class="btn float-right mt-3" type="submit"><i class="fa fa-save"></i> Cadastrar</button>
         </div>
-
     </form>
 </div>
-
 
 <input type="radio" value="0" name="numero" checked> Zero
 <input type="radio" value="1" name="numero"> Um
@@ -117,5 +109,4 @@
     Número ímpar, entre outro dado:
     <input type="text" name="nome" value="" />
 </div>
-
 <script src="~/Scripts/Transacao/tela-cadastro.js"></script>

@@ -1,7 +1,5 @@
 ﻿$(function () {
-
     $idAlterar = -1;
-
     $tabelaContaCorrente = $("#conta-corrente-tabela").DataTabble({
         ajax = '/ContaCorrente/obtertodos',
         serverSide = true,
@@ -19,7 +17,6 @@
             { 'data': 'DataRecebimento' },
             { 'data': 'NomeBanco' },
             { 'data': 'NumeroBanco' },
-           
         ]
     })
 });
@@ -37,7 +34,6 @@ $('#contaCorrente-botao-salvar').on('click', function () {
     $dataRecebimento = $('contaCorrente-campo-datarecebimento').val();
     $nomeBanco = $('contaCorrente-campo-nomebanco').val();
     $numeroBanco = $('contaCorrente-campo-numerobanco').val();
-
     if ($idAlterar == -1) {
         inserir($numeroConta, $descricao, $documento, $tipoReceitaDespesa, $tipoPagamento, $valor, $status, $dataLancamento, $dataVencimento, $dataRecebimento, $nomeBanco, $numeroBanco);
     } else {
@@ -74,6 +70,7 @@ function alterar($numeroConta, $documento, $tipoReceitaDespesa, $tipoPagamento, 
         }
     })
 }
+
 function inserir($numeroConta, $documento, $tipoReceitaDespesa, $tipoPagamento, $valor, $status, $dataLancamento, $dataVencimento, $dataRecebimento, $nomeBanco, $numeroBanco) {
     $.ajax({
         url: '/contacorrente/inserir',
@@ -101,31 +98,27 @@ function inserir($numeroConta, $documento, $tipoReceitaDespesa, $tipoPagamento, 
         }
 
     });
-
 }
+
 $('.table').on('click', '.botao-apagar', function () {
     $idApagar = $(this).data('id');
-
     $.ajax({
         url: '/contacorrente/apagar?id=' + $idApagar,
         method: 'get',
         success: function (data) {
             $tabelaContaCorrente.ajax.reload();
         },
-
         error: function (err) {
             alert('Não foi possível apagar');
         }
-
     });
 });
+
 $('.table').on('click', '.botao-editar', function () {
     $idAlterar = $(this).data('id');
-
     $.ajax({
         url: '/contacorrente/obterpeloid?id=' + $idAlterar,
         method: 'get',
-
         success: function (data) {
             $('#contaCorrente-campo-numeroconta').val(data.Numeroconta);
             $('contaCorrente-campo-descricao').val(data.Descricao);

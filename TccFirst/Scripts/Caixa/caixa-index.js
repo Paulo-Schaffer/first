@@ -1,6 +1,5 @@
 ﻿$(function () {
 
-    // Ao pressionar o botão enter focar no próximo campo
     $('#caixa-campo-operacao').keyup(function (e) {
         if (e.keyCode == 13 || e.keyCode == 40 || e.keyCode == 39) {
             $('#caixa-campo-descricao').focus();
@@ -53,16 +52,14 @@
             $('#caixa-campo-historico').focus();
         }
     });
-
 });
+
 $(function () {
     $('#caixa-campo-valor').mask('#.##0,00', { reverse: true });
-
     $idAlterar = -1;
     $tabelaCaixa = $("#caixa-tabela").DataTable({
         "scrollX": true,
         ajax: '/Caixa/obtertodos',
-
         serverSide: true,
         columns: [
             { data: 'Operacao'},
@@ -87,11 +84,9 @@ $(function () {
                 }
             }
         ]
-
     });
     $('#caixa-botao-salvar').on('click', function () {
         function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -107,7 +102,6 @@ $(function () {
         $dataLancamento = $('#caixa-campo-data-lancamento').val();
         $IdHistoricos = $('#caixa-campo-historico').val();
 
-        //Validação
         if ($operacao == "") {
             monstrarMensagem('Digite Descrição', '', 'error');
             $('#caixa-campo-operacao').focus();
@@ -194,14 +188,12 @@ $(function () {
                 $tabelaCaixa.ajax.reload();
             },
             error: function (err) {
-
             }
         });
     }
 
     $('.table').on('click', '.botao-apagar', function () {
         $idApagar = $(this).data('id');
-
         $.confirm({
             title: 'Deseja Realmente Apagar?',
             content: 'Clique no botão apagar para apagar o registro',
@@ -215,21 +207,16 @@ $(function () {
                             success: function (data) {
                                 $tabelaCaixa.ajax.reload();
                             },
-
                             error: function (err) {
                                 alert('Não foi possivel apagar  ');
                             }
-
                         });
                     }
                 },
                 cancelar: function () {
                 },
             }
-
         });
-
-       
     });
 
     $('.table').on('click', '.botao-editar', function () {

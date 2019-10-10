@@ -1,8 +1,6 @@
 ﻿using Repository.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -11,7 +9,6 @@ namespace TccFirst.Controllers
     {
         private CaixaRepository caixaRepository;
         private TransacoesRepository transacaoRepository;
-
 
         public RelatorioController()
         {
@@ -24,13 +21,11 @@ namespace TccFirst.Controllers
             return View();
         }
 
-        // GET: Relatorio Titulo Receber
         public ActionResult RelatorioTituloReceber()
         {
             return View();
         }
 
-        // GET: Relatorio
         public ActionResult FluxoCaixa()
         {
             return View();
@@ -86,7 +81,6 @@ namespace TccFirst.Controllers
                     }
                 }
             }
-
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
     }

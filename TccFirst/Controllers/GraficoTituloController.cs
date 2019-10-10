@@ -1,8 +1,6 @@
 ﻿using Repository.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -17,11 +15,12 @@ namespace TccFirst.Controllers
             tituloPagarRepository = new TituloPagarRepository();
             tituloReceberRepository = new TituloReceberRepository();
         }
-        // GET: GraficoTitulo
+
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public JsonResult GraficoDados(DateTime dataInicial, DateTime dataFinal)
         {

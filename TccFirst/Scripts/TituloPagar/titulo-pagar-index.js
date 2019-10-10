@@ -27,7 +27,6 @@ $(function () {
                         cor = "bg-danger";
                     }
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
-
                 }
             },
             {
@@ -104,6 +103,5 @@ $(function () {
             }
         });
     });
-
 });
 

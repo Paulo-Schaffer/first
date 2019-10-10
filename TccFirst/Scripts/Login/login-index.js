@@ -1,6 +1,5 @@
 ﻿$(function () {
     $idAlterar = -1;
-
     $tabelaLogin = $("#login-tabela").DataTable({
         ajax: '/login/obtertodos',
         serverSide: true,
@@ -46,7 +45,6 @@
                 error: function (err) {
                     alert('Não foi possível apagar!');
                 }
-
             });
         }
     });
@@ -57,7 +55,6 @@
         $.ajax({
             url: '/login/obterpeloid?id=' + $idAlterar,
             method: 'get',
-
             success: function (data) {
                 $('#login-campo-funcionario').val(data.Funcionario);
                 $('#login-campo-usuario').val(data.Usuario);

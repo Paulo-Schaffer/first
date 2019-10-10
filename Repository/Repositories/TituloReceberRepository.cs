@@ -3,8 +3,6 @@ using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
@@ -14,7 +12,6 @@ namespace Repository.Repositories
 
         public TituloReceberRepository()
         {
-
             context = new SistemaContext();
         }
 
@@ -49,12 +46,10 @@ namespace Repository.Repositories
             tituloReceber.RegistroAtivo = false;
             int quantidadeAfetada = context.SaveChanges();
             return quantidadeAfetada == 1;
-
         }
 
         public int Inserir(TituloReceber tituloReceber)
         {
-            // tituloReceber.RegistroAtivo = true; 
             context.TitulosReceber.Add(tituloReceber);
             context.SaveChanges();
             return tituloReceber.Id;
@@ -113,8 +108,6 @@ namespace Repository.Repositories
             return query
                 .ToList();
         }
-
-
 
         public List<GraficoTitulo> ObterDadosSumarizados(DateTime dataInicial, DateTime dataFinal)
         {

@@ -39,7 +39,6 @@
                         cor = "bg-danger";
                     }
                     return "<span class='" + cor + " pr-2 pl-2 b2-1 rounded'>" + row.Status + "</span>"
-
                 }
             },
             {
@@ -47,11 +46,9 @@
                     return "\
                     <button class='btn btn-primary botao-editar fa fa-edit'\
                         data-id=" + row.Id + "> Editar</button>";
-                    ;
                 }
             }
         ]
-
     });
 
     $('#tituloReceber-botao-salvar').on('click', function () {
@@ -66,7 +63,6 @@
         $DataVencimento = $("#tituloReceber-campo-data-vencimento").val();
         $Descricao = $("#tituloReceber-campo-descricao").val();
         function monstrarMensagem(texto, titulo, tipo) {
-            // Tipo -> error ,info, primary, success, default
             new PNotify({
                 title: titulo,
                 text: texto,
@@ -113,29 +109,17 @@
             monstrarMensagem('Digite a Quantidade de Parcelas', '', 'error');
             $("#tituloReceber-campo-quantidade-Parcelas").focus();
             return false;
-            //} else if ($ValorTotal == '') {
-            //    monstrarMensagem('Digite a Data de Valor Total', '', 'error');
-            //    $("#tituloReceber-campo-valor-total").focus();
-            //    return false;
         } else if ($Descricao == '') {
             monstrarMensagem('Digite a Descrição', '', 'error');
             $("#tituloReceber-campo-descricao").focus();
             return false;
         } else {
-
         }
     });
 
     $('#parcelasReceber-botao-salvar').on('click', function () {
 
         $dataRecebimento = $('#parcelasReceber-campo-data-recebimento').val();
-
-
-        //if ($categoriaReceita == undefined) {
-        //    monstrarMensagem('Digite o Nome', '', 'error');
-        //    $('#clientePessoaFisica-campo-nome').focus();
-        //    return false;
-        //} else
 
         $.ajax({
             url: "/parcelasReceber/Update",
@@ -199,6 +183,5 @@
             icon: 'icofont icofont-info-circle',
             type: tipo
         });
-
     }
 });

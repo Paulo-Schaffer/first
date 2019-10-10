@@ -25,12 +25,10 @@
     $("#tituloReceber-campo-tipo-pessoa-fisica").on('click', function () {
         $("#tituloReceber-pessoa-fisica").show();
         $("#tituloReceber-pessoa-juridica").hide();
-
     });
 
     $("#tituloReceber-campo-tipo-pessoa-juridica").on('click', function () {
         $("#tituloReceber-pessoa-fisica").hide();
         $("#tituloReceber-pessoa-juridica").show();
     });
-
 });

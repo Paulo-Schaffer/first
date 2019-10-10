@@ -1,9 +1,5 @@
 ﻿using Model;
 using Repository.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TccFirst.Controllers
@@ -29,6 +25,7 @@ namespace TccFirst.Controllers
             var resultado = new { data = cadastroContaCorrente };
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult Inserir(CadastroContaCorrente cadastroContaCorrente)
         {
@@ -37,7 +34,6 @@ namespace TccFirst.Controllers
             var resultado = new { id = id };
             return Json(resultado);
         }
-
 
         [HttpPost, Route("cadastro")]
         public ActionResult Cadastro(CadastroContaCorrente cadastroContaCorrente)

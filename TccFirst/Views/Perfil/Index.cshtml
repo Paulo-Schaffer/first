@@ -1,7 +1,6 @@
 ﻿<h2>Sejá bem vindo ao seu perfil, @Session["usuarioLogadoNome"]</h2>
 <div class="row m-b-30">
     <div class="col-12 ">
-        <!-- Nav tabs -->
         <ul class="nav nav-tabs md-tabs" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#perfil-editar-informacoes" role="tab">Informacões do Perfil</a>
@@ -13,7 +12,6 @@
             </li>
 
         </ul>
-        <!-- Tab panes -->
         <div class="tab-content card-block">
             <div class="tab-pane active" id="perfil-editar-informacoes" role="tabpanel">
                 @RenderPage("EditarInformacaoBasica.cshtml")

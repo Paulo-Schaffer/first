@@ -3,8 +3,6 @@ using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
@@ -25,8 +23,6 @@ namespace Repository.Repositories
             decimal valorTotal = tituloReceber.ValorTotal;
             decimal valorParcela = valorTotal / tituloReceber.QuantidadeParcela;
             string texto = valorParcela.ToString();
-            //int posicaoPonto = texto.IndexOf(",");
-            //texto = texto.Substring(0, posicaoPonto) + "," + texto.Substring(posicaoPonto + 1, 2);
 
             if (texto.Contains(","))
             {

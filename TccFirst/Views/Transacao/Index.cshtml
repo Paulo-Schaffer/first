@@ -4,14 +4,9 @@
 <a class="btn btn-success float-right mb-3"
    href="/Transacao/cadastro" id="botao-novaTransacao"><i class="fa fa-plus"></i>Nova Transação</a>
 <br />
-<br />
-<br />
-
 <div style="overflow-x:auto">
     <div class="row">
         <div class="col-12">
-
-
             <table id="transacao-tabela" class="table table-light table-hover table-border-style table-striped">
                 <thead>
                     <tr>
@@ -38,7 +33,6 @@
                             <td>@transacao.CadastrosContaCorrente.NumeroConta</td>
                             <td>@transacao.Historico.Descricao</td>
                             <td>@transacao.CategoriaReceita.TipoCategoriaReceita</td>
-                            @*<td>@transacao.CategoriaDespesa.TipoCategoriaDespesa</td>*@
                             <td>@transacao.DescricaoTransacao</td>
                             <td>@transacao.Documento</td>
                             <td>@transacao.TipoPagamento</td>
@@ -56,7 +50,6 @@
                                         <i class="fa fa-edit"></i>Editar
                                     </a>
                                 </div>
-
                             </td>
                         </tr>
                     }
@@ -65,15 +58,10 @@
         </div>
     </div>
 </div>
-
 <link rel="stylesheet" href="~/Content/css/Transacao/TelaIndexTransacao.css" />
-
-
-
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
 
 <script>
     $(document).ready(function () {
@@ -88,6 +76,5 @@
                 "previous":"Anterior"
             }
         });
-
     });
 </script>
